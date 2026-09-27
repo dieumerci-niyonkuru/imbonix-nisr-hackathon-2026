@@ -15,6 +15,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # main takes releases only: a pull request into main must come from testing. Pull requests into develop and testing
+  # pass this check straight away.
+  release-source:
+    name: Release source (main accepts only testing)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check where the pull request comes from
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ] && [ "$BASE_REF" = "main" ] && [ "$HEAD_REF" != "testing" ]; then
+            echo "::error::Pull requests into main must come from testing. Change the base branch of this pull request to develop."
+            exit 1
+          fi
+          echo "Source is fine: ${HEAD_REF:-a push}${BASE_REF:+ into $BASE_REF}."
+
   web:
     name: Web app (audit, format, lint, types, tests, build)
     runs-on: ubuntu-latest
