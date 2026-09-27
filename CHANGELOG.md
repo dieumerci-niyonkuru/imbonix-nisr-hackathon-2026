@@ -31,6 +31,8 @@ and versions follow [Semantic Versioning](https://semver.org/).
   (source code, NISR microdata catalog, report a data issue, back to top). The credits line left the footer: data
   sources are cited beside every chart, the map shows its own credits, and the methods page lists them all, with the
   background map now included, and states the version. The floating scroll buttons fade away over the footer.
+- On the resilience map, the district panel no longer slides over the district ranking while it stays in view: the
+  ranking sits in the left column beside the panel instead of running under it.
 - The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
   cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
   Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours
