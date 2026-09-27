@@ -19,8 +19,11 @@ and versions follow [Semantic Versioning](https://semver.org/).
   57% coping, 31% vulnerable, 3% extremely vulnerable), and the targets chart uses the baselines and targets of the
   National Financial Inclusion Roadmap 2025 to 2030 and NST2. The "Illustrative data" status was removed.
 - Fixed: the homepage key figures form a valid description list for screen readers.
-- The header links only the three focus areas and Data & methods; site search was removed. The footer shows the logo
-  and version; the statement of independence is on the Data & methods page and the boundary credit on the map.
+- The header links only the three focus areas and Data & methods; site search was removed.
+- A full footer on every page: the logo and mission, the statement of independence, every page grouped as in the
+  menu, links to the source code, security policy and data issue form, the seven NISR studies behind the figures
+  (each linked to its catalog page), the licence credits for boundaries and the background map, and a link back to
+  the top.
 - Fixed: screen reader tables no longer widen the page on phones.
 - Fixed: charts in inactive homepage tabs are drawn at their full size before the tab opens, instead of logging about
   37 size warnings on every page load.
