@@ -13,7 +13,7 @@ export default function DistrictsPage() {
       <PageHero
         eyebrow="Districts"
         title="30 districts, four dimensions each"
-        intro="Every district profile shows where it ranks on poverty, financial access, nutrition and shocks, with all the published indicators behind it and a sector-level view. There is no single score: a district can be doing well on one dimension and badly on another."
+        intro="Every district profile shows where it ranks on poverty, financial access, nutrition and shocks, with all the published indicators behind it and a view of its sectors. There is no single score: a district can be doing well on one dimension and badly on another."
       />
       <section className="container-page py-10">
         <DistrictDirectory />

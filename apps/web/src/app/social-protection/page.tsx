@@ -146,7 +146,7 @@ export default function SocialProtectionPage() {
               {[
                 ["Extremely poor", POVERTY_RAMP.extremelyPoor],
                 ["Moderately poor", POVERTY_RAMP.moderatelyPoor],
-                ["Non-poor", POVERTY_RAMP.nonPoor],
+                ["Not poor", POVERTY_RAMP.nonPoor],
               ].map(([label, color]) => (
                 <li key={label} className="flex items-center gap-1.5">
                   <span className="h-2.5 w-2.5 rounded-sm" style={{ background: color }} /> {label}
@@ -158,7 +158,7 @@ export default function SocialProtectionPage() {
                 const groups = [
                   { label: "Extremely poor", value: c.row.extremelyPoor!, color: POVERTY_RAMP.extremelyPoor },
                   { label: "Moderately poor", value: c.row.moderatelyPoor!, color: POVERTY_RAMP.moderatelyPoor },
-                  { label: "Non-poor", value: c.row.nonPoor!, color: POVERTY_RAMP.nonPoor },
+                  { label: "Not poor", value: c.row.nonPoor!, color: POVERTY_RAMP.nonPoor },
                 ];
                 return (
                   <div key={c.id}>
@@ -252,7 +252,7 @@ export default function SocialProtectionPage() {
         <SectionHeader
           eyebrow="Ten years of household reports"
           accent="text-dim-poverty"
-          title="Long delays fell sharply; the on-time share barely moved"
+          title="Long delays fell sharply; the share paid on time barely moved"
           intro="Three NISR surveys asked VUP Direct Support households about payment timing. The questions changed in 2023/24, so read these as an indicative direction, not a precise trend."
         />
         <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -304,15 +304,15 @@ export default function SocialProtectionPage() {
 
       <section className="container-page grid gap-4 pb-20 md:grid-cols-3">
         <Callout title="Survey sample, not districts">
-          The EICV7 VUP sample is designed for national and per-programme estimates. It cannot give reliable district figures;
-          CFSVA 2024 microdata can show VUP coverage by district.
+          The EICV7 VUP sample is designed for national estimates and estimates for each programme. It cannot give reliable
+          district figures; CFSVA 2024 microdata can show VUP coverage by district.
         </Callout>
         <Callout title="Descriptive, not causal">
           These are beneficiary reports. They show where delivery can improve; they do not measure the programme&apos;s impact.
         </Callout>
         <Callout title="Next step">
           With the EICV7 VUP microdata, IMBONIX will estimate delays for the last three payments by province and poverty status,
-          and how many late-paid households already own a phone.
+          and how many households paid late already own a phone.
         </Callout>
       </section>
     </>

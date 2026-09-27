@@ -70,7 +70,7 @@ export default function PrioritiesPage() {
           <SectionHeader
             eyebrow="All districts, all levers"
             title={<span id="matrix-heading">The full picture in one table</span>}
-            intro="Hover a tick to see the evidence behind it. Districts flagged for several levers may need a joined-up response across ministries."
+            intro="Hover a tick to see the evidence behind it. Districts flagged for several levers may need a coordinated response across ministries."
           />
           <div className="mt-8">
             <PriorityMatrix levers={LEVERS} districts={districts} />

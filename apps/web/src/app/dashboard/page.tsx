@@ -86,7 +86,7 @@ export default function DashboardPage() {
             <CardTitle>Access has deepened, but banking has not</CardTitle>
             <CardDescription>
               Each adult is counted once, by the most formal service they use. Mobile money and SACCOs drove the shift out of
-              informal-only use; the banked share stayed at 22%.
+              informal only use; the banked share stayed at 22%.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -131,8 +131,8 @@ export default function DashboardPage() {
               intro="Measured baselines against the targets in the National Financial Inclusion Roadmap, NST2 and the Social Protection Sector Strategic Plan. The dot is where Rwanda is; the ring is where it aims to be."
             />
             <p className="mt-4 text-[12.5px] leading-5 text-muted">
-              IMBONIX does not forecast whether targets will be met. District-level baselines for these targets need the FinScope
-              2024 microdata.
+              IMBONIX does not forecast whether targets will be met. District baselines for these targets need the FinScope 2024
+              microdata.
             </p>
           </div>
           <TargetTracker targets={TARGETS} />
@@ -152,7 +152,7 @@ export default function DashboardPage() {
           <CardHeader>
             <CardTitle>National poverty, 2016/17 and 2023/24</CardTitle>
             <CardDescription>
-              2016/17 is NISR&apos;s re-estimate on the EICV7 method, so the two periods compare directly.
+              2016/17 is NISR&apos;s estimate recalculated on the EICV7 method, so the two periods compare directly.
             </CardDescription>
           </CardHeader>
           <CardContent>

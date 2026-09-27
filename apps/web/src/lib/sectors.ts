@@ -24,9 +24,9 @@ export function sectorsOf(district: string): SectorRow[] {
 export const SECTOR_MEASURES = [
   {
     id: "povertySae",
-    label: "Poverty rate (small-area estimate)",
+    label: "Poverty rate (small area estimate)",
     short: "Poverty (SAE)",
-    source: "NISR EICV7 district presentations (small-area estimation with the 2022 census), 2023/24",
+    source: "NISR EICV7 district presentations (small area estimation with the 2022 census), 2023/24",
     status: "model_estimate",
     note: "Model estimates, not adjusted to the district's survey figure. Use them to compare sectors within this district.",
   },
@@ -40,7 +40,7 @@ export const SECTOR_MEASURES = [
   },
   {
     id: "severelyPoor",
-    label: "Severely poor, non-monetary measure (census)",
+    label: "Severely poor, nonmonetary measure (census)",
     short: "Severely poor",
     source: "NISR RPHC5 Non-Monetary Poverty report, Table C.1, 2022",
     status: "observed",

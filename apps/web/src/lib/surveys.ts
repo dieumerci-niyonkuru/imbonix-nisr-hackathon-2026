@@ -72,7 +72,7 @@ export const VUP_COMPONENTS = [
     note: "For poor households with pregnant women or young children",
   },
   { id: "Classic Public Works", short: "Classic public works", note: "Paid work on community projects" },
-  { id: "Expanded Public Works", short: "Expanded public works", note: "Flexible, longer-term public works" },
+  { id: "Expanded Public Works", short: "Expanded public works", note: "Flexible public works over a longer term" },
 ];
 
 export function timeliness(component: string): DeliveryRow[] {

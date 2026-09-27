@@ -139,8 +139,8 @@ export function DistrictScatter({
         </text>
       </svg>
       <figcaption className="mt-2 text-[11.5px] leading-5 text-muted">
-        Dashed lines: {xRef.label} {formatValue(x, xRef.value)} and {formatValue(y, yRef.value)}. Hover a dot for its values.
-        District-level comparison: it describes districts, not households.
+        Dashed lines: {xRef.label} {formatValue(x, xRef.value)} and {formatValue(y, yRef.value)}. Hover a dot for its values. A
+        comparison of districts: it describes places, not households.
       </figcaption>
     </figure>
   );
