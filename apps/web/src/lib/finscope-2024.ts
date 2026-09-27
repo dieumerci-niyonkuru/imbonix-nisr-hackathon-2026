@@ -29,3 +29,14 @@ export const MOBILE_MONEY_BY_ROUND = [
 
 /** Adults who own or have used mobile money, 2024. */
 export const MOBILE_MONEY_EVER_USED = 86;
+
+/**
+ * Adults by financial health segment, 2024, from the report's financial health chapter (section 5.2). The published
+ * shares are rounded, so they add up to 101.
+ */
+export const FINANCIAL_HEALTH_SEGMENTS = [
+  { segment: "Financially healthy", share: 10 },
+  { segment: "Coping", share: 57 },
+  { segment: "Vulnerable", share: 31 },
+  { segment: "Extremely vulnerable", share: 3 },
+];

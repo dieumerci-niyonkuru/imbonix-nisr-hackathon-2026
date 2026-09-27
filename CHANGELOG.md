@@ -15,8 +15,9 @@ and versions follow [Semantic Versioning](https://semver.org/).
   district rates, weighted by population, and are labelled as such; over all districts the method reproduces the
   published national rates.
 - Fixed: the homepage no longer shows assumed values. Payment timeliness, account use by wealth and the province
-  comparison now come from published tables, and charts with no published source (financial health segments, 2030
-  targets) were removed. The "Illustrative data" status was removed with them.
+  comparison come from published tables. The financial health chart uses the FinScope 2024 segments (10% healthy,
+  57% coping, 31% vulnerable, 3% extremely vulnerable), and the targets chart uses the baselines and targets of the
+  National Financial Inclusion Roadmap 2025 to 2030 and NST2. The "Illustrative data" status was removed.
 - Fixed: the homepage key figures form a valid description list for screen readers.
 - The header links only the three focus areas and Data & methods; site search was removed. The footer shows the logo
   and version; the statement of independence is on the Data & methods page and the boundary credit on the map.
