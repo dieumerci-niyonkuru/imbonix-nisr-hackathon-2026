@@ -1,17 +1,29 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { BuildingLibraryIcon, HomeIcon, UserGroupIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowTrendingDownIcon,
+  BanknotesIcon,
+  BuildingLibraryIcon,
+  HomeIcon,
+  ShieldCheckIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/outline";
 import { MEN, WOMEN } from "@/components/charts/dumbbell";
 import { ComparisonBars, type ComparisonSeries } from "@/components/charts/recharts/comparison-bars";
 import { ShareDonut } from "@/components/charts/recharts/share-donut";
 import { StackedShareChart, type ShareSeries } from "@/components/charts/recharts/stacked-share-chart";
 import { ValueBars } from "@/components/charts/recharts/value-bars";
+import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
+import { DistrictFinder, type FinderProvince } from "@/components/home/district-finder";
 import { FocusPanel } from "@/components/home/focus-panel";
+import { HomeHero, type HeroFigure } from "@/components/home/home-hero";
+import { HowItWorks, type WorkStep } from "@/components/home/how-it-works";
 import { FOCUS_AREAS, type FocusAreaId } from "@/components/layout/nav";
 import { ChartCard } from "@/components/ui/chart-card";
+import { SectionHeader } from "@/components/ui/section";
 import { Tabs } from "@/components/ui/tabs";
-import { PROVINCE_LABEL, PROVINCES, reference, weightedRate } from "@/lib/data";
+import { DISTRICTS, PROVINCE_LABEL, PROVINCES, reference, SOURCES, valueOf, weightedRate } from "@/lib/data";
 import {
   COOKING_FUELS,
   EICV7_PROFILE_SOURCE,
@@ -45,7 +57,10 @@ import {
   VUP_SHARE_BY_SEX,
 } from "@/lib/poverty-social-protection";
 import { BRAND, CORE, DIMENSION_COLORS, NO_DATA, RAMPS, STRAND } from "@/lib/palette";
+import { formatValue } from "@/lib/format";
+import { meta } from "@/lib/indicators";
 import { LEVERS } from "@/lib/priorities";
+import { sectorsOf } from "@/lib/sectors";
 import { DELAY_RAMP, timeliness, usagePairs, usageRows, VUP_COMPONENTS } from "@/lib/surveys";
 import { TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
 
@@ -269,8 +284,9 @@ export default function Home() {
             />
           </ChartCard>
         </FocusPanel>
-        <div className="grid items-start gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2">
           <ChartCard
+            className="lg:col-span-2"
             title={`Adults relying only on informal services fell from ${strandIn2020.informalOnly}% to ${strandIn2024.informalOnly}%`}
             note="Every adult counted once, by the most formal service they use. Other formal only is formally served minus banked."
             source={FINSCOPE_2024_SOURCE}
@@ -296,6 +312,7 @@ export default function Home() {
             />
           </ChartCard>
           <ChartCard
+            className="lg:row-span-2"
             title="Households borrow from tontines and relatives, not banks"
             note="Households with credit, by source. Gold is informal, blue is formal finance, cyan is a government scheme. A household can use several sources."
             source={HOUSEHOLD_SURVEY_SOURCE}
@@ -374,7 +391,7 @@ export default function Home() {
             />
           </ChartCard>
         </FocusPanel>
-        <div className="grid items-start gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
           <ChartCard
             title={`Poverty fell ${povertyDrop} points in seven years`}
             note={`About ${PEOPLE_OUT_OF_POVERTY_MILLIONS} million people left poverty, around ${PEOPLE_OUT_OF_POVERTY_PER_YEAR.toLocaleString("en-US")} a year.`}
@@ -415,6 +432,7 @@ export default function Home() {
               }))}
               centerValue={`${householdsWithElectricity}%`}
               centerLabel="with electricity"
+              stacked
               description={`Households by source of electricity: ${ELECTRICITY_SOURCES.map((row) => `${row.source} ${row.share}%`).join(", ")}.`}
             />
           </ChartCard>
@@ -454,6 +472,7 @@ export default function Home() {
               }))}
               centerValue={`${plannedVillageShare}%`}
               centerLabel="planned rural villages"
+              stacked
               description={`Households by settlement: ${SETTLEMENT_TYPES.map((row) => `${row.settlement} ${row.share}%`).join(", ")}.`}
             />
           </ChartCard>
@@ -513,7 +532,7 @@ export default function Home() {
             />
           </ChartCard>
         </FocusPanel>
-        <div className="grid items-start gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
           <ChartCard
             title="VUP reaches poorer people"
             note={`Poverty rate among the ${VUP_BENEFICIARIES.toLocaleString("en-US")} VUP beneficiaries and nationally.`}
@@ -543,6 +562,7 @@ export default function Home() {
             />
           </ChartCard>
           <ChartCard
+            className="lg:col-span-2 xl:col-span-1"
             title="Nutrition sensitive Direct Support is the largest VUP programme"
             note="Other programmes is 100% minus the three published shares."
             source={SOCIAL_PROTECTION_SOURCE}
@@ -555,6 +575,7 @@ export default function Home() {
               }))}
               centerValue={`${VUP_BENEFICIARIES_BY_PROGRAMME[0].share}%`}
               centerLabel="in NSDS"
+              stacked
               description={`VUP beneficiaries by programme: ${VUP_BENEFICIARIES_BY_PROGRAMME.map((row) => `${row.programme} ${row.share}%`).join(", ")}.`}
             />
           </ChartCard>
@@ -563,16 +584,140 @@ export default function Home() {
     ),
   };
 
+  // The opening figures, the three parts of the Track 2 brief, the method steps and the district finder.
+  const povertyId = "eicv7_poverty_rate";
+  const poorestDistrict = [...DISTRICTS]
+    .filter((district) => valueOf(district, povertyId) !== undefined)
+    .sort((first, second) => valueOf(second, povertyId)! - valueOf(first, povertyId)!)[0];
+  const sectorCount = DISTRICTS.reduce((count, district) => count + sectorsOf(district.name).length, 0);
+  const publicationCount = new Set(Object.values(SOURCES).map((source) => source.source)).size;
+  const [nationalPoverty, beneficiaryPoverty] = POVERTY_AMONG_VUP_BENEFICIARIES;
+  const bestOnTimeShare = Math.max(...paymentTimeliness.map((row) => row.onTime));
+
+  const heroFigures: HeroFigure[] = [
+    { value: `${includedShare}%`, label: "of adults use a financial service", source: FINSCOPE_2024_SOURCE, accent: BRAND.azure },
+    {
+      value: `${healthyShare}%`,
+      label: "of adults are financially healthy",
+      source: `${FINSCOPE_2024_SOURCE}, section 5.2`,
+      accent: CORE.gold,
+    },
+    {
+      value: `${povertyIn2024.povertyRate}%`,
+      label: `of people live in poverty, down from ${povertyIn2017.povertyRate}% in 2017`,
+      source: EICV7_PROFILE_SOURCE,
+      accent: DIMENSION_COLORS.poverty.accent,
+    },
+    {
+      value: `${directSupportOnTime}%`,
+      label: "of Direct Support households were paid on time",
+      source: VUP_TIMELINESS_SOURCE,
+      accent: CORE.cyan,
+    },
+  ];
+
+  const challengeParts: ChallengePart[] = [
+    {
+      icon: BanknotesIcon,
+      area: "Financial exclusion",
+      value: `${bankedRow.in2024}%`,
+      valueLabel: "of adults are banked, the same share as in 2020",
+      body: `Almost every adult uses some financial service, but bank use has not moved. Only ${poorestWomen.either}% of women in the poorest fifth used a bank account or mobile money in the past year.`,
+      source: "NISR, FinScope 2024 and DHS 2025",
+      href: "/access-vs-use",
+      cta: "Read more",
+    },
+    {
+      icon: ArrowTrendingDownIcon,
+      area: "Poverty dynamics",
+      value: `${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}%`,
+      valueLabel: "poverty rate, 2017 to 2024",
+      body: `About ${PEOPLE_OUT_OF_POVERTY_MILLIONS} million people left poverty in seven years. In ${poorestDistrict.name}, the poorest district, the rate is still ${formatValue(meta(povertyId), valueOf(poorestDistrict, povertyId))}.`,
+      source: "NISR, EICV7 2023/24",
+      href: "/districts",
+      cta: "Read more",
+    },
+    {
+      icon: ShieldCheckIcon,
+      area: "Social protection impact",
+      value: `${beneficiaryPoverty.povertyRate}%`,
+      valueLabel: `of VUP beneficiaries are poor, against ${nationalPoverty.povertyRate}% of all Rwandans`,
+      body: `VUP reaches poorer people, but payments run late: in no programme were even one in five households (${bestOnTimeShare}% at best) paid on time the last time.`,
+      source: "NISR, EICV7 VUP survey 2023/24",
+      href: "/social-protection",
+      cta: "Read more",
+    },
+  ];
+
+  const workSteps: WorkStep[] = [
+    {
+      title: "Collect",
+      body: `${Object.keys(SOURCES).length} indicators transcribed from ${publicationCount} NISR and partner publications, each with its table, year and status.`,
+    },
+    {
+      title: "Compare",
+      body: `All ${DISTRICTS.length} districts and ${sectorCount} sectors side by side, with confidence intervals wherever NISR publishes them.`,
+    },
+    {
+      title: "Prioritise",
+      body: `${LEVERS.length} policy levers, each flagged district by district by one published figure and a stated rule.`,
+    },
+    {
+      title: "Share",
+      body: "Open source code, a JSON API that serves the same figures, and automated checks that rebuild the data from its sources.",
+    },
+  ];
+
+  const finderProvinces: FinderProvince[] = PROVINCES.map((province) => ({
+    label: PROVINCE_LABEL[province],
+    districts: DISTRICTS.filter((district) => district.province === province)
+      .map((district) => ({ name: district.name, slug: district.slug }))
+      .sort((first, second) => first.name.localeCompare(second.name)),
+  }));
+
   return (
-    <section className="bg-paper py-10 sm:py-14">
-      {/* Every page needs one main heading; the tabs carry the visible titles. */}
-      <h1 className="sr-only">IMBONIX: financial inclusion and poverty in Rwanda</h1>
-      <div className="container-page">
-        <Tabs
-          label="What IMBONIX focuses on"
-          items={FOCUS_AREAS.map((area) => ({ id: area.id, label: area.label, hint: area.hint, content: panels[area.id] }))}
-        />
-      </div>
-    </section>
+    <>
+      <HomeHero figures={heroFigures} districtCount={DISTRICTS.length} sectorCount={sectorCount} />
+
+      <ChallengeSection parts={challengeParts} />
+
+      <section className="bg-paper py-16 sm:py-20" aria-labelledby="focus-areas-heading">
+        <div className="container-page">
+          <SectionHeader
+            eyebrow="Three focus areas"
+            title={<span id="focus-areas-heading">The gap, the evidence and who can act</span>}
+            intro="Each tab makes one argument with published figures. Every chart names its source and says how far to trust it."
+          />
+          <div className="mt-10">
+            <Tabs
+              label="What IMBONIX focuses on"
+              items={FOCUS_AREAS.map((area) => ({ id: area.id, label: area.label, hint: area.hint, content: panels[area.id] }))}
+            />
+          </div>
+        </div>
+      </section>
+
+      <HowItWorks steps={workSteps} />
+
+      <section className="bg-white pb-16 sm:pb-20" aria-labelledby="find-district-heading">
+        <div className="container-page">
+          <div className="grid gap-8 rounded-3xl bg-royal p-7 text-white sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-12">
+            <div>
+              <p className="eyebrow text-white/80">Start with a place</p>
+              <h2
+                id="find-district-heading"
+                className="mt-3 text-balance font-display text-3xl font-bold tracking-[-0.03em] sm:text-4xl"
+              >
+                See how your district compares
+              </h2>
+              <p className="mt-3 max-w-lg text-[15px] leading-7 text-white/85">
+                Each profile shows the four dimensions, every published indicator and a map of its sectors, with sources.
+              </p>
+            </div>
+            <DistrictFinder provinces={finderProvinces} />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
