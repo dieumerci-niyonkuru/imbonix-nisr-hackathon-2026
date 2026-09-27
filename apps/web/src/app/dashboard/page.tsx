@@ -44,7 +44,7 @@ export default function DashboardPage() {
           <StatTile
             value="27.4%"
             label="of people live below the poverty line"
-            detail="95% CI 26.4–28.4"
+            detail="95% CI 26.4 to 28.4"
             source="EICV7 2023/24"
             accent={CORE.navy}
           />
@@ -64,7 +64,7 @@ export default function DashboardPage() {
           />
           <StatTile
             value={`${women.either.toFixed(1)}%`}
-            label="of women 15–49 used a bank account or mobile money in the past year"
+            label="of women aged 15 to 49 used a bank account or mobile money in the past year"
             source="DHS 2025"
             accent={BRAND.azure}
           />
@@ -86,7 +86,7 @@ export default function DashboardPage() {
             <CardTitle>Access has deepened, but banking has not</CardTitle>
             <CardDescription>
               Each adult is counted once, by the most formal service they use. Mobile money and SACCOs drove the shift out of
-              informal-only use; the banked share stayed at 22%.
+              informal only use; the banked share stayed at 22%.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -106,7 +106,8 @@ export default function DashboardPage() {
           <CardContent>
             <FinancialHealthChart />
             <Source>
-              FinScope 2024 financial health segments; targets from the National Financial Inclusion Roadmap 2025–2030, Annex 2.
+              FinScope 2024 financial health segments; targets from the National Financial Inclusion Roadmap 2025 to 2030, Annex
+              2.
             </Source>
           </CardContent>
         </Card>
@@ -130,8 +131,8 @@ export default function DashboardPage() {
               intro="Measured baselines against the targets in the National Financial Inclusion Roadmap, NST2 and the Social Protection Sector Strategic Plan. The dot is where Rwanda is; the ring is where it aims to be."
             />
             <p className="mt-4 text-[12.5px] leading-5 text-muted">
-              IMBONIX does not forecast whether targets will be met. District-level baselines for these targets need the FinScope
-              2024 microdata.
+              IMBONIX does not forecast whether targets will be met. District baselines for these targets need the FinScope 2024
+              microdata.
             </p>
           </div>
           <TargetTracker targets={TARGETS} />
@@ -151,7 +152,7 @@ export default function DashboardPage() {
           <CardHeader>
             <CardTitle>National poverty, 2016/17 and 2023/24</CardTitle>
             <CardDescription>
-              2016/17 is NISR&apos;s re-estimate on the EICV7 method, so the two periods compare directly.
+              2016/17 is NISR&apos;s estimate recalculated on the EICV7 method, so the two periods compare directly.
             </CardDescription>
           </CardHeader>
           <CardContent>

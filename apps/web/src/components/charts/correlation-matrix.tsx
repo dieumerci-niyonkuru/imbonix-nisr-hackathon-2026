@@ -28,7 +28,7 @@ export function CorrelationMatrix({ ids }: { ids: string[] }) {
     <div className="min-w-0">
       <ScrollArea label="Correlation matrix (scrolls sideways)" className="rounded-2xl border border-line bg-white p-3">
         <table className="border-separate border-spacing-[3px] text-[12px]">
-          <caption className="sr-only">Correlation between district-level indicators; values near 1 or −1 are strong.</caption>
+          <caption className="sr-only">Correlation between district indicators; values near 1 or −1 are strong.</caption>
           <thead>
             <tr>
               <th scope="col" className="sr-only">

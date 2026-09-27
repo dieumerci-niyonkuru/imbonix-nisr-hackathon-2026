@@ -65,7 +65,7 @@ export function OverlapBadge({ district }: { district: District }) {
       className={`inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold ${tone}`}
       title="Dimensions where the district is among the 10 most affected"
     >
-      {count} of 4 in the most-affected third
+      {count} of 4 in the most affected third
     </span>
   );
 }
