@@ -50,9 +50,11 @@ export const SheetContent = forwardRef<
     <SheetOverlay />
     <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
       {children}
-      <SheetPrimitive.Close className="absolute right-4 top-4 rounded-full p-2 text-ink transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-        <XMarkIcon className="h-5 w-5" />
-        <span className="sr-only">Close</span>
+      <SheetPrimitive.Close className="group absolute right-4 top-4 inline-flex items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[14px] font-semibold text-ink transition-colors hover:text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal">
+        Close
+        <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-royal group-hover:text-white group-hover:ring-royal">
+          <XMarkIcon className="h-4 w-4" aria-hidden="true" />
+        </span>
       </SheetPrimitive.Close>
     </SheetPrimitive.Content>
   </SheetPortal>
