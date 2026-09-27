@@ -38,7 +38,14 @@ describe("number helpers", () => {
     expect(formatCompact(1_250_000)).toBe("1.3M");
   });
 
-  it("labels every value status, including scenarios", () => {
-    expect(Object.keys(STATUS_LABEL).sort()).toEqual(["calculated", "model_estimate", "observed", "projection", "scenario"]);
+  it("labels every value status, including scenarios and policy targets", () => {
+    expect(Object.keys(STATUS_LABEL).sort()).toEqual([
+      "calculated",
+      "model_estimate",
+      "observed",
+      "projection",
+      "scenario",
+      "target",
+    ]);
   });
 });

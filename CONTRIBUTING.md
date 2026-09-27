@@ -67,7 +67,7 @@ repository owner can enforce this with a branch ruleset (see [docs/security.md](
 These apply to every change that shows a number.
 
 - **Trace it.** Every value comes from a published NISR source, and the chart's source line names it.
-- **Label it.** Mark each value as observed, calculated, model estimate, projection or scenario.
+- **Label it.** Mark each value as observed, calculated, model estimate, projection, scenario or policy target.
 - **Don't imply cause.** The surveys are cross-sections. Write "is associated with", not "causes" or "drives".
 - **No microdata in git.** Survey files stay in the ignored `data/raw` folder. NISR's terms forbid redistribution.
 - **Stay independent.** IMBONIX is not an NISR product. Don't use NISR's logo, and don't word anything as an
