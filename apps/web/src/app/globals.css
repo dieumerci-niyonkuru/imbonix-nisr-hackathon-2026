@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+:root {
+  /* shadcn/ui tokens (HSL), mapped onto the IMBONIX palette (src/lib/palette.ts). */
+  --background: 214 50% 97%; /* paper #F4F7FB */
+  --foreground: 214 100% 16%; /* ink: logo navy #002454 */
+  --card: 0 0% 100%;
+  --card-foreground: 214 100% 16%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 214 100% 16%;
+  --primary: 208 100% 35%; /* royal: logo blue #0060B4 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 207 72% 95%; /* brand-50 */
+  --secondary-foreground: 214 100% 16%;
+  --accent: 207 72% 95%;
+  --accent-foreground: 208 100% 35%;
+  --destructive: 36 96% 28%; /* sun-ink: gold for warnings, never red */
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 37% 90%; /* line #DCE4EF */
+  --input: 214 37% 90%;
+  --ring: 208 100% 35%;
+  --radius: 0.5rem;
+
+  --ink: #002454;
+  --paper: #f4f7fb;
+  --line: #dce4ef;
+  --royal: #0060b4;
+  --sun: #f8b828;
+}
+
+html {
+  background: var(--paper);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  color: white;
+  background: var(--royal);
+}
+
+:focus-visible {
+  outline: 2px solid var(--royal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-4 sm:px-6 lg:px-10;
+  }
+  .eyebrow {
+    @apply font-display text-[11px] font-semibold uppercase tracking-[0.18em];
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-white shadow-card;
+  }
+  .link {
+    @apply font-semibold text-royal underline decoration-royal/30 underline-offset-4 transition-colors hover:decoration-royal;
+  }
+  .prose-page p {
+    @apply mt-4 text-[15px] leading-7 text-muted;
+  }
+  .prose-page strong {
+    @apply font-semibold text-ink;
+  }
+}
+
+/* Scroll-in reveal: progressive enhancement only, so content never depends on it to be visible. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry calc(0% + var(--reveal-offset, 0%)) entry calc(55% + var(--reveal-offset, 0%));
+    }
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Map shapes: smooth fill changes when the layer switches. */
+.map-shape {
+  transition:
+    fill 450ms ease,
+    opacity 200ms ease,
+    stroke-width 150ms ease;
+}
+
+/* MapLibre styles attribution links by colour alone; underline them so they read as links. The extra class
+   outranks MapLibre's own stylesheet, which loads after this one. */
+.maplibregl-map .maplibregl-ctrl-attrib a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
