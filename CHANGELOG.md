@@ -18,6 +18,10 @@ and versions follow [Semantic Versioning](https://semver.org/).
   gap (96% against 10%), NISR data (64 indicators from 13 publications, 30 districts, 416 sectors) and practical
   impact (7 policy levers). The gap is drawn in the chart as a dashed band, the bars grow in once on load unless
   reduced motion is preferred, and the seven NISR studies behind the figures link to their catalog pages.
+- The website presents IMBONIX as a working solution: the hackathon name, track number and brief no longer appear
+  in the interface. The opening reads "Financial inclusion and poverty reduction in Rwanda", the homepage speaks of
+  the problem IMBONIX addresses and its three focus areas, and the independence notes keep saying it is not an
+  official NISR product. The project documents keep the hackathon context.
 - The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
   cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
   Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours

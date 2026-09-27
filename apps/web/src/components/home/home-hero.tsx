@@ -6,7 +6,7 @@ import { HeroRings } from "@/components/ui/section";
 import { StatTile } from "@/components/ui/stat-tile";
 
 export type HeroFigure = { value: string; label: string; source: string; status?: string; accent: string };
-/** One of the three things the Track 2 brief asks of a solution, and how IMBONIX meets it. */
+/** One of the three things a solution to financial exclusion and poverty needs, and how IMBONIX meets it. */
 export type ProofPoint = { criterion: string; evidence: ReactNode };
 
 const PRIMARY_BUTTON =
@@ -15,10 +15,9 @@ const SECONDARY_BUTTON =
   "inline-flex h-12 items-center gap-2 rounded-xl px-5 text-[15px] font-bold text-white ring-1 ring-white/30 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white";
 
 /**
- * The opening of the homepage, written for a first visit and for the judges. On the left, the headline, what IMBONIX
- * does, and how it meets the three things the Track 2 brief asks for: a real gap, NISR data and practical impact. On
- * the right, the gap in one chart. Below, the NISR studies behind the figures and four key figures across the three
- * parts of the challenge, each with its source.
+ * The opening of the homepage, written for a first visit. On the left, the headline, what IMBONIX does, and the three
+ * things it stands on: a real gap, NISR data and practical impact. On the right, the gap in one chart. Below, the
+ * NISR studies behind the figures and four key figures across the three focus areas, each with its source.
  */
 export function HomeHero({
   figures,
@@ -38,9 +37,7 @@ export function HomeHero({
       <HeroRings className="-right-40 -top-48 text-white/10" />
       <div className="container-page relative grid items-center gap-12 pt-12 sm:pt-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pt-14">
         <div>
-          <p className="eyebrow text-balance text-cyan">
-            NISR Big Data Hackathon 2026 · Track 2: Financial inclusion and poverty reduction
-          </p>
+          <p className="eyebrow text-balance text-cyan">Financial inclusion and poverty reduction in Rwanda</p>
           <h1 className="mt-4 text-balance font-display text-4xl font-bold leading-[1.05] tracking-[-0.035em] sm:text-5xl xl:text-[3.4rem]">
             Almost every adult is included. Few are financially healthy.
           </h1>
@@ -60,7 +57,7 @@ export function HomeHero({
           </ul>
 
           <div className="mt-9 flex flex-wrap gap-3">
-            {/* A plain anchor: the homepage tabs follow the hash, so this opens the first part of the challenge below. */}
+            {/* A plain anchor: the homepage tabs follow the hash, so this opens the first focus area below. */}
             <a href="#exclusion" className={PRIMARY_BUTTON}>
               Explore the evidence
               <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
