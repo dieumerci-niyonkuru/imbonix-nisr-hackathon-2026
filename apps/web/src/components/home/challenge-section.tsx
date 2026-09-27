@@ -16,7 +16,7 @@ export type ChallengePart = {
   cta: string;
 };
 
-/** The three groups the brief asks solutions to serve, and what IMBONIX gives each of them. */
+/** The three groups IMBONIX serves, and what it gives each of them. */
 const AUDIENCES = [
   {
     icon: HomeIcon,
@@ -36,17 +36,17 @@ const AUDIENCES = [
 ];
 
 /**
- * The Track 2 brief in three parts (financial exclusion, poverty dynamics, social protection impact), each answered by
- * one published figure and a page to read more, then the three groups the brief asks solutions to serve.
+ * The problem in three parts (financial exclusion, poverty dynamics, social protection impact), each answered by one
+ * published figure and a page to read more, then the three groups IMBONIX serves.
  */
 export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="challenge-heading">
       <div className="container-page">
         <SectionHeader
-          eyebrow="The Track 2 challenge"
+          eyebrow="The problem we address"
           title={<span id="challenge-heading">Understand exclusion, poverty and social protection, then act</span>}
-          intro="The NISR 2026 Big Data Hackathon asks teams to use data to understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda, with practical value for vulnerable households, policymakers and civil society. IMBONIX answers each part with NISR data."
+          intro="Reducing poverty in Rwanda means knowing who is left out of finance, how poverty is changing and how well social protection programmes reach the people they are meant for. IMBONIX answers each question with NISR data, in a form vulnerable households, policymakers and civil society can use."
         />
 
         <ul className="mt-10 grid gap-5 md:grid-cols-3">
@@ -55,7 +55,7 @@ export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
               <Reveal delay={index * 0.06} className="h-full">
                 <article className="flex h-full flex-col rounded-3xl border border-line bg-white p-6 shadow-card">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-sun">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-cyan">
                       <part.icon className="h-6 w-6" aria-hidden="true" />
                     </span>
                     <h3 className="eyebrow text-royal">{part.area}</h3>

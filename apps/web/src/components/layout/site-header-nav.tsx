@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, type ComponentType, type MouseEvent, type SVGProps } from "react";
-import { ArrowTopRightOnSquareIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-import { Bars3Icon, HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { ArrowTopRightOnSquareIcon, ChevronDownIcon, HomeIcon as HomeSolidIcon } from "@heroicons/react/20/solid";
+import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { BrandLogo } from "@/components/layout/logo";
-import { FOCUS_AREA_ICONS, FOCUS_AREAS, NAV_GROUPS, NAV_ICONS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
+import { NAV_GROUPS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
 import { SiteSearch, type SearchDistrict, type SearchMeasure } from "@/components/layout/site-search";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -16,51 +16,37 @@ export type HeaderData = { search: { districts: SearchDistrict[]; measures: Sear
 type MenuItem = {
   href: string;
   label: string;
-  description: string;
-  badge?: string;
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
   /** Set for homepage tabs, which switch in place when the homepage is already open. */
   focusId?: string;
 };
-type MenuGroup = { id: string; label: string; intro: string; items: MenuItem[] };
+type MenuGroup = { id: string; label: string; items: MenuItem[] };
 
-/** The menus: the homepage focus areas first, then the page groups shared with the footer. */
-const MENU_GROUPS: MenuGroup[] = [
-  {
-    id: "focus-areas",
-    label: "Focus areas",
-    intro: "The three tabs of the homepage.",
-    items: FOCUS_AREAS.map((area) => ({
-      href: `/#${area.id}`,
-      label: area.label,
-      description: area.hint,
-      icon: FOCUS_AREA_ICONS[area.id],
-      focusId: area.id,
-    })),
-  },
-  ...NAV_GROUPS.map((group) => ({
-    id: group.label.toLowerCase(),
-    label: group.label,
-    intro: group.intro,
-    items: group.items.map((item) => ({ ...item, icon: NAV_ICONS[item.href] ?? HomeIcon })),
-  })),
-];
+/** One menu per focus area: its homepage overview, then the pages that go deeper. */
+const MENU_GROUPS: MenuGroup[] = NAV_GROUPS.map((group) => ({
+  id: group.focusId,
+  label: group.label,
+  items: [
+    { href: `/#${group.focusId}`, label: "Overview", focusId: group.focusId },
+    ...group.items.map((item) => ({ href: item.href, label: item.label })),
+  ],
+}));
 
 /** How long the pointer may leave a menu before it closes, so moving diagonally into the panel keeps it open. */
 const HOVER_CLOSE_DELAY = 160;
 
-// Top level items: a solid blue block on hover and when open or current, like an active tab.
+// Top level items, as on the NISR site: bold navy text that turns into a solid block on hover and when open or current.
 const TOP_LINK_STYLE =
-  "inline-flex h-10 items-center gap-1 rounded-lg px-2.5 text-[14.5px] font-semibold text-ink/80 transition-colors hover:bg-royal hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 xl:px-3";
-const TOP_ACTIVE_STYLE = "bg-royal text-white";
+  "inline-flex h-12 items-center gap-1 whitespace-nowrap rounded-md px-2.5 text-[14.5px] font-bold text-navy-900 transition-colors hover:bg-cyan hover:text-navy-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 xl:px-3.5 xl:text-[15.5px]";
+const TOP_ACTIVE_STYLE = "bg-cyan text-navy-900";
 // Links inside a menu panel or the phone menu keep a light highlight, so the text stays readable.
 const ACTIVE_STYLE = "bg-paper text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal";
 
 /**
- * The header: a thin bar with project links, then the logo, a home link, dropdown menus for each group of pages, the
- * methods page and search. The menus are disclosure buttons: they open on click, Enter or the down arrow, and on hover
- * with a mouse; Escape, a click outside or moving focus away closes them. Phones get a menu sheet with the same links.
+ * The header: a thin bar with project links, then the logo, a home link, one dropdown menu per focus area,
+ * the methods page and search, from 1280px wide. The menus are disclosure buttons: they open on click, Enter or the down
+ * arrow, and on hover with a mouse; Escape, a click outside or moving focus away closes them. Narrower screens get a menu
+ * sheet with the same links.
  */
 export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const pathname = usePathname() ?? "/";
@@ -134,9 +120,11 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 
   return (
     <>
-      <div className="hidden bg-navy-900 text-white md:block">
-        <div className="container-page flex h-9 items-center justify-between gap-6 text-[12.5px]">
-          <p className="truncate text-white/70">An independent project for the NISR 2026 Big Data Hackathon, Track 2</p>
+      <div className="hidden bg-mist-strong md:block">
+        <div className="container-page flex h-10 items-center justify-between gap-6 text-[13px]">
+          <p className="truncate text-muted">
+            Independent evidence on financial inclusion, poverty and social protection, built on NISR data
+          </p>
           <nav aria-label="Project links" className="shrink-0">
             <ul className="flex items-center gap-5">
               {UTILITY_LINKS.map((link) => (
@@ -145,10 +133,10 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded font-semibold text-white/80 transition-colors hover:text-sun focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun"
+                    className="inline-flex items-center gap-1 rounded font-bold text-royal transition-colors hover:text-navy-900 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
                   >
                     {link.label}
-                    <ArrowTopRightOnSquareIcon className="h-3 w-3 text-white/50" aria-hidden="true" />
+                    <ArrowTopRightOnSquareIcon className="h-3.5 w-3.5" aria-hidden="true" />
                     <span className="sr-only">(opens in a new tab)</span>
                   </a>
                 </li>
@@ -159,21 +147,21 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
       </div>
 
       <header className="sticky top-0 z-50 border-b border-line bg-white">
-        <div className="container-page flex h-[72px] items-center gap-4">
+        <div className="container-page flex h-[84px] items-center gap-4">
           <Link href="/" aria-label="IMBONIX home" className={cn("shrink-0 rounded-xl", FOCUS_RING)}>
             <BrandLogo />
           </Link>
 
-          <nav ref={navRef} aria-label="Main" className="ml-auto hidden lg:block">
+          <nav ref={navRef} aria-label="Main" className="ml-auto hidden xl:block">
             <ul className="flex items-center gap-0.5">
               <li>
                 <Link
                   href="/"
                   aria-label="Home"
                   aria-current={isCurrentPage("/") ? "page" : undefined}
-                  className={cn(TOP_LINK_STYLE, "w-10 justify-center px-0 xl:px-0", isCurrentPage("/") && TOP_ACTIVE_STYLE)}
+                  className={cn(TOP_LINK_STYLE, "w-12 justify-center px-0 xl:px-0", isCurrentPage("/") && TOP_ACTIVE_STYLE)}
                 >
-                  <HomeIcon className="h-5 w-5" aria-hidden="true" />
+                  <HomeSolidIcon className="h-6 w-6" aria-hidden="true" />
                 </Link>
               </li>
               {MENU_GROUPS.map((group, groupIndex) => {
@@ -217,10 +205,9 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                     <div
                       id={panelId}
                       hidden={!expanded}
-                      className={cn("absolute top-full w-[360px] pt-2", groupIndex >= 2 ? "right-0" : "left-0")}
+                      className={cn("absolute top-full w-64 pt-2", groupIndex >= 2 ? "right-0" : "left-0")}
                     >
-                      <div className="rounded-2xl bg-white p-2 shadow-lift ring-1 ring-line">
-                        <p className="px-2.5 pb-1 pt-1.5 text-[12.5px] text-muted">{group.intro}</p>
+                      <div className="rounded-2xl bg-white py-2 shadow-lift ring-1 ring-line">
                         <ul>
                           {group.items.map((item) => (
                             <li key={item.href}>
@@ -252,7 +239,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
             </ul>
           </nav>
 
-          <div className="ml-auto flex items-center gap-1.5 lg:ml-2">
+          <div className="ml-auto flex items-center gap-1.5 xl:ml-2">
             <button
               type="button"
               onClick={openSearch}
@@ -260,18 +247,12 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               aria-label={`Search the site (${shortcutLabel})`}
               title={`Search the site (${shortcutLabel})`}
               className={cn(
-                "group inline-flex h-10 items-stretch overflow-hidden rounded-lg bg-white text-[13.5px] ring-1 ring-line transition-shadow hover:ring-royal/60",
+                "inline-flex h-12 items-center gap-2 rounded-md px-3 text-[15px] font-bold text-navy-900 transition-colors hover:bg-cyan xl:text-[15.5px]",
                 FOCUS_RING,
               )}
             >
-              {/* A search field look: the hint on the left and a Search button on the right, the hint on wide screens only. */}
-              <span className="flex items-center gap-2 px-2.5 text-muted sm:px-3">
-                <MagnifyingGlassIcon className="h-5 w-5 text-royal" aria-hidden="true" />
-                <span className="hidden whitespace-nowrap pr-2 text-left 2xl:inline">Search districts and measures</span>
-              </span>
-              <span className="hidden items-center border-l border-line bg-paper px-3 font-bold text-ink transition-colors group-hover:bg-royal group-hover:text-white sm:flex">
-                Search
-              </span>
+              <span className="hidden sm:inline">Search</span>
+              <MagnifyingGlassIcon className="h-5 w-5 stroke-2" aria-hidden="true" />
             </button>
 
             <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
@@ -280,7 +261,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                   type="button"
                   aria-label="Open menu"
                   className={cn(
-                    "inline-flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-paper lg:hidden",
+                    "inline-flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-paper xl:hidden",
                     FOCUS_RING,
                   )}
                 >
@@ -310,12 +291,11 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                       href="/"
                       aria-current={isCurrentPage("/") ? "page" : undefined}
                       className={cn(
-                        "mt-4 flex items-center gap-3 rounded-xl px-2.5 py-2 text-[15px] font-semibold text-ink hover:bg-paper",
+                        "mt-4 block rounded-lg px-3 py-2.5 text-[15px] font-semibold text-ink hover:bg-cyan-soft",
                         FOCUS_RING,
                         isCurrentPage("/") && ACTIVE_STYLE,
                       )}
                     >
-                      <HomeIcon className="h-5 w-5 text-royal" aria-hidden="true" />
                       Home
                     </Link>
                     {MENU_GROUPS.map((group) => (
@@ -344,7 +324,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                         href={link.href}
                         aria-current={isCurrentPage(link.href) ? "page" : undefined}
                         className={cn(
-                          "mt-5 flex items-center justify-center rounded-2xl bg-navy-900 px-4 py-3 text-[14.5px] font-semibold text-white hover:bg-royal",
+                          "mt-5 flex items-center justify-center rounded-2xl bg-navy-900 px-4 py-3 text-[14.5px] font-semibold text-white hover:bg-cyan hover:text-navy-900",
                           FOCUS_RING,
                         )}
                       >
@@ -388,7 +368,10 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   );
 }
 
-/** One link in a menu: an icon tile, the page name with its badge, and a one line description. */
+/**
+ * One link in a menu, as plain text: capitals in the desktop dropdown, sentence case in the phone menu. The current
+ * page is marked with a cyan bar and a light background.
+ */
 function MenuLink({
   item,
   current,
@@ -402,49 +385,26 @@ function MenuLink({
   onNavigate: () => void;
   compact?: boolean;
 }) {
-  const Icon = item.icon;
   const className = cn(
-    "group flex gap-3 rounded-xl transition-colors hover:bg-paper",
-    // With no description underneath, the phone menu centres each label on its icon.
-    compact ? "items-center px-2.5 py-1.5" : "items-start p-2.5",
+    "block border-l-[3px] transition-colors hover:bg-cyan-soft",
+    compact
+      ? "rounded-r-lg px-3 py-2.5 text-[15px] font-semibold text-ink"
+      : "px-5 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-navy-900",
+    current ? "border-cyan bg-cyan-soft" : "border-transparent",
     FOCUS_RING,
-    current && ACTIVE_STYLE,
-  );
-  const content = (
-    <>
-      <span
-        className={cn(
-          "flex shrink-0 items-center justify-center rounded-xl bg-brand-50 text-royal transition-colors group-hover:bg-royal group-hover:text-white",
-          compact ? "h-8 w-8" : "h-9 w-9",
-        )}
-      >
-        <Icon className="h-5 w-5" aria-hidden="true" />
-      </span>
-      <span className="min-w-0">
-        <span className="flex flex-wrap items-center gap-2 text-[14px] font-semibold leading-5 text-ink">
-          {item.label}
-          {item.badge && (
-            <span className="rounded-full bg-sun-soft px-1.5 py-0.5 text-[10.5px] font-bold leading-none text-sun-ink">
-              {item.badge}
-            </span>
-          )}
-        </span>
-        {!compact && <span className="mt-0.5 block text-[12.5px] leading-5 text-muted">{item.description}</span>}
-      </span>
-    </>
   );
 
   if (item.focusId) {
     const focusId = item.focusId;
     return (
       <a href={item.href} onClick={(event) => onFocusArea(event, focusId)} className={className}>
-        {content}
+        {item.label}
       </a>
     );
   }
   return (
     <Link href={item.href} onClick={onNavigate} aria-current={current ? "page" : undefined} className={className}>
-      {content}
+      {item.label}
     </Link>
   );
 }

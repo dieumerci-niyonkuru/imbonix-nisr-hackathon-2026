@@ -1,6 +1,6 @@
 "use client";
 
-import { BRAND, INK, MUTED, PAPER, SUN_INK, WHITE } from "@/lib/palette";
+import { BRAND, INK, MUTED, PAPER, CYAN_INK, WHITE } from "@/lib/palette";
 
 /**
  * Last-resort error page, used only when the root layout itself fails. It replaces the whole document, so it
@@ -11,7 +11,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
     <html lang="en">
       <body style={{ margin: 0, background: PAPER, color: INK, fontFamily: "system-ui, sans-serif" }}>
         <main style={{ maxWidth: 560, margin: "0 auto", padding: "96px 24px" }} role="alert">
-          <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: SUN_INK }}>
+          <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: CYAN_INK }}>
             IMBONIX is temporarily unavailable
           </p>
           <h1 style={{ fontSize: 32, lineHeight: 1.2, margin: "12px 0" }}>Something went wrong while loading the site.</h1>

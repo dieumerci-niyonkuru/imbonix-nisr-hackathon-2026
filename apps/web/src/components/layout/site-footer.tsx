@@ -2,31 +2,20 @@ import Link from "next/link";
 import { ArrowTopRightOnSquareIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
 import pkg from "../../../package.json";
 import { BrandLogo } from "@/components/layout/logo";
-import { FOCUS_AREAS, NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
-
-/** The surveys and censuses behind the figures, each linked to its study page in the NISR microdata catalog. */
-const SOURCE_STUDIES = [
-  { label: "EICV7 2023/24", studyId: 119 },
-  { label: "FinScope 2024", studyId: 120 },
-  { label: "DHS 2025", studyId: 126 },
-  { label: "CFSVA 2024", studyId: 122 },
-  { label: "Census 2022", studyId: 109 },
-  { label: "LFS 2025", studyId: 125 },
-  { label: "Establishment Census 2023", studyId: 112 },
-];
+import { NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL, SOURCE_STUDIES } from "@/components/layout/nav";
 
 /** `hashLink` marks homepage tab links, which need a plain anchor so the tabs see the hash change. */
 type FooterLink = { href: string; label: string; external?: boolean; hashLink?: boolean };
 type FooterColumn = { heading: string; links: FooterLink[] };
 
+/** One column per focus area, each opening with its homepage tab, then the project links. */
 const COLUMNS: FooterColumn[] = [
-  {
-    heading: "Focus areas",
-    links: FOCUS_AREAS.map((area) => ({ href: `/#${area.id}`, label: area.label, hashLink: true })),
-  },
   ...NAV_GROUPS.map((group) => ({
     heading: group.label,
-    links: group.items.map((item) => ({ href: item.href, label: item.label })),
+    links: [
+      { href: `/#${group.focusId}`, label: "Overview", hashLink: true },
+      ...group.items.map((item) => ({ href: item.href, label: item.label })),
+    ],
   })),
   {
     heading: "Project",
@@ -40,7 +29,7 @@ const COLUMNS: FooterColumn[] = [
 ];
 
 const LINK_STYLE =
-  "inline-flex items-center gap-1.5 rounded text-[14px] leading-6 text-white/65 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun";
+  "inline-flex items-center gap-1.5 rounded text-[14px] leading-6 text-white/65 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan";
 
 function FooterAnchor({ link }: { link: FooterLink }) {
   if (link.external) {
@@ -75,10 +64,9 @@ export function SiteFooter() {
   return (
     <footer className="bg-navy-900 text-white">
       <div className="container-page pb-8 pt-12 sm:pt-14">
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 text-center sm:grid-cols-3 lg:grid-cols-5">
+        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 text-center lg:grid-cols-4">
           {COLUMNS.map((column) => (
-            // On phones the fifth column spans both columns, so it sits centred instead of alone on the left.
-            <div key={column.heading} className="last:col-span-2 sm:last:col-span-1">
+            <div key={column.heading}>
               <h2 className="font-display text-[15px] font-bold text-white">{column.heading}</h2>
               <ul className="mt-4 space-y-2">
                 {column.links.map((link) => (
@@ -100,7 +88,7 @@ export function SiteFooter() {
                   href={`${NISR_CATALOG_URL}/${study.studyId}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-1 text-[12.5px] font-semibold text-white/80 ring-1 ring-white/15 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-1 text-[12.5px] font-semibold text-white/80 ring-1 ring-white/15 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
                 >
                   {study.label}
                   <ArrowTopRightOnSquareIcon className="h-3 w-3 text-white/50" aria-hidden="true" />
@@ -114,18 +102,18 @@ export function SiteFooter() {
         <div className="mt-10 grid items-center gap-6 border-t border-white/10 pt-8 md:grid-cols-3">
           <div className="text-center text-[13px] leading-6 text-white/65 md:text-left">
             <p className="text-white/85">© 2026 IMBONIX team · Version {pkg.version}</p>
-            <p>An independent hackathon project. Not an official NISR product.</p>
+            <p>An independent project built on NISR data. Not an official NISR product.</p>
           </div>
           <Link
             href="/"
             aria-label="IMBONIX home"
-            className="justify-self-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun"
+            className="justify-self-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
           >
             <BrandLogo onDark />
           </Link>
           <a
             href="#main"
-            className="inline-flex items-center gap-1.5 justify-self-center rounded text-[13.5px] font-semibold text-white/80 transition-colors hover:text-sun focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun md:justify-self-end"
+            className="inline-flex items-center gap-1.5 justify-self-center rounded text-[13.5px] font-semibold text-white/80 transition-colors hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan md:justify-self-end"
           >
             Back to top
             <ArrowUpIcon className="h-4 w-4" aria-hidden="true" />

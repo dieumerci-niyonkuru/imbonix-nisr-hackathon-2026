@@ -80,9 +80,9 @@ export function OverlapMatrix() {
                   <span
                     className={`tabular inline-flex h-7 w-7 items-center justify-center rounded-full text-[12px] font-bold ${
                       overlap >= 3
-                        ? "bg-sun-ink text-white"
+                        ? "bg-cyan-ink text-white"
                         : overlap === 2
-                          ? "bg-sun-soft text-sun-ink ring-1 ring-inset ring-sun/50"
+                          ? "bg-cyan-soft text-cyan-ink ring-1 ring-inset ring-cyan/50"
                           : "bg-paper text-ink"
                     }`}
                   >

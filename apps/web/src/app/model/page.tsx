@@ -46,9 +46,9 @@ export default function ModelPage() {
         title="What is associated with financial vulnerability?"
         intro="IMBONIX's model will explain, not just predict: which household and place characteristics go with being financially vulnerable, and how that differs for rural women. This page sets out the design. Results will appear here only after the model is trained on NISR microdata and checked against published figures."
       >
-        <div className="mt-8 flex flex-col gap-4 rounded-2xl border border-sun/60 bg-sun-soft p-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-4 rounded-2xl border border-cyan/60 bg-cyan-soft p-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex gap-3">
-            <ClockIcon className="mt-0.5 h-6 w-6 shrink-0 text-sun-ink" aria-hidden="true" />
+            <ClockIcon className="mt-0.5 h-6 w-6 shrink-0 text-cyan-ink" aria-hidden="true" />
             <div>
               <p className="font-display font-semibold text-ink">Status: not trained yet</p>
               <p className="mt-0.5 text-[14px] leading-6 text-ink/80">{MODEL_STATUS.reason}</p>
@@ -166,7 +166,7 @@ export default function ModelPage() {
           <ul className="mt-6 space-y-3">
             {WILL_NOT.map((item) => (
               <li key={item} className="flex gap-3 rounded-xl border border-line bg-white p-4 text-[14px] leading-6 text-ink/85">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sun" aria-hidden="true" />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan" aria-hidden="true" />
                 {item}
               </li>
             ))}

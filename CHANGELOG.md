@@ -7,6 +7,26 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ### Minimal homepage and navigation
 
+- The homepage tabs and the header menus follow the three parts of the Track 2 challenge: financial exclusion,
+  poverty dynamics and social protection. Each menu opens with its homepage overview, and the footer has one column
+  per part.
+- The header follows the NISR style: a light grey utility bar with bold blue links, bold navy items that turn solid
+  cyan on hover and when current, and plain text dropdowns without icons. The full menu shows from 1280px wide.
+- The homepage opens with a statement chart of the gap (96% use a financial service, 10% are financially healthy)
+  and four key figures across the three parts, followed by the district poverty map and the five poorest districts.
+- The opening answers the three things the Track 2 brief asks of a solution, each worked out from the data: a real
+  gap (96% against 10%), NISR data (64 indicators from 13 publications, 30 districts, 416 sectors) and practical
+  impact (7 policy levers). The gap is drawn in the chart as a dashed band, the bars grow in once on load unless
+  reduced motion is preferred, and the seven NISR studies behind the figures link to their catalog pages.
+- The website presents IMBONIX as a working solution: the hackathon name, track number and brief no longer appear
+  in the interface. The opening reads "Financial inclusion and poverty reduction in Rwanda", the homepage speaks of
+  the problem IMBONIX addresses and its three focus areas, and the independence notes keep saying it is not an
+  official NISR product. The project documents keep the hackathon context.
+- The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
+  cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
+  Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours
+  plus a neutral grey. Cyan buttons carry navy text, text links on white use the medium blue, and chart marks use
+  the cyan one small step deeper so they reach 3:1 against white. The logo keeps its own colours.
 - The homepage opens with the Track 2 question and IMBONIX's answer, a district map of EICV7 poverty rates and four
   key figures with their sources. It then answers the three parts of the brief (financial exclusion, poverty
   dynamics, social protection impact) with one published figure each and a Read more link, names the groups it

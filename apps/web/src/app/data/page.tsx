@@ -153,7 +153,7 @@ export default function DataPage() {
             All NISR publicly available datasets can be found in the NISR microdata catalog. IMBONIX currently uses published
             tables and reports. Household-level analysis starts once the team&apos;s data requests are approved.
           </p>
-          <Button asChild variant="sun" className="mt-8">
+          <Button asChild variant="cyan" className="mt-8">
             <a href={NISR_CATALOG_URL} target="_blank" rel="noreferrer">
               Open the NISR microdata catalog <ArrowTopRightOnSquareIcon className="h-4 w-4" />
             </a>
@@ -346,9 +346,8 @@ export default function DataPage() {
         <div className="space-y-4">
           <SectionHeader eyebrow="About this project" title="Independent, and open about how it was built" />
           <Callout title="Independence">
-            IMBONIX is a team entry to the NISR 2026 Big Data Hackathon (Track 2: Financial Inclusion &amp; Poverty Reduction). It
-            is not an official NISR product and does not imply NISR endorsement. Statistics remain the work of NISR and its
-            partners.
+            IMBONIX is an independent project built on published NISR statistics. It is not an official NISR product and does not
+            imply NISR endorsement. Statistics remain the work of NISR and its partners.
           </Callout>
           <Callout title="AI assistance">
             The team used an AI assistant for research, data extraction and coding. The team is responsible for checking every

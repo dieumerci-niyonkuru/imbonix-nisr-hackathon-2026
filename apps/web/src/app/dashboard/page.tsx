@@ -66,7 +66,7 @@ export default function DashboardPage() {
             value={`${women.either.toFixed(1)}%`}
             label="of women aged 15 to 49 used a bank account or mobile money in the past year"
             source="DHS 2025"
-            accent={BRAND.azure}
+            accent={BRAND.blue}
           />
           <StatTile
             value={`${dsOnTime.all!.toFixed(1)}%`}
