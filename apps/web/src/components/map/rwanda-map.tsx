@@ -25,6 +25,8 @@ export type RwandaMapProps = {
   onHover?: (slug: string | undefined, event?: HoverEvent) => void;
   describe?: (slug: string) => string;
   showNames?: boolean;
+  /** District outline colour: white on light pages, a deep navy on dark cards. */
+  stroke?: string;
   className?: string;
 };
 
@@ -39,6 +41,7 @@ export function RwandaMap({
   onHover,
   describe,
   showNames = false,
+  stroke = WHITE,
   className = "",
 }: RwandaMapProps) {
   const interactive = Boolean(onSelect);
@@ -55,7 +58,7 @@ export function RwandaMap({
             key={shape.slug}
             d={shape.d}
             fill={fills[shape.slug] ?? NO_DATA}
-            stroke={WHITE}
+            stroke={stroke}
             strokeWidth={1.3}
             strokeLinejoin="round"
             vectorEffect="non-scaling-stroke"
