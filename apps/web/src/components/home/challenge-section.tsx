@@ -1,47 +1,45 @@
-import Link from "next/link";
-import type { ComponentType, SVGProps } from "react";
-import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { BuildingLibraryIcon, HomeIcon, UserGroupIcon } from "@heroicons/react/24/outline";
-import { SectionHeader } from "@/components/ui/section";
+import { MapCard } from "@/components/home/story-cards";
 import { Reveal } from "@/components/ui/reveal";
+import { SectionHeader } from "@/components/ui/section";
+import { DISTRICTS, SOURCES, valueOf } from "@/lib/data";
+import { meta } from "@/lib/indicators";
+import { RAMPS } from "@/lib/palette";
 
 export type ChallengePart = {
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
   area: string;
-  value: string;
-  valueLabel: string;
-  body: string;
+  /** The finding, with its figure, as the card title. */
+  title: string;
   source: string;
+  /** The district measure drawn as the card's picture. */
+  indicatorId: string;
+  ramp: "cyan" | "blue" | "navy";
   href: string;
-  cta: string;
+  linkLabel: string;
 };
 
-/** The three groups IMBONIX serves, and what it gives each of them. */
-const AUDIENCES = [
-  {
-    icon: HomeIcon,
-    title: "Vulnerable households",
-    body: "Shows where payments arrive late and formal finance is far, so support can reach them sooner.",
-  },
-  {
-    icon: BuildingLibraryIcon,
-    title: "Policymakers",
-    body: "Seven policy levers, each flagged district by district by one figure and a rule anyone can check.",
-  },
-  {
-    icon: UserGroupIcon,
-    title: "Civil society",
-    body: "Open figures with their sources, to follow programmes and speak up for the places left behind.",
-  },
-];
+/**
+ * District fills for a map on navy: five classes by rank, from the ramp's darkest step to its lightest, so the
+ * districts with the highest values stand out. Districts without a value take the darkest step.
+ */
+function fillsOnNavy(indicatorId: string, ramp: readonly string[]): Record<string, string> {
+  const steps = [...ramp].reverse();
+  const ranked = DISTRICTS.map((district) => ({ slug: district.slug, value: valueOf(district, indicatorId) }))
+    .filter((row): row is { slug: string; value: number } => row.value !== undefined)
+    .sort((first, second) => first.value - second.value);
+  const fills: Record<string, string> = Object.fromEntries(DISTRICTS.map((district) => [district.slug, steps[0]]));
+  ranked.forEach((row, index) => {
+    fills[row.slug] = steps[Math.min(steps.length - 1, Math.floor((index * steps.length) / ranked.length))];
+  });
+  return fills;
+}
 
 /**
- * The problem in three parts (financial exclusion, poverty dynamics, social protection impact), each answered by one
- * published figure and a page to read more, then the three groups IMBONIX serves.
+ * The problem in three parts (financial exclusion, poverty dynamics, social protection impact), each an image card
+ * whose picture is a district map of a related measure, with the finding as its title and a link to read more.
  */
 export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
   return (
-    <section className="bg-white py-16 sm:py-20" aria-labelledby="challenge-heading">
+    <section className="bg-paper py-16 sm:py-20" aria-labelledby="challenge-heading">
       <div className="container-page">
         <SectionHeader
           eyebrow="The problem we address"
@@ -49,52 +47,26 @@ export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
           intro="Reducing poverty in Rwanda means knowing who is left out of finance, how poverty is changing and how well social protection programmes reach the people they are meant for. IMBONIX answers each question with NISR data, in a form vulnerable households, policymakers and civil society can use."
         />
 
-        <ul className="mt-10 grid gap-5 md:grid-cols-3">
-          {parts.map((part, index) => (
-            <li key={part.area}>
-              <Reveal delay={index * 0.06} className="h-full">
-                <article className="flex h-full flex-col rounded-3xl border border-line bg-white p-6 shadow-card">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-cyan">
-                      <part.icon className="h-6 w-6" aria-hidden="true" />
-                    </span>
-                    <h3 className="eyebrow text-royal">{part.area}</h3>
-                  </div>
-                  <p className="mt-5 font-display text-4xl font-bold tracking-[-0.03em] text-ink">{part.value}</p>
-                  <p className="mt-1 text-[14px] leading-5 text-muted">{part.valueLabel}</p>
-                  <p className="mt-4 flex-1 text-[14.5px] leading-6 text-ink/80">{part.body}</p>
-                  <div className="mt-6 flex items-center justify-between gap-4 border-t border-line pt-4">
-                    <span className="text-[11.5px] leading-4 text-muted">{part.source}</span>
-                    <Link
-                      href={part.href}
-                      className="group inline-flex shrink-0 items-center gap-1.5 rounded text-[14px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
-                    >
-                      {part.cta}
-                      <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                    </Link>
-                  </div>
-                </article>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-12 rounded-3xl bg-paper p-6 sm:p-8">
-          <h3 className="eyebrow text-royal">Built for</h3>
-          <ul className="mt-5 grid gap-6 sm:grid-cols-3">
-            {AUDIENCES.map((audience) => (
-              <li key={audience.title} className="flex gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-royal ring-1 ring-line">
-                  <audience.icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <div>
-                  <p className="font-display text-[16px] font-bold text-ink">{audience.title}</p>
-                  <p className="mt-1 text-[13.5px] leading-6 text-muted">{audience.body}</p>
-                </div>
+        <ul className="mt-10 grid gap-6 lg:grid-cols-3">
+          {parts.map((part, index) => {
+            const caption = `Map: ${meta(part.indicatorId).short.toLowerCase()} by district, ${SOURCES[part.indicatorId].year}. Brighter is higher.`;
+            return (
+              <li key={part.area}>
+                <Reveal delay={index * 0.06} className="h-full">
+                  <MapCard
+                    area={part.area}
+                    title={part.title}
+                    source={part.source}
+                    caption={caption}
+                    fills={fillsOnNavy(part.indicatorId, RAMPS[part.ramp])}
+                    href={part.href}
+                    linkLabel={part.linkLabel}
+                  />
+                </Reveal>
               </li>
-            ))}
-          </ul>
-        </div>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
