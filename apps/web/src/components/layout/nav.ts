@@ -6,11 +6,14 @@ import {
   ChartPieIcon,
   CpuChipIcon,
   DevicePhoneMobileIcon,
+  DocumentChartBarIcon,
   FlagIcon,
   HomeIcon,
   MapIcon,
   MapPinIcon,
+  ScaleIcon,
   Squares2X2Icon,
+  UserGroupIcon,
 } from "@heroicons/react/24/outline";
 
 /**
@@ -102,3 +105,19 @@ export const NAV_ICONS: Record<string, ComponentType<SVGProps<SVGSVGElement>>> =
 };
 
 export const NISR_CATALOG_URL = "https://microdata.statistics.gov.rw/index.php/catalog";
+
+/** One icon per homepage focus area, shared by the header menu and the search. */
+export const FOCUS_AREA_ICONS: Record<FocusAreaId, ComponentType<SVGProps<SVGSVGElement>>> = {
+  gap: ScaleIcon,
+  evidence: DocumentChartBarIcon,
+  impact: UserGroupIcon,
+};
+
+export const REPOSITORY_URL = "https://github.com/dieumerci-niyonkuru/imbonix-nisr-hackathon-2026";
+
+/** Links outside the site, in the thin bar above the header and at the end of the phone menu. */
+export const UTILITY_LINKS = [
+  { href: NISR_CATALOG_URL, label: "NISR microdata catalog" },
+  { href: REPOSITORY_URL, label: "Source code" },
+  { href: `${REPOSITORY_URL}/issues/new?template=data_issue.md`, label: "Report a data issue" },
+];
