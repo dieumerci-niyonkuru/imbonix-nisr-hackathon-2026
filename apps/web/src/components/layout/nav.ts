@@ -110,6 +110,17 @@ export const NAV_ICONS: Record<string, ComponentType<SVGProps<SVGSVGElement>>> =
 
 export const NISR_CATALOG_URL = "https://microdata.statistics.gov.rw/index.php/catalog";
 
+/** The surveys and censuses behind the figures, each with its study number in the NISR microdata catalog. */
+export const SOURCE_STUDIES = [
+  { label: "EICV7 2023/24", studyId: 119 },
+  { label: "FinScope 2024", studyId: 120 },
+  { label: "DHS 2025", studyId: 126 },
+  { label: "CFSVA 2024", studyId: 122 },
+  { label: "Census 2022", studyId: 109 },
+  { label: "LFS 2025", studyId: 125 },
+  { label: "Establishment Census 2023", studyId: 112 },
+];
+
 /** One icon per homepage focus area, shared by the header menu and the search. */
 export const FOCUS_AREA_ICONS: Record<FocusAreaId, ComponentType<SVGProps<SVGSVGElement>>> = {
   exclusion: ScaleIcon,
