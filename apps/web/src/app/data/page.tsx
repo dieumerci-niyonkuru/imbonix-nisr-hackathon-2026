@@ -45,7 +45,7 @@ const MICRODATA = [
     priority: 2,
     id: 89,
     name: "FinScope 2020",
-    unlocks: "A like-for-like 2020 → 2024 district trend (the published 2020 district figure is not comparable)",
+    unlocks: "A like-for-like 2020 to 2024 district trend (the published 2020 district figure is not comparable)",
   },
   { priority: 2, id: 126, name: "DHS 2025", unlocks: "Women's and men's account and mobile-money use by district and wealth" },
   { priority: 2, id: 122, name: "CFSVA 2024", unlocks: "Shocks, coping and VUP coverage by district" },
@@ -207,9 +207,11 @@ export default function DataPage() {
                       href={`https://microdata.statistics.gov.rw/index.php/catalog/${m.id}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="link tabular"
+                      className="link tabular inline-flex items-center gap-1"
                     >
-                      {m.id} ↗
+                      {m.id}
+                      <ArrowTopRightOnSquareIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                      <span className="sr-only">(opens in a new tab)</span>
                     </a>
                   </td>
                   <td className="px-4 py-3 text-muted">{m.unlocks}</td>

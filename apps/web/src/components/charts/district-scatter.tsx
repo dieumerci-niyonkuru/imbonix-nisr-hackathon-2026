@@ -126,7 +126,7 @@ export function DistrictScatter({
           </g>
         ))}
         <text x={(W + PAD.left) / 2} y={H - 8} textAnchor="middle" fontSize={12} fontWeight={700} fill={INK}>
-          {x.short} ({unitLabel(xId)}) →
+          {x.short} ({unitLabel(xId)})
         </text>
         <text
           transform={`translate(14 ${(H - PAD.bottom + PAD.top) / 2}) rotate(-90)`}
@@ -135,7 +135,7 @@ export function DistrictScatter({
           fontWeight={700}
           fill={INK}
         >
-          {y.short} ({unitLabel(yId)}) →
+          {y.short} ({unitLabel(yId)})
         </text>
       </svg>
       <figcaption className="mt-2 text-[11.5px] leading-5 text-muted">

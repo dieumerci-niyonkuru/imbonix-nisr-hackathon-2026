@@ -2,6 +2,7 @@
 
 import { useMemo, useRef, useState, type MouseEvent } from "react";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { DIMENSIONS } from "@/lib/indicators";
 import { SECTOR_MEASURES, type SectorMeasure, type SectorRow } from "@/lib/sectors";
@@ -55,14 +56,23 @@ export function SectorExplorer({ district, sectors }: { district: string; sector
     if (box) setHover({ sector, x: event.clientX - box.left, y: event.clientY - box.top });
   };
   const header = (key: SortKey, label: string, align = "text-right") => (
-    <th scope="col" className={`px-3 py-2.5 ${align}`}>
+    <th
+      scope="col"
+      aria-sort={sort.key === key ? (sort.desc ? "descending" : "ascending") : undefined}
+      className={`px-3 py-2.5 ${align}`}
+    >
       <button
         type="button"
         onClick={() => setSort((s) => ({ key, desc: s.key === key ? !s.desc : key !== "sector" }))}
         className="inline-flex items-center gap-1 font-semibold hover:text-ink"
       >
         {label}
-        {sort.key === key && <span aria-hidden="true">{sort.desc ? "↓" : "↑"}</span>}
+        {sort.key === key &&
+          (sort.desc ? (
+            <ChevronDownIcon className="h-3.5 w-3.5" aria-hidden="true" />
+          ) : (
+            <ChevronUpIcon className="h-3.5 w-3.5" aria-hidden="true" />
+          ))}
       </button>
     </th>
   );
