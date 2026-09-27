@@ -1,0 +1,50 @@
+# Dependency updates, opened as pull requests against develop so they pass CI there before any release reaches main.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /apps/web
+    target-branch: develop
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      web-minor-and-patch:
+        update-types: [minor, patch]
+    commit-message:
+      prefix: "build(web)"
+    # Major versions (for example Next.js 16, ESLint 10, TypeScript 7) need code changes: upgrade them on a branch.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: npm
+    directory: /apps/api
+    target-branch: develop
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      api-minor-and-patch:
+        update-types: [minor, patch]
+    commit-message:
+      prefix: "build(api)"
+    # Major versions (for example Next.js 16, ESLint 10, TypeScript 7) need code changes: upgrade them on a branch.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: pip
+    directory: /scripts/data
+    target-branch: develop
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "build(data)"
+
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: develop
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "ci"
