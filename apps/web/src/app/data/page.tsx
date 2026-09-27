@@ -346,9 +346,8 @@ export default function DataPage() {
         <div className="space-y-4">
           <SectionHeader eyebrow="About this project" title="Independent, and open about how it was built" />
           <Callout title="Independence">
-            IMBONIX is a team entry to the NISR 2026 Big Data Hackathon (Track 2: Financial Inclusion &amp; Poverty Reduction). It
-            is not an official NISR product and does not imply NISR endorsement. Statistics remain the work of NISR and its
-            partners.
+            IMBONIX is an independent project built on published NISR statistics. It is not an official NISR product and does not
+            imply NISR endorsement. Statistics remain the work of NISR and its partners.
           </Callout>
           <Callout title="AI assistance">
             The team used an AI assistant for research, data extraction and coding. The team is responsible for checking every
