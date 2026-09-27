@@ -25,10 +25,12 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - The bar above the header is now a deep navy band with a cyan rule: "Independent evidence platform", the coverage
   counted from the data (30 districts, 416 sectors, 64 indicators, 13 publications, from 1280px wide) and the three
   project links in white, turning cyan on hover.
-- The footer follows a university footer: four centred link columns with large bold headings and no dividers, then
-  a bottom row with the copyright on the left, the stacked logo in the middle (wordmark and tagline over the emblem,
-  like a crest, in exactly the header's colours on a white panel) and icon links on the right (source code, NISR microdata catalog, report a data
-  issue, back to top). The NISR studies stay linked in the homepage opening and on the methods page.
+- The footer follows a university footer on deep navy: four centred link columns with large bold headings and no
+  dividers, then a bottom row with the copyright on the left, the stacked logo straight on the dark background in the
+  middle (the white wordmark and tagline over the full colour emblem, like a crest) and icon links on the right
+  (source code, NISR microdata catalog, report a data issue, back to top). The credits line left the footer: data
+  sources are cited beside every chart, the map shows its own credits, and the methods page lists them all, with the
+  background map now included, and states the version. The floating scroll buttons fade away over the footer.
 - The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
   cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
   Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours
