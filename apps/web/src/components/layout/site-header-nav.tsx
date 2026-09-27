@@ -3,7 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
-import { ArrowTopRightOnSquareIcon, ChevronDownIcon, HomeIcon as HomeSolidIcon } from "@heroicons/react/20/solid";
+import {
+  ArrowTopRightOnSquareIcon,
+  ChevronDownIcon,
+  HomeIcon as HomeSolidIcon,
+  ShieldCheckIcon,
+} from "@heroicons/react/20/solid";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { BrandLogo } from "@/components/layout/logo";
 import { NAV_GROUPS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
@@ -11,7 +16,12 @@ import { SiteSearch, type SearchDistrict, type SearchMeasure } from "@/component
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-export type HeaderData = { search: { districts: SearchDistrict[]; measures: SearchMeasure[] } };
+/** One coverage figure for the utility bar, counted from the site's data. */
+export type CoverageFigure = { value: number; label: string };
+export type HeaderData = {
+  coverage: CoverageFigure[];
+  search: { districts: SearchDistrict[]; measures: SearchMeasure[] };
+};
 
 type MenuItem = {
   href: string;
@@ -120,23 +130,37 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 
   return (
     <>
-      <div className="hidden bg-mist-strong md:block">
-        <div className="container-page flex h-10 items-center justify-between gap-6 text-[13px]">
-          <p className="truncate text-muted">
-            Independent evidence on financial inclusion, poverty and social protection, built on NISR data
-          </p>
+      <div className="hidden border-b-2 border-cyan bg-navy-950 text-white md:block">
+        <div className="container-page flex h-11 items-center justify-between gap-6 text-[13px]">
+          <div className="flex min-w-0 items-center gap-4 overflow-hidden">
+            <p className="flex shrink-0 items-center gap-2 font-bold tracking-[0.01em]">
+              <ShieldCheckIcon className="h-4 w-4 text-cyan" aria-hidden="true" />
+              Independent evidence platform
+            </p>
+            <span className="hidden h-4 w-px bg-white/25 xl:block" aria-hidden="true" />
+            <ul aria-label="Coverage" className="hidden items-center gap-4 whitespace-nowrap text-white/75 xl:flex">
+              {data.coverage.map((figure) => (
+                <li key={figure.label}>
+                  <span className="tabular font-bold text-cyan">{figure.value.toLocaleString("en-US")}</span> {figure.label}
+                </li>
+              ))}
+            </ul>
+          </div>
           <nav aria-label="Project links" className="shrink-0">
-            <ul className="flex items-center gap-5">
+            <ul className="flex items-center divide-x divide-white/20">
               {UTILITY_LINKS.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} className="px-4 last:pr-0">
                   <a
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded font-bold text-royal transition-colors hover:text-navy-900 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+                    className="group inline-flex items-center gap-1.5 rounded font-bold text-white transition-colors hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
                   >
                     {link.label}
-                    <ArrowTopRightOnSquareIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                    <ArrowTopRightOnSquareIcon
+                      className="h-3.5 w-3.5 text-white/55 transition-colors group-hover:text-cyan"
+                      aria-hidden="true"
+                    />
                     <span className="sr-only">(opens in a new tab)</span>
                   </a>
                 </li>
