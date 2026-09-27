@@ -23,6 +23,7 @@ import {
 } from "@/lib/eicv7-poverty-profile";
 import {
   EXCLUDED_ADULTS,
+  FINANCIAL_HEALTH_SEGMENTS,
   FINSCOPE_2024_SOURCE,
   INCLUDED_ADULTS_MILLIONS,
   INCLUSION_BY_ROUND,
@@ -46,6 +47,7 @@ import {
 import { BRAND, CORE, DIMENSION_COLORS, NO_DATA, RAMPS, STRAND } from "@/lib/palette";
 import { LEVERS } from "@/lib/priorities";
 import { DELAY_RAMP, timeliness, usagePairs, usageRows, VUP_COMPONENTS } from "@/lib/surveys";
+import { TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
 
 const VUP_TIMELINESS_SOURCE = "NISR, EICV7 VUP thematic report 2023/24, Tables 4.2, 4.5, 4.8 and 4.11";
 const DHS_SOURCE = "NISR, Rwanda DHS 2025, Tables 15.5.1 and 15.5.2";
@@ -83,6 +85,14 @@ const WEALTH_LABEL: Record<string, string> = {
   Fourth: "Fourth",
   Highest: "Richest",
 };
+
+/** Healthy and coping in blue, vulnerable and extremely vulnerable in gold, darker for the worse segment. */
+const HEALTH_COLORS = [BRAND.blue, RAMPS.blue[0], RAMPS.gold[1], RAMPS.gold[3]];
+
+const TARGET_SERIES: ComparisonSeries = [
+  { key: "baseline", label: "Baseline", color: RAMPS.steel[0] },
+  { key: "target", label: "Target", color: BRAND.blue },
+];
 
 const oneDecimal = (value: number) => Math.round(value * 10) / 10;
 
@@ -135,6 +145,7 @@ function describeShares(rows: Record<string, string | number>[], categoryKey: st
 }
 
 export default function Home() {
+  const healthyShare = FINANCIAL_HEALTH_SEGMENTS.find((segment) => segment.segment === "Financially healthy")!.share;
   const inclusionOf = (measure: string) => INCLUSION_BY_ROUND.find((row) => row.measure === measure)!;
   const includedShare = inclusionOf("Financially included").in2024;
   const bankedRow = inclusionOf("Banked");
@@ -239,6 +250,22 @@ export default function Home() {
               categoryKey="measure"
               series={FINSCOPE_ROUND_SERIES}
               description={`Adults using financial services in 2020 and 2024. ${INCLUSION_BY_ROUND.map((row) => `${row.measure}: ${row.in2020}% then ${row.in2024}%`).join("; ")}.`}
+            />
+          </ChartCard>
+          <ChartCard
+            title={`Only ${healthyShare}% of adults are financially healthy`}
+            note="Adults by financial health segment. The published shares are rounded, so they add up to 101%."
+            source={`${FINSCOPE_2024_SOURCE}, section 5.2`}
+          >
+            <ShareDonut
+              segments={FINANCIAL_HEALTH_SEGMENTS.map((row, index) => ({
+                label: row.segment,
+                share: row.share,
+                color: HEALTH_COLORS[index],
+              }))}
+              centerValue={`${healthyShare}%`}
+              centerLabel="financially healthy"
+              description={`Adults by financial health: ${FINANCIAL_HEALTH_SEGMENTS.map((row) => `${row.segment} ${row.share}%`).join(", ")}.`}
             />
           </ChartCard>
         </FocusPanel>
@@ -470,6 +497,19 @@ export default function Home() {
               categoryKey="programme"
               series={TIMELINESS_SERIES}
               description={`Timeliness of the last payment by programme. ${describeShares(paymentTimeliness, "programme", TIMELINESS_SERIES)}.`}
+            />
+          </ChartCard>
+          <ChartCard
+            title="Where Rwanda stands against its national targets"
+            note="Financial inclusion targets are for 2030; the social protection target is for 2028/29."
+            source={TARGETS_SOURCE}
+            status="target"
+          >
+            <ComparisonBars
+              rows={TARGET_PROGRESS}
+              categoryKey="measure"
+              series={TARGET_SERIES}
+              description={`Baselines and targets. ${TARGET_PROGRESS.map((row) => `${row.measure}: ${row.baseline}% at baseline, target ${row.target}%`).join("; ")}.`}
             />
           </ChartCard>
         </FocusPanel>

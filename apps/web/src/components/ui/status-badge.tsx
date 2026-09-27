@@ -6,6 +6,7 @@ const STYLES: Record<string, string> = {
   model_estimate: "bg-mist text-navy-700 ring-navy-700/25",
   projection: "bg-sun-soft text-sun-ink ring-sun/60",
   scenario: "bg-white text-ink ring-ink/30",
+  target: "bg-white text-royal ring-royal/40",
 };
 
 export function StatusBadge({ status, className = "" }: { status: string; className?: string }) {
@@ -26,4 +27,5 @@ export const STATUS_DESCRIPTION: Record<string, string> = {
   model_estimate: "A statistical model estimate published by NISR (small-area estimation). Use for ranking, with care.",
   projection: "NISR population projection, not a count.",
   scenario: "A what-if calculation under assumptions you can see and change. Not a forecast and not an official estimate.",
+  target: "A goal set in a national policy document, shown with the baseline it starts from. Not a measurement or a forecast.",
 };
