@@ -1,0 +1,9 @@
+# Reviewers requested automatically on pull requests. Add team members' GitHub handles as they join.
+*                     @dieumerci-niyonkuru
+
+# Data pipeline and published extracts: changes here change the numbers on the site.
+/scripts/data/        @dieumerci-niyonkuru
+/data/                @dieumerci-niyonkuru
+
+# Workflows and security settings.
+/.github/             @dieumerci-niyonkuru
