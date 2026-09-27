@@ -10,6 +10,10 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/dieumerci-niyonkuru/imbonix-nisr-hackathon-2026/actions/workflows/ci.yml"><img src="https://github.com/dieumerci-niyonkuru/imbonix-nisr-hackathon-2026/actions/workflows/ci.yml/badge.svg?branch=develop" alt="CI status of the develop branch"></a>
+</p>
+
+<p align="center">
   <a href="#getting-started">Getting started</a> ·
   <a href="docs/architecture.md">Architecture</a> ·
   <a href="docs/api.md">API</a> ·
@@ -82,8 +86,8 @@ source and caveat.
   deficiencies. A test fails if a component writes its own colour.
 - **Vector logo.** The emblem, wordmark and tagline are crisp SVG files in `apps/web/public/brand/`, with light and dark
   versions, lockups, a simplified favicon mark and app icons.
-- **Minimal.** The header links only the three focus areas and Data & methods, plus site search (Ctrl+K or /). Charts
-  follow the FinScope report's infographic style, and every inner page has breadcrumbs.
+- **Minimal.** The header links only the three focus areas and Data & methods. Charts follow the FinScope report's
+  infographic style, and every inner page has breadcrumbs.
 - **Accessible.** No axe (WCAG 2.1 A and AA) violations on any page at 320, 390 and 1440px, no horizontal scrolling
   from 320px up, and every text colour at 4.5:1 or better.
 
@@ -165,7 +169,7 @@ This serves the web app on <http://localhost:3000> and the API on <http://localh
 
 | Where | Command | What it covers |
 | --- | --- | --- |
-| `apps/web` | `npm test` | Formatting helpers, colour scales, generated-data integrity, priority rules, scenarios, correlations, sector colours |
+| `apps/web` | `npm test` | Formatting helpers, colour scales, generated-data integrity, province weighting against the published national rates, published homepage findings, priority rules, scenarios, correlations, sector colours |
 | `apps/web` | `npm run lint`, `npm run typecheck`, `npm run format:check`, `npm run build` | ESLint (Next.js and accessibility rules), TypeScript, Prettier, production build |
 | `apps/api` | `npm test` | Every endpoint, validation, errors, rate limits, CORS, security headers, logging and configuration |
 | repository root | `python -m unittest discover -s scripts/data/tests -v` | Build helpers, extract integrity, and that the website data rebuilds exactly |
