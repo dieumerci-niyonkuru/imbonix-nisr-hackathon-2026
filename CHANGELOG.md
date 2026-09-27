@@ -14,6 +14,10 @@ and versions follow [Semantic Versioning](https://semver.org/).
   cyan on hover and when current, and plain text dropdowns without icons. The full menu shows from 1280px wide.
 - The homepage opens with a statement chart of the gap (96% use a financial service, 10% are financially healthy)
   and four key figures across the three parts, followed by the district poverty map and the five poorest districts.
+- The opening answers the three things the Track 2 brief asks of a solution, each worked out from the data: a real
+  gap (96% against 10%), NISR data (64 indicators from 13 publications, 30 districts, 416 sectors) and practical
+  impact (7 policy levers). The gap is drawn in the chart as a dashed band, the bars grow in once on load unless
+  reduced motion is preferred, and the seven NISR studies behind the figures link to their catalog pages.
 - The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
   cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
   Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours
