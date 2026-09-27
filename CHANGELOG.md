@@ -22,6 +22,9 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - The header links only the three focus areas and Data & methods; site search was removed. The footer shows the logo
   and version; the statement of independence is on the Data & methods page and the boundary credit on the map.
 - Fixed: screen reader tables no longer widen the page on phones.
+- Fixed: charts in inactive homepage tabs are drawn at their full size before the tab opens, instead of logging about
+  37 size warnings on every page load.
+- Values taken from policy documents carry a "Policy target" status, explained on the Data & methods page.
 
 ### Repository
 
@@ -30,6 +33,8 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - Branches: `main` (production, protected, changed only by pull request from `testing`), `testing` (integration),
   `develop` (development), and `feature/*`, `fix/*`, `security/*`, `docs/*` and `chore/*` for work in progress. CI runs
   on all of them, and Dependabot targets `develop`.
+- CI uses actions/checkout 7, actions/setup-node 7, actions/setup-python 7 and gitleaks/gitleaks-action 3, and the data
+  scripts require openpyxl 3.1.5 and xlrd 2.0.2. The README shows the CI status of `develop`.
 - The published extracts moved from `research/data-sources/extracts/` to `data/extracts/`, beside the dictionaries and
   schemas, and the research notes moved into `docs/data/` and `docs/research/`. The top level is now `apps`, `data`,
   `docs`, `scripts` and `.github`.
