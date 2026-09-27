@@ -2,9 +2,7 @@ import Link from "next/link";
 import { ArrowTopRightOnSquareIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
 import pkg from "../../../package.json";
 import { BrandLogo } from "@/components/layout/logo";
-import { FOCUS_AREAS, NAV_GROUPS, NISR_CATALOG_URL } from "@/components/layout/nav";
-
-const REPOSITORY_URL = "https://github.com/dieumerci-niyonkuru/imbonix-nisr-hackathon-2026";
+import { FOCUS_AREAS, NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
 
 /** The surveys and censuses behind the figures, each linked to its study page in the NISR microdata catalog. */
 const SOURCE_STUDIES = [
