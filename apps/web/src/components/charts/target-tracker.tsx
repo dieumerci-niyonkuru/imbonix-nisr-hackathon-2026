@@ -35,7 +35,7 @@ export function TargetTracker({ targets }: { targets: Target[] }) {
                   style={{
                     left: pos(from),
                     width: `calc(${pos(to)} - ${pos(from)})`,
-                    background: t.lowerIsBetter ? RAMPS.gold[0] : RAMPS.blue[0],
+                    background: t.lowerIsBetter ? RAMPS.cyan[0] : RAMPS.blue[0],
                   }}
                 />
                 <span

@@ -17,7 +17,9 @@ import { ValueBars } from "@/components/charts/recharts/value-bars";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { DistrictFinder, type FinderProvince } from "@/components/home/district-finder";
 import { FocusPanel } from "@/components/home/focus-panel";
+import { GapChart, type GapRow } from "@/components/home/gap-chart";
 import { HomeHero, type HeroFigure } from "@/components/home/home-hero";
+import { PovertyMapSection } from "@/components/home/poverty-map-section";
 import { HowItWorks, type WorkStep } from "@/components/home/how-it-works";
 import { FOCUS_AREAS, type FocusAreaId } from "@/components/layout/nav";
 import { ChartCard } from "@/components/ui/chart-card";
@@ -101,8 +103,8 @@ const WEALTH_LABEL: Record<string, string> = {
   Highest: "Richest",
 };
 
-/** Healthy and coping in blue, vulnerable and extremely vulnerable in gold, darker for the worse segment. */
-const HEALTH_COLORS = [BRAND.blue, RAMPS.blue[0], RAMPS.gold[1], RAMPS.gold[3]];
+/** Healthy in cyan, then coping, vulnerable and extremely vulnerable in darker blues: darker is worse. */
+const HEALTH_COLORS = [CORE.cyan, RAMPS.blue[0], BRAND.blue, BRAND.navy];
 
 const TARGET_SERIES: ComparisonSeries = [
   { key: "baseline", label: "Baseline", color: RAMPS.steel[0] },
@@ -116,11 +118,11 @@ const FINSCOPE_ROUND_SERIES: ComparisonSeries = [
   { key: "in2024", label: "2024", color: BRAND.blue },
 ];
 
-/** Informal sources in gold, formal finance in blue, government schemes in cyan. */
+/** Informal sources in cyan (the story), formal finance in blue, government schemes in navy. */
 const CREDIT_SOURCE_COLORS: Record<string, string> = {
-  informal: CORE.gold,
+  informal: CORE.cyan,
   formal: BRAND.blue,
-  government: CORE.cyan,
+  government: BRAND.navy,
   other: RAMPS.steel[1],
 };
 
@@ -129,7 +131,7 @@ const VUP_SEX_SERIES: ComparisonSeries = [
   { key: "beneficiaries", label: "Share of VUP beneficiaries", color: BRAND.blue },
 ];
 
-const VUP_PROGRAMME_COLORS = [CORE.cyan, BRAND.blue, CORE.gold, RAMPS.steel[0]];
+const VUP_PROGRAMME_COLORS = [CORE.cyan, BRAND.blue, BRAND.navy, RAMPS.steel[0]];
 
 const SURVEY_YEAR_SERIES: ComparisonSeries = [
   { key: "in2017", label: "2017", color: RAMPS.steel[0] },
@@ -138,19 +140,19 @@ const SURVEY_YEAR_SERIES: ComparisonSeries = [
 
 const ELECTRICITY_COLORS: Record<string, string> = {
   "National grid": BRAND.navy,
-  Solar: CORE.gold,
+  Solar: CORE.cyan,
   "No electricity": NO_DATA,
 };
 
-/** Wood and straw in bronze, cleaner fuels in blue. */
+/** Wood and straw in navy, cleaner fuels in cyan. */
 const COOKING_FUEL_COLORS: Record<string, string> = {
-  Firewood: RAMPS.gold[2],
-  "Straw or sticks": RAMPS.gold[2],
-  Charcoal: BRAND.blue,
-  "Gas and other": BRAND.blue,
+  Firewood: BRAND.navy,
+  "Straw or sticks": BRAND.navy,
+  Charcoal: CORE.cyan,
+  "Gas and other": CORE.cyan,
 };
 
-const SETTLEMENT_COLORS = [BRAND.blue, RAMPS.blue[0], CORE.gold, CORE.cyan];
+const SETTLEMENT_COLORS = [BRAND.navy, BRAND.blue, CORE.cyan, RAMPS.steel[0]];
 
 /** A screen reader summary of 100% bars: each category with its shares. */
 function describeShares(rows: Record<string, string | number>[], categoryKey: string, series: ShareSeries) {
@@ -234,7 +236,7 @@ export default function Home() {
   ];
 
   const panels: Record<FocusAreaId, ReactNode> = {
-    gap: (
+    exclusion: (
       <div className="grid gap-6">
         <FocusPanel
           kicker="A real gap"
@@ -244,13 +246,13 @@ export default function Home() {
             {
               value: `${includedShare}%`,
               label: `of adults are included, ${INCLUDED_ADULTS_MILLIONS} million people`,
-              color: BRAND.azure,
+              color: BRAND.blue,
             },
             { value: `${bankedRow.in2024}%`, label: `are banked, the same share as in 2020`, color: STRAND.banked },
             {
               value: `${excludedShare}%`,
               label: `are excluded, ${EXCLUDED_ADULTS.toLocaleString("en-US")} adults`,
-              color: CORE.gold,
+              color: CORE.cyan,
             },
           ]}
           links={[{ href: "/dashboard", label: "National dashboard" }]}
@@ -314,7 +316,7 @@ export default function Home() {
           <ChartCard
             className="lg:row-span-2"
             title="Households borrow from tontines and relatives, not banks"
-            note="Households with credit, by source. Gold is informal, blue is formal finance, cyan is a government scheme. A household can use several sources."
+            note="Households with credit, by source. Cyan is informal, blue is formal finance, navy is a government scheme. A household can use several sources."
             source={HOUSEHOLD_SURVEY_SOURCE}
           >
             <ValueBars
@@ -334,7 +336,7 @@ export default function Home() {
               bars={BANK_ACCOUNT_BY_SEX.map((row) => ({
                 label: row.group,
                 value: row.share,
-                color: row.group === "Women" ? CORE.gold : row.group === "Men" ? BRAND.blue : RAMPS.steel[1],
+                color: row.group === "Women" ? CORE.cyan : row.group === "Men" ? BRAND.navy : RAMPS.steel[1],
               }))}
               description={`Adults with a bank account: ${BANK_ACCOUNT_BY_SEX.map((row) => `${row.group} ${row.share}%`).join(", ")}.`}
             />
@@ -342,7 +344,7 @@ export default function Home() {
         </div>
       </div>
     ),
-    evidence: (
+    poverty: (
       <div className="grid gap-6">
         <FocusPanel
           title="Poverty and exclusion mostly overlap. The North is the exception."
@@ -458,7 +460,7 @@ export default function Home() {
               bars={LITERACY_BY_QUINTILE.map((row, index) => ({
                 label: row.quintile,
                 value: row.literacyRate,
-                color: index === 0 ? CORE.gold : BRAND.blue,
+                color: index === 0 ? CORE.cyan : BRAND.navy,
               }))}
               description={`Literacy rate: ${LITERACY_BY_QUINTILE.map((row) => `${row.quintile} ${row.literacyRate}%`).join(", ")}.`}
             />
@@ -479,7 +481,7 @@ export default function Home() {
         </div>
       </div>
     ),
-    impact: (
+    protection: (
       <div className="grid gap-6">
         <FocusPanel
           kicker="Practical use"
@@ -594,13 +596,23 @@ export default function Home() {
   const [nationalPoverty, beneficiaryPoverty] = POVERTY_AMONG_VUP_BENEFICIARIES;
   const bestOnTimeShare = Math.max(...paymentTimeliness.map((row) => row.onTime));
 
+  // The opening chart: FinScope 2024 measures from access to financial health, with health highlighted.
+  const registeredWallet = MOBILE_MONEY_BY_ROUND.find((row) => row.measure === "Registered wallet in own name")!.in2024;
+  const gapRows: GapRow[] = [
+    { label: "Use a financial service", value: includedShare, color: BRAND.blue },
+    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: BRAND.blue },
+    { label: "Have a mobile money wallet", value: registeredWallet, color: BRAND.blue },
+    { label: "Are banked", value: bankedRow.in2024, color: BRAND.navy },
+    { label: "Are financially healthy", value: healthyShare, color: CORE.cyan },
+  ];
+
+  // Key figures across the three parts of the challenge, none repeating the chart.
   const heroFigures: HeroFigure[] = [
-    { value: `${includedShare}%`, label: "of adults use a financial service", source: FINSCOPE_2024_SOURCE, accent: BRAND.azure },
     {
-      value: `${healthyShare}%`,
-      label: "of adults are financially healthy",
-      source: `${FINSCOPE_2024_SOURCE}, section 5.2`,
-      accent: CORE.gold,
+      value: EXCLUDED_ADULTS.toLocaleString("en-US"),
+      label: "adults use no financial service at all, formal or informal",
+      source: FINSCOPE_2024_SOURCE,
+      accent: BRAND.navy,
     },
     {
       value: `${povertyIn2024.povertyRate}%`,
@@ -609,10 +621,16 @@ export default function Home() {
       accent: DIMENSION_COLORS.poverty.accent,
     },
     {
+      value: `${poorestWomen.either}%`,
+      label: "of women in the poorest fifth used a bank account or mobile money in the past year",
+      source: DHS_SOURCE,
+      accent: CORE.cyan,
+    },
+    {
       value: `${directSupportOnTime}%`,
       label: "of Direct Support households were paid on time",
       source: VUP_TIMELINESS_SOURCE,
-      accent: CORE.cyan,
+      accent: BRAND.blue,
     },
   ];
 
@@ -677,20 +695,35 @@ export default function Home() {
 
   return (
     <>
-      <HomeHero figures={heroFigures} districtCount={DISTRICTS.length} sectorCount={sectorCount} />
+      <HomeHero
+        figures={heroFigures}
+        districtCount={DISTRICTS.length}
+        sectorCount={sectorCount}
+        chart={
+          <GapChart
+            title="Access is high. Financial health is not."
+            note="Share of adults aged 16 and over, 2024. Each bar is a separate FinScope measure, so an adult can count in several."
+            rows={gapRows}
+            takeaway={`${includedShare - healthyShare} points separate using a financial service from being financially healthy.`}
+            source={`${FINSCOPE_2024_SOURCE}; financial health from section 5.2`}
+          />
+        }
+      />
+
+      <PovertyMapSection />
 
       <ChallengeSection parts={challengeParts} />
 
       <section className="bg-paper py-16 sm:py-20" aria-labelledby="focus-areas-heading">
         <div className="container-page">
           <SectionHeader
-            eyebrow="Three focus areas"
-            title={<span id="focus-areas-heading">The gap, the evidence and who can act</span>}
-            intro="Each tab makes one argument with published figures. Every chart names its source and says how far to trust it."
+            eyebrow="The evidence"
+            title={<span id="focus-areas-heading">Explore each part of the challenge</span>}
+            intro="Each tab gathers the published figures behind one part of the Track 2 challenge. Every chart names its source and says how far to trust it."
           />
           <div className="mt-10">
             <Tabs
-              label="What IMBONIX focuses on"
+              label="The three parts of the challenge"
               items={FOCUS_AREAS.map((area) => ({ id: area.id, label: area.label, hint: area.hint, content: panels[area.id] }))}
             />
           </div>

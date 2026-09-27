@@ -260,7 +260,7 @@ export function SiteSearch({
             />
             <DialogPrimitive.Close className="group inline-flex shrink-0 items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[13.5px] font-semibold text-ink transition-colors hover:text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal">
               Close
-              <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-royal group-hover:text-white group-hover:ring-royal">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-cyan group-hover:text-navy-900 group-hover:ring-cyan">
                 <XMarkIcon className="h-4 w-4" aria-hidden="true" />
               </span>
             </DialogPrimitive.Close>
@@ -376,7 +376,7 @@ function HighlightedLabel({ text, query }: { text: string; query: string }) {
   return (
     <>
       {text.slice(0, matchStart)}
-      <mark className="rounded-sm bg-sun-soft text-ink">{text.slice(matchStart, matchStart + query.length)}</mark>
+      <mark className="rounded-sm bg-cyan-soft text-ink">{text.slice(matchStart, matchStart + query.length)}</mark>
       {text.slice(matchStart + query.length)}
     </>
   );

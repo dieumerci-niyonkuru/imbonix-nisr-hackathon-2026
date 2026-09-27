@@ -111,7 +111,7 @@ export function PriorityWeights() {
                   <span
                     className={cn(
                       "tabular flex w-16 items-center justify-end gap-0.5 text-[12px] font-semibold",
-                      move > 0 ? "text-sun-ink" : move < 0 ? "text-royal" : "text-muted",
+                      move > 0 ? "text-cyan-ink" : move < 0 ? "text-royal" : "text-muted",
                     )}
                   >
                     {move > 0 ? (

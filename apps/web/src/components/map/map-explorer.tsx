@@ -184,7 +184,9 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
             )}
           </div>
           {notice && (
-            <p className="mt-3 rounded-lg bg-sun-soft px-3 py-2 text-[12.5px] text-ink ring-1 ring-inset ring-sun/50">{notice}</p>
+            <p className="mt-3 rounded-lg bg-cyan-soft px-3 py-2 text-[12.5px] text-ink ring-1 ring-inset ring-cyan/50">
+              {notice}
+            </p>
           )}
 
           <div ref={frame} className={cn("relative mx-auto mt-4", view === "simple" && "max-w-[700px]")}>
@@ -233,7 +235,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                 <p className="font-display text-base font-bold">{sectorHover.sector} sector</p>
                 <p className="mt-1 text-[13px]">
                   Poverty (small area estimate):{" "}
-                  <strong className="text-sun">{sectorHover.povertySae === null ? "n/a" : `${sectorHover.povertySae}%`}</strong>
+                  <strong className="text-cyan">{sectorHover.povertySae === null ? "n/a" : `${sectorHover.povertySae}%`}</strong>
                 </p>
                 <p className="text-[12px] text-white/70">
                   Multidimensionally poor (census 2022):{" "}
@@ -250,7 +252,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                   {PROVINCE_LABEL[hovered.province]}
                 </p>
                 <p className="font-display text-base font-bold">{hovered.name}</p>
-                <p className="tabular mt-1 text-xl font-bold text-sun">{formatValue(indicator, hovered.values[layerId]?.v)}</p>
+                <p className="tabular mt-1 text-xl font-bold text-cyan">{formatValue(indicator, hovered.values[layerId]?.v)}</p>
                 {hovered.values[layerId]?.lo !== undefined && (
                   <p className="tabular text-[11px] text-white/60">
                     95% CI {formatValue(indicator, hovered.values[layerId]!.lo)} to{" "}

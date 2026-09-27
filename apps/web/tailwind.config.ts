@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
-import { BRAND, DIMENSION_COLORS, INK, LINE, MUTED, PAPER, SUN_INK } from "./src/lib/palette";
+import { BRAND, CYAN_INK, DIMENSION_COLORS, INK, LINE, MUTED, PAPER } from "./src/lib/palette";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -20,9 +20,9 @@ const config: Config = {
         popover: { DEFAULT: "hsl(var(--popover))", foreground: "hsl(var(--popover-foreground))" },
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
         ink: INK,
-        // Navy from the logo wordmark, with deeper and lighter steps for surfaces.
-        navy: { 950: BRAND.navyDeep, 900: BRAND.navy, 800: "#0B3268", 700: "#153F80", 600: "#1F4F99" },
-        // Primary action blue: the logo's blue.
+        // The main brand colour, with deeper and lighter steps for surfaces.
+        navy: { 950: BRAND.navyDeep, 900: BRAND.navy, 800: "#0E3467", 700: "#1A447F", 600: "#255496" },
+        // The supporting brand colour: links and secondary actions on white.
         royal: BRAND.blue,
         brand: {
           50: "#EAF3FB",
@@ -36,11 +36,9 @@ const config: Config = {
           800: "#003D78",
           900: "#002D5C",
         },
-        azure: BRAND.azure,
-        // `ink` for cyan-family text on light backgrounds, `soft` a pale background.
-        cyan: { DEFAULT: BRAND.cyan, ink: "#01586A", soft: "#E3F6F9" },
-        // The sun in the logo. `ink` is the shade for gold text on light backgrounds, `soft` a pale background, `hover` for buttons.
-        sun: { DEFAULT: BRAND.gold, ink: SUN_INK, soft: "#FEF5DD", hover: "#FAC64A" },
+        // The action brand colour: buttons (with navy text), active states and highlights. `ink` is the shade for
+        // cyan text on light backgrounds, `soft` a pale background, `hover` a lighter step for buttons.
+        cyan: { DEFAULT: BRAND.cyan, ink: CYAN_INK, soft: "#E3F5FF", hover: "#3EB9EE" },
         // Pale blue-grey surfaces for inputs, chips and panels.
         mist: { DEFAULT: "#EEF3F9", strong: "#E3EAF3" },
         paper: PAPER,

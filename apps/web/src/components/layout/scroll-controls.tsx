@@ -11,7 +11,7 @@ const MINIMUM_SCROLL = 480;
 const END_MARGIN = 80;
 
 const BUTTON_STYLE =
-  "flex h-11 w-11 items-center justify-center text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sun";
+  "flex h-11 w-11 items-center justify-center text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan";
 
 /**
  * Floating buttons to go back to the top of a long page or down to its end. They show only on pages long enough to
@@ -70,7 +70,7 @@ export function ScrollControls() {
         aria-label="Back to top"
         aria-disabled={atTop}
         onClick={() => !atTop && scrollToPosition(0)}
-        className={cn(BUTTON_STYLE, atTop ? "cursor-default opacity-40" : "hover:bg-royal")}
+        className={cn(BUTTON_STYLE, atTop ? "cursor-default opacity-40" : "hover:bg-cyan hover:text-navy-900")}
       >
         <ArrowUpIcon className="h-5 w-5" aria-hidden="true" />
       </button>
@@ -81,7 +81,7 @@ export function ScrollControls() {
         aria-label="Go to the end of the page"
         aria-disabled={atBottom}
         onClick={() => !atBottom && scrollToPosition(document.documentElement.scrollHeight)}
-        className={cn(BUTTON_STYLE, atBottom ? "cursor-default opacity-40" : "hover:bg-royal")}
+        className={cn(BUTTON_STYLE, atBottom ? "cursor-default opacity-40" : "hover:bg-cyan hover:text-navy-900")}
       >
         <ArrowDownIcon className="h-5 w-5" aria-hidden="true" />
       </button>
