@@ -303,8 +303,9 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
         </div>
       </div>
 
-      {/* District panel */}
-      <aside className="space-y-6 xl:sticky xl:top-20 xl:self-start">
+      {/* District panel: it runs down the right column beside the map and the ranking, so while it stays in view it
+          never covers either of them. */}
+      <aside className="space-y-6 xl:sticky xl:top-24 xl:row-span-2 xl:self-start">
         <div className="card p-5">
           {district ? (
             <>
@@ -364,7 +365,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
         </div>
       </aside>
 
-      <div className="card p-5 sm:p-6 xl:col-span-2">
+      <div className="card p-5 sm:p-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="eyebrow" style={{ color: DIMENSIONS[dimension].ink }}>
