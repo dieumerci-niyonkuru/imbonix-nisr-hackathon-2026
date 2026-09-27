@@ -24,10 +24,10 @@ export default function AccessVsUsePage() {
   const noEducation = usageRows("Education", "women").find((r) => r.category === "No education")!;
 
   const tiles = [
-    { value: women.either, label: "of women aged 15–49 used a bank account or mobile money in the past year", color: WOMEN },
-    { value: men.either, label: "of men aged 15–49 did the same", color: MEN },
+    { value: women.either, label: "of women aged 15 to 49 used a bank account or mobile money in the past year", color: WOMEN },
+    { value: men.either, label: "of men aged 15 to 49 did the same", color: MEN },
     { value: poorestWomen.either, label: "of women in the poorest fifth of households", color: WOMEN },
-    { value: girls.either, label: "of girls aged 15–19", color: WOMEN },
+    { value: girls.either, label: "of girls aged 15 to 19", color: WOMEN },
   ];
 
   return (
@@ -77,8 +77,8 @@ export default function AccessVsUsePage() {
             <p className="mt-2 font-display text-xl font-bold text-ink">Personal, active use in the past year</p>
             <ul className="mt-4 space-y-2 text-[14px] leading-6 text-muted">
               <li>
-                <strong>Who:</strong> {women.n.toLocaleString("en-US")} women and {men.n.toLocaleString("en-US")} men aged 15–49
-                (weighted).
+                <strong>Who:</strong> {women.n.toLocaleString("en-US")} women and {men.n.toLocaleString("en-US")} men aged 15 to
+                49 (weighted).
               </li>
               <li>
                 <strong>Counts as using:</strong> has and uses a bank account, or used a mobile phone for a financial transaction,
@@ -108,8 +108,8 @@ export default function AccessVsUsePage() {
 
       <section className="container-page grid gap-4 pb-16 md:grid-cols-3">
         <Callout title="Different ages, different questions">
-          FinScope covers adults 16+; the DHS figures here cover ages 15–49. Treat them as two lenses on the same system, not as a
-          trend or a correction of each other.
+          FinScope covers adults 16+; the DHS figures here cover ages 15 to 49. Treat them as two lenses on the same system, not
+          as a trend or a correction of each other.
         </Callout>
         <Callout title="Why it matters for policy">
           The National Financial Inclusion Roadmap now targets financial health and active use, not just account ownership. Poor,

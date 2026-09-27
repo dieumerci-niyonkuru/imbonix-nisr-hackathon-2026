@@ -43,7 +43,7 @@ Nyarugenge,Kigali City,eicv7_workforce_ratio,Workforce-to-population ratio (%),7
 Nyarugenge,Kigali City,finscope2020_banked_incl_otc,"Adults using bank services, incl. over-the-counter users without an own account (%). Not comparable with finscope_banked",78.0,,,,% of adults 16+,2020,NISR/AFR FinScope 2020 report,Figure 17 (banked by district),observed
 Nyarugenge,Kigali City,finscope_banked,Banked adults (%),59.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyarugenge,Kigali City,finscope_formally_included,Formally included adults (banked + other formal) (%),99.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
-Nyarugenge,Kigali City,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),1.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Nyarugenge,Kigali City,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),1.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Nyarugenge,Kigali City,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",40.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyarugenge,Kigali City,lfs_employment_ratio,Employment-to-population ratio (%),65.7079,1.0517691108132565,63.64437834106098,67.77137936120974,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Nyarugenge,Kigali City,lfs_labour_underutilisation,Labour underutilisation rate (%),37.5575,1.4558066491699548,34.7013527576506,40.41374292436515,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -107,7 +107,7 @@ Gasabo,Kigali City,finscope_banked,Banked adults (%),51.0,,,,% of adults 16+,202
 Gasabo,Kigali City,finscope_excluded,Financially excluded adults (%),1.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Gasabo,Kigali City,finscope_formally_included,Formally included adults (banked + other formal) (%),97.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Gasabo,Kigali City,finscope_informal_only,Informal only (%),2.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Gasabo,Kigali City,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Gasabo,Kigali City,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Gasabo,Kigali City,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",46.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Gasabo,Kigali City,lfs_employment_ratio,Employment-to-population ratio (%),63.7593,1.8314764870310998,60.16606037434478,67.35252863305926,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Gasabo,Kigali City,lfs_labour_underutilisation,Labour underutilisation rate (%),42.1045,2.234564348643919,37.720394741511726,46.488525742536055,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -171,7 +171,7 @@ Kicukiro,Kigali City,finscope_banked,Banked adults (%),62.0,,,,% of adults 16+,2
 Kicukiro,Kigali City,finscope_excluded,Financially excluded adults (%),2.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Kicukiro,Kigali City,finscope_formally_included,Formally included adults (banked + other formal) (%),97.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Kicukiro,Kigali City,finscope_informal_only,Informal only (%),2.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Kicukiro,Kigali City,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Kicukiro,Kigali City,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Kicukiro,Kigali City,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",35.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Kicukiro,Kigali City,lfs_employment_ratio,Employment-to-population ratio (%),66.3693,1.3067858938121406,63.80551208077153,68.93316477700694,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Kicukiro,Kigali City,lfs_labour_underutilisation,Labour underutilisation rate (%),41.3597,1.8655195102143074,37.69964656530109,45.019695084133126,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -235,7 +235,7 @@ Nyanza,South,finscope_banked,Banked adults (%),17.0,,,,% of adults 16+,2024,NISR
 Nyanza,South,finscope_excluded,Financially excluded adults (%),4.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyanza,South,finscope_formally_included,Formally included adults (banked + other formal) (%),91.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Nyanza,South,finscope_informal_only,Informal only (%),4.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Nyanza,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),9.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Nyanza,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),9.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Nyanza,South,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",74.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyanza,South,lfs_employment_ratio,Employment-to-population ratio (%),54.5212,1.9865963955697081,50.62365613615528,58.41879412494885,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Nyanza,South,lfs_labour_underutilisation,Labour underutilisation rate (%),48.7895,1.9754267121596296,44.9138754186518,52.665185066838845,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -299,7 +299,7 @@ Gisagara,South,finscope_banked,Banked adults (%),10.0,,,,% of adults 16+,2024,NI
 Gisagara,South,finscope_excluded,Financially excluded adults (%),4.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Gisagara,South,finscope_formally_included,Formally included adults (banked + other formal) (%),87.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Gisagara,South,finscope_informal_only,Informal only (%),9.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Gisagara,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Gisagara,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Gisagara,South,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",77.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Gisagara,South,lfs_employment_ratio,Employment-to-population ratio (%),51.5145,1.9402735780824687,47.7078521258226,55.32122558753457,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Gisagara,South,lfs_labour_underutilisation,Labour underutilisation rate (%),64.924,2.269748688321012,60.47094425223978,69.37713388633078,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -363,7 +363,7 @@ Nyaruguru,South,finscope_banked,Banked adults (%),6.0,,,,% of adults 16+,2024,NI
 Nyaruguru,South,finscope_excluded,Financially excluded adults (%),10.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyaruguru,South,finscope_formally_included,Formally included adults (banked + other formal) (%),84.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Nyaruguru,South,finscope_informal_only,Informal only (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Nyaruguru,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),16.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Nyaruguru,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),16.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Nyaruguru,South,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",78.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyaruguru,South,lfs_employment_ratio,Employment-to-population ratio (%),42.2402,2.382137704198454,37.56664437446542,46.913833443138664,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Nyaruguru,South,lfs_labour_underutilisation,Labour underutilisation rate (%),73.827,2.8554763773598366,68.22473462026767,79.4292411999129,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -427,7 +427,7 @@ Huye,South,finscope_banked,Banked adults (%),15.0,,,,% of adults 16+,2024,NISR/A
 Huye,South,finscope_excluded,Financially excluded adults (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Huye,South,finscope_formally_included,Formally included adults (banked + other formal) (%),88.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Huye,South,finscope_informal_only,Informal only (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Huye,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),12.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Huye,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),12.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Huye,South,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",73.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Huye,South,lfs_employment_ratio,Employment-to-population ratio (%),53.3343,1.8515148565146085,49.701791565859814,56.96688770064551,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Huye,South,lfs_labour_underutilisation,Labour underutilisation rate (%),58.0247,3.000161272994521,52.13861457249007,63.910845290204676,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -491,7 +491,7 @@ Nyamagabe,South,finscope_banked,Banked adults (%),11.0,,,,% of adults 16+,2024,N
 Nyamagabe,South,finscope_excluded,Financially excluded adults (%),1.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyamagabe,South,finscope_formally_included,Formally included adults (banked + other formal) (%),95.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Nyamagabe,South,finscope_informal_only,Informal only (%),4.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Nyamagabe,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Nyamagabe,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Nyamagabe,South,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",84.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyamagabe,South,lfs_employment_ratio,Employment-to-population ratio (%),52.5567,1.9088299274538427,48.81173036821187,56.301723159311436,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Nyamagabe,South,lfs_labour_underutilisation,Labour underutilisation rate (%),47.2251,2.7776748345823634,41.77546415842511,52.67468791210533,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -555,7 +555,7 @@ Ruhango,South,finscope_banked,Banked adults (%),22.0,,,,% of adults 16+,2024,NIS
 Ruhango,South,finscope_excluded,Financially excluded adults (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Ruhango,South,finscope_formally_included,Formally included adults (banked + other formal) (%),92.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Ruhango,South,finscope_informal_only,Informal only (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Ruhango,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),8.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Ruhango,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),8.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Ruhango,South,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",70.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Ruhango,South,lfs_employment_ratio,Employment-to-population ratio (%),48.1024,2.1362952767226244,43.911126313512106,52.29366264751426,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Ruhango,South,lfs_labour_underutilisation,Labour underutilisation rate (%),57.4386,2.3478261933521782,52.83236904460148,62.04492434355322,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -619,7 +619,7 @@ Muhanga,South,finscope_banked,Banked adults (%),17.0,,,,% of adults 16+,2024,NIS
 Muhanga,South,finscope_excluded,Financially excluded adults (%),2.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Muhanga,South,finscope_formally_included,Formally included adults (banked + other formal) (%),93.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Muhanga,South,finscope_informal_only,Informal only (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Muhanga,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),7.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Muhanga,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),7.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Muhanga,South,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",76.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Muhanga,South,lfs_employment_ratio,Employment-to-population ratio (%),50.0182,2.0007798798161742,46.09283672166822,53.94362880160463,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Muhanga,South,lfs_labour_underutilisation,Labour underutilisation rate (%),65.2723,2.3298183885649717,60.70140029452531,69.84329538111355,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -683,7 +683,7 @@ Kamonyi,South,finscope_banked,Banked adults (%),16.0,,,,% of adults 16+,2024,NIS
 Kamonyi,South,finscope_excluded,Financially excluded adults (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Kamonyi,South,finscope_formally_included,Formally included adults (banked + other formal) (%),92.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Kamonyi,South,finscope_informal_only,Informal only (%),4.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Kamonyi,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),8.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Kamonyi,South,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),8.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Kamonyi,South,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",76.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Kamonyi,South,lfs_employment_ratio,Employment-to-population ratio (%),46.6026,1.49816627863176,43.663286321282484,49.54188999646071,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Kamonyi,South,lfs_labour_underutilisation,Labour underutilisation rate (%),63.6259,1.8748699861181586,59.94757324647018,67.30431177948626,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -747,7 +747,7 @@ Karongi,West,finscope_banked,Banked adults (%),8.0,,,,% of adults 16+,2024,NISR/
 Karongi,West,finscope_excluded,Financially excluded adults (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Karongi,West,finscope_formally_included,Formally included adults (banked + other formal) (%),91.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Karongi,West,finscope_informal_only,Informal only (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Karongi,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),9.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Karongi,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),9.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Karongi,West,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",83.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Karongi,West,lfs_employment_ratio,Employment-to-population ratio (%),55.4705,2.5462337720065267,50.47499025104756,60.46607029568099,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Karongi,West,lfs_labour_underutilisation,Labour underutilisation rate (%),66.8917,2.4418429341041716,62.10100654052078,71.68247092893468,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -811,7 +811,7 @@ Rutsiro,West,finscope_banked,Banked adults (%),9.0,,,,% of adults 16+,2024,NISR/
 Rutsiro,West,finscope_excluded,Financially excluded adults (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Rutsiro,West,finscope_formally_included,Formally included adults (banked + other formal) (%),87.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Rutsiro,West,finscope_informal_only,Informal only (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Rutsiro,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Rutsiro,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Rutsiro,West,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",78.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Rutsiro,West,lfs_employment_ratio,Employment-to-population ratio (%),56.5443,2.2985912941828976,52.034647312630426,61.05401146629228,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Rutsiro,West,lfs_labour_underutilisation,Labour underutilisation rate (%),63.5608,2.6112692444131422,58.437680633349345,68.68395115487405,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -875,7 +875,7 @@ Rubavu,West,finscope_banked,Banked adults (%),22.0,,,,% of adults 16+,2024,NISR/
 Rubavu,West,finscope_excluded,Financially excluded adults (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Rubavu,West,finscope_formally_included,Formally included adults (banked + other formal) (%),93.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Rubavu,West,finscope_informal_only,Informal only (%),4.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Rubavu,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),7.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Rubavu,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),7.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Rubavu,West,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",71.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Rubavu,West,lfs_employment_ratio,Employment-to-population ratio (%),60.0264,1.6014871851824781,56.884378035828675,63.16839910000762,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Rubavu,West,lfs_labour_underutilisation,Labour underutilisation rate (%),50.587,1.8326105290529,46.991558296908764,54.18247638451891,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -939,7 +939,7 @@ Nyabihu,West,finscope_banked,Banked adults (%),13.0,,,,% of adults 16+,2024,NISR
 Nyabihu,West,finscope_excluded,Financially excluded adults (%),8.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyabihu,West,finscope_formally_included,Formally included adults (banked + other formal) (%),87.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Nyabihu,West,finscope_informal_only,Informal only (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Nyabihu,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Nyabihu,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Nyabihu,West,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",74.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyabihu,West,lfs_employment_ratio,Employment-to-population ratio (%),60.789,2.2605357905067365,56.35399766924955,65.22403712714015,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Nyabihu,West,lfs_labour_underutilisation,Labour underutilisation rate (%),64.0105,1.8653336844051114,60.35083146636983,67.67015082963319,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1003,7 +1003,7 @@ Ngororero,West,finscope_banked,Banked adults (%),10.0,,,,% of adults 16+,2024,NI
 Ngororero,West,finscope_excluded,Financially excluded adults (%),7.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Ngororero,West,finscope_formally_included,Formally included adults (banked + other formal) (%),88.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Ngororero,West,finscope_informal_only,Informal only (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Ngororero,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),12.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Ngororero,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),12.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Ngororero,West,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",78.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Ngororero,West,lfs_employment_ratio,Employment-to-population ratio (%),55.3237,2.278247414953035,50.853906796904006,59.79344429519802,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Ngororero,West,lfs_labour_underutilisation,Labour underutilisation rate (%),70.3359,2.1264020889671005,66.16406713961777,74.50778393087066,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1067,7 +1067,7 @@ Rusizi,West,finscope_banked,Banked adults (%),22.0,,,,% of adults 16+,2024,NISR/
 Rusizi,West,finscope_excluded,Financially excluded adults (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Rusizi,West,finscope_formally_included,Formally included adults (banked + other formal) (%),90.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Rusizi,West,finscope_informal_only,Informal only (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Rusizi,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),10.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Rusizi,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),10.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Rusizi,West,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",68.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Rusizi,West,lfs_employment_ratio,Employment-to-population ratio (%),47.7466,1.6339188773052995,44.54100034760762,50.95227902479303,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Rusizi,West,lfs_labour_underutilisation,Labour underutilisation rate (%),66.0806,2.037308581826242,62.08357419616449,70.07770000677463,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1131,7 +1131,7 @@ Nyamasheke,West,finscope_banked,Banked adults (%),13.0,,,,% of adults 16+,2024,N
 Nyamasheke,West,finscope_excluded,Financially excluded adults (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyamasheke,West,finscope_formally_included,Formally included adults (banked + other formal) (%),91.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Nyamasheke,West,finscope_informal_only,Informal only (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Nyamasheke,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),9.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Nyamasheke,West,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),9.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Nyamasheke,West,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",78.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyamasheke,West,lfs_employment_ratio,Employment-to-population ratio (%),44.629,2.6007132248520453,39.526606254259995,49.73145636987103,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Nyamasheke,West,lfs_labour_underutilisation,Labour underutilisation rate (%),67.5915,2.866594955045271,61.96741730744782,73.21555169568586,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1195,7 +1195,7 @@ Rulindo,North,finscope_banked,Banked adults (%),13.0,,,,% of adults 16+,2024,NIS
 Rulindo,North,finscope_excluded,Financially excluded adults (%),8.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Rulindo,North,finscope_formally_included,Formally included adults (banked + other formal) (%),87.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Rulindo,North,finscope_informal_only,Informal only (%),4.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Rulindo,North,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Rulindo,North,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Rulindo,North,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",74.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Rulindo,North,lfs_employment_ratio,Employment-to-population ratio (%),61.3104,1.6746132704606265,58.02495888449764,64.59591690607502,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Rulindo,North,lfs_labour_underutilisation,Labour underutilisation rate (%),55.3382,2.2797080416474986,50.86559291944673,59.81086172111916,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1259,7 +1259,7 @@ Gakenke,North,finscope_banked,Banked adults (%),18.0,,,,% of adults 16+,2024,NIS
 Gakenke,North,finscope_excluded,Financially excluded adults (%),8.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Gakenke,North,finscope_formally_included,Formally included adults (banked + other formal) (%),87.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Gakenke,North,finscope_informal_only,Informal only (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Gakenke,North,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Gakenke,North,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Gakenke,North,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",69.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Gakenke,North,lfs_employment_ratio,Employment-to-population ratio (%),57.1336,2.232339432578799,52.75391676106619,61.51331748966088,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Gakenke,North,lfs_labour_underutilisation,Labour underutilisation rate (%),64.5308,3.217030593167134,58.219216145717255,70.8424130083677,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1323,7 +1323,7 @@ Musanze,North,finscope_banked,Banked adults (%),24.0,,,,% of adults 16+,2024,NIS
 Musanze,North,finscope_excluded,Financially excluded adults (%),1.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Musanze,North,finscope_formally_included,Formally included adults (banked + other formal) (%),95.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Musanze,North,finscope_informal_only,Informal only (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Musanze,North,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Musanze,North,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Musanze,North,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",71.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Musanze,North,lfs_employment_ratio,Employment-to-population ratio (%),60.6241,1.3989248647011934,57.87952464319234,63.36871831162891,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Musanze,North,lfs_labour_underutilisation,Labour underutilisation rate (%),52.7032,1.9824194684283554,48.81383653573411,56.59258482226677,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1387,7 +1387,7 @@ Burera,North,finscope_banked,Banked adults (%),11.0,,,,% of adults 16+,2024,NISR
 Burera,North,finscope_excluded,Financially excluded adults (%),1.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Burera,North,finscope_formally_included,Formally included adults (banked + other formal) (%),98.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Burera,North,finscope_informal_only,Informal only (%),2.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Burera,North,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),2.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Burera,North,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),2.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Burera,North,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",87.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Burera,North,lfs_employment_ratio,Employment-to-population ratio (%),54.1575,1.8537167837327395,50.520592245365876,57.79432844742689,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Burera,North,lfs_labour_underutilisation,Labour underutilisation rate (%),65.3514,1.6448560164876305,62.12434689376783,68.57854143917844,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1451,7 +1451,7 @@ Gicumbi,North,finscope_banked,Banked adults (%),8.0,,,,% of adults 16+,2024,NISR
 Gicumbi,North,finscope_excluded,Financially excluded adults (%),7.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Gicumbi,North,finscope_formally_included,Formally included adults (banked + other formal) (%),83.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Gicumbi,North,finscope_informal_only,Informal only (%),11.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Gicumbi,North,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),17.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Gicumbi,North,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),17.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Gicumbi,North,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",75.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Gicumbi,North,lfs_employment_ratio,Employment-to-population ratio (%),48.495,1.9912759921388834,44.58828714665772,52.401787245173196,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Gicumbi,North,lfs_labour_underutilisation,Labour underutilisation rate (%),67.2982,2.0314514612911214,63.31266392136986,71.28380717604158,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1515,7 +1515,7 @@ Rwamagana,East,finscope_banked,Banked adults (%),27.0,,,,% of adults 16+,2024,NI
 Rwamagana,East,finscope_excluded,Financially excluded adults (%),2.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Rwamagana,East,finscope_formally_included,Formally included adults (banked + other formal) (%),95.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Rwamagana,East,finscope_informal_only,Informal only (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Rwamagana,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Rwamagana,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Rwamagana,East,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",68.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Rwamagana,East,lfs_employment_ratio,Employment-to-population ratio (%),56.5806,1.5776744066764097,53.48531011272593,59.6758930257206,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Rwamagana,East,lfs_labour_underutilisation,Labour underutilisation rate (%),49.5442,1.7810763940667624,46.04983584683675,53.038540895982756,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1579,7 +1579,7 @@ Nyagatare,East,finscope_banked,Banked adults (%),17.0,,,,% of adults 16+,2024,NI
 Nyagatare,East,finscope_excluded,Financially excluded adults (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyagatare,East,finscope_formally_included,Formally included adults (banked + other formal) (%),94.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Nyagatare,East,finscope_informal_only,Informal only (%),4.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Nyagatare,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Nyagatare,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Nyagatare,East,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",77.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Nyagatare,East,lfs_employment_ratio,Employment-to-population ratio (%),56.4004,2.0250318902474356,52.427389187829526,60.373342906153546,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Nyagatare,East,lfs_labour_underutilisation,Labour underutilisation rate (%),55.9042,2.221861708982697,51.54502790933212,60.2633154548856,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1643,7 +1643,7 @@ Gatsibo,East,finscope_banked,Banked adults (%),23.0,,,,% of adults 16+,2024,NISR
 Gatsibo,East,finscope_excluded,Financially excluded adults (%),1.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Gatsibo,East,finscope_formally_included,Formally included adults (banked + other formal) (%),96.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Gatsibo,East,finscope_informal_only,Informal only (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Gatsibo,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),4.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Gatsibo,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),4.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Gatsibo,East,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",73.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Gatsibo,East,lfs_employment_ratio,Employment-to-population ratio (%),58.3637,1.4409853684834204,55.5366053097821,61.190838757608084,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Gatsibo,East,lfs_labour_underutilisation,Labour underutilisation rate (%),52.0479,1.9666245025701579,48.189472243119354,55.906243200654785,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1707,7 +1707,7 @@ Kayonza,East,finscope_banked,Banked adults (%),11.0,,,,% of adults 16+,2024,NISR
 Kayonza,East,finscope_excluded,Financially excluded adults (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Kayonza,East,finscope_formally_included,Formally included adults (banked + other formal) (%),87.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Kayonza,East,finscope_informal_only,Informal only (%),8.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Kayonza,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Kayonza,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),13.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Kayonza,East,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",76.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Kayonza,East,lfs_employment_ratio,Employment-to-population ratio (%),58.1734,1.9440806984992232,54.359220374527744,61.987532466479216,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Kayonza,East,lfs_labour_underutilisation,Labour underutilisation rate (%),53.7184,2.5669260936900917,48.68221919121332,58.75449313270049,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1771,7 +1771,7 @@ Kirehe,East,finscope_banked,Banked adults (%),7.0,,,,% of adults 16+,2024,NISR/A
 Kirehe,East,finscope_excluded,Financially excluded adults (%),3.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Kirehe,East,finscope_formally_included,Formally included adults (banked + other formal) (%),93.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Kirehe,East,finscope_informal_only,Informal only (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Kirehe,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),7.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Kirehe,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),7.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Kirehe,East,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",86.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Kirehe,East,lfs_employment_ratio,Employment-to-population ratio (%),51.8722,2.2127687004295824,47.530876083381074,56.21348388212594,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Kirehe,East,lfs_labour_underutilisation,Labour underutilisation rate (%),67.06,2.2619749213212748,62.62211947449264,71.49780588880995,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1835,7 +1835,7 @@ Ngoma,East,finscope_banked,Banked adults (%),9.0,,,,% of adults 16+,2024,NISR/AF
 Ngoma,East,finscope_excluded,Financially excluded adults (%),8.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Ngoma,East,finscope_formally_included,Formally included adults (banked + other formal) (%),86.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Ngoma,East,finscope_informal_only,Informal only (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Ngoma,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),14.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Ngoma,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),14.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Ngoma,East,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",77.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Ngoma,East,lfs_employment_ratio,Employment-to-population ratio (%),53.5226,1.966080293493961,49.66525815121567,57.37989370527751,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Ngoma,East,lfs_labour_underutilisation,Labour underutilisation rate (%),61.8648,1.9486328936607558,58.04174453838622,65.68791883401188,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed
@@ -1899,7 +1899,7 @@ Bugesera,East,finscope_banked,Banked adults (%),23.0,,,,% of adults 16+,2024,NIS
 Bugesera,East,finscope_excluded,Financially excluded adults (%),2.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Bugesera,East,finscope_formally_included,Formally included adults (banked + other formal) (%),94.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),calculated
 Bugesera,East,finscope_informal_only,Informal only (%),5.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
-Bugesera,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 - banked - other formal,calculated
+Bugesera,East,finscope_not_formally_included,Adults not formally included: informal only or excluded (%),6.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand); 100 minus banked minus other formal,calculated
 Bugesera,East,finscope_other_formal_only,"Formal non-bank only, e.g. mobile money / SACCO (%)",71.0,,,,% of adults 16+,2024,NISR/AFR FinScope 2024 report,Figure 13 (district access strand),observed
 Bugesera,East,lfs_employment_ratio,Employment-to-population ratio (%),58.3924,1.661856682904016,55.131972958153895,61.652875839949644,%,2025,NISR LFS 2025 annual (standard errors annex),Annex EPR,observed
 Bugesera,East,lfs_labour_underutilisation,Labour underutilisation rate (%),46.6615,1.62886282312875,43.46576455417396,49.85720395244347,%,2025,NISR LFS 2025 annual (standard errors annex),Annex LUUR,observed

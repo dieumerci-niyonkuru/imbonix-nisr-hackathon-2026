@@ -8,7 +8,7 @@ import { textOn } from "@/lib/scales";
 
 export const STRAND_SERIES = [
   { key: "banked", label: "Banked", color: RAMPS.blue[3] },
-  { key: "otherFormal", label: "Formal non-bank only", color: RAMPS.blue[0] },
+  { key: "otherFormal", label: "Formal nonbank only", color: RAMPS.blue[0] },
   { key: "informalOnly", label: "Informal only", color: RAMPS.gold[0] },
   { key: "excluded", label: "Excluded", color: RAMPS.gold[3] },
 ] as const;
@@ -20,7 +20,7 @@ export function AccessStrandChart() {
       <div
         className="h-44"
         role="img"
-        aria-label="FinScope access strand, 2020 and 2024: banked 22% both years; formal non-bank only 55% then 70%; informal only 16% then 4%; excluded 7% then 4%."
+        aria-label="FinScope access strand, 2020 and 2024: banked 22% both years; formal nonbank only 55% then 70%; informal only 16% then 4%; excluded 7% then 4%."
       >
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={ACCESS_STRAND} layout="vertical" margin={{ top: 4, right: 12, bottom: 4, left: 0 }} barCategoryGap={18}>

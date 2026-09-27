@@ -26,8 +26,8 @@ const MICRODATA = [
   {
     priority: 1,
     id: 119,
-    name: "EICV7 2023/24 cross-section",
-    unlocks: "Household poverty, savings, credit and VUP delays, district-representative",
+    name: "EICV7 2023/24 cross section",
+    unlocks: "Household poverty, savings, credit and VUP delays, representative for each district",
   },
   {
     priority: 1,
@@ -39,15 +39,15 @@ const MICRODATA = [
     priority: 2,
     id: 109,
     name: "Census 2022 public sample (10%)",
-    unlocks: "Sector-level digital readiness, insurance and disability; covariates for sector estimates",
+    unlocks: "Digital readiness, insurance and disability by sector; covariates for sector estimates",
   },
   {
     priority: 2,
     id: 89,
     name: "FinScope 2020",
-    unlocks: "A like-for-like 2020 → 2024 district trend (the published 2020 district figure is not comparable)",
+    unlocks: "A comparable 2020 to 2024 district trend (the published 2020 district figure is not comparable)",
   },
-  { priority: 2, id: 126, name: "DHS 2025", unlocks: "Women's and men's account and mobile-money use by district and wealth" },
+  { priority: 2, id: 126, name: "DHS 2025", unlocks: "Women's and men's account and mobile money use by district and wealth" },
   { priority: 2, id: 122, name: "CFSVA 2024", unlocks: "Shocks, coping and VUP coverage by district" },
 ];
 
@@ -91,7 +91,7 @@ const PUBLISHED = [
     url: "https://statistics.gov.rw/sites/default/files/documents/2026-01/Rwanda_Statistical_Yearbook_2025.xlsx",
   },
   {
-    name: "NISR subnational population projections 2023–2032",
+    name: "NISR subnational population projections 2023 to 2032",
     url: "https://statistics.gov.rw/district-statistics/southern-province",
   },
   {
@@ -111,11 +111,11 @@ const CAVEATS = [
   },
   {
     title: "Sector poverty rates are model estimates",
-    body: "NISR's sector poverty rates come from small-area estimation. They are not adjusted to the district survey figures (the gap is up to 14 points), so use them to compare sectors within a district.",
+    body: "NISR's sector poverty rates come from small area estimation. They are not adjusted to the district survey figures (the gap is up to 14 points), so use them to compare sectors within a district.",
   },
   {
     title: "FinScope 2020 and 2024 'banked' are not the same",
-    body: "The 2020 district figure counts over-the-counter users without their own account (36% nationally); 2024 counts own accounts only (22%). Side by side they would show a false collapse, so IMBONIX never plots one against the other.",
+    body: "The 2020 district figure counts over the counter users without their own account (36% nationally); 2024 counts own accounts only (22%). Side by side they would show a false collapse, so IMBONIX never plots one against the other.",
   },
   {
     title: "Some values were read from report charts",
@@ -123,7 +123,7 @@ const CAVEATS = [
   },
   {
     title: "Surveys define inclusion differently",
-    body: "FinScope (adults 16+) counts any formal or informal product; DHS (ages 15–49) asks about personal, active use in the past year. Each is labelled with its own definition.",
+    body: "FinScope (adults 16+) counts any formal or informal product; DHS (ages 15 to 49) asks about personal, active use in the past year. Each is labelled with its own definition.",
   },
   {
     title: "Nothing here is causal or an eligibility tool",
@@ -207,9 +207,11 @@ export default function DataPage() {
                       href={`https://microdata.statistics.gov.rw/index.php/catalog/${m.id}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="link tabular"
+                      className="link tabular inline-flex items-center gap-1"
                     >
-                      {m.id} ↗
+                      {m.id}
+                      <ArrowTopRightOnSquareIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                      <span className="sr-only">(opens in a new tab)</span>
                     </a>
                   </td>
                   <td className="px-4 py-3 text-muted">{m.unlocks}</td>

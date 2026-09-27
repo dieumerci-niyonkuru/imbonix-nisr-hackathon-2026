@@ -16,7 +16,7 @@ export const MODEL_QUESTION =
 export const MODEL_TARGET = {
   label: "Financially vulnerable or extremely vulnerable (FinScope 2024 financial health)",
   detail:
-    "Rebuilt from the questionnaire following report section 5.2: four equally weighted sub-indices (day-to-day management, opportunities, resilience, control), scored 0-100 and cut at 25, 50 and 75. The rebuilt national shares must match the published 10% / 57% / 31% / 3% before modelling.",
+    "Rebuilt from the questionnaire following report section 5.2: four equally weighted subindices (day to day management, opportunities, resilience, control), scored 0 to 100 and cut at 25, 50 and 75. The rebuilt national shares must match the published 10% / 57% / 31% / 3% before modelling.",
 };
 
 export type Feature = { group: string; variables: string; description: string };
@@ -44,11 +44,11 @@ export const METHOD_STEPS = [
   },
   {
     title: "Baseline, then a stronger model",
-    body: "A weighted logistic regression as an interpretable baseline, then gradient-boosted trees. Both use survey weights in training and evaluation.",
+    body: "A weighted logistic regression as an interpretable baseline, then gradient boosted trees. Both use survey weights in training and evaluation.",
   },
   {
     title: "Honest evaluation",
-    body: "Cross-validation grouped by survey cluster to avoid leakage, with discrimination (AUC) and calibration reported on held-out data.",
+    body: "Cross validation grouped by survey cluster to avoid leakage, with discrimination (AUC) and calibration reported on data held out from training.",
   },
   {
     title: "Explanations",
@@ -62,7 +62,7 @@ export const METHOD_STEPS = [
 
 export const WILL_NOT = [
   "Score or label individual households; IMBONIX is not a targeting or eligibility tool.",
-  "Claim that any factor causes vulnerability; the survey is a single cross-section.",
+  "Claim that any factor causes vulnerability; the survey is a single cross section.",
   "Publish results for groups too small to estimate reliably (fewer than 30 respondents or a coefficient of variation above 30%).",
   "Show any model output until it has been trained on the real microdata and checked against published figures.",
 ];

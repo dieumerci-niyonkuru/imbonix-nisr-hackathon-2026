@@ -2,13 +2,14 @@
 
 import { useMemo, useRef, useState, type MouseEvent } from "react";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { DIMENSIONS } from "@/lib/indicators";
 import { SECTOR_MEASURES, type SectorMeasure, type SectorRow } from "@/lib/sectors";
 import { INK, NO_DATA, WHITE } from "@/lib/palette";
 
 const RAMP = DIMENSIONS.poverty.ramp;
-const pct = (v: number | null | undefined) => (v === null || v === undefined ? "–" : `${v.toFixed(1)}%`);
+const pct = (v: number | null | undefined) => (v === null || v === undefined ? "n/a" : `${v.toFixed(1)}%`);
 type SortKey = "sector" | "population" | SectorMeasure;
 
 /** Sector map and table for one district. Colours compare sectors within the district only. */
@@ -55,14 +56,23 @@ export function SectorExplorer({ district, sectors }: { district: string; sector
     if (box) setHover({ sector, x: event.clientX - box.left, y: event.clientY - box.top });
   };
   const header = (key: SortKey, label: string, align = "text-right") => (
-    <th scope="col" className={`px-3 py-2.5 ${align}`}>
+    <th
+      scope="col"
+      aria-sort={sort.key === key ? (sort.desc ? "descending" : "ascending") : undefined}
+      className={`px-3 py-2.5 ${align}`}
+    >
       <button
         type="button"
         onClick={() => setSort((s) => ({ key, desc: s.key === key ? !s.desc : key !== "sector" }))}
         className="inline-flex items-center gap-1 font-semibold hover:text-ink"
       >
         {label}
-        {sort.key === key && <span aria-hidden="true">{sort.desc ? "↓" : "↑"}</span>}
+        {sort.key === key &&
+          (sort.desc ? (
+            <ChevronDownIcon className="h-3.5 w-3.5" aria-hidden="true" />
+          ) : (
+            <ChevronUpIcon className="h-3.5 w-3.5" aria-hidden="true" />
+          ))}
       </button>
     </th>
   );
@@ -146,7 +156,7 @@ export function SectorExplorer({ district, sectors }: { district: string; sector
             <div key={c.color} className="min-w-0 flex-1">
               <div className="h-2.5 rounded-full" style={{ background: c.color }} />
               <p className="tabular mt-1 truncate text-center text-[10.5px] font-semibold text-muted">
-                {c.from === c.to ? pct(c.from) : `${c.from.toFixed(1)}–${pct(c.to)}`}
+                {c.from === c.to ? pct(c.from) : `${c.from.toFixed(1)} to ${pct(c.to)}`}
               </p>
             </div>
           ))}
@@ -189,7 +199,7 @@ export function SectorExplorer({ district, sectors }: { district: string; sector
                   />
                   {s.sector}
                 </th>
-                <td className="tabular px-3 py-2 text-right text-muted">{s.population?.toLocaleString("en-US") ?? "–"}</td>
+                <td className="tabular px-3 py-2 text-right text-muted">{s.population?.toLocaleString("en-US") ?? "n/a"}</td>
                 <td className="tabular px-3 py-2 text-right font-semibold text-ink">{pct(s.povertySae)}</td>
                 <td className="tabular px-3 py-2 text-right text-ink/85">{pct(s.mpiHeadcount)}</td>
                 <td className="tabular px-3 py-2 text-right text-ink/85">{pct(s.severelyPoor)}</td>

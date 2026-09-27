@@ -18,6 +18,7 @@ How to set up IMBONIX on your machine, run it, test it and change it. For the br
 ```bash
 git clone git@github.com:dieumerci-niyonkuru/imbonix-nisr-hackathon-2026.git
 cd imbonix-nisr-hackathon-2026
+git switch develop   # main is the production branch; work starts from develop
 
 cd apps/web && npm ci && cd ../..
 cd apps/api && npm ci && cd ../..

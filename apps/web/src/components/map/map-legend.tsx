@@ -17,10 +17,10 @@ export function MapLegend({ indicator, scale, compact = false }: { indicator: In
           <div key={`${c.from}-${c.to}`} className="min-w-0 flex-1">
             <div className="h-2.5 rounded-full" style={{ background: c.color }} />
             {!compact && (
-              <p className="tabular mt-1.5 truncate text-center text-[10.5px] font-semibold text-muted">
+              <p className="tabular mt-1.5 text-center text-[10.5px] font-semibold leading-tight text-muted">
                 {c.from === c.to
                   ? formatValue(indicator, c.from)
-                  : `${formatValue(indicator, c.from)}–${formatValue(indicator, c.to)}`}
+                  : `${formatValue(indicator, c.from)} to ${formatValue(indicator, c.to)}`}
               </p>
             )}
           </div>
