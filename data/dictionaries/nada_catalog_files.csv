@@ -1,0 +1,528 @@
+study_id,file_id,file_name,description,cases,variables
+90,F1,S0_General Information,This data file is related to agricultural household questionnaire Section 0. It contains data on identification of respondent and main activity done by household,23709,25
+90,F2,S1_Household members characteristics,This data file is related to agricultural household questionnaire Section I. It contains data on household members characteristics,73665,27
+90,F3,S2_Land tenure crops planted,This data file is related to agricultural household questionnaire Section II. It contains data on land tenure and crops planted during agricultural year 2016-2017,16057,30
+90,F4,S3_Extension services and agricultural programmes,"This data file is related to agricultural household questionnaire Section III. It contains data on extension services (household benefited from any extension service, type of extension service provided, cropping extension services received and livestock extension services) and agricultural programmes in 2016-2017 agricultural year",64228,24
+90,F5,S4_Funding during 2016_2017,This data file is related to agricultural household questionnaire Section IV. It contains data on funding during 2016-2017 agricultural year,16057,19
+90,F6,S5_Agricultural Inputs,"This data file is related to agricultural household questionnaire Section V. It contains data on agricultural inputs during 2016-2017 agricultural year (use of organic and inorganic fertilizer, use of pesticide and use of seed )",16057,162
+90,F7,S6_Agricultural Practices,"This data file is related to agricultural household questionnaire Section VI. It contains data on agricultural practices (erosion control measures, irrigation and mechanization",16057,40
+90,F8,S7_1_Agricultural small tools,This data file is related to agricultural household questionnaire Section VII. 1. It contains data on agricultural small tools during 2016-2017 agricultural year,362203,13
+90,F9,S7_2_Agricultural durable tools,This data file is related to agricultural household questionnaire Section VII. 2. It contains data on agricultural,207049,13
+90,F10,"S8_A_Production Use, storage and Expenses",,35844,31
+90,F11,"S8_B_Production Use,Storage and Expenses",,34167,31
+90,F12,S9_Number of animals,,32611,38
+90,F13,S10_1_Cattle milk production,,3237,16
+90,F14,S10_2_Cattle milk production use,,3989,15
+90,F15,S10_3_Honey production,,16067,12
+90,F16,S11_Animal inputs and services,,26500,20
+101,F2,Rwa_AHS_2020_Section_0,,10666,16
+101,F3,Rwa_AHS_2020_Section_1,,48726,26
+101,F4,Rwa_AHS_2020_Section_2.1,,32888,44
+101,F5,Rwa_AHS_2020_Section_2.2,,10666,82
+101,F6,Rwa_AHS_2020_Section_2.3,,20046,22
+101,F7,Rwa_AHS_2020_Section_3.1,,25329,23
+101,F8,Rwa_AHS_2020_Section_3.2,,10666,49
+101,F9,Rwa_AHS_2020_Section_4,,10666,59
+101,F10,Rwa_AHS_2020_Section_5,,23250,31
+101,F11,Rwa_AHS_2020_Section_6,,23250,41
+101,F12,Rwa_AHS_2020_Section_7.1,,44148,25
+101,F13,Rwa_AHS_2020_Section_7.2,,39776,31
+101,F14,Rwa_AHS_2020_Section_7.3,,13011,33
+101,F15,Rwa_AHS_2020_Section_8,,23250,31
+101,F16,Rwa_AHS_2020_Section_9,,23250,30
+123,F1,AHS2024_Credits,,5224,12
+123,F2,AHS2024_Saving,,10342,14
+123,F3,AHS2024_Section0,,3724,9
+123,F4,AHS2024_Section1_HOUSEHOLD MEMBERS CHARACTERISTICS,,16292,142
+123,F5,AHS2024_Section2_LAND TENURE,,23266,20
+123,F6,"AHS2024_Section3_4_CROP GROWN, SEEDS AND PRODUCTION & AGRICULTURAL INPUTS AND PRACTICES",,32616,331
+123,F7,AHS2024_Section5_FRUITS PRODUCTION,,9193,16
+123,F8,AHS2024_Section6_EXTENSION SERVICES AND AGRICULTURAL PROGRAMMES,,9286,30
+123,F9,AHS2024_Section7_AGRICULTURAL TOOLS,,9981,20
+123,F10,AHS2024_Section8_SUSTAINABLE AGRICULTURE,,3724,11
+123,F11,"AHS2024_Section9_10_12_LIVESTOCK AND ANIMAL INPUTS EXPENDITURES,",,9947,54
+123,F12,AHS2024_Section11_1_CATTLE MILK PRODUCTION AND USE,,12209,40
+123,F13,AHS2024_Section11_2_EGG PRODUCTION,,19077,17
+123,F14,AHS2024_Section11_3_HONEY PRODUCTION,,9387,16
+26,F1,June_10_Section1_11,The file contains the data related to: -Demographics; -Housing and Facilities; -Household Assets and Productive Assets; -Inputs to Livelihood; -Migration & Remittances; -Sources of Credit; -Expenditure; -Food Sources and Consumption; -Shocks and Food Security and -Programme Participation.,2783,1569
+26,F2,June10_Section12,The file contains the data related to the household interview (Maternal Health and nutrition),3671,36
+26,F3,June10_Section13(MG),the fille contains data related to the Child Health and Nutrition,2059,47
+70,F1,cfsva-2015-child-DB- annex,,4058,183
+70,F2,cfsva-2015-master-DB- annex,,7500,281
+70,F3,cfsva-2015-mother-DB- annex,,6768,66
+91,F2,1_CFSVA18_DB_HouseholdQues_Full_Annex_201904_NISR,,9709,343
+91,F3,2_CFSVA18_DB_ChildAndMother_Full_Annex_201904_NISR,,6736,219
+91,F4,3_CFSVA18_DB_VillageQues_Full_Annex_201904_NISR,,987,163
+106,F5,CFSVA_2021_VILLAGE,,900,164
+106,F6,CFSVA_HH_2021_MASTER_DATASET,,9000,1080
+106,F7,CFSVAHH2021_UNDER_5_ChildWithMother,,1690,134
+122,F1,CFSVA2024_HH,,9000,1068
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,,4715,107
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,,6891,69
+8,F3,PAM_COMMUNITY,,427,22
+8,F4,S1_13 Question,,5406,10
+8,F5,S1_15 Question,,5457,11
+8,F6,S1_21Question,"Data related to the Demographics ( Age, Sex and Status of the orphans).",5894,10
+8,F7,S3_17 Question,the file contains data related to the Household Assets and Productive Assets.,42309,10
+8,F8,S4,Data related to Inputs to Livelihood,21600,26
+8,F9,S7,Data related to the Agriculture Production of the Houshold,43200,15
+8,F10,S8,The file contains the data related to the Expenditure of the Household.,118800,12
+8,F11,S8_823_32Question,The file contains the data related to the Expenditure of the Household.,54000,25
+8,F12,S9 Question,The file contains the data related to the Food Sources and Food Consumptions in the Household.,118800,19
+8,F13,S10B,Data related to the Households' Shocks and Food Security.,5948,25
+8,F14,Section 12 Female_15_49,This file contains data related to the Maternal Health and nutrition (Female 15-49 years).,6252,28
+8,F15,Section 13 enfants,This file contains data related to the Child Health and Nutrition (59 months in the Household),7819,43
+8,F21,All_Section_without_tables,"Data related to the Household's questionaire such that: Household's Demographics, Housing and Facilities, Household Assets and Productive Assets, Migration & Remittances, Sources of Credit, Food Sources and Consumption, External Assistance / Programme participation, - External Assistance / Programme participation, and Child Health and Nutrition.",5400,242
+69,F1,cfsvans-2012- children-v01,The file contains data related to Section Two of Mother and Child Nutrition Questionnaire.,0,763
+69,F2,cfsvans-2012- community-v01,,0,249
+69,F3,cfsvans-2012- CSAFile-v01,,0,5
+69,F4,cfsvans-2012- household-v01,The file contains data related to Household Questionnaire.,0,1019
+69,F5,cfsvans-2012- mother-v01,The file contains data related to Section One of Mother and Child Nutrition Questionnaire.,0,620
+69,F6,cfsvans-2012-children-mothers-household,,0,631
+11,F3,HH,"This dataset has one record for each household it includes household member`s roster but no information from individual women / men questionnaires is present in this file. the unit of analysis(case)in this file is the household it includes variable like sex , age , education, orphan hood , height and weight measurament , hemoglobin, etc. It also includes the characteristics of the households where the individual lives. The unit of analysis ( CASE) in this file is the household.",10206,73
+11,F6,Person,"This dataset has one record for each person and their age .the hightest level of education , Mother's line number if interviewed and defacto",45247,101
+11,F7,Woman,"it contains all the data collected in the woman questionnaire plus some variable from the household .Up to 20 birth in the birth history ,and up to 6 children under age 5",10622,736
+11,F4,Male,,2155,581
+11,F2,Child,,27602,404
+11,F1,Calendar,,10421,4
+11,F5,MatMort,,65252,18
+68,F1,RWBR70FL,,0,1078
+68,F2,RWCR70FL,,0,2507
+68,F3,RWHR70FL,,0,2684
+68,F4,RWIR70FL,,0,4572
+68,F5,RWKR70FL,,0,1078
+68,F6,RWMR70FL,,0,702
+68,F7,RWPR70FL,,0,385
+14,F8,HH,This file contains the data related to The household questionnaire,10644,82
+14,F10,Person,Data related to Individual questionnaire,47851,110
+14,F11,Woman,This file contains data related to the questions asked to Women age 15-49 years old.,11539,843
+14,F12,Calendar,,11321,4
+14,F13,MatMort,,72393,18
+14,F14,Mens,,3790,627
+14,F15,Child,,30072,439
+4,F7,HH,Data related to the Household questions that means information collected on: • Dwelling characteristics • Utilization of health services and health expenditures for recent illness and injury • Possession of iodized salt • Possession and utilization of mosquito nets • Height and weight of women and children • Hemoglobin measurement of women and children • Blood collection from women and children for rapid test and laboratory testing of malaria • Blood collection from women and men for laboratory testing for HIV,12792,154
+4,F8,Person,,14071,299
+4,F10,Woman,,13790,871
+4,F11,Calendar,,27342,4
+4,F12,MatMort,,83616,18
+4,F13,Mens,,4882,324
+4,F14,Child,This file contains data related to the Child questionnaire,32639,409
+25,F1,Children,Variables relatives aux enfants de moins de 5 ans.,3154,256
+25,F3,Household-listing,"Variables relatives au ménage (logement, travail des enfants, eau et Assainissement, Sel iodé)",20400,83
+25,F4,Women,Variables relatives aux femmes en age de procréer( femmes 15-49 ans qui ont eu un enfant dans les 12 derniers mois).,748,124
+25,F5,Household,"Variables relatives au ménage (logement,travail des enfants,eau et Assainissement,Sel iodé)",4205,75
+6,F9,HH,"House Hold data file contains information of members within the house hold and other important caracteristics such as physical accomodations,economics and environmental conditions in which live woman interviewed. The principal objective of this data file is to identify eligible women and eventuelly their husbands.",6509,54
+6,F12,Person,Person data are captured from House hold questionnaire therefore contains information on both female and male information,31881,23
+6,F14,Woman,"Le questionnaire individuel femme a été utilisé pour enregistrer les informations concernant les femmes éligibles, c'est-à-dire les femmes de 15-49 ans, ayant passé la nuit précédant l'entretien dans le ménage sélectionné, quel que soit leur statut de résidence. Ce questionnaire comprend huit sections qui portent sur les thèmes suivants : caractéristiques socio-démographiques reproduction connaissance et utilisation de la contraception grossesse et allaitement, vaccination et santé des enfants nuptialité préférences en matière de fécondité caractéristiques du conjoint et activité économique de la femme mesures anthropométriques des enfants de moins de cinq ans.",6947,405
+6,F11,Man,Les données nommées Man contient les séctions ci-déssous: • caractéristiques socio-démographiques • connaissance et utilisation de la contraception • préférences en matière de fécondité.,715,73
+6,F13,Child,Ce fichier contient les données en rapport avec le questionnaire,19440,250
+40,F1,Rwanda2006_manufacturing_clean,"The file contains the raw, clean database. Summary of indicators for Rwanda 2006 Enterprise Survey can be found in ""Rwanda Country Profile 2006"" (p. 13-14) in ""Reports"" folder.",59,318
+40,F3,Rwanda2006_retail_and_it_clean,"The file contains the raw, clean database. Text of questions, in French, can be found in ""Core Questionnaire + Retail Module"" in ""Questionnaires"" folder. Summary of indicators for Rwanda 2006 Enterprise Survey can be found in ""Rwanda Country Profile 2006"" (p. 13-14) in ""Reports"" folder.",56,263
+40,F4,Rwanda2006_residual_clean,"The file contains the raw, clean database. Text of questions, in French, can be found in ""Core Questionnaire"" in ""Questionnaires"" folder. Summary of indicators for Rwanda 2006 Enterprise Survey can be found in ""Rwanda Country Profile 2006"" (p. 13-14) in ""Reports"" folder.",97,226
+41,F1,Rwanda-2011-full data-,"The file contains the cleaned, raw database.",241,249
+120,F1,Microdata,,13994,2500
+9,F4,PUMS Household,"The file contains data related to household. It contains information on: Type of Housing Type of building Material used for the roofing of the house Material used for the building of the outer walls of this house Main material has been used for the floor of this house Number of living rooms Main source of water supply for the household Principal source of lighting for the household Main kind of energy used for cooking in the household Main type of toilet facility used by the household Main mode of household waste disposal used Status of occupancy of this house Radio or a television set in thehousehold Fixed line telephone or cell phone in the household Computer and internet connection in the household Number of vehicles, motorcycles and bicycles in the household",87875,67
+9,F5,PUMS Individual,The file contains data related to individual. It contains information on: Relationship to the head of household Status of Residence Sex Marital status Date Of Birth Place of Birth Duration of residence Place of previous residence Languages spoken Religious affiliation Type of major handicap School attendance Educational level attained Area of specialization Highest certificate or Diploma obtained Literacy Economic activity situation Births Deaths,399017,77
+79,F1,RWA-NISR-RHADPA-data-file,,0,8
+75,F1,cs_s0_s5_household,,14419,76
+75,F2,cs_s1_s2_s3_s4_s6a_s6e_s6f_person,"This file contains data merged on the person level, corresponding to Section 1 (household roster), Section 2 (Migration), Section 3 (Health), Section 4 (Education), and Section 6 employment Part A (usual activity) Part E (Underemployment and unemployment) and Part F (unpaid work).",66081,127
+75,F3,cs_s5e_access to services,This file corresponds to section 5 Housing E: access and satisfaction towards basic services,216285,24
+75,F4,cs_s6b_employement_6c_salaried_s6d_business,"This file corresponds to part B, C, D of section 6 (Employment) of the questionnaire",59616,71
+75,F5,cs_s7a1_livestock,This file corresponds to Section 7 Agriculture Part A1 Livestock,80877,33
+75,F6,cs_s7a2_livestock,"Section 7 PART A2: LIVESTOCK (Continued) one cow per poor family policy, animals and pasture",14419,26
+75,F7,cs_s7a3_livestock,Section 7 PART A3: LIVESTOCK (Continued) Sale of livestock products,80877,24
+75,F8,cs_s7a4_livestock,Section 7 PART A4: Livestock (Continued) Expenditure on livestock during the last 12 months,109359,23
+75,F9,cs_s7b1_land_agriculture,Section 7 PART B1: Land and Agricultural Equipment,14419,28
+75,F10,cs_s7b2_land_agriculture,Section 7 PART B2: Land and Agricultural Equipment,242644,26
+75,F11,cs_s7c_parcels,Section 7 PART C: DETAILS OF HOLDING PARCELS/BLOCS,53535,36
+75,F12,cs_s7d_large_crop,Section 7 PART D: Crop harvests and Use on a large scale,44453,27
+75,F13,cs_s7e_small_crop,Section 7 PART E: Small Scale crops - Harvests and use.,145711,30
+75,F14,cs_s7f_income_agriculture,Section 7 PART F: OTHER INCOME FROM AGRICULTURE,173028,21
+75,F15,cs_s7g_expenditure_agriculture,Section 7 PART G: The cost and expenditure on agricultural activities.,230704,20
+75,F16,cs_s7h_transformation_agriculture,Section 7 PART H: Transformation (processing) of agricultural products.,53549,27
+75,F17,cs_s8a1_expenditure,Section 8 Part A Expenditure on non food items: I) - EXPENDITURE DURING THE LAST 12 MONTHS,994911,23
+75,F18,cs_s8a2_expenditure,Section 8 Part A Expenditure on non food items II) - EXPENDITURE DURING THE LAST 4 WEEKS,793045,23
+75,F19,cs_s8a3_expenditure,Section 8 Part A Expenditure on non food items III) - FREQUENTLY MADE EXPENDITURE,533503,32
+75,F20,cs_s8b_expenditure,Section 8 Part B: Food expenditure,2119593,32
+75,F21,cs_s8c_farming,Section 8 Part C: Subsistence farming,1347319,33
+75,F22,cs_s9a_transfers_out,Section 9 Part A: Transfers made by household (OUT),84413,28
+75,F23,cs_s9b_transfers_in,Section 9 Part B: Transfers made by household (IN),80723,28
+75,F24,cs_s9c_vup,,14419,43
+75,F25,cs_s9c1_vup,,239,26
+75,F26,cs_s9d_other_income,,288380,21
+75,F27,cs_s9e_other_expenditure,,187447,19
+75,F28,cs_s10a1_credits,This file contains HH Identification variables and screening variables in Section 10 Part A (credit),14419,19
+75,F29,cs_s10a2_credits,This file corresponds to Section 10 Part A (Credit),20974,25
+75,F30,cs_s10b_goods,This file corresponds to Section 10 Part B (Durable Household Goods),389313,28
+75,F31,cs_s10c_savings,This file corresponds to Section 10 Part C (Deposit and savings),24413,25
+75,F32,current_main_activity6,,55079,23
+75,F37,EICV4_poverty_file,This is EICV4 poverty data file.,14419,42
+75,F38,EICV3_Povertyfile_Jan2014,This is EICV3 poverty data file.,14308,41
+73,F1,vup_partb_filter_questions_hh,,2460,30
+73,F2,vup_s0_s5_household.dta,,2460,72
+73,F3,vup_s1_s2_s3_s4_s6a_s6e_s6f_person,,10606,125
+73,F4,vup_s5e_access to services,,36900,26
+73,F5,vup_s7a1_livestock.dta,,14479,29
+73,F6,vup_s7a2_livestock,,2460,22
+73,F7,vup_s7a3_livestock,,14479,20
+73,F8,vup_s7a4_livestock.dta,,19630,19
+73,F9,vup_s7b1_land_agriculture,,2460,24
+73,F10,vup_s7b2_land_agriculture,,43090,22
+73,F11,vup_s7c_parcels.dta,,8157,32
+73,F12,vup_s7d_large_crop,,7606,23
+73,F13,vup_s7e_small_crop.dta,,25271,26
+73,F14,vup_s7f_income_agriculture.dta,,29520,17
+73,F15,vup_s7g_expenditure_agriculture.dta,,39360,16
+73,F16,vup_s7h_transformation_agriculture,,9021,23
+73,F17,vup_s8a1_expenditure,,169740,19
+73,F18,vup_s8a2_expenditure.dta,,135300,19
+73,F19,vup_s8a3_expenditure.dta,,91020,28
+73,F20,vup_s8b_expenditure.dta,,361620,28
+73,F21,vup_s8c_farming.dta,,242560,29
+73,F22,vup_s9a_transfers_out.dta,,13140,24
+73,F23,vup_s9b_transfers_in.dta,,14652,24
+73,F24,vup_s9c_vup,,2460,39
+73,F25,vup_s9c1_vup,,572,22
+73,F26,vup_s10a1_credits.dta,,2460,15
+73,F27,vup_s10a2_credits.dta,,3907,21
+73,F28,vup_s10b_goods,,66420,24
+73,F29,vup_s10c_savings.dta,,4759,21
+82,F1,cs_S0_S5_Household,,0,99
+82,F2,cs_S1_S2_S3_S4_S6A_S6E_Person,,0,115
+82,F3,cs_S5F_Access_to_services,,0,19
+82,F4,cs_S6B_Employement_6C_Salaried_S6D_Business,,0,52
+82,F5,cs_S7A1_livestock,,0,24
+82,F6,cs_S7A2_livestock,,0,19
+82,F7,cs_S7A3_livestock,,0,17
+82,F8,cs_S7A4_livestock,,0,15
+82,F9,cs_S7B1_land_Agriculture,,0,21
+82,F10,cs_S7B2_land_Agriculture,,0,18
+82,F11,cs_S7C_parcels,,0,29
+82,F12,cs_S7D_large_crop,,0,15
+82,F13,cs_S7E_small_crop,,0,21
+82,F14,cs_S7F_income_agriculture,,0,13
+82,F15,cs_S7G_expenditure_agriculture,,0,12
+82,F16,cs_S7H_transformation_agriculture,,0,23
+82,F17,cs_S8A1_expenditure,,0,14
+82,F18,cs_S8A2_expenditure,,0,14
+82,F19,cs_S8A3_expenditure,,0,24
+82,F20,cs_S8B_expenditure,,0,24
+82,F21,cs_S8C_farming,,0,25
+82,F22,cs_S9A_transfers_out,,0,22
+82,F23,cs_S9B_transfers_in,,0,22
+82,F24,cs_S9C_Vup_ubudehe_and_Rssp_schemes,,0,49
+82,F25,cs_S9C3_Vup_ubudehe_and_Rssp_schemes,,0,52
+82,F26,cs_S9C4_Vup_ubudehe_and_Rssp_schemes,,0,42
+82,F27,cs_S9D_other_income,,0,13
+82,F28,cs_S9E_Other_expenditure,,0,11
+82,F29,cs_S10A1_Credits,,0,12
+82,F30,cs_S10A2_Listing_of_credits,,0,19
+82,F31,cs_S10B1_Durable_household_goods,,0,13
+82,F32,cs_S10B2_Durable_household_goods,,0,22
+82,F33,cs_S10C1_Savings,,0,16
+82,F34,cs_S10C2_Tontine,,0,13
+82,F35,EICV5_Poverty_file,,0,37
+85,F1,VUP_Panel_for_merge,,5171,32
+85,F2,vup_S0_S5_Household,,1644,96
+85,F3,vup_S1_S2_S3_S4_S6A_S6E_Person,,6596,115
+85,F4,vup_S5F_Access_to_services,,24660,20
+85,F5,vup_S6B_Employement_6C_Salaried_S6D_Business,,9180,52
+85,F6,vup_S7A1_livestock,,11867,24
+85,F7,vup_S7A2_livestock,,1136,19
+85,F8,vup_S7A3_livestock,,10224,17
+85,F9,vup_S7A4_livestock,,12495,15
+85,F10,vup_S7B1_land_Agriculture,,1644,21
+85,F11,vup_S7B2_land_Agriculture,,27198,18
+85,F12,vup_S7C_parcels,,4629,31
+85,F13,vup_S7D_large_crop,,4613,17
+85,F14,vup_S7E_small_crop,,14136,22
+85,F15,vup_S7F_income_agriculture,,19728,13
+85,F16,vup_S7G_expenditure_agriculture,,26288,12
+85,F17,vup_S7H_transformation_agriculture,,5300,24
+85,F18,vup_S8A1_expenditure,,113436,15
+85,F19,vup_S8A2_expenditure,,90366,15
+85,F20,vup_S8A3_expenditure,,60828,25
+85,F21,vup_S8B_expenditure,,246600,25
+85,F22,vup_S8C_farming,,166044,26
+85,F23,vup_S9A_transfers_out,,8592,23
+85,F24,vup_S9B_transfers_in,,10844,23
+85,F25,vup_S9C_Vup_ubudehe_and_Rssp_schemes,,1642,50
+85,F26,vup_S9C3_Vup_ubudehe_and_Rssp_schemes,,128,53
+85,F27,vup_S9C4_Vup_ubudehe_and_Rssp_schemes,,154,42
+85,F28,vup_S9D_other_income,,34463,13
+85,F29,vup_S9E_Other_expenditure,,21333,11
+85,F30,vup_S10A1_Credits,,1643,12
+85,F31,vup_S10A2_Listing_of_credits,,1968,18
+85,F32,vup_S10B1_Durable_household_goods,,6576,13
+85,F33,vup_S10B2_Durable_household_goods,,41100,23
+85,F34,vup_S10C1_Savings,,6099,16
+85,F35,vup_S10C2_Tontine,,4577,14
+119,F1,CS_EICV7_poverty_file,,15054,32
+119,F2,CS_S0_S1_S2_S3_S4_S6A_S6B_S6C_Person,,62110,157
+119,F3,CS_S01_S5_S7_Household,,15054,112
+119,F4,CS_S5F_access_to_services,,225810,22
+119,F5,CS_S8A1_Expenditure,,1159158,17
+119,F6,CS_S8A2_Expenditure,,978382,17
+119,F7,CS_S8A3_Expenditure,,346220,21
+119,F8,CS_S8B_Food_Expenditure_Consumption,,2227992,68
+119,F9,CS_S8C_Food_Away_from_home,,62110,72
+119,F10,CS_S9A_transfers_out,,68175,25
+119,F11,CS_S9B_transfers_in,,33353,22
+119,F12,CS_S9C_other_expenditure,,198588,13
+119,F13,CS_S9D1_Direct_Support,,15056,37
+119,F14,CS_S9D2_Classic_Public_Work,,15054,40
+119,F15,CS_S9D3_Expanded_Public_Work,,15055,41
+119,F16,CS_S9D4_NSDS,,15057,46
+119,F17,CS_S9D5_Financial_Services,,15054,23
+119,F18,CS_S9E_other_income,,397176,15
+119,F19,CS_S10A1_A2_credits,,20509,20
+119,F20,CS_S10B_durables,,406458,19
+119,F21,CS_S10C_Savings,,43810,19
+121,F1,vup_s0_s1_s2_s3_s4_s6a_s6b_s6c_person,,15039,157
+121,F2,vup_s01_s5_s7_household,,3771,112
+121,F3,vup_s5f_access_to_services,,56565,23
+121,F4,vup_s8a1_expenditure,,290367,17
+121,F5,vup_s8a2_expenditure,,245115,17
+121,F6,vup_s8a3_expenditure,,86623,21
+121,F7,vup_s8b_food_expenditure_consumption,,558108,64
+121,F8,vup_s8c_food_away_from_home,,15039,68
+121,F9,vup_s9a_transfers_out,,16256,25
+121,F10,vup_s9b_transfers_in,,9313,23
+121,F11,vup_s9c_other_expenditure,,49439,13
+121,F12,vup_s9d1_direct_support,,1003,37
+121,F13,vup_s9d2_classic_public_work,,925,40
+121,F14,vup_s9d3_expanded_public_work,,796,42
+121,F15,vup_s9d4_nsds,,675,41
+121,F16,vup_s9d5_financial_services,,592,23
+121,F17,vup_s9e_other_income,,98878,16
+121,F18,vup_s10a1_a2_credits,,5404,21
+121,F19,vup_s10b_durables,,101817,20
+121,F20,vup_s10c_savings,,10777,20
+74,F3,Panel_s1_s2_s3_s4_s6a_s6e_s6f_person_EICV3&4,This data file correspond to EICV3&4 panel.,8310,33
+43,F1,Rwanda-2006-Micro-full data-1,"The file contains the cleaned, raw database.",128,264
+42,F1,Rwandamicro-2011 data-,"The file contains the cleaned, raw database.",148,247
+98,F1,Microdata for the Rwanda Demographic and Health Survey 2019-20 Birth Records (RWBR81FL),,30820,1216
+98,F2,Microdata for the Rwanda Demographic and Health Survey 2019-20 Couples Records (RWCR81FL ),,3017,2776
+98,F3,RWFW81FL,,138,33
+98,F4,Microdata for the Rwanda Demographic and Health Survey 2019-20 Household Records (RWHR81FL),,12949,3485
+98,F5,Microdata for the Rwanda Demographic and Health Survey 2019-20 Individual Records(women) (RWIR81FL),,14634,5117
+98,F6,Microdata for the Rwanda Demographic and Health Survey 2019-20 Kids Records (RWKR81FL),,8092,1216
+98,F7,Microdata for the Rwanda Demographic and Health Survey 2019-20 Men Records (RWMR81FL),,6513,808
+98,F8,Microdata for the Rwanda Demographic and Health Survey 2019-20 Persons Records (RWPR81FL),,55920,581
+126,F1,RWAR91FL- HIV Test Results Recode,,13927,10
+126,F2,RWBR91FL- Birth History Recode,,28878,1295
+126,F3,RWCR91FL- Couples Recode,,3019,1910
+126,F4,RWGR91FL- Pregnancy History Recode,,31329,919
+126,F5,RWHR91FL- Household Recode,,14427,2452
+126,F6,RWIR91FL- Individual Women Recode,,14283,6070
+126,F7,RWKR91FL- Kids under 5 Recode,,7214,1295
+126,F8,RWMR91FL- Men Recode,,6548,778
+126,F9,RWNR91FL- Pregnancy and Postnatal Care (last 3 yrs) Recode,,4897,919
+126,F10,RWPR91FL- Household Members Recode,,57046,426
+126,F11,RWSR91FL- Sibling History Recode,,71900,144
+62,F1,rec-2010-spss-v1,,127662,86
+67,F2,rec-2014-data-v1,This is the dataset for the census,154236,95
+87,F2,data-rwa-nisr-ec-2017,This is the microdata file for Establishment census 2017.,190288,72
+94,F1,Data-rwa-nisr-ec-2020_stata,,232283,70
+112,F4,microdata-rwa-nisr-ec-2023,,269194,68
+89,F4,data-rfs-2020-v01,,12480,1314
+57,F1,rfs-2012-data,,6150,668
+71,F2,fsr-2016-data,This is an anonymized data file for FinScope 2016,12480,834
+13,F9,Household,The file contains data related to the questions asked to the household members.,7469,126
+13,F10,Women,The file contains data related to the questions asked to the women age 15-49 years.,76786,400
+13,F6,Men,The file contains data related to the questions asked to the men age 15-49 years.,7168,87
+13,F7,Child,The file contains data related to the questions asked to the children of 5-59 moths.,18421,361
+13,F8,Person,,32625,127
+81,F3,rwa-nisr-lfs-2017-data,This is microdata file of Rwanda Labor Force Survey 2017 in STATA format,77761,230
+100,F2,Labour force survey_2021_dataset_,,71947,241
+104,F4,Labour force survey_2022,,70424,244
+110,F3,RW_LFS2023,,71849,239
+110,F6,Variables_description_RW_LFS2023,,240,7
+110,F7,RW_LFS2023,,71850,239
+114,F8,RW_LFS2024,,102562,197
+125,F1,RW_LFS2025,,100852,207
+83,F4,rwa-nisr-lfs-2018,,76670,189
+92,F2,Labour force survey_2019,,81778,238
+97,F1,Labour_force_survey_2020_pub,,70172,365
+21,F1,Child labour data_from_ILO_23_12_09,"This file contains the data relative to: -General information, -Adult questionnaire(Household Composition and Characteristics for All Household Members, Educational Attainment for All Household Members aged 5 and above, Current Activity Status of All Household Members (5 and above) during the reference week, Usual Economic Activity Status of All and Household Members (5 and above) during the last 12 months, Household Chores: About Children (5-17) ONLY). -Household characteristics(Current Activitiy Status of All Children (5-17) and Health,Safety Issues about working Children (5-17) and Household Chores of Children (5-17))",11664,399
+21,F2,Child_Labor_Weight,,300,6
+21,F3,ChildLabor_22_10_08FinalaLL,"this file contains the data relative to: -General information, -Adult questionnaire(Household Composition and Characteristics for All Household Members, Educational Attainment for All Household Members aged 5 and above, Current Activity Status of All Household Members (5 and above) during the reference week, Usual Economic Activity Status of All and Household Members (5 and above) during the last 12 months, Household Chores: About Children (5-17) ONLY). -Household characteristics(Current Activitiy Status of All Children (5-17) and Health,Safety Issues about working Children (5-17) and Household Chores of Children (5-17))",28038,277
+21,F4,ChildLabor2hh_22_10_08SansTableFinal,This file contains the data related to the Household characteristics(Housing and Household Characteristics and Household Socio-Economic Status),5084,110
+48,F1,Education_employee,,2863,289
+48,F2,Education_employer,,505,347
+48,F3,Formal_employee,,17345,292
+48,F4,Formal_employer_newisic,,1596,393
+48,F5,Informal_employee,,4012,270
+48,F6,Informal_employer,,1664,318
+65,F1,Microdata for 2012 Population and Housing Census,"The Public Use Sample is Ten Percent (10%) Equal probability sample selected from the Private households as enumerated in the 2012 Census. Only resident household members are considered. This means that the resident population counted in institutions is exempted. The Sample file is organized in such a way that each Private household is a “case” and each household member is a “record”. The Sample enables users to carry out analysis on the resident population as well as the households (housing characteristics). For the later analysis the user has to select the Head of the Household (i.e. declare if p02=1). The Housing characteristics (H variables) are repeated for each household member. The sample enables users to carry out analysis on the resident population as well as the households (housing characteristics). For the later analysis the user has to select the Head of the Household (i.e. declare if p02=1). The Housing characteristics (H variables) are repeated for each household member. Although the sample variables match exactly with the Census Questionnaire, three additional created variables are included for the user convenience. They are 1- Age Grouping (5-year grouping); 2-Occupation (Highest level of ISCO classification) and 3- Economic Activity (Highest level of ISIC classification). The Three grouped variables correspond respectively to initial census variables P05, P25 and p27. The Variables of P25 and P27 are merely 4-digit codes without labels. If users are interested in the description of the 4-digit codes they must refer to ISCO 2008 Manual and ISIC Revision 4 Manual that are published at NISR website (www.statistics.gov.rw <http://www.statistics.gov.rw>). Since the sample is self weighted the user may produce estimates (percentages, averages, ratios) using the data directly (un-weighted). However the weighted analysis must be followed if the user is interested in estimating totals, e.g. Total number of population in each province. Data analysis can be done up to the district level only using this public use sample of 2012 census. Examples: Table 1: Distribution of resident Population by sex Sex Number Percent Male 498302 48.0 Female 540067 52.0 Total 1038369 100.0 Table 2: Distribution of Private Households by province Province Number Percent Kigali City 28665 11.8 Southern Province 60364 24.9 Western Province 54345 22.4 Northern Province 39165 16.2 Eastern Province 59922 24.7 Total 242461 100.0",1038369,120
+109,F2,PHC5_Public_microdata_2022,,1313015,250
+93,F1,rwa-sas-seasonA_Crop production,,32906,49
+93,F2,rwa-sas-SeasonA_PartIII_Fertilizers_Pesticides,,18786,28
+93,F3,rwa-sas-SeasonA_PartIV_Agricultural practice,,19805,34
+93,F4,rwa-sas-SeasonA_PartV_Land Tenure,,63292,17
+93,F5,rwa-sas-seasonA-Screening,,46854,24
+93,F6,rwa-sas-seasonB_Crop production,,30493,49
+93,F7,rwa-sas-SeasonB_PartIII_Fertilizers_Pesticides,,17637,28
+93,F8,rwa-sas-SeasonB_PartIV_Agricultural practice,,19222,34
+93,F9,rwa-sas-SeasonB_PartV_Land Tenure,,61548,17
+93,F10,rwa-sas-seasonB-Screening,,43411,24
+93,F11,rwa-sas-seasonC_Crop production,,1667,49
+93,F12,rwa-sas-SeasonC_PartIII_Fertilizers_Pesticides,,1832,27
+93,F13,rwa-sas-SeasonC_PartIV_Agricultural practice,,1731,33
+93,F14,rwa-sas-SeasonC_PartV_Land Tenure,,5400,16
+93,F15,rwa-sas-seasonC-Screening,,8311,24
+99,F16,rwa-sas-seasonA_Crop production,,41313,66
+99,F17,rwa-sas-SeasonA_PartIII_Fertilizers_Pesticides,,21023,42
+99,F18,rwa-sas-SeasonA_PartIV_Agricultural practice,,16830,47
+99,F19,rwa-sas-seasonA_Screening_Agroforestry,,27564,11
+99,F20,rwa-sas-seasonA_Screening_Antierosion_land consolidation,,30078,13
+99,F21,rwa-sas-seasonA-Screening_crops,,53419,20
+99,F22,rwa-sas-seasonB_Crop production,,35773,66
+99,F23,rwa-sas-SeasonB_PartIII_Fertilizers_Pesticides,,18936,42
+99,F24,rwa-sas-SeasonB_PartIV_Agricultural practice,,16398,48
+99,F25,rwa-sas-seasonB_Screening_Agroforestry,,29526,11
+99,F26,rwa-sas-seasonB_Screening_Antierosion_land consolidation,,29822,13
+99,F27,rwa-sas-seasonB-Screening_crops,,48696,20
+99,F28,rwa-sas-seasonC_Crop production,,4283,67
+99,F29,rwa-sas-SeasonC_PartIII_Fertilizers_Pesticides,,5618,42
+99,F30,rwa-sas-SeasonC_PartIV_Agricultural practice,,3251,48
+99,F31,rwa-sas-seasonC_Screening_Agroforestry,,5057,11
+99,F32,rwa-sas-seasonC_Screening_Antierosion_land consolidation,,7945,14
+99,F33,rwa-sas-seasonC-Screening_crops,,10897,20
+102,F1,rwa-sas-seasonA_Crop production,,41634,70
+102,F2,rwa-sas-SeasonA_PartIII_Fertilizers_Pesticides,,22314,43
+102,F3,rwa-sas-SeasonA_PartIV_Agricultural practice,,17342,56
+102,F4,rwa-sas-seasonA_Screening_Agroforestry,,30596,12
+102,F5,rwa-sas-seasonA_Screening_Antierosion_land consolidation,,33890,13
+102,F6,rwa-sas-seasonA-Screening_crops,,52873,21
+102,F7,rwa-sas-seasonB_Crop production,,35869,69
+102,F8,rwa-sas-SeasonB_PartIII_Fertilizers_Pesticides,,20431,43
+102,F9,rwa-sas-SeasonB_PartIV_Agricultural practice,,19333,55
+102,F10,rwa-sas-seasonB_Screening_Agroforestry,,30122,12
+102,F11,rwa-sas-seasonB_Screening_Antierosion_land consolidation,,36257,13
+102,F12,rwa-sas-seasonB-Screening_crops,,49348,21
+102,F13,rwa-sas-seasonC_Crop production,,3416,67
+102,F14,rwa-sas-SeasonC_PartIII_Fertilizers_Pesticides,,4838,39
+102,F15,rwa-sas-SeasonC_PartIV_Agricultural practice,,2779,49
+102,F16,rwa-sas-seasonC_Screening_Agroforestry,,5063,12
+102,F17,rwa-sas-seasonC_Screening_Antierosion_land consolidation,,5668,13
+102,F18,rwa-sas-seasonC-Screening_crops,,10495,19
+103,F19,rwa-sas-seasonA_Crop production,,41589,101
+103,F20,rwa-sas-SeasonA_PartIII_Fertilizers_Pesticides,,24279,45
+103,F21,rwa-sas-SeasonA_PartIV_Agricultural practice,,17376,60
+103,F22,rwa-sas-seasonA_Screening_Agroforestry,,34477,15
+103,F23,rwa-sas-seasonA_Screening_Antierosion_land consolidation,,35362,16
+103,F24,rwa-sas-seasonA-Screening_crops,,52487,30
+103,F25,rwa-sas-seasonB_Crop production,,36005,101
+103,F26,rwa-sas-SeasonB_PartIII_Fertilizers_Pesticides,,21432,45
+103,F27,rwa-sas-SeasonB_PartIV_Agricultural practice,,16883,59
+103,F28,rwa-sas-seasonB_Screening_Agroforestry,,33192,15
+103,F29,rwa-sas-seasonB_Screening_Antierosion_land consolidation,,34483,16
+103,F30,rwa-sas-seasonB-Screening_crops,,47308,30
+103,F31,rwa-sas-seasonC_Crop production,,5818,101
+103,F32,rwa-sas-SeasonC_PartIII_Fertilizers_Pesticides,,11242,41
+103,F33,rwa-sas-SeasonC_PartIV_Agricultural practice,,4926,53
+103,F34,rwa-sas-seasonC_Screening_Agroforestry,,4937,20
+103,F35,rwa-sas-seasonC_Screening_Antierosion_land consolidation,,4937,18
+103,F36,rwa-sas-seasonC-Screening_crops,,12067,28
+111,F1,rwa-sas-seasonA_Crop production,,39039,103
+111,F2,rwa-sas-SeasonA_PartIII_Fertilizers_Pesticides,,16896,87
+111,F3,rwa-sas-SeasonA_PartIV_Agricultural practice,,16831,56
+111,F4,rwa-sas-seasonA_Screening_Agroforestry,,31779,15
+111,F5,rwa-sas-seasonA_Screening_Antierosion_land consolidation,,34766,16
+111,F6,rwa-sas-seasonA-Screening_crops,,53692,30
+111,F7,rwa-sas-seasonB_Crop production,,36547,103
+111,F8,rwa-sas-SeasonB_PartIII_Fertilizers_Pesticides,,16865,84
+111,F9,rwa-sas-SeasonB_PartIV_Agricultural practice,,16865,54
+111,F10,rwa-sas-seasonB_Screening_Agroforestry,,26392,15
+111,F11,rwa-sas-seasonB_Screening_Antierosion_land consolidation,,29372,16
+111,F12,rwa-sas-seasonB-Screening_crops,,49338,30
+111,F13,rwa-sas-seasonC_Crop production,,3567,88
+111,F14,rwa-sas-SeasonC_PartIII_Fertilizers_Pesticides,,2984,84
+111,F15,rwa-sas-SeasonC_PartIV_Agricultural practice,,2984,53
+111,F16,rwa-sas-seasonC_Screening_Agroforestry,,4931,18
+111,F17,rwa-sas-seasonC_Screening_Antierosion_land consolidation,,4931,17
+111,F18,rwa-sas-seasonC-Screening_crops,,10306,28
+113,F1,Rwa_raw_fertilizer_pesticideA2024,,22105,63
+113,F2,Rwa_raw_SeasonA2024_Agricultural_practice,,17506,58
+113,F3,Rwa_raw_SeasonA2024_Production,,39330,95
+113,F4,Rwa_raw_SeasonA2024_Screening,,54382,45
+113,F5,Rwa_raw_fertilizer_pesticideB2024,,19965,63
+113,F6,Rwa_raw_SeasonB2024_Production,,35584,97
+113,F7,Rwa_raw_SeasonB2024_Screening,,28562,45
+113,F8,Rwa_raw_fertilizer_pesticideC2024,,2307,60
+113,F9,Rwa_raw_SeasonC2024_Agricultural_practice,,1632,47
+113,F10,Rwa_raw_SeasonC2024_Production,,1949,96
+113,F11,Rwa_raw_SeasonC2024_Screening,,8195,41
+124,F1,Rwa_raw_fertilizer_pesticideA2025,,17063,80
+124,F2,Rwa_raw_SeasonA2025_Agricultural_practice,,17063,59
+124,F3,Rwa_raw_SeasonA2025_Production,,34370,101
+124,F4,Rwa_raw_SeasonA2025_Screening,,52570,51
+124,F5,Rwa_raw_fertilizer_pesticideB2025,,17101,93
+124,F6,Rwa_raw_SeasonB2025_Agricultural_practice,,17101,55
+124,F7,Rwa_raw_SeasonB2025_Production,,32921,101
+124,F8,Rwa_raw_SeasonB2025_Screening,,50538,54
+124,F9,Rwa_raw_fertilizer_pesticideC2025,,1668,85
+124,F10,Rwa_raw_SeasonC2025_Agricultural_practice,,1668,47
+124,F11,Rwa_raw_SeasonC2025_Production,,1885,99
+124,F12,Rwa_raw_SeasonC2025_Screening,,8413,42
+88,F31,SeasonA_2017_LSF_Antierosion,"This file contains data on soil erosion control measures. These data have been collected on large scale farmers (LSF). The file is related to plot questionnaire, part IV.",889,10
+88,F32,SeasonA_2017_LSF_Crop production,"This file contains data on crops planted, type of seeds sown and production of crop grown in the plot. These data have been collected on large scale farmers (LSF). This data file is related to plot questionnaire, part II.",744,30
+88,F33,SeasonA_2017_LSF_Fertilizers,"This file contains data on use of organic and inorganic fertilizers. These data have been collected on large scale farmers (LSF). This data file is related to plot questionnaire, part III.",1423,17
+88,F34,SeasonA_2017_LSF_Irrigation_Soil_preparation_and_Land_tenure,"This file contains data on Irrigation, Soil preparation and land tenure. These data have been collected on large scale farmers (LSF). This data file is related to plot questionnaire, part IV.",806,36
+88,F35,SeasonA_2017_LSF_Pesticides,"This file contains data on use of pesticides. These data have been collected on large scale farmers (LSF). This data file is related to plot questionnaire, part III.",1282,11
+88,F36,SeasonA_2017_LSF_Screening,"This file contains data on plot land use, cropping system, crop planted, crop area and sample weight. These data have been collected on large scale farmers (LSF). This data file is related to screening questionnaire, part I and II.",3253,18
+88,F37,SeasonA_2017_SSF_Antierosion,"This file contains data on soil erosion control measures. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part IV.",15191,12
+88,F38,SeasonA_2017_SSF_Crop production,"This file contains data on crops planted, type of seeds sown and production of crop grown in the plot. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part I and II.",27740,32
+88,F39,SeasonA_2017_SSF_Fertilizers,"This file contains data on use of organic and inorganic fertilizers. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part I and III.",14855,19
+88,F40,SeasonA_2017_SSF_Irrigation_Soil_preparation_and_Land_tenure,"This file contains data on Irrigation, Soil preparation and land tenure. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part IV.",13325,38
+88,F41,SeasonA_2017_SSF_Pesticides,"This file contains data on use of pesticides. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part III.",13828,12
+88,F42,SeasonA_2017_SSF_Screening,"This file contains data on plot land use, cropping system, crop planted, crop area and sample. These data have been collected on small scale farmers (SSF). This data file is related to screening questionnaire, part I and II.",68212,27
+88,F43,SeasonB_2017_LSF_Antierosion,"This file contains data on soil erosion control measures. These data have been collected on large scale farmers (LSF). This data file is related to plot questionnaire, part IV.",1204,10
+88,F44,SeasonB_2017_LSF_Crop production,"This file contains data on crops planted, type of seeds sown and production of crop grown in the plot. These data have been collected on large scale farmers (LSF). This data file is related to plot questionnaire, part II.",1591,30
+88,F45,SeasonB_2017_LSF_Fertilizers,"This file contains data on use of organic and inorganic fertilizers. These data have been collected on large scale farmers (LSF). This data file is related to plot questionnaire, part III.",1248,17
+88,F46,SeasonB_2017_LSF_Irrigation_Soil_preparation_and_Land_tenure,"This file contains data on Irrigation, Soil preparation and land tenure. These data have been collected on large scale farmers (LSF). This data file is related to plot questionnaire, part IV.",1019,36
+88,F47,SeasonB_2017_LSF_Pesticides,"This file contains data on use of pesticides. These data have been collected on large scale farmers (LSF). This data file is related to plot questionnaire, part III.",1173,11
+88,F48,SeasonB_2017_LSF_Screening,"This file contains data on plot land use, cropping system, crop planted, crop area. These data have been collected on large scale farmers (LSF). This data file is related to screening questionnaire, part I and II.",2807,18
+88,F49,SeasonB_2017_SSF_Antierosion,"This file contains data on soil erosion control measures. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part IV.",13827,12
+88,F50,SeasonB_2017_SSF_Crop production,"This file contains data on crops planted, type of seeds sown and production of crop grown in the plot. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part II.",25529,32
+88,F51,SeasonB_2017_SSF_Fertilizers,"This file contains data on use of organic and inorganic fertilizers. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part III.",12938,19
+88,F52,SeasonB_2017_SSF_Irrigation_Soil_preparation_and_Land_tenure,"This file contains data on Irrigation, Soil preparation and land tenure. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part IV.",12156,38
+88,F53,SeasonB_2017_SSF_Pesticides,"This file contains data on use of pesticides. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part III.",12980,12
+88,F54,SeasonB_2017_SSF_Screening,"This file contains data on plot land use, cropping system, crop planted, crop area and sample weight. These data have been collected on small scale farmers (SSF). This data file is related to screening questionnaire, part I and II.",59985,27
+88,F55,SeasonC_2017_SSF_Antierosion,"This file contains data on soil erosion control measures. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part IV.",5094,12
+88,F56,SeasonC_2017_SSF_Crop production,"This file contains data on crops planted, type of seeds sown and production of crop grown in the plot. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part II.",1907,32
+88,F57,SeasonC_2017_SSF_Fertilizers,"This file contains data on use of organic and inorganic fertilizers. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part III.",6792,19
+88,F58,SeasonC_2017_SSF_Irrigation_Soil_preparation_and_Land_tenure,"This file contains data on Irrigation, Soil preparation and land tenure. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part IV.",1698,38
+88,F59,SeasonC_2017_SSF_Pesticides,"This file contains data on use of pesticides. These data have been collected on small scale farmers (SSF). This data file is related to plot questionnaire, part III.",6792,12
+88,F60,SeasonC_2017_SSF_Screening,"This file contains data on plot land use, cropping system, crop planted, crop area and sample weight. These data have been collected on small scale farmers (SSF) . This data file is related to screening questionnaire, part I and III.",7853,27
+86,F1,rwa-sas-seasonA_Crop production,,32906,49
+86,F2,rwa-sas-SeasonA_PartIII_Fertilizers_Pesticides,,18786,28
+86,F3,rwa-sas-SeasonA_PartIV_Agricultural practice,,19805,34
+86,F4,rwa-sas-SeasonA_PartV_Land Tenure,,63292,17
+86,F5,rwa-sas-seasonA-Screening,,46854,24
+86,F6,rwa-sas-seasonB_Crop production,,30493,49
+86,F7,rwa-sas-SeasonB_PartIII_Fertilizers_Pesticides,,17637,28
+86,F8,rwa-sas-SeasonB_PartIV_Agricultural practice,,19222,34
+86,F9,rwa-sas-SeasonB_PartV_Land Tenure,,61548,17
+86,F10,rwa-sas-seasonB-Screening,,43411,24
+86,F11,rwa-sas-seasonC_Crop production,,1667,49
+86,F12,rwa-sas-SeasonC_PartIII_Fertilizers_Pesticides,,1832,27
+86,F13,rwa-sas-SeasonC_PartIV_Agricultural practice,,1731,33
+86,F14,rwa-sas-SeasonC_PartV_Land Tenure,,5400,16
+86,F15,rwa-sas-seasonC-Screening,,8311,24
+35,F2,rwspcons,The file contains data related to Exit interviews. Exit interviews were conducted with clients whose ANC consultation had been observed and with the caretaker of observed sick children. The interview covered their perception of what had occurred during the consultation and their opinion on issues related to client satisfaction.,4189,241
+35,F3,rwsphw,"The file contains data related to: -Health service provider interview. Providers of relevant services were interviewed regarding their technical qualification, supervision received, continuing education received, and experience providing the services that were assessed.",1042,98
+35,F4,rwspin,"The file contains data related to Health facility inventory. This form collected information on the type of facility and the operating authority. It also collected information regarding furnishings, equipment, personnel, and other items for each service assessed by the RSPA that was provided by the facility.",223,1475
+60,F1,russ-2012-v1,The file contains 2012 Rwanda User Satisfaction Survey data set.,428,437
+24,F3,Exp_food_26_03_09f,This contains the data related to household consumption expenditure (expenditure on food),2357,16
+24,F4,Expenditure_NO_consumption,Data related to Expenditure consumption.,2357,13
+24,F5,EXPENDITURE_NON_FOOD_ALL,"Data related to household expenditure on communication,housing, transport,restaurants and hotels etc.",2357,25
+24,F6,VUP_31_01_09_A_MEMBER_EDUCATION_HEALTH_OTHERS_GROUP_FOR_WORKING,"The file contains data related to the: -Househols characteristics of members listed, -Education (To be asked for those household members with at least 3 years old) -Health: Health Issues, desease prevention and children vaccination -Household income from different activities",9551,118
+24,F7,VUP_31_01_09_A_Without_tables_VUP_Sectors_Group1_2_3_4_Final,"The file contains data related to the questions asked to the Head of Household about employment (income generating activities), housing characteristics and status and household condition and infrastractures.",2357,34
+24,F8,VUP_INCOME_All,"Data related to VUP income (agriculture, transfers, non agriculture, properties and salary).",2357,18
+24,F9,VUP_NUM_MEMBERS_ADULT,Data related to the household members (adult),2357,14
+24,F10,Code_Weight_Comm_07_05_09,,20,4
+24,F11,Comm_07_05_09_s2,Data related to the commuity questions,424,13
+24,F12,Comm_07_05_09_s5,Data related to the community development,1378,17
+24,F13,COMM_SANS_TABLES_07_05_09,"Data related to the community questionnaire based on identification, living conditions characteristics and employment, economy, development of infrastructures and environment,education and health.",106,64

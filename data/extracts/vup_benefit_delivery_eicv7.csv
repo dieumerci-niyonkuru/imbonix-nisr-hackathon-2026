@@ -1,0 +1,52 @@
+component,table,block,category,extremely_poor,moderately_poor,non_poor,all_beneficiaries
+Direct Support,Table 4.2,Value of payment in RWF per HH,Average amount received from DS in the last 12 months,137099.5,132624.0,125768.5,128572.4
+Direct Support,Table 4.2,Categorization of the total support received in the last 12 months,"Less or equal to 50,000 Rwf",15.865688908394116,5.664981952756638,4.786803429808091,5.988927116999976
+Direct Support,Table 4.2,Categorization of the total support received in the last 12 months,"50,001-100,000 Rwf",19.786921876143072,35.18317936768674,45.07211705711196,40.24478356624784
+Direct Support,Table 4.2,Categorization of the total support received in the last 12 months,"100,001-200,000 Rwf",45.01337615822088,42.195731355050704,38.06882864375884,39.76752342602602
+Direct Support,Table 4.2,Categorization of the total support received in the last 12 months,"More than 200,000 Rwf",19.33401305724193,16.956107324505922,12.07225086932111,13.998765890726173
+Direct Support,Table 4.2,Regularity of monthly support,Yes,100.0,100.0,100.0,100.0
+Direct Support,Table 4.2,Method of receiving the recent DS,Umurenge Sacco,69.57251100738053,76.19873043041896,77.45132148803025,76.43044009069429
+Direct Support,Table 4.2,Method of receiving the recent DS,Momo/Airtel Money,30.427488992619466,23.80126956958104,22.54867851196975,23.569559909305717
+Direct Support,Table 4.2,Timeliness of the last payment,Paid on time,11.09611488070464,10.881541700723544,17.36038960445927,15.099692240791295
+Direct Support,Table 4.2,Timeliness of the last payment,1 to 10 days delay,58.2320191774152,57.34289597166998,55.41503627622243,56.17117415256503
+Direct Support,Table 4.2,Timeliness of the last payment,11 to 20 days,19.104466264520692,27.100141082909918,20.89490126439991,22.37803885827261
+Direct Support,Table 4.2,Timeliness of the last payment,More than 20 days,11.567399677359475,4.67542124469656,6.329672854918393,6.35109474837106
+Classic Public Works,Table 4.5,Salary earned from the program in RWF per HH,Average daily salary,1546.9,1636.7,1552.9,1580.3
+Classic Public Works,Table 4.5,Salary earned from the program in RWF per HH,Average of the last salary,15164.2,16066.3,15509.8,15639.5
+Classic Public Works,Table 4.5,Salary earned from the program in RWF per HH,Average total salary received in the last 12 months,77785.5,96251.2,85782.4,87994.3
+Classic Public Works,Table 4.5,Categorization of the total salary received in the last 12 months,"Less or equal to 50,000 Rwf",43.52375330638751,27.357424816919824,32.329966483466144,32.40961953955435
+Classic Public Works,Table 4.5,Categorization of the total salary received in the last 12 months,"50,001-100,000 Rwf",30.847159506729028,34.20694627357669,32.187397941830326,32.64504694384073
+Classic Public Works,Table 4.5,Categorization of the total salary received in the last 12 months,"100,001-200,000 Rwf",25.436547357165296,32.98007422203108,32.44971641254046,31.551815878675082
+Classic Public Works,Table 4.5,Categorization of the total salary received in the last 12 months,"More than 200,000 Rwf",0.19253982971816397,5.455554687472405,3.032919162163072,3.393517637929834
+Classic Public Works,Table 4.5,Method of receiving the recent cPW payment,Umurenge Sacco,80.40528170158802,76.11344232641594,73.9393752798379,75.60194945994027
+Classic Public Works,Table 4.5,Method of receiving the recent cPW payment,Momo/Airtel Money,19.594718298411966,23.886557673584065,26.060624720162096,24.398050540059728
+Classic Public Works,Table 4.5,Timeliness of the last payment,Paid on time,2.6113207431266385,10.827564403904713,10.724723809146456,9.578767718661384
+Classic Public Works,Table 4.5,Timeliness of the last payment,1 to 10 days delay,43.62315178520628,58.4940334328251,63.7971012394543,59.10139619839319
+Classic Public Works,Table 4.5,Timeliness of the last payment,11 to 20 days,32.461949485704,21.506318485358648,12.790008349360363,18.546366762260167
+Classic Public Works,Table 4.5,Timeliness of the last payment,More than 20 days,21.30357798596308,9.172083677911534,12.688166602038887,12.77346932068526
+Expanded Public Works,Table 4.8,Salary earned from the program in RWF per Individual,Average monthly salary from the last participation,15597.9,15676.0,16036.4,15885.0
+Expanded Public Works,Table 4.8,Salary earned from the program in RWF per Individual,Average total salary received from ePW in the last 12 months,158728.9,145411.0,150940.4,149421.9
+Expanded Public Works,Table 4.8,Categorization of the total salary received in the last 12 months,"Less or equal to 50,000 Rwf",0.49577925080158336,7.014210976729815,7.740573892210264,7.083617845593304
+Expanded Public Works,Table 4.8,Categorization of the total salary received in the last 12 months,"50,001-100,000 Rwf",10.361642323740442,10.392151597664851,7.57371124233103,8.721649790530511
+Expanded Public Works,Table 4.8,Categorization of the total salary received in the last 12 months,"100,001-200,000 Rwf",83.90608543678816,77.18080406325402,78.6798885747775,78.44054193232233
+Expanded Public Works,Table 4.8,Categorization of the total salary received in the last 12 months,"More than 200,000 Rwf",5.236492988669818,5.4128333623513205,6.005826290681212,5.754190431553862
+Expanded Public Works,Table 4.8,Payment channel,Umurenge Sacco,79.35412146043586,71.54566137367502,78.7354408717131,76.3623341510321
+Expanded Public Works,Table 4.8,Payment channel,Momo/Airtel Money,20.645878539564144,28.454338626324976,21.264559128286912,23.637665848967906
+Expanded Public Works,Table 4.8,Timeliness of the last payment,On time,5.575105322423562,7.892282625929166,7.0180793630737845,7.166563186358594
+Expanded Public Works,Table 4.8,Timeliness of the last payment,1 to 10 days delay,29.86605917485403,37.22979238747998,54.98556246522839,46.39620238594225
+Expanded Public Works,Table 4.8,Timeliness of the last payment,11 to 20 days delay,24.405596247724105,36.84410731541961,24.524919542770572,28.687407950496535
+Expanded Public Works,Table 4.8,Timeliness of the last payment,More than 20 days delay,40.153239254998304,18.033817671171235,13.47143862892726,17.749826477202614
+Nutrition-Sensitive Direct Support,Table 4.11,Nber of quarters NSDS support was received in last 12 months,One-Quarter,34.546977579305576,15.909009212791695,19.796614118828103,19.440174028177577
+Nutrition-Sensitive Direct Support,Table 4.11,Nber of quarters NSDS support was received in last 12 months,Two-Quarters,22.252629019266056,35.492732848406824,25.58497785526316,28.795859621363352
+Nutrition-Sensitive Direct Support,Table 4.11,Nber of quarters NSDS support was received in last 12 months,Three-Quarters,30.339307398251808,35.94172123788113,38.68166542854401,37.171115527412276
+Nutrition-Sensitive Direct Support,Table 4.11,Nber of quarters NSDS support was received in last 12 months,Four-Quarters,12.861086003176561,12.656536700920348,15.93674259736473,14.592850823046803
+Nutrition-Sensitive Direct Support,Table 4.11,Average quarterly benefit per individual (Rwf),Average quarterly benefit received,29066.4,31351.1,31231.9,31127.7
+Nutrition-Sensitive Direct Support,Table 4.11,Categorization of quarterly benefits amount from program,"Less than 25,000 Rwf",4.991376600921904,6.437094002401042,12.813361409840871,10.077137229821586
+Nutrition-Sensitive Direct Support,Table 4.11,Categorization of quarterly benefits amount from program,"25,000-30,000 Rwf",77.5096306560285,77.39262760923489,73.8709372456225,75.33638704805567
+Nutrition-Sensitive Direct Support,Table 4.11,Categorization of quarterly benefits amount from program,"More than 30,000 Rwf",17.49899274304959,16.17027838836406,13.315701344536626,14.58647572212275
+Nutrition-Sensitive Direct Support,Table 4.11,Method of receiving the recent NSDS payment,Umurenge Sacco,98.15644252968366,78.14107429701404,82.64628075511207,82.12500896497092
+Nutrition-Sensitive Direct Support,Table 4.11,Method of receiving the recent NSDS payment,Momo/Airtel Money,1.843557470316344,21.85892570298595,17.353719244887923,17.874991035029083
+Nutrition-Sensitive Direct Support,Table 4.11,Timeliness of the last payment,On time,20.33646449486414,17.253147314576374,17.13382142001855,17.39042820947125
+Nutrition-Sensitive Direct Support,Table 4.11,Timeliness of the last payment,1 to 10 days delay,39.4472677294618,45.54745232203522,50.31799975992227,47.93355346925163
+Nutrition-Sensitive Direct Support,Table 4.11,Timeliness of the last payment,11 to 20 days delay,21.190894467972907,23.607858364234648,20.038671507500506,21.353480304304544
+Nutrition-Sensitive Direct Support,Table 4.11,Timeliness of the last payment,More than 20 days delay,19.02537330770116,13.591541999153758,12.509507312558673,13.322538016972581

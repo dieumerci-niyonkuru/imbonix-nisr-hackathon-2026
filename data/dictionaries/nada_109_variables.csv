@@ -1,0 +1,251 @@
+study_id,file_id,file_name,variable_id,name,label
+109,F2,PHC5_Public_microdata_2022,V245,ml01,Province
+109,F2,PHC5_Public_microdata_2022,V246,ml02,District
+109,F2,PHC5_Public_microdata_2022,V247,ml03,Sector
+109,F2,PHC5_Public_microdata_2022,V248,ml07,Area of residence
+109,F2,PHC5_Public_microdata_2022,V249,hhid,Househod_ID
+109,F2,PHC5_Public_microdata_2022,V250,p01,Person ID
+109,F2,PHC5_Public_microdata_2022,V251,p02,Relationship (Private HH only)
+109,F2,PHC5_Public_microdata_2022,V252,p03,Sex
+109,F2,PHC5_Public_microdata_2022,V253,p04,Age
+109,F2,PHC5_Public_microdata_2022,V254,p06,marital status
+109,F2,PHC5_Public_microdata_2022,V255,p07a,Residence Status
+109,F2,PHC5_Public_microdata_2022,V256,p07b,Residence status of resident member
+109,F2,PHC5_Public_microdata_2022,V257,p08c,Age at first marriage
+109,F2,PHC5_Public_microdata_2022,V258,p09a,Place of birth/country
+109,F2,PHC5_Public_microdata_2022,V259,p09b,Place of birh/district
+109,F2,PHC5_Public_microdata_2022,V260,p09c,Country of birth: country code
+109,F2,PHC5_Public_microdata_2022,V261,p10a,Duration of Residence
+109,F2,PHC5_Public_microdata_2022,V262,p10b,Place of previous residence
+109,F2,PHC5_Public_microdata_2022,V263,p11a,District of previous residence
+109,F2,PHC5_Public_microdata_2022,V264,p11b,Country of previous residence: country code
+109,F2,PHC5_Public_microdata_2022,V265,p12b,Nationality: country code
+109,F2,PHC5_Public_microdata_2022,V266,p13,Religious affiliation
+109,F2,PHC5_Public_microdata_2022,V267,p14,Medical insurance
+109,F2,PHC5_Public_microdata_2022,V268,p15b,Level of difficulty of seeing
+109,F2,PHC5_Public_microdata_2022,V269,p16b,Level of difficulty of hearing
+109,F2,PHC5_Public_microdata_2022,V270,p17b,Level of difficulty of walking
+109,F2,PHC5_Public_microdata_2022,V271,p18b,Level of difficulty of communicating
+109,F2,PHC5_Public_microdata_2022,V272,p19b,Level of difficulty of remembering or concentrating
+109,F2,PHC5_Public_microdata_2022,V273,p20b,Level of difficulty with self-care such as washing all over or dressing
+109,F2,PHC5_Public_microdata_2022,V274,p21a,Has a problem of short stature
+109,F2,PHC5_Public_microdata_2022,V275,p22a,Has a disability with albinism
+109,F2,PHC5_Public_microdata_2022,V276,p23a,Biological mother alive
+109,F2,PHC5_Public_microdata_2022,V277,p23b,Biological mother live in this household
+109,F2,PHC5_Public_microdata_2022,V278,p23bb,Select the name of the biological mother
+109,F2,PHC5_Public_microdata_2022,V279,p23c,Biological father alive
+109,F2,PHC5_Public_microdata_2022,V280,p23d,Biological father live in this household
+109,F2,PHC5_Public_microdata_2022,V281,p23dd,Select the name of the biological father
+109,F2,PHC5_Public_microdata_2022,V282,p24,Registered in the Civil Registration books
+109,F2,PHC5_Public_microdata_2022,V283,p29,Ever or currently attending school
+109,F2,PHC5_Public_microdata_2022,V284,p30a,Highest level of education
+109,F2,PHC5_Public_microdata_2022,V285,p30b,Years of school complete successfully at that level
+109,F2,PHC5_Public_microdata_2022,V286,p31,Highest certificate/degree
+109,F2,PHC5_Public_microdata_2022,V287,p32,Can read and write with understanding in the following languages
+109,F2,PHC5_Public_microdata_2022,V288,p33,Ever attended or currently attending Informal adult litteracy Program
+109,F2,PHC5_Public_microdata_2022,V289,p34,Internet use
+109,F2,PHC5_Public_microdata_2022,V290,p35,Access to internet
+109,F2,PHC5_Public_microdata_2022,V291,p36c,type of mobile phone
+109,F2,PHC5_Public_microdata_2022,V292,p46,Institutional sector
+109,F2,PHC5_Public_microdata_2022,V293,p47a,ISIC High level
+109,F2,PHC5_Public_microdata_2022,V294,p48a,Main occupations(ISCO high level)
+109,F2,PHC5_Public_microdata_2022,V295,p49,status in employment
+109,F2,PHC5_Public_microdata_2022,V296,p50a,given birth
+109,F2,PHC5_Public_microdata_2022,V297,p50b_boys,Number of live births ever had / boys
+109,F2,PHC5_Public_microdata_2022,V298,p50b_girls,Number of live births ever had / girls
+109,F2,PHC5_Public_microdata_2022,V299,p50c_boys,Among those children how many are still alive / Boys
+109,F2,PHC5_Public_microdata_2022,V300,p50c_girls,Among those children how many are still alive / Girls
+109,F2,PHC5_Public_microdata_2022,V301,p51a,During the last 12 months (From 15/08/2020-15/08/2021) [NAME] Have you ever give
+109,F2,PHC5_Public_microdata_2022,V302,p51b_boys,Number of live births had during the last 12 months (From 15/08/2020-15/08/2021
+109,F2,PHC5_Public_microdata_2022,V303,p51b_girls,Number of live births had during the last 12 months (From 15/08/2020-15/08/2021
+109,F2,PHC5_Public_microdata_2022,V304,p51c_boys,"Among those children s,how many are still alive / Boys"
+109,F2,PHC5_Public_microdata_2022,V305,p51c_girls,"Among those children s,how many are still alive / Girls"
+109,F2,PHC5_Public_microdata_2022,V306,h01,Type of habitant
+109,F2,PHC5_Public_microdata_2022,V307,h02,Type of Building
+109,F2,PHC5_Public_microdata_2022,V308,h03,Tenure of then housing unit
+109,F2,PHC5_Public_microdata_2022,V309,h04,Is this Household has its own housing unit in this village or elsewhere
+109,F2,PHC5_Public_microdata_2022,V310,h05,main material used for the roof
+109,F2,PHC5_Public_microdata_2022,V311,h06,main material used for the walls
+109,F2,PHC5_Public_microdata_2022,V312,h07,main material used for the floor
+109,F2,PHC5_Public_microdata_2022,V313,h08,Number of rooms
+109,F2,PHC5_Public_microdata_2022,V314,h09,number of rooms are used for sleeping
+109,F2,PHC5_Public_microdata_2022,V315,h10,Are Sleeping rooms for Boys separated from those for Girls
+109,F2,PHC5_Public_microdata_2022,V316,h11,Main source of water used for general purposes
+109,F2,PHC5_Public_microdata_2022,V317,h12,Main source of drinking water
+109,F2,PHC5_Public_microdata_2022,V318,h13,Toilet Facility
+109,F2,PHC5_Public_microdata_2022,V319,h14,Electricity (Grid line) connectivity
+109,F2,PHC5_Public_microdata_2022,V320,h15,Main source of energy for lighting
+109,F2,PHC5_Public_microdata_2022,V321,h16,Main source of energy for cooking
+109,F2,PHC5_Public_microdata_2022,V322,h17,Secondary source of energy for cooking
+109,F2,PHC5_Public_microdata_2022,V323,h18,Does your HH use a cooking energy saving stove?
+109,F2,PHC5_Public_microdata_2022,V324,h19,Main mode of household waste disposal used
+109,F2,PHC5_Public_microdata_2022,V325,h20,Main mode of sewage
+109,F2,PHC5_Public_microdata_2022,V326,h21_01,Functional assets own by HH: Radio
+109,F2,PHC5_Public_microdata_2022,V327,h21_02,Functional assets own by HH: Television
+109,F2,PHC5_Public_microdata_2022,V328,h21_03,Functional assets own by HH: Refrigerator/Freezer for HH use only
+109,F2,PHC5_Public_microdata_2022,V329,h21_04,Functional assets own by HH: Gas/Electrical Cooker
+109,F2,PHC5_Public_microdata_2022,V330,h21_05,Functional assets own by HH: Washing machine
+109,F2,PHC5_Public_microdata_2022,V331,h21_06,Functional assets own by HH: Microwave
+109,F2,PHC5_Public_microdata_2022,V332,h21_07,Functional assets own by HH: Mattress
+109,F2,PHC5_Public_microdata_2022,V333,h21_08,Functional assets own by HH: Bench/Chair
+109,F2,PHC5_Public_microdata_2022,V334,h21_09,Functional assets own by HH: Bed
+109,F2,PHC5_Public_microdata_2022,V335,h21_10,Functional assets own by HH: Tables
+109,F2,PHC5_Public_microdata_2022,V336,h21_11,Functional assets own by HH: Sofa
+109,F2,PHC5_Public_microdata_2022,V337,h21_12,Functional assets own by HH: Computers
+109,F2,PHC5_Public_microdata_2022,V338,h21_13,Functional assets own by HH: Vehicles for household use only
+109,F2,PHC5_Public_microdata_2022,V339,h21_14,Functional assets own by HH: Motorcycles for household use only
+109,F2,PHC5_Public_microdata_2022,V340,h21_15,Functional assets own by HH: Bicycles for household use only
+109,F2,PHC5_Public_microdata_2022,V341,h21_16,Functional assets own by HH: Electrical/Charcoal Iron
+109,F2,PHC5_Public_microdata_2022,V342,h22,HH own livestock or beehive
+109,F2,PHC5_Public_microdata_2022,V343,h22a_01,Local breed cows reared
+109,F2,PHC5_Public_microdata_2022,V344,h22a_02,Exotic breed cows reared
+109,F2,PHC5_Public_microdata_2022,V345,h22a_03,Cross breed cows reared
+109,F2,PHC5_Public_microdata_2022,V346,h22a_04,Local goats reared
+109,F2,PHC5_Public_microdata_2022,V347,h22a_05,Exotic goats reared
+109,F2,PHC5_Public_microdata_2022,V348,h22a_06,Cross goats reared
+109,F2,PHC5_Public_microdata_2022,V349,h22a_07,Local sheep reared
+109,F2,PHC5_Public_microdata_2022,V350,h22a_08,Exotic sheep reared
+109,F2,PHC5_Public_microdata_2022,V351,h22a_09,Local pigs reared
+109,F2,PHC5_Public_microdata_2022,V352,h22a_10,Exotic pig reared
+109,F2,PHC5_Public_microdata_2022,V353,h22a_11,Cross pig reared
+109,F2,PHC5_Public_microdata_2022,V354,h22a_12,Rabbits reared
+109,F2,PHC5_Public_microdata_2022,V355,h22a_13,Broiler chicken reared
+109,F2,PHC5_Public_microdata_2022,V356,h22a_14,Layers chicken reared
+109,F2,PHC5_Public_microdata_2022,V357,h22a_15,Dual purpose chicken reared
+109,F2,PHC5_Public_microdata_2022,V358,h22a_16,Local chicken reared
+109,F2,PHC5_Public_microdata_2022,V359,h22a_17,Duck reared
+109,F2,PHC5_Public_microdata_2022,V360,h22a_18,Turkey reared
+109,F2,PHC5_Public_microdata_2022,V361,h22a_19,Other poultry reared
+109,F2,PHC5_Public_microdata_2022,V362,h22a_20,Camel reared
+109,F2,PHC5_Public_microdata_2022,V363,h22a_21,Bees hive reared
+109,F2,PHC5_Public_microdata_2022,V364,h22a_22,Dogs reared
+109,F2,PHC5_Public_microdata_2022,V365,h22a_23,Other reared
+109,F2,PHC5_Public_microdata_2022,V366,h22b1_01,Number of Local breed cows reared
+109,F2,PHC5_Public_microdata_2022,V367,h22b1_02,Number of Exotic breed cows reared
+109,F2,PHC5_Public_microdata_2022,V368,h22b1_03,Number of Cross breed cows reared
+109,F2,PHC5_Public_microdata_2022,V369,h22b1_04,Number of Local goats reared
+109,F2,PHC5_Public_microdata_2022,V370,h22b1_05,Number of Exotic goats reared
+109,F2,PHC5_Public_microdata_2022,V371,h22b1_06,Number of Cross goats reared
+109,F2,PHC5_Public_microdata_2022,V372,h22b1_07,Number of Local sheep reared
+109,F2,PHC5_Public_microdata_2022,V373,h22b1_08,Number of Exotic sheep reared
+109,F2,PHC5_Public_microdata_2022,V374,h22b1_09,Number of Local pigs reared
+109,F2,PHC5_Public_microdata_2022,V375,h22b1_10,Number of Exotic pig reared
+109,F2,PHC5_Public_microdata_2022,V376,h22b1_11,Number of Cross pig reared
+109,F2,PHC5_Public_microdata_2022,V377,h22b1_12,Number of Rabbits reared
+109,F2,PHC5_Public_microdata_2022,V378,h22b1_13,Number of Broiler chicken reared
+109,F2,PHC5_Public_microdata_2022,V379,h22b1_14,Number of Layers chicken reared
+109,F2,PHC5_Public_microdata_2022,V380,h22b1_15,Number of Dual purpose chicken reared
+109,F2,PHC5_Public_microdata_2022,V381,h22b1_16,Number of Local chicken reared
+109,F2,PHC5_Public_microdata_2022,V382,h22b1_17,Number of Duck reared
+109,F2,PHC5_Public_microdata_2022,V383,h22b1_18,Number of Turkey reared
+109,F2,PHC5_Public_microdata_2022,V384,h22b1_19,Number of Other poultry reared
+109,F2,PHC5_Public_microdata_2022,V385,h22b1_20,Number of Camel reared
+109,F2,PHC5_Public_microdata_2022,V386,h22b1_21,Number of Bees hive reared
+109,F2,PHC5_Public_microdata_2022,V387,h22b1_22,Number of Dogs reared
+109,F2,PHC5_Public_microdata_2022,V388,h22b1_23,Number of Other reared
+109,F2,PHC5_Public_microdata_2022,V389,h22b2_01,Location(District) where is Local breed cows reared
+109,F2,PHC5_Public_microdata_2022,V390,h22b2_02,Location(District) where is Exotic breed cows reared
+109,F2,PHC5_Public_microdata_2022,V391,h22b2_03,Location(District) where is Cross breed cows reared
+109,F2,PHC5_Public_microdata_2022,V392,h22b2_04,Location(District) where is Local goats reared
+109,F2,PHC5_Public_microdata_2022,V393,h22b2_05,Location(District) where is Exotic goats reared
+109,F2,PHC5_Public_microdata_2022,V394,h22b2_06,Location(District) where is Cross goats reared
+109,F2,PHC5_Public_microdata_2022,V395,h22b2_07,Location(District) where is Local sheep reared
+109,F2,PHC5_Public_microdata_2022,V396,h22b2_08,Location(District) where is Exotic sheep reared
+109,F2,PHC5_Public_microdata_2022,V397,h22b2_09,Location(District) where is Local pigs reared
+109,F2,PHC5_Public_microdata_2022,V398,h22b2_10,Location(District) where is Exotic pig reared
+109,F2,PHC5_Public_microdata_2022,V399,h22b2_11,Location(District) where is Cross pig reared
+109,F2,PHC5_Public_microdata_2022,V400,h22b2_12,Location(District) where is Rabbits reared
+109,F2,PHC5_Public_microdata_2022,V401,h22b2_13,Location(District) where is Broiler chicken reared
+109,F2,PHC5_Public_microdata_2022,V402,h22b2_14,Location(District) where is Layers chicken reared
+109,F2,PHC5_Public_microdata_2022,V403,h22b2_15,Location(District) where is Dual purpose chicken reared
+109,F2,PHC5_Public_microdata_2022,V404,h22b2_16,Location(District) where is Local chicken reared
+109,F2,PHC5_Public_microdata_2022,V405,h22b2_17,Location(District) where is Duck reared
+109,F2,PHC5_Public_microdata_2022,V406,h22b2_18,Location(District) where is Turkey reared
+109,F2,PHC5_Public_microdata_2022,V407,h22b2_19,Location(District) where is Other poultry reared
+109,F2,PHC5_Public_microdata_2022,V408,h22b2_20,Location(District) where is Camel reared
+109,F2,PHC5_Public_microdata_2022,V409,h22b2_21,Location(District) where is Bees hive reared
+109,F2,PHC5_Public_microdata_2022,V410,h22b2_22,Location(District) where is Dogs reared
+109,F2,PHC5_Public_microdata_2022,V411,h22b2_23,Location(District) where is Other reared
+109,F2,PHC5_Public_microdata_2022,V412,h23,Household grew crops in last 12 months
+109,F2,PHC5_Public_microdata_2022,V413,h23a,Place where the agricultural activities is done
+109,F2,PHC5_Public_microdata_2022,V414,h24_01,Maize grown
+109,F2,PHC5_Public_microdata_2022,V415,h24_02,Rice grown
+109,F2,PHC5_Public_microdata_2022,V416,h24_03,Sorghum grown
+109,F2,PHC5_Public_microdata_2022,V417,h24_04,Wheat grown
+109,F2,PHC5_Public_microdata_2022,V418,h24_05,Bean grown
+109,F2,PHC5_Public_microdata_2022,V419,h24_06,Pea grown
+109,F2,PHC5_Public_microdata_2022,V420,h24_07,Groundnut grown
+109,F2,PHC5_Public_microdata_2022,V421,h24_08,Soybean grown
+109,F2,PHC5_Public_microdata_2022,V422,h24_09,Cassava grown
+109,F2,PHC5_Public_microdata_2022,V423,h24_10,Sweet potato grown
+109,F2,PHC5_Public_microdata_2022,V424,h24_11,Irish potato grown
+109,F2,PHC5_Public_microdata_2022,V425,h24_12,Yams& Taro grown
+109,F2,PHC5_Public_microdata_2022,V426,h24_13,Cooking Banana grown
+109,F2,PHC5_Public_microdata_2022,V427,h24_14,Dessert Banana grown
+109,F2,PHC5_Public_microdata_2022,V428,h24_15,Banana for Beer grown
+109,F2,PHC5_Public_microdata_2022,V429,h24_16,Vegetables grown
+109,F2,PHC5_Public_microdata_2022,V430,h24_17,Tea grown
+109,F2,PHC5_Public_microdata_2022,V431,h24_18,Coffee grown
+109,F2,PHC5_Public_microdata_2022,V432,h24_19,Sugarcane grown
+109,F2,PHC5_Public_microdata_2022,V433,h24_20,Pyrethrum grown
+109,F2,PHC5_Public_microdata_2022,V434,h24_21,Flowers grown
+109,F2,PHC5_Public_microdata_2022,V435,h24_22,Other crop type grown
+109,F2,PHC5_Public_microdata_2022,V436,h25_01,Amaranths grown
+109,F2,PHC5_Public_microdata_2022,V437,h25_02,Tomato grown
+109,F2,PHC5_Public_microdata_2022,V438,h25_03,Cabbage grown
+109,F2,PHC5_Public_microdata_2022,V439,h25_04,Onion grown
+109,F2,PHC5_Public_microdata_2022,V440,h25_05,Carrot grown
+109,F2,PHC5_Public_microdata_2022,V441,h25_06,Eggplant grown
+109,F2,PHC5_Public_microdata_2022,V442,h25_07,Black eggplant grown
+109,F2,PHC5_Public_microdata_2022,V443,h25_08,Sweet pepper grown
+109,F2,PHC5_Public_microdata_2022,V444,h25_09,Pepper grown
+109,F2,PHC5_Public_microdata_2022,V445,h25_10,Cauliflower grown
+109,F2,PHC5_Public_microdata_2022,V446,h25_11,French beans grown
+109,F2,PHC5_Public_microdata_2022,V447,h25_12,Beetroot grown
+109,F2,PHC5_Public_microdata_2022,V448,h25_13,Garlic grown
+109,F2,PHC5_Public_microdata_2022,V449,h25_14,Lettuce grown
+109,F2,PHC5_Public_microdata_2022,V450,h25_15,Broccoli grown
+109,F2,PHC5_Public_microdata_2022,V451,h25_16,Spinach grown
+109,F2,PHC5_Public_microdata_2022,V452,h25_17,Celery grown
+109,F2,PHC5_Public_microdata_2022,V453,h25_18,Leeks grown
+109,F2,PHC5_Public_microdata_2022,V454,h25_19,Pumpkin grown
+109,F2,PHC5_Public_microdata_2022,V455,h25_20,Cocumber grown
+109,F2,PHC5_Public_microdata_2022,V456,h25_21,Mushroom grown
+109,F2,PHC5_Public_microdata_2022,V457,h25_22,Chayote grown
+109,F2,PHC5_Public_microdata_2022,V458,h25_23,Cassava Leaves grown
+109,F2,PHC5_Public_microdata_2022,V459,h25_24,Other vegetables grown
+109,F2,PHC5_Public_microdata_2022,V460,h26,Number of tea trees grown
+109,F2,PHC5_Public_microdata_2022,V461,h27,Number of coffee trees grown
+109,F2,PHC5_Public_microdata_2022,V462,h28a,Any fruit tree
+109,F2,PHC5_Public_microdata_2022,V463,h28b1_01,Grow Avocado
+109,F2,PHC5_Public_microdata_2022,V464,h28b1_02,Grow Orange
+109,F2,PHC5_Public_microdata_2022,V465,h28b1_03,Grow Papaya
+109,F2,PHC5_Public_microdata_2022,V466,h28b1_04,Grow Guava
+109,F2,PHC5_Public_microdata_2022,V467,h28b1_05,Grow Lemon
+109,F2,PHC5_Public_microdata_2022,V468,h28b1_06,Grow Mango
+109,F2,PHC5_Public_microdata_2022,V469,h28b1_07,Grow Mandarin
+109,F2,PHC5_Public_microdata_2022,V470,h28b1_08,Grow Jack fruits
+109,F2,PHC5_Public_microdata_2022,V471,h28b1_09,Grow Beefheart
+109,F2,PHC5_Public_microdata_2022,V472,h28b1_10,Grow Passion fruits
+109,F2,PHC5_Public_microdata_2022,V473,h28b1_11,Grow Pineapple
+109,F2,PHC5_Public_microdata_2022,V474,h28b1_12,Grow Tree tomato
+109,F2,PHC5_Public_microdata_2022,V475,h28b1_13,Grow Watermelon
+109,F2,PHC5_Public_microdata_2022,V476,h28b1_14,Grow Strawberry
+109,F2,PHC5_Public_microdata_2022,V477,h28b1_15,Grow Other fruit
+109,F2,PHC5_Public_microdata_2022,V478,h28b2_01,Number of Avocado
+109,F2,PHC5_Public_microdata_2022,V479,h28b2_02,Number of Orange
+109,F2,PHC5_Public_microdata_2022,V480,h28b2_03,Number of Papaya
+109,F2,PHC5_Public_microdata_2022,V481,h28b2_04,Number of Guava
+109,F2,PHC5_Public_microdata_2022,V482,h28b2_05,Number of Lemon
+109,F2,PHC5_Public_microdata_2022,V483,h28b2_06,Number of Mango
+109,F2,PHC5_Public_microdata_2022,V484,h28b2_07,Number of Mandarin
+109,F2,PHC5_Public_microdata_2022,V485,h28b2_08,Number of Jack fruits
+109,F2,PHC5_Public_microdata_2022,V486,h28b2_09,Number of Beefheart
+109,F2,PHC5_Public_microdata_2022,V487,h28b2_10,Number of Passion fruits
+109,F2,PHC5_Public_microdata_2022,V488,h28b2_11,Number of Pineapple
+109,F2,PHC5_Public_microdata_2022,V489,h28b2_12,Number of Tree tomato
+109,F2,PHC5_Public_microdata_2022,V490,h28b2_13,Number of Watermelon
+109,F2,PHC5_Public_microdata_2022,V491,h28b2_14,Number of Strawberry
+109,F2,PHC5_Public_microdata_2022,V492,h28b2_15,Number of Other fruit
+109,F2,PHC5_Public_microdata_2022,V493,HH_weight,household weight
+109,F2,PHC5_Public_microdata_2022,V494,Pop_weight,population weight

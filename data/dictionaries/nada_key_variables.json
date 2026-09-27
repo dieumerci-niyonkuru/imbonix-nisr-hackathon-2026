@@ -1,0 +1,2129 @@
+{
+ "120:Microdata:a1": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "a1",
+  "label": "A1. Province/Kigali City",
+  "type": "Discrete",
+  "range": "1-5",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Kigali",
+    "cases": 1903,
+    "pct_unweighted": 13.6
+   },
+   {
+    "value": 2,
+    "label": "South",
+    "cases": 3519,
+    "pct_unweighted": 25.1
+   },
+   {
+    "value": 3,
+    "label": "West",
+    "cases": 3023,
+    "pct_unweighted": 21.6
+   },
+   {
+    "value": 4,
+    "label": "North",
+    "cases": 2174,
+    "pct_unweighted": 15.5
+   },
+   {
+    "value": 5,
+    "label": "East",
+    "cases": 3375,
+    "pct_unweighted": 24.1
+   }
+  ]
+ },
+ "120:Microdata:a2": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "a2",
+  "label": "A2. District",
+  "type": "Discrete",
+  "range": "11-57",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 11,
+    "label": "Nyarugenge",
+    "cases": 448,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 12,
+    "label": "Gasabo",
+    "cases": 848,
+    "pct_unweighted": 6.1
+   },
+   {
+    "value": 13,
+    "label": "Kicukiro",
+    "cases": 607,
+    "pct_unweighted": 4.3
+   },
+   {
+    "value": 21,
+    "label": "Nyanza",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 22,
+    "label": "Gisagara",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 23,
+    "label": "Nyaruguru",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 24,
+    "label": "Huye",
+    "cases": 480,
+    "pct_unweighted": 3.4
+   },
+   {
+    "value": 25,
+    "label": "Nyamagabe",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 26,
+    "label": "Ruhango",
+    "cases": 416,
+    "pct_unweighted": 3.0
+   },
+   {
+    "value": 27,
+    "label": "Muhanga",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 28,
+    "label": "Kamonyi",
+    "cases": 623,
+    "pct_unweighted": 4.5
+   },
+   {
+    "value": 31,
+    "label": "Karongi",
+    "cases": 399,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 32,
+    "label": "Rutsiro",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 33,
+    "label": "Rubavu",
+    "cases": 512,
+    "pct_unweighted": 3.7
+   },
+   {
+    "value": 34,
+    "label": "Nyabihu",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 35,
+    "label": "Ngororero",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 36,
+    "label": "Rusizi",
+    "cases": 480,
+    "pct_unweighted": 3.4
+   },
+   {
+    "value": 37,
+    "label": "Nyamasheke",
+    "cases": 432,
+    "pct_unweighted": 3.1
+   },
+   {
+    "value": 41,
+    "label": "Rulindo",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 42,
+    "label": "Gakenke",
+    "cases": 447,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 43,
+    "label": "Musanze",
+    "cases": 399,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 44,
+    "label": "Burera",
+    "cases": 416,
+    "pct_unweighted": 3.0
+   },
+   {
+    "value": 45,
+    "label": "Gicumbi",
+    "cases": 512,
+    "pct_unweighted": 3.7
+   },
+   {
+    "value": 51,
+    "label": "Rwamagana",
+    "cases": 464,
+    "pct_unweighted": 3.3
+   },
+   {
+    "value": 52,
+    "label": "Nyagatare",
+    "cases": 639,
+    "pct_unweighted": 4.6
+   },
+   {
+    "value": 53,
+    "label": "Gatsibo",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 54,
+    "label": "Kayonza",
+    "cases": 448,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 55,
+    "label": "Kirehe",
+    "cases": 464,
+    "pct_unweighted": 3.3
+   },
+   {
+    "value": 56,
+    "label": "Ngoma",
+    "cases": 400,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 57,
+    "label": "Bugesera",
+    "cases": 560,
+    "pct_unweighted": 4.0
+   }
+  ]
+ },
+ "120:Microdata:a6": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "a6",
+  "label": "Urban_Rural",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Urban",
+    "cases": 5789,
+    "pct_unweighted": 41.4
+   },
+   {
+    "value": 2,
+    "label": "Rural",
+    "cases": 8205,
+    "pct_unweighted": 58.6
+   }
+  ]
+ },
+ "120:Microdata:b1": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "b1",
+  "label": "Age of respondent",
+  "type": "Continuous",
+  "range": "16-99",
+  "valid_cases": "13994",
+  "invalid": "0"
+ },
+ "120:Microdata:b2": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "b2",
+  "label": "Sex of respondent",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Male",
+    "cases": 6186,
+    "pct_unweighted": 44.2
+   },
+   {
+    "value": 2,
+    "label": "Female",
+    "cases": 7808,
+    "pct_unweighted": 55.8
+   }
+  ]
+ },
+ "120:Microdata:qf4_09": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "qf4_09",
+  "label": "qf4_09. Do you currently use - Long-Term Saving Scheme (EJOHEZA)",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "1723",
+  "invalid": "12271",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 1482,
+    "pct_unweighted": 86.0
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 241,
+    "pct_unweighted": 14.0
+   }
+  ]
+ },
+ "120:Microdata:h3_07": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "h3_07",
+  "label": "h3. Got a loan from Government (Ubudehe credit scheme/VUP loan)",
+  "type": "Discrete",
+  "range": "0-1",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 0,
+    "label": "No",
+    "cases": 13905,
+    "pct_unweighted": 99.4
+   },
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 89,
+    "pct_unweighted": 0.6
+   }
+  ]
+ },
+ "120:Microdata:i2_1": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "i2_1",
+  "label": "i2. Member of household lost job/income",
+  "type": "Discrete",
+  "range": "0-1",
+  "valid_cases": "13993",
+  "invalid": "1",
+  "categories": [
+   {
+    "value": 0,
+    "label": "No",
+    "cases": 12822,
+    "pct_unweighted": 91.6
+   },
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 1171,
+    "pct_unweighted": 8.4
+   }
+  ]
+ },
+ "120:Microdata:i2_11": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "i2_11",
+  "label": "i2. Disability due to accident/illness",
+  "type": "Discrete",
+  "range": "0-1",
+  "valid_cases": "13993",
+  "invalid": "1",
+  "categories": [
+   {
+    "value": 0,
+    "label": "No",
+    "cases": 13639,
+    "pct_unweighted": 97.5
+   },
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 354,
+    "pct_unweighted": 2.5
+   }
+  ]
+ },
+ "120:Microdata:i5a_3": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "i5a_3",
+  "label": "i5a_3. Do you have: Mutuelle de Sante (MUSA/CBHI)",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 11426,
+    "pct_unweighted": 81.6
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 2568,
+    "pct_unweighted": 18.4
+   }
+  ]
+ },
+ "120:Microdata:i6_15": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "i6_15",
+  "label": "i6_15. Insurance product - Ejo heza",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 2870,
+    "pct_unweighted": 20.5
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 11124,
+    "pct_unweighted": 79.5
+   }
+  ]
+ },
+ "120:Microdata:cc7_13": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "cc7_13",
+  "label": "Seek government assistance",
+  "type": "Discrete",
+  "range": "0-99",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 0,
+    "label": "No",
+    "cases": 9198,
+    "pct_unweighted": 65.7
+   },
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 4795,
+    "pct_unweighted": 34.3
+   },
+   {
+    "value": 99,
+    "label": "Missing",
+    "cases": 1,
+    "pct_unweighted": 0.0
+   }
+  ]
+ },
+ "120:Microdata:k8a_12": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "k8a_12",
+  "label": "k8a_12. Distance from where I stay and the banking facilities",
+  "type": "Discrete",
+  "range": "0-1",
+  "valid_cases": "1301",
+  "invalid": "12693",
+  "categories": [
+   {
+    "value": 0,
+    "label": "No",
+    "cases": 1233,
+    "pct_unweighted": 94.8
+   },
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 68,
+    "pct_unweighted": 5.2
+   }
+  ]
+ },
+ "120:Microdata:f3": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "f3",
+  "label": "F3. Do you own a mobile phone?",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 9545,
+    "pct_unweighted": 68.2
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 4449,
+    "pct_unweighted": 31.8
+   }
+  ]
+ },
+ "120:Microdata:f4d": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "f4d",
+  "label": "F4d. What type of mobile phone/s do you use?",
+  "type": "Discrete",
+  "valid_cases": "0",
+  "invalid": "0"
+ },
+ "120:Microdata:f7_1": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "f7_1",
+  "label": "f7_1. This is the only accessible one in my community (Agent nearby)",
+  "type": "Discrete",
+  "range": "0-1",
+  "valid_cases": "9823",
+  "invalid": "4171",
+  "categories": [
+   {
+    "value": 0,
+    "label": "No",
+    "cases": 9616,
+    "pct_unweighted": 97.9
+   },
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 207,
+    "pct_unweighted": 2.1
+   }
+  ]
+ },
+ "120:Microdata:l1": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "l1",
+  "label": "L1. Do you belong to any informal financial groups?",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 7536,
+    "pct_unweighted": 53.9
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 6458,
+    "pct_unweighted": 46.1
+   }
+  ]
+ },
+ "120:Microdata:n1a_11": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "n1a_11",
+  "label": "n1a_11. Government/state grant/VUP grant/ VUP cash transfer",
+  "type": "Discrete",
+  "range": "0-1",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 0,
+    "label": "No",
+    "cases": 13545,
+    "pct_unweighted": 96.8
+   },
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 449,
+    "pct_unweighted": 3.2
+   }
+  ]
+ },
+ "120:Microdata:n1a_12": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "n1a_12",
+  "label": "n1a_12. Social protection",
+  "type": "Discrete",
+  "range": "0-1",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 0,
+    "label": "No",
+    "cases": 13877,
+    "pct_unweighted": 99.2
+   },
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 117,
+    "pct_unweighted": 0.8
+   }
+  ]
+ },
+ "120:Microdata:n1a_18": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "n1a_18",
+  "label": "n1a_18. VUP public works",
+  "type": "Discrete",
+  "range": "0-1",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 0,
+    "label": "No",
+    "cases": 13811,
+    "pct_unweighted": 98.7
+   },
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 183,
+    "pct_unweighted": 1.3
+   }
+  ]
+ },
+ "120:Microdata:n11": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "n11",
+  "label": "N11. What is your monthly personal total income?",
+  "type": "Discrete",
+  "range": "1-16",
+  "valid_cases": "4513",
+  "invalid": "9481",
+  "categories": [
+   {
+    "value": 1,
+    "label": "1,000 Rwf or less",
+    "cases": 131,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 2,
+    "label": "10001 - 3,000 Rwf",
+    "cases": 51,
+    "pct_unweighted": 1.1
+   },
+   {
+    "value": 3,
+    "label": "3,001 - 5,000 Rwf",
+    "cases": 130,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 4,
+    "label": "5,001 - 7,000 Rwf",
+    "cases": 125,
+    "pct_unweighted": 2.8
+   },
+   {
+    "value": 5,
+    "label": "7,001 - 10,000 Rwf",
+    "cases": 237,
+    "pct_unweighted": 5.3
+   },
+   {
+    "value": 6,
+    "label": "10,001 - 15,000 Rwf",
+    "cases": 315,
+    "pct_unweighted": 7.0
+   },
+   {
+    "value": 7,
+    "label": "15,001 - 20,000 Rwf",
+    "cases": 285,
+    "pct_unweighted": 6.3
+   },
+   {
+    "value": 8,
+    "label": "20,001 - 25,000 Rwf",
+    "cases": 213,
+    "pct_unweighted": 4.7
+   },
+   {
+    "value": 9,
+    "label": "25,001 - 30,000 Rwf",
+    "cases": 283,
+    "pct_unweighted": 6.3
+   },
+   {
+    "value": 10,
+    "label": "30,001 - 40,000 Rwf",
+    "cases": 263,
+    "pct_unweighted": 5.8
+   },
+   {
+    "value": 11,
+    "label": "40,001 - 50,000 Rwf",
+    "cases": 296,
+    "pct_unweighted": 6.6
+   },
+   {
+    "value": 12,
+    "label": "50,001 - 100,000 Rwf",
+    "cases": 533,
+    "pct_unweighted": 11.8
+   },
+   {
+    "value": 13,
+    "label": "100,001 - 300,000 Rwf",
+    "cases": 541,
+    "pct_unweighted": 12.0
+   },
+   {
+    "value": 14,
+    "label": "300,001 - 500,000 Rwf",
+    "cases": 242,
+    "pct_unweighted": 5.4
+   },
+   {
+    "value": 15,
+    "label": "More than 500,000 Rwf",
+    "cases": 253,
+    "pct_unweighted": 5.6
+   },
+   {
+    "value": 16,
+    "label": "Irregular/seasonal income",
+    "cases": 615,
+    "pct_unweighted": 13.6
+   }
+  ]
+ },
+ "120:Microdata:c4d": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "c4d",
+  "label": "C4d. Do you have any disability and/or impairment?",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 1875,
+    "pct_unweighted": 13.4
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 12119,
+    "pct_unweighted": 86.6
+   }
+  ]
+ },
+ "120:Microdata:c5_4": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "c5_4",
+  "label": "C5_4. How often have you or your household had to go without cash income and had",
+  "type": "Discrete",
+  "range": "1-99",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Many times",
+    "cases": 4222,
+    "pct_unweighted": 30.2
+   },
+   {
+    "value": 2,
+    "label": "A few times",
+    "cases": 4678,
+    "pct_unweighted": 33.4
+   },
+   {
+    "value": 3,
+    "label": "Never",
+    "cases": 4942,
+    "pct_unweighted": 35.3
+   },
+   {
+    "value": 96,
+    "label": "Refused",
+    "cases": 0,
+    "pct_unweighted": 0.0
+   },
+   {
+    "value": 99,
+    "label": "Don?t know",
+    "cases": 152,
+    "pct_unweighted": 1.1
+   }
+  ]
+ },
+ "120:Microdata:c13a": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "c13a",
+  "label": "C13a. Can you please tell me in which Ubudehe category your household falls?",
+  "type": "Discrete",
+  "range": "1-99",
+  "valid_cases": "13994",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "1st category",
+    "cases": 1372,
+    "pct_unweighted": 9.8
+   },
+   {
+    "value": 2,
+    "label": "2nd category",
+    "cases": 6476,
+    "pct_unweighted": 46.3
+   },
+   {
+    "value": 3,
+    "label": "3rd category",
+    "cases": 5880,
+    "pct_unweighted": 42.0
+   },
+   {
+    "value": 4,
+    "label": "4th category",
+    "cases": 38,
+    "pct_unweighted": 0.3
+   },
+   {
+    "value": 5,
+    "label": "Appellxed",
+    "cases": 56,
+    "pct_unweighted": 0.4
+   },
+   {
+    "value": 99,
+    "label": "Don?t know",
+    "cases": 172,
+    "pct_unweighted": 1.2
+   }
+  ]
+ },
+ "120:Microdata:c13b": {
+  "study": "FinScope 2024",
+  "file": "Microdata",
+  "name": "c13b",
+  "label": "C13b. Has the category your household is in changed in the past 2 years?",
+  "type": "Discrete",
+  "range": "1-99",
+  "valid_cases": "13822",
+  "invalid": "172",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 1104,
+    "pct_unweighted": 8.0
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 12584,
+    "pct_unweighted": 91.0
+   },
+   {
+    "value": 99,
+    "label": "Don?t know",
+    "cases": 134,
+    "pct_unweighted": 1.0
+   }
+  ]
+ },
+ "119:CS_S8A1_Expenditure:province": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S8A1_Expenditure",
+  "name": "province",
+  "label": "Province",
+  "type": "Discrete",
+  "range": "1-5",
+  "valid_cases": "1159158",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "City of Kigali",
+    "cases": 149226,
+    "pct_unweighted": 12.9
+   },
+   {
+    "value": 2,
+    "label": "Southern",
+    "cases": 299145,
+    "pct_unweighted": 25.8
+   },
+   {
+    "value": 3,
+    "label": "Western",
+    "cases": 261800,
+    "pct_unweighted": 22.6
+   },
+   {
+    "value": 4,
+    "label": "Northern",
+    "cases": 187110,
+    "pct_unweighted": 16.1
+   },
+   {
+    "value": 5,
+    "label": "Eastern",
+    "cases": 261877,
+    "pct_unweighted": 22.6
+   }
+  ]
+ },
+ "119:CS_S8A1_Expenditure:district": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S8A1_Expenditure",
+  "name": "district",
+  "label": "District",
+  "type": "Discrete",
+  "range": "11-57",
+  "valid_cases": "1159158",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 11,
+    "label": "Nyarugenge",
+    "cases": 49819,
+    "pct_unweighted": 4.3
+   },
+   {
+    "value": 12,
+    "label": "Gasabo",
+    "cases": 49588,
+    "pct_unweighted": 4.3
+   },
+   {
+    "value": 13,
+    "label": "Kicukiro",
+    "cases": 49819,
+    "pct_unweighted": 4.3
+   },
+   {
+    "value": 21,
+    "label": "Nyanza",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 22,
+    "label": "Gisagara",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 23,
+    "label": "Nyaruguru",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 24,
+    "label": "Huye",
+    "cases": 37345,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 25,
+    "label": "Nyamagabe",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 26,
+    "label": "Ruhango",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 27,
+    "label": "Muhanga",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 28,
+    "label": "Kamonyi",
+    "cases": 37268,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 31,
+    "label": "Karongi",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 32,
+    "label": "Rutsiro",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 33,
+    "label": "Rubavu",
+    "cases": 37345,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 34,
+    "label": "Nyabihu",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 35,
+    "label": "Ngororero",
+    "cases": 37345,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 36,
+    "label": "Rusizi",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 37,
+    "label": "Nyamasheke",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 41,
+    "label": "Rulindo",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 42,
+    "label": "Gakenke",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 43,
+    "label": "Musanze",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 44,
+    "label": "Burera",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 45,
+    "label": "Gicumbi",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 51,
+    "label": "Rwamagana",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 52,
+    "label": "Nyagatare",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 53,
+    "label": "Gatsibo",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 54,
+    "label": "Kayonza",
+    "cases": 37345,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 55,
+    "label": "Kirehe",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 56,
+    "label": "Ngoma",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 57,
+    "label": "Bugesera",
+    "cases": 37422,
+    "pct_unweighted": 3.2
+   }
+  ]
+ },
+ "119:CS_S8A1_Expenditure:ur": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S8A1_Expenditure",
+  "name": "ur",
+  "label": "Residence area",
+  "type": "Discrete",
+  "range": "1-4",
+  "valid_cases": "1159158",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Urban",
+    "cases": 307538,
+    "pct_unweighted": 26.5
+   },
+   {
+    "value": 2,
+    "label": "Rural",
+    "cases": 851620,
+    "pct_unweighted": 73.5
+   },
+   {
+    "value": 3,
+    "label": "Peri urban",
+    "cases": 0,
+    "pct_unweighted": 0.0
+   },
+   {
+    "value": 4,
+    "label": "Semi urban",
+    "cases": 0,
+    "pct_unweighted": 0.0
+   }
+  ]
+ },
+ "119:CS_S8A1_Expenditure:poverty": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S8A1_Expenditure",
+  "name": "poverty",
+  "label": "Welfare Categories",
+  "type": "Discrete",
+  "range": "1-3",
+  "valid_cases": "1159158",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Severaly Poor",
+    "cases": 48279,
+    "pct_unweighted": 4.2
+   },
+   {
+    "value": 2,
+    "label": "Moderately poor",
+    "cases": 227227,
+    "pct_unweighted": 19.6
+   },
+   {
+    "value": 3,
+    "label": "Non Poor",
+    "cases": 883652,
+    "pct_unweighted": 76.2
+   }
+  ]
+ },
+ "119:CS_S8A1_Expenditure:quintile": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S8A1_Expenditure",
+  "name": "quintile",
+  "label": "Quintiles of real consumption per ae",
+  "type": "Discrete",
+  "range": "1-5",
+  "valid_cases": "1159158",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Q1",
+    "cases": 195811,
+    "pct_unweighted": 16.9
+   },
+   {
+    "value": 2,
+    "label": "Q2",
+    "cases": 218757,
+    "pct_unweighted": 18.9
+   },
+   {
+    "value": 3,
+    "label": "Q3",
+    "cases": 239085,
+    "pct_unweighted": 20.6
+   },
+   {
+    "value": 4,
+    "label": "Q4",
+    "cases": 252483,
+    "pct_unweighted": 21.8
+   },
+   {
+    "value": 5,
+    "label": "Q5",
+    "cases": 253022,
+    "pct_unweighted": 21.8
+   }
+  ]
+ },
+ "119:CS_S9D4_NSDS:s9d1q1": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S9D4_NSDS",
+  "name": "s9d1q1",
+  "label": "beneficiaries of VUP(any component)",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "15057",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 561,
+    "pct_unweighted": 3.7
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 14496,
+    "pct_unweighted": 96.3
+   }
+  ]
+ },
+ "119:CS_S9D4_NSDS:s9d1q2": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S9D4_NSDS",
+  "name": "s9d1q2",
+  "label": "beneficiaries of direct support",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "2",
+  "invalid": "15055",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 0,
+    "pct_unweighted": 0.0
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 2,
+    "pct_unweighted": 100.0
+   }
+  ]
+ },
+ "119:CS_S10A1_A2_credits:s10aq1": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S10A1_A2_credits",
+  "name": "s10aq1",
+  "label": "Household member tried to obtain a loan",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "20509",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 1225,
+    "pct_unweighted": 6.0
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 19284,
+    "pct_unweighted": 94.0
+   }
+  ]
+ },
+ "119:CS_S10A1_A2_credits:s10aq2": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S10A1_A2_credits",
+  "name": "s10aq2",
+  "label": "Main reason why loan was denied",
+  "type": "Discrete",
+  "range": "1-5",
+  "valid_cases": "1225",
+  "invalid": "19284",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Insuffivient income",
+    "cases": 256,
+    "pct_unweighted": 20.9
+   },
+   {
+    "value": 2,
+    "label": "Insufficient collateral",
+    "cases": 308,
+    "pct_unweighted": 25.1
+   },
+   {
+    "value": 3,
+    "label": "Problems related to debts history",
+    "cases": 114,
+    "pct_unweighted": 9.3
+   },
+   {
+    "value": 4,
+    "label": "Unclear purpose of the loan",
+    "cases": 319,
+    "pct_unweighted": 26.0
+   },
+   {
+    "value": 5,
+    "label": "Other reasons",
+    "cases": 228,
+    "pct_unweighted": 18.6
+   }
+  ]
+ },
+ "119:CS_S10A1_A2_credits:s10aq6": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S10A1_A2_credits",
+  "name": "s10aq6",
+  "label": "Loan source",
+  "type": "Discrete",
+  "range": "1-12",
+  "valid_cases": "15770",
+  "invalid": "4739",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Employer loan",
+    "cases": 68,
+    "pct_unweighted": 0.4
+   },
+   {
+    "value": 2,
+    "label": "Commercial Bank",
+    "cases": 686,
+    "pct_unweighted": 4.4
+   },
+   {
+    "value": 3,
+    "label": "Borrowed from relative",
+    "cases": 4682,
+    "pct_unweighted": 29.7
+   },
+   {
+    "value": 4,
+    "label": "Credit cooperative",
+    "cases": 197,
+    "pct_unweighted": 1.2
+   },
+   {
+    "value": 5,
+    "label": "Tontine (community)",
+    "cases": 7797,
+    "pct_unweighted": 49.4
+   },
+   {
+    "value": 6,
+    "label": "Informal lenders",
+    "cases": 45,
+    "pct_unweighted": 0.3
+   },
+   {
+    "value": 7,
+    "label": "Microfinance",
+    "cases": 243,
+    "pct_unweighted": 1.5
+   },
+   {
+    "value": 8,
+    "label": "VUP financial service Loan",
+    "cases": 337,
+    "pct_unweighted": 2.1
+   },
+   {
+    "value": 9,
+    "label": "SACCOs",
+    "cases": 781,
+    "pct_unweighted": 5.0
+   },
+   {
+    "value": 10,
+    "label": "Mokash",
+    "cases": 187,
+    "pct_unweighted": 1.2
+   },
+   {
+    "value": 11,
+    "label": "Commercial Institutions/Business",
+    "cases": 685,
+    "pct_unweighted": 4.3
+   },
+   {
+    "value": 12,
+    "label": "Other (Specify)",
+    "cases": 62,
+    "pct_unweighted": 0.4
+   }
+  ]
+ },
+ "119:CS_S10A1_A2_credits:s10aq7": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S10A1_A2_credits",
+  "name": "s10aq7",
+  "label": "Main purpose of loan",
+  "type": "Discrete",
+  "range": "1-11",
+  "valid_cases": "15770",
+  "invalid": "4739",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Agricultural equipment",
+    "cases": 1033,
+    "pct_unweighted": 6.6
+   },
+   {
+    "value": 2,
+    "label": "Agricultural inputs",
+    "cases": 1309,
+    "pct_unweighted": 8.3
+   },
+   {
+    "value": 3,
+    "label": "Business expansion",
+    "cases": 2300,
+    "pct_unweighted": 14.6
+   },
+   {
+    "value": 4,
+    "label": "Home improvement",
+    "cases": 1093,
+    "pct_unweighted": 6.9
+   },
+   {
+    "value": 5,
+    "label": "Education",
+    "cases": 1267,
+    "pct_unweighted": 8.0
+   },
+   {
+    "value": 6,
+    "label": "Medical treatment",
+    "cases": 1071,
+    "pct_unweighted": 6.8
+   },
+   {
+    "value": 7,
+    "label": "Ceremonial (marriage, funeral, baptism)",
+    "cases": 393,
+    "pct_unweighted": 2.5
+   },
+   {
+    "value": 8,
+    "label": "Purchase of household items",
+    "cases": 548,
+    "pct_unweighted": 3.5
+   },
+   {
+    "value": 9,
+    "label": "Livestock purchase",
+    "cases": 652,
+    "pct_unweighted": 4.1
+   },
+   {
+    "value": 10,
+    "label": "Food purchase",
+    "cases": 5372,
+    "pct_unweighted": 34.1
+   },
+   {
+    "value": 11,
+    "label": "Others (specify)",
+    "cases": 732,
+    "pct_unweighted": 4.6
+   }
+  ]
+ },
+ "119:CS_S10C_Savings:s10cq1": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S10C_Savings",
+  "name": "s10cq1",
+  "label": "Ownership of bank account(Financial Institution/momo/Tontine)",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "43810",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 43057,
+    "pct_unweighted": 98.3
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 753,
+    "pct_unweighted": 1.7
+   }
+  ]
+ },
+ "119:CS_S10C_Savings:s10cq4": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S10C_Savings",
+  "name": "s10cq4",
+  "label": "Does ... have account (bank account/momo)?",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "43057",
+  "invalid": "753",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 39116,
+    "pct_unweighted": 90.8
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 3941,
+    "pct_unweighted": 9.2
+   }
+  ]
+ },
+ "119:CS_S10C_Savings:s10cq5": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S10C_Savings",
+  "name": "s10cq5",
+  "label": "What institution does ... bank with?",
+  "type": "Discrete",
+  "range": "1-7",
+  "valid_cases": "39116",
+  "invalid": "4694",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Commercial Bank",
+    "cases": 5021,
+    "pct_unweighted": 12.8
+   },
+   {
+    "value": 2,
+    "label": "Microfinance",
+    "cases": 1160,
+    "pct_unweighted": 3.0
+   },
+   {
+    "value": 3,
+    "label": "Cooperative Bank",
+    "cases": 426,
+    "pct_unweighted": 1.1
+   },
+   {
+    "value": 4,
+    "label": "Savings & Credit Cooperatives (SACCO)",
+    "cases": 8805,
+    "pct_unweighted": 22.5
+   },
+   {
+    "value": 5,
+    "label": "Momo",
+    "cases": 21974,
+    "pct_unweighted": 56.2
+   },
+   {
+    "value": 6,
+    "label": "Mokash",
+    "cases": 1702,
+    "pct_unweighted": 4.4
+   },
+   {
+    "value": 7,
+    "label": "Other(specify)",
+    "cases": 28,
+    "pct_unweighted": 0.1
+   }
+  ]
+ },
+ "119:CS_S10C_Savings:s10cq6": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S10C_Savings",
+  "name": "s10cq6",
+  "label": "Which type of account does ... own?",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "15440",
+  "invalid": "28370",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Current Account",
+    "cases": 15078,
+    "pct_unweighted": 97.7
+   },
+   {
+    "value": 2,
+    "label": "Saving Account",
+    "cases": 362,
+    "pct_unweighted": 2.3
+   }
+  ]
+ },
+ "119:CS_S10C_Savings:s10cq8": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S10C_Savings",
+  "name": "s10cq8",
+  "label": "Does ... participate in a tontine",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "28216",
+  "invalid": "15594",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 17102,
+    "pct_unweighted": 60.6
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 11114,
+    "pct_unweighted": 39.4
+   }
+  ]
+ },
+ "119:CS_S9D1_Direct_Support:s9d1q3": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S9D1_Direct_Support",
+  "name": "s9d1q3",
+  "label": "reason for enrolling in the VUP direct support component",
+  "type": "Discrete",
+  "range": "1-3",
+  "valid_cases": "439",
+  "invalid": "14617",
+  "categories": [
+   {
+    "value": 1,
+    "label": "The HH had no workers",
+    "cases": 342,
+    "pct_unweighted": 77.9
+   },
+   {
+    "value": 2,
+    "label": "The HH had someone caring for a person with a severe disability",
+    "cases": 83,
+    "pct_unweighted": 18.9
+   },
+   {
+    "value": 3,
+    "label": "Don?t know",
+    "cases": 14,
+    "pct_unweighted": 3.2
+   }
+  ]
+ },
+ "119:CS_S9D1_Direct_Support:s9d1q5": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S9D1_Direct_Support",
+  "name": "s9d1q5",
+  "label": "way by which direct support payment received",
+  "type": "Discrete",
+  "range": "1-3",
+  "valid_cases": "439",
+  "invalid": "14617",
+  "categories": [
+   {
+    "value": 1,
+    "label": "SACCO",
+    "cases": 372,
+    "pct_unweighted": 84.7
+   },
+   {
+    "value": 2,
+    "label": "Mobile Money/Airtel Money",
+    "cases": 67,
+    "pct_unweighted": 15.3
+   },
+   {
+    "value": 3,
+    "label": "Not yet paid",
+    "cases": 0,
+    "pct_unweighted": 0.0
+   }
+  ]
+ },
+ "119:CS_S9D1_Direct_Support:s9d1q7": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S9D1_Direct_Support",
+  "name": "s9d1q7",
+  "label": "Have you received your DS entitlement for all the months since you joined",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "439",
+  "invalid": "14617",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 439,
+    "pct_unweighted": 100.0
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 0,
+    "pct_unweighted": 0.0
+   }
+  ]
+ },
+ "119:CS_S9D1_Direct_Support:s9d1q8a": {
+  "study": "EICV7 2023/24 cross-section",
+  "file": "CS_S9D1_Direct_Support",
+  "name": "s9d1q8a",
+  "label": "Number of delayed days of first last payment",
+  "type": "Continuous",
+  "range": "0-45",
+  "valid_cases": "439",
+  "invalid": "14617"
+ },
+ "121:vup_s8a1_expenditure:province": {
+  "study": "EICV7 2023/24 VUP sample",
+  "file": "vup_s8a1_expenditure",
+  "name": "province",
+  "label": "Province",
+  "type": "Discrete",
+  "range": "1-5",
+  "valid_cases": "290367",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "City of Kigali",
+    "cases": 33726,
+    "pct_unweighted": 11.6
+   },
+   {
+    "value": 2,
+    "label": "Southern",
+    "cases": 64141,
+    "pct_unweighted": 22.1
+   },
+   {
+    "value": 3,
+    "label": "Western",
+    "cases": 62216,
+    "pct_unweighted": 21.4
+   },
+   {
+    "value": 4,
+    "label": "Northern",
+    "cases": 66990,
+    "pct_unweighted": 23.1
+   },
+   {
+    "value": 5,
+    "label": "Eastern",
+    "cases": 63294,
+    "pct_unweighted": 21.8
+   }
+  ]
+ },
+ "121:vup_s8a1_expenditure:district": {
+  "study": "EICV7 2023/24 VUP sample",
+  "file": "vup_s8a1_expenditure",
+  "name": "district",
+  "label": "District",
+  "type": "Discrete",
+  "range": "11-57",
+  "valid_cases": "290367",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 11,
+    "label": "Nyarugenge",
+    "cases": 4620,
+    "pct_unweighted": 1.6
+   },
+   {
+    "value": 12,
+    "label": "Gasabo",
+    "cases": 26334,
+    "pct_unweighted": 9.1
+   },
+   {
+    "value": 13,
+    "label": "Kicukiro",
+    "cases": 2772,
+    "pct_unweighted": 1.0
+   },
+   {
+    "value": 21,
+    "label": "Nyanza",
+    "cases": 4620,
+    "pct_unweighted": 1.6
+   },
+   {
+    "value": 22,
+    "label": "Gisagara",
+    "cases": 5544,
+    "pct_unweighted": 1.9
+   },
+   {
+    "value": 23,
+    "label": "Nyaruguru",
+    "cases": 5544,
+    "pct_unweighted": 1.9
+   },
+   {
+    "value": 24,
+    "label": "Huye",
+    "cases": 6930,
+    "pct_unweighted": 2.4
+   },
+   {
+    "value": 25,
+    "label": "Nyamagabe",
+    "cases": 11088,
+    "pct_unweighted": 3.8
+   },
+   {
+    "value": 26,
+    "label": "Ruhango",
+    "cases": 8316,
+    "pct_unweighted": 2.9
+   },
+   {
+    "value": 27,
+    "label": "Muhanga",
+    "cases": 12859,
+    "pct_unweighted": 4.4
+   },
+   {
+    "value": 28,
+    "label": "Kamonyi",
+    "cases": 9240,
+    "pct_unweighted": 3.2
+   },
+   {
+    "value": 31,
+    "label": "Karongi",
+    "cases": 7700,
+    "pct_unweighted": 2.7
+   },
+   {
+    "value": 32,
+    "label": "Rutsiro",
+    "cases": 7392,
+    "pct_unweighted": 2.5
+   },
+   {
+    "value": 33,
+    "label": "Rubavu",
+    "cases": 6468,
+    "pct_unweighted": 2.2
+   },
+   {
+    "value": 34,
+    "label": "Nyabihu",
+    "cases": 5544,
+    "pct_unweighted": 1.9
+   },
+   {
+    "value": 35,
+    "label": "Ngororero",
+    "cases": 13860,
+    "pct_unweighted": 4.8
+   },
+   {
+    "value": 36,
+    "label": "Rusizi",
+    "cases": 11088,
+    "pct_unweighted": 3.8
+   },
+   {
+    "value": 37,
+    "label": "Nyamasheke",
+    "cases": 10164,
+    "pct_unweighted": 3.5
+   },
+   {
+    "value": 41,
+    "label": "Rulindo",
+    "cases": 21714,
+    "pct_unweighted": 7.5
+   },
+   {
+    "value": 42,
+    "label": "Gakenke",
+    "cases": 5544,
+    "pct_unweighted": 1.9
+   },
+   {
+    "value": 43,
+    "label": "Musanze",
+    "cases": 5544,
+    "pct_unweighted": 1.9
+   },
+   {
+    "value": 44,
+    "label": "Burera",
+    "cases": 12012,
+    "pct_unweighted": 4.1
+   },
+   {
+    "value": 45,
+    "label": "Gicumbi",
+    "cases": 22176,
+    "pct_unweighted": 7.6
+   },
+   {
+    "value": 51,
+    "label": "Rwamagana",
+    "cases": 5544,
+    "pct_unweighted": 1.9
+   },
+   {
+    "value": 52,
+    "label": "Nyagatare",
+    "cases": 24024,
+    "pct_unweighted": 8.3
+   },
+   {
+    "value": 53,
+    "label": "Gatsibo",
+    "cases": 7700,
+    "pct_unweighted": 2.7
+   },
+   {
+    "value": 54,
+    "label": "Kayonza",
+    "cases": 5544,
+    "pct_unweighted": 1.9
+   },
+   {
+    "value": 55,
+    "label": "Kirehe",
+    "cases": 5544,
+    "pct_unweighted": 1.9
+   },
+   {
+    "value": 56,
+    "label": "Ngoma",
+    "cases": 11088,
+    "pct_unweighted": 3.8
+   },
+   {
+    "value": 57,
+    "label": "Bugesera",
+    "cases": 3850,
+    "pct_unweighted": 1.3
+   }
+  ]
+ },
+ "121:vup_s8a1_expenditure:poverty": {
+  "study": "EICV7 2023/24 VUP sample",
+  "file": "vup_s8a1_expenditure",
+  "name": "poverty",
+  "label": "Welfare Categories",
+  "type": "Discrete",
+  "range": "1-3",
+  "valid_cases": "290367",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Severaly Poor",
+    "cases": 13629,
+    "pct_unweighted": 4.7
+   },
+   {
+    "value": 2,
+    "label": "Moderately poor",
+    "cases": 69223,
+    "pct_unweighted": 23.8
+   },
+   {
+    "value": 3,
+    "label": "Non Poor",
+    "cases": 207515,
+    "pct_unweighted": 71.5
+   }
+  ]
+ },
+ "121:vup_s8a1_expenditure:quintile": {
+  "study": "EICV7 2023/24 VUP sample",
+  "file": "vup_s8a1_expenditure",
+  "name": "quintile",
+  "label": "Quintiles of real consumption per ae",
+  "type": "Discrete",
+  "range": "1-5",
+  "valid_cases": "290367",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Q1",
+    "cases": 35035,
+    "pct_unweighted": 12.1
+   },
+   {
+    "value": 2,
+    "label": "Q2",
+    "cases": 46508,
+    "pct_unweighted": 16.0
+   },
+   {
+    "value": 3,
+    "label": "Q3",
+    "cases": 57134,
+    "pct_unweighted": 19.7
+   },
+   {
+    "value": 4,
+    "label": "Q4",
+    "cases": 71302,
+    "pct_unweighted": 24.6
+   },
+   {
+    "value": 5,
+    "label": "Q5",
+    "cases": 80388,
+    "pct_unweighted": 27.7
+   }
+  ]
+ },
+ "121:vup_s9d1_direct_support:s9d1q5": {
+  "study": "EICV7 2023/24 VUP sample",
+  "file": "vup_s9d1_direct_support",
+  "name": "s9d1q5",
+  "label": "way by which direct support payment received",
+  "type": "Discrete",
+  "range": "1-3",
+  "valid_cases": "1003",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "SACCO",
+    "cases": 846,
+    "pct_unweighted": 84.3
+   },
+   {
+    "value": 2,
+    "label": "Mobile Money/Airtel Money",
+    "cases": 157,
+    "pct_unweighted": 15.7
+   },
+   {
+    "value": 3,
+    "label": "Not yet paid",
+    "cases": 0,
+    "pct_unweighted": 0.0
+   }
+  ]
+ },
+ "121:vup_s9d1_direct_support:s9d1q7": {
+  "study": "EICV7 2023/24 VUP sample",
+  "file": "vup_s9d1_direct_support",
+  "name": "s9d1q7",
+  "label": "Have you received your DS entitlement for all the months since you joined",
+  "type": "Discrete",
+  "range": "1-2",
+  "valid_cases": "1003",
+  "invalid": "0",
+  "categories": [
+   {
+    "value": 1,
+    "label": "Yes",
+    "cases": 1003,
+    "pct_unweighted": 100.0
+   },
+   {
+    "value": 2,
+    "label": "No",
+    "cases": 0,
+    "pct_unweighted": 0.0
+   }
+  ]
+ },
+ "121:vup_s9d1_direct_support:s9d1q8a": {
+  "study": "EICV7 2023/24 VUP sample",
+  "file": "vup_s9d1_direct_support",
+  "name": "s9d1q8a",
+  "label": "Number of delayed days of first last payment",
+  "type": "Continuous",
+  "range": "0-68",
+  "valid_cases": "1003",
+  "invalid": "0"
+ }
+}

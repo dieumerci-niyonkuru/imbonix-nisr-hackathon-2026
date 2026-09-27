@@ -1,0 +1,208 @@
+study_id,file_id,file_name,variable_id,name,label
+125,F1,RW_LFS2025,V1,PSU_NO,Primary Sampling Unit
+125,F1,RW_LFS2025,V2,QH_NO,QUESTIONNAIRE NUMBER
+125,F1,RW_LFS2025,V3,HHID,Household identification
+125,F1,RW_LFS2025,V4,province,Province
+125,F1,RW_LFS2025,V5,Code_UR,Area of residence
+125,F1,RW_LFS2025,V6,code_dis,District
+125,F1,RW_LFS2025,V7,lfs_strata,strata for LFS
+125,F1,RW_LFS2025,V8,LFS_year,LFS data collection year
+125,F1,RW_LFS2025,V9,weight2,Annual weight
+125,F1,RW_LFS2025,V10,A01,Sex
+125,F1,RW_LFS2025,V11,A02,Relationship
+125,F1,RW_LFS2025,V12,A03M,Date of birth Month
+125,F1,RW_LFS2025,V13,A03Y,date of birth year
+125,F1,RW_LFS2025,V14,A04,Age at last birthday
+125,F1,RW_LFS2025,V15,A05,Present marital status
+125,F1,RW_LFS2025,V16,A06,"Do you have difficulty seeing, even if wearing glasses?"
+125,F1,RW_LFS2025,V17,A07,"Do you have difficulty hearing, even if using a hearing aid?"
+125,F1,RW_LFS2025,V18,A08,Do you have difficulty walking or climbing steps?
+125,F1,RW_LFS2025,V19,A09,Do you have difficulty remembering or concentrating?
+125,F1,RW_LFS2025,V20,A10,Do you have difficulty (with self-care such as) washing all over or dressing?
+125,F1,RW_LFS2025,V21,A11,"Using your usual language, do you have difficulty communicating, mple understand"
+125,F1,RW_LFS2025,V22,A12,What is nationality?
+125,F1,RW_LFS2025,V23,A13,Residential Status in Rwanda
+125,F1,RW_LFS2025,V24,A14A,Country/Area of birth
+125,F1,RW_LFS2025,V25,A14B,District of birth
+125,F1,RW_LFS2025,V26,A15,Did he/she lived outside this district for at least 6 consecutive months?
+125,F1,RW_LFS2025,V27,A16Y,The period of usual place of residence( last move)-Years
+125,F1,RW_LFS2025,V28,A17A,In which country(Name) live in prior to arrive here?
+125,F1,RW_LFS2025,V29,A17B,District code
+125,F1,RW_LFS2025,V30,A19,How long did he/she live in the previous location prior to arriving here?
+125,F1,RW_LFS2025,V31,A20,Reason for moving to the current location
+125,F1,RW_LFS2025,V32,B01,IS [NAME] a student(Is he /she attending school or would be attending one if sch
+125,F1,RW_LFS2025,V33,B02A,What is the Highest educational level is/ have [NAME] attending / attended?
+125,F1,RW_LFS2025,V34,B02B,How many years have you completed in that level of education?
+125,F1,RW_LFS2025,V35,B07,Currently attending any trade or technical Skills school
+125,F1,RW_LFS2025,V36,B08,Did you learn any Trade or Technical vocational course (TVET)?
+125,F1,RW_LFS2025,V37,B09,How long will/did this Training take?
+125,F1,RW_LFS2025,V38,B10,Type of technical skills learned?
+125,F1,RW_LFS2025,V39,B13,Did [NAME] complete the course?
+125,F1,RW_LFS2025,V40,B13B,In which year did (Name) complete this course?
+125,F1,RW_LFS2025,V41,B14,What happened after you completed the course?
+125,F1,RW_LFS2025,V42,B15,How long did take(Name) to get a job or start own business after completing the
+125,F1,RW_LFS2025,V43,C01,"During the last 7 days,did he/she do any work for wage, salary, commission, tips"
+125,F1,RW_LFS2025,V44,C02,"During the past 7 days, did (NAME) run or do any kind of business activity other"
+125,F1,RW_LFS2025,V45,C02A,"During the past 7 days, did (NAME) run or do any farming, Rearing farm animals,"
+125,F1,RW_LFS2025,V46,C03,"During the past 7 days, did (NAME) help unpaid in a business owned by a househol"
+125,F1,RW_LFS2025,V47,C05,"In general, are the products obtained from this activity for sale or for family"
+125,F1,RW_LFS2025,V48,C06,"During the last 7 days, did (NAME) have a paid job or a business from which he/s"
+125,F1,RW_LFS2025,V49,C07,What was the main reason (NAME) was absent from work during the last 7 days?
+125,F1,RW_LFS2025,V50,C08,What is the expected total absence from work for (NAME)?
+125,F1,RW_LFS2025,V51,C09,Does (NAME) continue receiving an income from his/her job during absence?
+125,F1,RW_LFS2025,V52,C09A,"Among the following categories, which correspond to the (NAME)'s situation"
+125,F1,RW_LFS2025,V53,C10,Did [NAME] have any other paid job or business or performed any secondary activi
+125,F1,RW_LFS2025,V54,C10A,How many jobs other than main job do(you/name) posess?
+125,F1,RW_LFS2025,V55,C11A,How many hours does [NAME] usually work per week?Main job/activity
+125,F1,RW_LFS2025,V56,C11B,How many hours does [NAME] usually work per week?Secondary job/activity
+125,F1,RW_LFS2025,V57,C12A,"During the past 7 days, how many days did (NAME) actually work in Main job/activ"
+125,F1,RW_LFS2025,V58,C12B,"During the past 7 days, how many days did (NAME) actually work in all Secondary"
+125,F1,RW_LFS2025,V59,C13A,"During the past 7 days, how many hours per day did (NAME) actually worked in Mai"
+125,F1,RW_LFS2025,V60,C13B,"During the past 7 days, how many hours per day did (NAME) actually worked in all"
+125,F1,RW_LFS2025,V61,C14,How many hours did [NAME) usually worked at all jobs combined?
+125,F1,RW_LFS2025,V62,C15,What was the main reason (NAME) usually worked long hours per week?
+125,F1,RW_LFS2025,V63,C16,"During the last 4 weeks, did (NAME) look for additional or other work?"
+125,F1,RW_LFS2025,V64,C17,Would want to work more hours per week than usualy worked provided the extra hou
+125,F1,RW_LFS2025,V65,C18,"If an opportunity for additional work became available, could (NAME) start worki"
+125,F1,RW_LFS2025,V66,C19,"During the last 4 weeks, did [NAME] look for any kind of paid job or try to star"
+125,F1,RW_LFS2025,V67,C19A,During the last 4 weeks did(name) try to start a business?
+125,F1,RW_LFS2025,V68,C20,Has [NAME] already found a job or arranged to start a business in the next 4 wee
+125,F1,RW_LFS2025,V69,C20A,How soon Does [NAME] expect to start working in this new job or business ?
+125,F1,RW_LFS2025,V70,C21,what did [NAME] do in the last 4 weeks to find a paid job or start a business?
+125,F1,RW_LFS2025,V71,C22,For how long has [NAME] been without work and trying to find a paid job or start
+125,F1,RW_LFS2025,V72,C23,Would [NAME] want to work if a paid job or business opportunity became availabl
+125,F1,RW_LFS2025,V73,C24,What was the main reason (NAME) did not try to find a paid job or start a busine
+125,F1,RW_LFS2025,V74,C25,"If a paid job or business opportunity become available, could [NAME] have starte"
+125,F1,RW_LFS2025,V75,C26,What is the mean reason why (NAME) could not start working in the last 7 days o
+125,F1,RW_LFS2025,V76,D03A,Does the place or business where(you/name) work's have a name?
+125,F1,RW_LFS2025,V77,D04,Does (Name) work in....
+125,F1,RW_LFS2025,V78,D05,Status of employment according to ICSE-93
+125,F1,RW_LFS2025,V79,D05A,How many persons including you at your work place?
+125,F1,RW_LFS2025,V80,D05A1,"Number of persons including you at your work place,Less than 10"
+125,F1,RW_LFS2025,V81,D06,(Do/does)(You/Name) have a written contract or oral agreement for the work (You/
+125,F1,RW_LFS2025,V82,D07,Is [NAME]'s contract or agreement :
+125,F1,RW_LFS2025,V83,D08,The duration of the contract or agreement?
+125,F1,RW_LFS2025,V84,D08A,Does [NAME] have a minimum amount of hours or work agreed with his/her employer?
+125,F1,RW_LFS2025,V85,D09A,Does employer pay contributions on [NAME]?s behalf to social security fund(RSSB)
+125,F1,RW_LFS2025,V86,D10,Has [NAME] registered his/her economic activity with the Rwanda Revenue Authorit
+125,F1,RW_LFS2025,V87,D10A,Is (Name) entitled to paid annual leave benefits from employer?
+125,F1,RW_LFS2025,V88,D10B,Is (name) entitled to paid sick leave benefits from employer?
+125,F1,RW_LFS2025,V89,D10C,Is (name) entitled to maternity/paternity leave?
+125,F1,RW_LFS2025,V90,D10D,Is (Name)'s salary subjected to deduction of taxe (PAYE)
+125,F1,RW_LFS2025,V91,D10_E,Does (name) make contributions to the Ejo Heza scheme?
+125,F1,RW_LFS2025,V92,D12_1,How much money did (Name) earn from his/her main job/business the last time ?
+125,F1,RW_LFS2025,V93,D12_1A,Amount in Rwandan francs
+125,F1,RW_LFS2025,V94,D13_1,How long did it cover?
+125,F1,RW_LFS2025,V95,D14_1,"On average, how much money did (NAME) earn from main job/business per month?"
+125,F1,RW_LFS2025,V96,D14_1A,Amount in Rwandan francs
+125,F1,RW_LFS2025,V97,D17_1,Would you say that monthly amount earned the last time in (Name) ?s job/busin
+125,F1,RW_LFS2025,V98,D18A,How did (you/name) obtain your current employment?
+125,F1,RW_LFS2025,V99,D18A_OTHER,D18A_ obtain your current employment?
+125,F1,RW_LFS2025,V100,D20,Is the business/establishment where [NAME] works registered with the RRA or pay
+125,F1,RW_LFS2025,V101,D21,"In order to report to an authority, does the business/establishment where (NAME)"
+125,F1,RW_LFS2025,V102,D21A,What kind of accounts or records deos the (busines/farm) keep?
+125,F1,RW_LFS2025,V103,D23,Where is the business where [NAME] work located?
+125,F1,RW_LFS2025,V104,D23A,What means of transportation do you mainly use to commute to your place of work?
+125,F1,RW_LFS2025,V105,D23B,How long does it normally take you to get to work?
+125,F1,RW_LFS2025,V106,D24,How long have [NAME] been working (total experience)-Years?
+125,F1,RW_LFS2025,V107,D24B,"In your main job or business, how many months do you typically work in a year?"
+125,F1,RW_LFS2025,V108,D25A,Is this District the same as the District where (Name) performs his/her main job
+125,F1,RW_LFS2025,V109,D25B,In which district do (You/Name) mainly perform this work?
+125,F1,RW_LFS2025,V110,DS07,(Do/Does) (You/Name) work...?
+125,F1,RW_LFS2025,V111,DS08,Who usually makes the decisions about the running of the family/household busine
+125,F1,RW_LFS2025,V112,DS09,Does the business hire/have any paid employees on a regular basis?
+125,F1,RW_LFS2025,V113,DS09AA,Is (NAME)'s business registered with RDB?
+125,F1,RW_LFS2025,V114,DS09AAA,Is (Name)'s business registered as....?
+125,F1,RW_LFS2025,V115,DS09_A,Does more than half of the income from [NAME]?s business/activity come from ?.?
+125,F1,RW_LFS2025,V116,DS09_B,"Does [NAME] get customers, clients or buyers through someone else, for example f"
+125,F1,RW_LFS2025,V117,DS09_C,In this business /activity Does [NAME]??
+125,F1,RW_LFS2025,V118,DS09_D,In [NAME]?s business/activity does client/company/intermediary/or other person??
+125,F1,RW_LFS2025,V119,DS10A,Which of the following types of pay (do/does) (you/name) receive for this work?
+125,F1,RW_LFS2025,V120,F01A,"(Have/Has) (you/name) ever had a paid job or another income-generating activity,"
+125,F1,RW_LFS2025,V121,F01B,How long ago was it that(you/name) last stop working?
+125,F1,RW_LFS2025,V122,F02,The main reason to stop working in his/her last paid job / business?
+125,F1,RW_LFS2025,V123,F05,What is (Name) main source of income at present?
+125,F1,RW_LFS2025,V124,G01,"In the last 7 days, how many hours did [NAME] spend collecting firewood for the"
+125,F1,RW_LFS2025,V125,G01A,"In the last 7 days, did [NAME] spend time collecting firewood for the household"
+125,F1,RW_LFS2025,V126,G02,"In the last 7 days, how many hours did [NAME] spend fetching water for the house"
+125,F1,RW_LFS2025,V127,G02A,"In the last 7 days, Did [Name] spent time on fetching water for the household?"
+125,F1,RW_LFS2025,V128,G03,"In the last 7 days, how many hours did [NAME] spend searching for fodder or gra"
+125,F1,RW_LFS2025,V129,G03A,"In the last 7 days, Did [Name] spent time on grazing or feeding hiusehold animal"
+125,F1,RW_LFS2025,V130,G04,"In the last 7 days, how many hours did [NAME] spend manufacturing household good"
+125,F1,RW_LFS2025,V131,G04A,"In the last 7 days, Did [Name] spent time on manufacturing of goods for family u"
+125,F1,RW_LFS2025,V132,G05,"In the last 7 days, how many hours did [NAME] spend constructing your dwelling,"
+125,F1,RW_LFS2025,V133,G05A,"In the last 7 days, Did [Name] spent time on construction of own building?"
+125,F1,RW_LFS2025,V134,G06,"In the last 7 days, how many hours did [NAME] spend doing household chores inclu"
+125,F1,RW_LFS2025,V135,G06A,"In the last 7 days, Did [Name] spent time on doing household chores?"
+125,F1,RW_LFS2025,V136,G07,"In the last 7 days, how many hours did [NAME] spend looking after children and e"
+125,F1,RW_LFS2025,V137,G07A,"In the last 7 days, Did [Name] tooktime to look under children or adults"
+125,F1,RW_LFS2025,V138,H01,During the last four weeks did he/she do any of the following work mainly for o
+125,F1,RW_LFS2025,V139,H02,How many days per week has [NAME] usualy worked in these activities?
+125,F1,RW_LFS2025,V140,H03,How many hours per week does [NAME] usually work in these activities?
+125,F1,RW_LFS2025,V141,H05,"In general, did the household sell or barter any part of the goods obtained from"
+125,F1,RW_LFS2025,V142,H06,About how much does the household regularly sell?
+125,F1,RW_LFS2025,V143,H09,Do you regularly or sometimes engage paid employee in the farming activity?
+125,F1,RW_LFS2025,V144,H10,"Excluding family members, how many paid employees do you usually engage in thes"
+125,F1,RW_LFS2025,V145,indd01,ISCO High level
+125,F1,RW_LFS2025,V146,indd03,ISIC High level
+125,F1,RW_LFS2025,V147,EN01,main source of energy that your household uses for lighting?
+125,F1,RW_LFS2025,V148,EN01_OTHERS,Main source of energy Others
+125,F1,RW_LFS2025,V149,status1,Labour force status with 14+
+125,F1,RW_LFS2025,V150,indb05,Field of education
+125,F1,RW_LFS2025,V151,wap16,Working age population
+125,F1,RW_LFS2025,V152,employed16,Employment to population ratio
+125,F1,RW_LFS2025,V153,UR1,Unemployment rate
+125,F1,RW_LFS2025,V154,LFPR,Labour force particiaption rate
+125,F1,RW_LFS2025,V155,sub,Subsistance foodstaff producers
+125,F1,RW_LFS2025,V156,TRU,Time related underemployment
+125,F1,RW_LFS2025,V157,PLF,Potential labour force
+125,F1,RW_LFS2025,V158,youth,Youth 16 to 24 years old
+125,F1,RW_LFS2025,V159,young,Young 16 to 30 years old
+125,F1,RW_LFS2025,V160,LUU,Labour underutilization
+125,F1,RW_LFS2025,V161,disable,person with disability
+125,F1,RW_LFS2025,V162,discourage,Discouraged jobseekers
+125,F1,RW_LFS2025,V163,willing,Willing non seeker and not available
+125,F1,RW_LFS2025,V164,migrant,Recent migration
+125,F1,RW_LFS2025,V165,neetyouth,NEET 16-24
+125,F1,RW_LFS2025,V166,neetyoung,NEET 16-30
+125,F1,RW_LFS2025,V167,youngs,Young status
+125,F1,RW_LFS2025,V168,icse18A,5 Main categories of Status in employment by type of authority
+125,F1,RW_LFS2025,V169,Prod_unit,Production sector unit
+125,F1,RW_LFS2025,V170,IEV2,Formal and Informal employment for main job
+125,F1,RW_LFS2025,V171,main_sect,Economic sector
+125,F1,RW_LFS2025,V172,indb1,Years of schooling
+125,F1,RW_LFS2025,V173,attained,Level of education completed
+125,F1,RW_LFS2025,V174,age5,Five years age group
+125,F1,RW_LFS2025,V175,age10,Broader age group
+125,F1,RW_LFS2025,V176,usualhrs,Usually working hours
+125,F1,RW_LFS2025,V177,hhsize,Household size
+125,F1,RW_LFS2025,V178,head,Head of the household
+125,F1,RW_LFS2025,V179,dG01,fetch firewood
+125,F1,RW_LFS2025,V180,dG02,fetch water
+125,F1,RW_LFS2025,V181,dG03,searching fooder or grazing
+125,F1,RW_LFS2025,V182,dG04,manufacturing household goods
+125,F1,RW_LFS2025,V183,dG05,repairing household
+125,F1,RW_LFS2025,V184,dG06,Cooking and shopping
+125,F1,RW_LFS2025,V185,dG07,Looking after children and aldery
+125,F1,RW_LFS2025,V186,timegood,Time spent in production of good
+125,F1,RW_LFS2025,V187,timeservice,Time spent in production of services
+125,F1,RW_LFS2025,V188,usual_h,Number of usual hours
+125,F1,RW_LFS2025,V189,act_hrs,Number of actual hours worked
+125,F1,RW_LFS2025,V190,acthrs,Actual hours intervals
+125,F1,RW_LFS2025,V191,YA,Young/adult
+125,F1,RW_LFS2025,V192,hr_own,Total hours in own use
+125,F1,RW_LFS2025,V193,subhrs,Time spent in subsistance activities
+125,F1,RW_LFS2025,V194,age3,selected age group
+125,F1,RW_LFS2025,V195,TVT,Attended TVT or not
+125,F1,RW_LFS2025,V196,TVT2,General or TVET attainemnt
+125,F1,RW_LFS2025,V197,UD,Unemployment duration
+125,F1,RW_LFS2025,V198,age3_16_30,Youth age groups
+125,F1,RW_LFS2025,V199,YUR1,Youth unemployment rate
+125,F1,RW_LFS2025,V200,intcash,Cash Income interval for employees
+125,F1,RW_LFS2025,V201,cash,Monthly income in cash for employees
+125,F1,RW_LFS2025,V202,LU2,LU2 - Combined rate of unemployment and time-related underemployment(%)
+125,F1,RW_LFS2025,V203,LU3,LU3 - Combined rate of unemployment and potential labour force(%)
+125,F1,RW_LFS2025,V204,LU4,LU4 - Composite measure of labour underutilization(%)
+125,F1,RW_LFS2025,V205,TRUR,Time related underemployment rate(%)
+125,F1,RW_LFS2025,V206,isco2digit,occupation activity at two digit
+125,F1,RW_LFS2025,V207,isic2digitdigit,economic activity at two digit

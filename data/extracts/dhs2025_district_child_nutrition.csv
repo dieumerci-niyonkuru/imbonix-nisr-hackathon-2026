@@ -1,0 +1,31 @@
+district,province,stunted_pct,severely_stunted_pct,wasted_pct,overweight_pct,underweight_pct,children_measured
+Nyarugenge,Kigali City,8.7,1.9,0.5,2.1,5.0,179
+Gasabo,Kigali City,16.0,2.6,0.8,5.0,6.4,550
+Kicukiro,Kigali City,14.3,0.7,1.2,1.8,3.2,246
+Nyanza,South,23.6,5.9,1.3,3.1,7.3,194
+Gisagara,South,33.2,7.7,0.0,4.4,9.2,271
+Nyaruguru,South,23.9,6.5,0.1,2.2,7.6,177
+Huye,South,27.1,5.4,1.1,4.8,4.4,208
+Nyamagabe,South,29.4,6.3,0.7,2.5,7.2,183
+Ruhango,South,22.0,4.8,0.6,4.8,5.4,182
+Muhanga,South,26.6,4.1,0.0,2.1,5.7,157
+Kamonyi,South,21.1,3.7,1.6,6.8,6.7,250
+Karongi,West,33.5,10.9,0.7,3.5,4.8,189
+Rutsiro,West,33.8,9.5,2.2,4.4,8.9,199
+Rubavu,West,33.1,9.6,0.6,9.2,5.6,355
+Nyabihu,West,32.7,7.0,0.0,8.4,3.2,168
+Ngororero,West,35.8,6.5,0.0,5.8,3.4,174
+Rusizi,West,31.0,10.7,1.2,8.9,5.2,275
+Nyamasheke,West,29.6,8.4,1.9,7.0,6.0,233
+Rulindo,North,27.9,3.7,1.1,0.9,6.0,169
+Gakenke,North,26.0,3.9,0.7,6.2,3.7,186
+Musanze,North,31.9,4.5,0.0,7.4,2.7,255
+Burera,North,37.6,10.1,0.0,3.6,4.2,174
+Gicumbi,North,38.8,5.4,1.1,9.9,5.1,224
+Rwamagana,East,19.2,5.7,1.1,5.0,6.2,280
+Nyagatare,East,27.8,8.8,1.1,5.5,7.4,411
+Gatsibo,East,29.4,9.1,0.8,4.9,5.8,294
+Kayonza,East,26.1,7.4,0.8,6.1,7.3,308
+Kirehe,East,31.7,6.7,0.2,3.2,8.8,216
+Ngoma,East,26.9,8.5,1.1,1.3,12.4,245
+Bugesera,East,20.8,4.5,2.2,5.0,4.7,341

@@ -1,0 +1,1544 @@
+{
+ "generated": "2026-09-26",
+ "files": [
+  {
+   "group": "eicv7",
+   "title": "EICV7 Main Indicators - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-04/EICV7_Tables_MainIndicatorReport.xlsx",
+   "filename": "EICV7_Tables_MainIndicatorReport.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Main Indicators - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/EICV7_Main%20Indicator%20Report.pdf",
+   "filename": "EICV7_Main Indicator Report.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Poverty Profile - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-05/EICV7_Tables_Rwanda_Poverty_Profile.xlsx",
+   "filename": "EICV7_Tables_Rwanda_Poverty_Profile.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Poverty Profile - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/EICV7_Poverty%20Profile.pdf",
+   "filename": "EICV7_Poverty Profile.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 VUP Thematic - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/Final_EICV7_VUP_Thematic_Report_Tables.xlsx",
+   "filename": "Final_EICV7_VUP_Thematic_Report_Tables.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 VUP Thematic - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/EICV7_VUP_Thematic_Report__0.pdf",
+   "filename": "EICV7_VUP_Thematic_Report__0.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Multidimensional Poverty - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/Tables_and_Figures_EICV7_Multidimensional_Poverty_MPI.xlsx",
+   "filename": "Tables_and_Figures_EICV7_Multidimensional_Poverty_MPI.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Multidimensional Poverty - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/EICV7_Multidimensional_Poverty_Thematic_Report.pdf",
+   "filename": "EICV7_Multidimensional_Poverty_Thematic_Report.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Child Poverty (MODA) - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/EICV7_Tables_MODA.xlsx",
+   "filename": "EICV7_Tables_MODA.xlsx",
+   "format": "xlsx",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Child Poverty (MODA) - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/EICV7%20MODA%20Thematic%C2%A0Report.pdf",
+   "filename": "EICV7 MODA Thematic Report.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Economic Activity - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-06/EICV7_Tables_Economic_Activity_thematic_Report.xlsx",
+   "filename": "EICV7_Tables_Economic_Activity_thematic_Report.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Economic Activity - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-04/EICV7_Thematic%20Report%20Economic%20Activity.pdf",
+   "filename": "EICV7_Thematic Report Economic Activity.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Gender - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-08/EICV7_Tables_Gender_Thematic_Report.xlsx",
+   "filename": "EICV7_Tables_Gender_Thematic_Report.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Gender - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/EICV7_Gender_Thematic_Report_Report.pdf",
+   "filename": "EICV7_Gender_Thematic_Report_Report.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Youth - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/EICV7_Tables_Youth_Thematic_Report.xlsx",
+   "filename": "EICV7_Tables_Youth_Thematic_Report.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Youth - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-05/Youth_Thematic_Report_EICV7.pdf",
+   "filename": "Youth_Thematic_Report_EICV7.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Key Findings Booklet (English)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-04/EICV_7_booklet%20for%20dissemination.pdf",
+   "filename": "EICV_7_booklet for dissemination.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Key Findings Booklet (Kinyarwanda)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-05/EICV7%20KEY%20FINDINGS%20BOOKLET%20IN%20KINYARWANDA%20%20%20%285%29.pdf",
+   "filename": "EICV7 KEY FINDINGS BOOKLET IN KINYARWANDA   (5).pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7",
+   "title": "EICV7 Methodological Note",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/EICV7_Methodological%20Note.pdf",
+   "filename": "EICV7_Methodological Note.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Gasabo.pptx",
+   "filename": "EICV7_PPT_Gasabo.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Gasabo.pdf",
+   "filename": "Gasabo.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/1.2%20Gasabo_single_age.xlsx",
+   "filename": "1.2 Gasabo_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Gasabo.pdf",
+   "filename": "Gender Statistics Profile Report Gasabo.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Kicukiro.pptx",
+   "filename": "EICV7_PPT_Kicukiro.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Kicukiro.pdf",
+   "filename": "Kicukiro.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/1.3%20Kicukiro_single_age.xlsx",
+   "filename": "1.3 Kicukiro_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Kicukiro.pdf",
+   "filename": "Gender Statistics Profile Report Kicukiro.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Nyarugenge.pptx",
+   "filename": "EICV7_PPT_Nyarugenge.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Nyarugenge.pdf",
+   "filename": "Nyarugenge.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/1.1%20Nyarugenge_single_age.xlsx",
+   "filename": "1.1 Nyarugenge_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Nyarugenge.pdf",
+   "filename": "Gender Statistics Profile Report Nyarugenge.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Burera.pptx",
+   "filename": "EICV7_PPT_Burera.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/BURERA.pdf",
+   "filename": "BURERA.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Burera%20single_age.xlsx",
+   "filename": "Burera single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20BURERA.pdf",
+   "filename": "Gender Statistics Profile Report BURERA.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Gakenke.pptx",
+   "filename": "EICV7_PPT_Gakenke.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Gakenke.pdf",
+   "filename": "Gakenke.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Gakenke%20single_age.xlsx",
+   "filename": "Gakenke single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Gakenke.pdf",
+   "filename": "Gender Statistics Profile Report Gakenke.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Gicumbi.pptx",
+   "filename": "EICV7_PPT_Gicumbi.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Gicumbi.pdf",
+   "filename": "Gicumbi.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Gicumbi%20single_%20age.xlsx",
+   "filename": "Gicumbi single_ age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/GSPR%20Gicumbi.pdf",
+   "filename": "GSPR Gicumbi.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Musanze.pptx",
+   "filename": "EICV7_PPT_Musanze.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Musanze.pdf",
+   "filename": "Musanze.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Musanze%20single_age.xlsx",
+   "filename": "Musanze single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Musanze.pdf",
+   "filename": "Gender Statistics Profile Report Musanze.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Rulindo.pptx",
+   "filename": "EICV7_PPT_Rulindo.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Rulindo.pdf",
+   "filename": "Rulindo.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Rulindo%20single_age.xlsx",
+   "filename": "Rulindo single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20RULINDO.pdf",
+   "filename": "Gender Statistics Profile Report RULINDO.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Gisagara.pptx",
+   "filename": "EICV7_PPT_Gisagara.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Gisagara.pdf",
+   "filename": "Gisagara.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Gisagara_single_age.xlsx",
+   "filename": "Gisagara_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20GISAGARA.pdf",
+   "filename": "Gender Statistics Profile Report GISAGARA.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Ruhango.pptx",
+   "filename": "EICV7_PPT_Ruhango.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Ruhango.pdf",
+   "filename": "Ruhango.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Ruhango_single_age.xlsx",
+   "filename": "Ruhango_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Ruhango.pdf",
+   "filename": "Gender Statistics Profile Report Ruhango.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Nyaruguru.pptx",
+   "filename": "EICV7_PPT_Nyaruguru.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Nyaruguru.pdf",
+   "filename": "Nyaruguru.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Nyaruguru_single_age.xlsx",
+   "filename": "Nyaruguru_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20NYARUGURU_0.pdf",
+   "filename": "Gender Statistics Profile Report NYARUGURU_0.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-09/EICV7_PPT_Nyanza.pptx",
+   "filename": "EICV7_PPT_Nyanza.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Nyanza.pdf",
+   "filename": "Nyanza.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Nyanza_single_age.xlsx",
+   "filename": "Nyanza_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Nyanza.pdf",
+   "filename": "Gender Statistics Profile Report Nyanza.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Nyamagabe.pptx",
+   "filename": "EICV7_PPT_Nyamagabe.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Nyamagabe.pdf",
+   "filename": "Nyamagabe.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Nyamagabe_single_age.xlsx",
+   "filename": "Nyamagabe_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Nyamagabe.pdf",
+   "filename": "Gender Statistics Profile Report Nyamagabe.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Muhanga.pptx",
+   "filename": "EICV7_PPT_Muhanga.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Muhanga.pdf",
+   "filename": "Muhanga.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Muhanga_single_age.xlsx",
+   "filename": "Muhanga_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Muhanga.pdf",
+   "filename": "Gender Statistics Profile Report Muhanga.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Kamonyi.pptx",
+   "filename": "EICV7_PPT_Kamonyi.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Kamonyi.pdf",
+   "filename": "Kamonyi.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Kamonyi_single_age.xlsx",
+   "filename": "Kamonyi_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Kamonyi.pdf",
+   "filename": "Gender Statistics Profile Report Kamonyi.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Huye.pptx",
+   "filename": "EICV7_PPT_Huye.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Huye.pdf",
+   "filename": "Huye.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Huye_single_age.xlsx",
+   "filename": "Huye_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20HUYE.pdf",
+   "filename": "Gender Statistics Profile Report HUYE.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Bugesera.pptx",
+   "filename": "EICV7_PPT_Bugesera.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/BUGESERA.pdf",
+   "filename": "BUGESERA.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Bugesera%20single_age.xlsx",
+   "filename": "Bugesera single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender District Profile Reports 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20Bugesera.pdf",
+   "filename": "Gender Statistics Profile Report Bugesera.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Gatsibo.pptx",
+   "filename": "EICV7_PPT_Gatsibo.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Gatsibo.pdf",
+   "filename": "Gatsibo.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Gatsibo_single%20age.xlsx",
+   "filename": "Gatsibo_single age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender District Profile Reports 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report_GATSIBO.pdf",
+   "filename": "Gender Statistics Profile Report_GATSIBO.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Rwamagana.pptx",
+   "filename": "EICV7_PPT_Rwamagana.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Rwamagana.pdf",
+   "filename": "Rwamagana.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Rwamagana%20single_age.xlsx",
+   "filename": "Rwamagana single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender District Profile Reports 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report_RWAMAGANA.pdf",
+   "filename": "Gender Statistics Profile Report_RWAMAGANA.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Nyagatare.pptx",
+   "filename": "EICV7_PPT_Nyagatare.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Nyagatare.pdf",
+   "filename": "Nyagatare.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Nyagatare%20single_%20age.xlsx",
+   "filename": "Nyagatare single_ age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender District Profile Reports 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report_NYAGATARE.pdf",
+   "filename": "Gender Statistics Profile Report_NYAGATARE.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Ngoma.pptx",
+   "filename": "EICV7_PPT_Ngoma.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Ngoma.pdf",
+   "filename": "Ngoma.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Ngoma%20single_age.xlsx",
+   "filename": "Ngoma single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender District Profile Reports 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report_NGOMA.pdf",
+   "filename": "Gender Statistics Profile Report_NGOMA.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Kirehe.pptx",
+   "filename": "EICV7_PPT_Kirehe.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/KIREHE.pdf",
+   "filename": "KIREHE.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Kirehe%20single_age.xlsx",
+   "filename": "Kirehe single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender District Profile Reports 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report_KIREHE.pdf",
+   "filename": "Gender Statistics Profile Report_KIREHE.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Kayonza.pptx",
+   "filename": "EICV7_PPT_Kayonza.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Kayonza.pdf",
+   "filename": "Kayonza.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Kayonza%20single%20_age.xlsx",
+   "filename": "Kayonza single _age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender District Profile Reports 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/Gender%20Statistics%20Profile%20Report%20KAYONZA.pdf",
+   "filename": "Gender Statistics Profile Report KAYONZA.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Rutsiro.pptx",
+   "filename": "EICV7_PPT_Rutsiro.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Rutsiro.pdf",
+   "filename": "Rutsiro.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Rutsiro_single_age.xlsx",
+   "filename": "Rutsiro_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/GSPR%20Rutsiro.pdf",
+   "filename": "GSPR Rutsiro.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Rusizi.pptx",
+   "filename": "EICV7_PPT_Rusizi.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Rusizi.pdf",
+   "filename": "Rusizi.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Rusizi_single_age.xlsx",
+   "filename": "Rusizi_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/GSPR%20Rusizi.pdf",
+   "filename": "GSPR Rusizi.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Rubavu.pptx",
+   "filename": "EICV7_PPT_Rubavu.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Rubavu.pdf",
+   "filename": "Rubavu.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Rubavu_single_age.xlsx",
+   "filename": "Rubavu_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/GSPR%20Rubavu.pdf",
+   "filename": "GSPR Rubavu.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Nyamasheke.pptx",
+   "filename": "EICV7_PPT_Nyamasheke.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Nyamasheke.pdf",
+   "filename": "Nyamasheke.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Nyamasheke%20single%20_age.xlsx",
+   "filename": "Nyamasheke single _age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/GSPR%20Nyamasheke.pdf",
+   "filename": "GSPR Nyamasheke.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Nyabihu.pptx",
+   "filename": "EICV7_PPT_Nyabihu.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-10/Nyabihu_RPHC2022.pdf",
+   "filename": "Nyabihu_RPHC2022.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Nyabihu_single_age.xlsx",
+   "filename": "Nyabihu_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/GSPR%20Nyabihu.pdf",
+   "filename": "GSPR Nyabihu.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Ngororero.pptx",
+   "filename": "EICV7_PPT_Ngororero.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Ngororero.pdf",
+   "filename": "Ngororero.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Ngororero_single_age.xlsx",
+   "filename": "Ngororero_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/GSPR%20Ngororero.pdf",
+   "filename": "GSPR Ngororero.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "eicv7-district-decks",
+   "title": "EICV7 district dissemination (PowerPoint)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-07/EICV7_PPT_Karongi.pptx",
+   "filename": "EICV7_PPT_Karongi.pptx",
+   "format": "pptx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022-district-profiles",
+   "title": "Population and Housing Census - 2022",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-05/Karongi.pdf",
+   "filename": "Karongi.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "population-projections",
+   "title": "Subnational Population Projections (20232032)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-06/Karongi_single_age.xlsx",
+   "filename": "Karongi_single_age.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "gender-district-profiles-2023",
+   "title": "Gender Statistics Profile Report - 2023",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/2025-08/GSPR%20Karongi.pdf",
+   "filename": "GSPR Karongi.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "finscope",
+   "title": "FinScope 2024 - main report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2024-09/Rwanda-Finscope-2024-Report_compressed.pdf",
+   "filename": "Rwanda-Finscope-2024-Report_compressed.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "finscope",
+   "title": "FinScope 2024 - Gender thematic report",
+   "source": "NBR / AFR",
+   "url": "https://www.bnr.rw/documents/Rwanda-FinScope-2024-Gender-Thematic-Report3.pdf",
+   "filename": "Rwanda-FinScope-2024-Gender-Thematic-Report3.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "finscope",
+   "title": "FinScope 2020 - main report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/FinScope_Rwanda_2020_Main_Report_.pdf",
+   "filename": "FinScope_Rwanda_2020_Main_Report_.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "lfs",
+   "title": "LFS 2025 annual - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-05/RWLFS_Annual_Tables_LFS2025.xlsx",
+   "filename": "RWLFS_Annual_Tables_LFS2025.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "lfs",
+   "title": "LFS 2025 annual - standard errors",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-05/RWLFS2025_STD_ERRORS.xlsx",
+   "filename": "RWLFS2025_STD_ERRORS.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "lfs",
+   "title": "LFS 2025 annual - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-03/Annual%20LFS%202025%20Report..pdf",
+   "filename": "Annual LFS 2025 Report..pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "lfs",
+   "title": "LFS 2026 Q2 - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-07/RW_Quarterly_LFS_Tables_2026Q2.xlsx",
+   "filename": "RW_Quarterly_LFS_Tables_2026Q2.xlsx",
+   "format": "xlsx",
+   "priority": "supporting"
+  },
+  {
+   "group": "lfs",
+   "title": "LFS 2026 Q2 - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-09/LFS_June_2026_Report.pdf",
+   "filename": "LFS_June_2026_Report.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "census2022",
+   "title": "RPHC5 Main Indicators - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/PHC5-2022_Main_Indicators.xlsx",
+   "filename": "PHC5-2022_Main_Indicators.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022",
+   "title": "RPHC5 Main Indicators - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/RPHC5_MainIndicatorsReport_Final.pdf",
+   "filename": "RPHC5_MainIndicatorsReport_Final.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "census2022",
+   "title": "RPHC5 Non-Monetary Poverty - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/Non%20Monetary%20Poverty%20Thematic%20Report.xls",
+   "filename": "Non Monetary Poverty Thematic Report.xls",
+   "format": "xls",
+   "priority": "core"
+  },
+  {
+   "group": "census2022",
+   "title": "RPHC5 Non-Monetary Poverty - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/RPHC5%20Thematic%20Report_Non%20Monetary%20Poverty.pdf",
+   "filename": "RPHC5 Thematic Report_Non Monetary Poverty.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "census2022",
+   "title": "RPHC5 Persons with Disabilities - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/Socio_Economic%20Status%20of%20people%20with%20Disability%20Thematic%20Report.xlsx",
+   "filename": "Socio_Economic Status of people with Disability Thematic Report.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022",
+   "title": "RPHC5 Elderly People - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/Socio-Economic%20status%20of%20aged%20people%20_Thematic%20Report.xls",
+   "filename": "Socio-Economic status of aged people _Thematic Report.xls",
+   "format": "xls",
+   "priority": "supporting"
+  },
+  {
+   "group": "census2022",
+   "title": "RPHC5 Economic Activity - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/Economic_activity_Thematic%20Report.xlsx",
+   "filename": "Economic_activity_Thematic Report.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022",
+   "title": "RPHC5 Housing and Household Characteristics - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/Housing_and%20Households%20Characteristics%20Thematic_Report.xlsx",
+   "filename": "Housing_and Households Characteristics Thematic_Report.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "census2022",
+   "title": "RPHC5 Youth - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/Socio%20Economic%20Status%20Youth_Thematic_Report.xlsx",
+   "filename": "Socio Economic Status Youth_Thematic_Report.xlsx",
+   "format": "xlsx",
+   "priority": "supporting"
+  },
+  {
+   "group": "census2022",
+   "title": "RPHC5 Gender - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/PHC5-2022_Gender_Thematic_Report_published_final.xlsx",
+   "filename": "PHC5-2022_Gender_Thematic_Report_published_final.xlsx",
+   "format": "xlsx",
+   "priority": "supporting"
+  },
+  {
+   "group": "other-nisr",
+   "title": "CFSVA 2024 report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-07/Rwanda%20CFSVA%202024.pdf",
+   "filename": "Rwanda CFSVA 2024.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "other-nisr",
+   "title": "Rwanda Statistical Yearbook 2025 - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-01/Rwanda_Statistical_Yearbook_2025.xlsx",
+   "filename": "Rwanda_Statistical_Yearbook_2025.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  },
+  {
+   "group": "other-nisr",
+   "title": "Rwanda Statistical Yearbook 2025 - report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-01/RWANDA_STATISTICAL_YEARBOOK_2025_0.pdf",
+   "filename": "RWANDA_STATISTICAL_YEARBOOK_2025_0.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "other-nisr",
+   "title": "Imihigo 2024/25 Evaluation Final Report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-03/Imihigo%202024~2025.pdf",
+   "filename": "Imihigo 2024~2025.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "other-nisr",
+   "title": "CPI time series (August 2026)",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-09/CPI_time_series_August%202026.xls",
+   "filename": "CPI_time_series_August 2026.xls",
+   "format": "xls",
+   "priority": "core"
+  },
+  {
+   "group": "other-nisr",
+   "title": "CPI August 2026 report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-09/CONSUMER%20PRICE%20INDEX%20%20%28CPI%29%20AUGUST%202026.pdf",
+   "filename": "CONSUMER PRICE INDEX  (CPI) AUGUST 2026.pdf",
+   "format": "pdf",
+   "priority": "supporting"
+  },
+  {
+   "group": "other-nisr",
+   "title": "DHS 2025 final report",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2026-08/2025%20RDHS%20Final%20Report.pdf",
+   "filename": "2025 RDHS Final Report.pdf",
+   "format": "pdf",
+   "priority": "optional"
+  },
+  {
+   "group": "other-nisr",
+   "title": "National Gender Statistics Report 2024",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/National%20Gender%20Statistics%20Report.pdf",
+   "filename": "National Gender Statistics Report.pdf",
+   "format": "pdf",
+   "priority": "optional"
+  },
+  {
+   "group": "other-nisr",
+   "title": "LFS 2023 summary in Kinyarwanda",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2025-02/LFS%20mu%20Kinyarwanda%20%281%29.pdf",
+   "filename": "LFS mu Kinyarwanda (1).pdf",
+   "format": "pdf",
+   "priority": "optional"
+  },
+  {
+   "group": "policy",
+   "title": "National Financial Inclusion Roadmap 2025-2030",
+   "source": "NBR / MINECOFIN",
+   "url": "https://www.bnr.rw/documents/National_Financial_Inclusion_Roadmap_2026-2030.pdf",
+   "filename": "National_Financial_Inclusion_Roadmap_2026-2030.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "policy",
+   "title": "Social Protection Sector Strategic Plan 2024-2029",
+   "source": "MINALOC",
+   "url": "https://minecofin.gov.rw/index.php?eID=dumpFile&f=113402&t=f&token=dcf0020be749bda1c818d68fc4a5e7406882aad9",
+   "filename": "SP-SSP_2024-2029.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "policy",
+   "title": "NST2 2024-2029",
+   "source": "MINECOFIN",
+   "url": "https://www.minecofin.gov.rw/index.php?eID=dumpFile&t=f&f=112653&token=dbe8e7d0faf00f43ce4605a42bfaa0fd795a5bb8",
+   "filename": "NST2_2024-2029.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "policy",
+   "title": "Imibereho Dynamic Social Registry SOPs (Mar 2025)",
+   "source": "MINALOC",
+   "url": "https://www.minaloc.gov.rw/fileadmin/user_upload/Minaloc/Publications/Useful_Documents/Social_Protection/Imibereho_DSR_SoP.pdf",
+   "filename": "Imibereho_DSR_SoP.pdf",
+   "format": "pdf",
+   "priority": "core"
+  },
+  {
+   "group": "other-nisr",
+   "title": "Establishment Census 2023 - tables",
+   "source": "NISR",
+   "url": "https://statistics.gov.rw/sites/default/files/documents/2024-10/EC%202023%20Tables_Report_Final%200n%209%20july%202024_%20%281%29.xlsx",
+   "filename": "EC_2023_Tables.xlsx",
+   "format": "xlsx",
+   "priority": "core"
+  }
+ ]
+}

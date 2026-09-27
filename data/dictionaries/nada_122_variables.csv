@@ -1,0 +1,1244 @@
+study_id,file_id,file_name,variable_id,name,label
+122,F1,CFSVA2024_HH,V1,index,_index
+122,F1,CFSVA2024_HH,V2,S0_B_DATE,S0_B_DATE Interview date
+122,F1,CFSVA2024_HH,V3,S0_C_Prov,S0_C_Prov Province
+122,F1,CFSVA2024_HH,V4,S0_D_Dist,S0_D_Dist District
+122,F1,CFSVA2024_HH,V5,UrbanRural,Urban or Rural
+122,F1,CFSVA2024_HH,V6,FinalWeight,Final Weight
+122,F1,CFSVA2024_HH,V7,S0_Consent,S0_Consent Do you agree to be interviewed?
+122,F1,CFSVA2024_HH,V8,respondent_gender,Respondent Gender
+122,F1,CFSVA2024_HH,V9,S1_01,S1_01 How many members does your household have?
+122,F1,CFSVA2024_HH,V10,S1_01_3,S1_01_3 What is the gender of [HH Head]?
+122,F1,CFSVA2024_HH,V11,S1_01_4,S1_01_4 How old is [HH Head]
+122,F1,CFSVA2024_HH,V12,S1_01_5,S1_01_5 Does [HH Head] have birth card(Vaccination card) for proper DOB and othe
+122,F1,CFSVA2024_HH,V13,S1_01_5_2,"S1_01_5_2 if [HH Head] is [Years] years old, please indicate his/her exact date"
+122,F1,CFSVA2024_HH,V14,S1_01_7,S1_01_7 Can [HH Head] read and write?
+122,F1,CFSVA2024_HH,V15,S1_01_8,S1_01_8 What is [HH Head]'s level of education?
+122,F1,CFSVA2024_HH,V16,S1_01_9,S1_01_9 Does [HH Head] have any disability?
+122,F1,CFSVA2024_HH,V17,S1_01_9_1_SMT_1,S1_01_9_1/Seeing
+122,F1,CFSVA2024_HH,V18,S1_01_9_1_SMT_2,S1_01_9_1/Hearing
+122,F1,CFSVA2024_HH,V19,S1_01_9_1_SMT_3,S1_01_9_1/Walking
+122,F1,CFSVA2024_HH,V20,S1_01_9_1_SMT_4,S1_01_9_1/Speaking
+122,F1,CFSVA2024_HH,V21,S1_01_9_1_SMT_5,S1_01_9_1/Concentration
+122,F1,CFSVA2024_HH,V22,S1_01_9_1_SMT_6,S1_01_9_1/Cognitive or Learning Disabilities
+122,F1,CFSVA2024_HH,V23,S1_01_9_1_SMT_7,S1_01_9_1/Short
+122,F1,CFSVA2024_HH,V24,S1_01_9_1_SMT_8,S1_01_9_1/Albinos
+122,F1,CFSVA2024_HH,V25,S1_01_10,S1_01_10 What's is [HH Head] marital status?
+122,F1,CFSVA2024_HH,V26,S1_01_11,S1_01_11 How many spouses or partners does [HH Head] have?
+122,F1,CFSVA2024_HH,V27,S1_01_12,S1_01_12 Is [HH Head] currently attending primary school?
+122,F1,CFSVA2024_HH,V28,S1_01_13,S1_01_13 Did [HH Head] miss school for one week or more since january this year
+122,F1,CFSVA2024_HH,V29,S1_01_14_SMT_1,S1_01_14/Sickness
+122,F1,CFSVA2024_HH,V30,S1_01_14_SMT_2,S1_01_14/Working for cash (either sent or chose to)
+122,F1,CFSVA2024_HH,V31,S1_01_14_SMT_3,"S1_01_14/housework (cooking, fetching water and more)"
+122,F1,CFSVA2024_HH,V32,S1_01_14_SMT_4,S1_01_14/Taking care of siblings
+122,F1,CFSVA2024_HH,V33,S1_01_14_SMT_5,S1_01_14/The school is far from home
+122,F1,CFSVA2024_HH,V34,S1_01_14_SMT_6,S1_01_14/No school fees
+122,F1,CFSVA2024_HH,V35,S1_01_14_SMT_7,S1_01_14/Refused to go
+122,F1,CFSVA2024_HH,V36,S1_01_14_SMT_9,S1_01_14/Lack of school materials
+122,F1,CFSVA2024_HH,V37,S1_01_14_SMT_8,S1_01_14/Other reasons
+122,F1,CFSVA2024_HH,V38,S1_01_15_SMT_1,S1_01_15/Agricultural Production (On Own Farm/Land Or On Other Farm/Land With or
+122,F1,CFSVA2024_HH,V39,S1_01_15_SMT_2,S1_01_15/Daily Labour Agricultural Work (On Others Farm For In Kind Or Cash Comp
+122,F1,CFSVA2024_HH,V40,S1_01_15_SMT_3,S1_01_15/Livestock Raising For Sales
+122,F1,CFSVA2024_HH,V41,S1_01_15_SMT_4,"S1_01_15/Fishing, Hunting, Gathering"
+122,F1,CFSVA2024_HH,V42,S1_01_15_SMT_5,S1_01_15/Unskilled Daily Labour (Non Agricultural)
+122,F1,CFSVA2024_HH,V43,S1_01_15_SMT_6,S1_01_15/Skilled Labour
+122,F1,CFSVA2024_HH,V44,S1_01_15_SMT_7,"S1_01_15/Purchase and Sale Of Product From Fishing, Hunting Gathering"
+122,F1,CFSVA2024_HH,V45,S1_01_15_SMT_8,S1_01_15/Purchase And Sale Of Agricultural Products
+122,F1,CFSVA2024_HH,V46,S1_01_15_SMT_9,S1_01_15/Purchase And Sale Of Livestock Products
+122,F1,CFSVA2024_HH,V47,S1_01_15_SMT_10,S1_01_15/Purchase And Sale Of Livestock
+122,F1,CFSVA2024_HH,V48,S1_01_15_SMT_11,S1_01_15/Informal Sale/Petty Trade
+122,F1,CFSVA2024_HH,V49,S1_01_15_SMT_12,S1_01_15/Handicrafts/Artisanal Work
+122,F1,CFSVA2024_HH,V50,S1_01_15_SMT_13,S1_01_15/Transport
+122,F1,CFSVA2024_HH,V51,S1_01_15_SMT_14,S1_01_15/Salaried
+122,F1,CFSVA2024_HH,V52,S1_01_15_SMT_15,S1_01_15/Pension
+122,F1,CFSVA2024_HH,V53,S1_01_15_SMT_16,S1_01_15/Own Business/Self Employed
+122,F1,CFSVA2024_HH,V54,S1_01_15_SMT_17,S1_01_15/Vup Public Works
+122,F1,CFSVA2024_HH,V55,S1_01_15_SMT_18,S1_01_15/Begging
+122,F1,CFSVA2024_HH,V56,S1_01_15_SMT_19,S1_01_15/Aquaculture
+122,F1,CFSVA2024_HH,V57,S1_01_15_SMT_20,S1_01_15/Bee keeping
+122,F1,CFSVA2024_HH,V58,S1_01_15_SMT_21,S1_01_15/Other
+122,F1,CFSVA2024_HH,V59,S1_01_15_SMT_0,S1_01_15/None
+122,F1,CFSVA2024_HH,V60,S1_01_15_2,S1_01_15_2 Does [HH Head]'s income contribute to the household living basket?
+122,F1,CFSVA2024_HH,V61,S1_01_16,S1_01_16 Is [HH Head] currently a member of any association or cooperative?
+122,F1,CFSVA2024_HH,V62,S1_01_16_2,S1_01_16_2 Does [HH Head] hold any manegerial role in that cooperative or associ
+122,F1,CFSVA2024_HH,V63,S1_01_17,S1_01_17 Does [HH Head] hold any managerial roles in the community you live in?
+122,F1,CFSVA2024_HH,V64,active_members,Total active members(15-65 years who don't have disability)
+122,F1,CFSVA2024_HH,V65,inactive_members,Total inactive members(less than 15 or 65 and above or have disability)
+122,F1,CFSVA2024_HH,V66,HH_member_has_disability,a HH member has disability
+122,F1,CFSVA2024_HH,V67,Total_not_disbled,Total disabled members
+122,F1,CFSVA2024_HH,V68,Total_disbled,Total disabled members
+122,F1,CFSVA2024_HH,V69,Active_and_Work,Total Active and Working members
+122,F1,CFSVA2024_HH,V70,Active_and_Work_and_contribute,Total active and Working and contributing to HH basket
+122,F1,CFSVA2024_HH,V71,contributing_ratio,Contributing ratio
+122,F1,CFSVA2024_HH,V72,S2_01,S2_01 Roof
+122,F1,CFSVA2024_HH,V73,S2_02,S2_02 Floor
+122,F1,CFSVA2024_HH,V74,S2_03,S2_03 Wall
+122,F1,CFSVA2024_HH,V75,S2_04,S2_04 Is the house your household is living in located in a umudugudu new recomm
+122,F1,CFSVA2024_HH,V76,S2_04_2,"S2_04_2 If YEs, Since how long have you been living there?"
+122,F1,CFSVA2024_HH,V77,S2_05,S2_05 What is your occupancy status in this house?
+122,F1,CFSVA2024_HH,V78,S2_06,S2_06 How many sleeping rooms does the house you are living in have?
+122,F1,CFSVA2024_HH,V79,S2_07,S2_07 What kind of toilet facility does your household use here in your househol
+122,F1,CFSVA2024_HH,V80,S2_07_2,"S2_07_2 If your household does not have its own toilet facility, then what do yo"
+122,F1,CFSVA2024_HH,V81,S2_07_3,S2_07_3 Do you share the toilet facility with other households?
+122,F1,CFSVA2024_HH,V82,S2_08,S2_08 What is the main source of lighting for this house?
+122,F1,CFSVA2024_HH,V83,S2_09,S2_09 What fuel do you use most often for cooking?
+122,F1,CFSVA2024_HH,V84,S2_09_2,S2_09_2 What the cooking facilities you normally use?
+122,F1,CFSVA2024_HH,V85,S2_09_2_SMT_1,S2_09_2/Traditional firewood
+122,F1,CFSVA2024_HH,V86,S2_09_2_SMT_2,S2_09_2/Firewood stove
+122,F1,CFSVA2024_HH,V87,S2_09_2_SMT_3,S2_09_2/Charcoal stove
+122,F1,CFSVA2024_HH,V88,S2_09_2_SMT_4,S2_09_2/Gas stove
+122,F1,CFSVA2024_HH,V89,S2_09_2_SMT_5,S2_09_2/Electric stove
+122,F1,CFSVA2024_HH,V90,S2_09_2_SMT_6,S2_09_2/Electric Pressure Cooker
+122,F1,CFSVA2024_HH,V91,S2_09_2_SMT_21,S2_09_2/Other electric
+122,F1,CFSVA2024_HH,V92,S2_10,S2_10 What is the current main source of water that your household use?
+122,F1,CFSVA2024_HH,V93,S2_10_2,S2_10_2 Do your household pay for water from this current main source?
+122,F1,CFSVA2024_HH,V94,S2_10_3,S2_10_3 How do you or your household members go to this main source of water?
+122,F1,CFSVA2024_HH,V95,S2_10_4,"S2_10_4 How far is this main source of water (count in minutes, the time it take"
+122,F1,CFSVA2024_HH,V96,S2_11,S2_11 Is there a time in the year when your household uses an alternate source o
+122,F1,CFSVA2024_HH,V97,S2_11_2,S2_11_2 What is the main alternative source of water that your household use?
+122,F1,CFSVA2024_HH,V98,S2_11_3,S2_11_3 Does your household pay for this alternate source of water?
+122,F1,CFSVA2024_HH,V99,S2_11_4,S2_11_4 How do you or your household members go to your alternate source of wate
+122,F1,CFSVA2024_HH,V100,S2_11_5,"S2_11_5 How far is this alternate source of water (count in minutes, the time it"
+122,F1,CFSVA2024_HH,V101,S2_12,S2_12 What does your household normally do to treat its water prior to drinking?
+122,F1,CFSVA2024_HH,V102,S2_13,"S2_13 On average, how many liters of water does your household use per day? (mak"
+122,F1,CFSVA2024_HH,V103,S2_13_2,"S2_13_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V104,S3_01,S3_01 All activities reported by household members in the demographic section
+122,F1,CFSVA2024_HH,V105,S3_01_SMT_1,S3_01/Agricultural Production (On Own Farm/Land Or On Other Farm/Land With or wi
+122,F1,CFSVA2024_HH,V106,S3_01_SMT_2,S3_01/Daily Labour Agricultural Work (On Others Farm For In Kind Or Cash Compens
+122,F1,CFSVA2024_HH,V107,S3_01_SMT_3,S3_01/Livestock Raising For Sales
+122,F1,CFSVA2024_HH,V108,S3_01_SMT_4,"S3_01/Fishing, Hunting, Gathering"
+122,F1,CFSVA2024_HH,V109,S3_01_SMT_5,S3_01/Unskilled Daily Labour (Non Agricultural)
+122,F1,CFSVA2024_HH,V110,S3_01_SMT_6,S3_01/Skilled Labour
+122,F1,CFSVA2024_HH,V111,S3_01_SMT_7,"S3_01/Purchase and Sale Of Product From Fishing, Hunting Gathering"
+122,F1,CFSVA2024_HH,V112,S3_01_SMT_8,S3_01/Purchase And Sale Of Agricultural Products
+122,F1,CFSVA2024_HH,V113,S3_01_SMT_9,S3_01/Purchase And Sale Of Livestock Products
+122,F1,CFSVA2024_HH,V114,S3_01_SMT_10,S3_01/Purchase And Sale Of Livestock
+122,F1,CFSVA2024_HH,V115,S3_01_SMT_11,S3_01/Informal Sale/Petty Trade
+122,F1,CFSVA2024_HH,V116,S3_01_SMT_12,S3_01/Handicrafts/Artisanal Work
+122,F1,CFSVA2024_HH,V117,S3_01_SMT_13,S3_01/Transport
+122,F1,CFSVA2024_HH,V118,S3_01_SMT_14,S3_01/Salaried
+122,F1,CFSVA2024_HH,V119,S3_01_SMT_15,S3_01/Pension
+122,F1,CFSVA2024_HH,V120,S3_01_SMT_16,S3_01/Own Business/Self Employed
+122,F1,CFSVA2024_HH,V121,S3_01_SMT_17,S3_01/Vup Public Works
+122,F1,CFSVA2024_HH,V122,S3_01_SMT_18,S3_01/Begging
+122,F1,CFSVA2024_HH,V123,S3_01_SMT_19,S3_01/Aquaculture
+122,F1,CFSVA2024_HH,V124,S3_01_SMT_20,S3_01/Bee keeping
+122,F1,CFSVA2024_HH,V125,S3_01_SMT_21,S3_01/Other
+122,F1,CFSVA2024_HH,V126,S3_01_SMT_0,S3_01/None
+122,F1,CFSVA2024_HH,V127,S3_02,S3_02 Main activity
+122,F1,CFSVA2024_HH,V128,S3_02_2,"S3_02_2 Using proportional piling or 'divide the pie' methods, please estimate t"
+122,F1,CFSVA2024_HH,V129,S3_02_2_1,Is this livelihood activity seasonal?
+122,F1,CFSVA2024_HH,V130,S3_02_3,S3_02_3 During which months of the year is this activity important for your hous
+122,F1,CFSVA2024_HH,V131,S3_02_3_SMT_1,S3_02_3/January
+122,F1,CFSVA2024_HH,V132,S3_02_3_SMT_2,S3_02_3/February
+122,F1,CFSVA2024_HH,V133,S3_02_3_SMT_3,S3_02_3/March
+122,F1,CFSVA2024_HH,V134,S3_02_3_SMT_4,S3_02_3/April
+122,F1,CFSVA2024_HH,V135,S3_02_3_SMT_5,S3_02_3/May
+122,F1,CFSVA2024_HH,V136,S3_02_3_SMT_6,S3_02_3/June
+122,F1,CFSVA2024_HH,V137,S3_02_3_SMT_7,S3_02_3/July
+122,F1,CFSVA2024_HH,V138,S3_02_3_SMT_8,S3_02_3/August
+122,F1,CFSVA2024_HH,V139,S3_02_3_SMT_9,S3_02_3/September
+122,F1,CFSVA2024_HH,V140,S3_02_3_SMT_10,S3_02_3/October
+122,F1,CFSVA2024_HH,V141,S3_02_3_SMT_11,S3_02_3/November
+122,F1,CFSVA2024_HH,V142,S3_02_3_SMT_12,S3_02_3/December
+122,F1,CFSVA2024_HH,V143,S3_02_3_SMT_13,S3_02_3/Random
+122,F1,CFSVA2024_HH,V144,S3_03,S3_03 Second activity
+122,F1,CFSVA2024_HH,V145,S3_03_2,"S3_03_2 Using proportional piling or 'divide the pie' methods, please estimate t"
+122,F1,CFSVA2024_HH,V146,S3_03_2_1,Is this livelihood activity seasonal?
+122,F1,CFSVA2024_HH,V147,S3_03_3,S3_03_3 During which months of the year is this activity important for your hous
+122,F1,CFSVA2024_HH,V148,S3_03_3_SMT_1,S3_03_3/January
+122,F1,CFSVA2024_HH,V149,S3_03_3_SMT_2,S3_03_3/February
+122,F1,CFSVA2024_HH,V150,S3_03_3_SMT_3,S3_03_3/March
+122,F1,CFSVA2024_HH,V151,S3_03_3_SMT_4,S3_03_3/April
+122,F1,CFSVA2024_HH,V152,S3_03_3_SMT_5,S3_03_3/May
+122,F1,CFSVA2024_HH,V153,S3_03_3_SMT_6,S3_03_3/June
+122,F1,CFSVA2024_HH,V154,S3_03_3_SMT_7,S3_03_3/July
+122,F1,CFSVA2024_HH,V155,S3_03_3_SMT_8,S3_03_3/August
+122,F1,CFSVA2024_HH,V156,S3_03_3_SMT_9,S3_03_3/September
+122,F1,CFSVA2024_HH,V157,S3_03_3_SMT_10,S3_03_3/October
+122,F1,CFSVA2024_HH,V158,S3_03_3_SMT_11,S3_03_3/November
+122,F1,CFSVA2024_HH,V159,S3_03_3_SMT_12,S3_03_3/December
+122,F1,CFSVA2024_HH,V160,S3_03_3_SMT_13,S3_03_3/Random
+122,F1,CFSVA2024_HH,V161,S3_04,S3_04 Third activity
+122,F1,CFSVA2024_HH,V162,S3_04_2,"S3_04_2 Using proportional piling or 'divide the pie' methods, please estimate t"
+122,F1,CFSVA2024_HH,V163,S3_04_2_1,Is this livelihood activity seasonal?
+122,F1,CFSVA2024_HH,V164,S3_04_3,S3_04_3 During which months of the year is this activity important for your hous
+122,F1,CFSVA2024_HH,V165,S3_04_3_SMT_1,S3_04_3/January
+122,F1,CFSVA2024_HH,V166,S3_04_3_SMT_2,S3_04_3/February
+122,F1,CFSVA2024_HH,V167,S3_04_3_SMT_3,S3_04_3/March
+122,F1,CFSVA2024_HH,V168,S3_04_3_SMT_4,S3_04_3/April
+122,F1,CFSVA2024_HH,V169,S3_04_3_SMT_5,S3_04_3/May
+122,F1,CFSVA2024_HH,V170,S3_04_3_SMT_6,S3_04_3/June
+122,F1,CFSVA2024_HH,V171,S3_04_3_SMT_7,S3_04_3/July
+122,F1,CFSVA2024_HH,V172,S3_04_3_SMT_8,S3_04_3/August
+122,F1,CFSVA2024_HH,V173,S3_04_3_SMT_9,S3_04_3/September
+122,F1,CFSVA2024_HH,V174,S3_04_3_SMT_10,S3_04_3/October
+122,F1,CFSVA2024_HH,V175,S3_04_3_SMT_11,S3_04_3/November
+122,F1,CFSVA2024_HH,V176,S3_04_3_SMT_12,S3_04_3/December
+122,F1,CFSVA2024_HH,V177,S3_04_3_SMT_13,S3_04_3/Random
+122,F1,CFSVA2024_HH,V178,S3_05,"S3_05 Approximately, how much money did your household earn during the last mont"
+122,F1,CFSVA2024_HH,V179,S3_05_2,"S3_05_2 For quality check, please repeat the previous amount"
+122,F1,CFSVA2024_HH,V180,S4_01,S4_01 Does your household own farming land including pastures for livestock?
+122,F1,CFSVA2024_HH,V181,S4_01_2,S4_01_2 How big is that land that your household own?
+122,F1,CFSVA2024_HH,V182,S4_01_3,S4_01_3 In how many plots is that land allocated?
+122,F1,CFSVA2024_HH,V183,S4_02_1,"S4_02_1 Do you ever practice ""share cropping"" on the farming land that your hous"
+122,F1,CFSVA2024_HH,V184,S4_02_2,"S4_02_2 Is ""land consolidation program"" applied on any portion of the land that"
+122,F1,CFSVA2024_HH,V185,S4_02_2_1,Consolidated land percentage
+122,F1,CFSVA2024_HH,V186,S4_02_3,S4_02_3 Is the faming land that your household owns protected against soil erosi
+122,F1,CFSVA2024_HH,V187,S4_02_4,S4_02_4 Is any portion of the land that your household owns irrigated?
+122,F1,CFSVA2024_HH,V188,S4_03,S4_03 Does your household have a vegetable plot /garden?
+122,F1,CFSVA2024_HH,V189,S4_03_2,S4_03_2 Are you currently growing any food in that vegetable garden?
+122,F1,CFSVA2024_HH,V190,S4_03_3,S4_03_3 Is the food that you usually grow in that garden mainly used for househo
+122,F1,CFSVA2024_HH,V191,S4_04,S4_04 Which of the following items does your houeshold own?
+122,F1,CFSVA2024_HH,V192,S4_04_SMT_1,S4_04/Hoe
+122,F1,CFSVA2024_HH,V193,S4_04_SMT_2,S4_04/Shovel
+122,F1,CFSVA2024_HH,V194,S4_04_SMT_3,S4_04/Rake
+122,F1,CFSVA2024_HH,V195,S4_04_SMT_4,S4_04/Spade
+122,F1,CFSVA2024_HH,V196,S4_04_SMT_5,S4_04/Pick
+122,F1,CFSVA2024_HH,V197,S4_04_SMT_6,S4_04/Wheel barrow
+122,F1,CFSVA2024_HH,V198,S4_04_SMT_7,S4_04/Plough/Ox Plough
+122,F1,CFSVA2024_HH,V199,S4_04_SMT_8,S4_04/Grinding Mill
+122,F1,CFSVA2024_HH,V200,S4_04_SMT_9,S4_04/Oil press
+122,F1,CFSVA2024_HH,V201,S4_04_SMT_10,S4_04/Sewing machine
+122,F1,CFSVA2024_HH,V202,S4_04_SMT_11,S4_04/Ironing machine
+122,F1,CFSVA2024_HH,V203,S4_04_SMT_12,S4_04/Radio (only)
+122,F1,CFSVA2024_HH,V204,S4_04_SMT_13,S4_04/Tape/CD player
+122,F1,CFSVA2024_HH,V205,S4_04_SMT_14,S4_04/Tv
+122,F1,CFSVA2024_HH,V206,S4_04_SMT_15,S4_04/Fridge
+122,F1,CFSVA2024_HH,V207,S4_04_SMT_16,S4_04/Cooker (gas or electrical)
+122,F1,CFSVA2024_HH,V208,S4_04_SMT_17,S4_04/Mobile phone
+122,F1,CFSVA2024_HH,V209,S4_04_SMT_18,S4_04/Living room suite (chairs/sofa)
+122,F1,CFSVA2024_HH,V210,S4_04_SMT_19,S4_04/Bed
+122,F1,CFSVA2024_HH,V211,S4_04_SMT_20,S4_04/Bicycle
+122,F1,CFSVA2024_HH,V212,S4_04_SMT_21,S4_04/Motorized Vehicle of any kind
+122,F1,CFSVA2024_HH,V213,S4_04_SMT_22,S4_04/Fishing boat / canoe
+122,F1,CFSVA2024_HH,V214,S4_04_SMT_88,S4_04/None
+122,F1,CFSVA2024_HH,V215,S4_05,S4_05 Which of the following animals does your household own or manage?
+122,F1,CFSVA2024_HH,V216,S4_05_SMT_1,S4_05/Cattle
+122,F1,CFSVA2024_HH,V217,S4_05_SMT_2,S4_05/Goats
+122,F1,CFSVA2024_HH,V218,S4_05_SMT_3,S4_05/Pigs
+122,F1,CFSVA2024_HH,V219,S4_05_SMT_4,S4_05/Sheep
+122,F1,CFSVA2024_HH,V220,S4_05_SMT_5,S4_05/Chicken
+122,F1,CFSVA2024_HH,V221,S4_05_SMT_6,S4_05/Ducks and other poultry
+122,F1,CFSVA2024_HH,V222,S4_05_SMT_7,S4_05/Rabbits
+122,F1,CFSVA2024_HH,V223,S4_05_SMT_8,S4_05/Other animals
+122,F1,CFSVA2024_HH,V224,S4_05_SMT_88,S4_05/No animal is owned
+122,F1,CFSVA2024_HH,V225,AS4_06,AS4_06 How many Cattle is your household currently rearing?
+122,F1,CFSVA2024_HH,V226,AS4_06_3,AS4_06_3 How many of these [number] cattle does your household manage for others
+122,F1,CFSVA2024_HH,V227,BS4_06,BS4_06 How many Goats is your household currently rearing?
+122,F1,CFSVA2024_HH,V228,BS4_06_3,BS4_06_3 How many of these [number] goats does your household manage for others?
+122,F1,CFSVA2024_HH,V229,CS4_06,CS4_06 How many Pigs is your household currently rearing?
+122,F1,CFSVA2024_HH,V230,CS4_06_3,CS4_06_3 How many of these [number] pigs does your household manage for others?
+122,F1,CFSVA2024_HH,V231,DS4_06,DS4_06 How many Sheep is your household currently rearing?
+122,F1,CFSVA2024_HH,V232,DS4_06_3,DS4_06_3 How many of these [number] sheep does your household manage for others?
+122,F1,CFSVA2024_HH,V233,ES4_06,ES4_06 How many Chicken is your household currently rearing?
+122,F1,CFSVA2024_HH,V234,ES4_06_3,ES4_06_3 How many of these [number] chicken does your household manage for other
+122,F1,CFSVA2024_HH,V235,FS4_06,FS4_06 How many Ducks and other poultry is your household currently rearing?
+122,F1,CFSVA2024_HH,V236,FS4_06_3,FS4_06_3 How many of these [number] ducks and other poultry your household manag
+122,F1,CFSVA2024_HH,V237,GS4_06,GS4_06 How many Rabbits is your household currently rearing?
+122,F1,CFSVA2024_HH,V238,GS4_06_3,GS4_06_3 How many of these [number] rabbits does your household manage for other
+122,F1,CFSVA2024_HH,V239,HS4_06,HS4_06 How many [name of Other] is your household currently rearing?
+122,F1,CFSVA2024_HH,V240,HS4_06_3,HS4_06_3 How many of these [number] [other] does your household manage for other
+122,F1,CFSVA2024_HH,V241,S4_07,"S4_07 During the last 30 days, did your household consume any product from the a"
+122,F1,CFSVA2024_HH,V242,S4_08_2,"S4_08_2 During the last month, did your household sell any product from the anim"
+122,F1,CFSVA2024_HH,V243,S4_08_2_1,S4_08_2_1 How much money did your household make from the total income from live
+122,F1,CFSVA2024_HH,V244,S4_09,"S4_09 During the last 12 months, which animal health services did your household"
+122,F1,CFSVA2024_HH,V245,S4_09_SMT_1,S4_09/Treatment of diseases
+122,F1,CFSVA2024_HH,V246,S4_09_SMT_2,S4_09/Vaccination
+122,F1,CFSVA2024_HH,V247,S4_09_SMT_3,S4_09/Artificial insemination
+122,F1,CFSVA2024_HH,V248,S4_09_SMT_4,S4_09/Heat synchronization and induction in cattle
+122,F1,CFSVA2024_HH,V249,S4_09_SMT_5,S4_09/Pregnancy detection
+122,F1,CFSVA2024_HH,V250,S4_09_SMT_0,S4_09/None
+122,F1,CFSVA2024_HH,V251,S4_09_2,S4_09_2 Did your household have to pay to get these services?
+122,F1,CFSVA2024_HH,V252,S4_09_2_SMT_1,S4_09_2/Treatment of diseases
+122,F1,CFSVA2024_HH,V253,S4_09_2_SMT_2,S4_09_2/Vaccination
+122,F1,CFSVA2024_HH,V254,S4_09_2_SMT_3,S4_09_2/Artificial insemination
+122,F1,CFSVA2024_HH,V255,S4_09_2_SMT_4,S4_09_2/Heat synchronization and induction in cattle
+122,F1,CFSVA2024_HH,V256,S4_09_2_SMT_5,S4_09_2/Pregnancy detection
+122,F1,CFSVA2024_HH,V257,S4_09_2_SMT_0,S4_09_2/None
+122,F1,CFSVA2024_HH,V258,S4_09_3,S4_09_3 How Is easy was it for your household to access these animal health serv
+122,F1,CFSVA2024_HH,V259,S4_09_4,S4_09_4 What was hard in accessing these services?
+122,F1,CFSVA2024_HH,V260,S4_09_4_SMT_1,S4_09_4/Distance to access VET services
+122,F1,CFSVA2024_HH,V261,S4_09_4_SMT_2,S4_09_4/High price
+122,F1,CFSVA2024_HH,V262,S4_09_4_SMT_3,S4_09_4/The frequency of the Service provider's visits(Extension service)
+122,F1,CFSVA2024_HH,V263,S4_09_4_SMT_0,S4_09_4/Others
+122,F1,CFSVA2024_HH,V264,S4_11,S4_11 What means of transport you own in this household
+122,F1,CFSVA2024_HH,V265,S4_11_SMT_1,S4_11/bicycle
+122,F1,CFSVA2024_HH,V266,S4_11_SMT_2,S4_11/moto
+122,F1,CFSVA2024_HH,V267,S4_11_SMT_3,S4_11/car
+122,F1,CFSVA2024_HH,V268,S4_11_SMT_4,S4_11/truck
+122,F1,CFSVA2024_HH,V269,S4_11_SMT_5,S4_11/Locally fabricated mean
+122,F1,CFSVA2024_HH,V270,S4_11_SMT_6,S4_11/None
+122,F1,CFSVA2024_HH,V271,S4_11_SMT_7,S4_11/Others
+122,F1,CFSVA2024_HH,V272,S5_01,S5_01 Which crops does your household usually grow?
+122,F1,CFSVA2024_HH,V273,S5_01_SMT_11,S5_01/Wheat
+122,F1,CFSVA2024_HH,V274,S5_01_SMT_12,S5_01/Maize
+122,F1,CFSVA2024_HH,V275,S5_01_SMT_13,S5_01/Sorghum
+122,F1,CFSVA2024_HH,V276,S5_01_SMT_14,S5_01/Rice
+122,F1,CFSVA2024_HH,V277,S5_01_SMT_15,S5_01/Other cereals
+122,F1,CFSVA2024_HH,V278,S5_01_SMT_20,S5_01/Orange fleshed Sweet potatoes
+122,F1,CFSVA2024_HH,V279,S5_01_SMT_21,S5_01/White fleshed sweet potatoes
+122,F1,CFSVA2024_HH,V280,S5_01_SMT_22,S5_01/Irish potato
+122,F1,CFSVA2024_HH,V281,S5_01_SMT_23,S5_01/Cassava
+122,F1,CFSVA2024_HH,V282,S5_01_SMT_24,S5_01/Taro
+122,F1,CFSVA2024_HH,V283,S5_01_SMT_25,S5_01/Yam
+122,F1,CFSVA2024_HH,V284,S5_01_SMT_26,S5_01/Banana cooking
+122,F1,CFSVA2024_HH,V285,S5_01_SMT_27,S5_01/Other roots and tubers specify:_
+122,F1,CFSVA2024_HH,V286,S5_01_SMT_31,S5_01/Tomato
+122,F1,CFSVA2024_HH,V287,S5_01_SMT_32,S5_01/Cabbage
+122,F1,CFSVA2024_HH,V288,S5_01_SMT_33,S5_01/Other vegetables
+122,F1,CFSVA2024_HH,V289,S5_01_SMT_41,S5_01/Banana (wine)
+122,F1,CFSVA2024_HH,V290,S5_01_SMT_42,S5_01/Banana fruit
+122,F1,CFSVA2024_HH,V291,S5_01_SMT_43,S5_01/Passion fruit
+122,F1,CFSVA2024_HH,V292,S5_01_SMT_44,S5_01/Pineapple
+122,F1,CFSVA2024_HH,V293,S5_01_SMT_45,S5_01/Other fruit specify:______
+122,F1,CFSVA2024_HH,V294,S5_01_SMT_50,S5_01/bio-fortified beans
+122,F1,CFSVA2024_HH,V295,S5_01_SMT_51,S5_01/Beans
+122,F1,CFSVA2024_HH,V296,S5_01_SMT_52,S5_01/Peas
+122,F1,CFSVA2024_HH,V297,S5_01_SMT_53,S5_01/Soya
+122,F1,CFSVA2024_HH,V298,S5_01_SMT_54,S5_01/Ground nuts
+122,F1,CFSVA2024_HH,V299,S5_01_SMT_55,"S5_01/Other pulses, specify:_____"
+122,F1,CFSVA2024_HH,V300,S5_01_SMT_61,S5_01/Tea
+122,F1,CFSVA2024_HH,V301,S5_01_SMT_62,S5_01/Coffee
+122,F1,CFSVA2024_HH,V302,S5_01_SMT_63,S5_01/Tobacco
+122,F1,CFSVA2024_HH,V303,S5_01_SMT_64,S5_01/Sugar cane
+122,F1,CFSVA2024_HH,V304,S5_01_SMT_65,S5_01/Other cash crops specify:___
+122,F1,CFSVA2024_HH,V305,S5_01_2,S5_01_2 1st main commodity
+122,F1,CFSVA2024_HH,V306,S5_01_3,S5_01_3 2nd main commodity
+122,F1,CFSVA2024_HH,V307,S5_01_4,S5_01_4 3rd main commodity
+122,F1,CFSVA2024_HH,V308,AS5_02,AS5_02 Did your household grow [commodity name] during the season of 2024A?
+122,F1,CFSVA2024_HH,V309,AS5_03,AS5_03 How did you acquire seeds for [commodity name]?
+122,F1,CFSVA2024_HH,V310,AS5_04,AS5_04 What was or will be the expected harvest for [commodity name] during seas
+122,F1,CFSVA2024_HH,V311,AS5_04_2,AS5_04_2 What quantity of your production for this crop did you or plan to direc
+122,F1,CFSVA2024_HH,V312,AS5_04_2_2,"AS5_04_2_2 How long, did or will the stock for this [commodity name] kept for ho"
+122,F1,CFSVA2024_HH,V313,AS5_04_3,AS5_04_3 What quantity of your production for this crop did you or plan to sell?
+122,F1,CFSVA2024_HH,V314,AS5_04_3_2,AS5_04_3_2 To whom did you or plan to sell the majority of this [commodity name]
+122,F1,CFSVA2024_HH,V315,AS5_04_3_2_3,AS5_04_3_2_3 What is the distance in hours to reach the point of sale for the ma
+122,F1,CFSVA2024_HH,V316,AS5_04_4,AS5_04_4 What quantity of your production for this crop did you or plan to keep
+122,F1,CFSVA2024_HH,V317,AS5_04_5,AS5_04_5 What quantity of your production for this cop did you or plan to use fo
+122,F1,CFSVA2024_HH,V318,AS5_04_6,AS5_04_6 What quantity of your production for this crop did you or plan to give
+122,F1,CFSVA2024_HH,V319,AS5_04_7,"AS5_04_7 What quantity of your production for this crop is lost/became spoiled,"
+122,F1,CFSVA2024_HH,V320,AS5_05,AS5_05 Did your household use any chemical fertilizer and/or insecticides for th
+122,F1,CFSVA2024_HH,V321,AS5_05_2,AS5_05_2 How did you acquire these the fetilizer that you used on [commodity nam
+122,F1,CFSVA2024_HH,V322,AS5_05_3,AS5_05_3 How did you acquire the pestcides that you used on [commodity name] dur
+122,F1,CFSVA2024_HH,V323,BS5_02,BS5_02 Did your household grow [commodity name] during the season of 2024A?
+122,F1,CFSVA2024_HH,V324,BS5_03,BS5_03 How did you acquire seeds for [commodity name]?
+122,F1,CFSVA2024_HH,V325,BS5_04,BS5_04 What was or will be the expected harvest for [commodity name] during seas
+122,F1,CFSVA2024_HH,V326,BS5_04_2,BS5_04_2 What quantity of your production for this crop did you or plan to direc
+122,F1,CFSVA2024_HH,V327,BS5_04_2_2,"BS5_04_2_2 How long, did or will the stock for this [commodity name] kept for ho"
+122,F1,CFSVA2024_HH,V328,BS5_04_3,BS5_04_3 What quantity of your production for this crop did you or plan to sell?
+122,F1,CFSVA2024_HH,V329,BS5_04_3_2,BS5_04_3_2 To whom did you or plan to sell the majority of this [commodity name]
+122,F1,CFSVA2024_HH,V330,BS5_04_3_2_3,BS5_04_3_2_3 What is the distance in hours to reach the point of sale for the ma
+122,F1,CFSVA2024_HH,V331,BS5_04_4,BS5_04_4 What quantity of your production for this crop did you or plan to keep
+122,F1,CFSVA2024_HH,V332,BS5_04_5,BS5_04_5 What quantity of your production for this cop did you or plan to use fo
+122,F1,CFSVA2024_HH,V333,BS5_04_6,BS5_04_6 What quantity of your production for this crop did you or plan to give
+122,F1,CFSVA2024_HH,V334,BS5_04_7,"BS5_04_7 What quantity of your production for this crop is lost/became spoiled,"
+122,F1,CFSVA2024_HH,V335,BS5_05,BS5_05 Did your household use any chemical fertilizer and/or insecticides for th
+122,F1,CFSVA2024_HH,V336,BS5_05_2,BS5_05_2 How did you acquire these the fetilizer that you used on [commodity nam
+122,F1,CFSVA2024_HH,V337,BS5_05_3,BS5_05_3 How did you acquire the pestcides that you used on [commodity name] dur
+122,F1,CFSVA2024_HH,V338,CS5_02,CS5_02 Did your household grow [commodity name] during the season of 2024A?
+122,F1,CFSVA2024_HH,V339,CS5_03,CS5_03 How did you acquire seeds for [commodity name]?
+122,F1,CFSVA2024_HH,V340,CS5_04,CS5_04 What was or will be the expected harvest for [commodity name] during seas
+122,F1,CFSVA2024_HH,V341,CS5_04_2,CS5_04_2 What quantity of your production for this crop did you or plan to direc
+122,F1,CFSVA2024_HH,V342,CS5_04_2_2,"CS5_04_2_2 How long, did or will the stock for this [commodity name] kept for ho"
+122,F1,CFSVA2024_HH,V343,CS5_04_3,CS5_04_3 What quantity of your production for this crop did you or plan to sell?
+122,F1,CFSVA2024_HH,V344,CS5_04_3_2,CS5_04_3_2 To whom did you or plan to sell the majority of this [commodity name]
+122,F1,CFSVA2024_HH,V345,CS5_04_3_2_3,CS5_04_3_2_3 What is the distance in hours to reach the point of sale for the ma
+122,F1,CFSVA2024_HH,V346,CS5_04_4,CS5_04_4 What quantity of your production for this crop did you or plan to keep
+122,F1,CFSVA2024_HH,V347,CS5_04_5,CS5_04_5 What quantity of your production for this cop did you or plan to use fo
+122,F1,CFSVA2024_HH,V348,CS5_04_6,CS5_04_6 What quantity of your production for this crop did you or plan to give
+122,F1,CFSVA2024_HH,V349,CS5_04_7,"CS5_04_7 What quantity of your production for this crop is lost/became spoiled,"
+122,F1,CFSVA2024_HH,V350,CS5_05,CS5_05 Did your household use any chemical fertilizer and/or insecticides for th
+122,F1,CFSVA2024_HH,V351,CS5_05_2,CS5_05_2 How did you acquire these the fetilizer that you used on [commodity nam
+122,F1,CFSVA2024_HH,V352,CS5_05_3,CS5_05_3 How did you acquire the pestcides that you used on [commodity name] dur
+122,F1,CFSVA2024_HH,V353,S5_03,S5_03 household owned
+122,F1,CFSVA2024_HH,V354,S5_03_2,S5_03_2 rented (paid in cash or shared cropping)
+122,F1,CFSVA2024_HH,V355,S5_03_3,S5_03_3 others' land freely accessed
+122,F1,CFSVA2024_HH,V356,S5_04,S5_04 Has your household had access to extension services in the period of seaso
+122,F1,CFSVA2024_HH,V357,S5_05,S5_05 Has your household received weather and climate information services durin
+122,F1,CFSVA2024_HH,V358,S5_06,S5_06 What storage facility does your household use to store your production?
+122,F1,CFSVA2024_HH,V359,S5_06_SMT_0,S5_06/Never store
+122,F1,CFSVA2024_HH,V360,S5_06_SMT_1,S5_06/In traditional granaries
+122,F1,CFSVA2024_HH,V361,S5_06_SMT_2,S5_06/Indoors â€“ in basket/bags
+122,F1,CFSVA2024_HH,V362,S5_06_SMT_3,S5_06/Indoors â€“ open storage
+122,F1,CFSVA2024_HH,V363,S5_06_SMT_4,S5_06/Outside â€“ open storage
+122,F1,CFSVA2024_HH,V364,S5_06_SMT_5,S5_06/In certified warehouses for which you received a receipt specifying the qu
+122,F1,CFSVA2024_HH,V365,S5_06_SMT_6,S5_06/In other warehouses/stores
+122,F1,CFSVA2024_HH,V366,S5_06_SMT_7,S5_06/Metallic home silos
+122,F1,CFSVA2024_HH,V367,S5_06_SMT_8,S5_06/Plastic home silos
+122,F1,CFSVA2024_HH,V368,S5_06_SMT_9,S5_06/Other
+122,F1,CFSVA2024_HH,V369,S6_0,S6_0 Does anyone of your household currently have a bank account?
+122,F1,CFSVA2024_HH,V370,S6_0_1,"S6_0_1 If YES, what are the purpuses for the account?"
+122,F1,CFSVA2024_HH,V371,S6_0_1_SMT_1,"S6_0_1/To set aside money (for SILC savings, investments)"
+122,F1,CFSVA2024_HH,V372,S6_0_1_SMT_2,S6_0_1/To store money for household expenses or unexpected event
+122,F1,CFSVA2024_HH,V373,S6_0_1_SMT_3,"S6_0_1/To receive a payment (wage, salaries, payment for goods/services, etc)"
+122,F1,CFSVA2024_HH,V374,S6_0_1_SMT_4,S6_0_1/To receive cash assistance
+122,F1,CFSVA2024_HH,V375,S6_0_1_SMT_5,S6_0_1/To receive remittance from abroad
+122,F1,CFSVA2024_HH,V376,S6_0_1_SMT_6,S6_0_1/To make a payment related to individual or household expenses
+122,F1,CFSVA2024_HH,V377,S6_0_1_SMT_7,S6_0_1/To make a payment for a bank/microfinance loan
+122,F1,CFSVA2024_HH,V378,S6_0_1_SMT_8,S6_0_1/To make payment related to debt taken
+122,F1,CFSVA2024_HH,V379,S6_0_1_SMT_21,S6_0_1/Any other (please specify)
+122,F1,CFSVA2024_HH,V380,S6_01,S6_01 Did you or any household member request for a loan in the in the last 12 m
+122,F1,CFSVA2024_HH,V381,S6_02,S6_02 Where did you requested the most recent loan?
+122,F1,CFSVA2024_HH,V382,S6_03,S6_03 Were you given the loan you requested?
+122,F1,CFSVA2024_HH,V383,S6_03_2,S6_03_2 Why were you not given the loan you requested?
+122,F1,CFSVA2024_HH,V384,S6_04,S6_04 What was the main use of the largest loan taken in the in the last 12 mont
+122,F1,CFSVA2024_HH,V385,S6_04_3,S6_04_3 what % of loan was spent in buying or preparing farming or pasture land
+122,F1,CFSVA2024_HH,V386,S6_04_4,"S6_04_4 What % of loan was spent in buying inputs ( seeds, chemicals, irrigation"
+122,F1,CFSVA2024_HH,V387,S6_04_5,S6_04_5 What % of loan was used on post-harvet and production handling and proce
+122,F1,CFSVA2024_HH,V388,S6_04_5_1,S6_04_5 What % of loan was used other agricultural activities
+122,F1,CFSVA2024_HH,V389,S6_04_6,"S6_04_5 For the last loan you requested, who in your household decided on what a"
+122,F1,CFSVA2024_HH,V390,S7_01,"S7_01 During the past 30 days, did your household spend any money in buying food"
+122,F1,CFSVA2024_HH,V391,S7_01_00,S7_01_00 Can you tell me of all commodities you remeemeber your houhold purchase
+122,F1,CFSVA2024_HH,V392,S7_01_00_SMT_1,"S7_01_00/Cereals, Roots and tubers"
+122,F1,CFSVA2024_HH,V393,S7_01_00_SMT_2,"S7_01_00/Legumes & Pulses(beans, peas, dry peas, cow peas (inkori))"
+122,F1,CFSVA2024_HH,V394,S7_01_00_SMT_3,S7_01_00/Vegetables
+122,F1,CFSVA2024_HH,V395,S7_01_00_SMT_4,S7_01_00/Fruits
+122,F1,CFSVA2024_HH,V396,S7_01_00_SMT_5,"S7_01_00/Meat, fish and eggs"
+122,F1,CFSVA2024_HH,V397,S7_01_00_SMT_6,S7_01_00/Milk and other dairy products
+122,F1,CFSVA2024_HH,V398,S7_01_00_SMT_7,S7_01_00/Oil / fat / butter
+122,F1,CFSVA2024_HH,V399,S7_01_00_SMT_8,"S7_01_00/Sugar, or sweets"
+122,F1,CFSVA2024_HH,V400,S7_01_00_SMT_9,S7_01_00/Condiments / Spices
+122,F1,CFSVA2024_HH,V401,S7_01_00_SMT_10,"S7_01_00/Non-alcoholic beverages (Soda, bottled water, juice, etc)"
+122,F1,CFSVA2024_HH,V402,S7_01_00_SMT_11,"S7_01_00/Meals and drinks bought from resto, bar, etc"
+122,F1,CFSVA2024_HH,V403,S7_01_00_SMT_12,S7_01_00/Other food items not mentioned on the list
+122,F1,CFSVA2024_HH,V404,S7_01_00_SMT_88,S7_01_00/No food was bought
+122,F1,CFSVA2024_HH,V405,S7_01_01,"S7_01_01 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V406,S7_01_01_2,"S7_01_01_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V407,S7_01_02,"S7_01_02 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V408,S7_01_02_2,"S7_01_02_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V409,S7_01_03,"S7_01_03 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V410,S7_01_03_2,"S7_01_03_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V411,S7_01_04,"S7_01_04 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V412,S7_01_04_2,"S7_01_04_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V413,S7_01_05,"S7_01_05 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V414,S7_01_05_2,"S7_01_05_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V415,S7_01_06,"S7_01_06 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V416,S7_01_06_2,"S7_01_06_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V417,S7_01_07,"S7_01_07 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V418,S7_01_07_2,"S7_01_07_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V419,S7_01_08,"S7_01_08 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V420,S7_01_08_2,"S7_01_08_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V421,S7_01_09,"S7_01_09 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V422,S7_01_09_2,"S7_01_09_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V423,S7_01_10,"S7_01_10 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V424,S7_01_10_2,"S7_01_10_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V425,S7_01_11,"S7_01_11 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V426,S7_01_11_2,"S7_01_11_2 For data quality purposes, repeat the previoius amount Mu rwego rwo"
+122,F1,CFSVA2024_HH,V427,S7_01_12,"S7_01_12 During the last 30 days, how much money did your household sepend in bu"
+122,F1,CFSVA2024_HH,V428,S7_01_12_2,"S7_01_12_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V429,S7_02_01,"S7_02_01 Last 30 days, how much money did your household spend in buying Alcohol"
+122,F1,CFSVA2024_HH,V430,S7_02_01_2,"S7_02_01_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V431,S7_02_02,"S7_02_02 Last 30 days, how much money did your household spend in buying Soap an"
+122,F1,CFSVA2024_HH,V432,S7_02_02_2,"S7_02_02_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V433,S7_02_03,"S7_02_03 Last 30 days, how much money did your household spend on Transport, for"
+122,F1,CFSVA2024_HH,V434,S7_02_03_2,"S7_02_03_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V435,S7_02_04,"S7_02_04 Last 30 days, how much money did your household spend in buying lightin"
+122,F1,CFSVA2024_HH,V436,S7_02_04_2,"S7_02_04_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V437,S7_02_05,"S7_02_05 Last 30 days, how much money did your household spend in buying cooking"
+122,F1,CFSVA2024_HH,V438,S7_02_05_2,"S7_02_05_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V439,S7_02_06,"S7_02_06 Last 30 days, how much money did your household spend in household Wast"
+122,F1,CFSVA2024_HH,V440,S7_02_06_2,"S7_02_06_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V441,S7_02_07,"S7_02_07 Last 30 days, how much money did your household spend in buying Rent (h"
+122,F1,CFSVA2024_HH,V442,S7_02_07_2,"S7_02_07_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V443,S7_02_08,"S7_02_08 Last 30 days, how much money did your household spend in buying Milling"
+122,F1,CFSVA2024_HH,V444,S7_02_08_2,"S7_02_08_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V445,S7_02_09,"S7_02_09 Last 30 days, how much money did your household spend in buying Communi"
+122,F1,CFSVA2024_HH,V446,S7_02_09_2,"S7_02_09_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V447,S7_02_10,"S7_02_10 Last 30 days, how much money did your household spend in buying Other n"
+122,F1,CFSVA2024_HH,V448,S7_02_10_2,"S7_02_10_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V449,S7_03_01,"S7_03_01 Last 3 months, how much money did your household spend on Medical expen"
+122,F1,CFSVA2024_HH,V450,S7_03_01_2,"S7_03_01_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V451,S7_03_02,"S7_03_02 Last 3 months, how much money did your household spend on Education, sc"
+122,F1,CFSVA2024_HH,V452,S7_03_02_2,"S7_03_02_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V453,S7_03_03,"S7_03_03 Last 3 months, how much money did your household spend on Clothing, sho"
+122,F1,CFSVA2024_HH,V454,S7_03_03_2,"S7_03_03_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V455,S7_03_04,"S7_03_04 Last 3 months, how much money did your household spend on household fur"
+122,F1,CFSVA2024_HH,V456,S7_03_04_2,"S7_03_04_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V457,S7_03_05,"S7_03_05 Last 3 months, how much money did your household spend on Construction,"
+122,F1,CFSVA2024_HH,V458,S7_03_05_2,"S7_03_05_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V459,S7_03_06,"S7_03_06 Last 3 months, how much money did your household spend on Agriculture a"
+122,F1,CFSVA2024_HH,V460,S7_03_06_2,"S7_03_06_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V461,S7_03_07,"S7_03_07 Last 3 months, how much money did your household spend on Livestock and"
+122,F1,CFSVA2024_HH,V462,S7_03_07_2,"S7_03_07_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V463,S7_03_08,"S7_03_08 Last 3 months, how much money did your household spend on Hiring non-ag"
+122,F1,CFSVA2024_HH,V464,S7_03_08_2,"S7_03_08_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V465,S7_03_09,"S7_03_09 Last 3 months, how much money did your household spend on Debts/mortgag"
+122,F1,CFSVA2024_HH,V466,S7_03_09_2,"S7_03_09_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V467,S7_03_10,"S7_03_10 Last 3 months, how much money did your household spend on Fines, taxes"
+122,F1,CFSVA2024_HH,V468,S7_03_10_2,"S7_03_10_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V469,S7_03_11,"S7_03_11 Last 3 months, how much money did your household spend on Ceremonies?"
+122,F1,CFSVA2024_HH,V470,S7_03_11_2,"S7_03_11_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V471,S7_03_12,"S7_03_12 Last 3 months, how much money did your household spend on Gifts/donatio"
+122,F1,CFSVA2024_HH,V472,S7_03_12_2,"S7_03_12_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V473,S7_03_13,"S7_03_13 Last 3 months, how much money did your household spend on Leisure?"
+122,F1,CFSVA2024_HH,V474,S7_03_13_2,"S7_03_13_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V475,S7_03_14,"S7_03_14 Last 3 months, how much money did your household spend on Other service"
+122,F1,CFSVA2024_HH,V476,S7_03_14_2,"S7_03_14_2 For data quality purposes, repeat the previoius amount"
+122,F1,CFSVA2024_HH,V477,S8_0,"S8_0 Yesterday, how many times did the household eat?"
+122,F1,CFSVA2024_HH,V478,S8_0_1,S8_0_1 what was these meals?
+122,F1,CFSVA2024_HH,V479,S8_0_1_SMT_1,S8_0_1/Breakfast
+122,F1,CFSVA2024_HH,V480,S8_0_1_SMT_2,S8_0_1/Lunch
+122,F1,CFSVA2024_HH,V481,S8_0_1_SMT_3,S8_0_1/Dinner
+122,F1,CFSVA2024_HH,V482,S8_01,"S8_01 Yesterday, how many times did the male adults in this household eat?"
+122,F1,CFSVA2024_HH,V483,S8_01_2,"S8_01_2 Yesterday, how many times did the female adults in this household eat?"
+122,F1,CFSVA2024_HH,V484,S8_01_3,S8_01_3 Is this usual for adults at this time of year?
+122,F1,CFSVA2024_HH,V485,S8_02,"S8_02 Yesterday, how many times did the children ( boys <15 year old) in this ho"
+122,F1,CFSVA2024_HH,V486,S8_02_2,"S8_02_2 Yesterday, how many times did the children (girls <15 year old) in this"
+122,F1,CFSVA2024_HH,V487,S8_02_3,S8_02_3 Is this usual for your children at this time of year?
+122,F1,CFSVA2024_HH,V488,AS8_03,"AS8_03 How many days in the last 7 days did your household eat Cereals, roots an"
+122,F1,CFSVA2024_HH,V489,AS8_03_2,"AS8_03_2 Was yesterday one of the days your househod ate Cereals:** sorghum, mil"
+122,F1,CFSVA2024_HH,V490,AS8_03_3,AS8_03_3 Was yesterday one of the days your househod ate Roots and tubers: sweet
+122,F1,CFSVA2024_HH,V491,AS8_03_4,"AS8_03_4 How did you mainly acquire these Cereals, grains, roots and tubers and"
+122,F1,CFSVA2024_HH,V492,BS8_03,BS8_03 How many days in the last 7 days did your household eat orange fleshed sw
+122,F1,CFSVA2024_HH,V493,BS8_03_2,"BS8_03_2 Last 24 hours (yesterday), did your household eat orange fleshed sweet"
+122,F1,CFSVA2024_HH,V494,BS8_03_3,BS8_03_3 How did you mainly acquire these orange fleshed sweet potatoes?
+122,F1,CFSVA2024_HH,V495,DS8_03,DS8_03 How many days in the last 7 days did your household eat Legume/nuts : bea
+122,F1,CFSVA2024_HH,V496,DS8_03_2,"DS8_03_2 Last 24 hours (yesterday), did your household eat Legumes / nuts ?"
+122,F1,CFSVA2024_HH,V497,DS8_03_3,DS8_03_3 How did you mainly acquire these Legumes / nuts ?
+122,F1,CFSVA2024_HH,V498,ES8_03,ES8_03 How many days in the last 7 days did your household eat bio-fortied beans
+122,F1,CFSVA2024_HH,V499,ES8_03_2,"ES8_03_2 Last 24 hours (yesterday), did your household eat bio-fortied beans?"
+122,F1,CFSVA2024_HH,V500,ES8_03_3,ES8_03_3 How did you mainly acquire these bio-fortied beans?
+122,F1,CFSVA2024_HH,V501,FS8_03,FS8_03 How many days in the last 7 days did your household drink Milk or eat oth
+122,F1,CFSVA2024_HH,V502,FS8_03_2,"FS8_03_2 Last 24 hours (yesterday), did your household eat Milk and other dairy"
+122,F1,CFSVA2024_HH,V503,FS8_03_3,FS8_03_3 How did you mainly acquire these Milk and other dairy products?
+122,F1,CFSVA2024_HH,V504,GS8_03,"GS8_03 How many days in the last 7 days did your household eat Meat, fish or egg"
+122,F1,CFSVA2024_HH,V505,GAS8_03,GAS8_03 How many days in the last 7 days did your household eat flesh Meat : goa
+122,F1,CFSVA2024_HH,V506,GAS8_03_2,"GAS8_03_2 Last 24 hours (yesterday), did your household eat flesh meat?"
+122,F1,CFSVA2024_HH,V507,GBS8_03,"GBS8_03 How many days in the last 7 days did your household eat Offal : liver, k"
+122,F1,CFSVA2024_HH,V508,GBS8_03_2,"GBS8_03_2 Last 24 hours (yesterday), did your household eat offals?"
+122,F1,CFSVA2024_HH,V509,GCS8_03,GCS8_03 How many days in the last 7 days did your household eat Fish or other se
+122,F1,CFSVA2024_HH,V510,GCS8_03_2,"GCS8_03_2 Last 24 hours (yesterday), did your household eat fish or other seafoo"
+122,F1,CFSVA2024_HH,V511,GDS8_03,GDS8_03 How many days in the last 7 days did your household eat Eggs: (an egg pe
+122,F1,CFSVA2024_HH,V512,GDS8_03_2,"GDS8_03_2 Last 24 hours (yesterday), did your household eat eggs?"
+122,F1,CFSVA2024_HH,V513,GS8_03_2,GS8_03_2 How did you mainly acquire these meat that your household ate during th
+122,F1,CFSVA2024_HH,V514,HS8_03,HS8_03 How many days in the last 7 days did your household eat Vegetables: all
+122,F1,CFSVA2024_HH,V515,HAS8_03,HAS8_03 How many days in the last 7 days did your household eat Orange vegetable
+122,F1,CFSVA2024_HH,V516,HBS8_03,HBS8_03 How many days in the last 7 days did your household eat Dark green leafy
+122,F1,CFSVA2024_HH,V517,HS8_03_2,"HS8_03_2 Last 24 hours (yesterday), did your household eat vegetables?"
+122,F1,CFSVA2024_HH,V518,HS8_03_3,HS8_03_3 How did you mainly acquire these vegetables your household ate?
+122,F1,CFSVA2024_HH,V519,IS8_03,"IS8_03 How many days in the last 7 days did your household eat Fruit : banana, A"
+122,F1,CFSVA2024_HH,V520,IAS8_03,IAS8_03 How many days in the last 7 days did your household eat Orange fruit (Vi
+122,F1,CFSVA2024_HH,V521,IAS8_03_2,"IS8_03_2 Last 24 hours (yesterday), did your household eat any fruits?"
+122,F1,CFSVA2024_HH,V522,IS8_03_3,IS8_03_3 How did you mainly acquire these fruits that your household ate duringt
+122,F1,CFSVA2024_HH,V523,IAS8_04,IS8_04 Are there any tree foods in the homestead or your farm for easy access an
+122,F1,CFSVA2024_HH,V524,IAS8_04_1,IS8_04 Are there any tree foods in the homestead or your farm for easy access an
+122,F1,CFSVA2024_HH,V525,JS8_03,JS8_03 How many days in the last 7 days did your household eat Oil/fat/butter: c
+122,F1,CFSVA2024_HH,V526,JS8_03_2,"JS8_03_2 Last 24 hours (yesterday), did your household eat Oil / fat / butter?"
+122,F1,CFSVA2024_HH,V527,JS8_03_3,JS8_03_3 How did you mainly acquire these Oil / fat / butter?
+122,F1,CFSVA2024_HH,V528,KS8_03,KS8_03 How many days in the last 7 days did your household eat Sweet sugar or pr
+122,F1,CFSVA2024_HH,V529,KS8_03_2,"KS8_03_2 Last 24 hours (yesterday), did your household eat Sugar, or sweet?"
+122,F1,CFSVA2024_HH,V530,KS8_03_3,"KS8_03_3 How did you mainly acquire these Sugar, or sweet?"
+122,F1,CFSVA2024_HH,V531,LS8_03,LS8_03 How many days in the last 7 days did your household eat Spices / Condimen
+122,F1,CFSVA2024_HH,V532,LS8_03_2,"LS8_03_2 Last 24 hours (yesterday), did your household eat Condiments / Spices?"
+122,F1,CFSVA2024_HH,V533,LS8_03_3,LS8_03_3 How did you mainly acquire these Condiments / Spices?
+122,F1,CFSVA2024_HH,V534,S8_04,S8_04 What was the main source of beans your household consumed over the last 12
+122,F1,CFSVA2024_HH,V535,S8_05,"S8_05 What is your household prefered staple food (other than beans, vegetables)"
+122,F1,CFSVA2024_HH,V536,S8_05_2,S8_05_2 Is this also the most consumed staple for your household?
+122,F1,CFSVA2024_HH,V537,S8_05_3,S8_05_3 What was the main source of [staple name] that your household consumed o
+122,F1,CFSVA2024_HH,V538,S8_06,S8_06 What are you household prefered vegetables
+122,F1,CFSVA2024_HH,V539,S8_06_SMT_1,S8_06/Amaranthus
+122,F1,CFSVA2024_HH,V540,S8_06_SMT_2,S8_06/Carrot
+122,F1,CFSVA2024_HH,V541,S8_06_SMT_3,S8_06/Spinach
+122,F1,CFSVA2024_HH,V542,S8_06_SMT_4,S8_06/Red onion
+122,F1,CFSVA2024_HH,V543,S8_06_SMT_5,S8_06/White cabbage
+122,F1,CFSVA2024_HH,V544,S8_06_SMT_6,S8_06/Eggplant
+122,F1,CFSVA2024_HH,V545,S8_06_SMT_7,S8_06/Mushroom
+122,F1,CFSVA2024_HH,V546,S8_06_SMT_8,S8_06/Pumpkins
+122,F1,CFSVA2024_HH,V547,S8_06_SMT_9,"S8_06/Others, Specify"
+122,F1,CFSVA2024_HH,V548,S8_06_2,S8_06_2 Is this also the most consumed vegetables for your household?
+122,F1,CFSVA2024_HH,V549,S8_06_3,S8_06_3 What is the main source of these said Vegetables?
+122,F1,CFSVA2024_HH,V550,S8_09,"S8_09 During last 7 days, did your household spend a full day without eating due"
+122,F1,CFSVA2024_HH,V551,S8_09_1,"S8_09_1 If yes, ni iminsi ingahe?"
+122,F1,CFSVA2024_HH,V552,S9_01,"S9_01 In the last 7 days, have there been times when your household did not have"
+122,F1,CFSVA2024_HH,V553,S9_01_2,S9_01_2 What mainly caused the food shortage that you earlier mentioned?
+122,F1,CFSVA2024_HH,V554,S9_01_2_2,S9_01_2_2 What was the main cause of reduced or insufficient production?
+122,F1,CFSVA2024_HH,V555,S9_01_2_3,S9_01_2_3 What was the main cause of loss or reduction of household's labour or
+122,F1,CFSVA2024_HH,V556,S9_01_3,S9_01_3 What do you think can be done to alleviate food access problems?
+122,F1,CFSVA2024_HH,V557,S9_01_3_SMT_1,S9_01_3/Subsidized agricurtural inputs
+122,F1,CFSVA2024_HH,V558,S9_01_3_SMT_2,S9_01_3/Creation of HH's income generating activities
+122,F1,CFSVA2024_HH,V559,S9_01_3_SMT_3,S9_01_3/Support in market access and linkages
+122,F1,CFSVA2024_HH,V560,S9_01_3_SMT_4,S9_01_3/Support in irrigation systems
+122,F1,CFSVA2024_HH,V561,S9_01_3_SMT_5,S9_01_3/Support in errosion control systems
+122,F1,CFSVA2024_HH,V562,S9_01_3_SMT_6,S9_01_3/Support to vulnerables affected by shocks
+122,F1,CFSVA2024_HH,V563,S9_01_3_SMT_7,S9_01_3/Support in health insurance
+122,F1,CFSVA2024_HH,V564,S9_01_3_SMT_8,S9_01_3/Support in family planning
+122,F1,CFSVA2024_HH,V565,S9_01_3_SMT_10,"S9_01_3/Infrastructures: Roads, Bridges..."
+122,F1,CFSVA2024_HH,V566,S9_01_3_SMT_9,S9_01_3/Other
+122,F1,CFSVA2024_HH,V567,AS9_02_2,"AS9_02_2 In the past 7 days, how many days has your household had to Rely On Les"
+122,F1,CFSVA2024_HH,V568,BS9_02_2,"BS9_02_2 In the past 7 days, how many days has your household had to Borrow Food"
+122,F1,CFSVA2024_HH,V569,CS9_02_2,"CS9_02_2 In the past 7 days, how many days has your household had to Limit Porti"
+122,F1,CFSVA2024_HH,V570,DS9_02_2,"DS9_02_2 In the past 7 days, how many days has your household had to Restrict Co"
+122,F1,CFSVA2024_HH,V571,ES9_02_2,"ES9_02_2 In the past 7 days, how many days has your household had to Reduce Numb"
+122,F1,CFSVA2024_HH,V572,AS9_04,"AS9_04 During the past 30 days, did anyone in your household have to Sell househ"
+122,F1,CFSVA2024_HH,V573,AS9_04_2,"AS9_04_2 If no, why?"
+122,F1,CFSVA2024_HH,V574,BS9_04,"BS9_04 During the past 30 days, did anyone in your household have to spend savin"
+122,F1,CFSVA2024_HH,V575,BS9_04_2,"BS9_04_2 If no, why?"
+122,F1,CFSVA2024_HH,V576,CS9_04,"CS9_04 During the past 30 days, did anyone in your household have to sell more a"
+122,F1,CFSVA2024_HH,V577,CS9_04_2,"CS9_04_2 If no, why?"
+122,F1,CFSVA2024_HH,V578,DS9_04,"DS9_04 During the past 30 days, did anyone in your household have to purchased f"
+122,F1,CFSVA2024_HH,V579,DS9_04_2,"DS9_04_2 If no, why?"
+122,F1,CFSVA2024_HH,V580,ES9_04,"ES9_04 During the past 30 days, did anyone in your household have to harvest imm"
+122,F1,CFSVA2024_HH,V581,ES9_04_2,"ES9_04_2 If no, why?"
+122,F1,CFSVA2024_HH,V582,FS9_04,"FS9_04 During the past 30 days, did anyone in your household have to consume see"
+122,F1,CFSVA2024_HH,V583,FS9_04_2,"FS9_04_2 If no, why?"
+122,F1,CFSVA2024_HH,V584,GS9_04,"GS9_04 During the past 30 days, did anyone in your household have to decrease ex"
+122,F1,CFSVA2024_HH,V585,GS9_04_2,"GS9_04_2 If no, why?"
+122,F1,CFSVA2024_HH,V586,HS9_04,"HS9_04 During the past 30 days, did anyone in your household have to Begg due to"
+122,F1,CFSVA2024_HH,V587,HS9_04_2,"HS9_04_2 If no, why?"
+122,F1,CFSVA2024_HH,V588,IS9_04,"IS9_04 During the past 30 days, did anyone in your household have to sell last f"
+122,F1,CFSVA2024_HH,V589,IS9_04_2,"IS9_04_2 If no, why?"
+122,F1,CFSVA2024_HH,V590,JS9_04,"JS9_04 During the past 30 days, your entire household migrate due to a lack of e"
+122,F1,CFSVA2024_HH,V591,JS9_04_2,"JS9_04_2 If no, why?"
+122,F1,CFSVA2024_HH,V592,S10_01,S10_01 In the last 12 months were there any specific months in which your househ
+122,F1,CFSVA2024_HH,V593,S10_01_2,"S10_01_2 If yes, in which months did your household found it does not have enoug"
+122,F1,CFSVA2024_HH,V594,S10_01_2_SMT_1,S10_01_2/March of 2024
+122,F1,CFSVA2024_HH,V595,S10_01_2_SMT_2,S10_01_2/February of 2024
+122,F1,CFSVA2024_HH,V596,S10_01_2_SMT_3,S10_01_2/January of 2024
+122,F1,CFSVA2024_HH,V597,S10_01_2_SMT_4,S10_01_2/December of 2023
+122,F1,CFSVA2024_HH,V598,S10_01_2_SMT_5,S10_01_2/November of 2023
+122,F1,CFSVA2024_HH,V599,S10_01_2_SMT_6,S10_01_2/October of 2023
+122,F1,CFSVA2024_HH,V600,S10_01_2_SMT_7,S10_01_2/September of 2023
+122,F1,CFSVA2024_HH,V601,S10_01_2_SMT_8,S10_01_2/August of 2023
+122,F1,CFSVA2024_HH,V602,S10_01_2_SMT_9,S10_01_2/July of 2023
+122,F1,CFSVA2024_HH,V603,S10_01_2_SMT_10,S10_01_2/June of 2023
+122,F1,CFSVA2024_HH,V604,S10_01_2_SMT_11,S10_01_2/May of 2023
+122,F1,CFSVA2024_HH,V605,S10_01_2_SMT_12,S10_01_2/April of 2023
+122,F1,CFSVA2024_HH,V606,S10_01_3,S10_01_3 Was this situation usual for your household at that time of the year?
+122,F1,CFSVA2024_HH,V607,S10_02,S10_02 Did you or your household experience any unusual situation during the las
+122,F1,CFSVA2024_HH,V608,S10_03,"S10_03 If yes, tell us all the problems that affected your household during the"
+122,F1,CFSVA2024_HH,V609,S10_03_SMT_1,"S10_03/Drought/irregular rains, prolonged dry spell"
+122,F1,CFSVA2024_HH,V610,S10_03_SMT_2,S10_03/Floods
+122,F1,CFSVA2024_HH,V611,S10_03_SMT_3,S10_03/Landslides and Mudslides
+122,F1,CFSVA2024_HH,V612,S10_03_SMT_4,S10_03/Unusually high level of crop pests & disease
+122,F1,CFSVA2024_HH,V613,S10_03_SMT_5,S10_03/Unusually high level of livestock diseases
+122,F1,CFSVA2024_HH,V614,S10_03_SMT_6,S10_03/Unusually high level of human disease/EPIDEMIC
+122,F1,CFSVA2024_HH,V615,S10_03_SMT_7,S10_03/Unusually high prices for food
+122,F1,CFSVA2024_HH,V616,S10_03_SMT_8,"S10_03/Unusually high cost of agric. inputs (seed, fertilizer, etc.)"
+122,F1,CFSVA2024_HH,V617,S10_03_SMT_9,S10_03/Loss or reduced employment/Income for a household member
+122,F1,CFSVA2024_HH,V618,S10_03_SMT_10,S10_03/Fires
+122,F1,CFSVA2024_HH,V619,S10_03_SMT_11,S10_03/Serious illness or accident of household member
+122,F1,CFSVA2024_HH,V620,S10_03_SMT_12,S10_03/Death of the Head of the household
+122,F1,CFSVA2024_HH,V621,S10_03_SMT_13,S10_03/Death a working household member
+122,F1,CFSVA2024_HH,V622,S10_03_SMT_14,S10_03/Death of other household member
+122,F1,CFSVA2024_HH,V623,S10_03_SMT_15,S10_03/Theft of productive resources
+122,F1,CFSVA2024_HH,V624,S10_03_SMT_16,S10_03/Insecurity/violence
+122,F1,CFSVA2024_HH,V625,S10_03_SMT_17,S10_03/hailstones (grele)
+122,F1,CFSVA2024_HH,V626,S10_03_SMT_18,S10_03/earthquake
+122,F1,CFSVA2024_HH,V627,S10_03_SMT_19,S10_03/Volcanic activity
+122,F1,CFSVA2024_HH,V628,S10_03_SMT_21,S10_03/Heavy rain
+122,F1,CFSVA2024_HH,V629,S10_03_SMT_20,"S10_03/Other, specify"
+122,F1,CFSVA2024_HH,V630,S10_03_3,"S10_03_3 Did your household receive post disaster package (food, construction ma"
+122,F1,CFSVA2024_HH,V631,AS10_05,AS10_05 Which one of these shocks did your household consider the 1st most serve
+122,F1,CFSVA2024_HH,V632,AS10_05_2,AS10_05_2 Has [${AS10C1}] caused a reduction or loss of income (in nature or in
+122,F1,CFSVA2024_HH,V633,AS10_05_3,AS10_05_3 Did [${AS10C1}] create a decrease or loss of assets or belongings?
+122,F1,CFSVA2024_HH,V634,AS10_05_4,AS10_05_4 Please indicate in which period of the year that shock manifested itse
+122,F1,CFSVA2024_HH,V635,AS10_05_4_SMT_1,AS10_05_4/March of 2024
+122,F1,CFSVA2024_HH,V636,AS10_05_4_SMT_2,AS10_05_4/February of 2024
+122,F1,CFSVA2024_HH,V637,AS10_05_4_SMT_3,AS10_05_4/January of 2024
+122,F1,CFSVA2024_HH,V638,AS10_05_4_SMT_4,AS10_05_4/December of 2023
+122,F1,CFSVA2024_HH,V639,AS10_05_4_SMT_5,AS10_05_4/November of 2023
+122,F1,CFSVA2024_HH,V640,AS10_05_4_SMT_6,AS10_05_4/October of 2023
+122,F1,CFSVA2024_HH,V641,AS10_05_4_SMT_7,AS10_05_4/September of 2023
+122,F1,CFSVA2024_HH,V642,AS10_05_4_SMT_8,AS10_05_4/August of 2023
+122,F1,CFSVA2024_HH,V643,AS10_05_4_SMT_9,AS10_05_4/July of 2023
+122,F1,CFSVA2024_HH,V644,AS10_05_4_SMT_10,AS10_05_4/June of 2023
+122,F1,CFSVA2024_HH,V645,AS10_05_4_SMT_11,AS10_05_4/May of 2023
+122,F1,CFSVA2024_HH,V646,AS10_05_4_SMT_12,AS10_05_4/April of 2023
+122,F1,CFSVA2024_HH,V647,AS10_05_5,AS10_05_5 Has the household recovered from those losses?
+122,F1,CFSVA2024_HH,V648,AS10_05_6,AS10_05_6 What did the household do to compensate for the consequencies of the s
+122,F1,CFSVA2024_HH,V649,AS10_05_6_SMT_1,AS10_05_6/Have household members eat at relatives' or neighbours'
+122,F1,CFSVA2024_HH,V650,AS10_05_6_SMT_2,AS10_05_6/Reduced adult consumption so that children can eat
+122,F1,CFSVA2024_HH,V651,AS10_05_6_SMT_3,AS10_05_6/Fed working members at the expense of non working members
+122,F1,CFSVA2024_HH,V652,AS10_05_6_SMT_4,AS10_05_6/Reduce number of meals eaten per day
+122,F1,CFSVA2024_HH,V653,AS10_05_6_SMT_5,AS10_05_6/Go entire day without eating
+122,F1,CFSVA2024_HH,V654,AS10_05_6_SMT_6,AS10_05_6/Borrow food or rely on help from friends or relatives
+122,F1,CFSVA2024_HH,V655,AS10_05_6_SMT_7,AS10_05_6/Rely on less expensive or less preferred foods
+122,F1,CFSVA2024_HH,V656,AS10_05_6_SMT_8,AS10_05_6/Purchase/borrow food on credit
+122,F1,CFSVA2024_HH,V657,AS10_05_6_SMT_9,AS10_05_6/Consume seed stock to be saved for next season
+122,F1,CFSVA2024_HH,V658,AS10_05_6_SMT_10,AS10_05_6/Increased casual labour
+122,F1,CFSVA2024_HH,V659,AS10_05_6_SMT_11,AS10_05_6/Migration of one or more household members
+122,F1,CFSVA2024_HH,V660,AS10_05_6_SMT_12,AS10_05_6/Some household members worked for food only
+122,F1,CFSVA2024_HH,V661,AS10_05_6_SMT_13,AS10_05_6/Spent savings
+122,F1,CFSVA2024_HH,V662,AS10_05_6_SMT_14,AS10_05_6/Borrowed money
+122,F1,CFSVA2024_HH,V663,AS10_05_6_SMT_15,AS10_05_6/Sold household assets
+122,F1,CFSVA2024_HH,V664,AS10_05_6_SMT_16,AS10_05_6/Sold productive assets
+122,F1,CFSVA2024_HH,V665,AS10_05_6_SMT_17,AS10_05_6/Children taken out of school
+122,F1,CFSVA2024_HH,V666,AS10_05_6_SMT_18,AS10_05_6/Reduced expenditures on health an/or education
+122,F1,CFSVA2024_HH,V667,AS10_05_6_SMT_20,AS10_05_6/Reduced the consumed quantity
+122,F1,CFSVA2024_HH,V668,AS10_05_6_SMT_19,AS10_05_6/Other survival mechanism
+122,F1,CFSVA2024_HH,V669,BS10_05,BS10_05 Which one of these shocks did your household consider the 2nd most serve
+122,F1,CFSVA2024_HH,V670,BS10_05_2,BS10_05_2 Has [shock name] caused a reduction or loss of income (in nature or in
+122,F1,CFSVA2024_HH,V671,BS10_05_3,BS10_05_3 Did [Shock name] create a decrease or loss of assets or belongings?
+122,F1,CFSVA2024_HH,V672,BS10_05_4,BS10_05_4 Please indicate in which period of the year that shock manifested itse
+122,F1,CFSVA2024_HH,V673,BS10_05_4_SMT_1,BS10_05_4/March of 2024
+122,F1,CFSVA2024_HH,V674,BS10_05_4_SMT_2,BS10_05_4/February of 2024
+122,F1,CFSVA2024_HH,V675,BS10_05_4_SMT_3,BS10_05_4/January of 2024
+122,F1,CFSVA2024_HH,V676,BS10_05_4_SMT_4,BS10_05_4/December of 2023
+122,F1,CFSVA2024_HH,V677,BS10_05_4_SMT_5,BS10_05_4/November of 2023
+122,F1,CFSVA2024_HH,V678,BS10_05_4_SMT_6,BS10_05_4/October of 2023
+122,F1,CFSVA2024_HH,V679,BS10_05_4_SMT_7,BS10_05_4/September of 2023
+122,F1,CFSVA2024_HH,V680,BS10_05_4_SMT_8,BS10_05_4/August of 2023
+122,F1,CFSVA2024_HH,V681,BS10_05_4_SMT_9,BS10_05_4/July of 2023
+122,F1,CFSVA2024_HH,V682,BS10_05_4_SMT_10,BS10_05_4/June of 2023
+122,F1,CFSVA2024_HH,V683,BS10_05_4_SMT_11,BS10_05_4/May of 2023
+122,F1,CFSVA2024_HH,V684,BS10_05_4_SMT_12,BS10_05_4/April of 2023
+122,F1,CFSVA2024_HH,V685,BS10_05_5,BS10_05_5 Has the household recovered from those losses?
+122,F1,CFSVA2024_HH,V686,BS10_05_6,BS10_05_6 What did the household do to compensate for the consequencies of the s
+122,F1,CFSVA2024_HH,V687,BS10_05_6_SMT_1,BS10_05_6/Have household members eat at relatives' or neighbours'
+122,F1,CFSVA2024_HH,V688,BS10_05_6_SMT_2,BS10_05_6/Reduced adult consumption so that children can eat
+122,F1,CFSVA2024_HH,V689,BS10_05_6_SMT_3,BS10_05_6/Fed working members at the expense of non working members
+122,F1,CFSVA2024_HH,V690,BS10_05_6_SMT_4,BS10_05_6/Reduce number of meals eaten per day
+122,F1,CFSVA2024_HH,V691,BS10_05_6_SMT_5,BS10_05_6/Go entire day without eating
+122,F1,CFSVA2024_HH,V692,BS10_05_6_SMT_6,BS10_05_6/Borrow food or rely on help from friends or relatives
+122,F1,CFSVA2024_HH,V693,BS10_05_6_SMT_7,BS10_05_6/Rely on less expensive or less preferred foods
+122,F1,CFSVA2024_HH,V694,BS10_05_6_SMT_8,BS10_05_6/Purchase/borrow food on credit
+122,F1,CFSVA2024_HH,V695,BS10_05_6_SMT_9,BS10_05_6/Consume seed stock to be saved for next season
+122,F1,CFSVA2024_HH,V696,BS10_05_6_SMT_10,BS10_05_6/Increased casual labour
+122,F1,CFSVA2024_HH,V697,BS10_05_6_SMT_11,BS10_05_6/Migration of one or more household members
+122,F1,CFSVA2024_HH,V698,BS10_05_6_SMT_12,BS10_05_6/Some household members worked for food only
+122,F1,CFSVA2024_HH,V699,BS10_05_6_SMT_13,BS10_05_6/Spent savings
+122,F1,CFSVA2024_HH,V700,BS10_05_6_SMT_14,BS10_05_6/Borrowed money
+122,F1,CFSVA2024_HH,V701,BS10_05_6_SMT_15,BS10_05_6/Sold household assets
+122,F1,CFSVA2024_HH,V702,BS10_05_6_SMT_16,BS10_05_6/Sold productive assets
+122,F1,CFSVA2024_HH,V703,BS10_05_6_SMT_17,BS10_05_6/Children taken out of school
+122,F1,CFSVA2024_HH,V704,BS10_05_6_SMT_18,BS10_05_6/Reduced expenditures on health an/or education
+122,F1,CFSVA2024_HH,V705,BS10_05_6_SMT_20,BS10_05_6/Reduced the consumed quantity
+122,F1,CFSVA2024_HH,V706,BS10_05_6_SMT_19,BS10_05_6/Other survival mechanism
+122,F1,CFSVA2024_HH,V707,CS10_05,CS10_05 Which one of these shocks did your household consider the 3rd most serve
+122,F1,CFSVA2024_HH,V708,CS10_05_2,CS10_05_2 Has [shock name] caused a reduction or loss of income (in nature or in
+122,F1,CFSVA2024_HH,V709,CS10_05_3,CS10_05_3 Did [Shock name] create a decrease or loss of assets or belongings?
+122,F1,CFSVA2024_HH,V710,CS10_05_4,CS10_05_4 Please indicate in which period of the year that shock manifested itse
+122,F1,CFSVA2024_HH,V711,CS10_05_4_SMT_1,CS10_05_4/March of 2024
+122,F1,CFSVA2024_HH,V712,CS10_05_4_SMT_2,CS10_05_4/February of 2024
+122,F1,CFSVA2024_HH,V713,CS10_05_4_SMT_3,CS10_05_4/January of 2024
+122,F1,CFSVA2024_HH,V714,CS10_05_4_SMT_4,CS10_05_4/December of 2023
+122,F1,CFSVA2024_HH,V715,CS10_05_4_SMT_5,CS10_05_4/November of 2023
+122,F1,CFSVA2024_HH,V716,CS10_05_4_SMT_6,CS10_05_4/October of 2023
+122,F1,CFSVA2024_HH,V717,CS10_05_4_SMT_7,CS10_05_4/September of 2023
+122,F1,CFSVA2024_HH,V718,CS10_05_4_SMT_8,CS10_05_4/August of 2023
+122,F1,CFSVA2024_HH,V719,CS10_05_4_SMT_9,CS10_05_4/July of 2023
+122,F1,CFSVA2024_HH,V720,CS10_05_4_SMT_10,CS10_05_4/June of 2023
+122,F1,CFSVA2024_HH,V721,CS10_05_4_SMT_11,CS10_05_4/May of 2023
+122,F1,CFSVA2024_HH,V722,CS10_05_4_SMT_12,CS10_05_4/April of 2023
+122,F1,CFSVA2024_HH,V723,CS10_05_5,CS10_05_5 Has the household recovered from those losses?
+122,F1,CFSVA2024_HH,V724,CS10_05_6,CS10_05_6 What did the household do to compensate for the consequencies of the s
+122,F1,CFSVA2024_HH,V725,CS10_05_6_SMT_1,CS10_05_6/Have household members eat at relatives' or neighbours'
+122,F1,CFSVA2024_HH,V726,CS10_05_6_SMT_2,CS10_05_6/Reduced adult consumption so that children can eat
+122,F1,CFSVA2024_HH,V727,CS10_05_6_SMT_3,CS10_05_6/Fed working members at the expense of non working members
+122,F1,CFSVA2024_HH,V728,CS10_05_6_SMT_4,CS10_05_6/Reduce number of meals eaten per day
+122,F1,CFSVA2024_HH,V729,CS10_05_6_SMT_5,CS10_05_6/Go entire day without eating
+122,F1,CFSVA2024_HH,V730,CS10_05_6_SMT_6,CS10_05_6/Borrow food or rely on help from friends or relatives
+122,F1,CFSVA2024_HH,V731,CS10_05_6_SMT_7,CS10_05_6/Rely on less expensive or less preferred foods
+122,F1,CFSVA2024_HH,V732,CS10_05_6_SMT_8,CS10_05_6/Purchase/borrow food on credit
+122,F1,CFSVA2024_HH,V733,CS10_05_6_SMT_9,CS10_05_6/Consume seed stock to be saved for next season
+122,F1,CFSVA2024_HH,V734,CS10_05_6_SMT_10,CS10_05_6/Increased casual labour
+122,F1,CFSVA2024_HH,V735,CS10_05_6_SMT_11,CS10_05_6/Migration of one or more household members
+122,F1,CFSVA2024_HH,V736,CS10_05_6_SMT_12,CS10_05_6/Some household members worked for food only
+122,F1,CFSVA2024_HH,V737,CS10_05_6_SMT_13,CS10_05_6/Spent savings
+122,F1,CFSVA2024_HH,V738,CS10_05_6_SMT_14,CS10_05_6/Borrowed money
+122,F1,CFSVA2024_HH,V739,CS10_05_6_SMT_15,CS10_05_6/Sold household assets
+122,F1,CFSVA2024_HH,V740,CS10_05_6_SMT_16,CS10_05_6/Sold productive assets
+122,F1,CFSVA2024_HH,V741,CS10_05_6_SMT_17,CS10_05_6/Children taken out of school
+122,F1,CFSVA2024_HH,V742,CS10_05_6_SMT_18,CS10_05_6/Reduced expenditures on health an/or education
+122,F1,CFSVA2024_HH,V743,CS10_05_6_SMT_20,CS10_05_6/Reduced the consumed quantity
+122,F1,CFSVA2024_HH,V744,CS10_05_6_SMT_19,CS10_05_6/Other survival mechanism
+122,F1,CFSVA2024_HH,V745,S11_02,S11_02 Did your household or one (or more) of its members benefit from any in ki
+122,F1,CFSVA2024_HH,V746,S11_03,S11_03 What type of FOOD assistance was provided?
+122,F1,CFSVA2024_HH,V747,S11_03_SMT_1,S11_03/Food for school children (eaten at school or take-home)
+122,F1,CFSVA2024_HH,V748,S11_03_SMT_2,S11_03/Food for pregnant and breastfeeding women and small children (MCHN)
+122,F1,CFSVA2024_HH,V749,S11_03_SMT_3,S11_03/Food for work
+122,F1,CFSVA2024_HH,V750,S11_03_SMT_4,S11_03/Food for training
+122,F1,CFSVA2024_HH,V751,S11_03_SMT_5,S11_03/Free food distributions
+122,F1,CFSVA2024_HH,V752,S11_03_SMT_6,S11_03/Other food assistance programs
+122,F1,CFSVA2024_HH,V753,S11_03_1_1,S11_03_1_1 Please indicate the number of days the food assistance received would
+122,F1,CFSVA2024_HH,V754,AS11_04_3,AS11_04_3 Who provided Food for school children (eaten at school or take-home)
+122,F1,CFSVA2024_HH,V755,AS11_04_3_SMT_1,AS11_04_3/Government
+122,F1,CFSVA2024_HH,V756,AS11_04_3_SMT_2,AS11_04_3/WFP
+122,F1,CFSVA2024_HH,V757,AS11_04_3_SMT_3,AS11_04_3/Other UN agency
+122,F1,CFSVA2024_HH,V758,AS11_04_3_SMT_4,AS11_04_3/NGO
+122,F1,CFSVA2024_HH,V759,AS11_04_3_SMT_5,AS11_04_3/Church/Mosque
+122,F1,CFSVA2024_HH,V760,AS11_04_3_SMT_6,AS11_04_3/Community
+122,F1,CFSVA2024_HH,V761,AS11_04_3_SMT_7,AS11_04_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V762,AS11_04_3_SMT_9,AS11_04_3/Parent contribution
+122,F1,CFSVA2024_HH,V763,AS11_04_3_SMT_8,AS11_04_3/Other
+122,F1,CFSVA2024_HH,V764,AS11_04_3_SMT_88,AS11_04_3/Don't know
+122,F1,CFSVA2024_HH,V765,BS11_04_3,BS11_04_3 Who provided Food for pregnant and breastfeeding women and small child
+122,F1,CFSVA2024_HH,V766,BS11_04_3_SMT_1,BS11_04_3/Government
+122,F1,CFSVA2024_HH,V767,BS11_04_3_SMT_2,BS11_04_3/WFP
+122,F1,CFSVA2024_HH,V768,BS11_04_3_SMT_3,BS11_04_3/Other UN agency
+122,F1,CFSVA2024_HH,V769,BS11_04_3_SMT_4,BS11_04_3/NGO
+122,F1,CFSVA2024_HH,V770,BS11_04_3_SMT_5,BS11_04_3/Church/Mosque
+122,F1,CFSVA2024_HH,V771,BS11_04_3_SMT_6,BS11_04_3/Community
+122,F1,CFSVA2024_HH,V772,BS11_04_3_SMT_7,BS11_04_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V773,BS11_04_3_SMT_9,BS11_04_3/Parent contribution
+122,F1,CFSVA2024_HH,V774,BS11_04_3_SMT_8,BS11_04_3/Other
+122,F1,CFSVA2024_HH,V775,BS11_04_3_SMT_88,BS11_04_3/Don't know
+122,F1,CFSVA2024_HH,V776,CS11_04_3,CS11_04_3 Who provided Food for work
+122,F1,CFSVA2024_HH,V777,CS11_04_3_SMT_1,CS11_04_3/Government
+122,F1,CFSVA2024_HH,V778,CS11_04_3_SMT_2,CS11_04_3/WFP
+122,F1,CFSVA2024_HH,V779,CS11_04_3_SMT_3,CS11_04_3/Other UN agency
+122,F1,CFSVA2024_HH,V780,CS11_04_3_SMT_4,CS11_04_3/NGO
+122,F1,CFSVA2024_HH,V781,CS11_04_3_SMT_5,CS11_04_3/Church/Mosque
+122,F1,CFSVA2024_HH,V782,CS11_04_3_SMT_6,CS11_04_3/Community
+122,F1,CFSVA2024_HH,V783,CS11_04_3_SMT_7,CS11_04_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V784,CS11_04_3_SMT_9,CS11_04_3/Parent contribution
+122,F1,CFSVA2024_HH,V785,CS11_04_3_SMT_8,CS11_04_3/Other
+122,F1,CFSVA2024_HH,V786,CS11_04_3_SMT_88,CS11_04_3/Don't know
+122,F1,CFSVA2024_HH,V787,DS11_04_3,DS11_04_3 Who provided Food for training
+122,F1,CFSVA2024_HH,V788,DS11_04_3_SMT_1,DS11_04_3/Government
+122,F1,CFSVA2024_HH,V789,DS11_04_3_SMT_2,DS11_04_3/WFP
+122,F1,CFSVA2024_HH,V790,DS11_04_3_SMT_3,DS11_04_3/Other UN agency
+122,F1,CFSVA2024_HH,V791,DS11_04_3_SMT_4,DS11_04_3/NGO
+122,F1,CFSVA2024_HH,V792,DS11_04_3_SMT_5,DS11_04_3/Church/Mosque
+122,F1,CFSVA2024_HH,V793,DS11_04_3_SMT_6,DS11_04_3/Community
+122,F1,CFSVA2024_HH,V794,DS11_04_3_SMT_7,DS11_04_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V795,DS11_04_3_SMT_9,DS11_04_3/Parent contribution
+122,F1,CFSVA2024_HH,V796,DS11_04_3_SMT_8,DS11_04_3/Other
+122,F1,CFSVA2024_HH,V797,DS11_04_3_SMT_88,DS11_04_3/Don't know
+122,F1,CFSVA2024_HH,V798,ES11_04_3,ES11_04_3 Who provided Free food distributions
+122,F1,CFSVA2024_HH,V799,ES11_04_3_SMT_1,ES11_04_3/Government
+122,F1,CFSVA2024_HH,V800,ES11_04_3_SMT_2,ES11_04_3/WFP
+122,F1,CFSVA2024_HH,V801,ES11_04_3_SMT_3,ES11_04_3/Other UN agency
+122,F1,CFSVA2024_HH,V802,ES11_04_3_SMT_4,ES11_04_3/NGO
+122,F1,CFSVA2024_HH,V803,ES11_04_3_SMT_5,ES11_04_3/Church/Mosque
+122,F1,CFSVA2024_HH,V804,ES11_04_3_SMT_6,ES11_04_3/Community
+122,F1,CFSVA2024_HH,V805,ES11_04_3_SMT_7,ES11_04_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V806,ES11_04_3_SMT_9,ES11_04_3/Parent contribution
+122,F1,CFSVA2024_HH,V807,ES11_04_3_SMT_8,ES11_04_3/Other
+122,F1,CFSVA2024_HH,V808,ES11_04_3_SMT_88,ES11_04_3/Don't know
+122,F1,CFSVA2024_HH,V809,FS11_04_3,FS11_04_3 Who provided Other food assistance programs
+122,F1,CFSVA2024_HH,V810,FS11_04_3_SMT_1,FS11_04_3/Government
+122,F1,CFSVA2024_HH,V811,FS11_04_3_SMT_2,FS11_04_3/WFP
+122,F1,CFSVA2024_HH,V812,FS11_04_3_SMT_3,FS11_04_3/Other UN agency
+122,F1,CFSVA2024_HH,V813,FS11_04_3_SMT_4,FS11_04_3/NGO
+122,F1,CFSVA2024_HH,V814,FS11_04_3_SMT_5,FS11_04_3/Church/Mosque
+122,F1,CFSVA2024_HH,V815,FS11_04_3_SMT_6,FS11_04_3/Community
+122,F1,CFSVA2024_HH,V816,FS11_04_3_SMT_7,FS11_04_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V817,FS11_04_3_SMT_9,FS11_04_3/Parent contribution
+122,F1,CFSVA2024_HH,V818,FS11_04_3_SMT_8,FS11_04_3/Other
+122,F1,CFSVA2024_HH,V819,FS11_04_3_SMT_88,FS11_04_3/Don't know
+122,F1,CFSVA2024_HH,V820,S11_05,S11_05 Did your household or one (or more) of its members benefit from any of th
+122,F1,CFSVA2024_HH,V821,S11_05_SMT_1,S11_05/VUP direct support
+122,F1,CFSVA2024_HH,V822,S11_05_SMT_2,S11_05/VUP Nutrition Sensitive Direct Support
+122,F1,CFSVA2024_HH,V823,S11_05_SMT_3,S11_05/VUP public Works
+122,F1,CFSVA2024_HH,V824,S11_05_SMT_4,S11_05/VUP expanded Public Works
+122,F1,CFSVA2024_HH,V825,S11_05_SMT_5,S11_05/VUP Asset Transfer
+122,F1,CFSVA2024_HH,V826,S11_05_SMT_7,S11_05/VUP financial services loans through SACCOs
+122,F1,CFSVA2024_HH,V827,S11_05_SMT_8,S11_05/Ubudehe credit scheme/loan (individual or group)
+122,F1,CFSVA2024_HH,V828,S11_05_SMT_9,S11_05/Girinka (one cow per family)
+122,F1,CFSVA2024_HH,V829,S11_05_SMT_10,S11_05/One cup of milk per child
+122,F1,CFSVA2024_HH,V830,S11_05_SMT_11,S11_05/Others
+122,F1,CFSVA2024_HH,V831,S11_05_SMT_88,S11_05/None
+122,F1,CFSVA2024_HH,V832,S11_05_0_1,S11_05_0_1 What is the amount of money your household recevied in financial assi
+122,F1,CFSVA2024_HH,V833,S11_05_0_2,S11_05_0_2 Please specify how many months your household has benefitted from VUP
+122,F1,CFSVA2024_HH,V834,S11_05_0_2_SMT_1,S11_05_0_2/March of 2024
+122,F1,CFSVA2024_HH,V835,S11_05_0_2_SMT_2,S11_05_0_2/February of 2024
+122,F1,CFSVA2024_HH,V836,S11_05_0_2_SMT_3,S11_05_0_2/January of 2024
+122,F1,CFSVA2024_HH,V837,S11_05_0_2_SMT_4,S11_05_0_2/December of 2023
+122,F1,CFSVA2024_HH,V838,S11_05_0_2_SMT_5,S11_05_0_2/November of 2023
+122,F1,CFSVA2024_HH,V839,S11_05_0_2_SMT_6,S11_05_0_2/October of 2023
+122,F1,CFSVA2024_HH,V840,S11_05_0_2_SMT_7,S11_05_0_2/September of 2023
+122,F1,CFSVA2024_HH,V841,S11_05_0_2_SMT_8,S11_05_0_2/August of 2023
+122,F1,CFSVA2024_HH,V842,S11_05_0_2_SMT_9,S11_05_0_2/July of 2023
+122,F1,CFSVA2024_HH,V843,S11_05_0_2_SMT_10,S11_05_0_2/June of 2023
+122,F1,CFSVA2024_HH,V844,S11_05_0_2_SMT_11,S11_05_0_2/May of 2023
+122,F1,CFSVA2024_HH,V845,S11_05_0_2_SMT_12,S11_05_0_2/April of 2023
+122,F1,CFSVA2024_HH,V846,S11_06,S11_06 Did your household or one (or more) of its members benefit from any other
+122,F1,CFSVA2024_HH,V847,S11_07,S11_07 What type of assistance was provided?
+122,F1,CFSVA2024_HH,V848,S11_07_SMT_1,S11_07/Access to credit/loans for agricultural/livestock related activities (inc
+122,F1,CFSVA2024_HH,V849,S11_07_SMT_2,S11_07/Access to credit/loans for Other NON agricultural/livestock related activ
+122,F1,CFSVA2024_HH,V850,S11_07_SMT_3,"S11_07/Agricultural input assistance (tools, seeds, fertilizer, etc.)"
+122,F1,CFSVA2024_HH,V851,S11_07_SMT_4,S11_07/Training and technical assistance in improved agricultural/livestock prac
+122,F1,CFSVA2024_HH,V852,S11_07_SMT_5,S11_07/Large Livestock (eg. cow)
+122,F1,CFSVA2024_HH,V853,S11_07_SMT_6,S11_07/Small livestock (eg. chicken rabbitsâ€¦)
+122,F1,CFSVA2024_HH,V854,S11_07_SMT_7,S11_07/Fish ponds
+122,F1,CFSVA2024_HH,V855,S11_07_SMT_8,S11_07/Veterinary services
+122,F1,CFSVA2024_HH,V856,S11_07_SMT_9,S11_07/For education (e.g. school materials)
+122,F1,CFSVA2024_HH,V857,S11_07_SMT_10,S11_07/Direct transfers (other than VUP)
+122,F1,CFSVA2024_HH,V858,S11_07_SMT_11,S11_07/medical services (including mutuelle de sante)
+122,F1,CFSVA2024_HH,V859,S11_07_SMT_12,S11_07/Construction/building materials
+122,F1,CFSVA2024_HH,V860,S11_07_SMT_13,S11_07/Water and/or sanitation
+122,F1,CFSVA2024_HH,V861,S11_07_SMT_14,S11_07/Other non food assistance
+122,F1,CFSVA2024_HH,V862,AS11_07_3,AS11_07_3 Who provided Access to credit/loans for agricultural/livestock related
+122,F1,CFSVA2024_HH,V863,AS11_07_3_SMT_1,AS11_07_3/Government
+122,F1,CFSVA2024_HH,V864,AS11_07_3_SMT_2,AS11_07_3/WFP
+122,F1,CFSVA2024_HH,V865,AS11_07_3_SMT_3,AS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V866,AS11_07_3_SMT_4,AS11_07_3/NGO
+122,F1,CFSVA2024_HH,V867,AS11_07_3_SMT_5,AS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V868,AS11_07_3_SMT_6,AS11_07_3/Community
+122,F1,CFSVA2024_HH,V869,AS11_07_3_SMT_7,AS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V870,AS11_07_3_SMT_9,AS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V871,AS11_07_3_SMT_8,AS11_07_3/Other
+122,F1,CFSVA2024_HH,V872,AS11_07_3_SMT_88,AS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V873,BS11_07_3,BS11_07_3 Who provided Access to credit/loans for Other NON agricultural/livesto
+122,F1,CFSVA2024_HH,V874,BS11_07_3_SMT_1,BS11_07_3/Government
+122,F1,CFSVA2024_HH,V875,BS11_07_3_SMT_2,BS11_07_3/WFP
+122,F1,CFSVA2024_HH,V876,BS11_07_3_SMT_3,BS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V877,BS11_07_3_SMT_4,BS11_07_3/NGO
+122,F1,CFSVA2024_HH,V878,BS11_07_3_SMT_5,BS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V879,BS11_07_3_SMT_6,BS11_07_3/Community
+122,F1,CFSVA2024_HH,V880,BS11_07_3_SMT_7,BS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V881,BS11_07_3_SMT_9,BS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V882,BS11_07_3_SMT_8,BS11_07_3/Other
+122,F1,CFSVA2024_HH,V883,BS11_07_3_SMT_88,BS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V884,CS11_07_3,"CS11_07_3 Who provided Agricultural input assistance (tools, seeds, fertilizer,"
+122,F1,CFSVA2024_HH,V885,CS11_07_3_SMT_1,CS11_07_3/Government
+122,F1,CFSVA2024_HH,V886,CS11_07_3_SMT_2,CS11_07_3/WFP
+122,F1,CFSVA2024_HH,V887,CS11_07_3_SMT_3,CS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V888,CS11_07_3_SMT_4,CS11_07_3/NGO
+122,F1,CFSVA2024_HH,V889,CS11_07_3_SMT_5,CS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V890,CS11_07_3_SMT_6,CS11_07_3/Community
+122,F1,CFSVA2024_HH,V891,CS11_07_3_SMT_7,CS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V892,CS11_07_3_SMT_9,CS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V893,CS11_07_3_SMT_8,CS11_07_3/Other
+122,F1,CFSVA2024_HH,V894,CS11_07_3_SMT_88,CS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V895,DS11_07_3,DS11_07_3 Who provided Training and technical assistance in improved agricultura
+122,F1,CFSVA2024_HH,V896,DS11_07_3_SMT_1,DS11_07_3/Government
+122,F1,CFSVA2024_HH,V897,DS11_07_3_SMT_2,DS11_07_3/WFP
+122,F1,CFSVA2024_HH,V898,DS11_07_3_SMT_3,DS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V899,DS11_07_3_SMT_4,DS11_07_3/NGO
+122,F1,CFSVA2024_HH,V900,DS11_07_3_SMT_5,DS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V901,DS11_07_3_SMT_6,DS11_07_3/Community
+122,F1,CFSVA2024_HH,V902,DS11_07_3_SMT_7,DS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V903,DS11_07_3_SMT_9,DS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V904,DS11_07_3_SMT_8,DS11_07_3/Other
+122,F1,CFSVA2024_HH,V905,DS11_07_3_SMT_88,DS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V906,ES11_07_3,ES11_07_3 Who provided Large Livestock (eg. cow)
+122,F1,CFSVA2024_HH,V907,ES11_07_3_SMT_1,ES11_07_3/Government
+122,F1,CFSVA2024_HH,V908,ES11_07_3_SMT_2,ES11_07_3/WFP
+122,F1,CFSVA2024_HH,V909,ES11_07_3_SMT_3,ES11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V910,ES11_07_3_SMT_4,ES11_07_3/NGO
+122,F1,CFSVA2024_HH,V911,ES11_07_3_SMT_5,ES11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V912,ES11_07_3_SMT_6,ES11_07_3/Community
+122,F1,CFSVA2024_HH,V913,ES11_07_3_SMT_7,ES11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V914,ES11_07_3_SMT_9,ES11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V915,ES11_07_3_SMT_8,ES11_07_3/Other
+122,F1,CFSVA2024_HH,V916,ES11_07_3_SMT_88,ES11_07_3/Don't know
+122,F1,CFSVA2024_HH,V917,FS11_07_3,FS11_07_3 Who provided Small livestock (eg. chicken rabbitsâ€¦)
+122,F1,CFSVA2024_HH,V918,FS11_07_3_SMT_1,FS11_07_3/Government
+122,F1,CFSVA2024_HH,V919,FS11_07_3_SMT_2,FS11_07_3/WFP
+122,F1,CFSVA2024_HH,V920,FS11_07_3_SMT_3,FS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V921,FS11_07_3_SMT_4,FS11_07_3/NGO
+122,F1,CFSVA2024_HH,V922,FS11_07_3_SMT_5,FS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V923,FS11_07_3_SMT_6,FS11_07_3/Community
+122,F1,CFSVA2024_HH,V924,FS11_07_3_SMT_7,FS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V925,FS11_07_3_SMT_9,FS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V926,FS11_07_3_SMT_8,FS11_07_3/Other
+122,F1,CFSVA2024_HH,V927,FS11_07_3_SMT_88,FS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V928,GS11_07_3,GS11_07_3 Who provided Fish ponds
+122,F1,CFSVA2024_HH,V929,GS11_07_3_SMT_1,GS11_07_3/Government
+122,F1,CFSVA2024_HH,V930,GS11_07_3_SMT_2,GS11_07_3/WFP
+122,F1,CFSVA2024_HH,V931,GS11_07_3_SMT_3,GS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V932,GS11_07_3_SMT_4,GS11_07_3/NGO
+122,F1,CFSVA2024_HH,V933,GS11_07_3_SMT_5,GS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V934,GS11_07_3_SMT_6,GS11_07_3/Community
+122,F1,CFSVA2024_HH,V935,GS11_07_3_SMT_7,GS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V936,GS11_07_3_SMT_9,GS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V937,GS11_07_3_SMT_8,GS11_07_3/Other
+122,F1,CFSVA2024_HH,V938,GS11_07_3_SMT_88,GS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V939,HS11_07_3,HS11_07_3 Who provided Veterinary services
+122,F1,CFSVA2024_HH,V940,HS11_07_3_SMT_1,HS11_07_3/Government
+122,F1,CFSVA2024_HH,V941,HS11_07_3_SMT_2,HS11_07_3/WFP
+122,F1,CFSVA2024_HH,V942,HS11_07_3_SMT_3,HS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V943,HS11_07_3_SMT_4,HS11_07_3/NGO
+122,F1,CFSVA2024_HH,V944,HS11_07_3_SMT_5,HS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V945,HS11_07_3_SMT_6,HS11_07_3/Community
+122,F1,CFSVA2024_HH,V946,HS11_07_3_SMT_7,HS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V947,HS11_07_3_SMT_9,HS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V948,HS11_07_3_SMT_8,HS11_07_3/Other
+122,F1,CFSVA2024_HH,V949,HS11_07_3_SMT_88,HS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V950,IS11_07_3,IS11_07_3 Who provided For education (e.g. school materials)
+122,F1,CFSVA2024_HH,V951,IS11_07_3_SMT_1,IS11_07_3/Government
+122,F1,CFSVA2024_HH,V952,IS11_07_3_SMT_2,IS11_07_3/WFP
+122,F1,CFSVA2024_HH,V953,IS11_07_3_SMT_3,IS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V954,IS11_07_3_SMT_4,IS11_07_3/NGO
+122,F1,CFSVA2024_HH,V955,IS11_07_3_SMT_5,IS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V956,IS11_07_3_SMT_6,IS11_07_3/Community
+122,F1,CFSVA2024_HH,V957,IS11_07_3_SMT_7,IS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V958,IS11_07_3_SMT_9,IS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V959,IS11_07_3_SMT_8,IS11_07_3/Other
+122,F1,CFSVA2024_HH,V960,IS11_07_3_SMT_88,IS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V961,JS11_07_3,JS11_07_3 Who provided Direct transfers (other than VUP)
+122,F1,CFSVA2024_HH,V962,JS11_07_3_SMT_1,JS11_07_3/Government
+122,F1,CFSVA2024_HH,V963,JS11_07_3_SMT_2,JS11_07_3/WFP
+122,F1,CFSVA2024_HH,V964,JS11_07_3_SMT_3,JS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V965,JS11_07_3_SMT_4,JS11_07_3/NGO
+122,F1,CFSVA2024_HH,V966,JS11_07_3_SMT_5,JS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V967,JS11_07_3_SMT_6,JS11_07_3/Community
+122,F1,CFSVA2024_HH,V968,JS11_07_3_SMT_7,JS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V969,JS11_07_3_SMT_9,JS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V970,JS11_07_3_SMT_8,JS11_07_3/Other
+122,F1,CFSVA2024_HH,V971,JS11_07_3_SMT_88,JS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V972,KS11_07_3,KS11_07_3 Who provided medical services (including mutuelle de sante)
+122,F1,CFSVA2024_HH,V973,KS11_07_3_SMT_1,KS11_07_3/Government
+122,F1,CFSVA2024_HH,V974,KS11_07_3_SMT_2,KS11_07_3/WFP
+122,F1,CFSVA2024_HH,V975,KS11_07_3_SMT_3,KS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V976,KS11_07_3_SMT_4,KS11_07_3/NGO
+122,F1,CFSVA2024_HH,V977,KS11_07_3_SMT_5,KS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V978,KS11_07_3_SMT_6,KS11_07_3/Community
+122,F1,CFSVA2024_HH,V979,KS11_07_3_SMT_7,KS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V980,KS11_07_3_SMT_9,KS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V981,KS11_07_3_SMT_8,KS11_07_3/Other
+122,F1,CFSVA2024_HH,V982,KS11_07_3_SMT_88,KS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V983,LS11_07_3,LS11_07_3 Who provided Construction/building materials
+122,F1,CFSVA2024_HH,V984,LS11_07_3_SMT_1,LS11_07_3/Government
+122,F1,CFSVA2024_HH,V985,LS11_07_3_SMT_2,LS11_07_3/WFP
+122,F1,CFSVA2024_HH,V986,LS11_07_3_SMT_3,LS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V987,LS11_07_3_SMT_4,LS11_07_3/NGO
+122,F1,CFSVA2024_HH,V988,LS11_07_3_SMT_5,LS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V989,LS11_07_3_SMT_6,LS11_07_3/Community
+122,F1,CFSVA2024_HH,V990,LS11_07_3_SMT_7,LS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V991,LS11_07_3_SMT_9,LS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V992,LS11_07_3_SMT_8,LS11_07_3/Other
+122,F1,CFSVA2024_HH,V993,LS11_07_3_SMT_88,LS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V994,MS11_07_3,MS11_07_3 Who provided Water and/or sanitation
+122,F1,CFSVA2024_HH,V995,MS11_07_3_SMT_1,MS11_07_3/Government
+122,F1,CFSVA2024_HH,V996,MS11_07_3_SMT_2,MS11_07_3/WFP
+122,F1,CFSVA2024_HH,V997,MS11_07_3_SMT_3,MS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V998,MS11_07_3_SMT_4,MS11_07_3/NGO
+122,F1,CFSVA2024_HH,V999,MS11_07_3_SMT_5,MS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V1000,MS11_07_3_SMT_6,MS11_07_3/Community
+122,F1,CFSVA2024_HH,V1001,MS11_07_3_SMT_7,MS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V1002,MS11_07_3_SMT_9,MS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V1003,MS11_07_3_SMT_8,MS11_07_3/Other
+122,F1,CFSVA2024_HH,V1004,MS11_07_3_SMT_88,MS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V1005,NS11_07_3,NS11_07_3 Who provided Other non food assistance
+122,F1,CFSVA2024_HH,V1006,NS11_07_3_SMT_1,NS11_07_3/Government
+122,F1,CFSVA2024_HH,V1007,NS11_07_3_SMT_2,NS11_07_3/WFP
+122,F1,CFSVA2024_HH,V1008,NS11_07_3_SMT_3,NS11_07_3/Other UN agency
+122,F1,CFSVA2024_HH,V1009,NS11_07_3_SMT_4,NS11_07_3/NGO
+122,F1,CFSVA2024_HH,V1010,NS11_07_3_SMT_5,NS11_07_3/Church/Mosque
+122,F1,CFSVA2024_HH,V1011,NS11_07_3_SMT_6,NS11_07_3/Community
+122,F1,CFSVA2024_HH,V1012,NS11_07_3_SMT_7,NS11_07_3/Relative(s) /Friend(s)
+122,F1,CFSVA2024_HH,V1013,NS11_07_3_SMT_9,NS11_07_3/Parent contribution
+122,F1,CFSVA2024_HH,V1014,NS11_07_3_SMT_8,NS11_07_3/Other
+122,F1,CFSVA2024_HH,V1015,NS11_07_3_SMT_88,NS11_07_3/Don't know
+122,F1,CFSVA2024_HH,V1016,S0_N_EID,S0_N_EID Nutritionist ID
+122,F1,CFSVA2024_HH,V1017,S13_01_01,S13_01_01 Does your household know how to prepare adequate food?
+122,F1,CFSVA2024_HH,V1018,S13_01_01_1,"S13_01_01_1 If yes, what are the components of an adequate food?"
+122,F1,CFSVA2024_HH,V1019,S13_01_01_1_SMT_1,S13_01_01_1/Cereals and Tubers
+122,F1,CFSVA2024_HH,V1020,S13_01_01_1_SMT_2,S13_01_01_1/Legumes
+122,F1,CFSVA2024_HH,V1021,S13_01_01_1_SMT_3,S13_01_01_1/Fresh meat
+122,F1,CFSVA2024_HH,V1022,S13_01_01_1_SMT_4,S13_01_01_1/Dairy (Milkâ€¦)
+122,F1,CFSVA2024_HH,V1023,S13_01_01_1_SMT_5,S13_01_01_1/Eggs
+122,F1,CFSVA2024_HH,V1024,S13_01_01_1_SMT_6,S13_01_01_1/Vitamin A rich fruits and Vegetables
+122,F1,CFSVA2024_HH,V1025,S13_01_01_1_SMT_7,S13_01_01_1/Other fruits
+122,F1,CFSVA2024_HH,V1026,S13_01_01_1_SMT_8,S13_01_01_1/Other Vegetables
+122,F1,CFSVA2024_HH,V1027,S13_01_01_1_SMT_21,"S13_01_01_1/Others, Specify"
+122,F1,CFSVA2024_HH,V1028,S13_01_02,S13_01_02 Does your household prepare adequate food?
+122,F1,CFSVA2024_HH,V1029,S13_01_03,"S13_01_03 If no or Don't know, why?"
+122,F1,CFSVA2024_HH,V1030,Starch,Starch consunsumption in last 7 days
+122,F1,CFSVA2024_HH,V1031,Pulses,Pulses consunsumption in last 7 days
+122,F1,CFSVA2024_HH,V1032,Milk,Milk consunsumption in last 7 days
+122,F1,CFSVA2024_HH,V1033,Meat,Meat consunsumption in last 7 days
+122,F1,CFSVA2024_HH,V1034,Vegetables,Vegetables consunsumption in last 7 days
+122,F1,CFSVA2024_HH,V1035,Fruit,Fruit consunsumption in last 7 days
+122,F1,CFSVA2024_HH,V1036,Oil,Oil consunsumption in last 7 days
+122,F1,CFSVA2024_HH,V1037,Sugar,Sugar consunsumption in last 7 days
+122,F1,CFSVA2024_HH,V1038,FCS,Food Consumption Score
+122,F1,CFSVA2024_HH,V1039,FCG,Food Consumption Group
+122,F1,CFSVA2024_HH,V1040,FCS_4pt,4 Points FCG
+122,F1,CFSVA2024_HH,V1041,rCSI,Reduced coping strategies index
+122,F1,CFSVA2024_HH,V1042,FIE,Monthly food item expenditures
+122,F1,CFSVA2024_HH,V1043,NFIE_1M,Non food expenditure - 1 Month
+122,F1,CFSVA2024_HH,V1044,NFIE_3M,Non food expenditure - 3 Months
+122,F1,CFSVA2024_HH,V1045,NFIE,Non food item expenditures
+122,F1,CFSVA2024_HH,V1046,T_EXP,Total monthly household expenditures
+122,F1,CFSVA2024_HH,V1047,S_FIE,Share food expenditure
+122,F1,CFSVA2024_HH,V1048,S_NFIE,Share non food expenditure
+122,F1,CFSVA2024_HH,V1049,S_CHK,Check expenditure shares
+122,F1,CFSVA2024_HH,V1050,share_exp_cat,Food expenditure share categories
+122,F1,CFSVA2024_HH,V1051,Max_coping_behaviour,Maximum coping behaviour
+122,F1,CFSVA2024_HH,V1052,FS_final,Household food security
+122,F1,CFSVA2024_HH,V1053,FS_2_Categories,Household food security - Only two categories
+122,F1,CFSVA2024_HH,V1054,An_HH_EXP,Annual household expenditures
+122,F1,CFSVA2024_HH,V1055,AnPerCap_EXP,Annual per capita expenditures
+122,F1,CFSVA2024_HH,V1056,TLU,Tropical Livestock Unit
+122,F1,CFSVA2024_HH,V1057,FG_HIron,Food group hem iron
+122,F1,CFSVA2024_HH,V1058,FG_VitA,Food group vitamin A
+122,F1,CFSVA2024_HH,V1059,FG_Protein,Food group protein
+122,F1,CFSVA2024_HH,V1060,FG_VitACat,FG_VitACategory
+122,F1,CFSVA2024_HH,V1061,FG_ProteinCat,FG_ProteinCategory
+122,F1,CFSVA2024_HH,V1062,FG_HIronCat,FG_HIronCategory
+122,F1,CFSVA2024_HH,V1063,rCSILessQlty_Yes,Relied on less preferred and less expensive food
+122,F1,CFSVA2024_HH,V1064,rCSIBorrow_Yes,Borrowed food or rely on help from a relative or friend
+122,F1,CFSVA2024_HH,V1065,rCSIMealNb_Yes,Reduceed number of meals eaten in a day
+122,F1,CFSVA2024_HH,V1066,rCSIMealSize_Yes,Limited portion size of meals at meal times
+122,F1,CFSVA2024_HH,V1067,rCSIMealAdult_Yes,Restricted consumption by adults in order for small children to eat
+122,F1,CFSVA2024_HH,V1068,WI_cat,Household wealth index
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1069,index,_parent_index
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1070,S0_C_Prov,S0_C_Prov Province
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1071,S0_D_Dist,S0_D_Dist District
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1072,S13_01,S13_01 Child index from demograpy section
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1073,S13_01_2,S13_01_2 Child's name
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1074,S13_01_3,S13_01_3 Child date of birth
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1075,S13_01_4,S13_01_4 Child age in months
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1076,S13_01_5,S13_01_5 Child sex
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1077,S13_02,S13_02 Primary Caregiver of Child
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1078,S13_03,S13_03 Respondent's relationship with child?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1079,S13_04_01,S13_04_01 Does [CHILD_NAME] present any chronic conditions desease confirmed by
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1080,S13_04_01_1,"S13_04_01_1 If yes, what are these chronic conditions?"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1081,S13_04_01_1_SMT_1,S13_04_01_1/Diabetes
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1082,S13_04_01_1_SMT_2,"S13_04_01_1/Cardiac diseases (High blood pressure, heart disease, high blood lip"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1083,S13_04_01_1_SMT_3,S13_04_01_1/Cancer
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1084,S13_04_01_1_SMT_4,"S13_04_01_1/Acquired Neurodegenerative disorders (Alzheimer, Epilepsy, Motor neu"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1085,S13_04_01_1_SMT_5,S13_04_01_1/Obesity
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1086,S13_04_01_1_SMT_6,S13_04_01_1/Lung disease
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1087,S13_04_01_1_SMT_7,S13_04_01_1/Osteoarthritis
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1088,S13_04_01_1_SMT_8,S13_04_01_1/Depression
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1089,S13_04_01_1_SMT_9,S13_04_01_1/Dementia
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1090,S13_04_01_1_SMT_21,S13_04_01_1/Others
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1091,S13_05,S13_05 Is [CHILD_NAME] currently present for interview and anthropometric measur
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1092,S13_06,"S13_06 When born, how big in Kg was [CHILD_NAME], refer to the child growth card"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1093,S13_07,"S13_07 Since September 2023 (last 6 months), has [NAME] received vit A drops? (s"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1094,S13_08,"S13_08 During last six months, did [CHILD_NAME] receive deworming tablets?"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1095,S13_09,S13_09 Has [CHILD_NAME] had illness with fever during last two weeks?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1096,S13_10,S13_10 Has [CHILD_NAME] had illness with cough during last two weeks?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1097,S13_11,S13_11 Has [CHILD_NAME] had illness with diarrhea during last two weeks?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1098,S13_11_2,"S13_11_2 During the last 2 weeks when [CHILD_NAME] had diarrhea, how did you tre"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1099,S13_11_2_SMT_1,S13_11_2/Was given more drinks
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1100,S13_11_2_SMT_2,S13_11_2/Was given more food
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1101,S13_11_2_SMT_3,S13_11_2/Was frequently breastfed
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1102,S13_11_2_SMT_4,S13_11_2/Was given clean safe drinking water
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1103,S13_11_2_SMT_5,S13_11_2/Was given RUTF
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1104,S13_11_2_SMT_6,S13_11_2/Was given homemade or packaged (ReSoMal) oral rehidration salts
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1105,S13_11_2_SMT_7,S13_11_2/Was zinc supplement given along with the home or packaged oral rehidrat
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1106,S13_11_2_SMT_8,S13_11_2/Was given other diarrhea treatment
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1107,S13_11_2_SMT_88,S13_11_2/Nothing was done
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1108,S13_11_1,S13_11_1 Has [CHILD_NAME] had illness with mounth during last two weeks?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1109,S13_11_1_1_SMT_1,S13_11_1_1/Pain in teeth
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1110,S13_11_1_1_SMT_2,S13_11_1_1/discolored teeth
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1111,S13_11_1_1_SMT_3,S13_11_1_1/Crooked teeth
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1112,S13_11_1_1_SMT_4,S13_11_1_1/bad breath
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1113,S13_11_1_1_SMT_5,S13_11_1_1/bleeding gums
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1114,S13_11_1_1_SMT_0,S13_11_1_1/Other
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1115,S13_12,"S13_12 During last two weeks when [CHILD_NAME] was sick, did s/he see any health"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1116,S13_13,S13_13 Does [CHILD_NAME] have his/her hands washed before eating/meal
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1117,S13_13_1,S13_13 What did [CHILD_NAME] use to wash hand
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1118,S13_14,S13_14 Did [CHILD_NAME] sleep under a mosquito net last night?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1119,AS13_15,AS13_15 Was [CHILD_NAME] breastfed yesterday during day or at night?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1120,AS13_15_2,AS13_15_2 Has [CHILD_NAME]ever been breastfed?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1121,AS13_15_3,AS13_15_3 How long after birth did you first put [CHILD_NAME]to the breast after
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1122,BS13_15,"BS13_15 Yesterday, during the day or night, did [CHILD_NAME] drink Plain water"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1123,CS13_15,"CS13_15 Yesterday, during the day or night, did [CHILD_NAME] drink any drinks ma"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1124,CS13_15_2,CS13_15_2 How many times did [CHILD_NAME] consume this Infant formula
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1125,DS13_15,"DS13_15 Yesterday, during the day or night, did [CHILD_NAME] drink any Milk made"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1126,DS13_15_2,"DS13_15_2 How many times did [CHILD_NAME] consume Milk (tinned, powdered, fresh"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1127,ES13_15,"ES13_15 Yesterday, during the day or night, did [CHILD_NAME] drink any juice or"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1128,FS13_15,"FS13_15 Yesterday, during the day or night, did [CHILD_NAME] drink any clear bro"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1129,GS13_15,"GS13_15 Yesterday, during the day or night, did [CHILD_NAME] drink any sour milk"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1130,HS13_15,"HS13_15 Yesterday, during the day or night, did [CHILD_NAME] drink any fortified"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1131,HS13_15_2,HS13_15_2 How many times did [CHILD_NAME] consume FBF (shisha kibondo)?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1132,IS13_15,"IS13_15 Yesterday, during the day or night, did [CHILD_NAME] drink any other FBF"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1133,JS13_15,"JS13_15 Yesterday, during the day or night, did [CHILD_NAME] drink any thin porr"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1134,KS13_15,"KS13_15 Yesterday, during the day or night, did [CHILD_NAME] drinkTea or coffee"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1135,LS13_15,"LS13_15 Yesterday, during the day or night, did [CHILD_NAME] drink any other wat"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1136,MS13_15,"MS13_15 Yesterday, during the day or night, did [CHILD_NAME] drink anything from"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1137,AS13_16,"AS13_16 Yesterday, during the day or night, did [child name] eat any Porridge, b"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1138,BS13_16,"BS13_16 Yesterday, during the day or night, did [child name] eat any White potat"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1139,BS13_16_1,"BS13_16_1 Yesterday, during the day or night, did [child name] eat any fats incl"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1140,CS13_16,"CS13_16 Yesterday, during the day or night, did [child name] eat any Legumes and"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1141,DS13_16,"DS13_16 Yesterday, during the day or night, did [child name] eat any Milk, Chees"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1142,ES13_16,"ES13_16 Yesterday, during the day or night, did [child name] eat any Liver, kidn"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1143,FS13_16,"FS13_16 Yesterday, during the day or night, did [child name] eat any meat, such"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1144,GS13_16,"GS13_16 Yesterday, during the day or night, did [child name] eat any Fresh or dr"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1145,HS13_16,"HS13_16 Yesterday, during the day or night, did [child name] eat any Eggs"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1146,IS13_16,"IS13_16 Yesterday, during the day or night, did [child name] eat any Vit A rich"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1147,JS13_16,"JS13_16 Yesterday, during the day or night, did [child name] eat any dark green"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1148,KS13_16,"KS13_16 Yesterday, during the day or night, did [child name] eat any Ripe mangoe"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1149,LS13_16,"LS13_16 Yesterday, during the day or night, did [child name] eat any other fruit"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1150,MS13_16,"MS13_16 Yesterday, during the day or night, did [child name] eat any Foods made"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1151,NS13_16,"NS13_16 Yesterday, during the day or night, did [child name] eat any shisha kibo"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1152,OS13_16,"OS13_16 Yesterday, during the day or night, did [child name] eat any other FBF ("
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1153,PS13_16,"PS13_16 Yesterday, during the day or night, did [child name] eat any RUTF (e.g."
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1154,QS13_16,"QS13_16 Yesterday, during the day or night, did [child name] eat any bio-fortied"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1155,RS13_16_0,"RS13_16_0 Is the [child name] ernolled in ""Ongera""Micronutrient powder or sprink"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1156,RS13_16,"RS13_16 Yesterday, during the day or night, did [child name] eat any food to whi"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1157,RS13_16_1,"RS13_16_1 During the last 7 days, how many time [child name] ate Ongera products"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1158,S13_17,"S13_17 Yesteday, during day or night how many times did [child name] eat solid,"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1159,S13_18,S13_18 Is [child name] enrolled in Shisha Kibondo?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1160,S13_19,S13_19 Is [child name] enrolled in any supplementary feeding programme?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1161,S13_19_2,"S13_19_2 If any, which supplementary feeding programme?"
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1162,S13_20,S13_20 Does [child name] present any disability preventing him or her from being
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1163,S13_20_SMT_0,S13_20/None
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1164,S13_20_SMT_1,S13_20/Can't measure Odema
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1165,S13_20_SMT_2,S13_20/Can't measure weight
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1166,S13_20_SMT_3,S13_20/Can't measure height
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1167,S13_20_SMT_4,S13_20/Can't measure MUAC
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1168,muac,muac Child MUAC in milmeters
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1169,oedema,oedema Does [child name] present bilateral pitting (edema)?
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1170,weight,weight Child's weight
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1171,height,height Child's height in cm
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1172,stunting,stunted Stunting results
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1173,wasting,wasted Wasting results
+122,F2,CFSVA2024_HH_CHILD_6_59_MONTHS,V1174,underweight,underweight Underweight results
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1176,index,_parent_index
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1177,S0_C_Prov,S0_C_Prov Province
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1178,S0_D_Dist,S0_D_Dist District
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1179,S12_01_3,S12_01_3 Woman's age
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1180,S12_01_4,S12_01_4 Woman's literacy level
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1181,S12_01_5,S12_01_5 Woman's education level
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1182,S12_02,S12_02 Is [WOMEN_NAME] currently present for interview?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1183,S12_03,S12_03 Are you currently using any contraceptive methods?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1184,S12_03_2,S12_03_2 Which method do you use?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1185,S12_03_3,S12_03_3 Specfy other methods
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1186,S12_04,S12_04 Have you ever been pregnant and gave birth at least once?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1187,S12_05,S12_05 Are you currently pregnant?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1188,S12_05_0,S12_05_0 Are you currently breastfeeding?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1189,S12_05_1,S12_05_1 Do you have a child growth card?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1190,S12_05_1_1,"S12_05_1_1 If yes, Is the card filled with some information?"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1191,S12_05_1_2,S12_05_1_2 Who is in charge of this scorecard?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1192,S12_05_1_2_0,S12_05_1_2_0 Other
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1193,S12_05_1_3,S12_05_1_3 Does having this form add anything to your child's growth?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1194,S12_05_2,S12_05_2 Are you enrolled in the shisha kibondo / mubyeyi program?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1195,S12_06,"S12_06 During your last pregnancy, have you ever been visited by a community hea"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1196,S12_07,S12_07 During the first 6 weeks that s/he was born (the child that you're curren
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1197,S12_08,S12_08 Did you see anyone for antenatal care for this/the recent pregnancy?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1198,S12_08_2,S12_08_2 Where did you receive antenatal care for this/the recent pregnancy?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1199,S12_08_2_1,S12_08_2/Public health care provider (at health center or hospital)
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1200,S12_08_2_2,S12_08_2/Private health care provider (at health center or hospital)
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1201,S12_08_2_3,S12_08_2/Other (speficy)
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1202,S12_08_3,S12_08_3 How many months pregnant were you when you first received antenatal car
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1203,S12_09,S12_09 How many antenatal care visits did you attend during your recent born pre
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1204,S12_10,"S12_10 During your recent pregnancy, did you take any iron supplements?"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1205,S12_10_0,S12_10_0 Pregnant Women are usually given iron pills. Which are you enrolled to?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1206,S12_10_2,S12_10_2 How many of those did you take?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1207,S12_11,S12_11 Have you ever received any counselling or education on nutrition?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1208,S12_11_2,S12_11_2 Who provided this counseling or education on nutrition?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1209,S12_11_2_1,S12_11_2/Health care worker (CHW)
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1210,S12_11_2_2,S12_11_2/Heath facility worker
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1211,S12_11_2_3,S12_11_2/NGO worker
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1212,S12_11_2_4,S12_11_2/Mothers in the community
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1213,S12_11_2_5,S12_11_2/Local authorities
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1214,S12_11_2_6,"S12_11_2/Media (such as radio, tv, newspaper or drama"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1215,S12_11_2_7,S12_11_2/Other channels
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1216,S12_12,S12_12 Did you sleep under a mosquito net last night?
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1217,S12_14,S12_14 Tell me all the times you wash hands
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1218,S12_14_1,S12_14/Before preparing meals
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1219,S12_14_2,S12_14/After cleaning a child from toilet
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1220,S12_14_3,S12_14/Before eating
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1221,S12_14_4,S12_14/Whenever their dirty
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1222,S12_14_5,S12_14/After visiting toilet
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1223,S12_14_6,S12_14/Other
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1224,S12_14_88,S12_14/Never
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1225,S12_14_20,"S12_14_2 The last time you washed your hands, what did you use?"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1226,S12_15,S12_15 Does the woman present any disability the prevents her from being measure
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1227,S12_16,S12_16 [name]'s MUAC in mm
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1228,AS12_17,"AS12_17 Foods made from grains (Porridge, bread, rice, pasta/noodles or other fo"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1229,BS12_17,"BS12_17 White roots and tubers and plantains (White potatoes, white yams, manioc"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1230,CS12_17,"CS12_17 Pulses (beans, peas and lentils) (Mature beans or peas (fresh or dried s"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1231,DS12_17,"DS12_17 Nuts and seeds (Any tree nut, groundnut/peanut or certain seeds, or nut/"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1232,ES12_17,"ES12_17 Milk and milk products (Milk, cheese, yoghurt or other milk products but"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1233,GS12_17,"GS12_17 Organ meat (Liver, kidney, heart or other organ meats or blood-based foo"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1234,HS12_17,"HS12_17 Meat and poultry (Beef, pork, lamb, goat, rabbit, wild game meat, chicke"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1235,IS12_17,"IS12_17 Fish and seafood (Fresh or dried fish, shellfish or seafood )"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1236,JS12_17,JS12_17 Eggs (Eggs from poultry or any other bird )
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1237,KS12_17,KS12_17 Dark green leafy vegetables (List examples of any medium-to-dark green l
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1238,LS12_17,"LS12_17 Vitamin A-rich vegetables, roots and tubers (Pumpkin, carrots, squash or"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1239,MS12_17,"MS12_17 Vitamin A-rich fruits (Ripe mango, ripe papaya, Gauva, Watermelon)"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1240,NS12_17,NS12_17 Other vegetables ()
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1241,OS12_17,OS12_17 Other fruits ()
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1242,PS12_17,PS12_17 Shisha Kibondo/ Mubyeyi
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1243,QS12_17,"QS12_17 Any fortified blended foods (Nootri-mama, Nootri family, Sosoma)"
+122,F3,CFSVA2024_HH_WOMEN_15_49_YEARS,V1244,MDDWLess5,MDD-Women

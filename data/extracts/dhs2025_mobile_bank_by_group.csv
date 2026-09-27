@@ -1,0 +1,51 @@
+sex,group,category,own_mobile_phone_pct,own_smartphone_pct,used_mobile_phone_financial_12m_pct,has_and_uses_bank_account_pct,bank_deposit_or_withdrawal_12m_pct,bank_or_mobile_financial_12m_pct,respondents_weighted_n
+women,Age,15-19,35.2,14.8,29.6,3.8,2.8,30.4,2897
+women,Age,20-24,72.6,37.7,68.1,23.2,16.9,70.6,2489
+women,Age,25-29,74.3,39.8,70.5,39.8,29.9,76.6,2032
+women,Age,30-34,73.3,33.2,68.8,41.1,29.8,74.4,1879
+women,Age,35-39,72.5,29.3,63.1,43.8,32.1,71.0,1911
+women,Age,40-44,65.3,19.2,55.8,41.9,27.9,67.5,1730
+women,Age,45-49,64.8,20.5,55.5,43.5,29.0,66.8,1344
+women,Residence,Urban,80.6,51.9,77.8,39.7,31.6,79.8,4570
+women,Residence,Rural,55.8,16.5,47.8,26.8,17.6,55.3,9713
+women,Province,City of Kigali,83.0,56.8,81.9,40.8,33.2,83.2,2290
+women,Province,Southern Province,57.4,22.6,50.8,29.4,20.5,58.3,3087
+women,Province,Western Province,61.3,20.6,53.9,28.7,19.0,60.7,2949
+women,Province,Northern Province,63.8,20.9,56.0,34.9,24.6,63.9,2089
+women,Province,Eastern Province,59.2,23.9,51.4,25.8,17.8,56.5,3868
+women,Education,No education,40.6,4.4,30.5,22.1,11.0,43.1,929
+women,Education,Primary,60.1,16.8,51.6,25.6,16.1,58.7,7938
+women,Education,Secondary,69.3,41.2,66.6,33.5,26.0,69.4,4765
+women,Education,More than secondary,99.7,97.3,98.9,89.4,83.1,99.6,651
+women,Wealth quintile,Lowest,35.9,2.8,29.3,13.5,6.7,36.8,2642
+women,Wealth quintile,Second,52.1,7.9,43.6,22.5,13.1,52.4,2738
+women,Wealth quintile,Middle,61.7,15.7,54.4,27.3,17.5,61.7,2746
+women,Wealth quintile,Fourth,74.9,35.8,69.1,36.1,25.6,73.4,2885
+women,Wealth quintile,Highest,87.8,67.7,83.7,50.4,42.9,85.5,3272
+women,Total,15-49,63.7,27.8,57.4,30.9,22.1,63.1,14283
+men,Age,15-19,38.6,20.5,36.4,3.2,2.2,37.0,1337
+men,Age,20-24,86.7,47.5,84.0,27.8,22.5,85.1,1019
+men,Age,25-29,86.5,43.0,86.6,47.3,38.4,88.9,754
+men,Age,30-34,82.3,39.3,81.0,51.8,40.9,84.7,766
+men,Age,35-39,83.2,36.2,80.3,53.6,42.1,83.9,779
+men,Age,40-44,81.0,33.4,77.9,58.2,45.4,82.9,731
+men,Age,45-49,78.1,33.9,73.5,63.2,46.5,83.2,505
+men,Residence,Urban,85.4,56.6,87.0,51.2,42.2,88.1,1889
+men,Residence,Rural,67.5,25.3,63.4,31.8,23.9,67.4,4002
+men,Province,City of Kigali,89.1,59.0,91.3,53.7,44.2,91.8,1020
+men,Province,Southern Province,66.0,30.3,63.5,35.7,26.8,67.6,1317
+men,Province,Western Province,70.8,30.2,67.8,36.1,26.4,71.6,1100
+men,Province,Northern Province,76.6,31.9,71.3,39.9,30.5,75.1,862
+men,Province,Eastern Province,69.1,29.8,66.2,30.3,25.1,69.1,1591
+men,Education,No education,52.8,8.4,45.3,24.3,14.5,54.6,347
+men,Education,Primary,69.8,25.1,66.8,33.0,23.8,70.4,3469
+men,Education,Secondary,79.1,49.6,79.0,40.3,33.2,80.2,1741
+men,Education,More than secondary,100.0,95.6,99.5,92.7,90.2,99.6,334
+men,Wealth quintile,Lowest,45.2,7.2,42.5,14.9,8.5,48.3,1003
+men,Wealth quintile,Second,66.8,16.9,61.9,26.3,17.1,67.2,1021
+men,Wealth quintile,Middle,75.8,26.1,70.7,34.1,24.8,73.8,1167
+men,Wealth quintile,Fourth,81.7,42.3,81.2,44.5,35.4,83.1,1281
+men,Wealth quintile,Highest,88.0,69.8,88.7,60.3,53.0,89.2,1419
+men,Total,15-49,73.3,35.3,71.0,38.0,29.8,74.0,5891
+men,Age,50-59,75.2,24.0,73.2,60.7,49.5,80.0,657
+men,Total,15-59,73.5,34.2,71.2,40.3,31.8,74.6,6548
