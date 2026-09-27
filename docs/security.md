@@ -79,19 +79,30 @@ the practical risk.
 The images run as the unprivileged `node` user, contain no build tools or dev dependencies, and include only the files
 the service needs. `.dockerignore` keeps `.env` files, local data and git history out of the build context.
 
-## GitHub settings to turn on
+## GitHub settings
 
-These are repository settings, so they cannot be committed. The owner should enable them under **Settings**:
+These are repository settings, so they cannot be committed. The owner manages them under **Settings**; this is the
+configuration the project relies on.
 
-1. **Rules → Rulesets → New branch ruleset** for `main`, `testing` and `develop`:
-   - require a pull request before merging;
-   - require status checks to pass: the `web`, `api`, `data`, `secrets` and `docker` jobs of the CI workflow;
-   - block force pushes and deletions.
+1. **General:** `main` is the default branch.
+2. **Rules → Rulesets:**
+   - `protect-main`, on `main`: require a pull request before merging, require the status checks below to pass, block
+     force pushes and restrict deletions. While the project has one maintainer, set the required approvals to 0:
+     GitHub does not let authors approve their own pull requests, and the pull request and checks still apply.
+   - A second ruleset on `testing` and `develop` that blocks force pushes and restricts deletions.
 
-2. **Advanced Security → Dependabot alerts** and **Dependabot security updates**: enable both.
-3. **Advanced Security → Secret scanning** and **Push protection**: enable if available. On private repositories they
-   need GitHub Secret Protection; the gitleaks job covers the gap until then.
-4. **Advanced Security → Private vulnerability reporting**: enable, so the reporting link in SECURITY.md works.
+   The required status checks are the five CI jobs, named exactly:
+
+   - `Web app (audit, format, lint, types, tests, build)`
+   - `API (audit, tests)`
+   - `Data scripts (compile, tests, reproducibility)`
+   - `Secret scan (gitleaks)`
+   - `Docker images (build, start, health)`
+
+3. **Advanced Security → Dependabot alerts** and **Dependabot security updates**: enable both.
+4. **Advanced Security → Secret scanning** and **Push protection**: enable both. They are free on public repositories;
+   the gitleaks job scans every push as well.
+5. **Advanced Security → Private vulnerability reporting**: enable, so the reporting link in SECURITY.md works.
 
 ## If a secret is committed
 
