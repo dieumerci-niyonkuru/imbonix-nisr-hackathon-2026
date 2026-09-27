@@ -6,7 +6,7 @@ import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 export const metadata: Metadata = {
   title: "Scenario simulator",
   description:
-    "What-if tools on published NISR figures: how many adults to reach for an inclusion target, and how priorities shift with weights.",
+    "Scenario tools on published NISR figures: how many adults to reach for an inclusion target, and how priorities shift with weights.",
 };
 
 export default function ScenariosPage() {
@@ -49,11 +49,11 @@ export default function ScenariosPage() {
           size and location of a gap under a stated target.
         </Callout>
         <Callout title="Uncertainty carries through">
-          FinScope district rates carry roughly ±3 points of sampling error, so adults-to-reach figures for a single district are
-          approximate. Compare orders of magnitude, not exact counts.
+          FinScope district rates carry roughly ±3 points of sampling error, so the number of adults to reach in a single district
+          are approximate. Compare orders of magnitude, not exact counts.
         </Callout>
         <Callout title="Built to be checked">
-          Every formula is written next to its result and in the open-source code (src/lib/scenarios.ts), so anyone can reproduce
+          Every formula is written next to its result and in the open source code (src/lib/scenarios.ts), so anyone can reproduce
           or challenge it.
         </Callout>
       </section>

@@ -67,7 +67,7 @@ export function SectorRange({ limit = 12 }: { limit?: number }) {
         </div>
       </div>
       <p className="mt-3 text-[12px] leading-5 text-muted">
-        Sector poverty rates are NISR small-area estimates (EICV7 with the 2022 census), read from the district presentations.
+        Sector poverty rates are NISR small area estimates (EICV7 with the 2022 census), read from the district presentations.
         They are model estimates, not adjusted to the district survey figures, so compare sectors within a district rather than
         across.
       </p>

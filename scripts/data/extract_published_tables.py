@@ -141,7 +141,7 @@ for row in csv.DictReader(open(OUT / "finscope2024_district_access_strand.csv", 
         add(name, "finscope_formally_included", "Formally included adults (banked + other formal) (%)",
             banked + other, "% of adults 16+", "2024", source, table, status="calculated")
         add(name, "finscope_not_formally_included", "Adults not formally included: informal only or excluded (%)",
-            100 - banked - other, "% of adults 16+", "2024", source, f"{table}; 100 - banked - other formal",
+            100 - banked - other, "% of adults 16+", "2024", source, f"{table}; 100 minus banked minus other formal",
             status="calculated")
 
 # --- Census 2022: non-monetary poverty and MPI by district (full count)
