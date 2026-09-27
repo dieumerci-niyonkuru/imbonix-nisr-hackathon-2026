@@ -1,0 +1,25 @@
+{
+  "name": "imbonix-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Read-only JSON API over the published NISR aggregates used by IMBONIX",
+  "engines": {
+    "node": ">=22.9"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test --test-reporter=spec \"tests/**/*.test.js\"",
+    "check": "node --check src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "supertest": "^7.3.0"
+  }
+}
