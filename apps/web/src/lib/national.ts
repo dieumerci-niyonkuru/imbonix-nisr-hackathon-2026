@@ -132,7 +132,7 @@ export const TARGETS: Target[] = [
     source: SRC.nst2,
   },
   {
-    label: "Community-based health insurance coverage",
+    label: "Community based health insurance coverage",
     baseline: 87.9,
     baselineYear: "2023/24",
     target: 100,
@@ -141,7 +141,7 @@ export const TARGETS: Target[] = [
     source: SRC.spssp,
   },
   {
-    label: "Ejo Heza long-term savings members",
+    label: "Ejo Heza long term savings members",
     baseline: 3.81,
     baselineYear: "2023/24",
     target: 6.1,

@@ -232,7 +232,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                 </p>
                 <p className="font-display text-base font-bold">{sectorHover.sector} sector</p>
                 <p className="mt-1 text-[13px]">
-                  Poverty (small-area estimate):{" "}
+                  Poverty (small area estimate):{" "}
                   <strong className="text-sun">{sectorHover.povertySae === null ? "n/a" : `${sectorHover.povertySae}%`}</strong>
                 </p>
                 <p className="text-[12px] text-white/70">
@@ -274,7 +274,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
             {view === "interactive" && selected && sectorLegend && district && (
               <div className="rounded-xl bg-paper p-3">
                 <p className="text-[12px] font-semibold text-ink">
-                  Sectors of {district.name}: poverty rate, small-area estimate (EICV7 with census 2022)
+                  Sectors of {district.name}: poverty rate, small area estimate (EICV7 with census 2022)
                 </p>
                 <div className="mt-2 flex items-stretch gap-1">
                   {sectorLegend.map((c) => (
