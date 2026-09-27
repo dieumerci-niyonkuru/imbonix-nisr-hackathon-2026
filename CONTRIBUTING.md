@@ -24,6 +24,10 @@ Start each branch from `develop` and merge it back with a merge commit (`--no-ff
 history, then delete the branch. When `develop` is ready for a release, merge it into `testing`, run the full checks
 there, and open a pull request from `testing` to `main`.
 
+Because `main` is the default branch, GitHub suggests it as the base of every new pull request. For a work branch,
+change the base to `develop`. A CI check, "Release source", fails any pull request into `main` that does not come
+from `testing`.
+
 ## Commits
 
 Use [Conventional Commits](https://www.conventionalcommits.org/): `type(scope): summary` in the imperative mood,
