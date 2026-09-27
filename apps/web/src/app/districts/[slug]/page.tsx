@@ -260,10 +260,10 @@ function NonMonetaryBar({ district }: { district: District }) {
   const ramp = DIMENSIONS.poverty.ramp;
   return (
     <div className="mt-5 rounded-xl bg-paper p-4">
-      <p className="mb-2 text-[12.5px] font-semibold text-ink">People by census non-monetary poverty status, 2022</p>
+      <p className="mb-2 text-[12.5px] font-semibold text-ink">People by census nonmonetary poverty status, 2022</p>
       <StackedBar
         segments={[
-          { label: "Non-poor", value: v("census_nonpoor"), color: ramp[0] },
+          { label: "Not poor", value: v("census_nonpoor"), color: ramp[0] },
           { label: "Vulnerable", value: v("census_vulnerable"), color: ramp[1] },
           { label: "Moderately poor", value: v("census_moderately_poor"), color: ramp[3] },
           { label: "Severely poor", value: v("census_severely_poor"), color: ramp[4] },
@@ -281,7 +281,7 @@ function AccessStrand({ district }: { district: District }) {
   const excluded = v("finscope_excluded");
   const segments = [
     { label: "Banked", value: v("finscope_banked") ?? 0, color: ramp[4] },
-    { label: "Formal non-bank only", value: v("finscope_other_formal_only") ?? 0, color: ramp[2] },
+    { label: "Formal nonbank only", value: v("finscope_other_formal_only") ?? 0, color: ramp[2] },
     ...(informal !== undefined && excluded !== undefined
       ? [
           { label: "Informal only", value: informal, color: RAMPS.gold[0] },
@@ -298,7 +298,7 @@ function AccessStrand({ district }: { district: District }) {
       <SourceLine id="finscope_banked" className="mt-2" />
       {informal === undefined && (
         <p className="mt-2 flex gap-2 text-[12px] text-muted">
-          <ExclamationTriangleIcon className="h-4 w-4 shrink-0" /> The report shows informal-only and excluded adults together for
+          <ExclamationTriangleIcon className="h-4 w-4 shrink-0" /> The report shows informal only and excluded adults together for
           this district.
         </p>
       )}

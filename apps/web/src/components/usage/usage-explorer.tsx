@@ -51,7 +51,7 @@ export function UsageExplorer() {
           ))}
         </div>
         <p className="mt-3 text-[12.5px] text-muted">
-          {info.detail}. Women and men aged 15–49 (men 50–59 excluded for comparability).
+          {info.detail}. Women and men aged 15 to 49 (men aged 50 to 59 excluded for comparability).
         </p>
       </div>
       <div className="mt-5 grid gap-5 lg:grid-cols-2">
