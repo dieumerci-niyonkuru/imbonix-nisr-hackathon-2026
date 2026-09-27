@@ -1,19 +1,13 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import {
-  ArrowTrendingDownIcon,
-  BanknotesIcon,
-  BuildingLibraryIcon,
-  HomeIcon,
-  ShieldCheckIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/outline";
+import { BuildingLibraryIcon, HomeIcon, UserGroupIcon } from "@heroicons/react/24/outline";
 import { MEN, WOMEN } from "@/components/charts/dumbbell";
 import { ComparisonBars, type ComparisonSeries } from "@/components/charts/recharts/comparison-bars";
 import { ShareDonut } from "@/components/charts/recharts/share-donut";
 import { StackedShareChart, type ShareSeries } from "@/components/charts/recharts/stacked-share-chart";
 import { ValueBars } from "@/components/charts/recharts/value-bars";
+import { AudienceSection, type Audience } from "@/components/home/audience-section";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { DistrictFinder, type FinderProvince } from "@/components/home/district-finder";
 import { FocusPanel } from "@/components/home/focus-panel";
@@ -21,7 +15,7 @@ import { GapChart, type GapRow } from "@/components/home/gap-chart";
 import { HomeHero, type HeroFigure, type ProofPoint } from "@/components/home/home-hero";
 import { PovertyMapSection } from "@/components/home/poverty-map-section";
 import { HowItWorks, type WorkStep } from "@/components/home/how-it-works";
-import { FOCUS_AREAS, type FocusAreaId } from "@/components/layout/nav";
+import { FOCUS_AREAS, REPOSITORY_URL, type FocusAreaId } from "@/components/layout/nav";
 import { ChartCard } from "@/components/ui/chart-card";
 import { SectionHeader } from "@/components/ui/section";
 import { Tabs } from "@/components/ui/tabs";
@@ -640,36 +634,59 @@ export default function Home() {
     },
   ];
 
+  // The three parts of the problem, each an image card whose picture is a district map of a related measure.
   const challengeParts: ChallengePart[] = [
     {
-      icon: BanknotesIcon,
       area: "Financial exclusion",
-      value: `${bankedRow.in2024}%`,
-      valueLabel: "of adults are banked, the same share as in 2020",
-      body: `Almost every adult uses some financial service, but bank use has not moved. Only ${poorestWomen.either}% of women in the poorest fifth used a bank account or mobile money in the past year.`,
-      source: "NISR, FinScope 2024 and DHS 2025",
+      title:
+        bankedRow.in2024 === bankedRow.in2020
+          ? `Only ${bankedRow.in2024}% of adults are banked, the same share as in 2020`
+          : `${bankedRow.in2024}% of adults are banked, against ${bankedRow.in2020}% in 2020`,
+      source: "NISR, FinScope 2020 and 2024",
+      indicatorId: "finscope_not_formally_included",
+      ramp: "cyan",
       href: "/access-vs-use",
-      cta: "Read more",
+      linkLabel: "Learn more about financial exclusion",
     },
     {
-      icon: ArrowTrendingDownIcon,
       area: "Poverty dynamics",
-      value: `${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}%`,
-      valueLabel: "poverty rate, 2017 to 2024",
-      body: `About ${PEOPLE_OUT_OF_POVERTY_MILLIONS} million people left poverty in seven years. In ${poorestDistrict.name}, the poorest district, the rate is still ${formatValue(meta(povertyId), valueOf(poorestDistrict, povertyId))}.`,
-      source: "NISR, EICV7 2023/24",
+      title: `Poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}% in seven years`,
+      source: "NISR, EICV7 2023/24 (Poverty Profile and Main Indicators)",
+      indicatorId: "eicv7_poverty_rate",
+      ramp: "blue",
       href: "/districts",
-      cta: "Read more",
+      linkLabel: "Learn more about poverty dynamics",
     },
     {
-      icon: ShieldCheckIcon,
       area: "Social protection impact",
-      value: `${beneficiaryPoverty.povertyRate}%`,
-      valueLabel: `of VUP beneficiaries are poor, against ${nationalPoverty.povertyRate}% of all Rwandans`,
-      body: `VUP reaches poorer people, but payments run late: in no programme were even one in five households (${bestOnTimeShare}% at best) paid on time the last time.`,
-      source: "NISR, EICV7 VUP survey 2023/24",
+      title: `VUP reaches poorer people, but at best ${bestOnTimeShare}% are paid on time`,
+      source: "NISR, EICV7 2023/24 (VUP survey and Main Indicators)",
+      indicatorId: "eicv7_health_insurance",
+      ramp: "navy",
       href: "/social-protection",
-      cta: "Read more",
+      linkLabel: "Learn more about social protection",
+    },
+  ];
+
+  // The groups IMBONIX serves, each with the page that serves it best.
+  const servedGroups: Audience[] = [
+    {
+      title: "Vulnerable households",
+      body: "Shows where payments arrive late and formal finance is far, so support can reach them sooner.",
+      href: "/social-protection",
+      linkLabel: "See how support is delivered",
+    },
+    {
+      title: "Policymakers",
+      body: `${LEVERS.length} policy levers, each flagged district by district by one published figure and a rule anyone can check.`,
+      href: "/priorities",
+      linkLabel: "Explore the policy levers",
+    },
+    {
+      title: "Civil society",
+      body: "Open figures with their sources, to follow programmes and speak up for the places left behind.",
+      href: "/districts",
+      linkLabel: "Open the district profiles",
     },
   ];
 
@@ -693,18 +710,26 @@ export default function Home() {
     {
       title: "Collect",
       body: `${Object.keys(SOURCES).length} indicators transcribed from ${publicationCount} NISR and partner publications, each with its table, year and status.`,
+      href: "/data",
+      linkLabel: "Read the methods",
     },
     {
       title: "Compare",
       body: `All ${DISTRICTS.length} districts and ${sectorCount} sectors side by side, with confidence intervals wherever NISR publishes them.`,
+      href: "/districts",
+      linkLabel: "Compare the districts",
     },
     {
       title: "Prioritise",
       body: `${LEVERS.length} policy levers, each flagged district by district by one published figure and a stated rule.`,
+      href: "/priorities",
+      linkLabel: "See the priorities",
     },
     {
       title: "Share",
       body: "Open source code, a JSON API that serves the same figures, and automated checks that rebuild the data from its sources.",
+      href: REPOSITORY_URL,
+      linkLabel: "Get the source code",
     },
   ];
 
@@ -733,9 +758,9 @@ export default function Home() {
         }
       />
 
-      <PovertyMapSection />
-
       <ChallengeSection parts={challengeParts} />
+
+      <PovertyMapSection />
 
       <section className="bg-paper py-16 sm:py-20" aria-labelledby="focus-areas-heading">
         <div className="container-page">
@@ -752,6 +777,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <AudienceSection audiences={servedGroups} />
 
       <HowItWorks steps={workSteps} />
 

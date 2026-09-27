@@ -33,6 +33,11 @@ and versions follow [Semantic Versioning](https://semver.org/).
   background map now included, and states the version. The floating scroll buttons fade away over the footer.
 - On the resilience map, the district panel no longer slides over the district ranking while it stays in view: the
   ranking sits in the left column beside the panel instead of running under it.
+- The homepage cards follow a university site. The three parts of the problem are tall image cards whose picture is
+  a district map of a related measure on navy (brighter is higher, with a caption saying what it shows), with the
+  finding as a large white title, its source and a circled arrow link. A full width banner over a faint outline of
+  the districts opens "Who it serves", followed by text cards for households, policymakers and civil society, and
+  the four steps of "How it works" are text cards too, each with a page to go deeper. The whole card is the link.
 - The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
   cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
   Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours

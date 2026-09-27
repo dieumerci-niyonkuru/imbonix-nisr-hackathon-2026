@@ -32,7 +32,7 @@ export function PovertyMapSection() {
   const highest = valueOf(ranked[0], poverty.id)!;
 
   return (
-    <section className="bg-paper py-16 sm:py-20" aria-labelledby="poverty-map-heading">
+    <section className="bg-white py-16 sm:py-20" aria-labelledby="poverty-map-heading">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
         <figure className="rounded-3xl border border-line bg-white p-5 sm:p-7">
           <figcaption>
