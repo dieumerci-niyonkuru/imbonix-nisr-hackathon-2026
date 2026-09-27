@@ -153,7 +153,7 @@ export default function DataPage() {
             All NISR publicly available datasets can be found in the NISR microdata catalog. IMBONIX currently uses published
             tables and reports. Household-level analysis starts once the team&apos;s data requests are approved.
           </p>
-          <Button asChild variant="sun" className="mt-8">
+          <Button asChild variant="cyan" className="mt-8">
             <a href={NISR_CATALOG_URL} target="_blank" rel="noreferrer">
               Open the NISR microdata catalog <ArrowTopRightOnSquareIcon className="h-4 w-4" />
             </a>

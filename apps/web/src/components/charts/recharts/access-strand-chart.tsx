@@ -3,14 +3,14 @@
 import { Bar, BarChart, CartesianGrid, LabelList, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { AXIS, ChartTooltip, GRID, LegendRow } from "@/components/charts/recharts/chart-theme";
 import { ACCESS_STRAND } from "@/lib/national";
-import { RAMPS } from "@/lib/palette";
+import { CORE, RAMPS } from "@/lib/palette";
 import { textOn } from "@/lib/scales";
 
 export const STRAND_SERIES = [
   { key: "banked", label: "Banked", color: RAMPS.blue[3] },
   { key: "otherFormal", label: "Formal nonbank only", color: RAMPS.blue[0] },
-  { key: "informalOnly", label: "Informal only", color: RAMPS.gold[0] },
-  { key: "excluded", label: "Excluded", color: RAMPS.gold[3] },
+  { key: "informalOnly", label: "Informal only", color: CORE.cyan },
+  { key: "excluded", label: "Excluded", color: RAMPS.steel[1] },
 ] as const;
 
 /** FinScope access strand, 2020 against 2024: every adult once, by the most formal service they use. */

@@ -101,8 +101,8 @@ const WEALTH_LABEL: Record<string, string> = {
   Highest: "Richest",
 };
 
-/** Healthy and coping in blue, vulnerable and extremely vulnerable in gold, darker for the worse segment. */
-const HEALTH_COLORS = [BRAND.blue, RAMPS.blue[0], RAMPS.gold[1], RAMPS.gold[3]];
+/** Healthy in cyan, then coping, vulnerable and extremely vulnerable in darker blues: darker is worse. */
+const HEALTH_COLORS = [CORE.cyan, RAMPS.blue[0], BRAND.blue, BRAND.navy];
 
 const TARGET_SERIES: ComparisonSeries = [
   { key: "baseline", label: "Baseline", color: RAMPS.steel[0] },
@@ -116,11 +116,11 @@ const FINSCOPE_ROUND_SERIES: ComparisonSeries = [
   { key: "in2024", label: "2024", color: BRAND.blue },
 ];
 
-/** Informal sources in gold, formal finance in blue, government schemes in cyan. */
+/** Informal sources in cyan (the story), formal finance in blue, government schemes in navy. */
 const CREDIT_SOURCE_COLORS: Record<string, string> = {
-  informal: CORE.gold,
+  informal: CORE.cyan,
   formal: BRAND.blue,
-  government: CORE.cyan,
+  government: BRAND.navy,
   other: RAMPS.steel[1],
 };
 
@@ -129,7 +129,7 @@ const VUP_SEX_SERIES: ComparisonSeries = [
   { key: "beneficiaries", label: "Share of VUP beneficiaries", color: BRAND.blue },
 ];
 
-const VUP_PROGRAMME_COLORS = [CORE.cyan, BRAND.blue, CORE.gold, RAMPS.steel[0]];
+const VUP_PROGRAMME_COLORS = [CORE.cyan, BRAND.blue, BRAND.navy, RAMPS.steel[0]];
 
 const SURVEY_YEAR_SERIES: ComparisonSeries = [
   { key: "in2017", label: "2017", color: RAMPS.steel[0] },
@@ -138,19 +138,19 @@ const SURVEY_YEAR_SERIES: ComparisonSeries = [
 
 const ELECTRICITY_COLORS: Record<string, string> = {
   "National grid": BRAND.navy,
-  Solar: CORE.gold,
+  Solar: CORE.cyan,
   "No electricity": NO_DATA,
 };
 
-/** Wood and straw in bronze, cleaner fuels in blue. */
+/** Wood and straw in navy, cleaner fuels in cyan. */
 const COOKING_FUEL_COLORS: Record<string, string> = {
-  Firewood: RAMPS.gold[2],
-  "Straw or sticks": RAMPS.gold[2],
-  Charcoal: BRAND.blue,
-  "Gas and other": BRAND.blue,
+  Firewood: BRAND.navy,
+  "Straw or sticks": BRAND.navy,
+  Charcoal: CORE.cyan,
+  "Gas and other": CORE.cyan,
 };
 
-const SETTLEMENT_COLORS = [BRAND.blue, RAMPS.blue[0], CORE.gold, CORE.cyan];
+const SETTLEMENT_COLORS = [BRAND.navy, BRAND.blue, CORE.cyan, RAMPS.steel[0]];
 
 /** A screen reader summary of 100% bars: each category with its shares. */
 function describeShares(rows: Record<string, string | number>[], categoryKey: string, series: ShareSeries) {
@@ -244,13 +244,13 @@ export default function Home() {
             {
               value: `${includedShare}%`,
               label: `of adults are included, ${INCLUDED_ADULTS_MILLIONS} million people`,
-              color: BRAND.azure,
+              color: BRAND.blue,
             },
             { value: `${bankedRow.in2024}%`, label: `are banked, the same share as in 2020`, color: STRAND.banked },
             {
               value: `${excludedShare}%`,
               label: `are excluded, ${EXCLUDED_ADULTS.toLocaleString("en-US")} adults`,
-              color: CORE.gold,
+              color: CORE.cyan,
             },
           ]}
           links={[{ href: "/dashboard", label: "National dashboard" }]}
@@ -314,7 +314,7 @@ export default function Home() {
           <ChartCard
             className="lg:row-span-2"
             title="Households borrow from tontines and relatives, not banks"
-            note="Households with credit, by source. Gold is informal, blue is formal finance, cyan is a government scheme. A household can use several sources."
+            note="Households with credit, by source. Cyan is informal, blue is formal finance, navy is a government scheme. A household can use several sources."
             source={HOUSEHOLD_SURVEY_SOURCE}
           >
             <ValueBars
@@ -334,7 +334,7 @@ export default function Home() {
               bars={BANK_ACCOUNT_BY_SEX.map((row) => ({
                 label: row.group,
                 value: row.share,
-                color: row.group === "Women" ? CORE.gold : row.group === "Men" ? BRAND.blue : RAMPS.steel[1],
+                color: row.group === "Women" ? CORE.cyan : row.group === "Men" ? BRAND.navy : RAMPS.steel[1],
               }))}
               description={`Adults with a bank account: ${BANK_ACCOUNT_BY_SEX.map((row) => `${row.group} ${row.share}%`).join(", ")}.`}
             />
@@ -458,7 +458,7 @@ export default function Home() {
               bars={LITERACY_BY_QUINTILE.map((row, index) => ({
                 label: row.quintile,
                 value: row.literacyRate,
-                color: index === 0 ? CORE.gold : BRAND.blue,
+                color: index === 0 ? CORE.cyan : BRAND.navy,
               }))}
               description={`Literacy rate: ${LITERACY_BY_QUINTILE.map((row) => `${row.quintile} ${row.literacyRate}%`).join(", ")}.`}
             />
@@ -595,12 +595,12 @@ export default function Home() {
   const bestOnTimeShare = Math.max(...paymentTimeliness.map((row) => row.onTime));
 
   const heroFigures: HeroFigure[] = [
-    { value: `${includedShare}%`, label: "of adults use a financial service", source: FINSCOPE_2024_SOURCE, accent: BRAND.azure },
+    { value: `${includedShare}%`, label: "of adults use a financial service", source: FINSCOPE_2024_SOURCE, accent: BRAND.blue },
     {
       value: `${healthyShare}%`,
       label: "of adults are financially healthy",
       source: `${FINSCOPE_2024_SOURCE}, section 5.2`,
-      accent: CORE.gold,
+      accent: CORE.cyan,
     },
     {
       value: `${povertyIn2024.povertyRate}%`,

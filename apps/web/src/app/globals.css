@@ -11,29 +11,29 @@
 :root {
   /* shadcn/ui tokens (HSL), mapped onto the IMBONIX palette (src/lib/palette.ts). */
   --background: 214 50% 97%; /* paper #F4F7FB */
-  --foreground: 214 100% 16%; /* ink: logo navy #002454 */
+  --foreground: 215 96% 17%; /* ink: brand navy #022657 */
   --card: 0 0% 100%;
-  --card-foreground: 214 100% 16%;
+  --card-foreground: 215 96% 17%;
   --popover: 0 0% 100%;
-  --popover-foreground: 214 100% 16%;
-  --primary: 208 100% 35%; /* royal: logo blue #0060B4 */
+  --popover-foreground: 215 96% 17%;
+  --primary: 208 95% 35%; /* royal: brand medium blue #0461B1 */
   --primary-foreground: 0 0% 100%;
   --secondary: 207 72% 95%; /* brand-50 */
-  --secondary-foreground: 214 100% 16%;
+  --secondary-foreground: 215 96% 17%;
   --accent: 207 72% 95%;
-  --accent-foreground: 208 100% 35%;
-  --destructive: 36 96% 28%; /* sun-ink: gold for warnings, never red */
+  --accent-foreground: 208 95% 35%;
+  --destructive: 196 95% 29%; /* cyan ink for warnings, never red */
   --destructive-foreground: 0 0% 100%;
   --border: 214 37% 90%; /* line #DCE4EF */
   --input: 214 37% 90%;
-  --ring: 208 100% 35%;
+  --ring: 208 95% 35%;
   --radius: 0.5rem;
 
-  --ink: #002454;
+  --ink: #022657;
   --paper: #f4f7fb;
   --line: #dce4ef;
-  --royal: #0060b4;
-  --sun: #f8b828;
+  --royal: #0461b1;
+  --cyan: #02a5dc;
 }
 
 html {

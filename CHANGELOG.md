@@ -7,6 +7,11 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ### Minimal homepage and navigation
 
+- The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
+  cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
+  Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours
+  plus a neutral grey. Cyan buttons carry navy text, text links on white use the medium blue, and chart marks use
+  the cyan one small step deeper so they reach 3:1 against white. The logo keeps its own colours.
 - The homepage opens with the Track 2 question and IMBONIX's answer, a district map of EICV7 poverty rates and four
   key figures with their sources. It then answers the three parts of the brief (financial exclusion, poverty
   dynamics, social protection impact) with one published figure each and a Read more link, names the groups it
