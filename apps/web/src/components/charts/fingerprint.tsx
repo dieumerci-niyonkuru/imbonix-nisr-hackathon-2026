@@ -54,9 +54,9 @@ export function OverlapBadge({ district }: { district: District }) {
   const count = worstThirdCount(district);
   const tone =
     count >= 3
-      ? "bg-sun-ink text-white"
+      ? "bg-cyan-ink text-white"
       : count === 2
-        ? "bg-sun-soft text-sun-ink ring-1 ring-inset ring-sun/50"
+        ? "bg-cyan-soft text-cyan-ink ring-1 ring-inset ring-cyan/50"
         : count === 1
           ? "bg-paper text-ink"
           : "bg-brand-50 text-brand-700";

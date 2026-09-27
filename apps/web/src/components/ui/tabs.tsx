@@ -74,18 +74,18 @@ export function Tabs({ items, label }: { items: TabItem[]; label: string }) {
               onKeyDown={(event) => onKeyDown(event, index)}
               className={cn(
                 "flex min-w-0 flex-col items-center gap-0.5 rounded-[20px] px-2 py-3 text-center sm:flex-row sm:items-start sm:gap-3 sm:px-5 sm:py-4 sm:text-left",
-                selected ? "bg-royal text-white" : "text-ink hover:bg-brand-50 hover:text-royal",
+                selected ? "bg-cyan text-navy-900" : "text-ink hover:bg-cyan-soft hover:text-navy-900",
               )}
             >
               <span
-                className={cn("tabular font-display text-[12px] font-bold sm:mt-1", selected ? "text-white/85" : "text-royal")}
+                className={cn("tabular font-display text-[12px] font-bold sm:mt-1", selected ? "text-navy-900" : "text-royal")}
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span className="min-w-0">
                 <span className="block font-display text-[14px] font-bold leading-5 sm:text-lg">{item.label}</span>
                 {item.hint && (
-                  <span className={cn("mt-0.5 hidden text-[13px] leading-5 sm:block", selected ? "text-white/85" : "text-muted")}>
+                  <span className={cn("mt-0.5 hidden text-[13px] leading-5 sm:block", selected ? "text-navy-900" : "text-muted")}>
                     {item.hint}
                   </span>
                 )}

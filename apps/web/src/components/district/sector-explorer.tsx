@@ -146,7 +146,7 @@ export function SectorExplorer({ district, sectors }: { district: string; sector
               style={{ left: Math.min(Math.max(hover.x, 104), (frame.current?.clientWidth ?? 400) - 104), top: hover.y }}
             >
               <p className="font-display text-sm font-bold">{hovered.sector}</p>
-              <p className="mt-0.5 text-lg font-bold text-sun">{pct(hovered[measure])}</p>
+              <p className="mt-0.5 text-lg font-bold text-cyan">{pct(hovered[measure])}</p>
               <p className="text-[11px] text-white/65">{info.short}</p>
             </div>
           )}

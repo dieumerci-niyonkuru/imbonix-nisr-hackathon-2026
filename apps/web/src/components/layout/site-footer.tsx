@@ -40,7 +40,7 @@ const COLUMNS: FooterColumn[] = [
 ];
 
 const LINK_STYLE =
-  "inline-flex items-center gap-1.5 rounded text-[14px] leading-6 text-white/65 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun";
+  "inline-flex items-center gap-1.5 rounded text-[14px] leading-6 text-white/65 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan";
 
 function FooterAnchor({ link }: { link: FooterLink }) {
   if (link.external) {
@@ -100,7 +100,7 @@ export function SiteFooter() {
                   href={`${NISR_CATALOG_URL}/${study.studyId}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-1 text-[12.5px] font-semibold text-white/80 ring-1 ring-white/15 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-1 text-[12.5px] font-semibold text-white/80 ring-1 ring-white/15 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
                 >
                   {study.label}
                   <ArrowTopRightOnSquareIcon className="h-3 w-3 text-white/50" aria-hidden="true" />
@@ -119,13 +119,13 @@ export function SiteFooter() {
           <Link
             href="/"
             aria-label="IMBONIX home"
-            className="justify-self-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun"
+            className="justify-self-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
           >
             <BrandLogo onDark />
           </Link>
           <a
             href="#main"
-            className="inline-flex items-center gap-1.5 justify-self-center rounded text-[13.5px] font-semibold text-white/80 transition-colors hover:text-sun focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun md:justify-self-end"
+            className="inline-flex items-center gap-1.5 justify-self-center rounded text-[13.5px] font-semibold text-white/80 transition-colors hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan md:justify-self-end"
           >
             Back to top
             <ArrowUpIcon className="h-4 w-4" aria-hidden="true" />

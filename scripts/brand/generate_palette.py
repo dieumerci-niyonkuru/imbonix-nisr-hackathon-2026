@@ -1,62 +1,122 @@
-"""Generate the IMBONIX data colour ramps from the logo's hues (apps/web/src/lib/palette.ts).
+"""Generate the IMBONIX colour ramps from the three brand colours (apps/web/src/lib/palette.ts).
 
     python scripts/brand/generate_palette.py
 
-Each ramp keeps one logo hue (gold, blue, cyan, navy, azure) or a neutral, and steps evenly in OKLCH lightness from
-0.76 to 0.31, reducing chroma only where a colour falls outside sRGB. The script prints the logo hues, each ramp, the
-contrast of its lightest step against white, the weakest label contrast (navy or white text, whichever is better)
-and the contrast of step 4 as text. Standard library only.
+The website uses three brand colours only: deep navy #022657 (main), bright cyan #02A5DC (actions and highlights)
+and medium blue #0461B1 (supporting elements and data). Every other colour is a lighter or darker step of one of
+them, plus a neutral blue grey for missing data and baselines.
+
+Each ramp keeps one brand hue and steps evenly in OKLCH lightness from 0.775 to 0.32, reducing chroma only where a
+colour falls outside sRGB. The script prints each brand colour in OKLCH, each ramp, the contrast of its lightest step
+against white, the weakest label contrast (navy or white text, whichever is better) and the text shades used on
+light backgrounds. Standard library only.
 """
-import math, json
+import json
+import math
 
-def srgb_to_lin(c): return c/12.92 if c <= 0.04045 else ((c+0.055)/1.055)**2.4
-def lin_to_srgb(c): return 12.92*c if c <= 0.0031308 else 1.055*c**(1/2.4)-0.055
-def hex_to_rgb(h): h=h.lstrip('#'); return [int(h[i:i+2],16)/255 for i in (0,2,4)]
-def rgb_to_hex(rgb): return '#'+''.join(f'{round(max(0,min(1,c))*255):02X}' for c in rgb)
+
+def srgb_to_linear(channel):
+    return channel / 12.92 if channel <= 0.04045 else ((channel + 0.055) / 1.055) ** 2.4
+
+
+def linear_to_srgb(channel):
+    return 12.92 * channel if channel <= 0.0031308 else 1.055 * channel ** (1 / 2.4) - 0.055
+
+
+def hex_to_rgb(hex_colour):
+    hex_colour = hex_colour.lstrip("#")
+    return [int(hex_colour[index:index + 2], 16) / 255 for index in (0, 2, 4)]
+
+
+def rgb_to_hex(rgb):
+    return "#" + "".join(f"{round(max(0, min(1, channel)) * 255):02X}" for channel in rgb)
+
+
 def rgb_to_oklab(rgb):
-    r,g,b=[srgb_to_lin(c) for c in rgb]
-    l=0.4122214708*r+0.5363325363*g+0.0514459929*b; m=0.2119034982*r+0.6806995451*g+0.1073969566*b; s=0.0883024619*r+0.2817188376*g+0.6299787005*b
-    l,m,s=[x**(1/3) for x in (l,m,s)]
-    return [0.2104542553*l+0.7936177850*m-0.0040720468*s, 1.9779984951*l-2.4285922050*m+0.4505937099*s, 0.0259040371*l+0.7827717662*m-0.8086757660*s]
-def oklab_to_rgb(L,a,b):
-    l=L+0.3963377774*a+0.2158037573*b; m=L-0.1055613458*a-0.0638541728*b; s=L-0.0894841775*a-1.2914855480*b
-    l,m,s=l**3,m**3,s**3
-    r=4.0767416621*l-3.3077115913*m+0.2309699292*s; g=-1.2684380046*l+2.6097574011*m-0.3413193965*s; bb=-0.0041960863*l-0.7034186147*m+1.7076147010*s
-    return [lin_to_srgb(x) if x>0 else 0 for x in (r,g,bb)], all(-1e-4<=x<=1+1e-4 for x in (r,g,bb))
-def oklch(L,C,H):
-    # reduce chroma until in gamut
+    red, green, blue = [srgb_to_linear(channel) for channel in rgb]
+    long_cone = 0.4122214708 * red + 0.5363325363 * green + 0.0514459929 * blue
+    medium_cone = 0.2119034982 * red + 0.6806995451 * green + 0.1073969566 * blue
+    short_cone = 0.0883024619 * red + 0.2817188376 * green + 0.6299787005 * blue
+    long_cone, medium_cone, short_cone = [value ** (1 / 3) for value in (long_cone, medium_cone, short_cone)]
+    return [
+        0.2104542553 * long_cone + 0.7936177850 * medium_cone - 0.0040720468 * short_cone,
+        1.9779984951 * long_cone - 2.4285922050 * medium_cone + 0.4505937099 * short_cone,
+        0.0259040371 * long_cone + 0.7827717662 * medium_cone - 0.8086757660 * short_cone,
+    ]
+
+
+def oklab_to_rgb(lightness, axis_a, axis_b):
+    long_cone = (lightness + 0.3963377774 * axis_a + 0.2158037573 * axis_b) ** 3
+    medium_cone = (lightness - 0.1055613458 * axis_a - 0.0638541728 * axis_b) ** 3
+    short_cone = (lightness - 0.0894841775 * axis_a - 1.2914855480 * axis_b) ** 3
+    red = 4.0767416621 * long_cone - 3.3077115913 * medium_cone + 0.2309699292 * short_cone
+    green = -1.2684380046 * long_cone + 2.6097574011 * medium_cone - 0.3413193965 * short_cone
+    blue = -0.0041960863 * long_cone - 0.7034186147 * medium_cone + 1.7076147010 * short_cone
+    in_gamut = all(-1e-4 <= value <= 1 + 1e-4 for value in (red, green, blue))
+    return [linear_to_srgb(value) if value > 0 else 0 for value in (red, green, blue)], in_gamut
+
+
+def oklch(lightness, chroma, hue):
+    """An OKLCH colour as hex, lowering chroma until it fits in sRGB."""
     while True:
-        rgb, ok = oklab_to_rgb(L, C*math.cos(math.radians(H)), C*math.sin(math.radians(H)))
-        if ok or C < 0.002: return rgb_to_hex(rgb)
-        C -= 0.002
-def hue_of(h):
-    L,a,b = rgb_to_oklab(hex_to_rgb(h)); return L, math.hypot(a,b), (math.degrees(math.atan2(b,a))+360)%360
-def lum(h):
-    r,g,b=[srgb_to_lin(c) for c in hex_to_rgb(h)]; return 0.2126*r+0.7152*g+0.0722*b
-def cr(a,b):
-    x,y=sorted([lum(a),lum(b)],reverse=True); return (x+0.05)/(y+0.05)
+        rgb, in_gamut = oklab_to_rgb(lightness, chroma * math.cos(math.radians(hue)), chroma * math.sin(math.radians(hue)))
+        if in_gamut or chroma < 0.002:
+            return rgb_to_hex(rgb)
+        chroma -= 0.002
 
-LOGO = {"navy":"#002454","blue":"#0060B4","azure":"#0090E4","cyan":"#00C0D8","gold":"#F8B828"}
-for k,v in LOGO.items():
-    L,C,H = hue_of(v); print(f"logo {k:5} {v} OKLCH L={L:.3f} C={C:.3f} H={H:.1f}")
 
-Ls = [0.76, 0.65, 0.54, 0.425, 0.31]
-def ramp(hues, chromas): return [oklch(L,c,h) for L,c,h in zip(Ls, chromas, hues)]
-FAM = {
-  # dimension: (hues per step, chroma per step)
-  "poverty":   ([82, 76, 68, 60, 52],       [0.12, 0.15, 0.15, 0.12, 0.09]),   # logo gold -> bronze
-  "finance":   ([252]*5,                    [0.08, 0.13, 0.16, 0.16, 0.12]),   # logo blue
-  "nutrition": ([212, 214, 216, 218, 220],  [0.09, 0.12, 0.12, 0.10, 0.08]),   # logo cyan
-  "shocks":    ([266]*5,                    [0.05, 0.08, 0.10, 0.10, 0.09]),   # logo navy (indigo side)
-  "digital":   ([238]*5,                    [0.09, 0.13, 0.15, 0.13, 0.10]),   # logo azure
-  "work":      ([250]*5,                    [0.025, 0.035, 0.045, 0.05, 0.05]),# steel
-  "health":    ([196]*5,                    [0.08, 0.11, 0.11, 0.09, 0.07]),   # teal side of cyan
-  "people":    ([255]*5,                    [0.012, 0.015, 0.018, 0.02, 0.02]),# neutral slate
+def to_oklch(hex_colour):
+    lightness, axis_a, axis_b = rgb_to_oklab(hex_to_rgb(hex_colour))
+    return lightness, math.hypot(axis_a, axis_b), (math.degrees(math.atan2(axis_b, axis_a)) + 360) % 360
+
+
+def luminance(hex_colour):
+    red, green, blue = [srgb_to_linear(channel) for channel in hex_to_rgb(hex_colour)]
+    return 0.2126 * red + 0.7152 * green + 0.0722 * blue
+
+
+def contrast(first, second):
+    lighter, darker = sorted([luminance(first), luminance(second)], reverse=True)
+    return (lighter + 0.05) / (darker + 0.05)
+
+
+BRAND = {"navy": "#022657", "blue": "#0461B1", "cyan": "#02A5DC"}
+WHITE, PAPER = "#FFFFFF", "#F4F7FB"
+for name, value in BRAND.items():
+    lightness, chroma, hue = to_oklch(value)
+    print(f"brand {name:5} {value}  OKLCH L={lightness:.3f} C={chroma:.3f} H={hue:.1f}  on white {contrast(value, WHITE):.2f}")
+
+HUES = {name: to_oklch(value)[2] for name, value in BRAND.items()}
+STEPS = [0.775, 0.665, 0.555, 0.44, 0.32]
+# The cyan hue is lighter at the same lightness, so its first step starts a little darker to clear white at 2:1.
+FIRST_STEP = {"cyan": 0.77}
+RAMP_CHROMA = {
+    "navy": [0.05, 0.08, 0.10, 0.11, 0.10],
+    "blue": [0.08, 0.13, 0.16, 0.15, 0.12],
+    "cyan": [0.08, 0.12, 0.12, 0.10, 0.08],
+    # A neutral blue grey on the navy hue, for counts, baselines and anything that should recede.
+    "steel": [0.02, 0.03, 0.04, 0.045, 0.045],
 }
-INK="#002454"
-out={}
-for name,(h,c) in FAM.items():
-    r=ramp(h,c); out[name]=r
-    labels=[max(cr(x,INK),cr(x,'#FFFFFF')) for x in r]
-    print(f"{name:9} {r}  light-end vs white {cr(r[0],'#FCFCFB'):.2f}  min label {min(labels):.2f}  step4 as text {cr(r[3],'#FFFFFF'):.2f}/{cr(r[3],'#F4F7FB'):.2f}")
-print(json.dumps(out, indent=1))
+ramps = {}
+for name, chromas in RAMP_CHROMA.items():
+    hue = HUES["navy" if name == "steel" else name]
+    steps = [FIRST_STEP.get(name, STEPS[0])] + STEPS[1:]
+    ramp = [oklch(lightness, chroma, hue) for lightness, chroma in zip(steps, chromas)]
+    ramps[name] = ramp
+    labels = [max(contrast(step, BRAND["navy"]), contrast(step, WHITE)) for step in ramp]
+    print(f"{name:5} {ramp}  light end on white {contrast(ramp[0], WHITE):.2f}  weakest label {min(labels):.2f}")
+
+# Shades for the interface: cyan text on light backgrounds, pale surfaces, a hover step, and navy surface steps.
+tokens = {
+    "cyanInk": oklch(0.50, 0.11, HUES["cyan"]),
+    "cyanSoft": oklch(0.96, 0.025, HUES["cyan"]),
+    "cyanHover": oklch(0.74, 0.13, HUES["cyan"]),
+    "navyDeep": oklch(0.20, 0.08, HUES["navy"]),
+    "navy800": oklch(0.33, 0.10, HUES["navy"]),
+    "navy700": oklch(0.39, 0.11, HUES["navy"]),
+    "navy600": oklch(0.45, 0.12, HUES["navy"]),
+}
+for name, value in tokens.items():
+    print(f"token {name:9} {value}  on white {contrast(value, WHITE):.2f}  on paper {contrast(value, PAPER):.2f}")
+print(f"navy text on cyan {contrast(BRAND['navy'], BRAND['cyan']):.2f}  cyan on navy {contrast(BRAND['cyan'], BRAND['navy']):.2f}")
+print(json.dumps({"ramps": ramps, "tokens": tokens}, indent=1))
