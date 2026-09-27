@@ -8,7 +8,7 @@ import { NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL, SOURCE_STUDIES } from "@/
 type FooterLink = { href: string; label: string; external?: boolean; hashLink?: boolean };
 type FooterColumn = { heading: string; links: FooterLink[] };
 
-/** One column per part of the Track 2 challenge, each opening with its homepage tab, then the project links. */
+/** One column per focus area, each opening with its homepage tab, then the project links. */
 const COLUMNS: FooterColumn[] = [
   ...NAV_GROUPS.map((group) => ({
     heading: group.label,
@@ -102,7 +102,7 @@ export function SiteFooter() {
         <div className="mt-10 grid items-center gap-6 border-t border-white/10 pt-8 md:grid-cols-3">
           <div className="text-center text-[13px] leading-6 text-white/65 md:text-left">
             <p className="text-white/85">© 2026 IMBONIX team · Version {pkg.version}</p>
-            <p>An independent hackathon project. Not an official NISR product.</p>
+            <p>An independent project built on NISR data. Not an official NISR product.</p>
           </div>
           <Link
             href="/"

@@ -586,7 +586,7 @@ export default function Home() {
     ),
   };
 
-  // The opening figures, the three parts of the Track 2 brief, the method steps and the district finder.
+  // The opening figures, the three parts of the problem, the method steps and the district finder.
   const povertyId = "eicv7_poverty_rate";
   const poorestDistrict = [...DISTRICTS]
     .filter((district) => valueOf(district, povertyId) !== undefined)
@@ -612,7 +612,7 @@ export default function Home() {
     },
   ];
 
-  // Key figures across the three parts of the challenge, none repeating the chart.
+  // Key figures across the three focus areas, none repeating the chart.
   const heroFigures: HeroFigure[] = [
     {
       value: EXCLUDED_ADULTS.toLocaleString("en-US"),
@@ -673,7 +673,7 @@ export default function Home() {
     },
   ];
 
-  // How the project meets the three things the Track 2 brief asks of a solution, in the brief's own terms.
+  // The three things the solution stands on: a real gap, NISR data and practical impact.
   const proofPoints: ProofPoint[] = [
     {
       criterion: "A real gap",
@@ -741,12 +741,12 @@ export default function Home() {
         <div className="container-page">
           <SectionHeader
             eyebrow="The evidence"
-            title={<span id="focus-areas-heading">Explore each part of the challenge</span>}
-            intro="Each tab gathers the published figures behind one part of the Track 2 challenge. Every chart names its source and says how far to trust it."
+            title={<span id="focus-areas-heading">Explore the evidence, one question at a time</span>}
+            intro="Each tab gathers the published figures behind one of the three questions. Every chart names its source and says how far to trust it."
           />
           <div className="mt-10">
             <Tabs
-              label="The three parts of the challenge"
+              label="The three focus areas"
               items={FOCUS_AREAS.map((area) => ({ id: area.id, label: area.label, hint: area.hint, content: panels[area.id] }))}
             />
           </div>
