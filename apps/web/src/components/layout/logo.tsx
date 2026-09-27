@@ -17,21 +17,22 @@ const COMPACT = {
 } as const;
 
 /**
- * The stacked logo for the footer, set like a university crest: the wordmark and tagline for dark backgrounds over
- * the full colour emblem.
+ * The stacked logo for the footer, set like a university crest straight on the dark background: the wordmark and
+ * tagline drawn for dark backgrounds (white letters, the brand cyan kept in the needle and the X) over the full
+ * colour emblem.
  */
 export function StackedBrandLogo({ className }: { className?: string }) {
   return (
     <span className={cn("inline-flex flex-col items-center", className)}>
-      <img src="/brand/imbonix-wordmark-on-dark.svg" alt="IMBONIX" width={Math.round(40 * WORDMARK_RATIO)} height={40} />
+      <img src="/brand/imbonix-wordmark-on-dark.svg" alt="IMBONIX" width={Math.round(44 * WORDMARK_RATIO)} height={44} />
       <img
         src="/brand/imbonix-tagline-on-dark.svg"
         alt="Data for Inclusive Prosperity"
-        width={Math.round(12 * TAGLINE_RATIO)}
-        height={12}
-        className="mt-2.5"
+        width={Math.round(13 * TAGLINE_RATIO)}
+        height={13}
+        className="mt-3"
       />
-      <img src="/brand/imbonix-emblem.svg" alt="" width={84} height={84} className="mt-5" />
+      <img src="/brand/imbonix-emblem.svg" alt="" width={92} height={92} className="mt-6" />
     </span>
   );
 }
