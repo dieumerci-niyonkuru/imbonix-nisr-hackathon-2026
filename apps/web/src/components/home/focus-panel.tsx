@@ -23,7 +23,8 @@ export function FocusPanel({
 }) {
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
-      <div>
+      {/* The claim stays in view beside the charts, so a tall column of charts never leaves an empty gap. */}
+      <div className="lg:sticky lg:top-24 lg:self-start">
         {kicker && <p className="eyebrow mb-3 text-royal">{kicker}</p>}
         <h2 className="text-balance font-display text-3xl font-bold leading-[1.1] tracking-[-0.03em] text-ink sm:text-4xl">
           {title}
