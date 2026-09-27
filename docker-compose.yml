@@ -1,0 +1,28 @@
+# Run IMBONIX locally in production mode:
+#   docker compose up --build
+# Web: http://localhost:3000   API: http://localhost:4000/api/v1
+# Settings can be overridden from the shell or an untracked .env file next to this one.
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    image: imbonix-web
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    image: imbonix-api
+    ports:
+      - "${API_PORT:-4000}:4000"
+    environment:
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-120}
+      TRUST_PROXY: ${TRUST_PROXY:-0}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    restart: unless-stopped
