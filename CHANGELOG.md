@@ -24,6 +24,10 @@ and versions follow [Semantic Versioning](https://semver.org/).
   menu, links to the source code, security policy and data issue form, the seven NISR studies behind the figures
   (each linked to its catalog page), the licence credits for boundaries and the background map, and a link back to
   the top.
+- Buttons in the bottom right corner go back to the top of a long page or down to its end. They show only when a
+  page is long enough, dim at either end without losing keyboard focus, and respect reduced motion.
+- The site uses flat logo colours only: the sector range chart is a solid bar between a light and a dark navy dot
+  instead of a gradient.
 - Fixed: screen reader tables no longer widen the page on phones.
 - Fixed: charts in inactive homepage tabs are drawn at their full size before the tab opens, instead of logging about
   37 size warnings on every page load.
