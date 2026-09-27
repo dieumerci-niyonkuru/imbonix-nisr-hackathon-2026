@@ -7,6 +7,17 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ### Minimal homepage and navigation
 
+- The homepage opens with the Track 2 question and IMBONIX's answer, a district map of EICV7 poverty rates and four
+  key figures with their sources. It then answers the three parts of the brief (financial exclusion, poverty
+  dynamics, social protection impact) with one published figure each and a Read more link, names the groups it
+  serves, shows the three focus area tabs, explains how IMBONIX works in four steps, and ends with a district finder.
+- Chart rows are arranged by size and their cards end level, a focus panel's claim stays in view beside its charts,
+  and the selected homepage tab is solid blue.
+- Header items turn solid blue on hover and when open or current; search looks like a search field with a Search
+  button; the search and the phone menu close with a labelled Close button. The Next.js badge no longer shows in
+  development.
+- The footer is laid out like a university footer: centred columns with bold headings, the NISR studies, then the
+  copyright and independence statement, the logo and Back to top.
 - The homepage makes one argument in three tabs that follow the Track 2 brief: the gap (included but not resilient),
   the evidence from NISR data on poverty, income and access, and the impact for households, policymakers and civil
   society.

@@ -49,8 +49,11 @@ const MENU_GROUPS: MenuGroup[] = [
 /** How long the pointer may leave a menu before it closes, so moving diagonally into the panel keeps it open. */
 const HOVER_CLOSE_DELAY = 160;
 
+// Top level items: a solid blue block on hover and when open or current, like an active tab.
 const TOP_LINK_STYLE =
-  "inline-flex h-10 items-center gap-1 rounded-full px-3 text-[14.5px] font-semibold text-ink/75 transition-colors hover:bg-paper hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal";
+  "inline-flex h-10 items-center gap-1 rounded-lg px-2.5 text-[14.5px] font-semibold text-ink/80 transition-colors hover:bg-royal hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 xl:px-3";
+const TOP_ACTIVE_STYLE = "bg-royal text-white";
+// Links inside a menu panel or the phone menu keep a light highlight, so the text stays readable.
 const ACTIVE_STYLE = "bg-paper text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal";
 
@@ -168,7 +171,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                   href="/"
                   aria-label="Home"
                   aria-current={isCurrentPage("/") ? "page" : undefined}
-                  className={cn(TOP_LINK_STYLE, "w-10 justify-center px-0", isCurrentPage("/") && ACTIVE_STYLE)}
+                  className={cn(TOP_LINK_STYLE, "w-10 justify-center px-0 xl:px-0", isCurrentPage("/") && TOP_ACTIVE_STYLE)}
                 >
                   <HomeIcon className="h-5 w-5" aria-hidden="true" />
                 </Link>
@@ -202,11 +205,11 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                         setOpenGroupId(group.id);
                         window.requestAnimationFrame(() => document.getElementById(panelId)?.querySelector("a")?.focus());
                       }}
-                      className={cn(TOP_LINK_STYLE, (expanded || groupHasCurrentPage(group)) && ACTIVE_STYLE)}
+                      className={cn(TOP_LINK_STYLE, (expanded || groupHasCurrentPage(group)) && TOP_ACTIVE_STYLE)}
                     >
                       {group.label}
                       <ChevronDownIcon
-                        className={cn("h-4 w-4 text-muted transition-transform", expanded && "rotate-180")}
+                        className={cn("h-4 w-4 opacity-70 transition-transform", expanded && "rotate-180")}
                         aria-hidden="true"
                       />
                     </button>
@@ -240,7 +243,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                   <Link
                     href={link.href}
                     aria-current={isCurrentPage(link.href) ? "page" : undefined}
-                    className={cn(TOP_LINK_STYLE, isCurrentPage(link.href) && ACTIVE_STYLE)}
+                    className={cn(TOP_LINK_STYLE, isCurrentPage(link.href) && TOP_ACTIVE_STYLE)}
                   >
                     {link.label}
                   </Link>
@@ -255,16 +258,20 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               onClick={openSearch}
               aria-haspopup="dialog"
               aria-label={`Search the site (${shortcutLabel})`}
+              title={`Search the site (${shortcutLabel})`}
               className={cn(
-                "inline-flex h-10 items-center gap-2 rounded-full bg-paper px-3 text-[13.5px] font-semibold text-muted ring-1 ring-line transition-colors hover:text-ink hover:ring-royal/40",
+                "group inline-flex h-10 items-stretch overflow-hidden rounded-lg bg-white text-[13.5px] ring-1 ring-line transition-shadow hover:ring-royal/60",
                 FOCUS_RING,
               )}
             >
-              <MagnifyingGlassIcon className="h-5 w-5 text-royal" aria-hidden="true" />
-              <span className="hidden sm:inline lg:hidden xl:inline">Search</span>
-              <kbd className="hidden rounded-md bg-white px-1.5 py-0.5 font-body text-[11px] font-bold text-muted ring-1 ring-line xl:inline">
-                {shortcutLabel}
-              </kbd>
+              {/* A search field look: the hint on the left and a Search button on the right, the hint on wide screens only. */}
+              <span className="flex items-center gap-2 px-2.5 text-muted sm:px-3">
+                <MagnifyingGlassIcon className="h-5 w-5 text-royal" aria-hidden="true" />
+                <span className="hidden whitespace-nowrap pr-2 text-left 2xl:inline">Search districts and measures</span>
+              </span>
+              <span className="hidden items-center border-l border-line bg-paper px-3 font-bold text-ink transition-colors group-hover:bg-royal group-hover:text-white sm:flex">
+                Search
+              </span>
             </button>
 
             <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
@@ -282,9 +289,8 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               </SheetTrigger>
               <SheetContent side="right" className="overflow-y-auto p-0">
                 <SheetHeader className="border-b border-line pb-4">
-                  <SheetTitle>
-                    <BrandLogo />
-                  </SheetTitle>
+                  {/* The site header behind the sheet already shows the logo, so the sheet has a plain title. */}
+                  <SheetTitle className="font-display text-xl font-bold text-ink">Menu</SheetTitle>
                   <SheetDescription className="sr-only">Site navigation</SheetDescription>
                 </SheetHeader>
                 <div className="px-4 pb-8">
@@ -297,7 +303,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                     )}
                   >
                     <MagnifyingGlassIcon className="h-5 w-5 text-royal" aria-hidden="true" />
-                    Search districts, sectors and measures
+                    Search districts and measures
                   </button>
                   <nav aria-label="Main">
                     <Link

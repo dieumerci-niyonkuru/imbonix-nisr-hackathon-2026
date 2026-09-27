@@ -13,7 +13,14 @@ import {
   type SVGProps,
 } from "react";
 import { ArrowDownIcon, ArrowTurnDownLeftIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
-import { ArrowRightIcon, ChartBarIcon, MagnifyingGlassIcon, MapPinIcon, RectangleGroupIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowRightIcon,
+  ChartBarIcon,
+  MagnifyingGlassIcon,
+  MapPinIcon,
+  RectangleGroupIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import { FOCUS_AREA_ICONS, FOCUS_AREAS, NAV, NAV_GROUPS, NAV_ICONS } from "@/components/layout/nav";
 import { cn } from "@/lib/utils";
 
@@ -251,8 +258,11 @@ export function SiteSearch({
               spellCheck={false}
               className="h-16 min-w-0 flex-1 bg-transparent text-[16px] font-semibold text-ink placeholder:font-medium placeholder:text-muted focus:outline-none focus-visible:outline-none"
             />
-            <DialogPrimitive.Close className="shrink-0 rounded-lg bg-paper px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-muted ring-1 ring-line transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal">
-              Esc
+            <DialogPrimitive.Close className="group inline-flex shrink-0 items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[13.5px] font-semibold text-ink transition-colors hover:text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal">
+              Close
+              <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-royal group-hover:text-white group-hover:ring-royal">
+                <XMarkIcon className="h-4 w-4" aria-hidden="true" />
+              </span>
             </DialogPrimitive.Close>
           </div>
 
