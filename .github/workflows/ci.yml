@@ -1,0 +1,96 @@
+name: CI
+
+on:
+  push:
+    branches: [develop, testing, main, "feature/**", "fix/**", "security/**", "docs/**", "chore/**"]
+  pull_request:
+    branches: [develop, testing, main]
+
+permissions:
+  contents: read
+
+# Many small commits are pushed in a row; only the latest run per branch needs to finish.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    name: Web app (audit, format, lint, types, tests, build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm ci
+      - run: npm audit --audit-level=high
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+  api:
+    name: API (audit, tests)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/api/package-lock.json
+      - run: npm ci
+      - run: npm audit --audit-level=high
+      - run: npm test
+
+  data:
+    name: Data scripts (compile, tests, reproducibility)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m py_compile scripts/data/*.py
+      - run: python -m unittest discover -s scripts/data/tests -v
+
+  secrets:
+    name: Secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  docker:
+    name: Docker images (build, start, health)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and start both services, waiting for their health checks
+        run: docker compose up --detach --build --wait --wait-timeout 180
+      - name: Smoke test
+        run: |
+          curl --fail --silent http://localhost:3000/api/health
+          curl --fail --silent http://localhost:3000/ > /dev/null
+          curl --fail --silent http://localhost:4000/health
+          curl --fail --silent "http://localhost:4000/api/v1/districts?province=North"
+      - name: Logs on failure
+        if: failure()
+        run: docker compose logs
+      - name: Stop
+        if: always()
+        run: docker compose down
