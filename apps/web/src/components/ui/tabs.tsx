@@ -7,7 +7,7 @@ export type TabItem = { id: string; label: string; hint?: string; content: React
 
 /**
  * Accessible tabs whose selection follows the URL hash, so links such as /#evidence open a given tab. Every panel is
- * rendered on the server and inactive ones are hidden, so the content is there without JavaScript too.
+ * rendered on the server and inactive ones are invisible, so the content is there without JavaScript too.
  */
 export function Tabs({ items, label }: { items: TabItem[]; label: string }) {
   const baseId = useId();
@@ -93,19 +93,31 @@ export function Tabs({ items, label }: { items: TabItem[]; label: string }) {
         })}
       </div>
 
-      {items.map((item) => (
-        <div
-          key={item.id}
-          role="tabpanel"
-          id={`${baseId}-panel-${item.id}`}
-          aria-labelledby={`${baseId}-tab-${item.id}`}
-          hidden={item.id !== activeId}
-          tabIndex={0}
-          className="mt-8 rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-royal sm:mt-10"
-        >
-          {item.content}
-        </div>
-      ))}
+      {/*
+        Inactive panels stay laid out at full width but are invisible and take no height, rather than display: none.
+        Their charts can then measure themselves and are drawn before the tab opens. Invisible content is also skipped
+        by screen readers, keyboard focus and find in page, as hidden content would be.
+      */}
+      <div className="relative mt-8 sm:mt-10">
+        {items.map((item) => {
+          const selected = item.id === activeId;
+          return (
+            <div
+              key={item.id}
+              role="tabpanel"
+              id={`${baseId}-panel-${item.id}`}
+              aria-labelledby={`${baseId}-tab-${item.id}`}
+              tabIndex={selected ? 0 : -1}
+              className={cn(
+                "rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-royal",
+                !selected && "invisible absolute inset-x-0 top-0 h-0 overflow-hidden",
+              )}
+            >
+              {item.content}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
