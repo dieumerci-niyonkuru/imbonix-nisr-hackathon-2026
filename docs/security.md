@@ -91,8 +91,9 @@ configuration the project relies on.
      GitHub does not let authors approve their own pull requests, and the pull request and checks still apply.
    - A second ruleset on `testing` and `develop` that blocks force pushes and restricts deletions.
 
-   The required status checks are the five CI jobs, named exactly:
+   The required status checks are the six CI jobs, named exactly:
 
+   - `Release source (main accepts only testing)`
    - `Web app (audit, format, lint, types, tests, build)`
    - `API (audit, tests)`
    - `Data scripts (compile, tests, reproducibility)`

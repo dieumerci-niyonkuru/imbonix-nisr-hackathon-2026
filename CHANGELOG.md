@@ -28,6 +28,8 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - The site's own text follows the project's writing rules: icons come from the icon set instead of typed arrows,
   ranges read "15 to 49" instead of using dashes, missing values show "n/a", and hyphenated words were reworded.
   Publication titles and official indicator names quoted from NISR keep their original spelling.
+- A CI check, "Release source", fails pull requests into `main` that do not come from `testing`, so work branches
+  cannot skip `develop` and `testing` by accident.
 
 ### Repository
 
