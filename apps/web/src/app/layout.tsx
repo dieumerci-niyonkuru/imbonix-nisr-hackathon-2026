@@ -2,8 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/lexend";
 import "./globals.css";
+import { ScrollControls } from "@/components/layout/scroll-controls";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeaderNav } from "@/components/layout/site-header-nav";
+import { SiteHeader } from "@/components/layout/site-header";
 import { BRAND } from "@/lib/palette";
 
 export const metadata: Metadata = {
@@ -29,11 +30,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           Skip to content
         </a>
-        <SiteHeaderNav />
+        <SiteHeader />
         <main id="main" tabIndex={-1} className="outline-none">
           {children}
         </main>
         <SiteFooter />
+        <ScrollControls />
       </body>
     </html>
   );

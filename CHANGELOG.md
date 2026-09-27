@@ -19,11 +19,22 @@ and versions follow [Semantic Versioning](https://semver.org/).
   57% coping, 31% vulnerable, 3% extremely vulnerable), and the targets chart uses the baselines and targets of the
   National Financial Inclusion Roadmap 2025 to 2030 and NST2. The "Illustrative data" status was removed.
 - Fixed: the homepage key figures form a valid description list for screen readers.
-- The header links only the three focus areas and Data & methods; site search was removed.
+- A fuller header: a thin navy bar that states the project is independent and links to the NISR microdata catalog,
+  the source code and the data issue form; then the logo, a home link, dropdown menus for the focus areas and the
+  Explore, Insights and Act pages (each with an icon and a one line description), Data & methods and search. The
+  menus open on click, the down arrow or hover and close on Escape, a click outside or moving focus away. Phones get
+  a menu sheet with the same links.
+- Site search is back as a command palette (Ctrl K, Cmd K or /): pages, focus areas, the 30 districts, the map
+  measures and all 416 sectors, with keyboard navigation. Sector names load from a small index built at build time
+  the first time search opens.
 - A full footer on every page: the logo and mission, the statement of independence, every page grouped as in the
   menu, links to the source code, security policy and data issue form, the seven NISR studies behind the figures
   (each linked to its catalog page), the licence credits for boundaries and the background map, and a link back to
   the top.
+- Buttons in the bottom right corner go back to the top of a long page or down to its end. They show only when a
+  page is long enough, dim at either end without losing keyboard focus, and respect reduced motion.
+- The site uses flat logo colours only: the sector range chart is a solid bar between a light and a dark navy dot
+  instead of a gradient.
 - Fixed: screen reader tables no longer widen the page on phones.
 - Fixed: charts in inactive homepage tabs are drawn at their full size before the tab opens, instead of logging about
   37 size warnings on every page load.
