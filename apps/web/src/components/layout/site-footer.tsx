@@ -2,18 +2,7 @@ import Link from "next/link";
 import { ArrowTopRightOnSquareIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
 import pkg from "../../../package.json";
 import { BrandLogo } from "@/components/layout/logo";
-import { NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
-
-/** The surveys and censuses behind the figures, each linked to its study page in the NISR microdata catalog. */
-const SOURCE_STUDIES = [
-  { label: "EICV7 2023/24", studyId: 119 },
-  { label: "FinScope 2024", studyId: 120 },
-  { label: "DHS 2025", studyId: 126 },
-  { label: "CFSVA 2024", studyId: 122 },
-  { label: "Census 2022", studyId: 109 },
-  { label: "LFS 2025", studyId: 125 },
-  { label: "Establishment Census 2023", studyId: 112 },
-];
+import { NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL, SOURCE_STUDIES } from "@/components/layout/nav";
 
 /** `hashLink` marks homepage tab links, which need a plain anchor so the tabs see the hash change. */
 type FooterLink = { href: string; label: string; external?: boolean; hashLink?: boolean };
