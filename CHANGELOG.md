@@ -25,6 +25,8 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - The bar above the header is now a deep navy band with a cyan rule: "Independent evidence platform", the coverage
   counted from the data (30 districts, 416 sectors, 64 indicators, 13 publications, from 1280px wide) and the three
   project links in white, turning cyan on hover.
+- The footer shows the real logo in its own colours, the same files as the header, on a white panel, instead of
+  the white version drawn for dark backgrounds.
 - The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
   cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
   Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours
