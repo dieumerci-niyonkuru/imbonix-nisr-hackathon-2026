@@ -25,6 +25,9 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - Fixed: charts in inactive homepage tabs are drawn at their full size before the tab opens, instead of logging about
   37 size warnings on every page load.
 - Values taken from policy documents carry a "Policy target" status, explained on the Data & methods page.
+- The site's own text follows the project's writing rules: icons come from the icon set instead of typed arrows,
+  ranges read "15 to 49" instead of using dashes, missing values show "n/a", and hyphenated words were reworded.
+  Publication titles and official indicator names quoted from NISR keep their original spelling.
 
 ### Repository
 
