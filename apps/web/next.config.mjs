@@ -32,6 +32,8 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // No floating Next.js badge in development, so reviews of the design show only the site.
+  devIndicators: false,
   // The Docker build sets NEXT_OUTPUT=standalone for a self-contained server that needs no node_modules
   // (see apps/web/Dockerfile). Local builds keep the default output, so `npm run start` works as usual.
   output: process.env.NEXT_OUTPUT === "standalone" ? "standalone" : undefined,
