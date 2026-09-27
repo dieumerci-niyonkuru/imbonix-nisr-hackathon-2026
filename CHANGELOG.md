@@ -22,6 +22,9 @@ and versions follow [Semantic Versioning](https://semver.org/).
   in the interface. The opening reads "Financial inclusion and poverty reduction in Rwanda", the homepage speaks of
   the problem IMBONIX addresses and its three focus areas, and the independence notes keep saying it is not an
   official NISR product. The project documents keep the hackathon context.
+- The bar above the header is now a deep navy band with a cyan rule: "Independent evidence platform", the coverage
+  counted from the data (30 districts, 416 sectors, 64 indicators, 13 publications, from 1280px wide) and the three
+  project links in white, turning cyan on hover.
 - The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
   cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
   Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours
