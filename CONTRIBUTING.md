@@ -6,7 +6,8 @@ at release. For setting up your machine, see [docs/development.md](docs/developm
 ## Branches
 
 `main` is the production branch. It is protected: nothing is pushed to it directly, and it changes only through a pull
-request from `testing` once a release has passed its checks.
+request from `testing` once a release has passed its checks. It is also the default branch, so a fresh clone starts on
+it: switch to `develop` before you begin.
 
 | Branch       | Purpose                                                              | Merges into |
 | ------------ | -------------------------------------------------------------------- | ----------- |
@@ -60,7 +61,7 @@ python -m unittest discover -s scripts/data/tests -v
 ```
 
 CI runs the same checks, plus a secret scan, a dependency audit and a Docker build. Merge only when they pass; the
-repository owner can enforce this with a branch ruleset (see [docs/security.md](docs/security.md#github-settings-to-turn-on)).
+repository owner can enforce this with a branch ruleset (see [docs/security.md](docs/security.md#github-settings)).
 
 ## Data rules
 
