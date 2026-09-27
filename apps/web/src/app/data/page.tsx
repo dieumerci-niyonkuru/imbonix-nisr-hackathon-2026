@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
-import { NISR_CATALOG_URL } from "@/components/layout/nav";
+import pkg from "../../../package.json";
+import { NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
 import { Callout, SectionHeader } from "@/components/ui/section";
 import { STATUS_DESCRIPTION, StatusBadge } from "@/components/ui/status-badge";
 import { SOURCES } from "@/lib/data";
@@ -101,6 +102,10 @@ const PUBLISHED = [
   {
     name: "District and sector boundaries: geoBoundaries, from NISR open geodata (CC BY 4.0)",
     url: "https://www.geoboundaries.org/",
+  },
+  {
+    name: "Background map: OpenFreeMap, © OpenMapTiles, © OpenStreetMap contributors",
+    url: "https://openfreemap.org/",
   },
 ];
 
@@ -356,6 +361,19 @@ export default function DataPage() {
           <Callout title="Reproducible">
             Scripts in the project repository download the public files, extract the tables and rebuild this site&apos;s data.
             Microdata is never committed or published.
+          </Callout>
+          <Callout title="Version">
+            This is version {pkg.version}. Every change is recorded in the{" "}
+            <a
+              href={`${REPOSITORY_URL}/blob/main/CHANGELOG.md`}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-royal underline underline-offset-2 hover:text-navy-900"
+            >
+              project changelog
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            .
           </Callout>
         </div>
       </section>
