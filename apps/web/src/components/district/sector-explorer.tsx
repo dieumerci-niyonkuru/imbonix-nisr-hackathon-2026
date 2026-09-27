@@ -9,7 +9,7 @@ import { SECTOR_MEASURES, type SectorMeasure, type SectorRow } from "@/lib/secto
 import { INK, NO_DATA, WHITE } from "@/lib/palette";
 
 const RAMP = DIMENSIONS.poverty.ramp;
-const pct = (v: number | null | undefined) => (v === null || v === undefined ? "–" : `${v.toFixed(1)}%`);
+const pct = (v: number | null | undefined) => (v === null || v === undefined ? "n/a" : `${v.toFixed(1)}%`);
 type SortKey = "sector" | "population" | SectorMeasure;
 
 /** Sector map and table for one district. Colours compare sectors within the district only. */
@@ -156,7 +156,7 @@ export function SectorExplorer({ district, sectors }: { district: string; sector
             <div key={c.color} className="min-w-0 flex-1">
               <div className="h-2.5 rounded-full" style={{ background: c.color }} />
               <p className="tabular mt-1 truncate text-center text-[10.5px] font-semibold text-muted">
-                {c.from === c.to ? pct(c.from) : `${c.from.toFixed(1)}–${pct(c.to)}`}
+                {c.from === c.to ? pct(c.from) : `${c.from.toFixed(1)} to ${pct(c.to)}`}
               </p>
             </div>
           ))}
@@ -199,7 +199,7 @@ export function SectorExplorer({ district, sectors }: { district: string; sector
                   />
                   {s.sector}
                 </th>
-                <td className="tabular px-3 py-2 text-right text-muted">{s.population?.toLocaleString("en-US") ?? "–"}</td>
+                <td className="tabular px-3 py-2 text-right text-muted">{s.population?.toLocaleString("en-US") ?? "n/a"}</td>
                 <td className="tabular px-3 py-2 text-right font-semibold text-ink">{pct(s.povertySae)}</td>
                 <td className="tabular px-3 py-2 text-right text-ink/85">{pct(s.mpiHeadcount)}</td>
                 <td className="tabular px-3 py-2 text-right text-ink/85">{pct(s.severelyPoor)}</td>

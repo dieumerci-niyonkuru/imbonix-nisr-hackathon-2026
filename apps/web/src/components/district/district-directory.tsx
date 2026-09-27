@@ -10,7 +10,7 @@ import { CORE_DIMENSIONS, DIMENSIONS, meta } from "@/lib/indicators";
 const SORTS = [
   { id: "overlap", label: "Most overlapping vulnerabilities" },
   ...CORE_DIMENSIONS.map((d) => ({ id: d, label: `Most affected: ${DIMENSIONS[d].label.toLowerCase()}` })),
-  { id: "name", label: "Name (A–Z)" },
+  { id: "name", label: "Name (A to Z)" },
 ];
 
 export function DistrictDirectory() {

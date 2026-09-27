@@ -44,7 +44,7 @@ export default function DashboardPage() {
           <StatTile
             value="27.4%"
             label="of people live below the poverty line"
-            detail="95% CI 26.4–28.4"
+            detail="95% CI 26.4 to 28.4"
             source="EICV7 2023/24"
             accent={CORE.navy}
           />
@@ -64,7 +64,7 @@ export default function DashboardPage() {
           />
           <StatTile
             value={`${women.either.toFixed(1)}%`}
-            label="of women 15–49 used a bank account or mobile money in the past year"
+            label="of women aged 15 to 49 used a bank account or mobile money in the past year"
             source="DHS 2025"
             accent={BRAND.azure}
           />
@@ -106,7 +106,8 @@ export default function DashboardPage() {
           <CardContent>
             <FinancialHealthChart />
             <Source>
-              FinScope 2024 financial health segments; targets from the National Financial Inclusion Roadmap 2025–2030, Annex 2.
+              FinScope 2024 financial health segments; targets from the National Financial Inclusion Roadmap 2025 to 2030, Annex
+              2.
             </Source>
           </CardContent>
         </Card>
