@@ -17,7 +17,9 @@ import { ValueBars } from "@/components/charts/recharts/value-bars";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { DistrictFinder, type FinderProvince } from "@/components/home/district-finder";
 import { FocusPanel } from "@/components/home/focus-panel";
+import { GapChart, type GapRow } from "@/components/home/gap-chart";
 import { HomeHero, type HeroFigure } from "@/components/home/home-hero";
+import { PovertyMapSection } from "@/components/home/poverty-map-section";
 import { HowItWorks, type WorkStep } from "@/components/home/how-it-works";
 import { FOCUS_AREAS, type FocusAreaId } from "@/components/layout/nav";
 import { ChartCard } from "@/components/ui/chart-card";
@@ -594,13 +596,23 @@ export default function Home() {
   const [nationalPoverty, beneficiaryPoverty] = POVERTY_AMONG_VUP_BENEFICIARIES;
   const bestOnTimeShare = Math.max(...paymentTimeliness.map((row) => row.onTime));
 
+  // The opening chart: FinScope 2024 measures from access to financial health, with health highlighted.
+  const registeredWallet = MOBILE_MONEY_BY_ROUND.find((row) => row.measure === "Registered wallet in own name")!.in2024;
+  const gapRows: GapRow[] = [
+    { label: "Use a financial service", value: includedShare, color: BRAND.blue },
+    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: BRAND.blue },
+    { label: "Have a mobile money wallet", value: registeredWallet, color: BRAND.blue },
+    { label: "Are banked", value: bankedRow.in2024, color: BRAND.navy },
+    { label: "Are financially healthy", value: healthyShare, color: CORE.cyan },
+  ];
+
+  // Key figures across the three parts of the challenge, none repeating the chart.
   const heroFigures: HeroFigure[] = [
-    { value: `${includedShare}%`, label: "of adults use a financial service", source: FINSCOPE_2024_SOURCE, accent: BRAND.blue },
     {
-      value: `${healthyShare}%`,
-      label: "of adults are financially healthy",
-      source: `${FINSCOPE_2024_SOURCE}, section 5.2`,
-      accent: CORE.cyan,
+      value: EXCLUDED_ADULTS.toLocaleString("en-US"),
+      label: "adults use no financial service at all, formal or informal",
+      source: FINSCOPE_2024_SOURCE,
+      accent: BRAND.navy,
     },
     {
       value: `${povertyIn2024.povertyRate}%`,
@@ -609,10 +621,16 @@ export default function Home() {
       accent: DIMENSION_COLORS.poverty.accent,
     },
     {
+      value: `${poorestWomen.either}%`,
+      label: "of women in the poorest fifth used a bank account or mobile money in the past year",
+      source: DHS_SOURCE,
+      accent: CORE.cyan,
+    },
+    {
       value: `${directSupportOnTime}%`,
       label: "of Direct Support households were paid on time",
       source: VUP_TIMELINESS_SOURCE,
-      accent: CORE.cyan,
+      accent: BRAND.blue,
     },
   ];
 
@@ -677,7 +695,22 @@ export default function Home() {
 
   return (
     <>
-      <HomeHero figures={heroFigures} districtCount={DISTRICTS.length} sectorCount={sectorCount} />
+      <HomeHero
+        figures={heroFigures}
+        districtCount={DISTRICTS.length}
+        sectorCount={sectorCount}
+        chart={
+          <GapChart
+            title="Access is high. Financial health is not."
+            note="Share of adults aged 16 and over, 2024. Each bar is a separate FinScope measure, so an adult can count in several."
+            rows={gapRows}
+            takeaway={`${includedShare - healthyShare} points separate using a financial service from being financially healthy.`}
+            source={`${FINSCOPE_2024_SOURCE}; financial health from section 5.2`}
+          />
+        }
+      />
+
+      <PovertyMapSection />
 
       <ChallengeSection parts={challengeParts} />
 
