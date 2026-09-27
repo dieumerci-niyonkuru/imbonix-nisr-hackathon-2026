@@ -8,7 +8,7 @@ export function formatNumber(value: number, digits = 0): string {
 
 /** Percentages keep one decimal when the source has decimals, and none when it publishes whole numbers. */
 export function formatValue(indicator: Pick<IndicatorMeta, "format">, value: number | undefined): string {
-  if (value === undefined || Number.isNaN(value)) return "–";
+  if (value === undefined || Number.isNaN(value)) return "n/a";
   switch (indicator.format) {
     case "pct":
       return `${Number.isInteger(value) ? value : value.toFixed(1)}%`;

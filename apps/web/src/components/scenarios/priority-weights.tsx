@@ -74,7 +74,7 @@ export function PriorityWeights() {
           ))}
         </div>
         <div className="mx-auto mt-6 max-w-sm">
-          <RwandaMap fills={fills} title="Districts shaded by what-if priority under the chosen weights" />
+          <RwandaMap fills={fills} title="Districts shaded by scenario priority under the chosen weights" />
           <div className="mt-2 flex items-center gap-1">
             {RAMP.map((c) => (
               <span key={c} className="h-1.5 flex-1 rounded-full" style={{ background: c }} />

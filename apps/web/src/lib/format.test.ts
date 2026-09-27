@@ -15,8 +15,8 @@ describe("formatValue", () => {
   });
 
   it("shows a dash for missing values", () => {
-    expect(formatValue({ format: "pct" }, undefined)).toBe("–");
-    expect(formatValue({ format: "pct" }, Number.NaN)).toBe("–");
+    expect(formatValue({ format: "pct" }, undefined)).toBe("n/a");
+    expect(formatValue({ format: "pct" }, Number.NaN)).toBe("n/a");
   });
 });
 

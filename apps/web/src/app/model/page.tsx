@@ -144,7 +144,7 @@ export default function ModelPage() {
           <SectionHeader
             eyebrow="Results"
             title={<span id="results-heading">Where the results will appear</span>}
-            intro="These panels will fill in once the model is trained. Until then they show only their shape, so nobody mistakes a mock-up for a finding."
+            intro="These panels will fill in once the model is trained. Until then they show only their shape, so nobody mistakes a mockup for a finding."
           />
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             <PendingPanel title="What matters most" description="Average SHAP importance of each characteristic, all adults." />

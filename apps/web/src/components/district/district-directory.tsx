@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Fingerprint, OverlapBadge, worstThirdCount } from "@/components/charts/fingerprint";
 import { DISTRICTS, PROVINCE_LABEL, PROVINCES, rankOf } from "@/lib/data";
 import { CORE_DIMENSIONS, DIMENSIONS, meta } from "@/lib/indicators";
@@ -10,7 +10,7 @@ import { CORE_DIMENSIONS, DIMENSIONS, meta } from "@/lib/indicators";
 const SORTS = [
   { id: "overlap", label: "Most overlapping vulnerabilities" },
   ...CORE_DIMENSIONS.map((d) => ({ id: d, label: `Most affected: ${DIMENSIONS[d].label.toLowerCase()}` })),
-  { id: "name", label: "Name (A–Z)" },
+  { id: "name", label: "Name (A to Z)" },
 ];
 
 export function DistrictDirectory() {
@@ -103,7 +103,9 @@ export function DistrictDirectory() {
             <div className="mt-4">
               <Fingerprint district={d} compact />
             </div>
-            <p className="mt-4 text-[12.5px] font-bold text-royal">Open profile →</p>
+            <p className="mt-4 inline-flex items-center gap-1 text-[12.5px] font-bold text-royal">
+              Open profile <ArrowRightIcon className="h-3.5 w-3.5" aria-hidden="true" />
+            </p>
           </Link>
         ))}
       </div>

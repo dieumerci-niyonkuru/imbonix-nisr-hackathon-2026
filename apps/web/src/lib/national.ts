@@ -9,7 +9,7 @@ export type Source = { name: string; detail: string; url?: string };
 export const SRC = {
   finscope: {
     name: "FinScope 2024",
-    detail: "NISR / Access to Finance Rwanda, adults 16+, fieldwork Sep–Oct 2024",
+    detail: "NISR / Access to Finance Rwanda, adults 16+, fieldwork September to October 2024",
     url: "https://statistics.gov.rw/statistical-publications/business-establishment-finance-trade/finscope-survey-2024",
   },
   eicv7: {
@@ -18,12 +18,12 @@ export const SRC = {
     url: "https://statistics.gov.rw/data-sources/surveys/EICV/integrated-household-living-conditions-survey-7-eicv-7",
   },
   roadmap: {
-    name: "National Financial Inclusion Roadmap 2025–2030",
+    name: "National Financial Inclusion Roadmap 2025 to 2030",
     detail: "National Bank of Rwanda and MINECOFIN, Annex 2 KPIs",
     url: "https://www.bnr.rw/documents/National_Financial_Inclusion_Roadmap_2026-2030.pdf",
   },
-  nst2: { name: "NST2 2024–2029", detail: "Government of Rwanda, results matrix" },
-  spssp: { name: "Social Protection Sector Strategic Plan 2024–2029", detail: "MINALOC, Annex 2" },
+  nst2: { name: "NST2 2024 to 2029", detail: "Government of Rwanda, results matrix" },
+  spssp: { name: "Social Protection Sector Strategic Plan 2024 to 2029", detail: "MINALOC, Annex 2" },
   cfsva: { name: "CFSVA 2024", detail: "WFP, MINAGRI and NISR" },
 } satisfies Record<string, Source>;
 
@@ -43,7 +43,7 @@ export const FINANCIAL_HEALTH = [
 
 export const POVERTY_TREND = [
   { period: "2016/17", poverty: 39.8, extreme: 11.3, note: "modelled on the EICV7 method" },
-  { period: "2023/24", poverty: 27.4, extreme: 5.4, note: "95% CI 26.4–28.4" },
+  { period: "2023/24", poverty: 27.4, extreme: 5.4, note: "95% CI 26.4 to 28.4" },
 ];
 
 export const POVERTY_BY_PROVINCE = [
@@ -132,7 +132,7 @@ export const TARGETS: Target[] = [
     source: SRC.nst2,
   },
   {
-    label: "Community-based health insurance coverage",
+    label: "Community based health insurance coverage",
     baseline: 87.9,
     baselineYear: "2023/24",
     target: 100,
@@ -141,7 +141,7 @@ export const TARGETS: Target[] = [
     source: SRC.spssp,
   },
   {
-    label: "Ejo Heza long-term savings members",
+    label: "Ejo Heza long term savings members",
     baseline: 3.81,
     baselineYear: "2023/24",
     target: 6.1,

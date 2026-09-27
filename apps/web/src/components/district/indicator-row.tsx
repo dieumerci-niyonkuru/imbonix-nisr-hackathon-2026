@@ -28,7 +28,7 @@ export function IndicatorRow({ district, id }: { district: District; id: string 
           <p className="font-display text-xl font-bold leading-6 text-ink">{formatValue(indicator, value.v)}</p>
           {value.lo !== undefined && value.hi !== undefined && (
             <p className="tabular text-[10.5px] text-muted">
-              CI {formatValue(indicator, value.lo)}–{formatValue(indicator, value.hi)}
+              CI {formatValue(indicator, value.lo)} to {formatValue(indicator, value.hi)}
             </p>
           )}
         </div>

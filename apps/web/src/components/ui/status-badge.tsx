@@ -24,8 +24,8 @@ export function StatusBadge({ status, className = "" }: { status: string; classN
 export const STATUS_DESCRIPTION: Record<string, string> = {
   observed: "Published by NISR or its partners in an official report or table.",
   calculated: "Our arithmetic on published figures (for example a rate × a population). The formula is shown with the value.",
-  model_estimate: "A statistical model estimate published by NISR (small-area estimation). Use for ranking, with care.",
+  model_estimate: "A statistical model estimate published by NISR (small area estimation). Use for ranking, with care.",
   projection: "NISR population projection, not a count.",
-  scenario: "A what-if calculation under assumptions you can see and change. Not a forecast and not an official estimate.",
+  scenario: "A calculation under assumptions you can see and change. Not a forecast and not an official estimate.",
   target: "A goal set in a national policy document, shown with the baseline it starts from. Not a measurement or a forecast.",
 };
