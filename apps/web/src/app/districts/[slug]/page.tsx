@@ -13,7 +13,7 @@ import { formatDiff, formatValue } from "@/lib/format";
 import { CORE_DIMENSIONS, DIMENSIONS, meta, type Dimension } from "@/lib/indicators";
 import { sectorsOf } from "@/lib/sectors";
 import { Button } from "@/components/ui/button";
-import { BRAND, NO_DATA, RAMPS } from "@/lib/palette";
+import { BRAND, CORE, NO_DATA, RAMPS } from "@/lib/palette";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { HeroRings } from "@/components/ui/section";
 
@@ -245,7 +245,7 @@ function DimensionCard({ district, dimension }: { district: District; dimension:
       )}
       {rank && (
         <p
-          className={`mt-3 inline-flex rounded-full px-2.5 py-1 text-[11.5px] font-bold ${worstThird ? "bg-sun-ink text-white" : "bg-paper text-ink"}`}
+          className={`mt-3 inline-flex rounded-full px-2.5 py-1 text-[11.5px] font-bold ${worstThird ? "bg-cyan-ink text-white" : "bg-paper text-ink"}`}
         >
           #{rank.rank} of {rank.of} most affected
         </p>
@@ -284,10 +284,10 @@ function AccessStrand({ district }: { district: District }) {
     { label: "Formal nonbank only", value: v("finscope_other_formal_only") ?? 0, color: ramp[2] },
     ...(informal !== undefined && excluded !== undefined
       ? [
-          { label: "Informal only", value: informal, color: RAMPS.gold[0] },
-          { label: "Excluded", value: excluded, color: RAMPS.gold[3] },
+          { label: "Informal only", value: informal, color: CORE.cyan },
+          { label: "Excluded", value: excluded, color: RAMPS.steel[1] },
         ]
-      : [{ label: "Informal only or excluded", value: v("finscope_not_formally_included") ?? 0, color: RAMPS.gold[1] }]),
+      : [{ label: "Informal only or excluded", value: v("finscope_not_formally_included") ?? 0, color: RAMPS.steel[1] }]),
   ];
   return (
     <div className="mt-5 rounded-xl bg-paper p-4">

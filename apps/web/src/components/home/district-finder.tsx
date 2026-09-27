@@ -32,7 +32,7 @@ export function DistrictFinder({ provinces }: { provinces: FinderProvince[] }) {
           id={selectId}
           value={districtSlug}
           onChange={(event) => setDistrictSlug(event.target.value)}
-          className="h-12 w-full appearance-none rounded-xl bg-white pl-11 pr-10 text-[15px] font-semibold text-ink outline-none focus-visible:ring-2 focus-visible:ring-sun"
+          className="h-12 w-full appearance-none rounded-xl bg-white pl-11 pr-10 text-[15px] font-semibold text-ink outline-none focus-visible:ring-2 focus-visible:ring-cyan"
         >
           <option value="">Choose a district</option>
           {provinces.map((province) => (
@@ -52,7 +52,7 @@ export function DistrictFinder({ provinces }: { provinces: FinderProvince[] }) {
       </div>
       <button
         type="submit"
-        className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-sun px-5 text-[15px] font-bold text-navy-900 transition-colors hover:bg-sun-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-cyan px-5 text-[15px] font-bold text-navy-900 transition-colors hover:bg-cyan-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
       >
         {districtSlug ? "Open profile" : "All districts"}
         <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />

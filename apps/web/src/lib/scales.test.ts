@@ -42,9 +42,9 @@ describe("textOn", () => {
   });
 
   it("chooses by contrast, so mid-tone fills get the more readable colour", () => {
-    // White on this gold is only 2.7:1; navy reaches 5.8:1.
-    expect(textOn(RAMPS.gold[1])).toBe(INK);
-    expect(contrastRatio(RAMPS.gold[1], INK)).toBeGreaterThanOrEqual(4.5);
+    // White on this cyan is only 3.0:1; navy reaches 5.0:1.
+    expect(textOn(RAMPS.cyan[1])).toBe(INK);
+    expect(contrastRatio(RAMPS.cyan[1], INK)).toBeGreaterThanOrEqual(4.5);
   });
 
   it("keeps every labelled chart fill readable at 4.5:1 or better", () => {

@@ -36,7 +36,7 @@ export default function PrioritiesPage() {
               <p className="text-[12px] text-muted">districts flagged</p>
             </div>
           ))}
-          <div className="rounded-2xl border border-sun/60 bg-sun-soft p-5">
+          <div className="rounded-2xl border border-cyan/60 bg-cyan-soft p-5">
             <p className="font-display text-[15px] font-semibold text-ink">Most levers flagged</p>
             <p className="mt-1 text-[12.5px] leading-5 text-muted">
               {districts[0].flags.length} of 7 levers in{" "}
