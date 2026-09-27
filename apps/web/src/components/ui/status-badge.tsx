@@ -4,7 +4,7 @@ const STYLES: Record<string, string> = {
   observed: "bg-brand-50 text-brand-700 ring-royal/25",
   calculated: "bg-cyan-soft text-cyan-ink ring-cyan/40",
   model_estimate: "bg-mist text-navy-700 ring-navy-700/25",
-  projection: "bg-sun-soft text-sun-ink ring-sun/60",
+  projection: "bg-white text-cyan-ink ring-cyan-ink/40",
   scenario: "bg-white text-ink ring-ink/30",
   target: "bg-white text-royal ring-royal/40",
 };

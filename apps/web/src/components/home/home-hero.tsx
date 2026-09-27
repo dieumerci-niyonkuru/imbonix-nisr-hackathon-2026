@@ -12,7 +12,7 @@ import { scaleFor } from "@/lib/scales";
 export type HeroFigure = { value: string; label: string; source: string; status?: string; accent: string };
 
 const PRIMARY_BUTTON =
-  "inline-flex h-12 items-center gap-2 rounded-xl bg-sun px-5 text-[15px] font-bold text-navy-900 transition-colors hover:bg-sun-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900";
+  "inline-flex h-12 items-center gap-2 rounded-xl bg-cyan px-5 text-[15px] font-bold text-navy-900 transition-colors hover:bg-cyan-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900";
 const SECONDARY_BUTTON =
   "inline-flex h-12 items-center gap-2 rounded-xl px-5 text-[15px] font-bold text-white ring-1 ring-white/30 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white";
 
@@ -43,7 +43,7 @@ export function HomeHero({
       <HeroRings className="-right-40 -top-48 text-white/10" />
       <div className="container-page relative grid items-center gap-12 pt-12 sm:pt-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pt-20">
         <div>
-          <p className="eyebrow text-sun">NISR Big Data Hackathon 2026 · Track 2</p>
+          <p className="eyebrow text-cyan">NISR Big Data Hackathon 2026 · Track 2</p>
           <h1 className="mt-4 text-balance font-display text-4xl font-bold leading-[1.05] tracking-[-0.035em] sm:text-5xl xl:text-[3.5rem]">
             Almost every adult is included. Few are financially healthy.
           </h1>

@@ -51,8 +51,8 @@ const HOVER_CLOSE_DELAY = 160;
 
 // Top level items: a solid blue block on hover and when open or current, like an active tab.
 const TOP_LINK_STYLE =
-  "inline-flex h-10 items-center gap-1 rounded-lg px-2.5 text-[14.5px] font-semibold text-ink/80 transition-colors hover:bg-royal hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 xl:px-3";
-const TOP_ACTIVE_STYLE = "bg-royal text-white";
+  "inline-flex h-10 items-center gap-1 rounded-lg px-2.5 text-[14.5px] font-semibold text-ink/80 transition-colors hover:bg-cyan hover:text-navy-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 xl:px-3";
+const TOP_ACTIVE_STYLE = "bg-cyan text-navy-900";
 // Links inside a menu panel or the phone menu keep a light highlight, so the text stays readable.
 const ACTIVE_STYLE = "bg-paper text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal";
@@ -145,7 +145,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded font-semibold text-white/80 transition-colors hover:text-sun focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun"
+                    className="inline-flex items-center gap-1 rounded font-semibold text-white/80 transition-colors hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
                   >
                     {link.label}
                     <ArrowTopRightOnSquareIcon className="h-3 w-3 text-white/50" aria-hidden="true" />
@@ -269,7 +269,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                 <MagnifyingGlassIcon className="h-5 w-5 text-royal" aria-hidden="true" />
                 <span className="hidden whitespace-nowrap pr-2 text-left 2xl:inline">Search districts and measures</span>
               </span>
-              <span className="hidden items-center border-l border-line bg-paper px-3 font-bold text-ink transition-colors group-hover:bg-royal group-hover:text-white sm:flex">
+              <span className="hidden items-center border-l border-line bg-paper px-3 font-bold text-ink transition-colors group-hover:bg-cyan group-hover:text-navy-900 sm:flex">
                 Search
               </span>
             </button>
@@ -344,7 +344,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                         href={link.href}
                         aria-current={isCurrentPage(link.href) ? "page" : undefined}
                         className={cn(
-                          "mt-5 flex items-center justify-center rounded-2xl bg-navy-900 px-4 py-3 text-[14.5px] font-semibold text-white hover:bg-royal",
+                          "mt-5 flex items-center justify-center rounded-2xl bg-navy-900 px-4 py-3 text-[14.5px] font-semibold text-white hover:bg-cyan hover:text-navy-900",
                           FOCUS_RING,
                         )}
                       >
@@ -424,7 +424,7 @@ function MenuLink({
         <span className="flex flex-wrap items-center gap-2 text-[14px] font-semibold leading-5 text-ink">
           {item.label}
           {item.badge && (
-            <span className="rounded-full bg-sun-soft px-1.5 py-0.5 text-[10.5px] font-bold leading-none text-sun-ink">
+            <span className="rounded-full bg-cyan-soft px-1.5 py-0.5 text-[10.5px] font-bold leading-none text-cyan-ink">
               {item.badge}
             </span>
           )}
