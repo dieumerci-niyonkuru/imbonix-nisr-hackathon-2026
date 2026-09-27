@@ -16,13 +16,15 @@ const BUTTON_STYLE =
 /**
  * Floating buttons to go back to the top of a long page or down to its end. They show only on pages long enough to
  * need them. At either end the matching button is dimmed but stays in place, so keyboard focus is never lost, and the
- * scroll is instant for people who prefer reduced motion.
+ * scroll is instant for people who prefer reduced motion. Once the footer is in view they fade away, so they never
+ * cover it (the footer has its own back to top link), unless one of them has keyboard focus.
  */
 export function ScrollControls() {
   const pathname = usePathname();
   const [scrollable, setScrollable] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [atBottom, setAtBottom] = useState(false);
+  const [footerInView, setFooterInView] = useState(false);
 
   useEffect(() => {
     let frame = 0;
@@ -38,6 +40,9 @@ export function ScrollControls() {
       if (!frame) frame = window.requestAnimationFrame(measure);
     };
     measure();
+    const footer = document.querySelector("footer");
+    const footerObserver = new IntersectionObserver(([entry]) => setFooterInView(entry.isIntersecting));
+    if (footer) footerObserver.observe(footer);
     // Charts and maps change the page height after it loads, so watch the body as well as scrolling.
     const resizeObserver = new ResizeObserver(scheduleMeasure);
     resizeObserver.observe(document.body);
@@ -45,6 +50,7 @@ export function ScrollControls() {
     window.addEventListener("resize", scheduleMeasure);
     return () => {
       resizeObserver.disconnect();
+      footerObserver.disconnect();
       window.removeEventListener("scroll", scheduleMeasure);
       window.removeEventListener("resize", scheduleMeasure);
       if (frame) window.cancelAnimationFrame(frame);
@@ -62,7 +68,10 @@ export function ScrollControls() {
     <div
       role="group"
       aria-label="Page scrolling"
-      className="fixed bottom-4 right-4 z-40 flex flex-col overflow-hidden rounded-2xl bg-navy-900 shadow-lift ring-1 ring-white/15 sm:bottom-6 sm:right-6 print:hidden"
+      className={cn(
+        "fixed bottom-4 right-4 z-40 flex flex-col overflow-hidden rounded-2xl bg-navy-900 shadow-lift ring-1 ring-white/15 transition-[opacity,visibility] duration-200 sm:bottom-6 sm:right-6 print:hidden",
+        footerInView && "invisible opacity-0 focus-within:visible focus-within:opacity-100",
+      )}
     >
       <button
         type="button"
