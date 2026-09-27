@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IMBONIX Indicator",
+  "type": "object",
+  "required": ["indicator_id", "label", "value", "unit", "year", "geography", "geography_level", "source_id", "source", "dataset", "source_url", "status"],
+  "properties": {
+    "indicator_id": { "type": "string" },
+    "label": { "type": "string" },
+    "value": { "type": "number" },
+    "unit": { "type": "string" },
+    "year": { "type": "integer" },
+    "geography": { "type": "string" },
+    "geography_level": { "enum": ["national", "province", "district", "sector"] },
+    "source_id": { "type": "string" },
+    "source": { "type": "string" },
+    "dataset": { "type": "string" },
+    "source_url": { "type": "string", "format": "uri" },
+    "methodology_url": { "type": "string", "format": "uri" },
+    "status": { "enum": ["observed", "calculated", "model_estimate", "scenario"] },
+    "reference_period": { "type": "string" },
+    "sample_size": { "type": "integer", "minimum": 1 }
+  }
+}

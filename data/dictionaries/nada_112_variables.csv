@@ -1,0 +1,69 @@
+study_id,file_id,file_name,variable_id,name,label
+112,F4,microdata-rwa-nisr-ec-2023,V71,q1_2,Q1.2 District
+112,F4,microdata-rwa-nisr-ec-2023,V72,q1_1,Q1.1 Province
+112,F4,microdata-rwa-nisr-ec-2023,V73,q1_5_1,Q1.5_1 Village type
+112,F4,microdata-rwa-nisr-ec-2023,V74,q2,Q2. Working place
+112,F4,microdata-rwa-nisr-ec-2023,V75,q3,Q3.1. Working status
+112,F4,microdata-rwa-nisr-ec-2023,V76,q4_2,Q4.2 Manager sex
+112,F4,microdata-rwa-nisr-ec-2023,V77,q4_3,Q4.3 Manager age
+112,F4,microdata-rwa-nisr-ec-2023,V78,q7,Q7 Institutional sector
+112,F4,microdata-rwa-nisr-ec-2023,V79,q8,Q8 Categories of mixed sector
+112,F4,microdata-rwa-nisr-ec-2023,V80,q9,Q9 Nationality of owner
+112,F4,microdata-rwa-nisr-ec-2023,V81,q10,Q10 Legal status
+112,F4,microdata-rwa-nisr-ec-2023,V82,q11,Q11 Is the management of establishment completely separated from the household m
+112,F4,microdata-rwa-nisr-ec-2023,V83,q12,Q12 Is the owner of the establishment its manager?
+112,F4,microdata-rwa-nisr-ec-2023,V84,q13,Q13 Sex of the owner
+112,F4,microdata-rwa-nisr-ec-2023,V85,Owner_age,Q14 Age of the owner
+112,F4,microdata-rwa-nisr-ec-2023,V86,q15_1,Q15.1 Does the establishment maintain regular accounts?
+112,F4,microdata-rwa-nisr-ec-2023,V87,q15_2,Q15.2 Which of the following books is used
+112,F4,microdata-rwa-nisr-ec-2023,V88,q15_2a,Q15_2A Ledgers
+112,F4,microdata-rwa-nisr-ec-2023,V89,q15_2b,Q15_2B Journals
+112,F4,microdata-rwa-nisr-ec-2023,V90,q15_2c,Q15_2C Balance sheet
+112,F4,microdata-rwa-nisr-ec-2023,V91,q15_2d,Q15_2D Income statement (Profit and loss account)
+112,F4,microdata-rwa-nisr-ec-2023,V92,q15_2e,Q15_2E Invoice
+112,F4,microdata-rwa-nisr-ec-2023,V93,q16,Q16 Establishment type
+112,F4,microdata-rwa-nisr-ec-2023,V94,q17_2,Q17.2 Total number of branches in rwanda including the head office
+112,F4,microdata-rwa-nisr-ec-2023,V95,q17_3,Q17.3 Total number of working persons in all branches in rwanda including the he
+112,F4,microdata-rwa-nisr-ec-2023,V96,Rwandan_male,Number of MALE Rwandan staff
+112,F4,microdata-rwa-nisr-ec-2023,V97,Rwandan_female,Number of FEMALE Rwandan staff
+112,F4,microdata-rwa-nisr-ec-2023,V98,Rwandan_workers,Total number of Rwandan staff
+112,F4,microdata-rwa-nisr-ec-2023,V99,Foreign_male,Number of MALE Foreigner staff
+112,F4,microdata-rwa-nisr-ec-2023,V100,Foreign_female,Number of FEMALE Foreigner staff
+112,F4,microdata-rwa-nisr-ec-2023,V101,Foregner_workers,Total number of Foreigner staff
+112,F4,microdata-rwa-nisr-ec-2023,V102,Male_worker,Total MALE staff
+112,F4,microdata-rwa-nisr-ec-2023,V103,Female_worker,Total FEMALE staff
+112,F4,microdata-rwa-nisr-ec-2023,V104,Total_workers,Total number of staff
+112,F4,microdata-rwa-nisr-ec-2023,V105,q20,Q20. Annual total turnover in 2022
+112,F4,microdata-rwa-nisr-ec-2023,V106,q21,Q21. Current employed capital
+112,F4,microdata-rwa-nisr-ec-2023,V107,q22,Q22. Is the establishment registered in any of the following institutions?
+112,F4,microdata-rwa-nisr-ec-2023,V108,q22_other,Q22. Specify other
+112,F4,microdata-rwa-nisr-ec-2023,V109,q22a,Q22A Sector
+112,F4,microdata-rwa-nisr-ec-2023,V110,q22b,Q22B District
+112,F4,microdata-rwa-nisr-ec-2023,V111,q22c,Q22C Rwanda cooperative Agency (RCA) only Cooperative
+112,F4,microdata-rwa-nisr-ec-2023,V112,q22d,Q22D Private sector Federation (PSF)
+112,F4,microdata-rwa-nisr-ec-2023,V113,q22e,Q22E Rwanda Governance Board (RGB) only NGO
+112,F4,microdata-rwa-nisr-ec-2023,V114,q22f,Q22F Social Security Board (RSSB)
+112,F4,microdata-rwa-nisr-ec-2023,V115,q22g,Q22G Rwanda Development Board (RDB)
+112,F4,microdata-rwa-nisr-ec-2023,V116,q22h,Q22H Rwanda Revenue Authority (RRA)
+112,F4,microdata-rwa-nisr-ec-2023,V117,q22i,Q22I Directorate of Immigration and Emigration
+112,F4,microdata-rwa-nisr-ec-2023,V118,q22j,Q22J Other
+112,F4,microdata-rwa-nisr-ec-2023,V119,q22z,Q22Z No registration
+112,F4,microdata-rwa-nisr-ec-2023,V120,q23_1,Q23.1 Did you have any transaction of goods with a foreign country during the la
+112,F4,microdata-rwa-nisr-ec-2023,V121,q23_2,Q23.2 Did you have any transaction of services with a foreign country during the
+112,F4,microdata-rwa-nisr-ec-2023,V122,q24,Q24. What type of taxes do you pay?
+112,F4,microdata-rwa-nisr-ec-2023,V123,q24a,Q24A Value Added Tax (VAT)
+112,F4,microdata-rwa-nisr-ec-2023,V124,q24b,Q24B TPR/PAYE
+112,F4,microdata-rwa-nisr-ec-2023,V125,q24c,Q24C Income tax
+112,F4,microdata-rwa-nisr-ec-2023,V126,q24d,Q24D Excise duties tax
+112,F4,microdata-rwa-nisr-ec-2023,V127,q24e,Q24E Import duties tax
+112,F4,microdata-rwa-nisr-ec-2023,V128,q24f,Q24F Trading license tax
+112,F4,microdata-rwa-nisr-ec-2023,V129,q24g,Q24G Rental income tax
+112,F4,microdata-rwa-nisr-ec-2023,V130,q24h,Q24H Flat tax
+112,F4,microdata-rwa-nisr-ec-2023,V131,q24z,Q24Z No tax
+112,F4,microdata-rwa-nisr-ec-2023,V132,q25,Q25. Do you have a tin number
+112,F4,microdata-rwa-nisr-ec-2023,V133,q6_1,ISIC1 Major economic activity
+112,F4,microdata-rwa-nisr-ec-2023,V134,size2,Size based on number of workers
+112,F4,microdata-rwa-nisr-ec-2023,V135,FI,Formal and Informal enterprises
+112,F4,microdata-rwa-nisr-ec-2023,V136,q5_2,Year of starting operation in Rwanda
+112,F4,microdata-rwa-nisr-ec-2023,V137,start_y,Start year group
+112,F4,microdata-rwa-nisr-ec-2023,V138,Owner_sex,Sex of owner of establishment

@@ -1,0 +1,1313 @@
+study_id,file_id,file_name,variable_id,name,label
+89,F4,data-rfs-2020-v01,V2594,KEY,Household ID
+89,F4,data-rfs-2020-v01,V2595,HH_WEIGHT,Household weight
+89,F4,data-rfs-2020-v01,V2596,Individuals_Weight,Individual weight
+89,F4,data-rfs-2020-v01,V2597,NUMVILL,Sampled village (PSU)
+89,F4,data-rfs-2020-v01,V2598,TOTAL_IND,Total Individuals
+89,F4,data-rfs-2020-v01,V2599,NUMIND,Member of Household selected
+89,F4,data-rfs-2020-v01,V2600,A1,A1. PROVINCE
+89,F4,data-rfs-2020-v01,V2601,A2,A2. District
+89,F4,data-rfs-2020-v01,V2602,A3,A3. Urban/Rural
+89,F4,data-rfs-2020-v01,V2603,B0,B0. Relationship with the Head of HH
+89,F4,data-rfs-2020-v01,V2604,B1,B1. Age of respondent
+89,F4,data-rfs-2020-v01,V2605,B2,B2. Sex of respondent
+89,F4,data-rfs-2020-v01,V2606,B3,B3. Brings money into HH
+89,F4,data-rfs-2020-v01,V2607,B4,B4. Eligible or not
+89,F4,data-rfs-2020-v01,V2608,B4B,B4B. Reason for none Eligibility
+89,F4,data-rfs-2020-v01,V2609,B5,B5. Education
+89,F4,data-rfs-2020-v01,V2610,B5A_1,Is respondent available for interview
+89,F4,data-rfs-2020-v01,V2611,B5B_1,Does respondent have to be replaced
+89,F4,data-rfs-2020-v01,V2612,B5A_2,Is respondent available for interview
+89,F4,data-rfs-2020-v01,V2613,B6,B6. Indicate reason for replacement and end the interview
+89,F4,data-rfs-2020-v01,V2614,B7,B7. Respondent status
+89,F4,data-rfs-2020-v01,V2615,C0,C0. Household size
+89,F4,data-rfs-2020-v01,V2616,C1,C1. Respondent is the head of HH
+89,F4,data-rfs-2020-v01,V2617,C1A,C1A. Age of head of HH
+89,F4,data-rfs-2020-v01,V2618,C1B,C1B. Gender of the head of HH
+89,F4,data-rfs-2020-v01,V2619,C1C,C1C. Education completed by the head of HH
+89,F4,data-rfs-2020-v01,V2620,C1D,C1D. Head of HH brings money into HH
+89,F4,data-rfs-2020-v01,V2621,C1E,C1E. People depending on HH income
+89,F4,data-rfs-2020-v01,V2622,C1F,C1F. Relationship to the head of HH
+89,F4,data-rfs-2020-v01,V2623,C2,C2. Age of respondent
+89,F4,data-rfs-2020-v01,V2624,C3,C3. Sex of respondent
+89,F4,data-rfs-2020-v01,V2625,C4A,C4A. Education completed
+89,F4,data-rfs-2020-v01,V2626,C4B,C4B. Marital Status
+89,F4,data-rfs-2020-v01,V2627,C4C,C4C. Disability
+89,F4,data-rfs-2020-v01,V2628,C4D,C4D. Type of Disability
+89,F4,data-rfs-2020-v01,V2629,C5A,C5A.Time of skipping meal
+89,F4,data-rfs-2020-v01,V2630,C5B,C5B. Time to go without medical treatment/medicine
+89,F4,data-rfs-2020-v01,V2631,C5C,C5C. Time not been able to send children to school
+89,F4,data-rfs-2020-v01,V2632,C5D,C5D. Time going without cash and make a plan for daily needs
+89,F4,data-rfs-2020-v01,V2633,C6A,C6A. Number of rooms
+89,F4,data-rfs-2020-v01,V2634,C6B,C6B. Number of rooms used for sleeping
+89,F4,data-rfs-2020-v01,V2635,C6C,C6C. People sleeping in this dwelling
+89,F4,data-rfs-2020-v01,V2636,C7,C7. Setence describing your situation
+89,F4,data-rfs-2020-v01,V2637,C7A,C7A. How did you get the dwelling
+89,F4,data-rfs-2020-v01,V2638,C7B1,C7B1. First major source of the money to buy or build the house
+89,F4,data-rfs-2020-v01,V2639,C7B2,C7B2. Second major sources of money to buy or build the house
+89,F4,data-rfs-2020-v01,V2640,C7C,C7C. Owing money on the dwelling
+89,F4,data-rfs-2020-v01,V2641,C7D,C7D. Having a title deed for the land/plot where your dwelling is
+89,F4,data-rfs-2020-v01,V2642,C7E,C7E. Owning other dwellings
+89,F4,data-rfs-2020-v01,V2643,C8A,C8A. Never move and probably spend whole life in the dwelling
+89,F4,data-rfs-2020-v01,V2644,C8B,C8B. Dwelling is something to keep and never sell
+89,F4,data-rfs-2020-v01,V2645,C8C,C8C. Plan to sell this dwelling and buy a different one
+89,F4,data-rfs-2020-v01,V2646,C8D,C8D. Plan to move out of this dwelling and move to another one
+89,F4,data-rfs-2020-v01,V2647,C8E,C8E. Sell dwelling for need of large sum of money
+89,F4,data-rfs-2020-v01,V2648,C8F,C8F. Use of dwelling as security when borrowingmoney
+89,F4,data-rfs-2020-v01,V2649,C8G,C8G. Dwelling as an investment that increases in value over time
+89,F4,data-rfs-2020-v01,V2650,C8H,C8H. Dwelling as asset used to earn money
+89,F4,data-rfs-2020-v01,V2651,C8I,C8I. Having enlarged or plan to enlarge dwelling
+89,F4,data-rfs-2020-v01,V2652,C8J1,C8J1. Loan from financial institution as source
+89,F4,data-rfs-2020-v01,V2653,C8J2,C8J2. Borrow from money lender
+89,F4,data-rfs-2020-v01,V2654,C8J3,"C8J3. Borrow from savings group, tontine"
+89,F4,data-rfs-2020-v01,V2655,C8J4,C8J4. Borrowed from employer
+89,F4,data-rfs-2020-v01,V2656,C8J5,C8J5. Borrow from family or friends
+89,F4,data-rfs-2020-v01,V2657,C8J6,C8J6. Pension pay-out
+89,F4,data-rfs-2020-v01,V2658,C8J7,C8J7. Use my or our savings
+89,F4,data-rfs-2020-v01,V2659,C9A1,C9A1. Main materials used for the roof
+89,F4,data-rfs-2020-v01,V2660,C9A2,C9A2. Main materials used for the walls
+89,F4,data-rfs-2020-v01,V2661,C9A3,C9A3. Main materials used for the floor
+89,F4,data-rfs-2020-v01,V2662,C9B,C9B. Main source of drinking water for HH members
+89,F4,data-rfs-2020-v01,V2663,C10A,C10A. Shared toilet or not
+89,F4,data-rfs-2020-v01,V2664,C10B,C10B. Type of toilet facility mostly used
+89,F4,data-rfs-2020-v01,V2665,C11A,C11A. Main source of energy used for cooking
+89,F4,data-rfs-2020-v01,V2666,C11B,C11B. Main source of lighting
+89,F4,data-rfs-2020-v01,V2667,C12_1,"C12. Household asset ownership - Owning Hoe, Axe, Sickle/Machete"
+89,F4,data-rfs-2020-v01,V2668,C12_2,C12. Household asset ownership - Wheelbarrow
+89,F4,data-rfs-2020-v01,V2669,C12_3,C12. Household asset ownership - Plough/Ox Plough
+89,F4,data-rfs-2020-v01,V2670,C12_4,C12. Household asset ownership - Ox/donkey cart
+89,F4,data-rfs-2020-v01,V2671,C12_5,C12. Household asset ownership - Processing equipment
+89,F4,data-rfs-2020-v01,V2672,C12_6,C12. Household asset ownership - Radio
+89,F4,data-rfs-2020-v01,V2673,C12_7,C12. Household asset ownership - Tape/CD player
+89,F4,data-rfs-2020-v01,V2674,C12_8,C12. Household asset ownership - Television
+89,F4,data-rfs-2020-v01,V2675,C12_9,C12. Household asset ownership - Bicycle
+89,F4,data-rfs-2020-v01,V2676,C12_10,C12. Household asset ownership - Fishing boat / canoe
+89,F4,data-rfs-2020-v01,V2677,C12_11,C12. Household asset ownership - Fishing net
+89,F4,data-rfs-2020-v01,V2678,C12_12,C12. Household asset ownership - Lounge suit/Sofa
+89,F4,data-rfs-2020-v01,V2679,C12_13,C12. Household asset ownership - Beds
+89,F4,data-rfs-2020-v01,V2680,C12_14,C12. Household asset ownership - Sewing machine
+89,F4,data-rfs-2020-v01,V2681,C12_15,C12. Household asset ownership - Wardrobe
+89,F4,data-rfs-2020-v01,V2682,C12_16,C12. Household asset ownership - Motorized Vehicle of any kind
+89,F4,data-rfs-2020-v01,V2683,C13A,C13A. Ubudehe category
+89,F4,data-rfs-2020-v01,V2684,C13B,C13B. Changing Ubudehe in the past
+89,F4,data-rfs-2020-v01,V2685,C13C,C13C. Your category before changing
+89,F4,data-rfs-2020-v01,V2686,C13D,C13D. Direct cash transfer received from VUP
+89,F4,data-rfs-2020-v01,V2687,C14A1,"C14, Technology access/Connectivity - Access to a Cell phone"
+89,F4,data-rfs-2020-v01,V2688,C14B1,"C14, Technology access/Connectivity - Owning cell phone"
+89,F4,data-rfs-2020-v01,V2689,C14A2,"C14, Technology access/Connectivity - Access to a Public phone/Landline"
+89,F4,data-rfs-2020-v01,V2690,C14B2,"C14, Technology access/Connectivity - Owning landline"
+89,F4,data-rfs-2020-v01,V2691,C14A3,"C14, Technology access/Connectivity - Access to Computer"
+89,F4,data-rfs-2020-v01,V2692,C14B3,"C14, Technology access/Connectivity - Owning computer"
+89,F4,data-rfs-2020-v01,V2693,C14A4,"C14, Technology access/Connectivity - Access to internet"
+89,F4,data-rfs-2020-v01,V2694,C14B4,"C14, Technology access/Connectivity - Owning internet"
+89,F4,data-rfs-2020-v01,V2695,D1B1,D1. Access to infrastructure - Time to get to the nearest Market
+89,F4,data-rfs-2020-v01,V2696,D1C1,D1. Access to infrastructure - Main transport mode to get to the nearest Market
+89,F4,data-rfs-2020-v01,V2697,D1B2,D1. Access to infrastructure - Time to get to the nearest Cell office
+89,F4,data-rfs-2020-v01,V2698,D1C2,D1. Access to infrastructure - Main transport mode to get to the nearest Cell O
+89,F4,data-rfs-2020-v01,V2699,D1A3,D1. Access to infrastructure - Distance to get to the nearest Sector office
+89,F4,data-rfs-2020-v01,V2700,D1B3,D1. Access to infrastructure - Time to get to the nearest Sector office
+89,F4,data-rfs-2020-v01,V2701,D1C3,D1. Access to infrastructure - Main transport mode to get to the nearest Sector
+89,F4,data-rfs-2020-v01,V2702,D1B4,D1. Access to infrastructure - Time to get to the nearest School
+89,F4,data-rfs-2020-v01,V2703,D1C4,D1. Access to infrastructure - Main transport mode to get to the nearest School
+89,F4,data-rfs-2020-v01,V2704,D1B5,D1. Access to infrastructure - Time to get to the nearest Health care facility
+89,F4,data-rfs-2020-v01,V2705,D1C5,D1. Access to infrastructure - Main transport mode to get to the nearest Health
+89,F4,data-rfs-2020-v01,V2706,D1A7,D1. Access to infrastructure - Distance to get to the nearest U_SACCO
+89,F4,data-rfs-2020-v01,V2707,D1B7,D1. Access to infrastructure - Time to get to the nearest U_SACCO
+89,F4,data-rfs-2020-v01,V2708,D1C7,D1. Access to infrastructure - Main transport mode to get to the nearest U_SACC
+89,F4,data-rfs-2020-v01,V2709,D1A8,D1. Access to infrastructure - Distance to get to the nearest MFI
+89,F4,data-rfs-2020-v01,V2710,D1B8,D1. Access to infrastructure - Time to get to the nearest MFI
+89,F4,data-rfs-2020-v01,V2711,D1C8,D1. Access to infrastructure - Main transport mode to get to the nearest MFI
+89,F4,data-rfs-2020-v01,V2712,D1A10,D1. Access to infrastructure - Distance to get to the nearest Bank branch
+89,F4,data-rfs-2020-v01,V2713,D1B10,D1. Access to infrastructure - Time to get to the nearest Bank branch
+89,F4,data-rfs-2020-v01,V2714,D1C10,D1. Access to infrastructure - Main transport mode to get to the nearest Bank b
+89,F4,data-rfs-2020-v01,V2715,D1A11,D1. Access to infrastructure - Distance to get to the nearest ATM
+89,F4,data-rfs-2020-v01,V2716,D1B11,D1. Access to infrastructure - Time to get to the nearest ATM
+89,F4,data-rfs-2020-v01,V2717,D1C11,D1. Access to infrastructure - Main transport mode to get to the nearest ATM
+89,F4,data-rfs-2020-v01,V2718,D1A13,D1. Access to infrastructure - Distance to get to the nearest Bank agent
+89,F4,data-rfs-2020-v01,V2719,D1B13,D1. Access to infrastructure - Time to get to the nearest Mobile van
+89,F4,data-rfs-2020-v01,V2720,D1C13,D1. Access to infrastructure - Main transport mode to get to the nearest Bank a
+89,F4,data-rfs-2020-v01,V2721,D1A14,D1. Access to infrastructure - Distance to the nearest Mobile money agent
+89,F4,data-rfs-2020-v01,V2722,D1B14,D1. Access to infrastructure - Time to the nearest Mobile money agent
+89,F4,data-rfs-2020-v01,V2723,D1C14,D1. Access to infrastructure - Main transport mode to the nearest MoM agent
+89,F4,data-rfs-2020-v01,V2724,D1A15,D1. Access to infrastructure - Distance to the nearest Insurance branch
+89,F4,data-rfs-2020-v01,V2725,D1B15,D1. Access to infrastructure - Time to the nearest Insurance branch
+89,F4,data-rfs-2020-v01,V2726,D1C15,D1. Access to infrastructure - Main transport mode to the nearest Insurance bra
+89,F4,data-rfs-2020-v01,V2727,E1,E1. Responsible for money mgmt decisions at HH
+89,F4,data-rfs-2020-v01,V2728,EF2_1,EF2. Financial products awareness - Saving account at a bank
+89,F4,data-rfs-2020-v01,V2729,EF2_2,EF2. Financial products awareness - Loan account from a bank
+89,F4,data-rfs-2020-v01,V2730,EF2_3,EF2. Financial products awareness - Cebit card/Bank card
+89,F4,data-rfs-2020-v01,V2731,EF2_4,EF2. Financial products awareness - Bank card
+89,F4,data-rfs-2020-v01,V2732,EF2_5,EF2. Financial products awareness - Internet banking
+89,F4,data-rfs-2020-v01,V2733,EF2_6,EF2. Financial products awareness - Women banking account
+89,F4,data-rfs-2020-v01,V2734,EF2_7,EF2. Financial products awareness - MFI
+89,F4,data-rfs-2020-v01,V2735,EF2_8,EF2. Financial products awareness - U_SACCOs
+89,F4,data-rfs-2020-v01,V2736,EF2_9,EF2. Financial products awareness - MoM
+89,F4,data-rfs-2020-v01,V2737,EF2_10,EF2. Financial products awareness - Medical insurance
+89,F4,data-rfs-2020-v01,V2738,EF2_11,EF2. Financial products awareness - Life insurance
+89,F4,data-rfs-2020-v01,V2739,EF2_12,EF2. Financial products awareness - Micro insurance_Agriculture insurance
+89,F4,data-rfs-2020-v01,V2740,EF2_13,EF2. Financial products awareness - Third party insurance
+89,F4,data-rfs-2020-v01,V2741,EF2_14,EF2. Financial products awareness - Deposit guarantee fund
+89,F4,data-rfs-2020-v01,V2742,EF2_15,EF2. Financial products awareness - Credit Reference Bureau
+89,F4,data-rfs-2020-v01,V2743,EF2_16,EF2. Financial products awareness - Don't know
+89,F4,data-rfs-2020-v01,V2744,EF3,"EF3. Financial behaviour statement - Before you buy something, you carefully con"
+89,F4,data-rfs-2020-v01,V2745,EF4,EF4. Financial behaviour statement - Paying bills on time
+89,F4,data-rfs-2020-v01,V2746,EF5,EF5. Financial behaviour statement - Keeping close personal watch on financial a
+89,F4,data-rfs-2020-v01,V2747,EF6,EF6. Financial behaviour statement - Setting long_term financial goals and work
+89,F4,data-rfs-2020-v01,V2748,EF7,EF7. Financial behaviour statement - Income not covering living costs
+89,F4,data-rfs-2020-v01,V2749,EF8_1,EF8. Coping startegies to make ends meet - Draw money out of savings from bank_M
+89,F4,data-rfs-2020-v01,V2750,EF8_2,EF8. Coping startegies to make ends meet - Cut back on spending
+89,F4,data-rfs-2020-v01,V2751,EF8_3,EF8. Coping startegies to make ends meet - Sell something that I own
+89,F4,data-rfs-2020-v01,V2752,EF8_4,"EF8. Coping startegies to make ends meet - Work overtime, earn extra money"
+89,F4,data-rfs-2020-v01,V2753,EF8_5,EF8. Coping startegies to make ends meet - Borrow food or money from family or f
+89,F4,data-rfs-2020-v01,V2754,EF8_6,EF8. Coping startegies to make ends meet - Borrow from employer/salary advance
+89,F4,data-rfs-2020-v01,V2755,EF8_7,EF8. Coping startegies to make ends meet - Borrow money from from a bank_MoM_SAC
+89,F4,data-rfs-2020-v01,V2756,EF8_8,EF8. Coping startegies to make ends meet - Pawn something that I own
+89,F4,data-rfs-2020-v01,V2757,EF8_9,EF8. Coping startegies to make ends meet - Take a loan from my savings and loans
+89,F4,data-rfs-2020-v01,V2758,EF8_10,EF8. Coping startegies to make ends meet - Take money out of a flexible home loa
+89,F4,data-rfs-2020-v01,V2759,EF8_11,EF8. Coping startegies to make ends meet - Apply for loan/withdrawal on pension
+89,F4,data-rfs-2020-v01,V2760,EF8_12,EF8. Coping startegies to make ends meet - Other
+89,F4,data-rfs-2020-v01,V2761,EF8_13,EF8. Coping startegies to make ends meet - Not applicable
+89,F4,data-rfs-2020-v01,V2762,EF9,EF9. Setting aside emergency or rainy day funds
+89,F4,data-rfs-2020-v01,V2763,EF1_1,EF1. Over indebtedness - Have missed more than 2 months debt repymt in the past
+89,F4,data-rfs-2020-v01,V2764,EF1_2,EF1. Over indebtedness - Have 4 or more credit commitments
+89,F4,data-rfs-2020-v01,V2765,EF1_3,EF1. Over indebtedness - Credit_borrowing commitments are a heavy burden
+89,F4,data-rfs-2020-v01,V2766,EF1_4,EF1. Have enough money left for savings after covering all spending needs
+89,F4,data-rfs-2020-v01,V2767,EF11,EF11. Financial skills - Friends sharing 20000 Rwf equally
+89,F4,data-rfs-2020-v01,V2768,EF12,EF12. Financial skills - Friends waiting for one year to get their share of the
+89,F4,data-rfs-2020-v01,V2769,EF13,EF13. Financial skills - Lending 5 000 Rwf to a friend to be given back the nex
+89,F4,data-rfs-2020-v01,V2770,E6_1,E6. Financial skills - Comparing options and choose the best one that suits your
+89,F4,data-rfs-2020-v01,V2771,E6_2,E6. Financial skills - Knowing what to do when not satisfied with a financial se
+89,F4,data-rfs-2020-v01,V2772,E6_3,E6. Financial skills - Confident enough to make a complaint
+89,F4,data-rfs-2020-v01,V2773,E6_4,E6. Financial skills - Don not mind being in debt as long as you have what you n
+89,F4,data-rfs-2020-v01,V2774,E6_5,E6. Financial skills - Understanding terms and conditions in the contract with a
+89,F4,data-rfs-2020-v01,V2775,E7_1,E7. Transparency - Do you feel that the information on financial products or ser
+89,F4,data-rfs-2020-v01,V2776,E7_2,E7. Transparency - Taken a financial product/service and later surprised about i
+89,F4,data-rfs-2020-v01,V2777,E7_3,E7. Transparency - Were informed of changes to fees or charges of financial prod
+89,F4,data-rfs-2020-v01,V2778,E7_4,E7. Transparency - Wsa information provided in a language you understand?
+89,F4,data-rfs-2020-v01,V2779,E7_5,E7. Transparency - How was the information communicated to you
+89,F4,data-rfs-2020-v01,V2780,E7_6,E7. Transparency - What woul you wished to have been informed on?
+89,F4,data-rfs-2020-v01,V2781,E7_7,E7. Transparency - Reason that the information was not understandable
+89,F4,data-rfs-2020-v01,V2782,E7_8,E7. Transparency - Do you trust financial services' advertising
+89,F4,data-rfs-2020-v01,V2783,E7_9,E7. Transparency - Do you budget for your money
+89,F4,data-rfs-2020-v01,V2784,E7_10,E7. Financial Planning - You know the money spent personally in the last 7 days
+89,F4,data-rfs-2020-v01,V2785,E7_11,E7. Financial Planning - Do you keep track of money you get and spend
+89,F4,data-rfs-2020-v01,V2786,E7_12,E7. Financial Planning - How often you have money left after covering all your s
+89,F4,data-rfs-2020-v01,V2787,E7_13_1,E7.13. Financial Planning - Save or keep money for different reasons
+89,F4,data-rfs-2020-v01,V2788,E7_13_2,E7.13. Financial Planning - Invest money in business
+89,F4,data-rfs-2020-v01,V2789,E7_13_3,E7.13. Financial Planning - Invest money in assets
+89,F4,data-rfs-2020-v01,V2790,E7_13_4,E7.13. Financial Planning - Spend money on non_essentials
+89,F4,data-rfs-2020-v01,V2791,E7_13_5,E7.13. Financial Planning - Lend it to others
+89,F4,data-rfs-2020-v01,V2792,E7_13_6,E7.13. Financial Planning - Repay debts
+89,F4,data-rfs-2020-v01,V2793,E7_13_7,E7.13. Financial Planning - Other
+89,F4,data-rfs-2020-v01,V2794,E7_14,E7.14 Consumer empowerment - Do you feel that financial institutions treat you f
+89,F4,data-rfs-2020-v01,V2795,E7_15,"E7.14 Consumer empowerment - Ever been threatened, humiliating by a financial se"
+89,F4,data-rfs-2020-v01,V2796,E7_16,E7.14 Consumer empowerment - Ever been taken advantage of or misguided by a fina
+89,F4,data-rfs-2020-v01,V2797,E7_17,E7.14 Consumer empowerment - Ever been sold a financial product and later realis
+89,F4,data-rfs-2020-v01,V2798,E7_18,E7.14 Consumer empowerment - Ever been sold a loan without an assessement of you
+89,F4,data-rfs-2020-v01,V2799,EF14,EF14. Meeting goals - Currently trying to achieve a goal that requires a lot of
+89,F4,data-rfs-2020-v01,V2800,EF15,EF15. Meeting goals - Main goal that you are currently trying to achieve
+89,F4,data-rfs-2020-v01,V2801,EF16.1#1,EF16.1 Meeting goals - Borrowed from a bank or other formal institution
+89,F4,data-rfs-2020-v01,V2802,EF16.1#2,EF16.1 Meeting goals - Borrowed from money lender (loan shark)
+89,F4,data-rfs-2020-v01,V2803,EF16.1#3,EF16.1 Meeting goals - Borrowed from saving group
+89,F4,data-rfs-2020-v01,V2804,EF16.1#4,EF16.1 Meeting goals - Took a loan / advance from my employer
+89,F4,data-rfs-2020-v01,V2805,EF16.1#5,EF16.1 Meeting goals - Borrowed from family or friends or community or church or
+89,F4,data-rfs-2020-v01,V2806,EF16.1#6,EF16.1 Meeting goals - Took a loan from a shopkeeper
+89,F4,data-rfs-2020-v01,V2807,EF16.1#7,EF16.1 Meeting goals - Borrowed from a digital app_based lender e.g. Mokash
+89,F4,data-rfs-2020-v01,V2808,EF16.1#8,EF16.1 Meeting goals - Used savings held at a bank or Post Bank or Insurance pro
+89,F4,data-rfs-2020-v01,V2809,EF16.1#9,EF16.1 Meeting goals - Used savings from a saving club
+89,F4,data-rfs-2020-v01,V2810,EF16.1#10,EF16.1 Meeting goals - Used savings held with friends or family
+89,F4,data-rfs-2020-v01,V2811,EF16.1#11,EF16.1 Meeting goals - Used savings held in a secret hiding place
+89,F4,data-rfs-2020-v01,V2812,EF16.1#12,EF16.1 Meeting goals - Sold livestock
+89,F4,data-rfs-2020-v01,V2813,EF16.1#13,"EF16.1 Meeting goals - Sold other assets, not livestock"
+89,F4,data-rfs-2020-v01,V2814,EF16.1#14,EF16.1 Meeting goals - Got assistance or gift from friends or family or communit
+89,F4,data-rfs-2020-v01,V2815,EF16.1#15,EF16.1 Meeting goals - Cut back on expenses or adjust consumption patterns
+89,F4,data-rfs-2020-v01,V2816,EF16.1#16,EF16.1 Meeting goals - Got goods or items on credit
+89,F4,data-rfs-2020-v01,V2817,EF16.1#17,EF16.1 Meeting goals - Worked more or got additional jobs
+89,F4,data-rfs-2020-v01,V2818,EF16.1#18,EF16.1 Meeting goals - Hire purchase
+89,F4,data-rfs-2020-v01,V2819,EF16.1#19,EF16.1 Meeting goals - Education insurance
+89,F4,data-rfs-2020-v01,V2820,EF16.1#20,EF16.1 Meeting goals - Other
+89,F4,data-rfs-2020-v01,V2821,EF16.1#21,EF16.1 Meeting goals - Don't know
+89,F4,data-rfs-2020-v01,V2822,EF16.1#22,EF16.1 Meeting goals - Refused to Answer
+89,F4,data-rfs-2020-v01,V2823,E16_2,E16.2 Meeting goals - Main device used or are using to pay for archieving the go
+89,F4,data-rfs-2020-v01,V2824,QF1_01,QF1. Ever used - Commercial Bank
+89,F4,data-rfs-2020-v01,V2825,QF1_02,QF1. Ever used - Microfinance institution
+89,F4,data-rfs-2020-v01,V2826,QF1_03,QF1. Ever used - Non-Deposit Taking Lending Financial
+89,F4,data-rfs-2020-v01,V2827,QF1_04,QF1. Ever used - Mobile money operator
+89,F4,data-rfs-2020-v01,V2828,QF1_05,QF1. Ever used - Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2829,QF1_06,QF1. Ever used - Insurance provider
+89,F4,data-rfs-2020-v01,V2830,QF1_07,QF1. Ever used - Pension fund administrator
+89,F4,data-rfs-2020-v01,V2831,QF1_08,QF1. Ever used - Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V2832,QF1_09,QF1. Ever used - Village/community association
+89,F4,data-rfs-2020-v01,V2833,QF1_10,QF1. Ever used - None of the above
+89,F4,data-rfs-2020-v01,V2834,QF2_01,"QF2. Offer at least one of [Savings, money transfers, insurance, credit or inves] - Commercial bank"
+89,F4,data-rfs-2020-v01,V2835,QF2_02,"QF2. Offer at least one of [Savings, money transfers, insurance, credit or inves] - Microfinance institution (non-umurenge)"
+89,F4,data-rfs-2020-v01,V2836,QF2_03,"QF2. Offer at least one of [Savings, money transfers, insurance, credit or inves] - Non-Deposit Taking Lending Financial Institutions (NDFI)"
+89,F4,data-rfs-2020-v01,V2837,QF2_04,"QF2. Offer at least one of [Savings, money transfers, insurance, credit or inves] - Mobile money operator"
+89,F4,data-rfs-2020-v01,V2838,QF2_05,"QF2. Offer at least one of [Savings, money transfers, insurance, credit or inves] - Umurenge SACCO"
+89,F4,data-rfs-2020-v01,V2839,QF3_01,QF3. Offer digital services - Commercial Bank
+89,F4,data-rfs-2020-v01,V2840,QF3_02,QF3. Offer digital services - Microfinance institution
+89,F4,data-rfs-2020-v01,V2841,QF3_03,QF3. Offer digital services - Non-Deposit Taking Lending Financial (NDFI)
+89,F4,data-rfs-2020-v01,V2842,QF3_04,QF3. Offer digital services - Mobile money operator
+89,F4,data-rfs-2020-v01,V2843,QF3_05,QF3. Offer digital services - Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2844,QF4_01,QF4. Registered in own name - Commercial Bank
+89,F4,data-rfs-2020-v01,V2845,QF4_02,QF4. Registered in own name - Microfinance institution
+89,F4,data-rfs-2020-v01,V2846,QF4_03,QF4. Registered in own name - Non-Deposit Taking Lending Financial (NDFI)
+89,F4,data-rfs-2020-v01,V2847,QF4_04,QF4. Registered in own name - Mobile money operator
+89,F4,data-rfs-2020-v01,V2848,QF4_05,QF4. Registered in own name - Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2849,QF4_06,QF4. Registered in own name - Insurance provider
+89,F4,data-rfs-2020-v01,V2850,QF4_07,QF4. Registered in own name - Pension fund administrator
+89,F4,data-rfs-2020-v01,V2851,QF4_08,QF4. Registered in own name - Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V2852,QF4_09,QF4. Registered in own name - Village/community association
+89,F4,data-rfs-2020-v01,V2853,QF4_10,QF4. Registered in own name - None of the above
+89,F4,data-rfs-2020-v01,V2854,QF5_01,QF5. Currently or sometimes use - Commercial Bank
+89,F4,data-rfs-2020-v01,V2855,QF5_02,QF5. Currently or sometimes use - Microfinance institution
+89,F4,data-rfs-2020-v01,V2856,QF5_03,QF5. Currently or sometimes use - Non-Deposit Taking Lending Financial (NDFI)
+89,F4,data-rfs-2020-v01,V2857,QF5_04,QF5. Currently or sometimes use - Mobile money operatorr
+89,F4,data-rfs-2020-v01,V2858,QF5_05,QF5. Currently or sometimes use - Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2859,QF5_06,QF5. Currently or sometimes use - Insurance provider
+89,F4,data-rfs-2020-v01,V2860,QF5_07,QF5. Currently or sometimes use - Pension fund administrator
+89,F4,data-rfs-2020-v01,V2861,QF5_08,QF5. Currently or sometimes use - Savings group that you save with or borrow fro
+89,F4,data-rfs-2020-v01,V2862,QF5_09,QF5. Currently or sometimes use - Village/community associationr
+89,F4,data-rfs-2020-v01,V2863,QF5_10,QF5. Currently or sometimes use - None of the above
+89,F4,data-rfs-2020-v01,V2864,QF601_01,QF6.1. Activities conducted: Deposited or withdrew money - Commercial Bank
+89,F4,data-rfs-2020-v01,V2865,QF601_02,QF6.1. Activities conducted: Deposited or withdrew money - Microfinance institutio
+89,F4,data-rfs-2020-v01,V2866,QF601_03,QF6.1. Activities conducted: Deposited or withdrew money - Non-Deposit Taking Lend
+89,F4,data-rfs-2020-v01,V2867,QF601_04,QF6.1. Activities conducted: Deposited or withdrew money - Mobile money operator
+89,F4,data-rfs-2020-v01,V2868,QF601_05,QF6.1. Activities conducted: Deposited or withdrew money - Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2869,QF601_06,QF6.1. Activities conducted: Deposited or withdrew money - Insurance provider
+89,F4,data-rfs-2020-v01,V2870,QF601_07,QF6.1. Activities conducted: Deposited or withdrew money - Pension fund administra
+89,F4,data-rfs-2020-v01,V2871,QF601_08,QF6.1. Activities conducted: Deposited or withdrew money - Savings group that you
+89,F4,data-rfs-2020-v01,V2872,QF601_09,QF6.1. Activities conducted: Deposited or withdrew money - Village/community assoc
+89,F4,data-rfs-2020-v01,V2873,QF601_10,QF6.1. Activities conducted: Deposited or withdrew money - None of the above
+89,F4,data-rfs-2020-v01,V2874,QF602_01,QF6.2. Activities conducted: Bought airtime top-ups or paid a mobile phone bill_Commercial Bank
+89,F4,data-rfs-2020-v01,V2875,QF602_02,QF6.2. Activities conducted: Bought airtime top-ups or paid a mobile phone bill_Microfinance institution
+89,F4,data-rfs-2020-v01,V2876,QF602_03,QF6.2. Activities conducted: Bought airtime top-ups or paid a mobile phone bill_Non-Deposit Taking Lend
+89,F4,data-rfs-2020-v01,V2877,QF602_04,QF6.2. Activities conducted: Bought airtime top-ups or paid a mobile phone bill_Mobile money operator
+89,F4,data-rfs-2020-v01,V2878,QF602_05,QF6.2. Activities conducted: Bought airtime top-ups or paid a mobile phone bill_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2879,QF602_06,QF6.2. Activities conducted: Bought airtime top-ups or paid a mobile phone bill_Insurance provider
+89,F4,data-rfs-2020-v01,V2880,QF602_07,QF6.2. Activities conducted: Bought airtime top-ups or paid a mobile phone bill_Pension fund administration
+89,F4,data-rfs-2020-v01,V2881,QF602_08,QF6.2. Activities conducted: Bought airtime top-ups or paid a mobile phone bill_Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V2882,QF602_09,QF6.2. Activities conducted: Bought airtime top-ups or paid a mobile phone bill_Village/community association
+89,F4,data-rfs-2020-v01,V2883,QF602_10,QF6.2. Activities conducted: Bought airtime top-ups or paid a mobile phone bill_None of the above
+89,F4,data-rfs-2020-v01,V2884,QF603_01,QF6.3. Activities conducted: Paid school fees_Commercial Bank
+89,F4,data-rfs-2020-v01,V2885,QF603_02,QF6.3. Activities conducted: Paid school fees_Microfinance institution
+89,F4,data-rfs-2020-v01,V2886,QF603_03,QF6.3. Activities conducted: Paid school fees_Non-Deposit Taking Lending Financial Institution
+89,F4,data-rfs-2020-v01,V2887,QF603_04,QF6.3. Activities conducted: Paid school fees_ Mobile money operator
+89,F4,data-rfs-2020-v01,V2888,QF603_05,QF6.3. Activities conducted: Paid school fees_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2889,QF603_06,QF6.3. Activities conducted: Paid school fees_Insurance provider
+89,F4,data-rfs-2020-v01,V2890,QF603_07,QF6.3. Activities conducted: Paid school fees_Pension fund administrator
+89,F4,data-rfs-2020-v01,V2891,QF603_08,QF6.3. Activities conducted: Paid school fees_Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V2892,QF603_09,QF6.3. Activities conducted: Paid school fees_Village/community association
+89,F4,data-rfs-2020-v01,V2893,QF603_10,QF6.3. Activities conducted: Paid school fees_ None of the above
+89,F4,data-rfs-2020-v01,V2894,QF604_01,QF6.4. Activities conducted: Paid a bill_Commercial Bank
+89,F4,data-rfs-2020-v01,V2895,QF604_02,QF6.4. Activities conducted: Paid a bill_Microfinance institution
+89,F4,data-rfs-2020-v01,V2896,QF604_03,QF6.4. Activities conducted: Paid a bill_Non-Deposit Taking Lending Financial Institution
+89,F4,data-rfs-2020-v01,V2897,QF604_04,QF6.4. Activities conducted: Paid a bill_Mobile money operator
+89,F4,data-rfs-2020-v01,V2898,QF604_05,QF6.4. Activities conducted: Paid a bill_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2899,QF604_06,QF6.4. Activities conducted: Paid a bill_Insurance provider
+89,F4,data-rfs-2020-v01,V2900,QF604_07,QF6.4. Activities conducted: Paid a bill_Pension fund administrator
+89,F4,data-rfs-2020-v01,V2901,QF604_08,QF6.4. Activities conducted: Paid a bill_Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V2902,QF604_09,QF6.4. Activities conducted: Paid a bill_Village/community association
+89,F4,data-rfs-2020-v01,V2903,QF604_10,QF6.4. Activities conducted: Paid a bill_ None of the above
+89,F4,data-rfs-2020-v01,V2904,QF605_01,"QF6.5. Activities conducted: Paid a tax, fine, fee, or other payment to the government_Commercial Bank"
+89,F4,data-rfs-2020-v01,V2905,QF605_02,"QF6.5. Activities conducted: Paid a tax, fine, fee, or other payment to the government_Microfinance institution"
+89,F4,data-rfs-2020-v01,V2906,QF605_03,"QF6.5. Activities conducted: Paid a tax, fine, fee, or other payment to the government_Non-Deposit Taking Lending Financial Institution"
+89,F4,data-rfs-2020-v01,V2907,QF605_04,"QF6.5. Activities conducted: Paid a tax, fine, fee, or other payment to the government_Mobile money operator"
+89,F4,data-rfs-2020-v01,V2908,QF605_05,"QF6.5. Activities conducted: Paid a tax, fine, fee, or other payment to the government_Umurenge SACCO"
+89,F4,data-rfs-2020-v01,V2909,QF605_06,"QF6.5. Activities conducted: Paid a tax, fine, fee, or other payment to the government_Insurance provider"
+89,F4,data-rfs-2020-v01,V2910,QF605_07,"QF6.5. Activities conducted: Paid a tax, fine, fee, or other payment to the government_Pension fund administrator"
+89,F4,data-rfs-2020-v01,V2911,QF605_08,"QF6.5. Activities conducted: Paid a tax, fine, fee, or other payment to the government_Savings group that you save with or borrow from"
+89,F4,data-rfs-2020-v01,V2912,QF605_09,"QF6.5. Activities conducted: Paid a tax, fine, fee, or other payment to the government_Village/community association"
+89,F4,data-rfs-2020-v01,V2913,QF605_10,"QF6.5. Activities conducted: Paid a tax, fine, fee, or other payment to the government_None of the above"
+89,F4,data-rfs-2020-v01,V2914,QF606_01,"QF6.6. Activities conducted: Sent money to, or received money from someone_Commercial Bank"
+89,F4,data-rfs-2020-v01,V2915,QF606_02,"QF6.6. Activities conducted: Sent money to, or received money from someone_Microfinance institution"
+89,F4,data-rfs-2020-v01,V2916,QF606_03,"QF6.6. Activities conducted: Sent money to, or received money from someone_Non-Deposit Taking Lending Financial Institution"
+89,F4,data-rfs-2020-v01,V2917,QF606_04,"QF6.6. Activities conducted: Sent money to, or received money from someone_ Mobile money operator"
+89,F4,data-rfs-2020-v01,V2918,QF606_05,"QF6.6. Activities conducted: Sent money to, or received money from someone_Umurenge SACCO"
+89,F4,data-rfs-2020-v01,V2919,QF606_06,"QF6.6. Activities conducted: Sent money to, or received money from someone_Insurance provider"
+89,F4,data-rfs-2020-v01,V2920,QF606_07,"QF6.6. Activities conducted: Sent money to, or received money from someone_Pension fund administrator"
+89,F4,data-rfs-2020-v01,V2921,QF606_08,"QF6.6. Activities conducted: Sent money to, or received money from someone_Savings group that you save with or borrow from"
+89,F4,data-rfs-2020-v01,V2922,QF606_09,"QF6.6. Activities conducted: Sent money to, or received money from someone_Village/community association"
+89,F4,data-rfs-2020-v01,V2923,QF606_10,"QF6.6. Activities conducted: Sent money to, or received money from someone_ None of these"
+89,F4,data-rfs-2020-v01,V2924,QF607_01,QF6.7. Activities conducted: Received money from the government_Commercial Bank
+89,F4,data-rfs-2020-v01,V2925,QF607_02,QF6.7. Activities conducted: Received money from the government_Microfinance institution
+89,F4,data-rfs-2020-v01,V2926,QF607_03,QF6.7. Activities conducted: Received money from the government_Non-Deposit Takiing Lending Financial Institution
+89,F4,data-rfs-2020-v01,V2927,QF607_04,QF6.7. Activities conducted: Received money from the government_ Mobile money operator
+89,F4,data-rfs-2020-v01,V2928,QF607_05,QF6.7. Activities conducted: Received money from the government_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2929,QF607_06,QF6.7. Activities conducted: Received money from the government_Insurance provider
+89,F4,data-rfs-2020-v01,V2930,QF607_07,QF6.7. Activities conducted: Received money from the government_Pension fund administrator
+89,F4,data-rfs-2020-v01,V2931,QF607_08,QF6.7. Activities conducted: Received money from the government_Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V2932,QF607_09,QF6.7. Activities conducted: Received money from the government_Village/community association
+89,F4,data-rfs-2020-v01,V2933,QF607_10,QF6.7. Activities conducted: Received money from the government_ None of the above
+89,F4,data-rfs-2020-v01,V2934,QF608_01,QF6.8. Activities conducted: Received wages from an employer_Commercial Bank
+89,F4,data-rfs-2020-v01,V2935,QF608_02,QF6.8. Activities conducted: Received wages from an employer_Microfinance institution
+89,F4,data-rfs-2020-v01,V2936,QF608_03,QF6.8. Activities conducted: Received wages from an employer_Non-Deposit Taking
+89,F4,data-rfs-2020-v01,V2937,QF608_04,QF6.8. Activities conducted: Received wages from an employer_ Mobile money operation
+89,F4,data-rfs-2020-v01,V2938,QF608_05,QF6.8. Activities conducted: Received wages from an employer_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2939,QF608_06,QF6.8. Activities conducted: Received wages from an employer_Insurance provider
+89,F4,data-rfs-2020-v01,V2940,QF608_07,QF6.8. Activities conducted: Received wages from an employer_Pension fund administration
+89,F4,data-rfs-2020-v01,V2941,QF608_08,QF6.8. Activities conducted: Received wages from an employer_Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V2942,QF608_09,QF6.8. Activities conducted: Received wages from an employer_Village/community association
+89,F4,data-rfs-2020-v01,V2943,QF608_10,QF6.8. Activities conducted: Received wages from an employer_ None of the above
+89,F4,data-rfs-2020-v01,V2944,QF609_01,QF6.9. Activities conducted: Made insurance payments or received claims on insurance_Commercial Bank
+89,F4,data-rfs-2020-v01,V2945,QF609_02,QF6.9. Activities conducted: Made insurance payments or received claims on insurance_Microfinance institution
+89,F4,data-rfs-2020-v01,V2946,QF609_03,QF6.9. Activities conducted: Made insurance payments or received claims on insurance_Non-Deposit Taking Lending Financial Institutions
+89,F4,data-rfs-2020-v01,V2947,QF609_04,QF6.9. Activities conducted: Made insurance payments or received claims on insurance_Mobile money operator
+89,F4,data-rfs-2020-v01,V2948,QF609_05,QF6.9. Activities conducted: Made insurance payments or received claims on insurance_ Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2949,QF609_06,QF6.9. Activities conducted: Made insurance payments or received claims on insurance_Insurance provider
+89,F4,data-rfs-2020-v01,V2950,QF609_07,QF6.9. Activities conducted: Made insurance payments or received claims on insurance_Pension fund administration
+89,F4,data-rfs-2020-v01,V2951,QF609_08,QF6.9. Activities conducted: Made insurance payments or received claims on insurance_Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V2952,QF609_09,QF6.9. Activities conducted: Made insurance payments or received claims on insurance_Village/community association
+89,F4,data-rfs-2020-v01,V2953,QF609_10,QF6.9. Activities conducted: Made insurance payments or received claims on insurance_ None of the above
+89,F4,data-rfs-2020-v01,V2954,QF610_01,QF6.10. Activities conducted: Borrowed money_Commercial Bank
+89,F4,data-rfs-2020-v01,V2955,QF610_02,QF6.10. Activities conducted: Borrowed money_Microfinance institution
+89,F4,data-rfs-2020-v01,V2956,QF610_03,QF6.10. Activities conducted: Borrowed money_Non-Deposit Taking Lending Financia
+89,F4,data-rfs-2020-v01,V2957,QF610_04,QF6.10. Activities conducted: Borrowed money_ Mobile money operator
+89,F4,data-rfs-2020-v01,V2958,QF610_05,QF6.10. Activities conducted: Borrowed money_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2959,QF610_06,QF6.10. Activities conducted: Borrowed money_Insurance provider
+89,F4,data-rfs-2020-v01,V2960,QF610_07,QF6.10. Activities conducted: Borrowed money_Pension fund administrator
+89,F4,data-rfs-2020-v01,V2961,QF610_08,QF6.10. Activities conducted: Borrowed money_Savings group that you save with or
+89,F4,data-rfs-2020-v01,V2962,QF610_09,QF6.10. Activities conducted: Borrowed money_Village/community association
+89,F4,data-rfs-2020-v01,V2963,QF610_10,QF6.10. Activities conducted: Borrowed money_ None of the above
+89,F4,data-rfs-2020-v01,V2964,QF611_01,QF6.11. Activities conducted: Saved money_Commercial Bank
+89,F4,data-rfs-2020-v01,V2965,QF611_02,QF6.11. Activities conducted: Saved money_Microfinance institution
+89,F4,data-rfs-2020-v01,V2966,QF611_03,QF6.11. Activities conducted: Saved money_Non-Deposit Taking Lending Financial
+89,F4,data-rfs-2020-v01,V2967,QF611_04,QF6.11. Activities conducted: Saved money_ Mobile money operator
+89,F4,data-rfs-2020-v01,V2968,QF611_05,QF6.11. Activities conducted: Saved money_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2969,QF611_06,QF6.11. Activities conducted: Saved money_Insurance provider
+89,F4,data-rfs-2020-v01,V2970,QF611_07,QF6.11. Activities conducted: Saved money_Pension fund administrator
+89,F4,data-rfs-2020-v01,V2971,QF611_08,QF6.11. Activities conducted: Saved money_Savings group that you save with or bo
+89,F4,data-rfs-2020-v01,V2972,QF611_09,QF6.11. Activities conducted: Saved money_Village/community association
+89,F4,data-rfs-2020-v01,V2973,QF611_10,QF6.11. Activities conducted: Saved money_ None of the above
+89,F4,data-rfs-2020-v01,V2974,QF612_01,QF6.12. Activities conducted: Made an investment_Commercial Bank
+89,F4,data-rfs-2020-v01,V2975,QF612_02,QF6.12. Activities conducted: Made an investment_Microfinance institution
+89,F4,data-rfs-2020-v01,V2976,QF612_03,QF6.12. Activities conducted: Made an investment_Non-Deposit Taking Lending Fina
+89,F4,data-rfs-2020-v01,V2977,QF612_04,QF6.12. Activities conducted: Made an investment_ Mobile money operator
+89,F4,data-rfs-2020-v01,V2978,QF612_05,QF6.12. Activities conducted: Made an investment_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2979,QF612_06,QF6.12. Activities conducted: Made an investment_Insurance provider
+89,F4,data-rfs-2020-v01,V2980,QF612_07,QF6.12. Activities conducted: Made an investment_Pension fund administrator
+89,F4,data-rfs-2020-v01,V2981,QF612_08,QF6.12. Activities conducted: Made an investment_Savings group that you save wit
+89,F4,data-rfs-2020-v01,V2982,QF612_09,QF6.12. Activities conducted: Made an investment_Village/community association
+89,F4,data-rfs-2020-v01,V2983,QF612_10,QF6.12. Activities conducted: Made an investment_ None of the above
+89,F4,data-rfs-2020-v01,V2984,QF613_01,QF6.13. Activities conducted: Paid for goods or services_Commercial Bank
+89,F4,data-rfs-2020-v01,V2985,QF613_02,QF6.13. Activities conducted: Paid for goods or services_Microfinance institution
+89,F4,data-rfs-2020-v01,V2986,QF613_03,QF6.13. Activities conducted: Paid for goods or services_Non-Deposit Taking Lending Financial Institutions
+89,F4,data-rfs-2020-v01,V2987,QF613_04,QF6.13. Activities conducted: Paid for goods or services_Mobile money operator
+89,F4,data-rfs-2020-v01,V2988,QF613_05,QF6.13. Activities conducted: Paid for goods or services_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2989,QF613_06,QF6.13. Activities conducted: Paid for goods or services_Insurance provider
+89,F4,data-rfs-2020-v01,V2990,QF613_07,QF6.13. Activities conducted: Paid for goods or services_Pension fund administrator
+89,F4,data-rfs-2020-v01,V2991,QF613_08,QF6.13. Activities conducted: Paid for goods or services_Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V2992,QF613_09,QF6.13. Activities conducted: Paid for goods or services_Village/community association
+89,F4,data-rfs-2020-v01,V2993,QF613_10,QF6.13. Activities conducted: Paid for goods or services_ None of the above
+89,F4,data-rfs-2020-v01,V2994,QF7A_01,QF7a. Level of satisfaction for - Commercial Bank
+89,F4,data-rfs-2020-v01,V2995,QF7A_02,QF7a. Level of satisfaction for - Microfinance institution
+89,F4,data-rfs-2020-v01,V2996,QF7A_03,QF7a. Level of satisfaction for - Non-Deposit Taking Lending Financial (NDFI)
+89,F4,data-rfs-2020-v01,V2997,QF7A_04,QF7a. Level of satisfaction for - Mobile money operator
+89,F4,data-rfs-2020-v01,V2998,QF7A_05,QF7a. Level of satisfaction for - Umurenge SACCO
+89,F4,data-rfs-2020-v01,V2999,QF7A_06,QF7a. Level of satisfaction for - Insurance provider
+89,F4,data-rfs-2020-v01,V3000,QF7A_07,QF7a. Level of satisfaction for - Pension fund administrator
+89,F4,data-rfs-2020-v01,V3001,QF7A_08,QF7a. Level of satisfaction for - Savings group that you save with or borrow fro
+89,F4,data-rfs-2020-v01,V3002,QF7A_09,QF7a. Level of satisfaction for - Village/community association
+89,F4,data-rfs-2020-v01,V3003,QF7A_10,QF7a. Level of satisfaction for - None of the above
+89,F4,data-rfs-2020-v01,V3004,QF7B_01,QF7b. When did you last use - Commercial Bank
+89,F4,data-rfs-2020-v01,V3005,QF7B_02,QF7b. When did you last use - Microfinance institution
+89,F4,data-rfs-2020-v01,V3006,QF7B_03,QF7b. When did you last use - Non-Deposit Taking Lending Financial (NDFI)
+89,F4,data-rfs-2020-v01,V3007,QF7B_04,QF7b. When did you last use - Mobile money operator
+89,F4,data-rfs-2020-v01,V3008,QF7B_05,QF7b. When did you last use - Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3009,QF7B_06,QF7b. When did you last use - Insurance provider
+89,F4,data-rfs-2020-v01,V3010,QF7B_07,QF7b. When did you last use - Pension fund administrator
+89,F4,data-rfs-2020-v01,V3011,QF7B_08,QF7b. When did you last use - Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V3012,QF7B_09,QF7b. When did you last use - Village/community association
+89,F4,data-rfs-2020-v01,V3013,QF7B_10,QF7b. When did you last use - None of the above
+89,F4,data-rfs-2020-v01,V3014,QF8,QF8. Most important Financial Institution
+89,F4,data-rfs-2020-v01,V3015,QF9_1,QF9. Reasons for ranking high - Ease of access
+89,F4,data-rfs-2020-v01,V3016,QF9_2,QF9. Reasons for ranking high - Safety of funds
+89,F4,data-rfs-2020-v01,V3017,QF9_3,QF9. Reasons for ranking high - Convience
+89,F4,data-rfs-2020-v01,V3018,QF9_4,QF9. Reasons for ranking high - Cost of products/services
+89,F4,data-rfs-2020-v01,V3019,QF9_5,QF9. Reasons for ranking high - Availability
+89,F4,data-rfs-2020-v01,V3020,QF9_6,QF9. Reasons for ranking high - Trust
+89,F4,data-rfs-2020-v01,V3021,QF9_7,QF9. Reasons for ranking high - Other
+89,F4,data-rfs-2020-v01,V3022,UF1_01,UF1. Use of institution's account that Belong to someone else or a group account
+89,F4,data-rfs-2020-v01,V3023,UF1_02,UF1. Use of institution's account that Belong to someone else or a group account
+89,F4,data-rfs-2020-v01,V3024,UF1_03,UF1. Use of institution's account that Belong to someone else or a group account
+89,F4,data-rfs-2020-v01,V3025,UF1_04,UF1. Use of institution's account that Belong to someone else or a group account
+89,F4,data-rfs-2020-v01,V3026,UF1_05,UF1. Use of institution's account that Belong to someone else or a group account
+89,F4,data-rfs-2020-v01,V3027,UF1_06,UF1. Use of institution's account that Belong to someone else or a group account
+89,F4,data-rfs-2020-v01,V3028,UF1_07,UF1. Use of institution's account that Belong to someone else or a group account
+89,F4,data-rfs-2020-v01,V3029,UF1_08,UF1. Use of institution's account that Belong to someone else or a group account
+89,F4,data-rfs-2020-v01,V3030,UF1_09,UF1. Use of institution's account that Belong to someone else or a group account
+89,F4,data-rfs-2020-v01,V3031,UF1_10,UF1. Use of institution's account that Belong to someone else or a group account
+89,F4,data-rfs-2020-v01,V3032,UF2_01,UF2. When did you open an account with - Commercial Bank
+89,F4,data-rfs-2020-v01,V3033,UF2_02,UF2. When did you open an account with - Microfinance institution
+89,F4,data-rfs-2020-v01,V3034,UF2_03,UF2. When did you open an account with - Non-Deposit Taking Lending Financial (N
+89,F4,data-rfs-2020-v01,V3035,UF2_04,UF2. When did you open an account with - Mobile money operator
+89,F4,data-rfs-2020-v01,V3036,UF2_05,UF2. When did you open an account with - Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3037,UF2_06,UF2. When did you open an account with - Insurance provider
+89,F4,data-rfs-2020-v01,V3038,UF2_07,UF2. When did you open an account with - Pension fund administrator
+89,F4,data-rfs-2020-v01,V3039,UF2_08,UF2. When did you open an account with - Savings group that you save with or bor
+89,F4,data-rfs-2020-v01,V3040,UF2_09,UF2. When did you open an account with - Village/community association
+89,F4,data-rfs-2020-v01,V3041,UF2_10,UF2. When did you open an account with - None of the above
+89,F4,data-rfs-2020-v01,V3042,UF3_1_01,UF3. Documents required when opened: National ID card_Commercial Bank
+89,F4,data-rfs-2020-v01,V3043,UF3_1_02,UF3. Documents required when opened: National ID card_Microfinance institution
+89,F4,data-rfs-2020-v01,V3044,UF3_1_03,UF3. Documents required when opened: National ID card_Non-Deposit Taking Lending
+89,F4,data-rfs-2020-v01,V3045,UF3_1_04,UF3. Documents required when opened: National ID card_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3046,UF3_1_05,UF3. Documents required when opened: National ID card_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3047,UF3_1_06,UF3. Documents required when opened: National ID card_Insurance provider
+89,F4,data-rfs-2020-v01,V3048,UF3_1_07,UF3. Documents required when opened: National ID card_Pension fund administrator
+89,F4,data-rfs-2020-v01,V3049,UF3_1_08,UF3. Documents required when opened: National ID card_Savings group that you sav
+89,F4,data-rfs-2020-v01,V3050,UF3_1_09,UF3. Documents required when opened: National ID card_Village/community associat
+89,F4,data-rfs-2020-v01,V3051,UF3_1_10,UF3. Documents required when opened: National ID card_ None of the above
+89,F4,data-rfs-2020-v01,V3052,UF3_2_01,UF3. Documents required when opened: International passport_Commercial Bank
+89,F4,data-rfs-2020-v01,V3053,UF3_2_02,UF3. Documents required when opened: International passport_Microfinance institu
+89,F4,data-rfs-2020-v01,V3054,UF3_2_03,UF3. Documents required when opened: International passport_Non-Deposit Taking L
+89,F4,data-rfs-2020-v01,V3055,UF3_2_04,UF3. Documents required when opened: International passport_ Mobile money operat
+89,F4,data-rfs-2020-v01,V3056,UF3_2_05,UF3. Documents required when opened: International passport_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3057,UF3_2_06,UF3. Documents required when opened: International passport_Insurance provider
+89,F4,data-rfs-2020-v01,V3058,UF3_2_07,UF3. Documents required when opened: International passport_Pension fund adminis
+89,F4,data-rfs-2020-v01,V3059,UF3_2_08,UF3. Documents required when opened: International passport_Savings group that y
+89,F4,data-rfs-2020-v01,V3060,UF3_2_09,UF3. Documents required when opened: International passport_Village/community as
+89,F4,data-rfs-2020-v01,V3061,UF3_2_10,UF3. Documents required when opened: International passport_ None of the above
+89,F4,data-rfs-2020-v01,V3062,UF3_3_01,UF3. Documents required when opened: Driver license_Commercial Bank
+89,F4,data-rfs-2020-v01,V3063,UF3_3_02,UF3. Documents required when opened: Driver license_Microfinance institution
+89,F4,data-rfs-2020-v01,V3064,UF3_3_03,UF3. Documents required when opened: Driver license_Non-Deposit Taking Lending F
+89,F4,data-rfs-2020-v01,V3065,UF3_3_04,UF3. Documents required when opened: Driver license_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3066,UF3_3_05,UF3. Documents required when opened: Driver license_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3067,UF3_3_06,UF3. Documents required when opened: Driver license_Insurance provider
+89,F4,data-rfs-2020-v01,V3068,UF3_3_07,UF3. Documents required when opened: Driver license_Pension fund administrator
+89,F4,data-rfs-2020-v01,V3069,UF3_3_08,UF3. Documents required when opened: Driver license_Savings group that you save
+89,F4,data-rfs-2020-v01,V3070,UF3_3_09,UF3. Documents required when opened: Driver license_Village/community associatio
+89,F4,data-rfs-2020-v01,V3071,UF3_3_10,UF3. Documents required when opened: Driver license_ None of the above
+89,F4,data-rfs-2020-v01,V3072,UF3_4_01,UF3. Documents required when opened: Voter card_Commercial Bank
+89,F4,data-rfs-2020-v01,V3073,UF3_4_02,UF3. Documents required when opened: Voter card_Microfinance institution
+89,F4,data-rfs-2020-v01,V3074,UF3_4_03,UF3. Documents required when opened: Voter card_Non-Deposit Taking Lending Finan
+89,F4,data-rfs-2020-v01,V3075,UF3_4_04,UF3. Documents required when opened: Voter card_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3076,UF3_4_05,UF3. Documents required when opened: Voter card_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3077,UF3_4_06,UF3. Documents required when opened: Voter card_Insurance provider
+89,F4,data-rfs-2020-v01,V3078,UF3_4_07,UF3. Documents required when opened: Voter card_Pension fund administrator
+89,F4,data-rfs-2020-v01,V3079,UF3_4_08,UF3. Documents required when opened: Voter card_Savings group that you save with
+89,F4,data-rfs-2020-v01,V3080,UF3_4_09,UF3. Documents required when opened: Voter card_Village/community association
+89,F4,data-rfs-2020-v01,V3081,UF3_4_10,UF3. Documents required when opened: Voter card_ None of the above
+89,F4,data-rfs-2020-v01,V3082,UF3_5_01,UF3. Documents required when opened: Passport photograph_Commercial Bank
+89,F4,data-rfs-2020-v01,V3083,UF3_5_02,UF3. Documents required when opened: Passport photograph_Microfinance institutio
+89,F4,data-rfs-2020-v01,V3084,UF3_5_03,UF3. Documents required when opened: Passport photograph_Non-Deposit Taking Lend
+89,F4,data-rfs-2020-v01,V3085,UF3_5_04,UF3. Documents required when opened: Passport photograph_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3086,UF3_5_05,UF3. Documents required when opened: Passport photograph_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3087,UF3_5_06,UF3. Documents required when opened: Passport photograph_Insurance provider
+89,F4,data-rfs-2020-v01,V3088,UF3_5_07,UF3. Documents required when opened: Passport photograph_Pension fund administra
+89,F4,data-rfs-2020-v01,V3089,UF3_5_08,UF3. Documents required when opened: Passport photograph_Savings group that you
+89,F4,data-rfs-2020-v01,V3090,UF3_5_09,UF3. Documents required when opened: Passport photograph_Village/community assoc
+89,F4,data-rfs-2020-v01,V3091,UF3_5_10,UF3. Documents required when opened: Passport photograph_ None of the above
+89,F4,data-rfs-2020-v01,V3092,UF3_6_01,UF3. Documents required when opened: Completed application form_Commercial Bank
+89,F4,data-rfs-2020-v01,V3093,UF3_6_02,UF3. Documents required when opened: Completed application form_Microfinance ins
+89,F4,data-rfs-2020-v01,V3094,UF3_6_03,UF3. Documents required when opened: Completed application form_Non-Deposit Taki
+89,F4,data-rfs-2020-v01,V3095,UF3_6_04,UF3. Documents required when opened: Completed application form_ Mobile money op
+89,F4,data-rfs-2020-v01,V3096,UF3_6_05,UF3. Documents required when opened: Completed application form_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3097,UF3_6_06,UF3. Documents required when opened: Completed application form_Insurance provid
+89,F4,data-rfs-2020-v01,V3098,UF3_6_07,UF3. Documents required when opened: Completed application form_Pension fund adm
+89,F4,data-rfs-2020-v01,V3099,UF3_6_08,UF3. Documents required when opened: Completed application form_Savings group th
+89,F4,data-rfs-2020-v01,V3100,UF3_6_09,UF3. Documents required when opened: Completed application form_Village/communit
+89,F4,data-rfs-2020-v01,V3101,UF3_6_10,UF3. Documents required when opened: Completed application form_ None of the abo
+89,F4,data-rfs-2020-v01,V3102,UF3_7_01,UF3. Documents required when opened: Completed reference form_Commercial Bank
+89,F4,data-rfs-2020-v01,V3103,UF3_7_02,UF3. Documents required when opened: Completed reference form_Microfinance insti
+89,F4,data-rfs-2020-v01,V3104,UF3_7_03,UF3. Documents required when opened: Completed reference form_Non-Deposit Taking
+89,F4,data-rfs-2020-v01,V3105,UF3_7_04,UF3. Documents required when opened: Completed reference form_ Mobile money oper
+89,F4,data-rfs-2020-v01,V3106,UF3_7_05,UF3. Documents required when opened: Completed reference form_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3107,UF3_7_06,UF3. Documents required when opened: Completed reference form_Insurance provider
+89,F4,data-rfs-2020-v01,V3108,UF3_7_07,UF3. Documents required when opened: Completed reference form_Pension fund admin
+89,F4,data-rfs-2020-v01,V3109,UF3_7_08,UF3. Documents required when opened: Completed reference form_Savings group that
+89,F4,data-rfs-2020-v01,V3110,UF3_7_09,UF3. Documents required when opened: Completed reference form_Village/community
+89,F4,data-rfs-2020-v01,V3111,UF3_7_10,UF3. Documents required when opened: Completed reference form
+89,F4,data-rfs-2020-v01,V3112,UF3_8_01,UF3. Documents required when opened: Proof of address_Commercial Bank
+89,F4,data-rfs-2020-v01,V3113,UF3_8_02,UF3. Documents required when opened: Proof of address_Microfinance institution
+89,F4,data-rfs-2020-v01,V3114,UF3_8_03,UF3. Documents required when opened: Proof of address_Non-Deposit Taking Lending
+89,F4,data-rfs-2020-v01,V3115,UF3_8_04,UF3. Documents required when opened: Proof of address_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3116,UF3_8_05,UF3. Documents required when opened: Proof of address_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3117,UF3_8_06,UF3. Documents required when opened: Proof of address_Insurance provider
+89,F4,data-rfs-2020-v01,V3118,UF3_8_07,UF3. Documents required when opened: Proof of address_Pension fund administrator
+89,F4,data-rfs-2020-v01,V3119,UF3_8_08,UF3. Documents required when opened: Proof of address_Savings group that you sav
+89,F4,data-rfs-2020-v01,V3120,UF3_8_09,UF3. Documents required when opened: Proof of address_Village/community associat
+89,F4,data-rfs-2020-v01,V3121,UF3_8_10,UF3. Documents required when opened: Proof of address_ None of the above
+89,F4,data-rfs-2020-v01,V3122,UF3_9_01,UF3. Documents required when opened: Mobile phone number_Commercial Bank
+89,F4,data-rfs-2020-v01,V3123,UF3_9_02,UF3. Documents required when opened: Mobile phone number_Microfinance institutio
+89,F4,data-rfs-2020-v01,V3124,UF3_9_03,UF3. Documents required when opened: Mobile phone number_Non-Deposit Taking Lend
+89,F4,data-rfs-2020-v01,V3125,UF3_9_04,UF3. Documents required when opened: Mobile phone number_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3126,UF3_9_05,UF3. Documents required when opened: Mobile phone number_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3127,UF3_9_06,UF3. Documents required when opened: Mobile phone number_Insurance provider
+89,F4,data-rfs-2020-v01,V3128,UF3_9_07,UF3. Documents required when opened: Mobile phone number_Pension fund administra
+89,F4,data-rfs-2020-v01,V3129,UF3_9_08,UF3. Documents required when opened: Mobile phone number_Savings group that you
+89,F4,data-rfs-2020-v01,V3130,UF3_9_09,UF3. Documents required when opened: Mobile phone number_Village/community assoc
+89,F4,data-rfs-2020-v01,V3131,UF3_9_10,UF3. Documents required when opened: Mobile phone number_ None of the above
+89,F4,data-rfs-2020-v01,V3132,UF3_10_01,UF3. Documents required when opened: Email address_Commercial Bank
+89,F4,data-rfs-2020-v01,V3133,UF3_10_02,UF3. Documents required when opened: Email address_Microfinance institution
+89,F4,data-rfs-2020-v01,V3134,UF3_10_03,UF3. Documents required when opened: Email address_Non-Deposit Taking Lending Fi
+89,F4,data-rfs-2020-v01,V3135,UF3_10_04,UF3. Documents required when opened: Email address_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3136,UF3_10_05,UF3. Documents required when opened: Email address_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3137,UF3_10_06,UF3. Documents required when opened: Email address_Insurance provider
+89,F4,data-rfs-2020-v01,V3138,UF3_10_07,UF3. Documents required when opened: Email address_Pension fund administrator
+89,F4,data-rfs-2020-v01,V3139,UF3_10_08,UF3. Documents required when opened: Email address_Savings group that you save w
+89,F4,data-rfs-2020-v01,V3140,UF3_10_09,UF3. Documents required when opened: Email address_Village/community association
+89,F4,data-rfs-2020-v01,V3141,UF3_10_10,UF3. Documents required when opened: Email address_ None of the above
+89,F4,data-rfs-2020-v01,V3142,UF3_11_01,UF3. Documents required when opened: Bank account details_Commercial Bank
+89,F4,data-rfs-2020-v01,V3143,UF3_11_02,UF3. Documents required when opened: Bank account details_Microfinance instituti
+89,F4,data-rfs-2020-v01,V3144,UF3_11_03,UF3. Documents required when opened: Bank account details_Non-Deposit Taking Len
+89,F4,data-rfs-2020-v01,V3145,UF3_11_04,UF3. Documents required when opened: Bank account details_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3146,UF3_11_05,UF3. Documents required when opened: Bank account details_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3147,UF3_11_06,UF3. Documents required when opened: Bank account details_Insurance provider
+89,F4,data-rfs-2020-v01,V3148,UF3_11_07,UF3. Documents required when opened: Bank account details
+89,F4,data-rfs-2020-v01,V3149,UF3_11_08,UF3. Documents required when opened: Bank account details_Savings group that you
+89,F4,data-rfs-2020-v01,V3150,UF3_11_09,UF3. Documents required when opened: Bank account details_Village/community asso
+89,F4,data-rfs-2020-v01,V3151,UF3_11_10,UF3. Documents required when opened: Bank account details_ None of the above
+89,F4,data-rfs-2020-v01,V3152,UF3_12_01,UF3. Documents required when opened: Income slip_Commercial Bank
+89,F4,data-rfs-2020-v01,V3153,UF3_12_02,UF3. Documents required when opened: Income slip_Microfinance institution
+89,F4,data-rfs-2020-v01,V3154,UF3_12_03,UF3. Documents required when opened: Income slip_Non-Deposit Taking Lending Fina
+89,F4,data-rfs-2020-v01,V3155,UF3_12_04,UF3. Documents required when opened: Income slip_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3156,UF3_12_05,UF3. Documents required when opened: Income slip_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3157,UF3_12_06,UF3. Documents required when opened: Income slip_Insurance provider
+89,F4,data-rfs-2020-v01,V3158,UF3_12_07,UF3. Documents required when opened: Income slip_Pension fund administrator
+89,F4,data-rfs-2020-v01,V3159,UF3_12_08,UF3. Documents required when opened: Income slip_Savings group that you save wit
+89,F4,data-rfs-2020-v01,V3160,UF3_12_09,UF3. Documents required when opened: Income slip_Village/community association
+89,F4,data-rfs-2020-v01,V3161,UF3_12_10,UF3. Documents required when opened: Income slip_ None of the above
+89,F4,data-rfs-2020-v01,V3162,UF3_13_01,UF3. Documents required when opened: Name and address but no document was requir
+89,F4,data-rfs-2020-v01,V3163,UF3_13_02,UF3. Documents required when opened: Name and address but no document was requir
+89,F4,data-rfs-2020-v01,V3164,UF3_13_03,UF3. Documents required when opened: Name and address but no document was requir
+89,F4,data-rfs-2020-v01,V3165,UF3_13_04,UF3. Documents required when opened: Name and address but no document was requir
+89,F4,data-rfs-2020-v01,V3166,UF3_13_05,UF3. Documents required when opened: Name and address but no document was requir
+89,F4,data-rfs-2020-v01,V3167,UF3_13_06,UF3. Documents required when opened: Name and address but no document was requir
+89,F4,data-rfs-2020-v01,V3168,UF3_13_07,UF3. Documents required when opened: Name and address but no document was requir
+89,F4,data-rfs-2020-v01,V3169,UF3_13_08,UF3. Documents required when opened: Name and address but no document was requir
+89,F4,data-rfs-2020-v01,V3170,UF3_13_09,UF3. Documents required when opened: Name and address but no document was requir
+89,F4,data-rfs-2020-v01,V3171,UF3_13_10,UF3. Documents required when opened: Name and address but no document was requir
+89,F4,data-rfs-2020-v01,V3172,UF3_14_01,UF3. Documents required when opened: Other_Commercial Bank
+89,F4,data-rfs-2020-v01,V3173,UF3_14_02,UF3. Documents required when opened: Other_Microfinance institution
+89,F4,data-rfs-2020-v01,V3174,UF3_14_03,UF3. Documents required when opened: Other_Non-Deposit Taking Lending Financial
+89,F4,data-rfs-2020-v01,V3175,UF3_14_04,UF3. Documents required when opened: Other_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3176,UF3_14_05,UF3. Documents required when opened: Other_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3177,UF3_14_06,UF3. Documents required when opened: Other_Insurance provider
+89,F4,data-rfs-2020-v01,V3178,UF3_14_07,UF3. Documents required when opened: Other_Pension fund administrator
+89,F4,data-rfs-2020-v01,V3179,UF3_14_08,UF3. Documents required when opened: Other_Savings group that you save with or b
+89,F4,data-rfs-2020-v01,V3180,UF3_14_09,UF3. Documents required when opened: Other_Village/community association
+89,F4,data-rfs-2020-v01,V3181,UF3_14_10,UF3. Documents required when opened: Other_ None of the above
+89,F4,data-rfs-2020-v01,V3182,UF3_15_01,UF3. Documents required when opened: Do not know/Can not remember_Commercial Ban
+89,F4,data-rfs-2020-v01,V3183,UF3_15_02,UF3. Documents required when opened: Do not know/Can not remember_Microfinance i
+89,F4,data-rfs-2020-v01,V3184,UF3_15_03,UF3. Documents required when opened: Do not know/Can not remember_Non-Deposit Ta
+89,F4,data-rfs-2020-v01,V3185,UF3_15_04,UF3. Documents required when opened: Do not know/Can not remember_ Mobile money
+89,F4,data-rfs-2020-v01,V3186,UF3_15_05,UF3. Documents required when opened: Do not know/Can not remember_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3187,UF3_15_06,UF3. Documents required when opened: Do not know/Can not remember_Insurance prov
+89,F4,data-rfs-2020-v01,V3188,UF3_15_07,UF3. Documents required when opened: Do not know/Can not remember_Pension fund a
+89,F4,data-rfs-2020-v01,V3189,UF3_15_08,UF3. Documents required when opened: Do not know/Can not remember_Savings group
+89,F4,data-rfs-2020-v01,V3190,UF3_15_09,UF3. Documents required when opened: Do not know/Can not remember_Village/commun
+89,F4,data-rfs-2020-v01,V3191,UF3_15_10,UF3. Documents required when opened: Do not know/Can not remember_ None of the a
+89,F4,data-rfs-2020-v01,V3192,UF3_16_01,UF3. Documents required when opened: None_Commercial Bank
+89,F4,data-rfs-2020-v01,V3193,UF3_16_02,UF3. Documents required when opened: None_Microfinance institution
+89,F4,data-rfs-2020-v01,V3194,UF3_16_03,UF3. Documents required when opened: None_Non-Deposit Taking Lending Financial (
+89,F4,data-rfs-2020-v01,V3195,UF3_16_04,UF3. Documents required when opened: None_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3196,UF3_16_05,UF3. Documents required when opened: None_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3197,UF3_16_06,UF3. Documents required when opened: None_Insurance provider
+89,F4,data-rfs-2020-v01,V3198,UF3_16_07,UF3. Documents required when opened: None_Pension fund administrator
+89,F4,data-rfs-2020-v01,V3199,UF3_16_08,UF3. Documents required when opened: None_Savings group that you save with or bo
+89,F4,data-rfs-2020-v01,V3200,UF3_16_09,UF3. Documents required when opened: None_Village/community association
+89,F4,data-rfs-2020-v01,V3201,UF3_16_10,UF3. Documents required when opened: None_ None of the above
+89,F4,data-rfs-2020-v01,V3202,UF4_1_01,UF4. Savings accounts with - Commercial Bank
+89,F4,data-rfs-2020-v01,V3203,UF4_1_02,UF4. Savings accounts with - Microfinance institution
+89,F4,data-rfs-2020-v01,V3204,UF4_1_03,UF4. Savings accounts with - Non-Deposit Taking Lending Financial (NDFI)
+89,F4,data-rfs-2020-v01,V3205,UF4_1_04,UF4. Savings accounts with - Mobile money operator
+89,F4,data-rfs-2020-v01,V3206,UF4_1_05,UF4. Savings accounts with - SACCO
+89,F4,data-rfs-2020-v01,V3207,UF4_1_06,UF4. Savings accounts with - Insurance provider
+89,F4,data-rfs-2020-v01,V3208,UF4_1_07,UF4. Savings accounts with - Pension fund administrator
+89,F4,data-rfs-2020-v01,V3209,UF4_1_08,UF4. Savings accounts with - Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V3210,UF4_1_09,UF4. Savings accounts with - Village/community association
+89,F4,data-rfs-2020-v01,V3211,UF4_1_10,UF4. Savings accounts with - None of the above
+89,F4,data-rfs-2020-v01,V3212,UF4_2_01,UF4. Current accounts with - Commercial Bank
+89,F4,data-rfs-2020-v01,V3213,UF4_2_02,UF4. Current accounts with - Microfinance institution
+89,F4,data-rfs-2020-v01,V3214,UF4_2_03,UF4. Current accounts with - Non-Deposit Taking Lending Financial (NDFI)
+89,F4,data-rfs-2020-v01,V3215,UF4_2_04,UF4. Current accounts with - Mobile money operator
+89,F4,data-rfs-2020-v01,V3216,UF4_2_05,UF4. Current accounts with - Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3217,UF4_2_06,UF4. Current accounts with - Insurance provider
+89,F4,data-rfs-2020-v01,V3218,UF4_2_07,UF4. Current accounts with - Pension fund administrator
+89,F4,data-rfs-2020-v01,V3219,UF4_2_08,UF4. Current accounts with - Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V3220,UF4_2_09,UF4. Current accounts with - Village/community association
+89,F4,data-rfs-2020-v01,V3221,UF4_2_10,UF4. Current accounts - None of the above
+89,F4,data-rfs-2020-v01,V3222,UF4_3_01,UF4. Fixed deposits with - Commercial Bank
+89,F4,data-rfs-2020-v01,V3223,UF4_3_02,UF4. Fixed deposits with - Microfinance institution
+89,F4,data-rfs-2020-v01,V3224,UF4_3_03,UF4. Fixed deposits with - Non-Deposit Taking Lending Financial (NDFI)
+89,F4,data-rfs-2020-v01,V3225,UF4_3_04,UF4. Fixed deposits with - Mobile money operator
+89,F4,data-rfs-2020-v01,V3226,UF4_3_05,UF4. Fixed deposits with - Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3227,UF4_3_06,UF4. Fixed deposits with - Insurance provider
+89,F4,data-rfs-2020-v01,V3228,UF4_3_07,UF4. Fixed deposits with - Pension fund administrator
+89,F4,data-rfs-2020-v01,V3229,UF4_3_08,UF4. Fixed deposits with - Savings group that you save with or borrow from
+89,F4,data-rfs-2020-v01,V3230,UF4_3_09,UF4. Fixed deposits with - Village/community association
+89,F4,data-rfs-2020-v01,V3231,UF4_3_10,UF4. Fixed deposits with - None of the above
+89,F4,data-rfs-2020-v01,V3232,UF4_4_01,UF4. Outstanding loans with - Commercial Bank
+89,F4,data-rfs-2020-v01,V3233,UF4_4_02,UF4. Outstanding loans with - Outstanding loans_Microfinance institution
+89,F4,data-rfs-2020-v01,V3234,UF4_4_03,UF4. Outstanding loans with - Outstanding loans_Non-Deposit Taking Lending Finan
+89,F4,data-rfs-2020-v01,V3235,UF4_4_04,UF4. Outstanding loans with - Outstanding loans_ Mobile money operator
+89,F4,data-rfs-2020-v01,V3236,UF4_4_05,UF4. Outstanding loans with - Outstanding loans_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3237,UF4_4_06,UF4. Outstanding loans with - Outstanding loans_Insurance provider
+89,F4,data-rfs-2020-v01,V3238,UF4_4_07,UF4. Outstanding loans with - Outstanding loans_Pension fund administrator
+89,F4,data-rfs-2020-v01,V3239,UF4_4_08,UF4. Outstanding loans with - Outstanding loans_Savings group that you save with
+89,F4,data-rfs-2020-v01,V3240,UF4_4_09,UF4. Outstanding loans with - Outstanding loans_Village/community association
+89,F4,data-rfs-2020-v01,V3241,UF4_4_10,UF4. Outstanding loans with - Outstanding loans_ None of the above
+89,F4,data-rfs-2020-v01,V3242,G1,G1. Savings - Different ways of describing what it means to save.
+89,F4,data-rfs-2020-v01,V3243,G2_1,G2. Savings statements - Going without certain things to be able to save
+89,F4,data-rfs-2020-v01,V3244,G2_2,G2. Savings statements - Going without certain things to be able to save
+89,F4,data-rfs-2020-v01,V3245,G2_3,G2. Savings statements - Better to save where money is safe than to take risks t
+89,F4,data-rfs-2020-v01,V3246,G2_4,G2. Savings statements - Saving for a specific purpose and do not use it for any
+89,F4,data-rfs-2020-v01,V3247,G2_5,"G2. Savings statements - Saving for a specific purpose, but you end up using it"
+89,F4,data-rfs-2020-v01,V3248,G2_6,G2. Savings statements - Knowing about different retirement products or packages
+89,F4,data-rfs-2020-v01,V3249,GS3,GS3. Shortest time for you to put money aside for it to count as savings
+89,F4,data-rfs-2020-v01,V3250,G3A_01,G3A. Saving with - Commercial bank
+89,F4,data-rfs-2020-v01,V3251,G3A_02,G3A. Saving with - MFI or a non-umurenge SACCO
+89,F4,data-rfs-2020-v01,V3252,G3A_03,G3A. Saving through - Mobile Money account
+89,F4,data-rfs-2020-v01,V3253,G3A_04,G3A. Saving through - Insurance for education
+89,F4,data-rfs-2020-v01,V3254,G3A_05,G3A. Saving through - Ejo Heza Fund
+89,F4,data-rfs-2020-v01,V3255,G3A_06,G3A. Saving through - Iterambere Fund (RNIT)
+89,F4,data-rfs-2020-v01,V3256,G3A_07,"G3A. Saving through - Private pension like RSSB, Ituze..."
+89,F4,data-rfs-2020-v01,V3257,G3A_08,G3A. Saving with - Saving_Umurenge SACCO
+89,F4,data-rfs-2020-v01,V3258,G3A_09,G3A. Saving through - Saving_capital/stock market
+89,F4,data-rfs-2020-v01,V3259,G3A_10,G3A. Saving with - Pension fund/provident fund
+89,F4,data-rfs-2020-v01,V3260,G3A_11,"G3A. Saving with - a group such as a coop, VSLA, tontine, ikibina"
+89,F4,data-rfs-2020-v01,V3261,G3A_12,G3A. Saving through - someone in community who keeps it safe for you
+89,F4,data-rfs-2020-v01,V3262,G3A_13,G3A. Saving with - someone in household/family who keeps it safe for you
+89,F4,data-rfs-2020-v01,V3263,G3A_14,G3A. Saving through buy things to sell later
+89,F4,data-rfs-2020-v01,V3264,G3A_15,G3A. Saving in a secret place at home
+89,F4,data-rfs-2020-v01,V3265,G3A_16,G3A. Saving - Other mechanism not mentioned
+89,F4,data-rfs-2020-v01,V3266,G3A_17,G3A. Saving with - Do not save
+89,F4,data-rfs-2020-v01,V3267,G3B1_01,G3.1. Savings at a bank - Where bank products held
+89,F4,data-rfs-2020-v01,V3268,G3B2_01,G3.1. Savings at a bank - Where bank products held
+89,F4,data-rfs-2020-v01,V3269,G3B1_02,G3.2. MFI - Where products held
+89,F4,data-rfs-2020-v01,V3270,G3B2_02,G3.2. MFI - Where products held
+89,F4,data-rfs-2020-v01,V3271,GS4C,GS4. Best ways/channels of saving
+89,F4,data-rfs-2020-v01,V3272,GS4D,GS4. Main reason you save in this way (channel)
+89,F4,data-rfs-2020-v01,V3273,GS5,GS5. Extent to which your saving option helps to achieve your gaols
+89,F4,data-rfs-2020-v01,V3274,GS6,GS6. How often do you save
+89,F4,data-rfs-2020-v01,V3275,GS7,GS7. How much did you save the last time
+89,F4,data-rfs-2020-v01,V3276,G4,G4. What are you mainly saving or putting money away for
+89,F4,data-rfs-2020-v01,V3277,G5_01,G5. Reason for Not saving - Never thought about it
+89,F4,data-rfs-2020-v01,V3278,G5_02,G5. Reason for Not saving - Prefering to spend money on other things I need more
+89,F4,data-rfs-2020-v01,V3279,G5_03,G5. Reason for Not saving - Prefering to invest in other things
+89,F4,data-rfs-2020-v01,V3280,G5_04,G5. Reason for Not saving - Children will look after me so I don?t need it
+89,F4,data-rfs-2020-v01,V3281,G5_05,G5. Reason for Not saving - Save in other ways
+89,F4,data-rfs-2020-v01,V3282,G5_06,G5. Reason for Not saving - Won't be able to access my money if I need it
+89,F4,data-rfs-2020-v01,V3283,G5_07,G5. Reason for Not saving - I do not want to save
+89,F4,data-rfs-2020-v01,V3284,G5_08,G5. Reason for Not saving - I do not need to save
+89,F4,data-rfs-2020-v01,V3285,G5_09,G5. Reason for Not saving - Do not know about investment and savings
+89,F4,data-rfs-2020-v01,V3286,G5_10,G5. Reason for Not saving - Do not have money to save or invest
+89,F4,data-rfs-2020-v01,V3287,G5_11,G5. Reason for Not saving - Do not have a bank account
+89,F4,data-rfs-2020-v01,V3288,G5_12,G5. Reason for Not saving - Too expensive
+89,F4,data-rfs-2020-v01,V3289,G5_13,G5. Reason for Not saving - Do not have a job
+89,F4,data-rfs-2020-v01,V3290,G5_14,G5. Reason for Not saving - Do not understand the investment or savings products
+89,F4,data-rfs-2020-v01,V3291,G5_15,G5. Reason for Not saving - Too many to choose from so get confused
+89,F4,data-rfs-2020-v01,V3292,G5_16,G5. Reason for Not saving - Other
+89,F4,data-rfs-2020-v01,V3293,G5_17,G5. Reason for Not saving - Do not know
+89,F4,data-rfs-2020-v01,V3294,GS8_1,GS8. Other types of savings - Property or a buildingor house
+89,F4,data-rfs-2020-v01,V3295,GS8_2,GS8. Other types of savings - Land
+89,F4,data-rfs-2020-v01,V3296,GS8_3,GS8. Other types of savings - Farming or agriculture or livestock
+89,F4,data-rfs-2020-v01,V3297,GS8_4,GS8. Other types of savings - Mutual funds
+89,F4,data-rfs-2020-v01,V3298,GS8_5,GS8. Other types of savings - Government bonds
+89,F4,data-rfs-2020-v01,V3299,GS8_6,GS8. Other types of savings - Shares or Stocks
+89,F4,data-rfs-2020-v01,V3300,GS8_7,"GS8. Other types of savings - Assets such as jewellery, gold coins and others"
+89,F4,data-rfs-2020-v01,V3301,GS8_8,GS8. Other types of savings - Fixed deposits
+89,F4,data-rfs-2020-v01,V3302,GS9,GS9. Having a pension fund
+89,F4,data-rfs-2020-v01,V3303,GS10_1,GS10. Statement about pension fund - You Know about retirement packages
+89,F4,data-rfs-2020-v01,V3304,GS10_2,GS10. Statement about pension fund - You are happy with age and retirement packa
+89,F4,data-rfs-2020-v01,V3305,GS10_3,GS10. Statement about pension fund - You understanding your pension benefits
+89,F4,data-rfs-2020-v01,V3306,H1_1,H1. Credit statement - You avoiding to borrow money if you can
+89,F4,data-rfs-2020-v01,V3307,H1_2,H1. Credit statement - You prefer to save money for something rather than borrow
+89,F4,data-rfs-2020-v01,V3308,H1_3,H1. Credit statement - Without borrowing money would not be able to pay for chil
+89,F4,data-rfs-2020-v01,V3309,H1_4,H1. Credit statement - If you borrow money it is okay to pay it a bit later than
+89,F4,data-rfs-2020-v01,V3310,H1_5,H1. Credit statement - Borrow money when needed is more important than money to
+89,F4,data-rfs-2020-v01,V3311,H1_6,H1. Credit statement - Better to keep savings than to use it to pay a debt
+89,F4,data-rfs-2020-v01,V3312,H1_7,H1. Credit statement - Have checked credit history through CRB
+89,F4,data-rfs-2020-v01,V3313,H1_8,H1. Credit statement - Be aware of the consequencies of defaulting loan
+89,F4,data-rfs-2020-v01,V3314,H2A,H2A. Borrowed money during the past 12 months
+89,F4,data-rfs-2020-v01,V3315,H2B,H2B. Main reason you have not borrowed money
+89,F4,data-rfs-2020-v01,V3316,H2C,H2C. Have been paying back money you borrowed from
+89,F4,data-rfs-2020-v01,V3317,H3,H3. Got any goods or services in advance and had to pay it later
+89,F4,data-rfs-2020-v01,V3318,H4A_01,H4A. Borrowed money from a bank
+89,F4,data-rfs-2020-v01,V3319,H4A_02,H4A. Borrowed money from a MFI or a non-umurenge SACCO
+89,F4,data-rfs-2020-v01,V3320,H4A_03,H4A. Borrowed money from Non-Deposit Taking Lending Financial (NDFI)
+89,F4,data-rfs-2020-v01,V3321,H4A_04,H4A. Borrowed money through Mobile Money credit e.g MoKash
+89,F4,data-rfs-2020-v01,V3322,H4A_05,H4A. Borrowed from an umurenge SACCO
+89,F4,data-rfs-2020-v01,V3323,H4A_06,H4A. Got a loan from Government (Ubudehe credit scheme/VUP loan)
+89,F4,data-rfs-2020-v01,V3324,H4A_07,H4A. Borrowed money from your employer
+89,F4,data-rfs-2020-v01,V3325,H4A_08,"H4A. Borrowed money from a group such as a co-op, VLSA, tontine, ikibina"
+89,F4,data-rfs-2020-v01,V3326,H4A_09,H4A. Borrowed money from a money lender in the community
+89,F4,data-rfs-2020-v01,V3327,H4A_10,H4A. Borrowed money/got goods in advance from an agricultural buyer or a farmerâ€™
+89,F4,data-rfs-2020-v01,V3328,H4A_11,H4A. Borrowed money from a church or other community-based organisation that you
+89,F4,data-rfs-2020-v01,V3329,H4A_12,H4A. Borrowed money from family/friends that you had to pay back
+89,F4,data-rfs-2020-v01,V3330,H4A_13,H4A. Got money from family/friends that you did not have to pay back
+89,F4,data-rfs-2020-v01,V3331,H4A_14,H4A. Got goods in advance from a shop/store and had to pay back later
+89,F4,data-rfs-2020-v01,V3332,H4A_15,"H4A. Borrowed money from sources not mentioned, specify"
+89,F4,data-rfs-2020-v01,V3333,H4A_16,H4A. None borrowing
+89,F4,data-rfs-2020-v01,V3334,H4B1_01,H4B.1. Credit at a bank - Where bank products held
+89,F4,data-rfs-2020-v01,V3335,H4B2_01,H4B.2. Credit at a bank - Where bank products held
+89,F4,data-rfs-2020-v01,V3336,H4B1_02,H4B.1. Credit at MFI - Where credit products held
+89,F4,data-rfs-2020-v01,V3337,H4B2_02,H4B.2. Credit at MFI - Where credit products held
+89,F4,data-rfs-2020-v01,V3338,H4B1_03,H4B.1. Credit from which NDFI did you borrowed
+89,F4,data-rfs-2020-v01,V3339,H4B2_03,H4B.2. Credit from NDFI did you borrowed
+89,F4,data-rfs-2020-v01,V3340,H4B1_04,H4B.1. Credit from which MoM did you borrowed
+89,F4,data-rfs-2020-v01,V3341,H4B2_04,H4B.2. Credit from which other MoM did you borrowed
+89,F4,data-rfs-2020-v01,V3342,H4B1_05,H4B.1. Credit from which SACCO did you borrowed
+89,F4,data-rfs-2020-v01,V3343,H4B2_05,H4B.2. Credit from SACCO did you borrowed
+89,F4,data-rfs-2020-v01,V3344,H4C_TEMP,Type of institutions
+89,F4,data-rfs-2020-v01,V3345,H4C,H4C. Who did you borrow the most money from
+89,F4,data-rfs-2020-v01,V3346,H4D,H4D. Main reason of borrowing
+89,F4,data-rfs-2020-v01,V3347,H5,H5. What did you borrow the most money for
+89,F4,data-rfs-2020-v01,V3348,H6,H6. Important thing taken into account when you choose who to borrow from
+89,F4,data-rfs-2020-v01,V3349,H6A,H6A. To what extend borrowed money helps you to achieve your goals
+89,F4,data-rfs-2020-v01,V3350,H6B1,H6B. Credit statements - Were given all the key details about the account fees a
+89,F4,data-rfs-2020-v01,V3351,H6B2,"H6B. Credit statements - Fees and charges for your loan are transparent, or at l"
+89,F4,data-rfs-2020-v01,V3352,H6B3,H6B. Credit statements - Were charged fees you did not expect
+89,F4,data-rfs-2020-v01,V3353,H6B4,H6B. Credit statements - Lender unexpected withdrew money
+89,F4,data-rfs-2020-v01,V3354,H6B5,H6B. Credit statements - Did not fully understand the cost or fees
+89,F4,data-rfs-2020-v01,V3355,H6C,H6C. How evaluating amount of microcredit loan interest rate charged
+89,F4,data-rfs-2020-v01,V3356,H7A1,H7. Have been refused a loan at - Bank
+89,F4,data-rfs-2020-v01,V3357,H7A2,H7. Have been refused a loan at - SACCO
+89,F4,data-rfs-2020-v01,V3358,H7A3,H7. Have been refused a loan at - MFI
+89,F4,data-rfs-2020-v01,V3359,H7A4,H7. Have been refused a loan through - Mobile money operator
+89,F4,data-rfs-2020-v01,V3360,H7A5,H7. Have been refused a loan at - Savings groups
+89,F4,data-rfs-2020-v01,V3361,H7B,H7B. Main reason given for the refusal
+89,F4,data-rfs-2020-v01,V3362,H8A,H8A. How often do you borrow through your MoM operator
+89,F4,data-rfs-2020-v01,V3363,H8B,H8B. How much did you borrow last time through your MoM operator
+89,F4,data-rfs-2020-v01,V3364,I1A01,I1. Financial risk experience during the past 12 months - Member of HH lost job
+89,F4,data-rfs-2020-v01,V3365,I1A02,I1. Financial risk experience during the past 12 months - Serious illness of a
+89,F4,data-rfs-2020-v01,V3366,I1A03,I1. Financial risk experience during the past 12 months - Death of a relative o
+89,F4,data-rfs-2020-v01,V3367,I1A04,I1. Financial risk experience during the past 12 months - Theft of HH property
+89,F4,data-rfs-2020-v01,V3368,I1A05,I1. Financial risk experience during the past 12 months - Theft of business sto
+89,F4,data-rfs-2020-v01,V3369,I1A06,I1. Financial risk experience during the past 12 months - Theft of agricultural
+89,F4,data-rfs-2020-v01,V3370,I1A07,I1. Financial risk experience during the past 12 months - Loss of HH goods due
+89,F4,data-rfs-2020-v01,V3371,I1A08,I1. Financial risk experience during the past 12 months - Agricultural crop or
+89,F4,data-rfs-2020-v01,V3372,I1A09,I1. Financial risk experience during the past 12 months - Loss of an asset or d
+89,F4,data-rfs-2020-v01,V3373,I1A10,I1. Financial risk experience during the past 12 months - Failure of business
+89,F4,data-rfs-2020-v01,V3374,I1A11,I1. Financial risk experience during the past 12 months - Disability due to acc
+89,F4,data-rfs-2020-v01,V3375,I1A12,I1. Financial risk experience during the past 12 months - Maintenance of farmin
+89,F4,data-rfs-2020-v01,V3376,I1A13,I1. Financial risk experience during the past 12 months - Recession or bad econ
+89,F4,data-rfs-2020-v01,V3377,I1A14,I1. Financial risk experience during the past 12 months - Price increases
+89,F4,data-rfs-2020-v01,V3378,I1A15,I1. Financial risk experience during the past 12 months - Other
+89,F4,data-rfs-2020-v01,V3379,I1A16,I1. Financial risk experience during the past 12 months - Have not experienced
+89,F4,data-rfs-2020-v01,V3380,I1B,I1B. Had greatest impact your household's finances
+89,F4,data-rfs-2020-v01,V3381,II1C,I1C. What was done when experiencing this event
+89,F4,data-rfs-2020-v01,V3382,II1D,I1D. To what extent helped to deal with this shocks
+89,F4,data-rfs-2020-v01,V3383,II1E,I1E. How long did your insurance claim take to get the payment?
+89,F4,data-rfs-2020-v01,V3384,I2_1,I2. Insurance statement - Insurance is not a way of saving
+89,F4,data-rfs-2020-v01,V3385,I2_2,I2. Insurance statement - Having insurance is a good way of protecting yourself
+89,F4,data-rfs-2020-v01,V3386,I2_3,I2. Insurance statement - Better having savings rather than to have insurance
+89,F4,data-rfs-2020-v01,V3387,I2_4,I2. Insurance statement - Understand how insurance works
+89,F4,data-rfs-2020-v01,V3388,I2_5,I2. Insurance statement - Responsible to make arrangements for the costs of fune
+89,F4,data-rfs-2020-v01,V3389,II3A,I13A. Have micro_insurance products
+89,F4,data-rfs-2020-v01,V3390,II3B1,I13B. Type of micro insurance - Agriculture_crops
+89,F4,data-rfs-2020-v01,V3391,II3B2,I13B. Type of micro insurance - Agriculture_livestock
+89,F4,data-rfs-2020-v01,V3392,II3B3,I13B. Type of micro insurance - Other
+89,F4,data-rfs-2020-v01,V3393,II3C,I13C. would you be interested in micro insurance?
+89,F4,data-rfs-2020-v01,V3394,II3D01,I13D. Type of micro insurance interested in - Agriculture_crops
+89,F4,data-rfs-2020-v01,V3395,II3D02,I13D. Type of micro insurance interested in - Agriculture_livestock
+89,F4,data-rfs-2020-v01,V3396,II3D03,I13D. Type of micro insurance interested in - Agriculture_fisheries
+89,F4,data-rfs-2020-v01,V3397,II3D04,I13D. Type of micro insurance interested in - Life cover
+89,F4,data-rfs-2020-v01,V3398,II3D05,I13D. Type of micro insurance interested in - Funeral
+89,F4,data-rfs-2020-v01,V3399,II3D06,I13D. Type of micro insurance interested in - Credit or loans
+89,F4,data-rfs-2020-v01,V3400,II3D07,I13D. Type of micro insurance interested in - Health
+89,F4,data-rfs-2020-v01,V3401,II3D08,I13D. Type of micro insurance interested in - Household
+89,F4,data-rfs-2020-v01,V3402,II3D09,I13D. Type of micro insurance interested in - Accident
+89,F4,data-rfs-2020-v01,V3403,II3D10,I13D. Type of micro insurance interested in - Disability
+89,F4,data-rfs-2020-v01,V3404,II3D11,I13D. Type of micro insurance interested in - Business
+89,F4,data-rfs-2020-v01,V3405,II3D12,I13D. Type of micro insurance interested in - Other
+89,F4,data-rfs-2020-v01,V3406,I3A,I3A. Which of the following insurance medical do you have
+89,F4,data-rfs-2020-v01,V3407,I3B,I13B. Are you covered by someone else's insurance
+89,F4,data-rfs-2020-v01,V3408,I4_01,I4. Insurance product - Third party insurance
+89,F4,data-rfs-2020-v01,V3409,I4_02,I4. Insurance product - Education insurance
+89,F4,data-rfs-2020-v01,V3410,I4_03,I4. Insurance product - Household insurance
+89,F4,data-rfs-2020-v01,V3411,I4_04,I4. Insurance product - Life insurance
+89,F4,data-rfs-2020-v01,V3412,I4_05,I4. Insurance product - Credit life
+89,F4,data-rfs-2020-v01,V3413,I4_06,I4. Insurance product - CSR or RSSB
+89,F4,data-rfs-2020-v01,V3414,I4_07,I4. Insurance product - Private pension
+89,F4,data-rfs-2020-v01,V3415,I4_08,I4. Insurance product - Agriculture insurance
+89,F4,data-rfs-2020-v01,V3416,I4_09,I4. Insurance product - Ingoboka cash or hospital cash product
+89,F4,data-rfs-2020-v01,V3417,I4_10,I4. Insurance product - Other insurance product not mentioned
+89,F4,data-rfs-2020-v01,V3418,I5,I5. Main reason of not having Insuarance
+89,F4,data-rfs-2020-v01,V3419,I6,I6. Who will pay the costs associated with your funeral
+89,F4,data-rfs-2020-v01,V3420,J1A,J1A. In the past 6 months have sent money to someone within the country
+89,F4,data-rfs-2020-v01,V3421,J1B,J1B. In the past 6 months have sent money to someone outside the country
+89,F4,data-rfs-2020-v01,V3422,J2A11,J2A1.1. Beneficiary of the money sent - Spouse
+89,F4,data-rfs-2020-v01,V3423,J2A12,J2A1.2. Beneficiary of the money sent - Child
+89,F4,data-rfs-2020-v01,V3424,J2A13,J2A1.3. Beneficiary of the money sent - Parent
+89,F4,data-rfs-2020-v01,V3425,J2A14,J2A1.4. Beneficiary of the money sent - Other family member
+89,F4,data-rfs-2020-v01,V3426,J2A15,J2A1.5. Beneficiary of the money sent - Friend
+89,F4,data-rfs-2020-v01,V3427,J2A16,J2A1.6. Beneficiary of the money sent - Supplier / Business
+89,F4,data-rfs-2020-v01,V3428,J2A17,J2A1.7. Beneficiary of the money sent - Someone you borrow from
+89,F4,data-rfs-2020-v01,V3429,J2A18,"J2A1.8. Beneficiary of the money sent - School, college or university"
+89,F4,data-rfs-2020-v01,V3430,J2A19,J2A1.9. Beneficiary of the money sent - Other (specify)
+89,F4,data-rfs-2020-v01,V3431,J2A2,J2A.2. Person received the money MOST in the past 6 months
+89,F4,data-rfs-2020-v01,V3432,J2B2,J2B.2. Where did you send the money to (area)?
+89,F4,data-rfs-2020-v01,V3433,J2C,J2C. Frequency of sending money
+89,F4,data-rfs-2020-v01,V3434,J2D1,J2d1. Channel of sending money - Bank transfer / into bank account
+89,F4,data-rfs-2020-v01,V3435,J2D2,J2d2. Channel of sending money - Post office
+89,F4,data-rfs-2020-v01,V3436,J2D3,J2d3. Channel of sending money - Western Union / Money gram
+89,F4,data-rfs-2020-v01,V3437,J2D4,J2d4. Channel of sending money - Cell phone top-up or Me2U
+89,F4,data-rfs-2020-v01,V3438,J2D5,J2d5. Channel of sending money - Mobile money
+89,F4,data-rfs-2020-v01,V3439,J2D6,J2d6. Channel of sending money - Bus or taxi
+89,F4,data-rfs-2020-v01,V3440,J2D7,J2d7. Channel of sending money - Relative / friend / someone else
+89,F4,data-rfs-2020-v01,V3441,J2D8,J2d8. Channel of sending money - Taking money personally there
+89,F4,data-rfs-2020-v01,V3442,J2D9,J2d9. Channel of sending money - Other
+89,F4,data-rfs-2020-v01,V3443,J2E,J2E. How much did you send the last time?
+89,F4,data-rfs-2020-v01,V3444,J3A,J3A. In the past 6 months have received money from someone within the country
+89,F4,data-rfs-2020-v01,V3445,J3B,J3B. In the past 6 months have received money from someone outside the country
+89,F4,data-rfs-2020-v01,V3446,J4A1,J4A. Source of the money received - Spouse
+89,F4,data-rfs-2020-v01,V3447,J4A2,J4A. Source of the money received - Child
+89,F4,data-rfs-2020-v01,V3448,J4A3,J4A. Source of the money received - Parent
+89,F4,data-rfs-2020-v01,V3449,J4A4,J4A. Source of the money received - Other family member
+89,F4,data-rfs-2020-v01,V3450,J4A5,J4A. Source of the money received - Friend
+89,F4,data-rfs-2020-v01,V3451,J4A6,J4A. Source of the money received - Customer
+89,F4,data-rfs-2020-v01,V3452,J4A7,J4A. Source of the money received - Someone you lent to
+89,F4,data-rfs-2020-v01,V3453,J4A8,J4A. Source of the money received - Other
+89,F4,data-rfs-2020-v01,V3454,J4A_2,J4A.1. Where did you send the money to?
+89,F4,data-rfs-2020-v01,V3455,J4B,J4B. Where did you receive the money from?
+89,F4,data-rfs-2020-v01,V3456,J4C,J4C. How often do you send money?
+89,F4,data-rfs-2020-v01,V3457,J4D,J4D. Which channel do you most receive money trough?
+89,F4,data-rfs-2020-v01,V3458,J4E,J4E. What did you use most of the money sent you for?
+89,F4,data-rfs-2020-v01,V3459,J5A,J5A. Have you ever sent or received money using a mobile phone?
+89,F4,data-rfs-2020-v01,V3460,J5B,J5B. Sent/received money using a mobile phone in the past 6 months
+89,F4,data-rfs-2020-v01,V3461,J6A,J6A. Would you use a mobile phone to send money?
+89,F4,data-rfs-2020-v01,V3462,J6B,J6B. Reason why one would not use a mobile phone to send money
+89,F4,data-rfs-2020-v01,V3463,K1A,K1. Banking statements - If you are not employed you cannot open a bank account
+89,F4,data-rfs-2020-v01,V3464,K1B,K1. Banking statements - Having a bank account makes it easier to get credit
+89,F4,data-rfs-2020-v01,V3465,K1C,K1. Banking statements - You can easily live your life without a bank account
+89,F4,data-rfs-2020-v01,V3466,K1D,K1. Banking statements - Most services from banks are also offered elsewhere
+89,F4,data-rfs-2020-v01,V3467,K1E,K1. Banking statements - You trust banks with your money
+89,F4,data-rfs-2020-v01,V3468,K1F,K1. Banking statements - Banking is for people like me
+89,F4,data-rfs-2020-v01,V3469,K1G,K1. Banking statements - Banks treat people with respect
+89,F4,data-rfs-2020-v01,V3470,K1.2.1,K1.2.1. Do you have a bank account?
+89,F4,data-rfs-2020-v01,V3471,KB2,KB2. Using someone else bank account
+89,F4,data-rfs-2020-v01,V3472,K1.2.1.B1,K1.2.1B.1. Where bank products held
+89,F4,data-rfs-2020-v01,V3473,K1.2.1.B2,K1.2.1B.2. Where bank products held
+89,F4,data-rfs-2020-v01,V3474,KB4,KB4. How many bank accounts in different banks you have in your own name
+89,F4,data-rfs-2020-v01,V3475,KB5,KB5. Bank considered to be the main
+89,F4,data-rfs-2020-v01,V3476,KB6A,KB6A. How often do you use your main bank account?
+89,F4,data-rfs-2020-v01,V3477,KB6B,KB6B. Do you withdraw all your money as soon it is deposited into your bank acco
+89,F4,data-rfs-2020-v01,V3478,KB7A_1,KA7. Reason for not using bank account more frequently - Using my account or car
+89,F4,data-rfs-2020-v01,V3479,KB7A_2,KA7. Reason for not using bank account more frequently - Using my account or car
+89,F4,data-rfs-2020-v01,V3480,KB7A_3,KA7. Reason for not using bank account more frequently - My account or card does
+89,F4,data-rfs-2020-v01,V3481,KB7A_4,KA7. Reason for not using bank account more frequently - Places where I typicall
+89,F4,data-rfs-2020-v01,V3482,KB7A_5,KA7. Reason for not using bank account more frequently - I prefer to transact in
+89,F4,data-rfs-2020-v01,V3483,KB7A_6,KA7. Reason for not using bank account more frequently - I Don't trust my bank
+89,F4,data-rfs-2020-v01,V3484,KB7A_7,KA7. Reason for not using bank account more frequently - I do not have enough mo
+89,F4,data-rfs-2020-v01,V3485,KB7A_8,KA7. Reason for not using bank account more frequently - To avoid debit or stop
+89,F4,data-rfs-2020-v01,V3486,KB7A_9,KA7. Reason for not using bank account more frequently - Avoid illegal debit ord
+89,F4,data-rfs-2020-v01,V3487,KB7A_10,KA7. Reason for not using bank account more frequently - Other
+89,F4,data-rfs-2020-v01,V3488,KB7B_1,KB7. Reason for withdrawing all your money as soon as it is deposited - Using my
+89,F4,data-rfs-2020-v01,V3489,KB7B_2,KB7. Reason for withdrawing all your money as soon as it is deposited - Using my
+89,F4,data-rfs-2020-v01,V3490,KB7B_3,KB7. Reason for withdrawing all your money as soon as it is deposited - My accou
+89,F4,data-rfs-2020-v01,V3491,KB7B_4,KB7. Reason for withdrawing all your money as soon as it is deposited - Places w
+89,F4,data-rfs-2020-v01,V3492,KB7B_5,KB7. Reason for withdrawing all your money as soon as it is deposited - I prefer
+89,F4,data-rfs-2020-v01,V3493,KB7B_6,KB7. Reason for withdrawing all your money as soon as it is deposited - I Don't
+89,F4,data-rfs-2020-v01,V3494,KB7B_7,KB7. Reason for withdrawing all your money as soon as it is deposited - I do not
+89,F4,data-rfs-2020-v01,V3495,KB7B_8,KB7. Reason for withdrawing all your money as soon as it is deposited - To avoid
+89,F4,data-rfs-2020-v01,V3496,KB7B_9,KB7. Reason for withdrawing all your money as soon as it is deposited - Avoid il
+89,F4,data-rfs-2020-v01,V3497,KB7B_10,KB7. Reason for withdrawing all your money as soon as it is deposited - Other
+89,F4,data-rfs-2020-v01,V3498,KB8_1,KB8. Bank account features that matter most - The amount of total monthly fees a
+89,F4,data-rfs-2020-v01,V3499,KB8_2,KB8. Bank account features that matter most - Interest rate on savings
+89,F4,data-rfs-2020-v01,V3500,KB8_3,KB8. Bank account features that matter most - The fees for specific transactions
+89,F4,data-rfs-2020-v01,V3501,KB8_4,KB8. Bank account features that matter most - Convenient access to ATMs
+89,F4,data-rfs-2020-v01,V3502,KB8_5,KB8. Bank account features that matter most - Convenient access to bank branches
+89,F4,data-rfs-2020-v01,V3503,KB8_6,KB8. Bank account features that matter most - Convenient access to internet bank
+89,F4,data-rfs-2020-v01,V3504,KB8_7,KB8. Bank account features that matter most - Convenient access to mobile bankin
+89,F4,data-rfs-2020-v01,V3505,KB8_8,KB8. Bank account features that matter most - User_friendly mobile apps or inter
+89,F4,data-rfs-2020-v01,V3506,KB8_9,KB8. Bank account features that matter most - Quality of customer service in ban
+89,F4,data-rfs-2020-v01,V3507,KB8_10,KB8. Bank account features that matter most - Loyalty program
+89,F4,data-rfs-2020-v01,V3508,KB8_11,KB8. Bank account features that matter most - Convenience of having an account a
+89,F4,data-rfs-2020-v01,V3509,KB8_12,KB8. Bank account features that matter most - Other
+89,F4,data-rfs-2020-v01,V3510,KB9,KB9. Does your bank account help you manage your money better?
+89,F4,data-rfs-2020-v01,V3511,KB10_1,KB10. To what extent you agree with the following statement - Given details on a
+89,F4,data-rfs-2020-v01,V3512,KB10_2,KB10. To what extent you agree with the following statement - Shown options to c
+89,F4,data-rfs-2020-v01,V3513,KB10_3,KB10. To what extent you agree with the following statement - Knew which account
+89,F4,data-rfs-2020-v01,V3514,KB10_4,KB10. To what extent you agree with the following statement - Would choose the s
+89,F4,data-rfs-2020-v01,V3515,KB10_5,KB10. To what extent you agree with the following statement - Would recommend yo
+89,F4,data-rfs-2020-v01,V3516,KB10_6,KB10. To what extent you agree with the following statement - Account you have i
+89,F4,data-rfs-2020-v01,V3517,KB10_7,KB10. To what extent you agree with the following statement - Fees and charges i
+89,F4,data-rfs-2020-v01,V3518,KB10_8,KB10. To what extent you agree with the following statement - Can count on bank
+89,F4,data-rfs-2020-v01,V3519,KB11,KB11. Have you seriously considered opening an account with a new bank in the pa
+89,F4,data-rfs-2020-v01,V3520,KB12,KB12. Have you opened an account with a new bank in the past year or changed you
+89,F4,data-rfs-2020-v01,V3521,KB13_1,KB 13. Reason for opening an account with a new bank - Saw advertisement for an
+89,F4,data-rfs-2020-v01,V3522,KB13_2,KB 13. Reason for opening an account with a new bank - Recommendation from frien
+89,F4,data-rfs-2020-v01,V3523,KB13_3,KB 13. Reason for opening an account with a new bank - Not satisfied with my pre
+89,F4,data-rfs-2020-v01,V3524,KB13_4,KB 13. Reason for opening an account with a new bank - Account at the new bank i
+89,F4,data-rfs-2020-v01,V3525,KB13_5,KB 13. Reason for opening an account with a new bank - Fees are lower than at my
+89,F4,data-rfs-2020-v01,V3526,KB13_6,KB 13. Reason for opening an account with a new bank - Salary or other payment i
+89,F4,data-rfs-2020-v01,V3527,KB13_7,KB 13. Reason for opening an account with a new bank - Other
+89,F4,data-rfs-2020-v01,V3528,KB14_1,KB14. Banking product - Bank ATM card or Debit card
+89,F4,data-rfs-2020-v01,V3529,KB14_2,KB14. Banking product - Credit card
+89,F4,data-rfs-2020-v01,V3530,KB14_3,KB14. Banking product - Current account
+89,F4,data-rfs-2020-v01,V3531,KB14_4,KB14. Banking product - Fixed deposit account
+89,F4,data-rfs-2020-v01,V3532,KB14_5,KB14. Banking product - Savings account
+89,F4,data-rfs-2020-v01,V3533,KB14_6,KB14. Banking product - Mortgage
+89,F4,data-rfs-2020-v01,V3534,KB14_7,KB14. Banking product - Overdraft
+89,F4,data-rfs-2020-v01,V3535,KB14_8,KB14. Banking product - Loans
+89,F4,data-rfs-2020-v01,V3536,KB14_9,KB14. Banking product - Mobile money (e-wallet)
+89,F4,data-rfs-2020-v01,V3537,KB14_10,KB14. Banking product - Bank USSD codes
+89,F4,data-rfs-2020-v01,V3538,KB14_11,KB14. Banking product - Internet banking
+89,F4,data-rfs-2020-v01,V3539,KB14_12,KB14. Banking product - Bank card
+89,F4,data-rfs-2020-v01,V3540,KB15_01,KB15. How often do you usually do - Cash a cheque
+89,F4,data-rfs-2020-v01,V3541,KB15_02,KB15. How often do you usually do - Deposit cash into a bank account
+89,F4,data-rfs-2020-v01,V3542,KB15_03,KB15. How often do you usually do - Deposit a cheque into a bank account
+89,F4,data-rfs-2020-v01,V3543,KB15_04,KB15. How often do you usually do - Cash withdrawal from a bank account
+89,F4,data-rfs-2020-v01,V3544,KB15_05,KB15. How often do you usually do - Pay people/bills using a cheque
+89,F4,data-rfs-2020-v01,V3545,KB15_06,KB15. How often do you usually do - Money transfers between your own bank accoun
+89,F4,data-rfs-2020-v01,V3546,KB15_07,KB15. How often do you usually do - Money transfer to another personâ€™s bank acco
+89,F4,data-rfs-2020-v01,V3547,KB15_08,KB15. How often do you usually do - Receive money from someone into a bank accou
+89,F4,data-rfs-2020-v01,V3548,KB15_09,KB15. How often do you usually do - Get a bank statement
+89,F4,data-rfs-2020-v01,V3549,KB15_10,KB15. How often do you usually do - Buy airtime
+89,F4,data-rfs-2020-v01,V3550,KB15_11,KB15. How often do you usually do - Other
+89,F4,data-rfs-2020-v01,V3551,KB16_1_1,KB16.1. Channel used to cash a cheque - Bank
+89,F4,data-rfs-2020-v01,V3552,KB16_1_2,KB16.1. Channel used to deposit cash - Bank
+89,F4,data-rfs-2020-v01,V3553,KB16_1_3,KB16.1. Channel used to deposit a cheque into a bank account - Bank
+89,F4,data-rfs-2020-v01,V3554,KB16_1_4,KB16.1. Channel used to cash withdrawal from a bank account - Bank
+89,F4,data-rfs-2020-v01,V3555,KB16_1_5,KB16.1. Channel used to paid people/bills using a cheque - Bank
+89,F4,data-rfs-2020-v01,V3556,KB16_1_6,KB16.1. Channel used to money transfers between your own bank accounts - Bank
+89,F4,data-rfs-2020-v01,V3557,KB16_1_7,KB16.1. Channel used to money transfer to another personâ€™s bank account - Bank
+89,F4,data-rfs-2020-v01,V3558,KB16_1_8,KB16.1. Channel used to receive money from someone into a bank account - Bank
+89,F4,data-rfs-2020-v01,V3559,KB16_1_9,KB16.1. Channel used to get a bank statement - Bank
+89,F4,data-rfs-2020-v01,V3560,KB16_1_10,KB16.1. Channel used to buy airtime - Bank
+89,F4,data-rfs-2020-v01,V3561,KB16_1_11,KB16.1. Channel used to other activities - Bank
+89,F4,data-rfs-2020-v01,V3562,KB16_2_1,KB16.2. Channel used to cash a cheque - ATM
+89,F4,data-rfs-2020-v01,V3563,KB16_2_2,KB16.2. Channel used to deposit cash - ATM
+89,F4,data-rfs-2020-v01,V3564,KB16_2_3,KB16.2. Channel used to deposit a cheque into a bank account - ATM
+89,F4,data-rfs-2020-v01,V3565,KB16_2_4,KB16.2. Channel used to cash withdrawal from a bank account - ATM
+89,F4,data-rfs-2020-v01,V3566,KB16_2_5,KB16.2. Channel used to paid people/bills using a cheque - ATM
+89,F4,data-rfs-2020-v01,V3567,KB16_2_6,KB16.2. Channel used to money transfers between your own bank accounts - ATM
+89,F4,data-rfs-2020-v01,V3568,KB16_2_7,KB16.2. Channel used to money transfer to another personâ€™s bank account - ATM
+89,F4,data-rfs-2020-v01,V3569,KB16_2_8,KB16.2. Channel used to receive money from someone into a bank account - ATM
+89,F4,data-rfs-2020-v01,V3570,KB16_2_9,KB16.2. Channel used to get a bank statement - ATM
+89,F4,data-rfs-2020-v01,V3571,KB16_2_10,KB16.2. Channel used to buy airtime - ATM
+89,F4,data-rfs-2020-v01,V3572,KB16_2_11,KB16.2. Channel used to other activities - ATM
+89,F4,data-rfs-2020-v01,V3573,KB16_3_1,KB16.3. Channel used to cash a cheque - Internet banking
+89,F4,data-rfs-2020-v01,V3574,KB16_3_2,KB16.3. Channel used to deposit cash - Internet banking
+89,F4,data-rfs-2020-v01,V3575,KB16_3_3,KB16.3. Channel used to deposit a cheque into a bank account - Internet banking
+89,F4,data-rfs-2020-v01,V3576,KB16_3_4,KB16.3. Channel used to cash withdrawal from a bank account - Internet banking
+89,F4,data-rfs-2020-v01,V3577,KB16_3_5,KB16.3. Channel used to paid people/bills using a cheque - Internet banking
+89,F4,data-rfs-2020-v01,V3578,KB16_3_6,KB16.3. Channel used to money transfers between your own bank accounts - Interne
+89,F4,data-rfs-2020-v01,V3579,KB16_3_7,KB16.3. Channel used to money transfer to another personâ€™s bank account - Intern
+89,F4,data-rfs-2020-v01,V3580,KB16_3_8,KB16.3. Channel used to receive money from someone into a bank account - Interne
+89,F4,data-rfs-2020-v01,V3581,KB16_3_9,KB16.3. Channel used to get a bank statement - Internet banking
+89,F4,data-rfs-2020-v01,V3582,KB16_3_10,KB16.3. Channel used to buy airtime - Internet banking
+89,F4,data-rfs-2020-v01,V3583,KB16_3_11,KB16.4. Channel used to other activities - Internet banking
+89,F4,data-rfs-2020-v01,V3584,KB16_4_1,KB16.4. Channel used to cash a cheque - Bank card
+89,F4,data-rfs-2020-v01,V3585,KB16_4_2,KB16.4. Channel used to deposit cash - Bank card
+89,F4,data-rfs-2020-v01,V3586,KB16_4_3,KB16.4. Channel used to deposit a cheque into a bank account - Bank card
+89,F4,data-rfs-2020-v01,V3587,KB16_4_4,KB16.4. Channel used to cash withdrawal from a bank account - Bank card
+89,F4,data-rfs-2020-v01,V3588,KB16_4_5,KB16.4. Channel used to paid people/bills using a cheque - Bank card
+89,F4,data-rfs-2020-v01,V3589,KB16_4_6,KB16.4. Channel used to money transfers between your own bank accounts - Bank ca
+89,F4,data-rfs-2020-v01,V3590,KB16_4_7,KB16.4. Channel used to money transfer to another personâ€™s bank account - Bank c
+89,F4,data-rfs-2020-v01,V3591,KB16_4_8,KB16.4. Channel used to receive money from someone into a bank account - Bank ca
+89,F4,data-rfs-2020-v01,V3592,KB16_4_9,KB16.4. Channel used to get a bank statement - Bank card
+89,F4,data-rfs-2020-v01,V3593,KB16_4_10,KB16.4. Channel used to buy airtime - Bank card
+89,F4,data-rfs-2020-v01,V3594,KB16_4_11,KB16.4. Channel used to other activities - Bank card
+89,F4,data-rfs-2020-v01,V3595,KB16_5_1,KB16.5. Channel used to cash a cheque - Bank card
+89,F4,data-rfs-2020-v01,V3596,KB16_5_2,KB16.5. Channel used to deposit cash - Bank card
+89,F4,data-rfs-2020-v01,V3597,KB16_5_3,KB16.5. Channel used to deposit a cheque into a bank account - Bank card
+89,F4,data-rfs-2020-v01,V3598,KB16_5_4,KB16.5. Channel used to cash withdrawal from a bank account - Bank card
+89,F4,data-rfs-2020-v01,V3599,KB16_5_5,KB16.5. Channel used to paid people/bills using a cheque - Bank card
+89,F4,data-rfs-2020-v01,V3600,KB16_5_6,KB16.5. Channel used to money transfers between your own bank accounts - Bank ca
+89,F4,data-rfs-2020-v01,V3601,KB16_5_7,KB16.5. Channel used to money transfer to another personâ€™s bank account - Bank c
+89,F4,data-rfs-2020-v01,V3602,KB16_5_8,KB16.5. Channel used to receive money from someone into a bank account - Bank ca
+89,F4,data-rfs-2020-v01,V3603,KB16_5_9,KB16.5. Channel used to get a bank statement - Bank card
+89,F4,data-rfs-2020-v01,V3604,KB16_5_10,KB16.5. Channel used to buy airtime - Bank card
+89,F4,data-rfs-2020-v01,V3605,KB16_5_11,KB16.5. Channel used to other activities - Bank card
+89,F4,data-rfs-2020-v01,V3606,KB16_6_1,KB16.6. Channel used to cash a cheque - USSD code
+89,F4,data-rfs-2020-v01,V3607,KB16_6_2,KB16.6. Channel used to deposit cash - USSD code
+89,F4,data-rfs-2020-v01,V3608,KB16_6_3,KB16.6. Channel used to deposit a cheque into a bank account - USSD code
+89,F4,data-rfs-2020-v01,V3609,KB16_6_4,KB16.6. Channel used to cash withdrawal from a bank account - USSD code
+89,F4,data-rfs-2020-v01,V3610,KB16_6_5,KB16.6. Channel used to paid people/bills using a cheque - USSD code
+89,F4,data-rfs-2020-v01,V3611,KB16_6_6,KB16.6. Channel used to money transfers between your own bank accounts - USSD co
+89,F4,data-rfs-2020-v01,V3612,KB16_6_7,KB16.6. Channel used to money transfer to another personâ€™s bank account - USSD c
+89,F4,data-rfs-2020-v01,V3613,KB16_6_8,KB16.6. Channel used to receive money from someone into a bank account - USSD co
+89,F4,data-rfs-2020-v01,V3614,KB16_6_9,KB16.6. Channel used to get a bank statement - USSD code
+89,F4,data-rfs-2020-v01,V3615,KB16_6_10,KB16.6. Channel used to buy airtime - USSD code
+89,F4,data-rfs-2020-v01,V3616,KB16_6_11,KB16.6. Channel used to other activities - USSD code
+89,F4,data-rfs-2020-v01,V3617,KB16_7_1,KB16.7. Channel used to cash a cheque - Other
+89,F4,data-rfs-2020-v01,V3618,KB16_7_2,KB16.7. Channel used to deposit cash - Other
+89,F4,data-rfs-2020-v01,V3619,KB16_7_3,KB16.7. Channel used to deposit a cheque into a bank account - Other
+89,F4,data-rfs-2020-v01,V3620,KB16_7_4,KB16.7. Channel used to cash withdrawal from a bank account - Other
+89,F4,data-rfs-2020-v01,V3621,KB16_7_5,KB16.7. Channel used to paid people/bills using a cheque - Other
+89,F4,data-rfs-2020-v01,V3622,KB16_7_6,KB16.7. Channel used to money transfers between your own bank accounts - Other
+89,F4,data-rfs-2020-v01,V3623,KB16_7_7,KB16.7. Channel used to money transfer to another personâ€™s bank account - Other
+89,F4,data-rfs-2020-v01,V3624,KB16_7_8,KB16.7. Channel used to receive money from someone into a bank account - Other
+89,F4,data-rfs-2020-v01,V3625,KB16_7_9,KB16.7. Channel used to get a bank statement - Other
+89,F4,data-rfs-2020-v01,V3626,KB16_7_10,KB16.7. Channel used to buy airtime - Other
+89,F4,data-rfs-2020-v01,V3627,KB16_7_11,KB16.7. Channel used to other activities - Other
+89,F4,data-rfs-2020-v01,V3628,K16,K16. Main reason why you do not have a bank account
+89,F4,data-rfs-2020-v01,V3629,K2.1A,K2.1A. Do you have a MFI account
+89,F4,data-rfs-2020-v01,V3630,K2_1B2,K2.1B. Have you used your MFI account this year
+89,F4,data-rfs-2020-v01,V3631,K2_1C,K2.1C. Main reason for you not using your MFI account
+89,F4,data-rfs-2020-v01,V3632,KM2_1D,KM2. Impact: MFI account helps manage your money better
+89,F4,data-rfs-2020-v01,V3633,K2_2,K2.2. Main reason why you not have a MFI account
+89,F4,data-rfs-2020-v01,V3634,K3.1A,K3.1A. Member of an Umurenge SACCO/have an Umurenge SACCO account
+89,F4,data-rfs-2020-v01,V3635,K3_1B2,K3.1B. Have you used your Umurenge SACCO account this year?
+89,F4,data-rfs-2020-v01,V3636,K3_1C,K3.1C. Main reason for you not using Umurenge SACCO account
+89,F4,data-rfs-2020-v01,V3637,K3_1G,"K3.1G. When becoming a SACCO member, did you have an account with a bank or a MF"
+89,F4,data-rfs-2020-v01,V3638,K3_1H,K3.1H. Did you close any of these when you opened your Umurenge SACCO account/be
+89,F4,data-rfs-2020-v01,V3639,K3_1I,K3.1I. Were you member of a group such as a savings and loan group or a savings
+89,F4,data-rfs-2020-v01,V3640,K3_1J,K3.1J. Did you give up your membership
+89,F4,data-rfs-2020-v01,V3641,KS3_1K,KS3.1K Impact: Is SACCO account help you manage your money better?
+89,F4,data-rfs-2020-v01,V3642,K3_2,K3.2. Main reason why do you not have a Umurenge account
+89,F4,data-rfs-2020-v01,V3643,F1.1,F1.1. How do you usually pay for food/groceries?
+89,F4,data-rfs-2020-v01,V3644,F1.2,F1.2. How do you usually pay for school fees?
+89,F4,data-rfs-2020-v01,V3645,F1.3,F1.3. How do you usually pay for large appliances?
+89,F4,data-rfs-2020-v01,V3646,F1_4_1,F1.4.1. You would rather deal with people face to face than with machines such a
+89,F4,data-rfs-2020-v01,V3647,F1_4_2,F1.4.1. You are prepared to learn how to use new technology
+89,F4,data-rfs-2020-v01,V3648,F1_4_3,F1.4.1. You prefer to pay for goods and services in cash rather than using elect
+89,F4,data-rfs-2020-v01,V3649,FM1,FM1. Number of mobile phones owned by HH
+89,F4,data-rfs-2020-v01,V3650,FM2,FM2. Do you own a mobile phone
+89,F4,data-rfs-2020-v01,V3651,FM3,FM3. Do you use a mobile phone that belongs to someone else or shared
+89,F4,data-rfs-2020-v01,V3652,FM4,FM4. Statements best describing your experience with mobile money
+89,F4,data-rfs-2020-v01,V3653,FM5,FM5. Number of MoM accounts do you currently have
+89,F4,data-rfs-2020-v01,V3654,FM6_1,FM6. Reason for using mobile money - Mobile money is the only accessible one in
+89,F4,data-rfs-2020-v01,V3655,FM6_2,FM6. Reason for using mobile money - It is easy to register
+89,F4,data-rfs-2020-v01,V3656,FM6_3,FM6. Reason for using mobile money - It is cheap or most affordable
+89,F4,data-rfs-2020-v01,V3657,FM6_4,FM6. Reason for using mobile money - This is the most convenient
+89,F4,data-rfs-2020-v01,V3658,FM6_5,FM6. Reason for using mobile money - Practical to pay bills
+89,F4,data-rfs-2020-v01,V3659,FM6_6,FM6. Reason for using mobile money - I trust it
+89,F4,data-rfs-2020-v01,V3660,FM6_7,FM6. Reason for using mobile money - It helps me to keep money safe or to save
+89,F4,data-rfs-2020-v01,V3661,FM6_8,FM6. Reason for using mobile money - Other
+89,F4,data-rfs-2020-v01,V3662,FM6_9,FM6. Reason for using mobile money - Do not know
+89,F4,data-rfs-2020-v01,V3663,FM7_1,FM7. Challenges have you faced when using mobile money - Service or Agent networ
+89,F4,data-rfs-2020-v01,V3664,FM7_2,FM7. Challenges have you faced when using mobile money - Inconsistent availabili
+89,F4,data-rfs-2020-v01,V3665,FM7_3,FM7. Challenges have you faced when using mobile money - Difficulty operating th
+89,F4,data-rfs-2020-v01,V3666,FM7_4,FM7. Challenges have you faced when using mobile money - Unclear transaction cha
+89,F4,data-rfs-2020-v01,V3667,FM7_5,FM7. Challenges have you faced when using mobile money - Agent float or cash ava
+89,F4,data-rfs-2020-v01,V3668,FM7_6,FM7. Challenges have you faced when using mobile money - Contacting customer car
+89,F4,data-rfs-2020-v01,V3669,FM7_7,FM7. Challenges have you faced when using mobile money - Sending to a wrong numb
+89,F4,data-rfs-2020-v01,V3670,FM7_8,FM7. Challenges have you faced when using mobile money - Family or friends steal
+89,F4,data-rfs-2020-v01,V3671,FM7_9,FM7. Challenges have you faced when using mobile money - Other
+89,F4,data-rfs-2020-v01,V3672,FM7_10,FM7. Challenges have you faced when using mobile money - None
+89,F4,data-rfs-2020-v01,V3673,F2_5_1,F2.5.1. Mobile money service provider - Tigo
+89,F4,data-rfs-2020-v01,V3674,F2_6_1,F2.6.1. How important is Tigo mobile account is to your finances?
+89,F4,data-rfs-2020-v01,V3675,F2_5_2,F2.5.2. Mobile money service provider - MTN
+89,F4,data-rfs-2020-v01,V3676,F2_6_2,F2.6.3. How important is MTN mobile account is to your finances?
+89,F4,data-rfs-2020-v01,V3677,F2_5_3,F2.5.3. Mobile money service provider - Other
+89,F4,data-rfs-2020-v01,V3678,F2_6_3,F2.6.3. How important is Other mobile account is to your finances?
+89,F4,data-rfs-2020-v01,V3679,F2_12,F2.12. How often do you use Mobile money
+89,F4,data-rfs-2020-v01,V3680,FM8,FM8. Impact: Does your mobile money account help you manage your money better?
+89,F4,data-rfs-2020-v01,V3681,F2_15,F2.15. Main reason for not using mobile money
+89,F4,data-rfs-2020-v01,V3682,L1A,L1. Belong to a savings groups such as a VSLA
+89,F4,data-rfs-2020-v01,V3683,LI1B1,LIB. Is your savings group supported any non-profit organisation?
+89,F4,data-rfs-2020-v01,V3684,L1B2_1,L1B2. Supporting partners: Government
+89,F4,data-rfs-2020-v01,V3685,L1B2_2,L1B2. Supporting partners: CARE
+89,F4,data-rfs-2020-v01,V3686,L1B2_3,L1B2. Supporting partners: CRS
+89,F4,data-rfs-2020-v01,V3687,L1B2_4,L1B2. Supporting partners: World Vision
+89,F4,data-rfs-2020-v01,V3688,L1B2_5,L1B2. Supporting partners: Other
+89,F4,data-rfs-2020-v01,V3689,L1B2_6,L1B2. Supporting partners: None of the above
+89,F4,data-rfs-2020-v01,V3690,L1C,L1C. How often does the group meet with the facilitator
+89,F4,data-rfs-2020-v01,V3691,LI1D,LID. How often do you contribute money to your group?
+89,F4,data-rfs-2020-v01,V3692,LI1F,LI1F. How do you mainly repay or make contributions towards your group?
+89,F4,data-rfs-2020-v01,V3693,L2_01,L2. Services provided by main savings group - Lend money out to members when the
+89,F4,data-rfs-2020-v01,V3694,L2_02,L2. Services provided by main savings group - Lend out money to non-members when
+89,F4,data-rfs-2020-v01,V3695,L2_03,L2. Services provided by main savings group - Give collected money to one member
+89,F4,data-rfs-2020-v01,V3696,L2_04,L2. Services provided by main savings group - Keep the collected money for membe
+89,F4,data-rfs-2020-v01,V3697,L2_05,L2. Services provided by main savings group - Keep the collected money for membe
+89,F4,data-rfs-2020-v01,V3698,L2_06,L2. Services provided by main savings group - Buy assets as a group
+89,F4,data-rfs-2020-v01,V3699,L2_07,L2. Services provided by main savings group - Buy assets for individual members
+89,F4,data-rfs-2020-v01,V3700,L2_08,L2. Services provided by main savings group - Raise or save money for funerals f
+89,F4,data-rfs-2020-v01,V3701,L2_09,L2. Services provided by main savings group - Raise or save money for other emer
+89,F4,data-rfs-2020-v01,V3702,L2_10,L2. Services provided by main savings group - Act as guarantor when members want
+89,F4,data-rfs-2020-v01,V3703,L2_11,L2. Services provided by main savings group - Assist with funeral cost
+89,F4,data-rfs-2020-v01,V3704,L2_12,L2. Services provided by main savings group - Put the collected funds into a fin
+89,F4,data-rfs-2020-v01,V3705,L3A,L3A. Main reason for belonging to a group/club
+89,F4,data-rfs-2020-v01,V3706,L3B_1,L3b. Groups statement - There's more discipline in saving with a group than any
+89,F4,data-rfs-2020-v01,V3707,L3B_2,L3b. Groups statement - I trust how it works and it is easy to get loan
+89,F4,data-rfs-2020-v01,V3708,L3B_3,L3b. Groups statement - More discipline in a group for quick repayment of borrow
+89,F4,data-rfs-2020-v01,V3709,LI3,LI3. Impact: Does the group you belong to help you manage your money better
+89,F4,data-rfs-2020-v01,V3710,L4B1,L4B. Why do you not belong to savings groups - Do not trust them
+89,F4,data-rfs-2020-v01,V3711,L4B2,L4B. Why do you not belong to savings groups - They are too expensive
+89,F4,data-rfs-2020-v01,V3712,L4B3,L4B. Why do you not belong to savings groups - Do not get regular income
+89,F4,data-rfs-2020-v01,V3713,L4B4,L4B. Why do you not belong to savings groups - Do not have money to save
+89,F4,data-rfs-2020-v01,V3714,L4B5,L4B. Why do you not belong to savings groups - Do not want to borrow
+89,F4,data-rfs-2020-v01,V3715,L4B6,L4B. Why do you not belong to savings groups - Have lose money with them before
+89,F4,data-rfs-2020-v01,V3716,L4B7,L4B. Why do you not belong to savings groups - Other
+89,F4,data-rfs-2020-v01,V3717,M1,M1. Statements best describing households situation on farming
+89,F4,data-rfs-2020-v01,V3718,M2_1,M2. Household farming activities - Cattle
+89,F4,data-rfs-2020-v01,V3719,M2_2,"M2. Household farming activities - Goats, sheep, pigs, etc."
+89,F4,data-rfs-2020-v01,V3720,M2_3,M2. Household farming activities - Other livestock
+89,F4,data-rfs-2020-v01,V3721,M2_4,M2. Household farming activities - Cash crops
+89,F4,data-rfs-2020-v01,V3722,M2_5,M2. Household farming activities - Fruit
+89,F4,data-rfs-2020-v01,V3723,M2_6,M2. Household farming activities - Vegetables
+89,F4,data-rfs-2020-v01,V3724,M2_7,M2. Household farming activities - Staples
+89,F4,data-rfs-2020-v01,V3725,M2_8,M2. Household farming activities - Roots
+89,F4,data-rfs-2020-v01,V3726,M2_9,"M2. Household farming activities - Beans, peas, ground nuts"
+89,F4,data-rfs-2020-v01,V3727,M2_10,M2. Household farming activities - Banana
+89,F4,data-rfs-2020-v01,V3728,M2_11,"M2. Household farming activities - Macademia, Fresh beans"
+89,F4,data-rfs-2020-v01,V3729,M2_12,M2. Household farming activities - Other
+89,F4,data-rfs-2020-v01,V3730,MF1,MF1. How much of your householdâ€™s eating needs come from the food that you grow?
+89,F4,data-rfs-2020-v01,V3731,M5,M5. Source of money to finance farming activities
+89,F4,data-rfs-2020-v01,V3732,MF2,MF2. Have you used any of your assets or land to secure a loan for yourself or f
+89,F4,data-rfs-2020-v01,V3733,M4,M4. Does this household farm mostly for consumption or selling?
+89,F4,data-rfs-2020-v01,V3734,MF3,MF3. Considered turning your farming activities into a small business
+89,F4,data-rfs-2020-v01,V3735,MF4_1,MF4. Reason for not turning farming activities into business - Don't have enough
+89,F4,data-rfs-2020-v01,V3736,MF4_2,MF4. Reason for not turning farming activities into business - Land issues
+89,F4,data-rfs-2020-v01,V3737,MF4_3,MF4. Reason for not turning farming activities into business - Do not have colla
+89,F4,data-rfs-2020-v01,V3738,MF4_4,MF4. Reason for not turning farming activities into business - The market is too
+89,F4,data-rfs-2020-v01,V3739,MF4_5,MF4. Reason for not turning farming activities into business - Transport issues
+89,F4,data-rfs-2020-v01,V3740,MF4_6,MF4. Reason for not turning farming activities into business - There is no surpl
+89,F4,data-rfs-2020-v01,V3741,MF4_7,MF4. Reason for not turning farming activities into business - Market price is t
+89,F4,data-rfs-2020-v01,V3742,MF4_8,MF4. Reason for not turning farming activities into business - Other
+89,F4,data-rfs-2020-v01,V3743,MF5,MF5. Main challenges you face when selling your product or services
+89,F4,data-rfs-2020-v01,V3744,N2A_1,N2A. Source of income - Salary or wages from Government institution
+89,F4,data-rfs-2020-v01,V3745,N2A_2,N2A. Source of income - Salary or wages from a private business or company
+89,F4,data-rfs-2020-v01,V3746,N2A_3,N2A. Source of income - Salary or wages from a farmer
+89,F4,data-rfs-2020-v01,V3747,N2A_4,N2A. Source of income - Salary or wages from an individual
+89,F4,data-rfs-2020-v01,V3748,N2A_5,N2A. Source of income - Self_employed
+89,F4,data-rfs-2020-v01,V3749,N2A_6,N2A. Source of income - Money from farming
+89,F4,data-rfs-2020-v01,V3750,N2A_7,N2A. Source of income - Fishing
+89,F4,data-rfs-2020-v01,V3751,N2A_8,N2A. Source of income - Rental income
+89,F4,data-rfs-2020-v01,V3752,N2A_9,N2A. Source of income - Private pension
+89,F4,data-rfs-2020-v01,V3753,N2A_10,N2A. Source of income - Government pension
+89,F4,data-rfs-2020-v01,V3754,N2A_11,N2A. Source of income - Government or state grant or VUP grant or VUP cash trans
+89,F4,data-rfs-2020-v01,V3755,N2A_12,N2A. Source of income - Gift
+89,F4,data-rfs-2020-v01,V3756,N2A_13,N2A. Source of income - Remittances
+89,F4,data-rfs-2020-v01,V3757,N2A_14,N2A. Source of income - Get money from household member
+89,F4,data-rfs-2020-v01,V3758,N2A_15,N2A. Source of income - Household member pays my expenses
+89,F4,data-rfs-2020-v01,V3759,N2A_16,N2A. Source of income - Piece work
+89,F4,data-rfs-2020-v01,V3760,N2A_17,N2A. Source of income - VUP public works
+89,F4,data-rfs-2020-v01,V3761,N2A_18,N2A. Source of income - Make goods to sell
+89,F4,data-rfs-2020-v01,V3762,N2A_19,N2A. Source of income - Sell something I grow
+89,F4,data-rfs-2020-v01,V3763,N2A_20,N2A. Source of income - Sell something I collect from nature
+89,F4,data-rfs-2020-v01,V3765,NI2B,NI2B. Main source of income
+89,F4,data-rfs-2020-v01,V3766,N2B,N2B. How do you MOSTLY receive the money you get from
+89,F4,data-rfs-2020-v01,V3767,N2C,N2C. How do you receive the money you get from
+89,F4,data-rfs-2020-v01,V3768,NI1,NI1. Personal working status
+89,F4,data-rfs-2020-v01,V3769,NI2,NI2. How long you have been unemployed?
+89,F4,data-rfs-2020-v01,V3770,NI3,NI3. Main perceived reason for not being employed
+89,F4,data-rfs-2020-v01,V3771,NI4_1,NI4. Which of the following statements are true to you - Participating in commun
+89,F4,data-rfs-2020-v01,V3772,NI4_2,NI4. Which of the following statements are true to you - Had an internship or ha
+89,F4,data-rfs-2020-v01,V3773,NI4_3,NI4. Which of the following statements are true to you - Tried to start own busi
+89,F4,data-rfs-2020-v01,V3774,NI4_4,NI4. Which of the following statements are true to you - Currently doing any cou
+89,F4,data-rfs-2020-v01,V3775,NI4_5,NI4. Which of the following statements are true to you - Belong to a political p
+89,F4,data-rfs-2020-v01,V3776,NI4_6,NI4. Which of the following statements are true to you - Having skills necessary
+89,F4,data-rfs-2020-v01,V3777,NI5_1,NI5. Have difficulty in any of the following areas- Visual Impairment or Seeing
+89,F4,data-rfs-2020-v01,V3778,NI5_2,NI5. Have difficulty in any of the following areas- Hearing Impairment
+89,F4,data-rfs-2020-v01,V3779,NI5_3,NI5. Have difficulty in any of the following areas- Communication
+89,F4,data-rfs-2020-v01,V3780,NI5_4,NI5. Have difficulty in any of the following areas- Movement activity
+89,F4,data-rfs-2020-v01,V3781,NI5_5,NI5. Have difficulty in any of the following areas- Moving around
+89,F4,data-rfs-2020-v01,V3782,NI5_6,NI5. Have difficulty in any of the following areas- Daily life activities
+89,F4,data-rfs-2020-v01,V3783,NI5_7,NI5. Have difficulty in any of the following areas- Intellectual disability or d
+89,F4,data-rfs-2020-v01,V3784,NI5_8,NI5. Have difficulty in any of the following areas- Learning difficulties
+89,F4,data-rfs-2020-v01,V3785,NI5_9,NI5. Have difficulty in any of the following areas- Mental illness or emotional
+89,F4,data-rfs-2020-v01,V3786,NI5_10,NI5. Have difficulty in any of the following areas- Other
+89,F4,data-rfs-2020-v01,V3787,N2G_1,"N2G. Business sector - Agriculture, forestry and fishing"
+89,F4,data-rfs-2020-v01,V3788,N2G_2,N2G. Business sector - Mining and quarrying
+89,F4,data-rfs-2020-v01,V3789,N2G_3,N2G. Business sector - Manufacturing
+89,F4,data-rfs-2020-v01,V3790,N2G_4,"N2G. Business sector - Electricity, gas, steam and air conditioning supply"
+89,F4,data-rfs-2020-v01,V3791,N2G_5,"N2G. Business sector - Water supply; sewerage, waste management and remediation"
+89,F4,data-rfs-2020-v01,V3792,N2G_6,N2G. Business sector - Construction
+89,F4,data-rfs-2020-v01,V3793,N2G_7,N2G. Business sector - Wholesale and retail trade; repair of motor vehicles and
+89,F4,data-rfs-2020-v01,V3794,N2G_8,N2G. Business sector - Transportation and storage
+89,F4,data-rfs-2020-v01,V3795,N2G_9,N2G. Business sector - Accommodation and food service activities
+89,F4,data-rfs-2020-v01,V3796,N2G_10,N2G. Business sector - Information and communication
+89,F4,data-rfs-2020-v01,V3797,N2G_11,N2G. Business sector - Financial and insurance activities
+89,F4,data-rfs-2020-v01,V3798,N2G_12,N2G. Business sector - Financial and insurance activities
+89,F4,data-rfs-2020-v01,V3799,N2G_13,"N2G. Business sector - Professional, scientific and technical activities"
+89,F4,data-rfs-2020-v01,V3800,N2G_14,N2G. Business sector - Administrative and support service activities
+89,F4,data-rfs-2020-v01,V3801,N2G_15,N2G. Business sector - Education
+89,F4,data-rfs-2020-v01,V3802,N2G_16,N2G. Business sector - Human health and social work activities
+89,F4,data-rfs-2020-v01,V3803,N2G_17,"N2G. Business sector - Arts, entertainment and recreation"
+89,F4,data-rfs-2020-v01,V3804,N2G_18,N2G. Business sector - Other service activities
+89,F4,data-rfs-2020-v01,V3805,N2H,N2H. Number of people employed in your business
+89,F4,data-rfs-2020-v01,V3806,NI6,NI6. Is the business that you own registered or has a license
+89,F4,data-rfs-2020-v01,V3807,NI7,"NI7. Do you sell your products as they are, or you process and add value to your"
+89,F4,data-rfs-2020-v01,V3808,N4,N4. Income - Would it be easier for you to give me an estimate of this for a mon
+89,F4,data-rfs-2020-v01,V3809,N4A,N4A. Income - Monthly personal income
+89,F4,data-rfs-2020-v01,V3810,MPI_midpoint,Mid-point PMI
+89,F4,data-rfs-2020-v01,V3811,N4B,N4B. Income - Annual personal income
+89,F4,data-rfs-2020-v01,V3812,N5A,N5. Coping strategy for big events - Wedding
+89,F4,data-rfs-2020-v01,V3813,N5B,N5. Coping strategy for big events - Funeral
+89,F4,data-rfs-2020-v01,V3814,N5C,N5. Coping strategy for big events - Medical emergency
+89,F4,data-rfs-2020-v01,V3815,N5D,N5. Coping strategy for big events - Childrenâ€™s education
+89,F4,data-rfs-2020-v01,V3816,P1_1,P1. Allocation of money spent - Food and drink and other groceries
+89,F4,data-rfs-2020-v01,V3817,P1_2,"P1. Allocation of money spent - Water or Electricity, paraffin, gas and other fu"
+89,F4,data-rfs-2020-v01,V3818,P1_3,P1. Allocation of money spent - Education
+89,F4,data-rfs-2020-v01,V3819,P1_4,P1. Allocation of money spent - Transport expenses
+89,F4,data-rfs-2020-v01,V3820,P1_5,"P1. Allocation of money spent - Bond or home loan, credit card, car financing"
+89,F4,data-rfs-2020-v01,V3821,P1_6,P1. Allocation of money spent - Communication
+89,F4,data-rfs-2020-v01,V3822,P1_7,"P1. Allocation of money spent - Medical, health expenses"
+89,F4,data-rfs-2020-v01,V3823,P1_8,"P1. Allocation of money spent - Rental payments and rates, levies"
+89,F4,data-rfs-2020-v01,V3824,P1_9,P1. Allocation of money spent - Other debt repayments
+89,F4,data-rfs-2020-v01,V3825,P1_10,"P1. Allocation of money spent - Savings, investments and retirement"
+89,F4,data-rfs-2020-v01,V3826,P1_11,P1. Allocation of money spent - Insurance and Funeral premium payments
+89,F4,data-rfs-2020-v01,V3827,P1_12,"P1. Allocation of money spent - Household furnishings, equipment and routine hou"
+89,F4,data-rfs-2020-v01,V3828,P1_13,P1. Allocation of money spent - Personal spending
+89,F4,data-rfs-2020-v01,V3829,P1_14,"P1. Allocation of money spent - Leisure, entertainment"
+89,F4,data-rfs-2020-v01,V3830,P1_15,P1. Allocation of money spent - Farming inputs
+89,F4,data-rfs-2020-v01,V3831,P1_16,"P1. Allocation of money spent - Business inputs e.g. stock, macninery or equipme"
+89,F4,data-rfs-2020-v01,V3832,P2_1,P2. How do you normally pay for Food and drink and other groceries
+89,F4,data-rfs-2020-v01,V3833,P2_2,"P2. How do you normally pay for Water or Electricity, paraffin, gas and other fu"
+89,F4,data-rfs-2020-v01,V3834,P2_3,P2. How do you normally pay for Education
+89,F4,data-rfs-2020-v01,V3835,P2_4,P2. How do you normally pay for Transport expenses
+89,F4,data-rfs-2020-v01,V3836,P2_5,"P2. How do you normally pay for Bond or home loan, credit card, car financing"
+89,F4,data-rfs-2020-v01,V3837,P2_6,P2. How do you normally pay for Communication
+89,F4,data-rfs-2020-v01,V3838,P2_7,"P2. How do you normally pay for Medical, health expenses"
+89,F4,data-rfs-2020-v01,V3839,P2_8,P2. How do you normally pay for Rental payments
+89,F4,data-rfs-2020-v01,V3840,P2_9,P2. How do you normally pay for Other debt repayments
+89,F4,data-rfs-2020-v01,V3841,P2_10,"P2. How do you normally pay for Savings, investments and retirement"
+89,F4,data-rfs-2020-v01,V3842,P2_11,P2. How do you normally pay for Insurance and Funeral premium payments
+89,F4,data-rfs-2020-v01,V3843,P2_12,P2. How do you normally pay for Household furnishings
+89,F4,data-rfs-2020-v01,V3844,P2_13,P2. How do you normally pay for Personal spending
+89,F4,data-rfs-2020-v01,V3845,P2_14,"P2. How do you normally pay for Leisure, entertainment"
+89,F4,data-rfs-2020-v01,V3846,P2_15,P2. How do you normally pay for Farming inputs
+89,F4,data-rfs-2020-v01,V3847,P2_16,P2. How do you normally pay for Business inputs
+89,F4,data-rfs-2020-v01,V3848,Banked,Banked adults
+89,F4,data-rfs-2020-v01,V3849,Other_formal,Other Formal (non-bank)
+89,F4,data-rfs-2020-v01,V3850,Informal,Informal mechanism
+89,F4,data-rfs-2020-v01,V3851,FAS,Financial Access Strand
+89,F4,data-rfs-2020-v01,V3852,Overlaps,Overlaps
+89,F4,data-rfs-2020-v01,V3853,Credit_B,Credit - Bank
+89,F4,data-rfs-2020-v01,V3854,Credit_F,Credit - Other formal non-bank
+89,F4,data-rfs-2020-v01,V3855,Credit_Inf,Credit - Informal
+89,F4,data-rfs-2020-v01,V3856,Credit_FF,Credit - Family/friends
+89,F4,data-rfs-2020-v01,V3857,Credit_Strand,Credit strand
+89,F4,data-rfs-2020-v01,V3858,Remit_B,Remittances - Bank
+89,F4,data-rfs-2020-v01,V3859,Remit_F,Remittances - Other formal non-bank
+89,F4,data-rfs-2020-v01,V3860,Remit_Inf,Remittances - informal
+89,F4,data-rfs-2020-v01,V3861,Remit_FF,Remittances - relatives/friends/personal
+89,F4,data-rfs-2020-v01,V3862,Remit_Strand,Remittances strand
+89,F4,data-rfs-2020-v01,V3863,Saving_B,Savings - Bank
+89,F4,data-rfs-2020-v01,V3864,Saving_F,Savings - Other formal non-bank
+89,F4,data-rfs-2020-v01,V3865,Saving_Inf,Savings - Informal
+89,F4,data-rfs-2020-v01,V3866,Saving_AH,Savings - Home
+89,F4,data-rfs-2020-v01,V3867,Saving_strand,Savings - Saving strand
+89,F4,data-rfs-2020-v01,V3868,Insurance_strand,Insurance strand
+89,F4,data-rfs-2020-v01,V3869,MFI_uptake,Microfinace Institutions penetration
+89,F4,data-rfs-2020-v01,V3870,MFI_Credit,MFI - Credit
+89,F4,data-rfs-2020-v01,V3871,MFI_Savings,MFI - Savings
+89,F4,data-rfs-2020-v01,V3872,Mobile_money_Uptake,Mobile Money penetration
+89,F4,data-rfs-2020-v01,V3873,Mobile_money_credit,Moibile money - Credit
+89,F4,data-rfs-2020-v01,V3874,Mobile_savings_final,Moibile money - Savings
+89,F4,data-rfs-2020-v01,V3875,Mobile_money_Remittances,Moibile money - Remittances
+89,F4,data-rfs-2020-v01,V3876,Mobile_usage_strand,Mobile money - Usage Strand
+89,F4,data-rfs-2020-v01,V3877,SACCO,Umurenge SACCO penetration
+89,F4,data-rfs-2020-v01,V3878,SACCO_Credit,Umurenge SACCO - Credit
+89,F4,data-rfs-2020-v01,V3879,SACCO_Savings,Umurenge SACCO - Savings
+89,F4,data-rfs-2020-v01,V3880,NDFI,Non-Deposit Taking Lending Financial Institutions
+89,F4,data-rfs-2020-v01,V3881,Pension_fund,Pension Fund administrator
+89,F4,data-rfs-2020-v01,V3882,Digital_Bank,Digital payment - Bank
+89,F4,data-rfs-2020-v01,V3883,Digital_Account_strand,Digital account strands
+89,F4,data-rfs-2020-v01,V3884,Digital_Other_formal,Digital payment - Other formal non-bank
+89,F4,data-rfs-2020-v01,V3885,FinNeeds_ToV_overall,FinNeeds - Transfer of value
+89,F4,data-rfs-2020-v01,V3886,FinNeeds_ToV_cash,FinNeeds - Transfer of value - Cash
+89,F4,data-rfs-2020-v01,V3887,FinNeeds_ToV_digital,FinNeeds - Transfer of value - Digital
+89,F4,data-rfs-2020-v01,V3888,FinNeeds_Meeting_goals,FiNeeds - Meeting goals (indiator)
+89,F4,data-rfs-2020-v01,V3889,FiNeeds_Liquidity,FiNeeds - Liquidity
+89,F4,data-rfs-2020-v01,V3890,FinNeeds_Resilience,FinNeeds - Resilience indicator - Expensive events occurred in p12m
+89,F4,data-rfs-2020-v01,V3891,FinNeeds_Meeting_goals_formal,FiNeeds - Meeting goals (formal)
+89,F4,data-rfs-2020-v01,V3892,FiNeeds_Meeting_goals_informal,FiNeeds - Meeting goals (informal)
+89,F4,data-rfs-2020-v01,V3893,FinNeeds_Meeting_goals_soial,FiNeeds - Meeting goals (soial)
+89,F4,data-rfs-2020-v01,V3894,Income_expences_strand,Financial Health: Balancing income and expenses
+89,F4,data-rfs-2020-v01,V3895,FH_Build_mantain_reserves,Financial Health: Build mantain reserves
+89,F4,data-rfs-2020-v01,V3896,FH_Managing_debts_reserves,Financial Health: Manage existing debts - Credit stress/load
+89,F4,data-rfs-2020-v01,V3897,FH_Plan_prioritise,Financial Health: Plan and prioritize
+89,F4,data-rfs-2020-v01,V3898,FH_Manage_recover_fianancial_str,Financial Health: Manage and recover from financial shocks - Coping strategies
+89,F4,data-rfs-2020-v01,V3899,FH_depht_strand,"Financial Health: Effective range of financial tools - Depht of financial suite (Transaction, Savings, Credit, Insurance)"
+89,F4,data-rfs-2020-v01,V3900,Overall_formal_uasge_strand,Formal Financial Products usage
+89,F4,data-rfs-2020-v01,V3901,People_with_disabilities,People with disabilities - indicator
+89,F4,data-rfs-2020-v01,V3902,SDG_Below_USD,SDG - Below USD poverty line indicator
+89,F4,data-rfs-2020-v01,V3903,Empowerment_score,Empowerment Ladder
+89,F4,data-rfs-2020-v01,V3904,Transparency_score,Transparency
+89,F4,data-rfs-2020-v01,V3905,Empowerment_strand,Empowerment score
+89,F4,data-rfs-2020-v01,V3906,Income_Segments,Income Segments

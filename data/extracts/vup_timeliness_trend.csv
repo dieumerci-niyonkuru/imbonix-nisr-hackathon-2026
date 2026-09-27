@@ -1,0 +1,33 @@
+year,survey,sample,component,question,category,pct,base_n,source,table
+2013/14,EICV4,VUP sample,Direct Support,Typical timeliness of payment (monthly schedule),Regular every month,10.5,,NISR EICV4 Social Protection and VUP thematic report,Table 3.11
+2013/14,EICV4,VUP sample,Direct Support,Typical timeliness of payment (monthly schedule),Typically up to a month late,3.5,,NISR EICV4 Social Protection and VUP thematic report,Table 3.11
+2013/14,EICV4,VUP sample,Direct Support,Typical timeliness of payment (monthly schedule),Typically more than a month late,86.0,,NISR EICV4 Social Protection and VUP thematic report,Table 3.11
+2013/14,EICV4,VUP sample,Public Works,Typical timeliness of payment (two-weekly schedule),Regular every two weeks,6.5,,NISR EICV4 Social Protection and VUP thematic report,Table 3.15
+2013/14,EICV4,VUP sample,Public Works,Typical timeliness of payment (two-weekly schedule),Typically between 15 days and 1 month,26.5,,NISR EICV4 Social Protection and VUP thematic report,Table 3.15
+2013/14,EICV4,VUP sample,Public Works,Typical timeliness of payment (two-weekly schedule),Typically more than 1 month later,66.9,,NISR EICV4 Social Protection and VUP thematic report,Table 3.15
+2016/17,EICV5,VUP sample,Direct Support,Typical timeliness of payment (monthly schedule),Regularly every month,15.2,334,NISR EICV5 VUP thematic report,Table 4.2
+2016/17,EICV5,VUP sample,Direct Support,Typical timeliness of payment (monthly schedule),Typically a month late,8.4,334,NISR EICV5 VUP thematic report,Table 4.2
+2016/17,EICV5,VUP sample,Direct Support,Typical timeliness of payment (monthly schedule),Typically more than a month late,76.4,334,NISR EICV5 VUP thematic report,Table 4.2
+2016/17,EICV5,Cross-section,Direct Support,Typical timeliness of payment (monthly schedule),Regularly every month,33.3,343,NISR EICV5 VUP thematic report,Table 4.2
+2016/17,EICV5,Cross-section,Direct Support,Typical timeliness of payment (monthly schedule),Typically a month late,8.6,343,NISR EICV5 VUP thematic report,Table 4.2
+2016/17,EICV5,Cross-section,Direct Support,Typical timeliness of payment (monthly schedule),Typically more than a month late,58.1,343,NISR EICV5 VUP thematic report,Table 4.2
+2016/17,EICV5,VUP sample,Public Works,Typical timeliness of payment (two-weekly schedule),On time every two weeks,7.0,,NISR EICV5 VUP thematic report,Table 4.3
+2016/17,EICV5,VUP sample,Public Works,Typical timeliness of payment (two-weekly schedule),On time every month,4.6,,NISR EICV5 VUP thematic report,Table 4.3
+2016/17,EICV5,VUP sample,Public Works,Typical timeliness of payment (two-weekly schedule),Delayed between one week and one month,26.4,,NISR EICV5 VUP thematic report,Table 4.3
+2016/17,EICV5,VUP sample,Public Works,Typical timeliness of payment (two-weekly schedule),Delayed after one month or first payment not yet paid,62.0,,NISR EICV5 VUP thematic report,Table 4.3
+2016/17,EICV5,Cross-section,Public Works,Typical timeliness of payment (two-weekly schedule),On time every two weeks,5.9,,NISR EICV5 VUP thematic report,Table 4.3
+2016/17,EICV5,Cross-section,Public Works,Typical timeliness of payment (two-weekly schedule),On time every month,4.6,,NISR EICV5 VUP thematic report,Table 4.3
+2016/17,EICV5,Cross-section,Public Works,Typical timeliness of payment (two-weekly schedule),Delayed between one week and one month,16.4,,NISR EICV5 VUP thematic report,Table 4.3
+2016/17,EICV5,Cross-section,Public Works,Typical timeliness of payment (two-weekly schedule),Delayed after one month or first payment not yet paid,73.2,,NISR EICV5 VUP thematic report,Table 4.3
+2023/24,EICV7,VUP sample,Direct Support,Days of delay of the last payment,Paid on time,15.1,,NISR EICV7 VUP thematic report (tables),Table 4.2
+2023/24,EICV7,VUP sample,Direct Support,Days of delay of the last payment,1 to 10 days,56.2,,NISR EICV7 VUP thematic report (tables),Table 4.2
+2023/24,EICV7,VUP sample,Direct Support,Days of delay of the last payment,11 to 20 days,22.4,,NISR EICV7 VUP thematic report (tables),Table 4.2
+2023/24,EICV7,VUP sample,Direct Support,Days of delay of the last payment,More than 20 days,6.4,,NISR EICV7 VUP thematic report (tables),Table 4.2
+2023/24,EICV7,VUP sample,Classic Public Works,Days of delay of the last payment,Paid on time,9.6,,NISR EICV7 VUP thematic report (tables),Table 4.5
+2023/24,EICV7,VUP sample,Classic Public Works,Days of delay of the last payment,1 to 10 days,59.1,,NISR EICV7 VUP thematic report (tables),Table 4.5
+2023/24,EICV7,VUP sample,Classic Public Works,Days of delay of the last payment,11 to 20 days,18.5,,NISR EICV7 VUP thematic report (tables),Table 4.5
+2023/24,EICV7,VUP sample,Classic Public Works,Days of delay of the last payment,More than 20 days,12.8,,NISR EICV7 VUP thematic report (tables),Table 4.5
+2023/24,EICV7,VUP sample,Expanded Public Works,Days of delay of the last payment,Paid on time,7.2,,NISR EICV7 VUP thematic report (tables),Table 4.8
+2023/24,EICV7,VUP sample,Expanded Public Works,Days of delay of the last payment,1 to 10 days,46.4,,NISR EICV7 VUP thematic report (tables),Table 4.8
+2023/24,EICV7,VUP sample,Expanded Public Works,Days of delay of the last payment,11 to 20 days,28.7,,NISR EICV7 VUP thematic report (tables),Table 4.8
+2023/24,EICV7,VUP sample,Expanded Public Works,Days of delay of the last payment,More than 20 days,17.7,,NISR EICV7 VUP thematic report (tables),Table 4.8

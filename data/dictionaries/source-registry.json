@@ -1,0 +1,30 @@
+{
+  "sources": [
+    {
+      "source_id": "nisr",
+      "name": "National Institute of Statistics of Rwanda",
+      "website": "https://statistics.gov.rw/",
+      "license": "CC BY 4.0 where applicable",
+      "acknowledgement": "National Institute of Statistics of Rwanda"
+    },
+    {
+      "source_id": "nisr-microdata",
+      "name": "NISR Central Data Catalog",
+      "website": "https://microdata.statistics.gov.rw/",
+      "access_note": "Check each study access condition before downloading or redistributing data."
+    },
+    {
+      "source_id": "nisr-finscope-2024",
+      "name": "Rwanda FinScope Survey 2024",
+      "publisher": "National Institute of Statistics of Rwanda",
+      "website": "https://statistics.gov.rw/statistical-publications/business-establishment-finance-trade/finscope-survey-2024",
+      "report_url": "https://statistics.gov.rw/sites/default/files/documents/2024-09/Rwanda-Finscope-2024-Report_compressed.pdf",
+      "fieldwork_period": "2024-09-06/2024-10-08",
+      "sample_size": 14000,
+      "geography": "Rwanda",
+      "geography_level": "national",
+      "license": "CC BY 4.0 where applicable",
+      "access_note": "Published report available; verify microdata access and study-specific terms in NISR NADA before reuse."
+    }
+  ]
+}

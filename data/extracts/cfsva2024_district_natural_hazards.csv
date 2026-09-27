@@ -1,0 +1,31 @@
+district,province,hazard_any_pct,hazard_drought_pct,hazard_floods_pct,hazard_landslides_pct,hazard_other_pct
+Bugesera,East,37,25,12,0,0
+Gatsibo,East,70,58,11,0,0
+Kayonza,East,52,39,9,2,1
+Kirehe,East,61,31,26,0,3
+Ngoma,East,45,23,10,3,7
+Nyagatare,East,40,29,9,2,0
+Rwamagana,East,25,24,1,0,0
+Gasabo,Kigali City,16,8,7,0,0
+Kicukiro,Kigali City,17,8,7,0,2
+Nyarugenge,Kigali City,20,16,1,3,0
+Burera,North,80,14,59,6,0
+Gakenke,North,63,16,0,30,17
+Gicumbi,North,51,32,13,5,0
+Musanze,North,35,7,9,18,0
+Rulindo,North,66,34,19,11,1
+Gisagara,South,81,38,40,0,3
+Huye,South,64,31,29,2,1
+Kamonyi,South,52,19,27,6,0
+Muhanga,South,74,27,25,22,0
+Nyamagabe,South,80,33,21,22,3
+Nyanza,South,71,51,19,1,0
+Nyaruguru,South,70,37,20,8,3
+Ruhango,South,61,38,22,0,1
+Karongi,West,62,9,33,16,3
+Ngororero,West,72,4,17,51,0
+Nyabihu,West,70,6,10,52,1
+Nyamasheke,West,54,31,14,8,0
+Rubavu,West,84,13,41,27,3
+Rusizi,West,42,12,12,13,5
+Rutsiro,West,70,35,9,25,1
