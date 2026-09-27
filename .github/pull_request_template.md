@@ -21,7 +21,7 @@
 ## Data and honesty checks
 
 - [ ] Every new number traces to a published NISR source, and its source line names it
-- [ ] Values are labelled with their status (observed, calculated, model estimate, projection or scenario)
+- [ ] Values are labelled with their status (observed, calculated, model estimate, projection, scenario or policy target)
 - [ ] No causal claims from cross-sectional data
 - [ ] No microdata, personal data, credentials or `.env` files are included
 - [ ] Nothing implies that NISR endorses IMBONIX

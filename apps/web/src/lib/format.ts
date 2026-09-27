@@ -40,4 +40,5 @@ export const STATUS_LABEL: Record<string, string> = {
   model_estimate: "Model estimate",
   projection: "Projection",
   scenario: "Scenario",
+  target: "Policy target",
 };
