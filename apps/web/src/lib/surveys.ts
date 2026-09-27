@@ -86,4 +86,4 @@ export function channel(component: string): DeliveryRow[] {
 /** On time → more than 20 days late: one hue, darker = longer delay (validated ordinal ramp). */
 export const DELAY_RAMP: readonly string[] = SEVERITY;
 
-export const DELAY_LABELS = ["On time", "1–10 days late", "11–20 days late", "More than 20 days late"];
+export const DELAY_LABELS = ["On time", "1 to 10 days late", "11 to 20 days late", "More than 20 days late"];

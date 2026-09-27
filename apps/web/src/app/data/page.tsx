@@ -91,7 +91,7 @@ const PUBLISHED = [
     url: "https://statistics.gov.rw/sites/default/files/documents/2026-01/Rwanda_Statistical_Yearbook_2025.xlsx",
   },
   {
-    name: "NISR subnational population projections 2023–2032",
+    name: "NISR subnational population projections 2023 to 2032",
     url: "https://statistics.gov.rw/district-statistics/southern-province",
   },
   {
@@ -123,7 +123,7 @@ const CAVEATS = [
   },
   {
     title: "Surveys define inclusion differently",
-    body: "FinScope (adults 16+) counts any formal or informal product; DHS (ages 15–49) asks about personal, active use in the past year. Each is labelled with its own definition.",
+    body: "FinScope (adults 16+) counts any formal or informal product; DHS (ages 15 to 49) asks about personal, active use in the past year. Each is labelled with its own definition.",
   },
   {
     title: "Nothing here is causal or an eligibility tool",

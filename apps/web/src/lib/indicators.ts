@@ -270,7 +270,7 @@ export const INDICATORS: IndicatorMeta[] = [
     format: "pct",
     national: 26.8,
     layer: true,
-    note: "DHS 2025 measured about 160–550 children per district.",
+    note: "DHS 2025 measured about 160 to 550 children per district.",
   },
   { id: "dhs_severe_stunting", short: "Severe stunting", dimension: "nutrition", better: "lower", format: "pct", national: 6.4 },
   {
@@ -369,10 +369,10 @@ export const INDICATORS: IndicatorMeta[] = [
   { id: "census_population", short: "Population, 2022", dimension: "people", better: "neutral", format: "count", layer: true },
   { id: "proj_adults_16plus_2024", short: "Adults 16+ (2024)", dimension: "people", better: "neutral", format: "count" },
   { id: "proj_women_16plus_2024", short: "Women 16+ (2024)", dimension: "people", better: "neutral", format: "count" },
-  { id: "proj_youth_16_30_2024", short: "Youth 16–30 (2024)", dimension: "people", better: "neutral", format: "count" },
+  { id: "proj_youth_16_30_2024", short: "Youth 16 to 30 (2024)", dimension: "people", better: "neutral", format: "count" },
   { id: "proj_adults_16plus_2026", short: "Adults 16+ (2026)", dimension: "people", better: "neutral", format: "count" },
   { id: "proj_women_16plus_2026", short: "Women 16+ (2026)", dimension: "people", better: "neutral", format: "count" },
-  { id: "proj_youth_16_30_2026", short: "Youth 16–30 (2026)", dimension: "people", better: "neutral", format: "count" },
+  { id: "proj_youth_16_30_2026", short: "Youth 16 to 30 (2026)", dimension: "people", better: "neutral", format: "count" },
   { id: "census_female_headed_hh", short: "Households headed by women", dimension: "people", better: "neutral", format: "pct" },
   {
     id: "eicv7_hh_sending_transfers",

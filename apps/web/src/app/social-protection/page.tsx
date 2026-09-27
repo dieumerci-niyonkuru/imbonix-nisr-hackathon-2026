@@ -62,7 +62,7 @@ export default function SocialProtectionPage() {
               <p className="mt-3 font-display text-5xl font-bold tracking-[-0.04em] text-ink">96.6%</p>
               <p className="mt-2 text-[14px] leading-6 text-ink/80">of payments delivered on time, on average</p>
               <p className="mt-4 text-[11.5px] leading-5 text-muted">
-                Social Protection Sector Strategic Plan 2024–2029 (MINALOC): Direct Support 97%, classic public works 90%,
+                Social Protection Sector Strategic Plan 2024 to 2029 (MINALOC): Direct Support 97%, classic public works 90%,
                 expanded public works 96%.
               </p>
             </div>
@@ -178,7 +178,7 @@ export default function SocialProtectionPage() {
                 );
               })}
             </div>
-            <p className="mt-4 text-[11.5px] text-muted">Scale 0–25%. Poverty status as measured by EICV7 at survey time.</p>
+            <p className="mt-4 text-[11.5px] text-muted">Scale 0 to 25%. Poverty status as measured by EICV7 at survey time.</p>
           </div>
         </div>
       </section>
