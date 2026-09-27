@@ -1,0 +1,70 @@
+/* eslint-disable @next/next/no-img-element -- small vector files, not photos: nothing for the image optimiser to do */
+import { cn } from "@/lib/utils";
+
+/** Width / height of the outlined SVGs in public/brand (made by scripts/brand/make_logo_svgs.py). */
+const WORDMARK_RATIO = 504.7 / 78;
+const TAGLINE_RATIO = 891 / 40;
+
+const SIZES = {
+  md: { emblem: 46, wordmark: 26, tagline: 8 },
+  lg: { emblem: 58, wordmark: 31, tagline: 9.5 },
+} as const;
+
+/** Below 360px the header logo steps down a size (and drops the tagline) so the search and menu buttons fit. */
+const COMPACT = {
+  md: { emblem: "h-10 w-10 min-[360px]:h-[46px] min-[360px]:w-[46px]", wordmark: "h-5 w-auto min-[360px]:h-[26px]" },
+  lg: { emblem: "", wordmark: "" },
+} as const;
+
+/**
+ * The IMBONIX logo: the vector emblem beside the wordmark and tagline, all drawn from the logo's own colours.
+ *
+ * `onDark` uses the navy-background files: the emblem on a white disc and the white wordmark and tagline. Below
+ * 360px the header logo steps down a size and hides the tagline, so a phone header keeps room for its buttons. The favicon uses the simplified mark
+ * (public/brand/imbonix-mark.svg).
+ */
+export function BrandLogo({
+  onDark = false,
+  size = "md",
+  showTagline = true,
+  className,
+}: {
+  onDark?: boolean;
+  size?: keyof typeof SIZES;
+  showTagline?: boolean;
+  className?: string;
+}) {
+  const s = SIZES[size];
+  const suffix = onDark ? "-on-dark" : "";
+  return (
+    <span className={cn("inline-flex items-center gap-3", className)}>
+      <img
+        src={onDark ? "/brand/imbonix-emblem-disc.svg" : "/brand/imbonix-emblem.svg"}
+        alt=""
+        width={s.emblem}
+        height={s.emblem}
+        className={cn("shrink-0", COMPACT[size].emblem)}
+        fetchPriority="high"
+      />
+      <span className="flex flex-col justify-center">
+        <img
+          src={`/brand/imbonix-wordmark${suffix}.svg`}
+          alt="IMBONIX"
+          width={Math.round(s.wordmark * WORDMARK_RATIO)}
+          height={s.wordmark}
+          className={COMPACT[size].wordmark}
+          fetchPriority="high"
+        />
+        {showTagline && (
+          <img
+            src={`/brand/imbonix-tagline${suffix}.svg`}
+            alt="Data for Inclusive Prosperity"
+            width={Math.round(s.tagline * TAGLINE_RATIO)}
+            height={s.tagline}
+            className="mt-1.5 hidden min-[360px]:block"
+          />
+        )}
+      </span>
+    </span>
+  );
+}
