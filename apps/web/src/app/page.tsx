@@ -234,7 +234,7 @@ export default function Home() {
   ];
 
   const panels: Record<FocusAreaId, ReactNode> = {
-    gap: (
+    exclusion: (
       <div className="grid gap-6">
         <FocusPanel
           kicker="A real gap"
@@ -342,7 +342,7 @@ export default function Home() {
         </div>
       </div>
     ),
-    evidence: (
+    poverty: (
       <div className="grid gap-6">
         <FocusPanel
           title="Poverty and exclusion mostly overlap. The North is the exception."
@@ -479,7 +479,7 @@ export default function Home() {
         </div>
       </div>
     ),
-    impact: (
+    protection: (
       <div className="grid gap-6">
         <FocusPanel
           kicker="Practical use"
@@ -684,13 +684,13 @@ export default function Home() {
       <section className="bg-paper py-16 sm:py-20" aria-labelledby="focus-areas-heading">
         <div className="container-page">
           <SectionHeader
-            eyebrow="Three focus areas"
-            title={<span id="focus-areas-heading">The gap, the evidence and who can act</span>}
-            intro="Each tab makes one argument with published figures. Every chart names its source and says how far to trust it."
+            eyebrow="The evidence"
+            title={<span id="focus-areas-heading">Explore each part of the challenge</span>}
+            intro="Each tab gathers the published figures behind one part of the Track 2 challenge. Every chart names its source and says how far to trust it."
           />
           <div className="mt-10">
             <Tabs
-              label="What IMBONIX focuses on"
+              label="The three parts of the challenge"
               items={FOCUS_AREAS.map((area) => ({ id: area.id, label: area.label, hint: area.hint, content: panels[area.id] }))}
             />
           </div>

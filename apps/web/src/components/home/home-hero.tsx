@@ -53,8 +53,8 @@ export function HomeHero({
             points to.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            {/* A plain anchor: the homepage tabs follow the hash, so this opens the evidence tab below. */}
-            <a href="#evidence" className={PRIMARY_BUTTON}>
+            {/* A plain anchor: the homepage tabs follow the hash, so this opens the first part of the challenge below. */}
+            <a href="#exclusion" className={PRIMARY_BUTTON}>
               Explore the evidence
               <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
             </a>
