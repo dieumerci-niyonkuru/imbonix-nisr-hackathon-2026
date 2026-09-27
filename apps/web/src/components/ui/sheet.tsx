@@ -52,7 +52,7 @@ export const SheetContent = forwardRef<
       {children}
       <SheetPrimitive.Close className="group absolute right-4 top-4 inline-flex items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[14px] font-semibold text-ink transition-colors hover:text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal">
         Close
-        <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-royal group-hover:text-white group-hover:ring-royal">
+        <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-cyan group-hover:text-navy-900 group-hover:ring-cyan">
           <XMarkIcon className="h-4 w-4" aria-hidden="true" />
         </span>
       </SheetPrimitive.Close>

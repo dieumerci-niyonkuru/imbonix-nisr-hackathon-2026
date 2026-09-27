@@ -55,7 +55,7 @@ export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
               <Reveal delay={index * 0.06} className="h-full">
                 <article className="flex h-full flex-col rounded-3xl border border-line bg-white p-6 shadow-card">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-sun">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-cyan">
                       <part.icon className="h-6 w-6" aria-hidden="true" />
                     </span>
                     <h3 className="eyebrow text-royal">{part.area}</h3>
