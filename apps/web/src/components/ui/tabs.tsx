@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export type TabItem = { id: string; label: string; hint?: string; content: ReactNode };
 
 /**
- * Accessible tabs whose selection follows the URL hash, so links such as /#evidence open a given tab. Every panel is
+ * Accessible tabs whose selection follows the URL hash, so links such as /#poverty open a given tab. Every panel is
  * rendered on the server and inactive ones are invisible, so the content is there without JavaScript too.
  */
 export function Tabs({ items, label }: { items: TabItem[]; label: string }) {
