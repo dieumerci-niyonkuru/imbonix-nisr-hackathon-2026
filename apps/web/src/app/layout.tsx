@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/lexend";
 import "./globals.css";
+import { ScrollControls } from "@/components/layout/scroll-controls";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeaderNav } from "@/components/layout/site-header-nav";
 import { BRAND } from "@/lib/palette";
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
         </main>
         <SiteFooter />
+        <ScrollControls />
       </body>
     </html>
   );
