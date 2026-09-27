@@ -94,7 +94,7 @@ export function SiteFooter() {
           <Link
             href="/"
             aria-label="IMBONIX home"
-            className="justify-self-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan md:order-2"
+            className="justify-self-center rounded-2xl bg-white px-8 py-6 shadow-lift transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900 md:order-2"
           >
             <StackedBrandLogo />
           </Link>
