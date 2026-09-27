@@ -17,8 +17,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 /**
- * The three parts of the Track 2 challenge: understand financial exclusion, poverty dynamics and the impact of social
- * protection. They are the homepage tabs (which follow the URL hash, for example /#poverty) and the header menus.
+ * The three focus areas: financial exclusion, poverty dynamics and the impact of social protection. They are the homepage tabs (which follow the URL hash, for example /#poverty) and the header menus.
  */
 export const FOCUS_AREAS = [
   { id: "exclusion", label: "Financial exclusion", hint: "Included, but not resilient" },
@@ -30,10 +29,10 @@ export type FocusAreaId = (typeof FOCUS_AREAS)[number]["id"];
 
 /** `badge` is a short label shown next to the page in the menus, such as the survey behind it or its status. */
 export type NavItem = { href: string; label: string; description: string; badge?: string };
-/** Each group is one part of the challenge: `focusId` is its homepage tab. */
+/** Each group is one focus area: `focusId` is its homepage tab. */
 export type NavGroup = { label: string; intro: string; focusId: FocusAreaId; items: NavItem[] };
 
-/** Pages grouped by the part of the challenge they answer, in the same order as the homepage tabs. */
+/** Pages grouped by the focus area they answer, in the same order as the homepage tabs. */
 export const NAV_GROUPS: NavGroup[] = [
   {
     label: "Financial exclusion",

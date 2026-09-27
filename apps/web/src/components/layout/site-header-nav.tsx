@@ -21,7 +21,7 @@ type MenuItem = {
 };
 type MenuGroup = { id: string; label: string; items: MenuItem[] };
 
-/** One menu per part of the Track 2 challenge: its homepage overview, then the pages that go deeper. */
+/** One menu per focus area: its homepage overview, then the pages that go deeper. */
 const MENU_GROUPS: MenuGroup[] = NAV_GROUPS.map((group) => ({
   id: group.focusId,
   label: group.label,
@@ -43,7 +43,7 @@ const ACTIVE_STYLE = "bg-paper text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal";
 
 /**
- * The header: a thin bar with project links, then the logo, a home link, one dropdown menu per part of the challenge,
+ * The header: a thin bar with project links, then the logo, a home link, one dropdown menu per focus area,
  * the methods page and search, from 1280px wide. The menus are disclosure buttons: they open on click, Enter or the down
  * arrow, and on hover with a mouse; Escape, a click outside or moving focus away closes them. Narrower screens get a menu
  * sheet with the same links.
@@ -122,7 +122,9 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
     <>
       <div className="hidden bg-mist-strong md:block">
         <div className="container-page flex h-10 items-center justify-between gap-6 text-[13px]">
-          <p className="truncate text-muted">An independent project for the NISR 2026 Big Data Hackathon, Track 2</p>
+          <p className="truncate text-muted">
+            Independent evidence on financial inclusion, poverty and social protection, built on NISR data
+          </p>
           <nav aria-label="Project links" className="shrink-0">
             <ul className="flex items-center gap-5">
               {UTILITY_LINKS.map((link) => (
