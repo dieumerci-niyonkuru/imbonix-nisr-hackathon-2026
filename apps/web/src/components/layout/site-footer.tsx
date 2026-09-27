@@ -107,9 +107,10 @@ export function SiteFooter() {
           <Link
             href="/"
             aria-label="IMBONIX home"
-            className="justify-self-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
+            className="justify-self-center rounded-2xl bg-white px-5 py-3 shadow-lift ring-1 ring-white/10 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
           >
-            <BrandLogo onDark />
+            {/* The real logo, in its own colours, on a white panel: the same files as the header. */}
+            <BrandLogo />
           </Link>
           <a
             href="#main"
