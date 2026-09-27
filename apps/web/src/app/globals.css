@@ -121,6 +121,23 @@ body {
   }
 }
 
+/* Bars in the homepage gap chart grow in once on load. With reduced motion preferred, the rule at the end of this file
+   makes the animation instant. */
+.bar-grow {
+  transform-origin: left center;
+  animation: bar-grow 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--bar-delay, 0ms);
+}
+
+@keyframes bar-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 /* Map shapes: smooth fill changes when the layer switches. */
 .map-shape {
   transition:

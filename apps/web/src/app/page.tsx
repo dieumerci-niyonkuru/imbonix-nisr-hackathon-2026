@@ -18,7 +18,7 @@ import { ChallengeSection, type ChallengePart } from "@/components/home/challeng
 import { DistrictFinder, type FinderProvince } from "@/components/home/district-finder";
 import { FocusPanel } from "@/components/home/focus-panel";
 import { GapChart, type GapRow } from "@/components/home/gap-chart";
-import { HomeHero, type HeroFigure } from "@/components/home/home-hero";
+import { HomeHero, type HeroFigure, type ProofPoint } from "@/components/home/home-hero";
 import { PovertyMapSection } from "@/components/home/poverty-map-section";
 import { HowItWorks, type WorkStep } from "@/components/home/how-it-works";
 import { FOCUS_AREAS, type FocusAreaId } from "@/components/layout/nav";
@@ -603,7 +603,13 @@ export default function Home() {
     { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: BRAND.blue },
     { label: "Have a mobile money wallet", value: registeredWallet, color: BRAND.blue },
     { label: "Are banked", value: bankedRow.in2024, color: BRAND.navy },
-    { label: "Are financially healthy", value: healthyShare, color: CORE.cyan },
+    {
+      label: "Are financially healthy",
+      value: healthyShare,
+      color: CORE.cyan,
+      gapTo: includedShare,
+      gapLabel: `${includedShare - healthyShare} point gap`,
+    },
   ];
 
   // Key figures across the three parts of the challenge, none repeating the chart.
@@ -667,6 +673,22 @@ export default function Home() {
     },
   ];
 
+  // How the project meets the three things the Track 2 brief asks of a solution, in the brief's own terms.
+  const proofPoints: ProofPoint[] = [
+    {
+      criterion: "A real gap",
+      evidence: `${includedShare}% of adults use a financial service, yet only ${healthyShare}% are financially healthy.`,
+    },
+    {
+      criterion: "Informed by NISR data",
+      evidence: `${Object.keys(SOURCES).length} indicators from ${publicationCount} publications, for ${DISTRICTS.length} districts and ${sectorCount} sectors.`,
+    },
+    {
+      criterion: "Practical impact",
+      evidence: `${LEVERS.length} policy levers, flagged district by district, that policymakers and civil society can act on.`,
+    },
+  ];
+
   const workSteps: WorkStep[] = [
     {
       title: "Collect",
@@ -697,6 +719,7 @@ export default function Home() {
     <>
       <HomeHero
         figures={heroFigures}
+        proofPoints={proofPoints}
         districtCount={DISTRICTS.length}
         sectorCount={sectorCount}
         chart={
