@@ -14,6 +14,9 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - Each focus area has its own page at a glance (/focus/exclusion, /focus/poverty, /focus/protection): the question
   it answers, the claim with its key numbers and the charts behind it, then the pages that go deeper and the other
   focus areas. The menus, footer, search and breadcrumbs link to these pages.
+- Every chart on the focus area pages, the national figures page and the overlap page has a plain "How to read"
+  line under its title, saying what the bars, slices, dots or colours mean, so a first time reader understands it
+  without help.
 
 ### Minimal homepage and navigation
 
