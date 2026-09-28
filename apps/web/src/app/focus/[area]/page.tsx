@@ -81,7 +81,7 @@ export default async function FocusAreaPage({ params }: Params) {
               <Link
                 key={other.id}
                 href={`/focus/${other.id}`}
-                className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+                className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
               >
                 {other.label} at a glance
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

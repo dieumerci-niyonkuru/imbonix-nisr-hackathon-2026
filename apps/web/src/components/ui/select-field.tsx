@@ -28,12 +28,12 @@ export function SelectField({
         <select
           value={value}
           onChange={(event) => onChange(event.target.value)}
-          className="h-11 w-full cursor-pointer appearance-none truncate rounded-xl border border-line bg-white pl-3.5 pr-10 text-[14.5px] font-semibold text-ink shadow-card transition-colors hover:border-royal/60 focus:border-royal focus:outline-none focus:ring-2 focus:ring-cyan/50"
+          className="h-11 w-full cursor-pointer appearance-none truncate rounded-xl border border-line bg-white pl-3.5 pr-10 text-[14.5px] font-semibold text-ink shadow-card transition-colors hover:border-cyan-ink/60 focus:border-cyan-ink focus:outline-none focus:ring-2 focus:ring-cyan/50"
         >
           {children}
         </select>
         <ChevronDownIcon
-          className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-royal"
+          className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-cyan-ink"
           aria-hidden="true"
         />
       </span>

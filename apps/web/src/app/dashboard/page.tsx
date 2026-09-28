@@ -56,7 +56,7 @@ export default function DashboardPage() {
             value="92%"
             label="of adults use at least one formal financial service"
             source="FinScope 2024"
-            accent={BRAND.blue}
+            accent={BRAND.navy}
           />
           <StatTile
             value="10%"
@@ -69,7 +69,7 @@ export default function DashboardPage() {
             value={`${women.either.toFixed(1)}%`}
             label="of women aged 15 to 49 used a bank account or mobile money in the past year"
             source="DHS 2025"
-            accent={BRAND.blue}
+            accent={BRAND.navy}
           />
           <StatTile
             value={`${dsOnTime.all!.toFixed(1)}%`}

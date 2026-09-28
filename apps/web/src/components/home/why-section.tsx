@@ -10,7 +10,7 @@ export function WhySection({ contributions }: { contributions: Contribution[] })
     <section className="bg-paper py-16 sm:py-24" aria-labelledby="why-heading">
       <div className="container-page grid gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p className="eyebrow text-royal">Why IMBONIX</p>
+          <p className="eyebrow text-cyan-ink">Why IMBONIX</p>
           <h2
             id="why-heading"
             className="mt-3 text-balance font-display text-3xl font-bold tracking-[-0.03em] text-ink sm:text-4xl"

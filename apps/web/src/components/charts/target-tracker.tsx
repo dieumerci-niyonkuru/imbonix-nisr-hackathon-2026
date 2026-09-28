@@ -35,7 +35,7 @@ export function TargetTracker({ targets }: { targets: Target[] }) {
                   style={{
                     left: pos(from),
                     width: `calc(${pos(to)} - ${pos(from)})`,
-                    background: t.lowerIsBetter ? RAMPS.cyan[0] : RAMPS.blue[0],
+                    background: t.lowerIsBetter ? RAMPS.cyan[0] : RAMPS.navy[0],
                   }}
                 />
                 <span
@@ -43,7 +43,7 @@ export function TargetTracker({ targets }: { targets: Target[] }) {
                   style={{ left: pos(t.baseline) }}
                 />
                 <span
-                  className="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-royal bg-white"
+                  className="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-cyan-ink bg-white"
                   style={{ left: pos(t.target) }}
                 />
               </div>
@@ -52,7 +52,7 @@ export function TargetTracker({ targets }: { targets: Target[] }) {
                   <strong>{format(t.baseline, t.unit)}</strong> in {t.baselineYear}
                 </span>
                 <span className="font-semibold text-muted">{gapText}</span>
-                <span className="text-royal">
+                <span className="text-cyan-ink">
                   Target <strong>{format(t.target, t.unit)}</strong> by {t.targetYear}
                 </span>
               </div>

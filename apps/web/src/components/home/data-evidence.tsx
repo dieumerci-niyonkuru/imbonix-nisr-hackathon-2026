@@ -103,7 +103,7 @@ export function DataEvidence({
             return (
               <li key={theme.name} className="flex flex-col bg-white p-6">
                 <p className="font-display text-[18px] font-bold text-ink">{theme.name}</p>
-                <p className="mt-1 text-[13.5px] font-bold text-royal">
+                <p className="mt-1 text-[13.5px] font-bold text-cyan-ink">
                   {count ? `${count} district indicators` : "National tables"}
                 </p>
                 <p className="mt-3 text-pretty text-[14.5px] leading-6 text-muted">{theme.description}</p>
@@ -146,7 +146,7 @@ export function DataEvidence({
                   href={`${NISR_CATALOG_URL}/${study.studyId}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-paper px-3 py-1 text-[12.5px] font-semibold text-ink ring-1 ring-line transition-colors hover:bg-cyan-soft hover:text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-paper px-3 py-1 text-[12.5px] font-semibold text-ink ring-1 ring-line transition-colors hover:bg-cyan-soft hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
                 >
                   {study.label}
                   <ArrowTopRightOnSquareIcon className="h-3 w-3 text-muted" aria-hidden="true" />
