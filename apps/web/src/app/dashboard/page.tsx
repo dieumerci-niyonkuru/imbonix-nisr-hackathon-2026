@@ -15,7 +15,7 @@ import { StatTile } from "@/components/ui/stat-tile";
 import { describeShares } from "@/lib/format";
 import { ACCESS_STRAND, RESILIENCE_FACTS, TARGETS } from "@/lib/national";
 import { timeliness, usageTotal } from "@/lib/surveys";
-import { BRAND, CORE, RAMPS } from "@/lib/palette";
+import { CORE, DEEP_CYAN, RAMPS } from "@/lib/palette";
 
 export const metadata: Metadata = {
   title: "Rwanda in figures",
@@ -49,14 +49,14 @@ export default function DashboardPage() {
             label="of people live below the poverty line"
             detail="95% CI 26.4 to 28.4"
             source="EICV7 2023/24"
-            accent={CORE.navy}
+            accent={CORE.deep}
           />
-          <StatTile value="5.4%" label="live in extreme poverty" source="EICV7 2023/24" accent={RAMPS.navy[3]} />
+          <StatTile value="5.4%" label="live in extreme poverty" source="EICV7 2023/24" accent={RAMPS.cyan[3]} />
           <StatTile
             value="92%"
             label="of adults use at least one formal financial service"
             source="FinScope 2024"
-            accent={BRAND.navy}
+            accent={DEEP_CYAN}
           />
           <StatTile
             value="10%"
@@ -69,13 +69,13 @@ export default function DashboardPage() {
             value={`${women.either.toFixed(1)}%`}
             label="of women aged 15 to 49 used a bank account or mobile money in the past year"
             source="DHS 2025"
-            accent={BRAND.navy}
+            accent={DEEP_CYAN}
           />
           <StatTile
             value={`${dsOnTime.all!.toFixed(1)}%`}
             label="of VUP Direct Support households were paid on time"
             source="EICV7 VUP 2023/24"
-            accent={CORE.navy}
+            accent={CORE.deep}
           />
         </div>
       </section>

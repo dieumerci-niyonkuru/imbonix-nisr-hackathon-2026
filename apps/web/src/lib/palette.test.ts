@@ -40,16 +40,16 @@ describe("one palette, from the logo", () => {
     // Links and small text on light surfaces use the deeper cyan.
     expect(contrastRatio(CYAN_INK, WHITE)).toBeGreaterThanOrEqual(4.5);
     expect(contrastRatio(CYAN_INK, PAPER)).toBeGreaterThanOrEqual(4.5);
-    // Brand cyan is for fills and dark backgrounds: cyan text on navy, navy text on cyan buttons.
-    expect(contrastRatio(BRAND.cyan, BRAND.navy)).toBeGreaterThanOrEqual(4.5);
+    // Brand cyan is for fills: cyan bands and buttons carry near black text.
+    expect(contrastRatio(BRAND.cyan, INK)).toBeGreaterThanOrEqual(4.5);
   });
 
-  it("uses the two brand colours only, with their steps and one neutral", () => {
-    expect(Object.keys(BRAND)).toEqual(["navy", "navyDeep", "cyan"]);
-    expect([BRAND.navy, BRAND.cyan]).toEqual(["#022657", "#02A5DC"]);
-    expect(Object.keys(RAMPS)).toEqual(["navy", "cyan", "steel"]);
-    // The retired medium blue and older accents stay out of the class names.
-    const retired = /\b(?:bg|text|border|ring|fill|stroke|outline|decoration)-(?:sun|azure|gold|royal|brand-\d+)\b/g;
+  it("uses cyan and white only, with steps of the cyan and one neutral grey", () => {
+    expect(Object.keys(BRAND)).toEqual(["cyan"]);
+    expect(BRAND.cyan).toBe("#02A5DC");
+    expect(Object.keys(RAMPS)).toEqual(["cyan", "grey"]);
+    // The retired navy, medium blue and older accents stay out of the class names.
+    const retired = /\b(?:bg|text|border|ring|fill|stroke|outline|decoration)-(?:sun|azure|gold|royal|navy-\d+|brand-\d+)\b/g;
     const offenders = sourceFiles(SRC).flatMap((file) =>
       (readFileSync(file, "utf8").match(retired) ?? []).map((cls) => `${relative(SRC, file)}: ${cls}`),
     );

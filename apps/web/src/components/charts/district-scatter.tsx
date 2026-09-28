@@ -1,7 +1,7 @@
 import { DISTRICTS, reference, SOURCES } from "@/lib/data";
 import { formatValue } from "@/lib/format";
 import { meta } from "@/lib/indicators";
-import { BRAND, CYAN_INK, INK, LINE, MUTED, QUADRANTS, WHITE } from "@/lib/palette";
+import { CYAN_INK, DEEP_CYAN, INK, LINE, MUTED, QUADRANTS, WHITE } from "@/lib/palette";
 
 const W = 640;
 const H = 440;
@@ -94,7 +94,7 @@ export function DistrictScatter({
         ))}
         <line x1={sx(xRef.value)} x2={sx(xRef.value)} y1={PAD.top} y2={H - PAD.bottom} stroke={INK} strokeDasharray="4 4" />
         <line x1={PAD.left} x2={W - PAD.right} y1={sy(yRef.value)} y2={sy(yRef.value)} stroke={INK} strokeDasharray="4 4" />
-        <text x={W - PAD.right - 6} y={PAD.top + 14} textAnchor="end" fontSize={11} fontWeight={700} fill={BRAND.navy}>
+        <text x={W - PAD.right - 6} y={PAD.top + 14} textAnchor="end" fontSize={11} fontWeight={700} fill={DEEP_CYAN}>
           {quadrants.highHigh}
         </text>
         <text x={W - PAD.right - 6} y={H - PAD.bottom - 8} textAnchor="end" fontSize={11} fontWeight={700} fill={CYAN_INK}>

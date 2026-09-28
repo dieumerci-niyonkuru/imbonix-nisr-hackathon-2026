@@ -11,7 +11,7 @@ const MINIMUM_SCROLL = 480;
 const END_MARGIN = 80;
 
 const BUTTON_STYLE =
-  "flex h-11 w-11 items-center justify-center text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan";
+  "flex h-11 w-11 items-center justify-center text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ink";
 
 /**
  * Floating buttons to go back to the top of a long page or down to its end. They show only on pages long enough to
@@ -70,7 +70,7 @@ export function ScrollControls() {
       role="group"
       aria-label="Page scrolling"
       className={cn(
-        "fixed bottom-4 right-4 z-40 hidden flex-col overflow-hidden rounded-2xl bg-navy-900 shadow-lift ring-1 ring-white/15 transition-[opacity,visibility] duration-200 sm:bottom-6 sm:right-6 sm:flex print:hidden",
+        "fixed bottom-4 right-4 z-40 hidden flex-col overflow-hidden rounded-2xl bg-cyan shadow-lift transition-[opacity,visibility] duration-200 sm:bottom-6 sm:right-6 sm:flex print:hidden",
         footerInView && "invisible opacity-0 focus-within:visible focus-within:opacity-100",
       )}
     >
@@ -80,18 +80,18 @@ export function ScrollControls() {
         aria-label="Back to top"
         aria-disabled={atTop}
         onClick={() => !atTop && scrollToPosition(0)}
-        className={cn(BUTTON_STYLE, atTop ? "cursor-default opacity-40" : "hover:bg-cyan hover:text-navy-900")}
+        className={cn(BUTTON_STYLE, atTop ? "cursor-default opacity-40" : "hover:bg-cyan-ink hover:text-white")}
       >
         <ArrowUpIcon className="h-5 w-5" aria-hidden="true" />
       </button>
-      <span aria-hidden="true" className="mx-2.5 h-px bg-white/15" />
+      <span aria-hidden="true" className="mx-2.5 h-px bg-ink/20" />
       <button
         type="button"
         title="Go to the end of the page"
         aria-label="Go to the end of the page"
         aria-disabled={atBottom}
         onClick={() => !atBottom && scrollToPosition(document.documentElement.scrollHeight)}
-        className={cn(BUTTON_STYLE, atBottom ? "cursor-default opacity-40" : "hover:bg-cyan hover:text-navy-900")}
+        className={cn(BUTTON_STYLE, atBottom ? "cursor-default opacity-40" : "hover:bg-cyan-ink hover:text-white")}
       >
         <ArrowDownIcon className="h-5 w-5" aria-hidden="true" />
       </button>

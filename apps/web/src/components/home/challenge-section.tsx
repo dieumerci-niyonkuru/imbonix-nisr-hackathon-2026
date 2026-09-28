@@ -14,7 +14,7 @@ export type ChallengePart = {
   /** The district measure drawn as the card's picture, with its caption. */
   indicatorId: string;
   caption: string;
-  ramp: "cyan" | "navy";
+  ramp: keyof typeof RAMPS;
   href: string;
 };
 
@@ -82,7 +82,7 @@ export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
         <div className="mt-12 text-center">
           <Link
             href="/dashboard"
-            className="inline-flex min-h-12 items-center justify-center rounded bg-cyan px-10 text-[15px] font-bold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
+            className="inline-flex min-h-12 items-center justify-center rounded bg-cyan px-10 text-[15px] font-bold text-ink transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
           >
             See Rwanda in figures
           </Link>

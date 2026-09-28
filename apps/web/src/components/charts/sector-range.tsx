@@ -36,24 +36,24 @@ export function SectorRange({ limit = 12 }: { limit?: number }) {
             </Link>
             <div className="relative h-8" title={`${low.sector} ${low.povertySae}% to ${high.sector} ${high.povertySae}%`}>
               <div className="absolute inset-x-0 top-1/2 h-px bg-line" />
-              {/* A solid bar between two dots: light navy for the least poor sector, dark navy for the poorest. */}
+              {/* A solid bar between two dots: light cyan for the least poor sector, dark cyan for the poorest. */}
               <div
                 className="absolute top-1/2 h-1.5 -translate-y-1/2 rounded-full"
                 style={{
                   left: pos(low.povertySae!),
                   width: `calc(${pos(high.povertySae!)} - ${pos(low.povertySae!)})`,
-                  background: RAMPS.navy[1],
+                  background: RAMPS.cyan[1],
                 }}
               />
               <span
                 aria-hidden="true"
                 className="absolute top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-white"
-                style={{ left: pos(low.povertySae!), background: RAMPS.navy[1] }}
+                style={{ left: pos(low.povertySae!), background: RAMPS.cyan[1] }}
               />
               <span
                 aria-hidden="true"
                 className="absolute top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-white"
-                style={{ left: pos(high.povertySae!), background: RAMPS.navy[3] }}
+                style={{ left: pos(high.povertySae!), background: RAMPS.cyan[3] }}
               />
               <span
                 className={`absolute -top-1.5 whitespace-nowrap text-[10.5px] text-muted ${anchor(low.povertySae!)}`}

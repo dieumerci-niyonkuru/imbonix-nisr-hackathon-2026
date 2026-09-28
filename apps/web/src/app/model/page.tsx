@@ -129,7 +129,7 @@ export default function ModelPage() {
         <ol className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {METHOD_STEPS.map((step, i) => (
             <li key={step.title} className="rounded-2xl border border-line bg-white p-5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-navy-900 font-display text-sm font-semibold text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan font-display text-sm font-semibold text-ink">
                 {i + 1}
               </span>
               <p className="mt-4 font-display font-semibold text-ink">{step.title}</p>

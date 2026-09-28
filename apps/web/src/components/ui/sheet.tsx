@@ -17,7 +17,7 @@ export const SheetOverlay = forwardRef<
   <SheetPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-navy-950/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "fixed inset-0 z-50 bg-ink/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className,
     )}
     {...props}
@@ -51,7 +51,7 @@ export const SheetContent = forwardRef<
       {children}
       <SheetPrimitive.Close className="group absolute right-4 top-4 inline-flex items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[14px] font-semibold text-ink transition-colors hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink">
         Close
-        <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-cyan group-hover:text-navy-900 group-hover:ring-cyan">
+        <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-cyan group-hover:text-ink group-hover:ring-cyan">
           <XMarkIcon className="h-4 w-4" aria-hidden="true" />
         </span>
       </SheetPrimitive.Close>
