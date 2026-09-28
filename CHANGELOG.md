@@ -17,6 +17,13 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - Every chart on the focus area pages, the national figures page and the overlap page has a plain "How to read"
   line under its title, saying what the bars, slices, dots or colours mean, so a first time reader understands it
   without help.
+- The homepage is short and editorial, and no longer holds every chart: a simpler opening (headline, one sentence,
+  Explore the data and Read the evidence, and the gap chart), the challenge in large type with its three tests (a
+  real gap, evidence from NISR data, practical impact) as cards, Why IMBONIX, Data & evidence (four key figures, the
+  themes the indicators cover with their studies, and the NISR studies), research cards for the three focus areas,
+  who benefits (households, policymakers, researchers, civil society and development organisations), the method in
+  five steps from data to impact, one featured insight (the poverty map, with how to read it) and a final "Explore
+  Rwanda through evidence" with the district finder. The detail lives on the focus area pages.
 
 ### Minimal homepage and navigation
 

@@ -34,17 +34,18 @@ function fillsOnNavy(indicatorId: string, ramp: readonly string[]): Record<strin
 }
 
 /**
- * The problem in three parts (financial exclusion, poverty dynamics, social protection impact), each an image card
- * whose picture is a district map of a related measure, with the finding as its title and a link to read more.
+ * Research and insights: the three focus areas (financial exclusion, poverty dynamics, social protection impact), each
+ * an image card whose picture is a district map of a related measure, with the finding as its title and a link to
+ * the focus area page.
  */
 export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
   return (
-    <section className="bg-paper py-16 sm:py-20" aria-labelledby="challenge-heading">
+    <section id="research" className="scroll-mt-24 bg-paper py-16 sm:py-20" aria-labelledby="challenge-heading">
       <div className="container-page">
         <SectionHeader
-          eyebrow="The problem we address"
-          title={<span id="challenge-heading">Understand exclusion, poverty and social protection, then act</span>}
-          intro="Reducing poverty in Rwanda means knowing who is left out of finance, how poverty is changing and how well social protection programmes reach the people they are meant for. IMBONIX answers each question with NISR data, in a form vulnerable households, policymakers and civil society can use."
+          eyebrow="Research and insights"
+          title={<span id="challenge-heading">Three questions, answered with NISR data</span>}
+          intro="Each focus area has its own page with the full evidence: the charts, what each one shows, where the figures come from and how far to trust them."
         />
 
         <ul className="mt-10 grid gap-6 lg:grid-cols-3">
