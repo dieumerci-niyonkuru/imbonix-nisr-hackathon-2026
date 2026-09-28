@@ -267,7 +267,10 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                             href={group.items[0].href}
                             onClick={() => setOpenGroupId(null)}
                             aria-current={isCurrentPage(group.items[0].href) ? "page" : undefined}
-                            className="group/glance mt-auto inline-flex items-center gap-1.5 self-start rounded pt-5 text-[14px] font-bold text-white underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
+                            className={cn(
+                              "group/glance mt-auto inline-flex items-center gap-1.5 self-start rounded pt-5 text-[14px] font-bold underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan",
+                              isCurrentPage(group.items[0].href) ? "text-cyan" : "text-white",
+                            )}
                           >
                             <span className="sr-only">{group.label}: </span>
                             At a glance
@@ -456,20 +459,35 @@ function MenuLink({
   onNavigate: () => void;
   compact?: boolean;
 }) {
+  // The page you are on is solid navy with a cyan bar, like the chosen top menu; the others tint on hover and focus.
   const className = cn(
-    "group/item block border-l-[3px] transition-colors hover:border-cyan hover:bg-cyan-soft",
+    "group/item block border-l-[3px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset",
     compact ? "rounded-r-lg px-3 py-2.5" : "px-5 py-3",
-    current ? "border-cyan bg-cyan-soft" : "border-transparent",
-    FOCUS_RING,
+    current
+      ? "border-cyan bg-navy-900 focus-visible:ring-cyan"
+      : "border-transparent hover:border-cyan hover:bg-mist focus-visible:border-cyan focus-visible:bg-mist focus-visible:ring-royal",
   );
 
   return (
     <Link href={item.href} onClick={onNavigate} aria-current={current ? "page" : undefined} className={className}>
       <span className="flex items-center justify-between gap-3">
-        <span className="text-[15px] font-bold text-navy-900">{item.label}</span>
-        {current && <span className="text-[12.5px] font-bold text-royal">You are here</span>}
+        <span
+          className={cn(
+            "text-[15px] font-bold transition-colors",
+            current ? "text-white" : "text-navy-900 group-hover/item:text-royal group-focus-visible/item:text-royal",
+          )}
+        >
+          {item.label}
+        </span>
+        {current && <span className="shrink-0 text-[12.5px] font-bold text-cyan">You are here</span>}
       </span>
-      <span className={cn("mt-0.5 block leading-5 text-muted", compact ? "text-[12.5px]" : "text-[13px]")}>
+      <span
+        className={cn(
+          "mt-0.5 block leading-5 transition-colors",
+          compact ? "text-[12.5px]" : "text-[13px]",
+          current ? "text-white/80" : "text-muted group-hover/item:text-ink/80",
+        )}
+      >
         {item.description}
       </span>
     </Link>
