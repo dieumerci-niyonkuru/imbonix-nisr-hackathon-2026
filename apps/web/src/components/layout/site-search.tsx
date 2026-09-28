@@ -9,33 +9,53 @@ import { FOCUS_AREAS, NAV, NAV_GROUPS, NAV_LINKS } from "@/components/layout/nav
 import { cn } from "@/lib/utils";
 
 export type SearchDistrict = { name: string; slug: string; province: string };
-export type SearchMeasure = { id: string; label: string; hint: string; terms: string };
+export type SearchMeasure = { id: string; label: string; hint: string; terms: string; href: string };
+export type SearchChart = { id: string; title: string; about: string; page: string };
+export type SearchLever = { title: string; question: string };
 
-type ResultKind = "page" | "district" | "measure" | "sector";
+type ResultKind = "page" | "district" | "sector" | "cell" | "village" | "measure" | "chart" | "lever";
 type SearchEntry = {
   key: string;
   kind: ResultKind;
   label: string;
   hint: string;
   href: string;
+  /** The label folded once, so matching thousands of places stays quick. */
+  folded: string;
   terms: string;
 };
-type ResultGroup = { title: string; items: SearchEntry[] };
+/** `total` is how many matched, when more matched than are shown. */
+type ResultGroup = { title: string; items: SearchEntry[]; total?: number };
+/** The place index from /api/search-index: sectors by district slug, cells by sector, villages by cell. */
+type PlaceIndex = { sectors: [string, string][]; cells: [string, number][]; villages: [string, number][] };
 
 const RESULT_GROUPS: { kind: ResultKind; title: string; limit: number }[] = [
   { kind: "page", title: "Pages", limit: 6 },
   { kind: "district", title: "Districts", limit: 6 },
-  { kind: "measure", title: "Measures on the map", limit: 6 },
-  { kind: "sector", title: "Sectors", limit: 8 },
+  { kind: "sector", title: "Sectors", limit: 6 },
+  { kind: "cell", title: "Cells", limit: 6 },
+  { kind: "village", title: "Villages", limit: 8 },
+  { kind: "measure", title: "Indicators", limit: 6 },
+  { kind: "chart", title: "Charts", limit: 6 },
+  { kind: "lever", title: "Policy levers", limit: 4 },
 ];
 
 /** Lower case without accents, so a query matches however it is typed. */
 const foldText = (text: string) => text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
+/** A search entry, with its label folded for matching. */
+function entry(fields: Omit<SearchEntry, "folded">): SearchEntry {
+  return { ...fields, folded: foldText(fields.label) };
+}
+
+/** Places are found by their own name; the names of the units they lie in only narrow the results down. */
+const PLACE_KINDS = new Set<ResultKind>(["sector", "cell", "village"]);
+
 /** Lower is better; undefined means no match. Every word of the query must appear in the label or its terms. */
 function matchScore(entry: SearchEntry, query: string, words: string[]): number | undefined {
-  const label = foldText(entry.label);
+  const label = entry.folded;
   if (!words.every((word) => label.includes(word) || entry.terms.includes(word))) return undefined;
+  if (PLACE_KINDS.has(entry.kind) && !words.some((word) => label.includes(word))) return undefined;
   if (label.startsWith(query)) return 0;
   if (label.split(/[\s(/]+/).some((part) => part.startsWith(words[0]))) return 1;
   return label.includes(words[0]) ? 2 : 3;
@@ -49,72 +69,106 @@ const JUMP_GROUPS: ResultGroup[] = [
   ...NAV_GROUPS.map((group) => ({
     title: group.label,
     items: [
-      {
+      entry({
         key: `jump:/focus/${group.focusId}`,
-        kind: "page" as const,
+        kind: "page",
         label: "At a glance",
         hint: FOCUS_AREAS.find((area) => area.id === group.focusId)?.hint ?? "",
         href: `/focus/${group.focusId}`,
         terms: "",
-      },
-      ...group.items.map((item) => ({
-        key: `jump:${item.href}`,
-        kind: "page" as const,
-        label: item.label,
-        hint: item.description,
-        href: item.href,
-        terms: "",
-      })),
+      }),
+      ...group.items.map((item) =>
+        entry({ key: `jump:${item.href}`, kind: "page", label: item.label, hint: item.description, href: item.href, terms: "" }),
+      ),
     ],
   })),
   {
     title: "Project",
     items: [
-      {
+      entry({
         key: "jump:/",
-        kind: "page" as const,
+        kind: "page",
         label: "Homepage",
         hint: NAV.find((item) => item.href === "/")?.description ?? "",
         href: "/",
         terms: "",
-      },
-      ...NAV_LINKS.map((item) => ({
-        key: `jump:${item.href}`,
-        kind: "page" as const,
-        label: item.label,
-        hint: item.description,
-        href: item.href,
-        terms: "",
-      })),
+      }),
+      ...NAV_LINKS.map((item) =>
+        entry({ key: `jump:${item.href}`, kind: "page", label: item.label, hint: item.description, href: item.href, terms: "" }),
+      ),
     ],
   },
 ];
+
+/** Every sector, cell and village as a search entry. Each opens its district's profile. */
+function placeEntries(index: PlaceIndex, districtNameBySlug: Record<string, string>): SearchEntry[] {
+  const districtName = (slug: string) => districtNameBySlug[slug] ?? slug;
+  const sectors = index.sectors.map(([name, districtSlug], sectorIndex) =>
+    entry({
+      key: `sector:${sectorIndex}`,
+      kind: "sector",
+      label: name,
+      hint: `Sector in ${districtName(districtSlug)} district`,
+      href: `/districts/${districtSlug}`,
+      terms: foldText(`${districtName(districtSlug)} sector umurenge`),
+    }),
+  );
+  const cells = index.cells.map(([name, sectorIndex], cellIndex) => {
+    const [sectorName, districtSlug] = index.sectors[sectorIndex];
+    return entry({
+      key: `cell:${cellIndex}`,
+      kind: "cell",
+      label: name,
+      hint: `Cell in ${sectorName} sector, ${districtName(districtSlug)} district`,
+      href: `/districts/${districtSlug}`,
+      terms: foldText(`${sectorName} ${districtName(districtSlug)} cell akagari`),
+    });
+  });
+  const villages = index.villages.map(([name, cellIndex], villageIndex) => {
+    const [cellName, sectorIndex] = index.cells[cellIndex];
+    const [sectorName, districtSlug] = index.sectors[sectorIndex];
+    return entry({
+      key: `village:${villageIndex}`,
+      kind: "village",
+      label: name,
+      hint: `Village in ${cellName} cell, ${sectorName} sector, ${districtName(districtSlug)} district`,
+      href: `/districts/${districtSlug}`,
+      terms: foldText(`${cellName} ${sectorName} ${districtName(districtSlug)} village umudugudu`),
+    });
+  });
+  return [...sectors, ...cells, ...villages];
+}
 
 function isTypingIn(target: EventTarget | null) {
   return target instanceof HTMLElement && (target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName));
 }
 
 /**
- * Site search as a command palette: pages, focus areas, districts, map measures and sectors. It opens with Ctrl K
- * (Cmd K on a Mac) or "/". The 416 sector names are fetched from /api/search-index the first time it opens, so they
- * are not part of every page.
+ * Site search as a command palette: pages, focus areas, districts, sectors, cells, villages, every indicator, every
+ * chart and the policy levers. It opens with Ctrl K (Cmd K on a Mac) or "/". The places are fetched from
+ * /api/search-index the first time it opens, so the 14,815 villages are not part of every page.
  */
 export function SiteSearch({
   open,
   onOpenChange,
   districts,
   measures,
+  charts,
+  levers,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   districts: SearchDistrict[];
   measures: SearchMeasure[];
+  charts: SearchChart[];
+  levers: SearchLever[];
 }) {
   const router = useRouter();
   const listId = useId();
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
-  const [sectors, setSectors] = useState<SearchEntry[]>();
+  const [places, setPlaces] = useState<SearchEntry[]>();
+  const [placeCounts, setPlaceCounts] = useState<{ sectors: number; cells: number; villages: number }>();
 
   useEffect(() => {
     const onShortcut = (event: KeyboardEvent) => {
@@ -142,85 +196,103 @@ export function SiteSearch({
   );
 
   useEffect(() => {
-    if (!open || sectors) return;
+    if (!open || places) return;
     let cancelled = false;
     fetch("/api/search-index")
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error(String(response.status)))))
-      .then((index: { sectors: [string, string][] }) => {
+      .then((index: PlaceIndex) => {
         if (cancelled) return;
-        setSectors(
-          index.sectors.map(([sectorName, districtSlug]) => ({
-            key: `sector:${districtSlug}:${sectorName}`,
-            kind: "sector",
-            label: sectorName,
-            hint: `Sector in ${districtNameBySlug[districtSlug] ?? districtSlug}`,
-            href: `/districts/${districtSlug}`,
-            terms: foldText(`${districtNameBySlug[districtSlug] ?? ""} sector umurenge`),
-          })),
-        );
+        setPlaces(placeEntries(index, districtNameBySlug));
+        setPlaceCounts({ sectors: index.sectors.length, cells: index.cells.length, villages: index.villages.length });
       })
-      // Pages, districts and measures still work without the sector list.
-      .catch(() => !cancelled && setSectors([]));
+      // Pages, districts, indicators and charts still work without the place list.
+      .catch(() => !cancelled && setPlaces([]));
     return () => {
       cancelled = true;
     };
-  }, [open, sectors, districtNameBySlug]);
+  }, [open, places, districtNameBySlug]);
 
   const entries = useMemo<SearchEntry[]>(() => {
     const groupLabelByHref = Object.fromEntries(
       NAV_GROUPS.flatMap((group) => group.items.map((item) => [item.href, group.label])),
     );
     return [
-      ...NAV.map((item) => ({
-        key: `page:${item.href}`,
-        kind: "page" as const,
-        label: item.label,
-        hint: item.description,
-        href: item.href,
-        terms: foldText(`${item.description} ${groupLabelByHref[item.href] ?? ""}`),
-      })),
-      ...FOCUS_AREAS.map((area) => ({
-        key: `page:/focus/${area.id}`,
-        kind: "page" as const,
-        label: `${area.label} at a glance`,
-        hint: area.hint,
-        href: `/focus/${area.id}`,
-        terms: foldText(`${area.hint} focus area overview`),
-      })),
-      ...districts.map((district) => ({
-        key: `district:${district.slug}`,
-        kind: "district" as const,
-        label: district.name,
-        hint: `${district.province} · district profile`,
-        href: `/districts/${district.slug}`,
-        terms: foldText(`${district.province} district akarere`),
-      })),
-      ...measures.map((measure) => ({
-        key: `measure:${measure.id}`,
-        kind: "measure" as const,
-        label: measure.label,
-        hint: measure.hint,
-        href: `/map?layer=${measure.id}`,
-        terms: foldText(measure.terms),
-      })),
-      ...(sectors ?? []),
+      ...NAV.map((item) =>
+        entry({
+          key: `page:${item.href}`,
+          kind: "page",
+          label: item.label,
+          hint: item.description,
+          href: item.href,
+          terms: foldText(`${item.description} ${groupLabelByHref[item.href] ?? ""}`),
+        }),
+      ),
+      ...FOCUS_AREAS.map((area) =>
+        entry({
+          key: `page:/focus/${area.id}`,
+          kind: "page",
+          label: `${area.label} at a glance`,
+          hint: area.hint,
+          href: `/focus/${area.id}`,
+          terms: foldText(`${area.hint} focus area overview`),
+        }),
+      ),
+      ...districts.map((district) =>
+        entry({
+          key: `district:${district.slug}`,
+          kind: "district",
+          label: district.name,
+          hint: `${district.province} · district profile`,
+          href: `/districts/${district.slug}`,
+          terms: foldText(`${district.province} district akarere`),
+        }),
+      ),
+      ...(places ?? []),
+      ...measures.map((measure) =>
+        entry({
+          key: `measure:${measure.id}`,
+          kind: "measure",
+          label: measure.label,
+          hint: measure.hint,
+          href: measure.href,
+          terms: foldText(measure.terms),
+        }),
+      ),
+      ...charts.map((chart) =>
+        entry({
+          key: `chart:${chart.id}`,
+          kind: "chart",
+          label: chart.title,
+          hint: chart.about,
+          href: `${chart.page}#${chart.id}`,
+          terms: foldText(`${chart.about} chart graph`),
+        }),
+      ),
+      ...levers.map((lever) =>
+        entry({
+          key: `lever:${lever.title}`,
+          kind: "lever",
+          label: lever.title,
+          hint: lever.question,
+          href: "/priorities",
+          terms: foldText(`${lever.question} policy lever priority`),
+        }),
+      ),
     ];
-  }, [districts, measures, sectors]);
+  }, [districts, measures, charts, levers, places]);
 
   const trimmedQuery = foldText(query.trim());
   const resultGroups = useMemo<ResultGroup[]>(() => {
     if (!trimmedQuery) return JUMP_GROUPS;
     const words = trimmedQuery.split(/\s+/);
-    return RESULT_GROUPS.map(({ kind, title, limit }) => ({
-      title,
-      items: entries
-        .filter((entry) => entry.kind === kind)
-        .map((entry) => ({ entry, score: matchScore(entry, trimmedQuery, words) }))
+    return RESULT_GROUPS.map(({ kind, title, limit }) => {
+      const matches = entries
+        .filter((candidate) => candidate.kind === kind)
+        .map((candidate) => ({ entry: candidate, score: matchScore(candidate, trimmedQuery, words) }))
         .filter((result): result is { entry: SearchEntry; score: number } => result.score !== undefined)
-        .sort((first, second) => first.score - second.score || first.entry.label.localeCompare(second.entry.label))
-        .slice(0, limit)
-        .map((result) => result.entry),
-    })).filter((group) => group.items.length);
+        .sort((first, second) => first.score - second.score || first.entry.label.localeCompare(second.entry.label));
+      return { title, items: matches.slice(0, limit).map((result) => result.entry), total: matches.length };
+    }).filter((group) => group.items.length);
   }, [entries, trimmedQuery]);
 
   const flatResults = useMemo(() => resultGroups.flatMap((group) => group.items), [resultGroups]);
@@ -272,8 +344,8 @@ export function SiteSearch({
               aria-controls={listId}
               aria-autocomplete="list"
               aria-activedescendant={flatResults.length ? optionId(activeIndex) : undefined}
-              aria-label="Search pages, districts, sectors and measures"
-              placeholder="Search a district, sector, measure or page…"
+              aria-label="Search pages, places down to villages, indicators and charts"
+              placeholder="Search a place, indicator, chart or page…"
               autoComplete="off"
               spellCheck={false}
               className="h-16 min-w-0 flex-1 bg-transparent text-[16px] font-semibold text-ink placeholder:font-medium placeholder:text-muted focus:outline-none focus-visible:outline-none"
@@ -295,7 +367,7 @@ export function SiteSearch({
           >
             {!trimmedQuery && (
               <p className="px-3 pb-1 pt-3 text-[13px] font-semibold text-muted">
-                Jump to a page, or type to search districts, sectors and measures.
+                Jump to a page, or type a district, sector, cell or village, an indicator or a chart.
               </p>
             )}
             {flatResults.length ? (
@@ -309,9 +381,15 @@ export function SiteSearch({
                   <div key={group.title} role="group" aria-labelledby={`${listId}-group-${groupIndex}`} className="pb-2">
                     <p
                       id={`${listId}-group-${groupIndex}`}
-                      className="eyebrow mx-3 mb-1 mt-3 border-b border-line pb-2 text-royal"
+                      className="mx-3 mb-1 mt-3 flex flex-wrap items-baseline justify-between gap-x-3 border-b border-line pb-2"
                     >
-                      {group.title}
+                      <span className="eyebrow text-royal">{group.title}</span>
+                      {/* When more matched than are shown, say so, and how to narrow it down. */}
+                      {group.total !== undefined && group.total > group.items.length && (
+                        <span className="text-[12px] font-semibold text-muted">
+                          {group.items.length} of {group.total} shown. Add a sector or district to narrow it.
+                        </span>
+                      )}
                     </p>
                     {group.items.map((entry) => {
                       runningIndex += 1;
@@ -358,7 +436,7 @@ export function SiteSearch({
               <div className="px-6 py-12 text-center">
                 <p className="font-display text-lg font-semibold text-ink">No matches for &ldquo;{query.trim()}&rdquo;</p>
                 <p className="mx-auto mt-2 max-w-sm text-[14px] leading-6 text-muted">
-                  Try a district such as Nyamagabe, a sector, or a measure such as stunting or mobile money.
+                  Try a district such as Nyamagabe, a sector, cell or village, or a subject such as stunting or mobile money.
                 </p>
               </div>
             )}
@@ -387,7 +465,11 @@ export function SiteSearch({
               <KeyHint>Esc</KeyHint> to close
             </span>
             <span className="ml-auto">
-              {sectors ? (sectors.length ? `${sectors.length} sectors included` : "") : "Loading sectors…"}
+              {placeCounts
+                ? `${placeCounts.sectors} sectors, ${placeCounts.cells.toLocaleString("en-US")} cells and ${placeCounts.villages.toLocaleString("en-US")} villages included`
+                : places
+                  ? ""
+                  : "Loading places…"}
             </span>
           </div>
         </DialogPrimitive.Content>

@@ -29,6 +29,12 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - Data & methods opens with what the evidence covers: the themes of the 64 indicators, with the studies behind
   each, and the NISR studies linked to the catalog. The poverty map with the five poorest districts moves to the
   poverty focus area page.
+- The search finds everything on the site: pages, focus areas, the 30 districts, all 416 sectors, 2,148 cells and
+  14,815 villages (each with the cell, sector and district it lies in, opening its district's profile), all 64
+  indicators (on the map, or in the catalogue), every chart (opening the page at that chart) and the seven policy
+  levers. Places are found by their own name, and adding a sector or district narrows them down; each group says
+  when more matched than are shown. Cell and village names come from geoBoundaries (Open Data Rwanda and the World
+  Bank, CC BY 4.0) and are credited on Data & methods.
 
 ### Minimal homepage and navigation
 
