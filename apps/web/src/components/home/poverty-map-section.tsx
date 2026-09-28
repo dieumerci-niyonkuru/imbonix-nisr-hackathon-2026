@@ -63,7 +63,7 @@ export function PovertyMapSection() {
           </p>
           <p className="mt-3 text-[14px] leading-6 text-ink/80">
             <span className="font-semibold text-ink">How to read the map: </span>
-            the darker the navy, the higher the share of people living in poverty. Select a district below to open its profile.
+            the darker the cyan, the higher the share of people living in poverty. Select a district below to open its profile.
           </p>
           <ol className="mt-6 space-y-2.5">
             {ranked.slice(0, RANKED_COUNT).map((district, index) => {

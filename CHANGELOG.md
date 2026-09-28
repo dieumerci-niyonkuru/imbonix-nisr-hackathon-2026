@@ -5,6 +5,26 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Search in the top bar
+
+- The cyan top bar now holds only the site search, as a white field in its right corner (full width on phones),
+  with the keyboard shortcut shown. The project links and coverage counts that were there are in the footer, the
+  phone menu and the homepage figures.
+- The header no longer has its own search box. Once the bar scrolls out of view, a round search button appears in
+  the sticky header, so search stays one click away anywhere on the page.
+
+### Cyan and white only
+
+- The site now uses two colours: bright cyan #02A5DC and white. Navy is gone. Text is a neutral near black so it
+  can be read, links and small text use a deeper cyan (#01749C), and cyan areas carry near black text (5.9:1).
+- The top bar, the homepage banner, the "Who benefits" band, the district priority card, the planner's result and
+  the footer's link block are cyan; page headers, cards and the footer's bottom row are white. Buttons are cyan
+  with near black text, selected states are cyan, and tooltips are white cards.
+- Charts and maps use steps of the cyan and neutral greys. Chart categories use cyan, deep cyan, light grey and
+  mid grey, a set validated so every pair stays distinguishable, including for colour blind readers. Every chart
+  keeps its labels, and stacked bars keep their table of values. The palette generator now derives everything
+  from the cyan.
+
 ### Two colours and a cleaner layout, in the manner of Rwanda's government sites
 
 - The site now uses two brand colours on white: deep navy #022657 and bright cyan #02A5DC. The medium blue is

@@ -6,7 +6,7 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { HowToRead } from "@/components/ui/chart-card";
 import { SelectField } from "@/components/ui/select-field";
 import { formatNumber } from "@/lib/format";
-import { BRAND, CHART_CYAN } from "@/lib/palette";
+import { CHART_CYAN, MID_GREY } from "@/lib/palette";
 import { explore, GROUPS, LOCATIONS, PROBLEMS, type GroupId, type ProblemId } from "@/lib/intervention-explorer";
 import { cn } from "@/lib/utils";
 
@@ -22,7 +22,7 @@ function Panel({ step, title, children, className }: { step: number; title: stri
   return (
     <section className={cn("flex flex-col rounded-2xl border border-line bg-white p-6 shadow-card", className)}>
       <p className="flex items-center gap-2.5 text-[13px] font-bold text-cyan-ink">
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-navy-900 text-[12px] text-white">{step}</span>
+        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-cyan text-[12px] text-ink">{step}</span>
         {title}
       </p>
       <div className="mt-4 flex-1">{children}</div>
@@ -80,12 +80,12 @@ export function InterventionExplorer({
         </SelectField>
       </div>
 
-      <div className="rounded-2xl bg-navy-900 p-6 text-white sm:p-8" aria-live="polite">
-        <p className="eyebrow text-cyan">
+      <div className="rounded-2xl bg-cyan p-6 text-ink sm:p-8" aria-live="polite">
+        <p className="eyebrow">
           {result.problem.label} · {result.groupLabel} · {result.placeLabel}
         </p>
         <p className="mt-3 text-balance font-display text-3xl font-bold tracking-[-0.02em] sm:text-4xl">{result.headline}</p>
-        <p className="mt-2 text-[15px] text-white/75">{result.problem.question}</p>
+        <p className="mt-2 text-[15px]">{result.problem.question}</p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -139,7 +139,7 @@ export function InterventionExplorer({
                 <span className="relative h-5 rounded bg-mist">
                   <span
                     className="absolute inset-y-0 left-0 rounded"
-                    style={{ width: `${(row.share / maxShare) * 100}%`, background: row.highlight ? CHART_CYAN : BRAND.navy }}
+                    style={{ width: `${(row.share / maxShare) * 100}%`, background: row.highlight ? CHART_CYAN : MID_GREY }}
                   />
                 </span>
                 <span className="tabular whitespace-nowrap text-right text-[13px] font-bold text-ink">

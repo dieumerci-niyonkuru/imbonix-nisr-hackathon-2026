@@ -147,7 +147,7 @@ export function SectorExplorer({ district, districtSlug, sectors, searchedPlace 
                 }}
                 className={`rounded-md border px-3 py-1.5 text-[12.5px] font-semibold transition-colors ${
                   m.id === measure
-                    ? "border-navy-900 bg-navy-900 text-white"
+                    ? "border-cyan bg-cyan text-ink"
                     : "border-line bg-white text-ink/80 hover:border-cyan-ink hover:text-ink"
                 }`}
               >
@@ -207,12 +207,12 @@ export function SectorExplorer({ district, districtSlug, sectors, searchedPlace 
             </svg>
             {hover && hovered && (
               <div
-                className="pointer-events-none absolute z-10 w-52 -translate-x-1/2 -translate-y-[calc(100%+12px)] rounded-xl bg-navy-900 px-3 py-2.5 text-white shadow-lift"
+                className="pointer-events-none absolute z-10 w-52 -translate-x-1/2 -translate-y-[calc(100%+12px)] rounded-xl bg-white px-3 py-2.5 text-ink shadow-lift ring-1 ring-line"
                 style={{ left: Math.min(Math.max(hover.x, 104), (frame.current?.clientWidth ?? 400) - 104), top: hover.y }}
               >
                 <p className="font-display text-sm font-bold">{hovered.sector}</p>
-                <p className="mt-0.5 text-lg font-bold text-cyan">{pct(hovered[measure])}</p>
-                <p className="text-[11px] text-white/65">{info.short}</p>
+                <p className="mt-0.5 text-lg font-bold text-cyan-ink">{pct(hovered[measure])}</p>
+                <p className="text-[11px] text-muted">{info.short}</p>
               </div>
             )}
           </div>
@@ -469,7 +469,7 @@ function CellsAndVillages({
                           key={`${village}-${villageIndex}`}
                           className={cn(
                             "rounded px-2 py-0.5 text-[13px]",
-                            found ? "bg-navy-900 font-semibold text-white" : "bg-paper text-ink/85",
+                            found ? "bg-cyan font-semibold text-ink" : "bg-paper text-ink/85",
                           )}
                         >
                           {village}

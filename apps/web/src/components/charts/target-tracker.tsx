@@ -1,5 +1,5 @@
 import type { Target } from "@/lib/national";
-import { RAMPS } from "@/lib/palette";
+import { LIGHT_GREY, RAMPS } from "@/lib/palette";
 
 function format(value: number, unit: Target["unit"]) {
   return unit === "M" ? `${value}M` : `${value}%`;
@@ -35,7 +35,7 @@ export function TargetTracker({ targets }: { targets: Target[] }) {
                   style={{
                     left: pos(from),
                     width: `calc(${pos(to)} - ${pos(from)})`,
-                    background: t.lowerIsBetter ? RAMPS.cyan[0] : RAMPS.navy[0],
+                    background: t.lowerIsBetter ? LIGHT_GREY : RAMPS.cyan[0],
                   }}
                 />
                 <span

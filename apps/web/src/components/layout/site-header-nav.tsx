@@ -3,12 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
-import {
-  ArrowTopRightOnSquareIcon,
-  ChevronDownIcon,
-  HomeIcon as HomeSolidIcon,
-  ShieldCheckIcon,
-} from "@heroicons/react/20/solid";
+import { ArrowTopRightOnSquareIcon, ChevronDownIcon, HomeIcon as HomeSolidIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { BrandLogo } from "@/components/layout/logo";
 import { NAV_GROUPS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
@@ -22,10 +17,7 @@ import {
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-/** One coverage figure for the utility bar, counted from the site's data. */
-export type CoverageFigure = { value: number; label: string };
 export type HeaderData = {
-  coverage: CoverageFigure[];
   search: { districts: SearchDistrict[]; measures: SearchMeasure[]; charts: SearchChart[]; levers: SearchLever[] };
 };
 
@@ -48,15 +40,16 @@ const HOVER_CLOSE_DELAY = 160;
 // Top level items, as on the government's sites: plain capitals that take a cyan underline on hover, when open and
 // for the section you are in.
 const TOP_LINK_STYLE =
-  "inline-flex h-12 items-center gap-1 whitespace-nowrap px-2 text-[13px] font-semibold uppercase tracking-[0.03em] text-navy-900 transition-colors hover:text-cyan-ink hover:shadow-[inset_0_-3px_0_var(--cyan)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2";
-const TOP_ACTIVE_STYLE = "text-navy-900 shadow-[inset_0_-3px_0_var(--cyan)]";
+  "inline-flex h-12 items-center gap-1 whitespace-nowrap px-2 text-[13px] font-semibold uppercase tracking-[0.03em] text-ink transition-colors hover:text-cyan-ink hover:shadow-[inset_0_-3px_0_var(--cyan)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2";
+const TOP_ACTIVE_STYLE = "text-ink shadow-[inset_0_-3px_0_var(--cyan)]";
 // Links inside a menu panel or the phone menu keep a light highlight, so the text stays readable.
 const ACTIVE_STYLE = "bg-paper text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
 
 /**
- * The header: a thin bar with project links, then the logo, a home link, one dropdown menu per focus area,
- * the methods page and search, from 1280px wide. The menus are disclosure buttons: they open on click, Enter or the down
+ * The header: a cyan bar holding the site search, then the logo, a home link, one dropdown menu per focus area and
+ * the project pages, from 1280px wide. The search bar scrolls away with the page; once it is out of view, a search
+ * button appears in the sticky header so search is always one click away. The menus are disclosure buttons: they open on click, Enter or the down
  * arrow, and on hover with a mouse; inside, the arrow keys move between links; Escape, a click outside or moving focus
  * away closes them. Each menu is a plain list of page names. Narrower screens get a menu sheet with the same links.
  */
@@ -66,6 +59,8 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [openGroupId, setOpenGroupId] = useState<string | null>(null);
   const [shortcutLabel, setShortcutLabel] = useState("Ctrl K");
+  const [searchBarInView, setSearchBarInView] = useState(true);
+  const searchBarRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number | undefined>(undefined);
   const triggerButtons = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -78,6 +73,15 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   useEffect(() => {
     if (/Mac|iPhone|iPad/.test(navigator.platform)) setShortcutLabel("Cmd K");
     return () => window.clearTimeout(closeTimer.current);
+  }, []);
+
+  // The header's own search button shows only once the search bar above it has scrolled out of view.
+  useEffect(() => {
+    const bar = searchBarRef.current;
+    if (!bar) return;
+    const observer = new IntersectionObserver(([entry]) => setSearchBarInView(entry.isIntersecting));
+    observer.observe(bar);
+    return () => observer.disconnect();
   }, []);
 
   // An open menu closes on a click outside the navigation, or on Escape, which returns focus to its button.
@@ -137,43 +141,25 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 
   return (
     <>
-      <div className="hidden border-b-2 border-cyan bg-navy-950 text-white md:block">
-        <div className="container-page flex h-11 items-center justify-between gap-6 text-[13px]">
-          <div className="flex min-w-0 items-center gap-4 overflow-hidden">
-            <p className="flex shrink-0 items-center gap-2 font-bold tracking-[0.01em]">
-              <ShieldCheckIcon className="h-4 w-4 text-cyan" aria-hidden="true" />
-              Independent evidence platform
-            </p>
-            <span className="hidden h-4 w-px bg-white/25 xl:block" aria-hidden="true" />
-            <ul aria-label="Coverage" className="hidden items-center gap-4 whitespace-nowrap text-white/75 xl:flex">
-              {data.coverage.map((figure) => (
-                <li key={figure.label}>
-                  <span className="tabular font-bold text-cyan">{figure.value.toLocaleString("en-US")}</span> {figure.label}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <nav aria-label="Project links" className="shrink-0">
-            <ul className="flex items-center divide-x divide-white/20">
-              {UTILITY_LINKS.map((link) => (
-                <li key={link.href} className="px-4 last:pr-0">
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center gap-1.5 rounded font-bold text-white transition-colors hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
-                  >
-                    {link.label}
-                    <ArrowTopRightOnSquareIcon
-                      className="h-3.5 w-3.5 text-white/55 transition-colors group-hover:text-cyan"
-                      aria-hidden="true"
-                    />
-                    <span className="sr-only">(opens in a new tab)</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+      {/* The site search, as a field in the right corner of a cyan bar, on every screen. */}
+      <div ref={searchBarRef} className="bg-cyan">
+        <div className="container-page flex justify-end py-2.5 sm:py-3">
+          <button
+            type="button"
+            onClick={openSearch}
+            aria-haspopup="dialog"
+            aria-label={`Search the site (${shortcutLabel})`}
+            className="flex h-11 w-full items-center gap-3 rounded-md bg-white px-4 text-left shadow-card ring-1 ring-ink/10 transition-shadow hover:ring-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink sm:w-[26rem]"
+          >
+            <MagnifyingGlassIcon className="h-5 w-5 shrink-0 stroke-2 text-ink" aria-hidden="true" />
+            <span className="min-w-0 flex-1 truncate text-[15px] text-muted">
+              <span className="sm:hidden">Search places, indicators and charts</span>
+              <span className="hidden sm:inline">Search a place, indicator, chart or page</span>
+            </span>
+            <kbd className="hidden shrink-0 rounded border border-line bg-paper px-2 py-0.5 font-body text-[12px] font-semibold text-muted md:inline">
+              {shortcutLabel}
+            </kbd>
+          </button>
         </div>
       </div>
 
@@ -277,11 +263,11 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               aria-label={`Search the site (${shortcutLabel})`}
               title={`Search the site (${shortcutLabel})`}
               className={cn(
-                "inline-flex h-11 items-center gap-2 rounded border-line px-3 text-[15px] text-muted transition-colors hover:border-cyan-ink hover:text-cyan-ink sm:w-32 sm:justify-between sm:border",
+                "inline-flex h-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-cyan text-ink transition-[width,opacity,visibility,background-color] duration-200 hover:bg-cyan-ink hover:text-white",
+                searchBarInView ? "invisible w-0 opacity-0" : "w-10",
                 FOCUS_RING,
               )}
             >
-              <span className="hidden sm:inline">Search</span>
               <MagnifyingGlassIcon className="h-5 w-5 stroke-2" aria-hidden="true" />
             </button>
 
@@ -353,7 +339,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                         href={link.href}
                         aria-current={isCurrentPage(link.href) ? "page" : undefined}
                         className={cn(
-                          "mt-5 flex items-center justify-center rounded-2xl bg-navy-900 px-4 py-3 text-[14.5px] font-semibold text-white hover:bg-cyan hover:text-navy-900",
+                          "mt-5 flex items-center justify-center rounded-2xl bg-cyan px-4 py-3 text-[14.5px] font-semibold text-ink hover:bg-cyan-ink hover:text-white",
                           FOCUS_RING,
                         )}
                       >
@@ -401,7 +387,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 
 /**
  * One page in a menu, by name only: capitals in the desktop list, sentence case in the phone menu. The page you are on
- * is solid navy with a cyan bar, like the chosen top menu; the others tint on hover and keyboard focus.
+ * is solid cyan with near black text; the others tint on hover and keyboard focus.
  */
 function MenuLink({
   item,
@@ -427,8 +413,8 @@ function MenuLink({
         "block border-l-[3px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset",
         compact ? "rounded-r-lg px-3 py-2.5 text-[15px]" : "px-5 py-3 text-[13px] uppercase tracking-[0.06em]",
         current
-          ? "border-cyan bg-navy-900 text-white focus-visible:ring-cyan"
-          : "border-transparent text-navy-900 hover:border-cyan hover:bg-mist hover:text-cyan-ink focus-visible:border-cyan focus-visible:bg-mist focus-visible:text-cyan-ink focus-visible:ring-cyan-ink",
+          ? "border-cyan-ink bg-cyan text-ink focus-visible:ring-cyan-ink"
+          : "border-transparent text-ink hover:border-cyan hover:bg-mist hover:text-cyan-ink focus-visible:border-cyan focus-visible:bg-mist focus-visible:text-cyan-ink focus-visible:ring-cyan-ink",
       )}
     >
       {item.label}

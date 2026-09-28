@@ -13,15 +13,7 @@ export type Crumb = { label: string; href?: string };
  * to its page at a glance. Sub-pages (a district profile, say) add their own `extra` crumbs; the last crumb is the
  * current page.
  */
-export function Breadcrumbs({
-  extra = [],
-  tone = "light",
-  className,
-}: {
-  extra?: Crumb[];
-  tone?: "light" | "dark";
-  className?: string;
-}) {
+export function Breadcrumbs({ extra = [], className }: { extra?: Crumb[]; className?: string }) {
   const pathname = usePathname() ?? "/";
   const matches = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   const focusGroup = NAV_GROUPS.find((g) => pathname === `/focus/${g.focusId}`);
@@ -36,14 +28,11 @@ export function Breadcrumbs({
         { label: page!.label, href: extra.length ? page!.href : undefined },
         ...extra,
       ];
-  const dark = tone === "dark";
-  const linkClass = cn("rounded transition-colors", dark ? "hover:text-white" : "hover:text-cyan-ink");
+  const linkClass = "rounded transition-colors hover:text-cyan-ink";
 
   return (
     <nav aria-label="Breadcrumb" className={className}>
-      <ol
-        className={cn("flex flex-wrap items-center gap-1.5 text-[12.5px] font-semibold", dark ? "text-white/65" : "text-muted")}
-      >
+      <ol className="flex flex-wrap items-center gap-1.5 text-[12.5px] font-semibold text-muted">
         <li>
           <Link href="/" className={cn("inline-flex items-center gap-1.5", linkClass)}>
             <HomeIcon className="h-3.5 w-3.5" aria-hidden="true" />
@@ -54,9 +43,9 @@ export function Breadcrumbs({
           const current = i === crumbs.length - 1;
           return (
             <li key={`${crumb.label}-${i}`} className="flex items-center gap-1.5">
-              <ChevronRightIcon className={cn("h-3.5 w-3.5", dark ? "text-white/30" : "text-line")} aria-hidden="true" />
+              <ChevronRightIcon className="h-3.5 w-3.5 text-line" aria-hidden="true" />
               {current ? (
-                <span aria-current="page" className={dark ? "text-white" : "text-ink"}>
+                <span aria-current="page" className="text-ink">
                   {crumb.label}
                 </span>
               ) : crumb.href ? (
