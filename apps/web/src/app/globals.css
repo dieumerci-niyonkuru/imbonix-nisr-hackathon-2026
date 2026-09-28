@@ -16,23 +16,23 @@
   --card-foreground: 215 96% 17%;
   --popover: 0 0% 100%;
   --popover-foreground: 215 96% 17%;
-  --primary: 208 95% 35%; /* royal: brand medium blue #0461B1 */
+  --primary: 215 96% 17%; /* brand navy #022657 */
   --primary-foreground: 0 0% 100%;
-  --secondary: 207 72% 95%; /* brand-50 */
+  --secondary: 212 50% 95%; /* mist #EEF3F9 */
   --secondary-foreground: 215 96% 17%;
-  --accent: 207 72% 95%;
-  --accent-foreground: 208 95% 35%;
+  --accent: 202 100% 95%; /* pale cyan #E3F5FF */
+  --accent-foreground: 215 96% 17%;
   --destructive: 196 95% 29%; /* cyan ink for warnings, never red */
   --destructive-foreground: 0 0% 100%;
   --border: 214 37% 90%; /* line #DCE4EF */
   --input: 214 37% 90%;
-  --ring: 208 95% 35%;
-  --radius: 0.5rem;
+  --ring: 195 99% 31%; /* cyan ink #01749C */
+  --radius: 0.25rem;
 
   --ink: #022657;
   --paper: #f4f7fb;
   --line: #dce4ef;
-  --royal: #0461b1;
+  --cyan-ink: #01749c;
   --cyan: #02a5dc;
 }
 
@@ -54,11 +54,11 @@ body {
 
 ::selection {
   color: white;
-  background: var(--royal);
+  background: var(--ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--royal);
+  outline: 2px solid var(--cyan-ink);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -90,7 +90,7 @@ body {
     @apply rounded-xl border border-line bg-white shadow-card;
   }
   .link {
-    @apply font-semibold text-royal underline decoration-royal/30 underline-offset-4 transition-colors hover:decoration-royal;
+    @apply font-semibold text-cyan-ink underline decoration-cyan-ink/30 underline-offset-4 transition-colors hover:decoration-cyan-ink;
   }
   .prose-page p {
     @apply mt-4 text-[15px] leading-7 text-muted;

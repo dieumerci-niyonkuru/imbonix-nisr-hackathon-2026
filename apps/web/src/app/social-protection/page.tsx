@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 /** Non-poor → extremely poor: one hue, darker = poorer (validated ordinal ramp). */
 const POVERTY_RAMP = { nonPoor: RAMPS.navy[0], moderatelyPoor: RAMPS.navy[2], extremelyPoor: RAMPS.navy[4] };
-const CHANNEL = { sacco: BRAND.blue, momo: CORE.cyan };
+const CHANNEL = { sacco: BRAND.navy, momo: CORE.cyan };
 
 const AMOUNTS = [
   {

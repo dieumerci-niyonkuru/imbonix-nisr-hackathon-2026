@@ -103,7 +103,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                   type="button"
                   onClick={() => setLayerId(DIMENSIONS[dim].headline ?? first.id)}
                   aria-pressed={active}
-                  className={`-mb-px shrink-0 border-b-[3px] px-2 pb-3 pt-3.5 text-[13.5px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-royal ${
+                  className={`-mb-px shrink-0 border-b-[3px] px-2 pb-3 pt-3.5 text-[13.5px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink ${
                     active ? "border-cyan text-navy-900" : "border-transparent text-muted hover:border-line hover:text-ink"
                   }`}
                 >
@@ -121,10 +121,10 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                   type="button"
                   onClick={() => setLayerId(layer.id)}
                   aria-pressed={active}
-                  className={`rounded-md border px-3 py-1.5 text-[13px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal ${
+                  className={`rounded-md border px-3 py-1.5 text-[13px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink ${
                     active
                       ? "border-navy-900 bg-navy-900 text-white"
-                      : "border-line bg-white text-ink/80 hover:border-royal hover:text-ink"
+                      : "border-line bg-white text-ink/80 hover:border-cyan-ink hover:text-ink"
                   }`}
                 >
                   {layer.short}
@@ -180,7 +180,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                   type="checkbox"
                   checked={basemap}
                   onChange={(e) => setBasemap(e.target.checked)}
-                  className="h-4 w-4 rounded border-line accent-royal"
+                  className="h-4 w-4 rounded border-line accent-cyan-ink"
                 />
                 Background map with place names
               </label>

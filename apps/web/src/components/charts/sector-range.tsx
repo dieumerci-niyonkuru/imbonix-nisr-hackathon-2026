@@ -28,7 +28,10 @@ export function SectorRange({ limit = 12 }: { limit?: number }) {
       <ol className="space-y-3">
         {rows.map(({ district, low, high, gap }) => (
           <li key={district.slug} className="grid grid-cols-[120px_1fr] items-center gap-3 sm:grid-cols-[150px_1fr_72px]">
-            <Link href={`/districts/${district.slug}`} className="truncate text-[13px] font-semibold text-ink hover:text-royal">
+            <Link
+              href={`/districts/${district.slug}`}
+              className="truncate text-[13px] font-semibold text-ink hover:text-cyan-ink"
+            >
               {district.name}
             </Link>
             <div className="relative h-8" title={`${low.sector} ${low.povertySae}% to ${high.sector} ${high.povertySae}%`}>

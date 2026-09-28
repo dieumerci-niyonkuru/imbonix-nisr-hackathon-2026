@@ -40,7 +40,7 @@ const ICON_LINKS: IconLink[] = [
 ];
 
 const LINK_STYLE =
-  "rounded text-[15px] leading-7 text-white/65 transition-colors hover:text-white hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan sm:text-[18px]";
+  "rounded text-[15px] leading-7 text-white/90 transition-colors hover:text-cyan hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan sm:text-[17px]";
 
 function FooterAnchor({ link }: { link: FooterLink }) {
   if (link.external) {
@@ -59,7 +59,7 @@ function FooterAnchor({ link }: { link: FooterLink }) {
 }
 
 /**
- * The site footer, laid out like a university footer: centred link columns with large bold headings, then a bottom
+ * The site footer, laid out like the government's sites: link columns under cyan headings in capitals, then a bottom
  * row with the copyright on the left, the stacked logo straight on the dark background in the middle and a row of
  * icon links on the right. Data and map credits live beside the charts, on the map and on the methods page.
  */
@@ -67,10 +67,12 @@ export function SiteFooter() {
   return (
     <footer className="bg-navy-950 text-white">
       <div className="container-page pb-12 pt-16 sm:pb-14 sm:pt-20">
-        <nav aria-label="Footer" className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-12 text-center lg:grid-cols-4">
+        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4">
           {COLUMNS.map((column) => (
             <div key={column.heading}>
-              <h2 className="font-display text-[16px] font-bold text-white sm:text-[21px]">{column.heading}</h2>
+              <h2 className="font-display text-[15px] font-bold uppercase tracking-[0.03em] text-cyan sm:text-[18px]">
+                {column.heading}
+              </h2>
               <ul className="mt-5 space-y-3 sm:mt-6 sm:space-y-3.5">
                 {column.links.map((link) => (
                   <li key={link.href}>

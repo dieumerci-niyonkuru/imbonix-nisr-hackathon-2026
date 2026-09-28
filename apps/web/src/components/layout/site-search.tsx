@@ -303,7 +303,7 @@ export function SiteSearch({
         >
           <DialogPrimitive.Title className="sr-only">Search IMBONIX</DialogPrimitive.Title>
           <div className="flex items-center gap-3 border-b border-line px-5">
-            <MagnifyingGlassIcon className="h-5 w-5 shrink-0 text-royal" aria-hidden="true" />
+            <MagnifyingGlassIcon className="h-5 w-5 shrink-0 text-cyan-ink" aria-hidden="true" />
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
@@ -319,7 +319,7 @@ export function SiteSearch({
               spellCheck={false}
               className="h-16 min-w-0 flex-1 bg-transparent text-[16px] font-semibold text-ink placeholder:font-medium placeholder:text-muted focus:outline-none focus-visible:outline-none"
             />
-            <DialogPrimitive.Close className="group inline-flex shrink-0 items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[13.5px] font-semibold text-ink transition-colors hover:text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal">
+            <DialogPrimitive.Close className="group inline-flex shrink-0 items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[13.5px] font-semibold text-ink transition-colors hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink">
               Close
               <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-cyan group-hover:text-navy-900 group-hover:ring-cyan">
                 <XMarkIcon className="h-4 w-4" aria-hidden="true" />
@@ -332,7 +332,7 @@ export function SiteSearch({
             role="region"
             aria-label="Search results"
             tabIndex={0}
-            className="min-h-0 flex-1 overflow-y-auto p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-royal"
+            className="min-h-0 flex-1 overflow-y-auto p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink"
           >
             {!trimmedQuery && (
               <p className="px-3 pb-1 pt-3 text-[13px] font-semibold text-muted">
@@ -352,7 +352,7 @@ export function SiteSearch({
                       id={`${listId}-group-${groupIndex}`}
                       className="mx-3 mb-1 mt-3 flex flex-wrap items-baseline justify-between gap-x-3 border-b border-line pb-2"
                     >
-                      <span className="eyebrow text-royal">{group.title}</span>
+                      <span className="eyebrow text-cyan-ink">{group.title}</span>
                       {/* When more matched than are shown, say so, and how to narrow it down. */}
                       {group.total !== undefined && group.total > group.items.length && (
                         <span className="text-[12px] font-semibold text-muted">
@@ -382,7 +382,7 @@ export function SiteSearch({
                               <HighlightedLabel text={entry.label} query={trimmedQuery} />
                             </span>
                             <span
-                              className={cn("shrink-0 text-[12.5px] font-bold", selected ? "text-royal" : "text-transparent")}
+                              className={cn("shrink-0 text-[12.5px] font-bold", selected ? "text-cyan-ink" : "text-transparent")}
                               aria-hidden="true"
                             >
                               Open

@@ -54,13 +54,10 @@ function placeResult(place: Place): FinderResult {
 export function PlaceFinder({
   districts,
   counts,
-  tone = "light",
   className,
 }: {
   districts: FinderDistrict[];
   counts: { sectors: number; cells: number; villages: number };
-  /** Light for white or paper sections, royal for a blue panel. */
-  tone?: "light" | "royal";
   className?: string;
 }) {
   const router = useRouter();
@@ -153,7 +150,6 @@ export function PlaceFinder({
   const loading = searching && !places && !loadFailed;
   const showPanel = listOpen && searching;
   const expanded = showPanel && results.length > 0;
-  const onRoyal = tone === "royal";
   const status = !searching
     ? ""
     : results.length
@@ -166,12 +162,12 @@ export function PlaceFinder({
 
   return (
     <div className={cn("relative", className)}>
-      <label htmlFor={inputId} className={cn("text-[15px] font-semibold", onRoyal ? "text-white" : "text-ink")}>
+      <label htmlFor={inputId} className="text-[15px] font-semibold text-ink">
         Find a district, sector, cell or village
       </label>
       <div className="relative mt-2">
         <MagnifyingGlassIcon
-          className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-royal"
+          className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-cyan-ink"
           aria-hidden="true"
         />
         <input
@@ -200,7 +196,7 @@ export function PlaceFinder({
           onKeyDown={onKeyDown}
           className={cn(
             "h-14 w-full rounded-xl bg-white pl-12 pr-4 text-[16px] font-semibold text-ink placeholder:font-medium placeholder:text-muted focus-visible:outline-none focus-visible:ring-2",
-            onRoyal ? "focus-visible:ring-cyan" : "ring-1 ring-line focus-visible:ring-royal",
+            "ring-1 ring-line focus-visible:ring-cyan-ink",
           )}
         />
         {showPanel && (
@@ -221,7 +217,7 @@ export function PlaceFinder({
                     index === activeIndex ? "border-cyan bg-mist" : "border-transparent",
                   )}
                 >
-                  <span className="w-[4.25rem] shrink-0 text-[11.5px] font-semibold uppercase tracking-[0.06em] text-royal">
+                  <span className="w-[4.25rem] shrink-0 text-[11.5px] font-semibold uppercase tracking-[0.06em] text-cyan-ink">
                     {KIND_LABEL[result.kind]}
                   </span>
                   <span className="min-w-0">
@@ -240,7 +236,7 @@ export function PlaceFinder({
       <p className="sr-only" aria-live="polite">
         {listOpen ? status : ""}
       </p>
-      <p id={hintId} className={cn("mt-2.5 text-[13px] leading-5", onRoyal ? "text-white/80" : "text-muted")}>
+      <p id={hintId} className="mt-2.5 text-[13px] leading-5 text-muted">
         All {districts.length} districts, {counts.sectors} sectors, {counts.cells.toLocaleString("en-US")} cells and{" "}
         {counts.villages.toLocaleString("en-US")} villages. NISR publishes poverty estimates down to the sector, so a cell or
         village opens with the figures of its sector.

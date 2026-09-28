@@ -58,7 +58,7 @@ export function OverlapBadge({ district }: { district: District }) {
         ? "bg-cyan-soft text-cyan-ink ring-1 ring-inset ring-cyan/50"
         : count === 1
           ? "bg-paper text-ink"
-          : "bg-brand-50 text-brand-700";
+          : "bg-cyan-soft text-cyan-ink";
   return (
     <span
       className={`inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold ${tone}`}

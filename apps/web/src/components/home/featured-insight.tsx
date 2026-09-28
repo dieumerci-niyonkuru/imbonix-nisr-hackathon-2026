@@ -26,7 +26,7 @@ export function FeaturedInsight({
     <section className="bg-paper py-16 sm:py-24" aria-labelledby="featured-heading">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
         <div>
-          <p className="eyebrow text-royal">Featured insight</p>
+          <p className="eyebrow text-cyan-ink">Featured insight</p>
           <h2
             id="featured-heading"
             className="mt-3 text-balance font-display text-3xl font-bold leading-[1.12] tracking-[-0.03em] text-ink sm:text-4xl"
@@ -37,7 +37,7 @@ export function FeaturedInsight({
           <HowToRead className="mt-4 text-[14px] leading-6">{howToRead}</HowToRead>
           <Link
             href={href}
-            className="group mt-7 inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+            className="group mt-7 inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
           >
             {linkLabel}
             <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

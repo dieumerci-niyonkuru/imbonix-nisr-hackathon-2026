@@ -44,7 +44,7 @@ import {
   VUP_BENEFICIARIES_BY_PROGRAMME,
   VUP_SHARE_BY_SEX,
 } from "@/lib/poverty-social-protection";
-import { BRAND, CORE, DIMENSION_COLORS, RAMPS, STRAND } from "@/lib/palette";
+import { BRAND, COMPARE, CORE, DIMENSION_COLORS, RAMPS, STRAND } from "@/lib/palette";
 import { LEVERS } from "@/lib/priorities";
 import { DELAY_RAMP, timeliness, usagePairs, usageRows, VUP_COMPONENTS } from "@/lib/surveys";
 import { TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
@@ -88,39 +88,39 @@ const WEALTH_LABEL: Record<string, string> = {
   Highest: "Richest",
 };
 
-/** Healthy in cyan, then coping, vulnerable and extremely vulnerable in darker blues: darker is worse. */
-const HEALTH_COLORS = [CORE.cyan, RAMPS.blue[0], BRAND.blue, BRAND.navy];
+/** Healthy in cyan, then coping, vulnerable and extremely vulnerable in darker navy: darker is worse. */
+const HEALTH_COLORS = [CORE.cyan, RAMPS.navy[0], RAMPS.navy[2], BRAND.navy];
 
 const TARGET_SERIES: ComparisonSeries = [
-  { key: "baseline", label: "Baseline", color: RAMPS.steel[0] },
-  { key: "target", label: "Target", color: BRAND.blue },
+  { key: "baseline", label: "Baseline", color: COMPARE.before },
+  { key: "target", label: "Target", color: COMPARE.after },
 ];
 
 const oneDecimal = (value: number) => Math.round(value * 10) / 10;
 
 const FINSCOPE_ROUND_SERIES: ComparisonSeries = [
-  { key: "in2020", label: "2020", color: RAMPS.steel[0] },
-  { key: "in2024", label: "2024", color: BRAND.blue },
+  { key: "in2020", label: "2020", color: COMPARE.before },
+  { key: "in2024", label: "2024", color: COMPARE.after },
 ];
 
-/** Informal sources in cyan (the story), formal finance in blue, government schemes in navy. */
+/** Informal sources in cyan (the story), formal finance in navy, government schemes in dark grey. */
 const CREDIT_SOURCE_COLORS: Record<string, string> = {
   informal: CORE.cyan,
-  formal: BRAND.blue,
-  government: BRAND.navy,
+  formal: BRAND.navy,
+  government: RAMPS.steel[3],
   other: RAMPS.steel[1],
 };
 
 const VUP_SEX_SERIES: ComparisonSeries = [
-  { key: "population", label: "Share of the population", color: RAMPS.steel[0] },
-  { key: "beneficiaries", label: "Share of VUP beneficiaries", color: BRAND.blue },
+  { key: "population", label: "Share of the population", color: COMPARE.before },
+  { key: "beneficiaries", label: "Share of VUP beneficiaries", color: COMPARE.after },
 ];
 
-const VUP_PROGRAMME_COLORS = [CORE.cyan, BRAND.blue, BRAND.navy, RAMPS.steel[0]];
+const VUP_PROGRAMME_COLORS = [CORE.cyan, RAMPS.navy[0], BRAND.navy, RAMPS.steel[3]];
 
 const SURVEY_YEAR_SERIES: ComparisonSeries = [
-  { key: "in2017", label: "2017", color: RAMPS.steel[0] },
-  { key: "in2024", label: "2024", color: BRAND.blue },
+  { key: "in2017", label: "2017", color: COMPARE.before },
+  { key: "in2024", label: "2024", color: COMPARE.after },
 ];
 
 const ELECTRICITY_COLORS: Record<string, string> = {
@@ -137,7 +137,7 @@ const COOKING_FUEL_COLORS: Record<string, string> = {
   "Gas and other": CORE.cyan,
 };
 
-const SETTLEMENT_COLORS = [BRAND.navy, BRAND.blue, CORE.cyan, RAMPS.steel[0]];
+const SETTLEMENT_COLORS = [BRAND.navy, RAMPS.navy[0], CORE.cyan, RAMPS.steel[3]];
 
 /** How late each VUP programme's last payment was: on time, then up to 10, 20 and more than 20 days late. */
 export function paymentTimelinessByProgramme() {
@@ -232,7 +232,7 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             {
               value: `${includedShare}%`,
               label: `of adults are included, ${INCLUDED_ADULTS_MILLIONS} million people`,
-              color: BRAND.blue,
+              color: CORE.cyan,
             },
             { value: `${bankedRow.in2024}%`, label: `are banked, the same share as in 2020`, color: STRAND.banked },
             {
@@ -247,7 +247,7 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             id="chart-inclusion-by-service"
             title="Inclusion rose, bank use did not"
             note="Share of adults using each kind of service. One adult can use several, so rows overlap."
-            howToRead="Each pair of bars is one kind of service: grey is 2020, blue is 2024. A longer blue bar means more adults used it in 2024."
+            howToRead="Each pair of bars is one kind of service: grey is 2020, navy is 2024. A longer navy bar means more adults used it in 2024."
             source={FINSCOPE_2024_SOURCE}
           >
             <ComparisonBars
@@ -295,7 +295,7 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             id="chart-mobile-money"
             title={`Daily mobile money use rose from ${dailyMobileMoney.in2020}% to ${dailyMobileMoney.in2024}%`}
             note={`${MOBILE_MONEY_EVER_USED}% of adults own or have used mobile money.`}
-            howToRead="Grey is 2020, blue is 2024. Each pair shows the share of adults who own a wallet, or use one weekly or daily."
+            howToRead="Grey is 2020, navy is 2024. Each pair shows the share of adults who own a wallet, or use one weekly or daily."
             source={FINSCOPE_2024_SOURCE}
           >
             <ComparisonBars
@@ -309,7 +309,7 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             className="lg:row-span-2"
             id="chart-credit-sources"
             title="Households borrow from tontines and relatives, not banks"
-            note="Households with credit, by source. Cyan is informal, blue is formal finance, navy is a government scheme. A household can use several sources."
+            note="Households with credit, by source. Cyan is informal, navy is formal finance, dark grey is a government scheme. A household can use several sources."
             howToRead="Each bar is one source of credit; the longer the bar, the more households with credit borrowed from it."
             source={HOUSEHOLD_SURVEY_SOURCE}
           >
@@ -415,7 +415,7 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             id="chart-living-conditions"
             title="Living conditions improved"
             note="Improved drinking water is at least 90% in 2024."
-            howToRead="Grey is 2017, blue is 2024. A longer blue bar means more households had that condition in 2024."
+            howToRead="Grey is 2017, navy is 2024. A longer navy bar means more households had that condition in 2024."
             source={EICV7_PROFILE_SOURCE}
           >
             <ComparisonBars
@@ -502,14 +502,14 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             {audiences.map((audience) => (
               <li key={audience.audience} className="flex flex-col rounded-3xl border border-line bg-white p-5">
                 <p className="flex items-center gap-2 text-[13px] font-bold text-ink">
-                  <audience.icon className="h-5 w-5 text-royal" aria-hidden="true" />
+                  <audience.icon className="h-5 w-5 text-cyan-ink" aria-hidden="true" />
                   {audience.audience}
                 </p>
                 <p className="mt-4 font-display text-4xl font-bold tracking-[-0.03em] text-ink">{audience.value}</p>
                 <p className="mt-1 flex-1 text-[13.5px] leading-5 text-muted">{audience.text}</p>
                 <Link
                   href={audience.href}
-                  className="group mt-4 inline-flex items-center gap-1.5 text-[14px] font-bold text-royal"
+                  className="group mt-4 inline-flex items-center gap-1.5 text-[14px] font-bold text-cyan-ink"
                 >
                   {audience.cta}
                   <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
@@ -535,7 +535,7 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             id="chart-national-targets"
             title="Where Rwanda stands against its national targets"
             note="Financial inclusion targets are for 2030; the social protection target is for 2028/29."
-            howToRead="For each measure, grey is where Rwanda started and blue is the target. The gap between the two bars is the distance still to go."
+            howToRead="For each measure, grey is where Rwanda started and navy is the target. The gap between the two bars is the distance still to go."
             source={TARGETS_SOURCE}
             status="target"
           >
@@ -569,7 +569,7 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             id="chart-vup-by-sex"
             title="Three in four VUP beneficiaries are women"
             note="Women's share of the population is 100% minus the published 47.9% men."
-            howToRead="For women and for men, grey is their share of the population and blue their share of VUP beneficiaries."
+            howToRead="For women and for men, grey is their share of the population and navy their share of VUP beneficiaries."
             source={SOCIAL_PROTECTION_SOURCE}
           >
             <ComparisonBars
