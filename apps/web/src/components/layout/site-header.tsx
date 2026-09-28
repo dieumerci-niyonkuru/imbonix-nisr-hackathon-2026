@@ -29,7 +29,6 @@ export function SiteHeader() {
           label: layer.short,
           hint: source ? `${dimension.label} · ${source.source}, ${source.year}` : dimension.label,
           terms: `${source?.label ?? ""} ${source?.source ?? ""} ${dimension.label}`,
-          accent: dimension.accent,
         };
       }),
     },
