@@ -18,6 +18,10 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - The map's dimensions are a tab bar with a cyan underline, and every set of choice buttons uses one bordered style
   that turns navy when chosen. The opening strip on the homepage shows four figures the featured chart does not
   repeat, and district pages list recommended actions with their evidence, keeping programmes in Read more.
+- Header dropdowns are two part panels: on navy, the focus area's question, one key figure with its source (worked
+  out from the data) and a link to the area at a glance; beside it, the pages that go deeper, each with one line on
+  what it holds. Inside an open menu the arrow keys move between links, and Home and End jump to the ends. The
+  panels fit the screen from 1280px wide.
 
 ### District intelligence and a decision focus
 

@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import {
+  ArrowRightIcon,
   ArrowTopRightOnSquareIcon,
   ChevronDownIcon,
   HomeIcon as HomeSolidIcon,
@@ -24,19 +25,23 @@ import { cn } from "@/lib/utils";
 
 /** One coverage figure for the utility bar, counted from the site's data. */
 export type CoverageFigure = { value: number; label: string };
+/** The key figure a focus area's dropdown shows, with its source. */
+export type MenuFigure = { value: string; label: string; source: string };
 export type HeaderData = {
   coverage: CoverageFigure[];
+  menuFigures: Record<string, MenuFigure>;
   search: { districts: SearchDistrict[]; measures: SearchMeasure[]; charts: SearchChart[]; levers: SearchLever[] };
 };
 
 type MenuItem = { href: string; label: string; description: string };
-type MenuGroup = { id: string; label: string; intro: string; items: MenuItem[] };
+type MenuGroup = { id: string; label: string; intro: string; question: string; items: MenuItem[] };
 
 /** One menu per focus area: its page at a glance, then the pages that go deeper, each with one line on what it holds. */
 const MENU_GROUPS: MenuGroup[] = NAV_GROUPS.map((group) => ({
   id: group.focusId,
   label: group.label,
   intro: group.intro,
+  question: FOCUS_AREAS.find((area) => area.id === group.focusId)?.hint ?? "",
   items: [
     {
       href: `/focus/${group.focusId}`,
@@ -61,8 +66,9 @@ const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visibl
 /**
  * The header: a thin bar with project links, then the logo, a home link, one dropdown menu per focus area,
  * the methods page and search, from 1280px wide. The menus are disclosure buttons: they open on click, Enter or the down
- * arrow, and on hover with a mouse; Escape, a click outside or moving focus away closes them. Narrower screens get a menu
- * sheet with the same links.
+ * arrow, and on hover with a mouse; inside, the arrow keys move between links; Escape, a click outside or moving focus
+ * away closes them. Each menu shows its focus area with one key figure beside the pages that go deeper. Narrower
+ * screens get a menu sheet with the same links.
  */
 export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const pathname = usePathname() ?? "/";
@@ -118,6 +124,21 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const isCurrentPage = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
   const groupHasCurrentPage = (group: MenuGroup) => group.items.some((item) => isCurrentPage(item.href));
+  /** Inside an open menu, the arrow keys move between its links, Home and End jump to the ends. */
+  const moveInMenu = (event: ReactKeyboardEvent<HTMLDivElement>, groupId: string) => {
+    const links = [...event.currentTarget.querySelectorAll<HTMLAnchorElement>("a[href]")];
+    const index = links.indexOf(document.activeElement as HTMLAnchorElement);
+    const focusAt = (target: number) => links[(target + links.length) % links.length]?.focus();
+    if (event.key === "ArrowDown") focusAt(index + 1);
+    else if (event.key === "ArrowUp") {
+      if (index <= 0) triggerButtons.current[groupId]?.focus();
+      else focusAt(index - 1);
+    } else if (event.key === "Home") focusAt(0);
+    else if (event.key === "End") focusAt(links.length - 1);
+    else return;
+    event.preventDefault();
+  };
+
   const openSearch = () => {
     setSheetOpen(false);
     setOpenGroupId(null);
@@ -225,20 +246,52 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                     <div
                       id={panelId}
                       hidden={!expanded}
-                      className={cn("absolute top-full w-[23rem] pt-2", groupIndex >= 2 ? "right-0" : "left-0")}
+                      onKeyDown={(event) => moveInMenu(event, group.id)}
+                      className={cn("absolute top-full w-[42rem] pt-2", groupIndex >= 1 ? "right-0" : "left-0")}
                     >
-                      <div className="overflow-hidden rounded-2xl bg-white shadow-lift ring-1 ring-line">
-                        <div className="border-b border-line bg-paper px-5 pb-3.5 pt-4">
-                          <p className="eyebrow text-royal">{group.label}</p>
-                          <p className="mt-1.5 text-[13px] leading-5 text-ink/80">{group.intro}</p>
+                      <div className="grid grid-cols-[15rem_minmax(0,1fr)] overflow-hidden rounded-xl bg-white shadow-lift ring-1 ring-line">
+                        {/* The focus area: its question, one key figure with its source, and its page at a glance. */}
+                        <div className="flex flex-col bg-navy-900 p-5 text-white">
+                          <p className="text-[13px] font-semibold text-cyan">{group.label}</p>
+                          <p className="mt-2 text-balance font-display text-[18px] font-bold leading-snug">{group.question}</p>
+                          {data.menuFigures[group.id] && (
+                            <div className="mt-4 border-t border-white/15 pt-4">
+                              <p className="font-display text-[32px] font-bold leading-none tracking-[-0.02em]">
+                                {data.menuFigures[group.id].value}
+                              </p>
+                              <p className="mt-1.5 text-[13px] leading-5 text-white/85">{data.menuFigures[group.id].label}</p>
+                              <p className="mt-1.5 text-[11.5px] text-white/60">{data.menuFigures[group.id].source}</p>
+                            </div>
+                          )}
+                          <Link
+                            href={group.items[0].href}
+                            onClick={() => setOpenGroupId(null)}
+                            aria-current={isCurrentPage(group.items[0].href) ? "page" : undefined}
+                            className="group/glance mt-auto inline-flex items-center gap-1.5 self-start rounded pt-5 text-[14px] font-bold text-white underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
+                          >
+                            <span className="sr-only">{group.label}: </span>
+                            At a glance
+                            <ArrowRightIcon
+                              className="h-4 w-4 text-cyan transition-transform group-hover/glance:translate-x-0.5"
+                              aria-hidden="true"
+                            />
+                          </Link>
                         </div>
-                        <ul className="py-2">
-                          {group.items.map((item) => (
-                            <li key={item.href}>
-                              <MenuLink item={item} current={isCurrentPage(item.href)} onNavigate={() => setOpenGroupId(null)} />
-                            </li>
-                          ))}
-                        </ul>
+                        {/* The pages that go deeper. */}
+                        <div className="py-3">
+                          <p className="px-5 pb-2 text-[13px] font-semibold text-muted">{group.intro}</p>
+                          <ul>
+                            {group.items.slice(1).map((item) => (
+                              <li key={item.href}>
+                                <MenuLink
+                                  item={item}
+                                  current={isCurrentPage(item.href)}
+                                  onNavigate={() => setOpenGroupId(null)}
+                                />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </li>
