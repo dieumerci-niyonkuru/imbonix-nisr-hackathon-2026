@@ -6,6 +6,7 @@ import { StatusBadge } from "@/components/ui/status-badge";
 import { formatNumber } from "@/lib/format";
 import { channel, DELAY_LABELS, DELAY_RAMP, timeliness, VUP, VUP_COMPONENTS } from "@/lib/surveys";
 import { BRAND, CORE, RAMPS } from "@/lib/palette";
+import { HowToRead } from "@/components/ui/chart-card";
 
 export const metadata: Metadata = {
   title: "VUP support and payments",
@@ -123,6 +124,10 @@ export default function SocialProtectionPage() {
                 </li>
               ))}
             </ul>
+            <HowToRead className="mt-3">
+              Each bar is one VUP programme, split by how late its last payment arrived. The lightest part is on time; the darker
+              the part, the later the payment.
+            </HowToRead>
             <p className="mt-3 flex flex-wrap items-center gap-2 text-[11.5px] text-muted">
               <StatusBadge status="observed" /> NISR EICV7 VUP thematic report tables 4.2, 4.5, 4.8 and 4.11, 2023/24 · all
               beneficiaries
@@ -138,10 +143,14 @@ export default function SocialProtectionPage() {
             eyebrow="Who waits longest"
             accent="text-dim-poverty"
             title="The poorest often wait longest"
-            intro="In classic public works, only 2.6% of extremely poor participants were paid on time, against about 11% of the others. In Direct Support it was 11.1% against 17.4% for non-poor households, and in expanded public works 40% of extremely poor participants waited more than 20 days. Nutrition-sensitive Direct Support is the exception: its poorest recipients were paid on time slightly more often."
+            intro="In classic public works, only 2.6% of extremely poor participants were paid on time, against about 11% of the others. In Direct Support it was 11.1% against 17.4% for non-poor households, and in expanded public works 40% of extremely poor participants waited more than 20 days. Nutrition sensitive Direct Support is the exception: its poorest recipients were paid on time slightly more often."
           />
           <div className="card p-5 sm:p-6">
             <p className="text-[13px] font-bold text-ink">Last payment on time, by poverty status (%)</p>
+            <HowToRead className="mt-2">
+              For each programme, the three bars are the share paid on time among extremely poor, moderately poor and non poor
+              beneficiaries. A shorter bar means fewer were paid on time.
+            </HowToRead>
             <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[12px] text-muted">
               {[
                 ["Extremely poor", POVERTY_RAMP.extremelyPoor],
@@ -222,6 +231,10 @@ export default function SocialProtectionPage() {
                 Money)
               </li>
             </ul>
+            <HowToRead className="mt-3">
+              Each bar is one programme, split into beneficiaries who collect their payment at an Umurenge SACCO counter and those
+              paid by mobile money.
+            </HowToRead>
           </div>
           <div>
             <SectionHeader
@@ -230,7 +243,10 @@ export default function SocialProtectionPage() {
               title="What households receive"
               intro="Average amounts reported by beneficiaries, in Rwandan francs. Transfers are small next to living costs that rose about 16% in the year to August 2026."
             />
-            <div className="mt-8 grid grid-cols-2 gap-4">
+            <HowToRead className="mt-6">
+              Each figure is the average amount one beneficiary reported receiving, in Rwandan francs.
+            </HowToRead>
+            <div className="mt-5 grid grid-cols-2 gap-4">
               {AMOUNTS.map((a) => {
                 const row = VUP.delivery.find((r) => r.component === a.component && r.category === a.category);
                 const short = VUP_COMPONENTS.find((c) => c.id === a.component)!.short;
@@ -255,6 +271,10 @@ export default function SocialProtectionPage() {
           title="Long delays fell sharply; the share paid on time barely moved"
           intro="Three NISR surveys asked VUP Direct Support households about payment timing. The questions changed in 2023/24, so read these as an indicative direction, not a precise trend."
         />
+        <HowToRead className="mt-4 max-w-3xl">
+          Each card is one survey. The first figure is the share paid regularly or on time, the second the share whose payment was
+          very late; the question each survey asked is under its card.
+        </HowToRead>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {[
             {

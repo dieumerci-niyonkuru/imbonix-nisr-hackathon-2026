@@ -35,6 +35,7 @@ python scripts/data/download_nisr_public.py            # downloads to data/raw (
 pip install -r scripts/data/requirements.txt
 python scripts/data/extract_published_tables.py
 python scripts/data/build_web_data.py            # refreshes the website's JSON (apps/web/src/data/generated/)
+python scripts/data/build_place_index.py         # refreshes places.json: every sector, cell and village, for the search
 ```
 
 ## District indicators (`indicator_id` prefixes)

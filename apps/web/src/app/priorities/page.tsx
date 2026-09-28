@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PriorityExplorer, PriorityMatrix } from "@/components/priorities/priority-explorer";
 import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 import { allFlags, LEVERS } from "@/lib/priorities";
+import { HowToRead } from "@/components/ui/chart-card";
 
 export const metadata: Metadata = {
   title: "Where to act first",
@@ -60,6 +61,10 @@ export default function PrioritiesPage() {
           title={<span id="explorer-heading">Which districts, and on what evidence?</span>}
           intro="Choose a lever to see the districts it flags, ordered by the strength of the evidence, and the programmes that already exist for it."
         />
+        <HowToRead className="mt-4 max-w-3xl">
+          Choose a lever. The map marks the districts it flags, and the list gives the published figure behind each flag,
+          strongest evidence first. Each district name opens its profile.
+        </HowToRead>
         <div className="mt-8">
           <PriorityExplorer levers={LEVERS} districts={districts} />
         </div>
@@ -72,6 +77,10 @@ export default function PrioritiesPage() {
             title={<span id="matrix-heading">The full picture in one table</span>}
             intro="Hover a tick to see the evidence behind it. Districts flagged for several levers may need a coordinated response across ministries."
           />
+          <HowToRead className="mt-4 max-w-3xl">
+            Each row is a district and each column a lever. A tick means that lever&apos;s rule flags the district; hover a tick
+            to see the figure behind it.
+          </HowToRead>
           <div className="mt-8">
             <PriorityMatrix levers={LEVERS} districts={districts} />
           </div>
