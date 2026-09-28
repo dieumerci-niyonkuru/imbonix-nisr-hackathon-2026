@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { DistrictStrip } from "@/components/charts/district-strip";
-import { AccessStrandChart } from "@/components/charts/recharts/access-strand-chart";
+import { StackedShareChart } from "@/components/charts/recharts/stacked-share-chart";
+import { ACCESS_SERIES } from "@/components/focus/focus-panels";
 import { FinancialHealthChart } from "@/components/charts/recharts/financial-health-chart";
 import { PovertyProvinceChart, PovertyTrendChart } from "@/components/charts/recharts/poverty-charts";
 import { TargetTracker } from "@/components/charts/target-tracker";
@@ -11,7 +12,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { HowToRead } from "@/components/ui/chart-card";
 import { PageHero, SectionHeader } from "@/components/ui/section";
 import { StatTile } from "@/components/ui/stat-tile";
-import { RESILIENCE_FACTS, TARGETS } from "@/lib/national";
+import { describeShares } from "@/lib/format";
+import { ACCESS_STRAND, RESILIENCE_FACTS, TARGETS } from "@/lib/national";
 import { timeliness, usageTotal } from "@/lib/surveys";
 import { BRAND, CORE, RAMPS } from "@/lib/palette";
 
@@ -95,7 +97,13 @@ export default function DashboardPage() {
             </HowToRead>
           </CardHeader>
           <CardContent>
-            <AccessStrandChart />
+            <StackedShareChart
+              rows={ACCESS_STRAND}
+              categoryKey="year"
+              series={ACCESS_SERIES}
+              labelWidth={40}
+              description={`Adults by the most formal service they use. ${describeShares(ACCESS_STRAND, "year", ACCESS_SERIES)}.`}
+            />
             <Source>
               FinScope 2024 report (NISR and Access to Finance Rwanda), access strand; 2020 as restated in the 2024 report.
             </Source>
