@@ -11,8 +11,9 @@ const RANKED_COUNT = 5;
 const HEADLINE_COUNT = 10;
 
 /**
- * Where poverty is deepest: the district map of EICV7 poverty rates beside the poorest districts, ranked. The headline
- * is worked out from the data, so it stays true if the figures change.
+ * The featured insight, where poverty is deepest: the district map of EICV7 poverty rates beside the poorest
+ * districts, ranked, with a line on how to read the map. The headline is worked out from the data, so it stays true
+ * if the figures change.
  */
 export function PovertyMapSection() {
   const poverty = meta("eicv7_poverty_rate");
@@ -32,7 +33,7 @@ export function PovertyMapSection() {
   const highest = valueOf(ranked[0], poverty.id)!;
 
   return (
-    <section className="bg-white py-16 sm:py-20" aria-labelledby="poverty-map-heading">
+    <section className="bg-paper py-16 sm:py-20" aria-labelledby="poverty-map-heading">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
         <figure className="rounded-3xl border border-line bg-white p-5 sm:p-7">
           <figcaption>
@@ -49,7 +50,7 @@ export function PovertyMapSection() {
         </figure>
 
         <div>
-          <p className="eyebrow text-royal">Where poverty is deepest</p>
+          <p className="eyebrow text-royal">Featured insight</p>
           <h2
             id="poverty-map-heading"
             className="mt-3 text-balance font-display text-3xl font-bold tracking-[-0.03em] text-ink sm:text-4xl"
@@ -60,6 +61,10 @@ export function PovertyMapSection() {
             Poverty is not spread evenly: in {ranked[0].name} it reaches {formatValue(poverty, highest)}, against{" "}
             {formatValue(poverty, valueOf(ranked[ranked.length - 1], poverty.id))} in {ranked[ranked.length - 1].name}. These are
             the {RANKED_COUNT} poorest districts.
+          </p>
+          <p className="mt-3 text-[14px] leading-6 text-ink/80">
+            <span className="font-semibold text-ink">How to read the map: </span>
+            the darker the blue, the higher the share of people living in poverty. Select a district below to open its profile.
           </p>
           <ol className="mt-6 space-y-2.5">
             {ranked.slice(0, RANKED_COUNT).map((district, index) => {
