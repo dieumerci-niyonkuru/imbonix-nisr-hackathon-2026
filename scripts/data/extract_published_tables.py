@@ -389,6 +389,25 @@ with (OUT / "vup_benefit_delivery_eicv7.csv").open("w", newline="", encoding="ut
     writer.writerows(vup_rows)
 print(f"VUP delivery rows: {len(vup_rows)}")
 
+# --- Census 2022 thematic reports: persons with disabilities and older people (60+), two groups Direct Support serves
+DISABILITY = RAW / "census2022" / "Socio_Economic Status of people with Disability Thematic Report.xlsx"
+for row in xlsx_rows(DISABILITY, "Table C.1"):
+    name = district_name(row[0])
+    if name:
+        add(name, "census_disability_prevalence", "Persons with disabilities among residents aged 5+ (%)", number(row[6]),
+            "%", "2022", "NISR RPHC5 Persons with Disabilities thematic report (tables)", "Table C.1")
+OLDER = RAW / "census2022" / "Socio-Economic status of aged people _Thematic Report.xls"
+for row in xls_rows(OLDER, "Table 2"):
+    name = district_name(row[1])
+    if name:
+        add(name, "census_older_people_share", "People aged 60+ among residents (%)", number(row[7]), "%", "2022",
+            "NISR RPHC5 Older People thematic report (tables)", "Table 2")
+for row in xls_rows(OLDER, "Table 19 "):
+    name = district_name(row[1])
+    if name:
+        add(name, "census_older_people_mobile_phone", "People aged 60+ who own a mobile phone (%)", number(row[4]), "%",
+            "2022", "NISR RPHC5 Older People thematic report (tables)", "Table 19")
+
 # --- Write district outputs
 fields = ["district", "province", "indicator_id", "indicator", "value", "se", "ci_low", "ci_high", "unit", "year",
           "source", "table", "status"]

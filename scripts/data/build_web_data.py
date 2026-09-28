@@ -9,7 +9,7 @@ Inputs:
   data/raw/geo/geoBoundaries-RWA-ADM3_simplified.geojson     sourced from NISR's open geodata portal; 2012 units)
 
 Outputs in apps/web/src/data/generated/:
-  districts.json   30 districts x 63 indicators with SE / CI, source, year and status
+  districts.json   30 districts x 67 indicators with SE / CI, source, year and status
   geo.json         district outlines as SVG paths (equirectangular projection, simplified)
   sectors.json     416 sectors: census non-monetary poverty, MPI, EICV7 small-area poverty and SVG paths
   usage.json       DHS 2025 phone, mobile-money and bank-account use by sex and group

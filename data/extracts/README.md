@@ -13,7 +13,7 @@ Every row carries a `status`:
 
 | File | What it is | Built by |
 | --- | --- | --- |
-| `district_indicators_long.csv` | 30 districts × 63 indicators, with the NISR standard error and 95% CI where published (EICV7, LFS 2025) | `scripts/data/extract_published_tables.py` |
+| `district_indicators_long.csv` | 30 districts × 67 indicators, with the NISR standard error and 95% CI where published (EICV7, LFS 2025) | `scripts/data/extract_published_tables.py` |
 | `district_indicators_wide.csv` | Same values, one row per district (convenient for the web app) | script |
 | `sector_census2022.csv` | All **416 sectors**: Census 2022 non-monetary poverty (non-poor / vulnerable / moderately / severely poor), census MPI (headcount, intensity, M0), population by sex | script |
 | `sector_poverty_eicv7_sae.csv` | All **416 sectors**: EICV7 monetary poverty rate from NISR small-area estimation, transcribed from the district presentation maps (see caveats) | manual transcription, validated |

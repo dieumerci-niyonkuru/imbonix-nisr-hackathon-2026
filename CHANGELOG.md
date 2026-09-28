@@ -5,6 +5,17 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### More NISR evidence on the groups social protection serves
+
+- Three district indicators from the 2022 census thematic reports, extracted by the same reproducible script:
+  persons with disabilities among residents aged 5 and over (Table C.1), people aged 60 and over (Table 2) and older
+  people who own a mobile phone (Table 19). The site now has 67 indicators and 28 map measures.
+- District pages show the two groups Direct Support serves in the social protection step and in a new section of
+  the detailed evidence. The Intervention Explorer gains older people and persons with disabilities as target
+  groups, sized for the chosen place, with options for each.
+- The downloaded EICV7 tables, the Statistical Yearbook and the VUP thematic report were searched for VUP coverage
+  by district: NISR does not publish it, so health insurance stays the district measure of social protection.
+
 ### Read more dialogs and a calmer, more professional look
 
 - "Read more" opens the full explanation in a dialog, so cards stay short: the three tests on the homepage (with
