@@ -11,7 +11,7 @@ import { DIMENSIONS, INDICATORS, type Dimension } from "@/lib/indicators";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { BarsMotif, HeroRings } from "@/components/ui/section";
+import { BarsMotif } from "@/components/ui/section";
 
 export const metadata: Metadata = {
   title: "Data & methods",
@@ -151,7 +151,6 @@ export default function DataPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-navy-900 text-white">
-        <HeroRings className="-right-24 -top-32 text-white/[0.08]" />
         <div className="container-page relative pb-14 pt-6 sm:pb-16 sm:pt-8">
           <Breadcrumbs tone="dark" />
           <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan sm:mt-12">
@@ -190,7 +189,7 @@ export default function DataPage() {
           className="mt-8 rounded-2xl border border-line bg-white"
         >
           <table className="w-full min-w-[720px] text-left text-[13.5px]">
-            <thead className="bg-paper text-[11px] uppercase tracking-[0.08em] text-muted">
+            <thead className="bg-paper text-[12.5px] text-muted">
               <tr>
                 <th scope="col" className="px-4 py-3">
                   Priority
@@ -292,7 +291,7 @@ export default function DataPage() {
                     className="mt-3 rounded-2xl border border-line"
                   >
                     <table className="w-full min-w-[760px] text-left text-[12.5px]">
-                      <thead className="bg-paper text-[10.5px] uppercase tracking-[0.08em] text-muted">
+                      <thead className="bg-paper text-[12px] text-muted">
                         <tr>
                           <th scope="col" className="w-[30%] px-4 py-2.5">
                             Indicator

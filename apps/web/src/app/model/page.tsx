@@ -95,7 +95,7 @@ export default function ModelPage() {
           />
           <ScrollArea label="Model inputs (scrolls sideways)" className="mt-8 rounded-2xl border border-line">
             <table className="w-full min-w-[600px] text-left text-[13.5px]">
-              <thead className="bg-paper text-[11px] uppercase tracking-[0.06em] text-muted">
+              <thead className="bg-paper text-[12.5px] text-muted">
                 <tr>
                   <th scope="col" className="px-4 py-3">
                     Group

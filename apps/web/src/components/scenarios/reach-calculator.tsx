@@ -36,7 +36,7 @@ export function ReachCalculator() {
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
       <div className="card p-5 sm:p-6">
         <div className="flex items-center justify-between gap-3">
-          <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-muted">Your scenario</p>
+          <p className="text-[13px] font-bold text-muted">Your scenario</p>
           <StatusBadge status="scenario" />
         </div>
         <div className="mt-4 flex flex-wrap gap-1.5" role="radiogroup" aria-label="Measure">
@@ -51,8 +51,10 @@ export function ReachCalculator() {
                 setTarget(Math.min(target, m.national));
               }}
               className={cn(
-                "rounded-lg px-3 py-1.5 text-[13px] font-semibold transition-colors",
-                m.id === measureId ? "bg-navy-900 text-white" : "bg-paper text-ink/80 hover:bg-line/70",
+                "rounded-md border px-3 py-1.5 text-[13px] font-semibold transition-colors",
+                m.id === measureId
+                  ? "border-navy-900 bg-navy-900 text-white"
+                  : "border-line bg-white text-ink/80 hover:border-royal hover:text-ink",
               )}
             >
               {m.label}
@@ -141,7 +143,7 @@ export function ReachCalculator() {
           <summary className="cursor-pointer px-4 py-3 text-[13px] font-semibold text-ink">Table: all districts</summary>
           <div className="scrollbar-thin max-h-80 overflow-auto">
             <table className="w-full text-left text-[12.5px]">
-              <thead className="sticky top-0 bg-paper text-[11px] uppercase tracking-[0.06em] text-muted">
+              <thead className="sticky top-0 bg-paper text-[12.5px] text-muted">
                 <tr>
                   <th scope="col" className="px-4 py-2">
                     District

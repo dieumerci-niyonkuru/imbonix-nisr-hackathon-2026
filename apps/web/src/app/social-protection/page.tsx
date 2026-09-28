@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { StackedBar } from "@/components/charts/stacked-bar";
-import { Reveal } from "@/components/ui/reveal";
 import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { formatNumber } from "@/lib/format";
@@ -57,9 +56,9 @@ export default function SocialProtectionPage() {
       {/* Headline contrast */}
       <section className="container-page py-12">
         <div className="grid gap-4 lg:grid-cols-[1fr_2fr]">
-          <Reveal>
+          <div>
             <div className="card h-full p-6">
-              <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-muted">Administrative figure</p>
+              <p className="text-[13px] font-bold text-muted">Administrative figure</p>
               <p className="mt-3 font-display text-5xl font-bold tracking-[-0.04em] text-ink">96.6%</p>
               <p className="mt-2 text-[14px] leading-6 text-ink/80">of payments delivered on time, on average</p>
               <p className="mt-4 text-[11.5px] leading-5 text-muted">
@@ -67,12 +66,10 @@ export default function SocialProtectionPage() {
                 expanded public works 96%.
               </p>
             </div>
-          </Reveal>
-          <Reveal delay={0.06}>
+          </div>
+          <div>
             <div className="card h-full p-6">
-              <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-muted">
-                What beneficiaries report · last payment on time, 2023/24
-              </p>
+              <p className="text-[13px] font-bold text-muted">What beneficiaries report · last payment on time, 2023/24</p>
               <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {onTime.map((c) => (
                   <div key={c.id}>
@@ -87,7 +84,7 @@ export default function SocialProtectionPage() {
                 The gap between them is a measurement finding worth tracking, not an accusation.
               </p>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -299,7 +296,7 @@ export default function SocialProtectionPage() {
               lateLabel: "last payment more than 20 days late",
             },
           ].map((col, i) => (
-            <Reveal key={col.year} delay={i * 0.06}>
+            <div key={col.year}>
               <div className="card h-full p-6">
                 <p className="font-display text-2xl font-bold text-ink">{col.year}</p>
                 <p className="text-[12px] text-muted">{col.survey}</p>
@@ -317,7 +314,7 @@ export default function SocialProtectionPage() {
                   Question: {col.onTime.question.toLowerCase()}. {col.onTime.source}, {col.onTime.table}.
                 </p>
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
       </section>

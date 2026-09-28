@@ -5,6 +5,20 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Read more dialogs and a calmer, more professional look
+
+- "Read more" opens the full explanation in a dialog, so cards stay short: the three tests on the homepage (with
+  figures, sources and the policy levers), each step and each recommended action on a district page, the five
+  methodology steps on About, and each evidence theme on Data & methods (listing its indicators with source and
+  year). Dialogs close with Close, Escape or a click outside, and scroll on small screens.
+- A calmer look: labels above headings in sentence case instead of spaced capitals, squarer cards with lighter
+  shadows, status labels as plain tags, no decorative rings behind page titles and no fade in on scroll. The header
+  marks hover and the current section in solid navy with a thin cyan underline, IMBONIX's accent; high priority
+  badges are navy.
+- The map's dimensions are a tab bar with a cyan underline, and every set of choice buttons uses one bordered style
+  that turns navy when chosen. The opening strip on the homepage shows four figures the featured chart does not
+  repeat, and district pages list recommended actions with their evidence, keeping programmes in Read more.
+
 ### District intelligence and a decision focus
 
 - Every district page opens with district intelligence, read left to right: financial and digital access, poverty,
