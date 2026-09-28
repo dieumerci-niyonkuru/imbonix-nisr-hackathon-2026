@@ -31,7 +31,7 @@ export function PriorityExplorer({ levers, districts }: { levers: Lever[]; distr
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
       <div className="card p-5 sm:p-6">
-        <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-muted">Choose a lever</p>
+        <p className="text-[13px] font-bold text-muted">Choose a lever</p>
         <div className="mt-3 flex flex-wrap gap-1.5" role="radiogroup" aria-label="Intervention lever">
           {levers.map((l) => (
             <button
@@ -41,8 +41,10 @@ export function PriorityExplorer({ levers, districts }: { levers: Lever[]; distr
               aria-checked={l.id === active}
               onClick={() => setActive(l.id)}
               className={cn(
-                "flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12.5px] font-semibold transition-colors",
-                l.id === active ? "bg-navy-900 text-white" : "bg-paper text-ink/80 hover:bg-line/70",
+                "flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-[12.5px] font-semibold transition-colors",
+                l.id === active
+                  ? "border-navy-900 bg-navy-900 text-white"
+                  : "border-line bg-white text-ink/80 hover:border-royal hover:text-ink",
               )}
             >
               <span className="h-2.5 w-2.5 rounded-full" style={{ background: l.color }} aria-hidden="true" />
@@ -108,7 +110,7 @@ export function PriorityMatrix({ levers, districts }: { levers: Lever[]; distric
         <caption className="sr-only">Which levers the evidence flags for each district</caption>
         <thead className="bg-paper text-[11px] text-muted">
           <tr>
-            <th scope="col" className="px-4 py-3 uppercase tracking-[0.06em]">
+            <th scope="col" className="px-4 py-3">
               District
             </th>
             {levers.map((l) => (
@@ -117,7 +119,7 @@ export function PriorityMatrix({ levers, districts }: { levers: Lever[]; distric
                 {l.title}
               </th>
             ))}
-            <th scope="col" className="px-4 py-3 text-right uppercase tracking-[0.06em]">
+            <th scope="col" className="px-4 py-3 text-right">
               Total
             </th>
           </tr>

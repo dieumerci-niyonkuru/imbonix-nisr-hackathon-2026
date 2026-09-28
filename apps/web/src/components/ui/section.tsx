@@ -46,7 +46,6 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden border-b border-line bg-white">
-      <HeroRings />
       <div className="container-page relative pb-14 pt-6 sm:pb-16 sm:pt-8">
         <Breadcrumbs />
         <p className="eyebrow mt-10 flex items-center gap-2.5 text-royal sm:mt-12">
@@ -71,23 +70,6 @@ export function BarsMotif({ className = "" }: { className?: string }) {
       <span className="h-[72%] w-[3px] rounded-full bg-cyan" />
       <span className="h-full w-[3px] rounded-full bg-royal" />
     </span>
-  );
-}
-
-/** Thin concentric arcs after the logo's open ring: a quiet, crisp mark in the corner of a hero. */
-export function HeroRings({ className = "-right-32 -top-40 text-brand-100" }: { className?: string }) {
-  return (
-    <svg
-      className={`pointer-events-none absolute hidden h-[560px] w-[560px] md:block ${className}`}
-      viewBox="0 0 560 560"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path d="M 60 360 A 220 220 0 1 1 420 110" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <path d="M 452 150 A 220 220 0 0 1 494 230" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="280" cy="280" r="150" stroke="currentColor" strokeWidth="1.5" strokeDasharray="2 7" strokeLinecap="round" />
-      <circle cx="420" cy="110" r="7" className="fill-cyan" />
-    </svg>
   );
 }
 

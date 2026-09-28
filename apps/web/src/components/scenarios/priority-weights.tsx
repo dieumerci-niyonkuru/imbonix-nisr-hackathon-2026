@@ -36,7 +36,7 @@ export function PriorityWeights() {
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
       <div className="card p-5 sm:p-6">
         <div className="flex items-center justify-between gap-3">
-          <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-muted">Your weights</p>
+          <p className="text-[13px] font-bold text-muted">Your weights</p>
           <StatusBadge status="scenario" />
         </div>
         <div className="mt-4 flex flex-wrap gap-1.5">
@@ -80,7 +80,7 @@ export function PriorityWeights() {
               <span key={c} className="h-1.5 flex-1 rounded-full" style={{ background: c }} />
             ))}
           </div>
-          <div className="mt-1 flex justify-between text-[10.5px] font-semibold uppercase tracking-[0.08em] text-muted">
+          <div className="mt-1 flex justify-between text-[12px] font-semibold text-muted">
             <span>Lower priority</span>
             <span>Higher priority</span>
           </div>

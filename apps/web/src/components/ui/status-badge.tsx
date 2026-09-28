@@ -13,9 +13,8 @@ export function StatusBadge({ status, className = "" }: { status: string; classN
   return (
     <span
       title={STATUS_DESCRIPTION[status]}
-      className={`inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.08em] ring-1 ring-inset ${STYLES[status] ?? STYLES.observed} ${className}`}
+      className={`inline-flex shrink-0 items-center rounded px-1.5 py-0.5 text-[11px] font-semibold ring-1 ring-inset ${STYLES[status] ?? STYLES.observed} ${className}`}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-current opacity-70" />
       {STATUS_LABEL[status] ?? status}
     </span>
   );

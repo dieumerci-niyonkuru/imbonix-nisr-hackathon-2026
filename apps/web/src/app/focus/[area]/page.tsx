@@ -76,7 +76,7 @@ export default async function FocusAreaPage({ params }: Params) {
             aria-label="Other focus areas"
             className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-line pt-6"
           >
-            <span className="text-[13px] font-bold uppercase tracking-[0.12em] text-muted">Other focus areas</span>
+            <span className="text-[13.5px] font-bold text-muted">Other focus areas</span>
             {otherAreas.map((other) => (
               <Link
                 key={other.id}
