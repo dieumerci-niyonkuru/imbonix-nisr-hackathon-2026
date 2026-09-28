@@ -3,12 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
-import {
-  ArrowTopRightOnSquareIcon,
-  ChevronDownIcon,
-  HomeIcon as HomeSolidIcon,
-  ShieldCheckIcon,
-} from "@heroicons/react/20/solid";
+import { ArrowTopRightOnSquareIcon, ChevronDownIcon, HomeIcon as HomeSolidIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { BrandLogo } from "@/components/layout/logo";
 import { NAV_GROUPS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
@@ -22,10 +17,7 @@ import {
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-/** One coverage figure for the utility bar, counted from the site's data. */
-export type CoverageFigure = { value: number; label: string };
 export type HeaderData = {
-  coverage: CoverageFigure[];
   search: { districts: SearchDistrict[]; measures: SearchMeasure[]; charts: SearchChart[]; levers: SearchLever[] };
 };
 
@@ -55,8 +47,9 @@ const ACTIVE_STYLE = "bg-paper text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
 
 /**
- * The header: a thin bar with project links, then the logo, a home link, one dropdown menu per focus area,
- * the methods page and search, from 1280px wide. The menus are disclosure buttons: they open on click, Enter or the down
+ * The header: a cyan bar holding the site search, then the logo, a home link, one dropdown menu per focus area and
+ * the project pages, from 1280px wide. The search bar scrolls away with the page; once it is out of view, a search
+ * button appears in the sticky header so search is always one click away. The menus are disclosure buttons: they open on click, Enter or the down
  * arrow, and on hover with a mouse; inside, the arrow keys move between links; Escape, a click outside or moving focus
  * away closes them. Each menu is a plain list of page names. Narrower screens get a menu sheet with the same links.
  */
@@ -66,6 +59,8 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [openGroupId, setOpenGroupId] = useState<string | null>(null);
   const [shortcutLabel, setShortcutLabel] = useState("Ctrl K");
+  const [searchBarInView, setSearchBarInView] = useState(true);
+  const searchBarRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number | undefined>(undefined);
   const triggerButtons = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -78,6 +73,15 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   useEffect(() => {
     if (/Mac|iPhone|iPad/.test(navigator.platform)) setShortcutLabel("Cmd K");
     return () => window.clearTimeout(closeTimer.current);
+  }, []);
+
+  // The header's own search button shows only once the search bar above it has scrolled out of view.
+  useEffect(() => {
+    const bar = searchBarRef.current;
+    if (!bar) return;
+    const observer = new IntersectionObserver(([entry]) => setSearchBarInView(entry.isIntersecting));
+    observer.observe(bar);
+    return () => observer.disconnect();
   }, []);
 
   // An open menu closes on a click outside the navigation, or on Escape, which returns focus to its button.
@@ -137,40 +141,25 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 
   return (
     <>
-      <div className="hidden bg-cyan text-ink md:block">
-        <div className="container-page flex h-11 items-center justify-between gap-6 text-[13px]">
-          <div className="flex min-w-0 items-center gap-4 overflow-hidden">
-            <p className="flex shrink-0 items-center gap-2 font-bold tracking-[0.01em]">
-              <ShieldCheckIcon className="h-4 w-4" aria-hidden="true" />
-              Independent evidence platform
-            </p>
-            <span className="hidden h-4 w-px bg-ink/25 xl:block" aria-hidden="true" />
-            <ul aria-label="Coverage" className="hidden items-center gap-4 whitespace-nowrap text-ink xl:flex">
-              {data.coverage.map((figure) => (
-                <li key={figure.label}>
-                  <span className="tabular font-bold">{figure.value.toLocaleString("en-US")}</span> {figure.label}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <nav aria-label="Project links" className="shrink-0">
-            <ul className="flex items-center divide-x divide-ink/25">
-              {UTILITY_LINKS.map((link) => (
-                <li key={link.href} className="px-4 last:pr-0">
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center gap-1.5 rounded font-bold text-ink underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
-                  >
-                    {link.label}
-                    <ArrowTopRightOnSquareIcon className="h-3.5 w-3.5 text-ink/70" aria-hidden="true" />
-                    <span className="sr-only">(opens in a new tab)</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+      {/* The site search, as a field in the right corner of a cyan bar, on every screen. */}
+      <div ref={searchBarRef} className="bg-cyan">
+        <div className="container-page flex justify-end py-2.5 sm:py-3">
+          <button
+            type="button"
+            onClick={openSearch}
+            aria-haspopup="dialog"
+            aria-label={`Search the site (${shortcutLabel})`}
+            className="flex h-11 w-full items-center gap-3 rounded-md bg-white px-4 text-left shadow-card ring-1 ring-ink/10 transition-shadow hover:ring-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink sm:w-[26rem]"
+          >
+            <MagnifyingGlassIcon className="h-5 w-5 shrink-0 stroke-2 text-ink" aria-hidden="true" />
+            <span className="min-w-0 flex-1 truncate text-[15px] text-muted">
+              <span className="sm:hidden">Search places, indicators and charts</span>
+              <span className="hidden sm:inline">Search a place, indicator, chart or page</span>
+            </span>
+            <kbd className="hidden shrink-0 rounded border border-line bg-paper px-2 py-0.5 font-body text-[12px] font-semibold text-muted md:inline">
+              {shortcutLabel}
+            </kbd>
+          </button>
         </div>
       </div>
 
@@ -274,11 +263,11 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               aria-label={`Search the site (${shortcutLabel})`}
               title={`Search the site (${shortcutLabel})`}
               className={cn(
-                "inline-flex h-11 items-center gap-2 rounded border-line px-3 text-[15px] text-muted transition-colors hover:border-cyan-ink hover:text-cyan-ink sm:w-32 sm:justify-between sm:border",
+                "inline-flex h-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-cyan text-ink transition-[width,opacity,visibility,background-color] duration-200 hover:bg-cyan-ink hover:text-white",
+                searchBarInView ? "invisible w-0 opacity-0" : "w-10",
                 FOCUS_RING,
               )}
             >
-              <span className="hidden sm:inline">Search</span>
               <MagnifyingGlassIcon className="h-5 w-5 stroke-2" aria-hidden="true" />
             </button>
 
