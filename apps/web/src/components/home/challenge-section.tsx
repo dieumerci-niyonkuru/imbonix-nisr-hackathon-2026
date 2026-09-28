@@ -40,7 +40,7 @@ function fillsOnNavy(indicatorId: string, ramp: readonly string[]): Record<strin
  */
 export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
   return (
-    <section id="research" className="scroll-mt-24 bg-paper py-16 sm:py-20" aria-labelledby="challenge-heading">
+    <section id="research" className="scroll-mt-24 bg-white py-16 sm:py-24" aria-labelledby="challenge-heading">
       <div className="container-page">
         <SectionHeader
           eyebrow="Research and insights"

@@ -11,8 +11,7 @@ const RANKED_COUNT = 5;
 const HEADLINE_COUNT = 10;
 
 /**
- * The featured insight, where poverty is deepest: the district map of EICV7 poverty rates beside the poorest
- * districts, ranked, with a line on how to read the map. The headline is worked out from the data, so it stays true
+ * Where poverty is deepest: the district map of EICV7 poverty rates beside the poorest districts, ranked, with a line on how to read the map. The headline is worked out from the data, so it stays true
  * if the figures change.
  */
 export function PovertyMapSection() {
@@ -33,7 +32,7 @@ export function PovertyMapSection() {
   const highest = valueOf(ranked[0], poverty.id)!;
 
   return (
-    <section className="bg-paper py-16 sm:py-20" aria-labelledby="poverty-map-heading">
+    <section className="bg-white py-16 sm:py-20" aria-labelledby="poverty-map-heading">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
         <figure className="rounded-3xl border border-line bg-white p-5 sm:p-7">
           <figcaption>
@@ -50,7 +49,7 @@ export function PovertyMapSection() {
         </figure>
 
         <div>
-          <p className="eyebrow text-royal">Featured insight</p>
+          <p className="eyebrow text-royal">Where poverty is deepest</p>
           <h2
             id="poverty-map-heading"
             className="mt-3 text-balance font-display text-3xl font-bold tracking-[-0.03em] text-ink sm:text-4xl"

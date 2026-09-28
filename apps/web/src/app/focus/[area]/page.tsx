@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { buildFocusPanels } from "@/components/focus/focus-panels";
+import { PovertyMapSection } from "@/components/home/poverty-map-section";
 import { TextCard } from "@/components/home/story-cards";
 import { FOCUS_AREAS, NAV_GROUPS, type FocusAreaId } from "@/components/layout/nav";
 import { PageHero, SectionHeader } from "@/components/ui/section";
@@ -53,6 +54,8 @@ export default async function FocusAreaPage({ params }: Params) {
       <section className="bg-paper py-12 sm:py-16" aria-label={`${area.label}: the evidence`}>
         <div className="container-page">{panel}</div>
       </section>
+
+      {area.id === "poverty" && <PovertyMapSection />}
 
       <section className="bg-white py-16 sm:py-20" aria-labelledby="deeper-heading">
         <div className="container-page">
