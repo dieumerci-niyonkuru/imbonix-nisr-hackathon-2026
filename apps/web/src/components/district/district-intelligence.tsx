@@ -15,13 +15,13 @@ const STEP_NOTES: Record<string, string> = {
 };
 
 const NEED_STYLE: Record<Need, string> = {
-  high: "bg-navy-900 text-white",
+  high: "bg-cyan text-ink",
   moderate: "bg-cyan-soft text-cyan-ink ring-1 ring-inset ring-cyan/40",
   low: "bg-mist text-ink",
 };
 
 const PRIORITY_STYLE: Record<Priority["level"], string> = {
-  High: "bg-navy-900 text-white",
+  High: "bg-cyan text-ink",
   Moderate: "bg-cyan-soft text-cyan-ink ring-1 ring-inset ring-cyan/50",
   Lower: "bg-mist text-ink",
 };
@@ -157,11 +157,11 @@ export function DistrictIntelligence({ district }: { district: District }) {
         </p>
 
         <div className="mt-10 grid items-start gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-          <div className="rounded-2xl bg-navy-900 p-6 text-white sm:p-7">
-            <p className="eyebrow text-cyan">Why this priority</p>
+          <div className="rounded-2xl bg-cyan p-6 text-ink sm:p-7">
+            <p className="eyebrow">Why this priority</p>
             <p className="mt-3 font-display text-3xl font-bold">{priority.level} priority</p>
-            <p className="mt-3 text-pretty text-[15px] leading-7 text-white/85">{priority.reason}</p>
-            <p className="mt-5 border-t border-white/15 pt-4 text-[13px] leading-6 text-white/70">
+            <p className="mt-3 text-pretty text-[15px] leading-7">{priority.reason}</p>
+            <p className="mt-5 border-t border-ink/20 pt-4 text-[13px] leading-6">
               The rule: high when a district is among the 10 most affected on at least 2 of the 4 core dimensions (poverty,
               financial access, child stunting, natural hazards), moderate on 1, lower on none.
             </p>

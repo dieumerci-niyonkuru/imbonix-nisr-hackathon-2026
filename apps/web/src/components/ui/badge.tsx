@@ -10,7 +10,7 @@ export const badgeVariants = cva(
         default: "bg-primary text-primary-foreground",
         secondary: "bg-secondary text-secondary-foreground",
         outline: "border border-line text-ink",
-        dark: "bg-navy-900 text-white",
+        dark: "bg-cyan text-ink",
         severe: "bg-cyan-ink text-white",
         warn: "bg-cyan-soft text-cyan-ink ring-1 ring-inset ring-cyan/50",
         calm: "bg-cyan-soft text-cyan-ink",

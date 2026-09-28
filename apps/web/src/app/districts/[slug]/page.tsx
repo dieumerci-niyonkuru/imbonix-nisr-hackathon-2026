@@ -15,7 +15,7 @@ import { DIMENSIONS, meta, type Dimension } from "@/lib/indicators";
 import { priorityFor } from "@/lib/district-intelligence";
 import { sectorsOf } from "@/lib/sectors";
 import { Button } from "@/components/ui/button";
-import { BRAND, CORE, NO_DATA, RAMPS } from "@/lib/palette";
+import { DEEP_CYAN, NO_DATA, RAMPS, STRAND } from "@/lib/palette";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { HowToRead } from "@/components/ui/chart-card";
 
@@ -106,7 +106,7 @@ export default async function DistrictPage({ params }: Params) {
   const locator = Object.fromEntries(
     DISTRICTS.map((d) => [
       d.slug,
-      d.slug === district.slug ? BRAND.navy : d.province === district.province ? RAMPS.navy[0] : NO_DATA,
+      d.slug === district.slug ? DEEP_CYAN : d.province === district.province ? RAMPS.cyan[0] : NO_DATA,
     ]),
   );
   const v = (id: string) => district.values[id]?.v;
@@ -251,18 +251,17 @@ function NonMonetaryBar({ district }: { district: District }) {
 
 function AccessStrand({ district }: { district: District }) {
   const v = (id: string) => district.values[id]?.v;
-  const ramp = DIMENSIONS.finance.ramp;
   const informal = v("finscope_informal_only");
   const excluded = v("finscope_excluded");
   const segments = [
-    { label: "Banked", value: v("finscope_banked") ?? 0, color: ramp[4] },
-    { label: "Formal nonbank only", value: v("finscope_other_formal_only") ?? 0, color: ramp[2] },
+    { label: "Banked", value: v("finscope_banked") ?? 0, color: STRAND.banked },
+    { label: "Formal nonbank only", value: v("finscope_other_formal_only") ?? 0, color: STRAND.otherFormal },
     ...(informal !== undefined && excluded !== undefined
       ? [
-          { label: "Informal only", value: informal, color: CORE.cyan },
-          { label: "Excluded", value: excluded, color: RAMPS.steel[1] },
+          { label: "Informal only", value: informal, color: STRAND.informalOnly },
+          { label: "Excluded", value: excluded, color: STRAND.excluded },
         ]
-      : [{ label: "Informal only or excluded", value: v("finscope_not_formally_included") ?? 0, color: RAMPS.steel[1] }]),
+      : [{ label: "Informal only or excluded", value: v("finscope_not_formally_included") ?? 0, color: STRAND.excluded }]),
   ];
   return (
     <div className="mt-5 rounded-xl bg-paper p-4">

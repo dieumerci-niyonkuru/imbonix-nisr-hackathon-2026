@@ -104,7 +104,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                   onClick={() => setLayerId(DIMENSIONS[dim].headline ?? first.id)}
                   aria-pressed={active}
                   className={`-mb-px shrink-0 border-b-[3px] px-2 pb-3 pt-3.5 text-[13.5px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink ${
-                    active ? "border-cyan text-navy-900" : "border-transparent text-muted hover:border-line hover:text-ink"
+                    active ? "border-cyan text-ink" : "border-transparent text-muted hover:border-line hover:text-ink"
                   }`}
                 >
                   {DIMENSIONS[dim].label}
@@ -123,7 +123,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                   aria-pressed={active}
                   className={`rounded-md border px-3 py-1.5 text-[13px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink ${
                     active
-                      ? "border-navy-900 bg-navy-900 text-white"
+                      ? "border-cyan bg-cyan text-ink"
                       : "border-line bg-white text-ink/80 hover:border-cyan-ink hover:text-ink"
                   }`}
                 >
@@ -226,19 +226,21 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
             )}
             {sectorHover && view === "interactive" && (
               <div
-                className="pointer-events-none absolute z-10 w-56 -translate-x-1/2 -translate-y-[calc(100%+14px)] rounded-xl bg-navy-900 px-3.5 py-3 text-white shadow-lift"
+                className="pointer-events-none absolute z-10 w-56 -translate-x-1/2 -translate-y-[calc(100%+14px)] rounded-xl bg-white px-3.5 py-3 text-ink shadow-lift ring-1 ring-line"
                 style={{
                   left: Math.min(Math.max(sectorHover.x, 110), (frame.current?.clientWidth ?? 600) - 110),
                   top: sectorHover.y,
                 }}
               >
-                <p className="text-[12.5px] font-semibold text-white/60">{sectorHover.district} district</p>
+                <p className="text-[12.5px] font-semibold text-muted">{sectorHover.district} district</p>
                 <p className="font-display text-base font-bold">{sectorHover.sector} sector</p>
                 <p className="mt-1 text-[13px]">
                   Poverty (small area estimate):{" "}
-                  <strong className="text-cyan">{sectorHover.povertySae === null ? "n/a" : `${sectorHover.povertySae}%`}</strong>
+                  <strong className="text-cyan-ink">
+                    {sectorHover.povertySae === null ? "n/a" : `${sectorHover.povertySae}%`}
+                  </strong>
                 </p>
-                <p className="text-[12px] text-white/70">
+                <p className="text-[12px] text-muted">
                   Multidimensionally poor (census 2022):{" "}
                   {sectorHover.mpiHeadcount === null ? "n/a" : `${sectorHover.mpiHeadcount}%`}
                 </p>
@@ -246,14 +248,16 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
             )}
             {hover && hovered && (
               <div
-                className="pointer-events-none absolute z-10 w-56 -translate-x-1/2 -translate-y-[calc(100%+14px)] rounded-xl bg-navy-900 px-3.5 py-3 text-white shadow-lift"
+                className="pointer-events-none absolute z-10 w-56 -translate-x-1/2 -translate-y-[calc(100%+14px)] rounded-xl bg-white px-3.5 py-3 text-ink shadow-lift ring-1 ring-line"
                 style={{ left: Math.min(Math.max(hover.x, 110), (frame.current?.clientWidth ?? 600) - 110), top: hover.y }}
               >
-                <p className="text-[12.5px] font-semibold text-white/60">{PROVINCE_LABEL[hovered.province]}</p>
+                <p className="text-[12.5px] font-semibold text-muted">{PROVINCE_LABEL[hovered.province]}</p>
                 <p className="font-display text-base font-bold">{hovered.name}</p>
-                <p className="tabular mt-1 text-xl font-bold text-cyan">{formatValue(indicator, hovered.values[layerId]?.v)}</p>
+                <p className="tabular mt-1 text-xl font-bold text-cyan-ink">
+                  {formatValue(indicator, hovered.values[layerId]?.v)}
+                </p>
                 {hovered.values[layerId]?.lo !== undefined && (
-                  <p className="tabular text-[11px] text-white/60">
+                  <p className="tabular text-[11px] text-muted">
                     95% CI {formatValue(indicator, hovered.values[layerId]!.lo)} to{" "}
                     {formatValue(indicator, hovered.values[layerId]!.hi)}
                   </p>

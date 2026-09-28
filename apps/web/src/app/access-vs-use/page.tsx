@@ -99,11 +99,11 @@ export default function AccessVsUsePage() {
           eyebrow="Explore the gap"
           accent="text-dim-nutrition"
           title="Who uses financial services, and who does not"
-          intro={`Pick a measure. Each line joins women (cyan) and men (navy) in the same group. Use is lowest among the poorest, the least educated and the youngest: only ${noEducation.either.toFixed(1)}% of women with no schooling and ${ruralWomen.either.toFixed(1)}% of rural women used an account or mobile money. The gap between women and men is widest after age 40, at about 15 points.`}
+          intro={`Pick a measure. Each line joins women (cyan) and men (dark cyan) in the same group. Use is lowest among the poorest, the least educated and the youngest: only ${noEducation.either.toFixed(1)}% of women with no schooling and ${ruralWomen.either.toFixed(1)}% of rural women used an account or mobile money. The gap between women and men is widest after age 40, at about 15 points.`}
         />
         <HowToRead className="mt-4 max-w-3xl">
-          Each row is one group of people. The cyan dot is women and the navy dot is men; the further right, the higher the share,
-          and the longer the line between the dots, the wider the gap between them.
+          Each row is one group of people. The cyan dot is women and the dark cyan dot is men; the further right, the higher the
+          share, and the longer the line between the dots, the wider the gap between them.
         </HowToRead>
         <div className="mt-8">
           <UsageExplorer />

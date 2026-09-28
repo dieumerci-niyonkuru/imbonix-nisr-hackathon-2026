@@ -4,7 +4,7 @@ import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { formatNumber } from "@/lib/format";
 import { channel, DELAY_LABELS, DELAY_RAMP, timeliness, VUP, VUP_COMPONENTS } from "@/lib/surveys";
-import { BRAND, CORE, RAMPS } from "@/lib/palette";
+import { CORE, DEEP_CYAN, RAMPS } from "@/lib/palette";
 import { HowToRead } from "@/components/ui/chart-card";
 
 export const metadata: Metadata = {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 };
 
 /** Non-poor → extremely poor: one hue, darker = poorer (validated ordinal ramp). */
-const POVERTY_RAMP = { nonPoor: RAMPS.navy[0], moderatelyPoor: RAMPS.navy[2], extremelyPoor: RAMPS.navy[4] };
-const CHANNEL = { sacco: BRAND.navy, momo: CORE.cyan };
+const POVERTY_RAMP = { nonPoor: RAMPS.cyan[0], moderatelyPoor: RAMPS.cyan[2], extremelyPoor: RAMPS.cyan[4] };
+const CHANNEL = { sacco: DEEP_CYAN, momo: CORE.cyan };
 
 const AMOUNTS = [
   {

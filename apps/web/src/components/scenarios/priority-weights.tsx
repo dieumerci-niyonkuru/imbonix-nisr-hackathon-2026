@@ -12,8 +12,8 @@ import { EQUAL_WEIGHTS, weightedPriority, type Weights } from "@/lib/scenarios";
 import { cn } from "@/lib/utils";
 import { NO_DATA, RAMPS } from "@/lib/palette";
 
-/** Navy single-hue ramp for the what-if priority score (validated ordinal ramp; darker = higher priority). */
-const RAMP = RAMPS.navy;
+/** Cyan single-hue ramp for the what-if priority score (validated ordinal ramp; darker = higher priority). */
+const RAMP = RAMPS.cyan;
 
 const PRESETS: { label: string; weights: Partial<Weights> }[] = [
   { label: "Equal weights", weights: { poverty: 1, finance: 1, nutrition: 1, shocks: 1 } },

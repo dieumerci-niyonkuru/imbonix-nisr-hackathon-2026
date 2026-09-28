@@ -8,11 +8,10 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-navy-800",
-        cyan: "bg-cyan text-navy-900 hover:bg-cyan-hover focus-visible:ring-offset-navy-950",
+        default: "bg-primary text-primary-foreground hover:bg-cyan-ink hover:text-white",
+        cyan: "bg-cyan text-ink hover:bg-cyan-hover",
         outline: "border border-line bg-white text-ink hover:border-cyan-ink hover:text-cyan-ink",
         ghost: "text-ink hover:bg-paper",
-        onDark: "border border-white/25 text-white hover:border-white hover:bg-white/5 focus-visible:ring-offset-navy-950",
         link: "rounded-none px-0 text-cyan-ink underline-offset-4 hover:underline",
       },
       size: {

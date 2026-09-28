@@ -3,10 +3,10 @@
 import { Bar, BarChart, CartesianGrid, LabelList, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { AXIS, ChartTooltip, GRID, LegendRow } from "@/components/charts/recharts/chart-theme";
 import { FINANCIAL_HEALTH } from "@/lib/national";
-import { BRAND, INK, MUTED, RAMPS } from "@/lib/palette";
+import { DEEP_CYAN, INK, MUTED, RAMPS } from "@/lib/palette";
 
-const NOW = BRAND.navy;
-const TARGET = RAMPS.navy[0];
+const NOW = DEEP_CYAN;
+const TARGET = RAMPS.cyan[0];
 
 /** FinScope 2024 financial health segments against the Roadmap's 2030 targets. */
 export function FinancialHealthChart() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { BRAND, INK, MUTED, PAPER, CYAN_INK, WHITE } from "@/lib/palette";
+import { BRAND, CYAN_INK, INK, MUTED, PAPER } from "@/lib/palette";
 
 /**
  * Last-resort error page, used only when the root layout itself fails. It replaces the whole document, so it
@@ -25,8 +25,8 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
               padding: "10px 20px",
               borderRadius: 999,
               border: 0,
-              background: BRAND.navy,
-              color: WHITE,
+              background: BRAND.cyan,
+              color: INK,
               fontSize: 15,
               fontWeight: 600,
               cursor: "pointer",
