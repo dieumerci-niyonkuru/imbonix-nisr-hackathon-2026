@@ -61,6 +61,11 @@ export const NAV_GROUPS: NavGroup[] = [
       },
       { href: "/priorities", label: "Where to act first", description: "Seven policy levers, flagged district by district" },
       { href: "/scenarios", label: "Test a policy target", description: "See what a target would mean for each district" },
+      {
+        href: "/interventions",
+        label: "Plan an intervention",
+        description: "Pick a problem, a group and a place: see the evidence and the options",
+      },
     ],
   },
 ];
