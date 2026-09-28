@@ -16,7 +16,6 @@ import { sectorsOf } from "@/lib/sectors";
 import { Button } from "@/components/ui/button";
 import { BRAND, CORE, NO_DATA, RAMPS } from "@/lib/palette";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { HeroRings } from "@/components/ui/section";
 import { HowToRead } from "@/components/ui/chart-card";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -88,6 +87,11 @@ const SECTIONS: { dimension: Dimension; title: string; ids: string[] }[] = [
     ],
   },
   { dimension: "health", title: "Health cover", ids: ["eicv7_health_insurance", "census_medical_insurance"] },
+  {
+    dimension: "people",
+    title: "Groups Direct Support serves",
+    ids: ["census_older_people_share", "census_disability_prevalence", "census_older_people_mobile_phone"],
+  },
 ];
 
 export default async function DistrictPage({ params }: Params) {
@@ -114,7 +118,6 @@ export default async function DistrictPage({ params }: Params) {
   return (
     <>
       <section className="relative overflow-hidden border-b border-line bg-white">
-        <HeroRings />
         <div className="container-page relative grid gap-10 py-10 sm:py-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
           <div>
             <Breadcrumbs extra={[{ label: PROVINCE_LABEL[district.province] }, { label: district.name }]} />
@@ -131,7 +134,7 @@ export default async function DistrictPage({ params }: Params) {
             <dl className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {facts.map((f) => (
                 <div key={f.label} className="rounded-xl bg-paper px-4 py-3">
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted">{f.label}</dt>
+                  <dt className="text-[12.5px] font-semibold text-muted">{f.label}</dt>
                   <dd className="mt-1 font-display text-lg font-bold text-ink">{f.value}</dd>
                 </div>
               ))}

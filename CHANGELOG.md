@@ -5,6 +5,35 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### More NISR evidence on the groups social protection serves
+
+- Three district indicators from the 2022 census thematic reports, extracted by the same reproducible script:
+  persons with disabilities among residents aged 5 and over (Table C.1), people aged 60 and over (Table 2) and older
+  people who own a mobile phone (Table 19). The site now has 67 indicators and 28 map measures.
+- District pages show the two groups Direct Support serves in the social protection step and in a new section of
+  the detailed evidence. The Intervention Explorer gains older people and persons with disabilities as target
+  groups, sized for the chosen place, with options for each.
+- The downloaded EICV7 tables, the Statistical Yearbook and the VUP thematic report were searched for VUP coverage
+  by district: NISR does not publish it, so health insurance stays the district measure of social protection.
+
+### Read more dialogs and a calmer, more professional look
+
+- "Read more" opens the full explanation in a dialog, so cards stay short: the three tests on the homepage (with
+  figures, sources and the policy levers), each step and each recommended action on a district page, the five
+  methodology steps on About, and each evidence theme on Data & methods (listing its indicators with source and
+  year). Dialogs close with Close, Escape or a click outside, and scroll on small screens.
+- A calmer look: labels above headings in sentence case instead of spaced capitals, squarer cards with lighter
+  shadows, status labels as plain tags, no decorative rings behind page titles and no fade in on scroll. The header
+  marks hover and the current section in solid navy with a thin cyan underline, IMBONIX's accent; high priority
+  badges are navy.
+- The map's dimensions are a tab bar with a cyan underline, and every set of choice buttons uses one bordered style
+  that turns navy when chosen. The opening strip on the homepage shows four figures the featured chart does not
+  repeat, and district pages list recommended actions with their evidence, keeping programmes in Read more.
+- Header dropdowns are a simple list of page names, as on the NISR site: At a glance first, set apart by a line, then
+  the pages in capitals. Inside an open menu the arrow keys move between links, and Home and End jump to the ends.
+- In the menus, the page you are on is solid navy with a cyan bar, like the chosen top menu; other pages tint light
+  on hover or keyboard focus, with a cyan bar and blue text. The phone menu lists the same page names.
+
 ### District intelligence and a decision focus
 
 - Every district page opens with district intelligence, read left to right: financial and digital access, poverty,
@@ -16,6 +45,12 @@ and versions follow [Semantic Versioning](https://semver.org/).
   labelled, white field with a clear arrow and strong hover and focus states.
 - Pages sit on white; light grey only marks alternate sections. The header menus open with the focus area and its
   question, and list each page with one line on what it holds; the page you are on says "You are here".
+- A new Intervention Explorer (Plan an intervention) lets a policymaker choose a problem (financial exclusion,
+  poverty, limited digital access, work, social protection gap), a group (everyone, women, youth, rural households,
+  the poorest) and a place (Rwanda, a province or a district). It answers in five parts: the evidence, the people
+  affected (counted only where a published population fits, with the calculation shown), where the problem is
+  concentrated (districts, or a district's poorest sectors), options to consider from existing programmes and the
+  Roadmap, and what the evidence cannot tell us. District pages link to it, set on their district.
 
 ### Plain language and a lighter homepage
 

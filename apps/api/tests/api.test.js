@@ -18,7 +18,7 @@ describe("GET /health", () => {
     const response = await request(app).get("/health").expect(200);
     assert.equal(response.body.status, "ok");
     assert.equal(response.body.service, "imbonix-api");
-    assert.deepEqual(response.body.data, { districts: 30, indicators: 64, sectors: 416 });
+    assert.deepEqual(response.body.data, { districts: 30, indicators: 67, sectors: 416 });
     assert.equal(response.headers["cache-control"], "no-store");
   });
 });
@@ -34,7 +34,7 @@ describe("GET /api/v1", () => {
 describe("GET /api/v1/indicators", () => {
   it("lists every indicator with its provenance", async () => {
     const response = await request(app).get("/api/v1/indicators").expect(200);
-    assert.equal(response.body.meta.count, 64);
+    assert.equal(response.body.meta.count, 67);
     const poverty = response.body.data.find((indicator) => indicator.id === "eicv7_poverty_rate");
     assert.ok(poverty.source && poverty.year && poverty.unit && poverty.status);
   });

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import {
   ArrowTopRightOnSquareIcon,
   ChevronDownIcon,
@@ -11,7 +11,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { BrandLogo } from "@/components/layout/logo";
-import { FOCUS_AREAS, NAV_GROUPS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
+import { NAV_GROUPS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
 import {
   SiteSearch,
   type SearchChart,
@@ -29,21 +29,16 @@ export type HeaderData = {
   search: { districts: SearchDistrict[]; measures: SearchMeasure[]; charts: SearchChart[]; levers: SearchLever[] };
 };
 
-type MenuItem = { href: string; label: string; description: string };
-type MenuGroup = { id: string; label: string; intro: string; items: MenuItem[] };
+type MenuItem = { href: string; label: string };
+type MenuGroup = { id: string; label: string; items: MenuItem[] };
 
-/** One menu per focus area: its page at a glance, then the pages that go deeper, each with one line on what it holds. */
+/** One menu per focus area: its page at a glance, then the pages that go deeper. */
 const MENU_GROUPS: MenuGroup[] = NAV_GROUPS.map((group) => ({
   id: group.focusId,
   label: group.label,
-  intro: group.intro,
   items: [
-    {
-      href: `/focus/${group.focusId}`,
-      label: "At a glance",
-      description: FOCUS_AREAS.find((area) => area.id === group.focusId)?.hint ?? "",
-    },
-    ...group.items.map((item) => ({ href: item.href, label: item.label, description: item.description })),
+    { href: `/focus/${group.focusId}`, label: "At a glance" },
+    ...group.items.map((item) => ({ href: item.href, label: item.label })),
   ],
 }));
 
@@ -52,8 +47,8 @@ const HOVER_CLOSE_DELAY = 160;
 
 // Top level items, as on the NISR site: bold navy text that turns into a solid block on hover and when open or current.
 const TOP_LINK_STYLE =
-  "inline-flex h-12 items-center gap-1 whitespace-nowrap rounded-md px-2.5 text-[14.5px] font-bold text-navy-900 transition-colors hover:bg-cyan hover:text-navy-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 xl:px-3.5 xl:text-[15.5px]";
-const TOP_ACTIVE_STYLE = "bg-cyan text-navy-900";
+  "inline-flex h-12 items-center gap-1 whitespace-nowrap rounded-md px-2.5 text-[14.5px] font-bold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white hover:shadow-[inset_0_-3px_0_var(--cyan)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 xl:px-3.5 xl:text-[15.5px]";
+const TOP_ACTIVE_STYLE = "bg-navy-900 text-white shadow-[inset_0_-3px_0_var(--cyan)]";
 // Links inside a menu panel or the phone menu keep a light highlight, so the text stays readable.
 const ACTIVE_STYLE = "bg-paper text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal";
@@ -61,8 +56,8 @@ const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visibl
 /**
  * The header: a thin bar with project links, then the logo, a home link, one dropdown menu per focus area,
  * the methods page and search, from 1280px wide. The menus are disclosure buttons: they open on click, Enter or the down
- * arrow, and on hover with a mouse; Escape, a click outside or moving focus away closes them. Narrower screens get a menu
- * sheet with the same links.
+ * arrow, and on hover with a mouse; inside, the arrow keys move between links; Escape, a click outside or moving focus
+ * away closes them. Each menu is a plain list of page names. Narrower screens get a menu sheet with the same links.
  */
 export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const pathname = usePathname() ?? "/";
@@ -118,6 +113,21 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const isCurrentPage = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
   const groupHasCurrentPage = (group: MenuGroup) => group.items.some((item) => isCurrentPage(item.href));
+  /** Inside an open menu, the arrow keys move between its links, Home and End jump to the ends. */
+  const moveInMenu = (event: ReactKeyboardEvent<HTMLDivElement>, groupId: string) => {
+    const links = [...event.currentTarget.querySelectorAll<HTMLAnchorElement>("a[href]")];
+    const index = links.indexOf(document.activeElement as HTMLAnchorElement);
+    const focusAt = (target: number) => links[(target + links.length) % links.length]?.focus();
+    if (event.key === "ArrowDown") focusAt(index + 1);
+    else if (event.key === "ArrowUp") {
+      if (index <= 0) triggerButtons.current[groupId]?.focus();
+      else focusAt(index - 1);
+    } else if (event.key === "Home") focusAt(0);
+    else if (event.key === "End") focusAt(links.length - 1);
+    else return;
+    event.preventDefault();
+  };
+
   const openSearch = () => {
     setSheetOpen(false);
     setOpenGroupId(null);
@@ -225,21 +235,21 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                     <div
                       id={panelId}
                       hidden={!expanded}
-                      className={cn("absolute top-full w-[23rem] pt-2", groupIndex >= 2 ? "right-0" : "left-0")}
+                      onKeyDown={(event) => moveInMenu(event, group.id)}
+                      className={cn("absolute top-full w-72 pt-2", groupIndex >= 2 ? "right-0" : "left-0")}
                     >
-                      <div className="overflow-hidden rounded-2xl bg-white shadow-lift ring-1 ring-line">
-                        <div className="border-b border-line bg-paper px-5 pb-3.5 pt-4">
-                          <p className="eyebrow text-royal">{group.label}</p>
-                          <p className="mt-1.5 text-[13px] leading-5 text-ink/80">{group.intro}</p>
-                        </div>
-                        <ul className="py-2">
-                          {group.items.map((item) => (
-                            <li key={item.href}>
-                              <MenuLink item={item} current={isCurrentPage(item.href)} onNavigate={() => setOpenGroupId(null)} />
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      <ul className="overflow-hidden rounded-xl bg-white py-2 shadow-lift ring-1 ring-line">
+                        {group.items.map((item, itemIndex) => (
+                          <li key={item.href} className={cn(itemIndex === 0 && "mb-1 border-b border-line pb-1")}>
+                            <MenuLink
+                              item={item}
+                              current={isCurrentPage(item.href)}
+                              onNavigate={() => setOpenGroupId(null)}
+                              label={itemIndex === 0 ? `${group.label}: At a glance` : undefined}
+                            />
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </li>
                 );
@@ -389,36 +399,38 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 }
 
 /**
- * One link in a menu, as plain text: the page name in bold with one line on what it holds. The page you are on, and the
- * link under the pointer, are marked with a cyan bar and a light background.
+ * One page in a menu, by name only: capitals in the desktop list, sentence case in the phone menu. The page you are on
+ * is solid navy with a cyan bar, like the chosen top menu; the others tint on hover and keyboard focus.
  */
 function MenuLink({
   item,
   current,
   onNavigate,
+  label,
   compact = false,
 }: {
   item: MenuItem;
   current: boolean;
   onNavigate: () => void;
+  /** A fuller name for screen readers, such as the focus area for At a glance. */
+  label?: string;
   compact?: boolean;
 }) {
-  const className = cn(
-    "group/item block border-l-[3px] transition-colors hover:border-cyan hover:bg-cyan-soft",
-    compact ? "rounded-r-lg px-3 py-2.5" : "px-5 py-3",
-    current ? "border-cyan bg-cyan-soft" : "border-transparent",
-    FOCUS_RING,
-  );
-
   return (
-    <Link href={item.href} onClick={onNavigate} aria-current={current ? "page" : undefined} className={className}>
-      <span className="flex items-center justify-between gap-3">
-        <span className="text-[15px] font-bold text-navy-900">{item.label}</span>
-        {current && <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-royal">You are here</span>}
-      </span>
-      <span className={cn("mt-0.5 block leading-5 text-muted", compact ? "text-[12.5px]" : "text-[13px]")}>
-        {item.description}
-      </span>
+    <Link
+      href={item.href}
+      onClick={onNavigate}
+      aria-current={current ? "page" : undefined}
+      aria-label={label}
+      className={cn(
+        "block border-l-[3px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset",
+        compact ? "rounded-r-lg px-3 py-2.5 text-[15px]" : "px-5 py-3 text-[13px] uppercase tracking-[0.06em]",
+        current
+          ? "border-cyan bg-navy-900 text-white focus-visible:ring-cyan"
+          : "border-transparent text-navy-900 hover:border-cyan hover:bg-mist hover:text-royal focus-visible:border-cyan focus-visible:bg-mist focus-visible:text-royal focus-visible:ring-royal",
+      )}
+    >
+      {item.label}
     </Link>
   );
 }

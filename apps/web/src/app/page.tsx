@@ -7,9 +7,21 @@ import { DistrictFinder, type FinderProvince } from "@/components/home/district-
 import { FeaturedInsight } from "@/components/home/featured-insight";
 import { GapChart, type GapRow } from "@/components/home/gap-chart";
 import { HomeHero, type HeroFigure } from "@/components/home/home-hero";
+import { NISR_CATALOG_URL, SOURCE_STUDIES } from "@/components/layout/nav";
+import { ReadMoreSection } from "@/components/ui/read-more";
+import { STATUS_DESCRIPTION } from "@/components/ui/status-badge";
 import { DISTRICTS, PROVINCE_LABEL, PROVINCES } from "@/lib/data";
 import { POVERTY_RATE_BY_YEAR } from "@/lib/eicv7-poverty-profile";
-import { FINANCIAL_HEALTH_SEGMENTS, FINSCOPE_2024_SOURCE, INCLUSION_BY_ROUND, MOBILE_MONEY_BY_ROUND } from "@/lib/finscope-2024";
+import {
+  EXCLUDED_ADULTS,
+  FINANCIAL_HEALTH_SEGMENTS,
+  FINSCOPE_2024_SOURCE,
+  INCLUSION_BY_ROUND,
+  MOBILE_MONEY_BY_ROUND,
+} from "@/lib/finscope-2024";
+import { STATUS_LABEL } from "@/lib/format";
+import { LEVERS } from "@/lib/priorities";
+import { usageRows } from "@/lib/surveys";
 import { BRAND, CORE } from "@/lib/palette";
 import { SITE_FACTS } from "@/lib/site-facts";
 
@@ -29,10 +41,18 @@ export default function Home() {
   const directSupportOnTime = paymentTimeliness.find((row) => row.programme === "Direct Support")!.onTime;
   const bestOnTimeShare = Math.max(...paymentTimeliness.map((row) => row.onTime));
   const gap = includedShare - healthyShare;
+  const otherFormal = inclusionOf("Other formal (non bank)");
+  const segmentShare = (name: string) => FINANCIAL_HEALTH_SEGMENTS.find((segment) => segment.segment === name)!.share;
+  const womenByWealth = usageRows("Wealth quintile", "women");
+  const poorestWomen = womenByWealth.find((row) => row.category === "Lowest")!;
+  const richestWomen = womenByWealth.find((row) => row.category === "Highest")!;
 
   const heroFigures: HeroFigure[] = [
-    { value: `${includedShare}%`, label: "of adults use a financial service" },
-    { value: `${healthyShare}%`, label: "are financially healthy" },
+    { value: EXCLUDED_ADULTS.toLocaleString("en-US"), label: "adults use no financial service at all" },
+    {
+      value: `${bankedRow.in2024}%`,
+      label: bankedRow.in2024 === bankedRow.in2020 ? "of adults are banked, the same as in 2020" : "of adults are banked",
+    },
     { value: `${povertyIn2024.povertyRate}%`, label: "of people live in poverty" },
     { value: `${directSupportOnTime}%`, label: "of Direct Support households were paid on time" },
   ];
@@ -43,6 +63,39 @@ export default function Home() {
       name: "A real gap",
       figure: `${includedShare}% against ${healthyShare}%`,
       body: `${includedShare}% of adults use a financial service, yet only ${healthyShare}% are financially healthy, and ${bankedRow.in2024}% are banked, the same share as in 2020.`,
+      details: (
+        <>
+          <ReadMoreSection title="Access is almost universal">
+            <p>
+              {includedShare}% of adults aged 16 and over used at least one financial service in 2024, formal or informal: a bank,
+              a SACCO, mobile money, insurance, or a savings group.
+            </p>
+          </ReadMoreSection>
+          <ReadMoreSection title="Financial health is not">
+            <p>
+              FinScope 2024 also groups adults by financial health, from healthy to extremely vulnerable. Only {healthyShare}% are
+              financially healthy; {segmentShare("Coping")}% are coping, {segmentShare("Vulnerable")}% are vulnerable and{" "}
+              {segmentShare("Extremely vulnerable")}% are extremely vulnerable.
+            </p>
+          </ReadMoreSection>
+          <ReadMoreSection title="Banking has not moved">
+            <p>
+              {bankedRow.in2024}% of adults are banked in 2024, against {bankedRow.in2020}% in 2020. Adults using other formal
+              services, such as mobile money and SACCOs, rose from {otherFormal.in2020}% to {otherFormal.in2024}%.
+            </p>
+          </ReadMoreSection>
+          <ReadMoreSection title="Who is furthest behind">
+            <p>
+              {poorestWomen.either}% of women in the poorest fifth of households used a bank account or mobile money in the past
+              year, against {richestWomen.either}% in the richest fifth.
+            </p>
+          </ReadMoreSection>
+          <p className="mt-5 text-[13px] text-muted">
+            Sources: {FINSCOPE_2024_SOURCE}, including section 5.2 on financial health; NISR, Rwanda DHS 2025, Tables 15.5.1 and
+            15.5.2.
+          </p>
+        </>
+      ),
       href: "/focus/exclusion",
       linkLabel: "See the gap",
     },
@@ -50,6 +103,48 @@ export default function Home() {
       name: "Evidence from NISR data",
       figure: `${SITE_FACTS.indicators} indicators`,
       body: `From ${SITE_FACTS.publications} NISR and partner publications, for all ${SITE_FACTS.districts} districts and ${SITE_FACTS.sectors} sectors. Every figure names its table and how far to trust it.`,
+      details: (
+        <>
+          <ReadMoreSection title="The NISR studies behind the figures">
+            <ul className="flex flex-wrap gap-2">
+              {SOURCE_STUDIES.map((study) => (
+                <li key={study.studyId}>
+                  <a
+                    href={`${NISR_CATALOG_URL}/${study.studyId}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex rounded border border-line bg-paper px-2.5 py-1 text-[13.5px] font-semibold text-ink hover:border-royal hover:text-royal"
+                  >
+                    {study.label}
+                    <span className="sr-only"> (NISR microdata catalog, opens in a new tab)</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p>
+              With the EICV7 VUP thematic report, the Statistical Yearbook 2025 and NISR&apos;s population projections:{" "}
+              {SITE_FACTS.indicators} indicators from {SITE_FACTS.publications} publications in all.
+            </p>
+          </ReadMoreSection>
+          <ReadMoreSection title="How far to trust each figure">
+            <p>Every value carries one of these labels:</p>
+            <dl className="grid gap-2">
+              {Object.entries(STATUS_LABEL).map(([status, label]) => (
+                <div key={status}>
+                  <dt className="inline font-semibold text-ink">{label}: </dt>
+                  <dd className="inline">{STATUS_DESCRIPTION[status]}</dd>
+                </div>
+              ))}
+            </dl>
+          </ReadMoreSection>
+          <ReadMoreSection title="Open and repeatable">
+            <p>
+              Scripts in the project repository download the public files, extract the tables and rebuild the data, and automated
+              checks rerun them. Microdata is never committed or published.
+            </p>
+          </ReadMoreSection>
+        </>
+      ),
       href: "/data",
       linkLabel: "See the sources",
     },
@@ -57,8 +152,38 @@ export default function Home() {
       name: "Practical impact",
       figure: `${SITE_FACTS.levers} policy levers`,
       body: "Each lever is flagged district by district by one published figure and a rule anyone can check, so support can go where the need is greatest.",
-      href: "/priorities",
-      linkLabel: "See where to act first",
+      details: (
+        <>
+          <ReadMoreSection title="The policy levers">
+            <p>
+              Each lever flags the districts where one published figure is among the 10 highest (or lowest) of the 30. The rule is
+              stated, so anyone can check it or change it.
+            </p>
+            <ul className="divide-y divide-line rounded-lg border border-line">
+              {LEVERS.map((lever) => (
+                <li key={lever.id} className="px-4 py-3">
+                  <p className="font-semibold text-ink">{lever.title}</p>
+                  <p className="text-[14px] leading-6 text-muted">{lever.rule}</p>
+                </li>
+              ))}
+            </ul>
+          </ReadMoreSection>
+          <ReadMoreSection title="How to use them">
+            <p>
+              Each district page shows the levers flagged for it, with the figure and the programmes that already exist. The
+              Intervention Explorer brings the evidence together for a problem, a group and a place.
+            </p>
+          </ReadMoreSection>
+          <ReadMoreSection title="What they are not">
+            <p>
+              The flags point to where the evidence suggests a lever deserves attention. They are not budget allocations,
+              eligibility decisions or predictions of impact.
+            </p>
+          </ReadMoreSection>
+        </>
+      ),
+      href: "/interventions",
+      linkLabel: "Plan an intervention",
     },
   ];
 
@@ -122,7 +247,7 @@ export default function Home() {
     <>
       <HomeHero
         figures={heroFigures}
-        sources="NISR, FinScope 2024; EICV7 2023/24 and its VUP thematic report."
+        sources="NISR, FinScope 2020 and 2024; EICV7 2023/24 and its VUP thematic report."
         districtCount={SITE_FACTS.districts}
         sectorCount={SITE_FACTS.sectors}
       />

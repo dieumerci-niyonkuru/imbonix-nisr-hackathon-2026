@@ -34,7 +34,7 @@ export function UsageExplorer() {
   return (
     <div>
       <div className="card p-4">
-        <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-muted">Measure</p>
+        <p className="text-[13px] font-bold text-muted">Measure</p>
         <div className="mt-2 flex flex-wrap gap-1.5">
           {MEASURES.map((m) => (
             <button
@@ -42,8 +42,10 @@ export function UsageExplorer() {
               type="button"
               aria-pressed={m.id === measure}
               onClick={() => setMeasure(m.id)}
-              className={`rounded-lg px-3 py-1.5 text-[13px] font-semibold transition-colors ${
-                m.id === measure ? "bg-navy-900 text-white" : "bg-paper text-ink/80 hover:bg-line/70"
+              className={`rounded-md border px-3 py-1.5 text-[13px] font-semibold transition-colors ${
+                m.id === measure
+                  ? "border-navy-900 bg-navy-900 text-white"
+                  : "border-line bg-white text-ink/80 hover:border-royal hover:text-ink"
               }`}
             >
               {m.label}
