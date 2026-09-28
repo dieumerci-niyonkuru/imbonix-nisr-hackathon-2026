@@ -17,6 +17,7 @@ export function HowToRead({ children, className }: { children: ReactNode; classN
  * and the source line with its status label underneath.
  */
 export function ChartCard({
+  id,
   title,
   note,
   howToRead,
@@ -25,6 +26,8 @@ export function ChartCard({
   children,
   className,
 }: {
+  /** An anchor, so the search and other pages can link straight to the chart. */
+  id?: string;
   title: string;
   note?: ReactNode;
   howToRead?: ReactNode;
@@ -34,7 +37,10 @@ export function ChartCard({
   className?: string;
 }) {
   return (
-    <figure className={cn("flex h-full flex-col rounded-3xl border border-line bg-white p-5 sm:p-7", className)}>
+    <figure
+      id={id}
+      className={cn("flex h-full scroll-mt-28 flex-col rounded-3xl border border-line bg-white p-5 sm:p-7", className)}
+    >
       <figcaption>
         <p className="font-display text-lg font-bold tracking-[-0.01em] text-ink">{title}</p>
         {note && <p className="mt-1 text-[13px] leading-5 text-muted">{note}</p>}

@@ -106,6 +106,10 @@ const PUBLISHED = [
     url: "https://www.geoboundaries.org/",
   },
   {
+    name: "Cell and village names for the search: geoBoundaries, from Open Data Rwanda and the World Bank (CC BY 4.0)",
+    url: "https://www.geoboundaries.org/",
+  },
+  {
     name: "Background map: OpenFreeMap, © OpenMapTiles, © OpenStreetMap contributors",
     url: "https://openfreemap.org/",
   },
@@ -311,7 +315,7 @@ export default function DataPage() {
                         {g.items.map((i) => {
                           const s = SOURCES[i.id];
                           return (
-                            <tr key={i.id} className="border-t border-line align-top">
+                            <tr key={i.id} id={`indicator-${i.id}`} className="scroll-mt-28 border-t border-line align-top">
                               <th scope="row" className="px-4 py-2.5 font-semibold text-ink">
                                 {i.short}
                                 <span className="mt-0.5 block font-mono text-[10.5px] font-normal text-muted">{i.id}</span>

@@ -82,7 +82,7 @@ export default function DashboardPage() {
         <h2 id="inclusion-heading" className="sr-only">
           Financial inclusion
         </h2>
-        <Card>
+        <Card id="chart-dashboard-access" className="scroll-mt-28">
           <CardHeader>
             <CardTitle>Access has deepened, but banking has not</CardTitle>
             <CardDescription>
@@ -101,7 +101,7 @@ export default function DashboardPage() {
             </Source>
           </CardContent>
         </Card>
-        <Card>
+        <Card id="chart-dashboard-health" className="scroll-mt-28">
           <CardHeader>
             <CardTitle>Included, but not yet financially healthy</CardTitle>
             <CardDescription>
@@ -157,7 +157,7 @@ export default function DashboardPage() {
             intro="Measured on the same EICV7 method, poverty fell by 12 points in seven years. The Western and Southern provinces remain far above the national rate."
           />
         </div>
-        <Card>
+        <Card id="chart-dashboard-poverty-trend" className="scroll-mt-28">
           <CardHeader>
             <CardTitle>National poverty, 2016/17 and 2023/24</CardTitle>
             <CardDescription>
@@ -172,7 +172,7 @@ export default function DashboardPage() {
             <Source>NISR EICV7 Poverty Profile, 2023/24.</Source>
           </CardContent>
         </Card>
-        <Card>
+        <Card id="chart-dashboard-poverty-province" className="scroll-mt-28">
           <CardHeader>
             <CardTitle>Poverty by province, 2023/24</CardTitle>
             <CardDescription>Share of people below the poverty line.</CardDescription>

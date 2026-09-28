@@ -33,8 +33,9 @@ flowchart TB
 1. **Sources.** Figures are taken from NISR's published reports and tables, never from restricted microdata. Each row of the
    extracts records its publication, table, year, status and, where published, its standard error and confidence interval.
 2. **Build.** `scripts/data/build_web_data.py` turns the extracts and boundary files into compact JSON for the site and
-   GeoJSON for the interactive map. The output is committed, so building the website needs neither Python nor network
-   access.
+   GeoJSON for the interactive map. `scripts/data/build_place_index.py` lists every sector, cell and village with the
+   unit it lies in, for the site search. The output is committed, so building the website needs neither Python nor
+   network access.
 3. **Serve.** The web app imports the JSON at build time and prerenders almost every page. The API loads the same JSON into
    memory at startup.
 

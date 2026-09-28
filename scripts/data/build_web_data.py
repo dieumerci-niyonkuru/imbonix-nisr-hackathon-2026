@@ -129,10 +129,10 @@ def path(polygons, decimals: int) -> str:
     return "".join(parts)
 
 
-def ensure_boundaries() -> None:
+def ensure_boundaries(levels: tuple[str, ...] = ("ADM2", "ADM3")) -> None:
     """Download the geoBoundaries files (gbOpen release 9469f09) into data/raw/geo/ if they are missing."""
     base = "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/RWA"
-    for level in ("ADM2", "ADM3"):
+    for level in levels:
         target = GEO / f"geoBoundaries-RWA-{level}_simplified.geojson"
         if target.exists():
             continue
