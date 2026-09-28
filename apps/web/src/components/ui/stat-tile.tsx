@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { cn } from "@/lib/utils";
-import { BRAND } from "@/lib/palette";
+import { CHART_CYAN } from "@/lib/palette";
 
 /** One headline number with what it means and where it comes from. The number is the chart. */
 export function StatTile({
@@ -9,7 +9,7 @@ export function StatTile({
   label,
   source,
   status = "observed",
-  accent = BRAND.navy,
+  accent = CHART_CYAN,
   detail,
   className,
 }: {

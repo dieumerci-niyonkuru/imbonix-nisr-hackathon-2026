@@ -150,20 +150,20 @@ export default function DataPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-navy-900 text-white">
+      <section className="relative overflow-hidden border-b border-line bg-white">
         <div className="container-page relative pb-14 pt-6 sm:pb-16 sm:pt-8">
-          <Breadcrumbs tone="dark" />
-          <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan sm:mt-12">
+          <Breadcrumbs />
+          <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan-ink sm:mt-12">
             <BarsMotif /> Data &amp; methods
           </p>
-          <h1 className="mt-3 max-w-4xl text-balance font-display text-4xl font-bold tracking-[-0.035em] sm:text-5xl">
+          <h1 className="mt-3 max-w-4xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
             Every number, where it comes from, and how far to trust it
           </h1>
-          <p className="mt-5 max-w-3xl text-pretty text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
+          <p className="mt-5 max-w-3xl text-pretty text-base leading-7 text-muted sm:text-lg sm:leading-8">
             All NISR publicly available datasets can be found in the NISR microdata catalog. IMBONIX currently uses published
             tables and reports. Household level analysis starts once the team&apos;s data requests are approved.
           </p>
-          <Button asChild variant="cyan" className="mt-8">
+          <Button asChild className="mt-8">
             <a href={NISR_CATALOG_URL} target="_blank" rel="noreferrer">
               Open the NISR microdata catalog <ArrowTopRightOnSquareIcon className="h-4 w-4" />
             </a>
@@ -210,7 +210,7 @@ export default function DataPage() {
                 <tr key={m.id} className="border-t border-line">
                   <td className="px-4 py-3">
                     <span
-                      className={`rounded-full px-2.5 py-1 text-[11px] font-bold ${m.priority === 1 ? "bg-navy-900 text-white" : "bg-paper text-ink"}`}
+                      className={`rounded-full px-2.5 py-1 text-[11px] font-bold ${m.priority === 1 ? "bg-cyan text-ink" : "bg-paper text-ink"}`}
                     >
                       {m.priority === 1 ? "First" : "Next"}
                     </span>
@@ -379,7 +379,7 @@ export default function DataPage() {
               href={`${REPOSITORY_URL}/blob/main/CHANGELOG.md`}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-cyan-ink underline underline-offset-2 hover:text-navy-900"
+              className="font-semibold text-cyan-ink underline underline-offset-2 hover:text-ink"
             >
               project changelog
               <span className="sr-only"> (opens in a new tab)</span>

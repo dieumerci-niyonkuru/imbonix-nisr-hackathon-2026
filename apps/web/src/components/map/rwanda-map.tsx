@@ -25,7 +25,7 @@ export type RwandaMapProps = {
   onHover?: (slug: string | undefined, event?: HoverEvent) => void;
   describe?: (slug: string) => string;
   showNames?: boolean;
-  /** District outline colour: white on light pages, a deep navy on dark cards. */
+  /** District outline colour: white by default, a grey for an outline on white. */
   stroke?: string;
   className?: string;
 };

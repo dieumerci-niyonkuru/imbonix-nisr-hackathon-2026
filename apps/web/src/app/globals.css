@@ -9,29 +9,29 @@
 }
 
 :root {
-  /* shadcn/ui tokens (HSL), mapped onto the IMBONIX palette (src/lib/palette.ts). */
-  --background: 0 0% 100%; /* white: pages are white, light grey only marks alternate sections */
-  --foreground: 215 96% 17%; /* ink: brand navy #022657 */
+  /* shadcn/ui tokens (HSL), mapped onto the IMBONIX palette (src/lib/palette.ts): cyan and white, near black text. */
+  --background: 0 0% 100%; /* white: pages are white, pale cyan only marks alternate sections */
+  --foreground: 197 12% 12%; /* ink #1A1F21 */
   --card: 0 0% 100%;
-  --card-foreground: 215 96% 17%;
+  --card-foreground: 197 12% 12%;
   --popover: 0 0% 100%;
-  --popover-foreground: 215 96% 17%;
-  --primary: 215 96% 17%; /* brand navy #022657 */
-  --primary-foreground: 0 0% 100%;
-  --secondary: 212 50% 95%; /* mist #EEF3F9 */
-  --secondary-foreground: 215 96% 17%;
-  --accent: 202 100% 95%; /* pale cyan #E3F5FF */
-  --accent-foreground: 215 96% 17%;
-  --destructive: 196 95% 29%; /* cyan ink for warnings, never red */
+  --popover-foreground: 197 12% 12%;
+  --primary: 195 98% 44%; /* brand cyan #02A5DC, with near black text */
+  --primary-foreground: 197 12% 12%;
+  --secondary: 200 68% 94%; /* mist #E5F3FA */
+  --secondary-foreground: 197 12% 12%;
+  --accent: 201 100% 95%; /* pale cyan #E3F5FF */
+  --accent-foreground: 197 12% 12%;
+  --destructive: 195 99% 31%; /* cyan ink for warnings, never red */
   --destructive-foreground: 0 0% 100%;
-  --border: 214 37% 90%; /* line #DCE4EF */
-  --input: 214 37% 90%;
+  --border: 204 20% 90%; /* line #E1E7EB */
+  --input: 204 20% 90%;
   --ring: 195 99% 31%; /* cyan ink #01749C */
   --radius: 0.25rem;
 
-  --ink: #022657;
-  --paper: #f4f7fb;
-  --line: #dce4ef;
+  --ink: #1a1f21;
+  --paper: #f0f8fc;
+  --line: #e1e7eb;
   --cyan-ink: #01749c;
   --cyan: #02a5dc;
 }
@@ -53,8 +53,8 @@ body {
 }
 
 ::selection {
-  color: white;
-  background: var(--ink);
+  color: var(--ink);
+  background: var(--cyan);
 }
 
 :focus-visible {

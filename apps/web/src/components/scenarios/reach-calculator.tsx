@@ -9,7 +9,7 @@ import { Slider } from "@/components/ui/slider";
 import { formatNumber } from "@/lib/format";
 import { reachScenario } from "@/lib/scenarios";
 import { cn } from "@/lib/utils";
-import { BRAND, INK } from "@/lib/palette";
+import { DEEP_CYAN, INK } from "@/lib/palette";
 
 const MEASURES = [
   {
@@ -53,7 +53,7 @@ export function ReachCalculator() {
               className={cn(
                 "rounded-md border px-3 py-1.5 text-[13px] font-semibold transition-colors",
                 m.id === measureId
-                  ? "border-navy-900 bg-navy-900 text-white"
+                  ? "border-cyan bg-cyan text-ink"
                   : "border-line bg-white text-ink/80 hover:border-cyan-ink hover:text-ink",
               )}
             >
@@ -118,7 +118,7 @@ export function ReachCalculator() {
                 <XAxis type="number" tickFormatter={(v: number) => formatNumber(v)} {...AXIS} />
                 <YAxis type="category" dataKey="name" width={96} {...AXIS} />
                 <Tooltip content={<ChartTooltip unit=" adults" />} cursor={{ fill: "rgba(10,27,61,0.04)" }} />
-                <Bar dataKey="toReach" name="Adults to reach" fill={BRAND.navy} radius={[0, 4, 4, 0]} isAnimationActive={false}>
+                <Bar dataKey="toReach" name="Adults to reach" fill={DEEP_CYAN} radius={[0, 4, 4, 0]} isAnimationActive={false}>
                   <LabelList
                     dataKey="toReach"
                     position="right"

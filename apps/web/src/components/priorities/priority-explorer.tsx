@@ -43,7 +43,7 @@ export function PriorityExplorer({ levers, districts }: { levers: Lever[]; distr
               className={cn(
                 "flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-[12.5px] font-semibold transition-colors",
                 l.id === active
-                  ? "border-navy-900 bg-navy-900 text-white"
+                  ? "border-cyan bg-cyan text-ink"
                   : "border-line bg-white text-ink/80 hover:border-cyan-ink hover:text-ink",
               )}
             >
