@@ -3,10 +3,10 @@
 import { Bar, BarChart, CartesianGrid, LabelList, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { AXIS, ChartTooltip, GRID, LegendRow } from "@/components/charts/recharts/chart-theme";
 import { POVERTY_BY_PROVINCE, POVERTY_TREND } from "@/lib/national";
-import { CORE, INK, RAMPS } from "@/lib/palette";
+import { CORE, DEEP_CYAN, INK, RAMPS } from "@/lib/palette";
 
-const POVERTY = RAMPS.navy[1];
-const EXTREME = RAMPS.navy[3];
+const POVERTY = RAMPS.cyan[1];
+const EXTREME = DEEP_CYAN;
 
 /** EICV7 poverty and extreme poverty, 2016/17 (modelled on the new method) and 2023/24. */
 export function PovertyTrendChart() {
@@ -77,7 +77,7 @@ export function PovertyProvinceChart() {
           <XAxis type="number" domain={[0, 40]} ticks={[0, 10, 20, 30, 40]} unit="%" {...AXIS} />
           <YAxis type="category" dataKey="province" width={88} {...AXIS} />
           <Tooltip content={<ChartTooltip title={(l) => `${l} Province`} />} cursor={{ fill: "rgba(10,27,61,0.04)" }} />
-          <Bar dataKey="value" name="Poverty rate" fill={CORE.navy} radius={[0, 4, 4, 0]} isAnimationActive={false}>
+          <Bar dataKey="value" name="Poverty rate" fill={CORE.deep} radius={[0, 4, 4, 0]} isAnimationActive={false}>
             <LabelList
               dataKey="value"
               position="right"

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { SHAPES, VIEWBOX } from "@/lib/data";
-import { BRAND } from "@/lib/palette";
+import { BRAND, WHITE } from "@/lib/palette";
 import { cn } from "@/lib/utils";
 
 /**
@@ -15,7 +15,7 @@ function CardLink({ href, label }: { href: string; label: string }) {
     "mt-auto flex items-center gap-4 pt-8 text-[17px] font-bold leading-6 text-ink after:absolute after:inset-0 after:content-[''] focus-visible:outline-none sm:text-[18px]";
   const content = (
     <>
-      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-cyan-ink text-white transition-colors group-hover:bg-cyan group-hover:text-navy-900">
+      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-cyan-ink text-white transition-colors group-hover:bg-cyan group-hover:text-ink">
         <ArrowRightIcon className="h-6 w-6 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
       </span>
       <span className="group-hover:underline group-hover:underline-offset-4">{label}</span>
@@ -71,20 +71,20 @@ export function TextCard({
 }
 
 /**
- * The outline of Rwanda's 30 districts, drawn faintly behind the text of a dark band, where a photo banner would put
- * its photo. Decorative only.
+ * The outline of Rwanda's 30 districts in thin white lines, drawn behind the text of a cyan band where a photo banner
+ * would put its photo. Decorative only.
  */
 export function DistrictBackdrop() {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 flex items-center justify-center">
-      <svg viewBox={VIEWBOX} className="h-[135%] w-auto max-w-none opacity-30">
+      <svg viewBox={VIEWBOX} className="h-[135%] w-auto max-w-none opacity-35">
         {SHAPES.map((shape) => (
           <path
             key={shape.slug}
             d={shape.d}
-            fill={BRAND.navy}
-            stroke={BRAND.cyan}
-            strokeOpacity={0.55}
+            fill={BRAND.cyan}
+            stroke={WHITE}
+            strokeOpacity={0.7}
             strokeWidth={1}
             strokeLinejoin="round"
             vectorEffect="non-scaling-stroke"
@@ -98,19 +98,17 @@ export function DistrictBackdrop() {
 /** A full width banner that opens a part of the page: a centred title and paragraph over the district backdrop. */
 export function StoryBanner({ eyebrow, title, body, id }: { eyebrow: string; title: string; body: string; id: string }) {
   return (
-    <section className="relative overflow-hidden bg-navy-950 py-20 text-center text-white sm:py-28" aria-labelledby={id}>
+    <section className="relative overflow-hidden bg-cyan py-20 text-center text-ink sm:py-28" aria-labelledby={id}>
       <DistrictBackdrop />
       <div className="container-page relative">
-        <p className="eyebrow text-cyan">{eyebrow}</p>
+        <p className="eyebrow text-ink">{eyebrow}</p>
         <h2
           id={id}
           className="mx-auto mt-4 max-w-4xl text-balance font-display text-4xl font-bold leading-[1.05] tracking-[-0.035em] sm:text-6xl"
         >
           {title}
         </h2>
-        <p className="mx-auto mt-6 max-w-3xl text-pretty text-[17px] leading-8 text-white/85 sm:text-[19px] sm:leading-9">
-          {body}
-        </p>
+        <p className="mx-auto mt-6 max-w-3xl text-pretty text-[17px] leading-8 text-ink sm:text-[19px] sm:leading-9">{body}</p>
       </div>
     </section>
   );

@@ -60,9 +60,7 @@ export function GapChart({
           </li>
         ))}
       </ul>
-      {takeaway && (
-        <p className="mt-6 rounded-xl bg-navy-900 px-4 py-3 text-[14px] font-semibold leading-6 text-white">{takeaway}</p>
-      )}
+      {takeaway && <p className="mt-6 rounded-xl bg-cyan px-4 py-3 text-[14px] font-semibold leading-6 text-ink">{takeaway}</p>}
       <p className="mt-4 text-[12px] leading-5 text-muted">{source}</p>
     </figure>
   );

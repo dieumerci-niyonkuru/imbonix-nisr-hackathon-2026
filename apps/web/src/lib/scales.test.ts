@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { valuesFor } from "@/lib/data";
 import { DIMENSIONS, meta } from "@/lib/indicators";
-import { BRAND, DIVERGING, INK, PAPER, RAMPS, SEVERITY, WHITE } from "@/lib/palette";
+import { DEEP_CYAN, DIVERGING, INK, PAPER, RAMPS, SEVERITY, WHITE } from "@/lib/palette";
 import { contrastRatio, NO_DATA, scaleFor, textOn } from "@/lib/scales";
 
 describe("scaleFor", () => {
@@ -38,11 +38,11 @@ describe("scaleFor", () => {
 describe("textOn", () => {
   it("picks dark text on light fills and white text on dark fills", () => {
     expect(textOn(PAPER)).toBe(INK);
-    expect(textOn(BRAND.navy)).toBe(WHITE);
+    expect(textOn(DEEP_CYAN)).toBe(WHITE);
   });
 
   it("chooses by contrast, so mid-tone fills get the more readable colour", () => {
-    // White on this cyan is only 3.0:1; navy reaches 5.0:1.
+    // White on this cyan is only 3.0:1; near black text reaches well over 4.5:1.
     expect(textOn(RAMPS.cyan[1])).toBe(INK);
     expect(contrastRatio(RAMPS.cyan[1], INK)).toBeGreaterThanOrEqual(4.5);
   });

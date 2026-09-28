@@ -19,14 +19,13 @@ const config: Config = {
         accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" },
         popover: { DEFAULT: "hsl(var(--popover))", foreground: "hsl(var(--popover-foreground))" },
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
+        // Text: a neutral near black, the only dark colour on the site.
         ink: INK,
-        // The main brand colour, with deeper and lighter steps for surfaces.
-        navy: { 950: BRAND.navyDeep, 900: BRAND.navy, 800: "#0E3467", 700: "#1A447F", 600: "#255496" },
-        // The accent brand colour: highlights, active states and bands (with navy text). `ink` is the deeper step for
-        // links and small text on light backgrounds, `soft` a pale background, `hover` a lighter step for buttons.
+        // The brand colour: bands, buttons, active states and highlights, always with near black text. `ink` is the
+        // deeper step for links and small text on light backgrounds, `soft` a pale background, `hover` a lighter step.
         cyan: { DEFAULT: BRAND.cyan, ink: CYAN_INK, soft: "#E3F5FF", hover: "#3EB9EE" },
-        // Pale blue-grey surfaces for inputs, chips and panels.
-        mist: { DEFAULT: "#EEF3F9", strong: "#E3EAF3" },
+        // Pale cyan surfaces for inputs, chips and panels.
+        mist: { DEFAULT: "#E5F3FA", strong: "#D4EAF6" },
         paper: PAPER,
         line: LINE,
         // Secondary text. `muted-foreground` is the shadcn name for the same colour.
@@ -58,8 +57,8 @@ const config: Config = {
         "3xl": "0.5rem",
       },
       boxShadow: {
-        card: "0 1px 2px rgba(0,36,84,0.06)",
-        lift: "0 14px 32px -18px rgba(0,36,84,0.32)",
+        card: "0 1px 2px rgba(26,31,33,0.06)",
+        lift: "0 14px 32px -18px rgba(26,31,33,0.3)",
       },
       keyframes: {
         "fade-up": { from: { opacity: "0", transform: "translateY(14px)" }, to: { opacity: "1", transform: "translateY(0)" } },

@@ -6,9 +6,9 @@ import { DistrictBackdrop } from "@/components/home/story-cards";
 export type HeroCard = { title: string; body: string; href: string };
 
 /**
- * The opening of the homepage, laid out like Rwanda's national sites: a navy banner with the outline of the districts
- * behind a left aligned headline, four white cards that overlap its lower edge and open the focus areas and the
- * planning tool, and a cyan band under them with the challenge IMBONIX answers and a way to learn more.
+ * The opening of the homepage, laid out like Rwanda's national sites in the site's two colours: a cyan banner with the
+ * outline of the districts behind a left aligned headline, four white cards that overlap its lower edge and open the
+ * focus areas and the planning tool, and under them, on white, the challenge IMBONIX answers and a way to learn more.
  */
 export function HomeHero({
   cards,
@@ -21,29 +21,27 @@ export function HomeHero({
 }) {
   return (
     <section aria-labelledby="home-heading">
-      <div className="relative overflow-hidden bg-navy-950 text-white">
+      <div className="relative overflow-hidden bg-cyan text-ink">
         <DistrictBackdrop />
         <div className="container-page relative pb-40 pt-16 sm:pb-44 sm:pt-24">
-          <p className="font-display text-[18px] font-bold text-white/90 sm:text-[22px]">
-            Financial inclusion and poverty in Rwanda
-          </p>
+          <p className="font-display text-[18px] font-bold sm:text-[22px]">Financial inclusion and poverty in Rwanda</p>
           <h1
             id="home-heading"
             className="mt-3 max-w-4xl text-balance font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-6xl lg:text-7xl"
           >
             Almost every adult is included. Few are financially healthy.
           </h1>
-          <p className="mt-6 max-w-2xl text-pretty text-[17px] leading-8 text-white/85 sm:text-[19px] sm:leading-9">
+          <p className="mt-6 max-w-2xl text-pretty text-[17px] leading-8 sm:text-[19px] sm:leading-9">
             IMBONIX brings NISR&apos;s published statistics together for all {districtCount} districts and {sectorCount} sectors,
             to show where financial exclusion, poverty and gaps in social protection meet, and where to act first.
           </p>
-          <p className="mt-5 text-[13px] text-white/70">
+          <p className="mt-5 text-[13px] font-medium">
             An independent project built on NISR data, not an official NISR product. Every figure names its source.
           </p>
         </div>
       </div>
 
-      <div className="bg-cyan pb-16 sm:pb-20">
+      <div className="bg-white pb-16 sm:pb-20">
         <div className="container-page relative -mt-28">
           <ul className="grid gap-px bg-line shadow-lift ring-1 ring-line sm:grid-cols-2 lg:grid-cols-4">
             {cards.map((card) => (
@@ -67,7 +65,7 @@ export function HomeHero({
           </ul>
         </div>
 
-        <div className="container-page mt-14 text-center text-navy-900 sm:mt-16">
+        <div className="container-page mt-14 text-center text-ink sm:mt-16">
           <p className="font-display text-[26px] font-bold tracking-[-0.02em] sm:text-[32px]">The challenge</p>
           <p className="mx-auto mt-4 max-w-3xl text-pretty text-[17px] leading-8 sm:text-[19px] sm:leading-9">
             Use data to understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda,
@@ -75,7 +73,7 @@ export function HomeHero({
           </p>
           <Link
             href="/about"
-            className="mt-8 inline-flex min-h-12 items-center justify-center rounded bg-white px-10 text-[15px] font-bold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-900 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan"
+            className="mt-8 inline-flex min-h-12 items-center justify-center rounded bg-cyan px-10 text-[15px] font-bold text-ink transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
           >
             Learn more about IMBONIX
           </Link>
