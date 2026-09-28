@@ -38,6 +38,10 @@ and versions follow [Semantic Versioning](https://semver.org/).
   finding as a large white title, its source and a circled arrow link. A full width banner over a faint outline of
   the districts opens "Who it serves", followed by text cards for households, policymakers and civil society, and
   the four steps of "How it works" are text cards too, each with a page to go deeper. The whole card is the link.
+- Search shows no icons. Before anything is typed, "Jump to" lists every page grouped like the header menus
+  (financial exclusion, poverty dynamics, social protection, each opening with its homepage overview, then the
+  project pages) in two columns on wider screens. Results are plain text rows; the highlighted one has a cyan bar
+  and an "Open" label, and the list can be scrolled from the keyboard.
 - The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
   cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
   Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours
