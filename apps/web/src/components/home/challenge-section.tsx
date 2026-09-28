@@ -1,5 +1,4 @@
 import { MapCard } from "@/components/home/story-cards";
-import { Reveal } from "@/components/ui/reveal";
 import { SectionHeader } from "@/components/ui/section";
 import { DISTRICTS, SOURCES, valueOf } from "@/lib/data";
 import { meta } from "@/lib/indicators";
@@ -53,7 +52,7 @@ export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
             const caption = `Map: ${meta(part.indicatorId).short.toLowerCase()} by district, ${SOURCES[part.indicatorId].year}. Brighter is higher.`;
             return (
               <li key={part.area}>
-                <Reveal delay={index * 0.06} className="h-full">
+                <div className="h-full">
                   <MapCard
                     area={part.area}
                     title={part.title}
@@ -63,7 +62,7 @@ export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
                     href={part.href}
                     linkLabel={part.linkLabel}
                   />
-                </Reveal>
+                </div>
               </li>
             );
           })}

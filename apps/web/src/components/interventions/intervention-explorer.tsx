@@ -21,7 +21,7 @@ const LOCATION_GROUPS = LOCATIONS.reduce<{ group: string; items: typeof LOCATION
 function Panel({ step, title, children, className }: { step: number; title: string; children: ReactNode; className?: string }) {
   return (
     <section className={cn("flex flex-col rounded-2xl border border-line bg-white p-6 shadow-card", className)}>
-      <p className="flex items-center gap-2.5 text-[12px] font-bold uppercase tracking-[0.1em] text-royal">
+      <p className="flex items-center gap-2.5 text-[13px] font-bold text-royal">
         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-navy-900 text-[12px] text-white">{step}</span>
         {title}
       </p>
