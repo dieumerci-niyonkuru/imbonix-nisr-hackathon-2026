@@ -1,7 +1,7 @@
 import { DISTRICTS, reference, SOURCES } from "@/lib/data";
 import { formatValue } from "@/lib/format";
 import { meta } from "@/lib/indicators";
-import { BRAND, CYAN_INK, INK, LINE, MUTED, QUADRANTS, RAMPS, WHITE } from "@/lib/palette";
+import { BRAND, CYAN_INK, INK, LINE, MUTED, QUADRANTS, WHITE } from "@/lib/palette";
 
 const W = 640;
 const H = 440;
