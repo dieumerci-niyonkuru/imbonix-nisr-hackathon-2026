@@ -90,8 +90,10 @@ export function SectorExplorer({ district, sectors }: { district: string; sector
                 setMeasure(m.id);
                 setSort({ key: m.id, desc: true });
               }}
-              className={`rounded-lg px-3 py-1.5 text-[12.5px] font-semibold transition-colors ${
-                m.id === measure ? "bg-navy-900 text-white" : "bg-paper text-ink/80 hover:bg-line/70"
+              className={`rounded-md border px-3 py-1.5 text-[12.5px] font-semibold transition-colors ${
+                m.id === measure
+                  ? "border-navy-900 bg-navy-900 text-white"
+                  : "border-line bg-white text-ink/80 hover:border-royal hover:text-ink"
               }`}
             >
               {m.short}
@@ -161,9 +163,7 @@ export function SectorExplorer({ district, sectors }: { district: string; sector
             </div>
           ))}
         </div>
-        <p className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-muted">
-          Darker = poorer · colours compare sectors within {district}
-        </p>
+        <p className="mt-1 text-[12px] font-semibold text-muted">Darker = poorer · colours compare sectors within {district}</p>
         <div className="mt-3 flex flex-wrap items-center gap-2 text-[11px] text-muted">
           <StatusBadge status={info.status} /> {info.source}
         </div>
@@ -175,7 +175,7 @@ export function SectorExplorer({ district, sectors }: { district: string; sector
       <div className="scrollbar-thin max-h-[560px] overflow-auto rounded-2xl border border-line">
         <table className="w-full min-w-[520px] text-left text-[12.5px]">
           <caption className="sr-only">Sectors of {district}</caption>
-          <thead className="sticky top-0 bg-paper text-[11px] uppercase tracking-[0.06em] text-muted">
+          <thead className="sticky top-0 bg-paper text-[12.5px] text-muted">
             <tr>
               {header("sector", "Sector", "text-left")}
               {header("population", "Population 2022")}

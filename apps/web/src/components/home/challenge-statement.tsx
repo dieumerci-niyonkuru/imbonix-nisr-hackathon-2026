@@ -1,12 +1,23 @@
-import { TextCard } from "@/components/home/story-cards";
-import { Reveal } from "@/components/ui/reveal";
+import Link from "next/link";
+import type { ReactNode } from "react";
+import { ArrowRightIcon } from "@heroicons/react/20/solid";
+import { ReadMore } from "@/components/ui/read-more";
 
 /** One of the three tests a useful answer has to meet, with the figure that shows IMBONIX meets it. */
-export type Requirement = { name: string; figure: string; body: string; href: string; linkLabel: string };
+export type Requirement = {
+  name: string;
+  figure: string;
+  body: string;
+  /** The full explanation, shown in a Read more dialog. */
+  details: ReactNode;
+  href: string;
+  linkLabel: string;
+};
 
 /**
  * The challenge as an editorial statement: what has to be understood, in large type, then the three tests a useful
- * answer has to meet (a real gap, evidence from NISR data, practical impact) as cards, each with its figure.
+ * answer has to meet (a real gap, evidence from NISR data, practical impact) as cards, each with its figure, a Read
+ * more dialog with the full explanation and sources, and a link to the page that goes further.
  */
 export function ChallengeStatement({ requirements }: { requirements: Requirement[] }) {
   return (
@@ -36,17 +47,24 @@ export function ChallengeStatement({ requirements }: { requirements: Requirement
 
         <ol className="mt-12 grid gap-6 md:grid-cols-3">
           {requirements.map((requirement, index) => (
-            <li key={requirement.name}>
-              <Reveal delay={index * 0.06} className="h-full">
-                <TextCard
-                  eyebrow={`${index + 1}. ${requirement.name}`}
-                  title={requirement.figure}
-                  body={requirement.body}
+            <li key={requirement.name} className="flex flex-col rounded-xl border border-line bg-paper p-7 sm:p-8">
+              <p className="eyebrow text-royal">
+                {index + 1}. {requirement.name}
+              </p>
+              <p className="mt-3 text-balance font-display text-[30px] font-bold leading-[1.1] tracking-[-0.025em] text-ink sm:text-[34px]">
+                {requirement.figure}
+              </p>
+              <p className="mt-4 text-pretty text-[16px] leading-7 text-ink/80">{requirement.body}</p>
+              <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-line pt-5">
+                <ReadMore title={`${requirement.name}: ${requirement.figure}`}>{requirement.details}</ReadMore>
+                <Link
                   href={requirement.href}
-                  linkLabel={requirement.linkLabel}
-                  tone="paper"
-                />
-              </Reveal>
+                  className="group inline-flex items-center gap-1 rounded text-[14px] font-bold text-royal underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+                >
+                  {requirement.linkLabel}
+                  <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                </Link>
+              </div>
             </li>
           ))}
         </ol>

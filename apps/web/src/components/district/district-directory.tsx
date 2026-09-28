@@ -50,7 +50,7 @@ export function DistrictDirectory() {
     <div>
       <div className="card grid gap-4 p-4 sm:grid-cols-2 sm:p-5 lg:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))]">
         <label className="flex min-w-0 flex-col gap-1.5">
-          <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-muted">Search</span>
+          <span className="text-[13px] font-bold text-muted">Search</span>
           <span className="relative">
             <MagnifyingGlassIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
             <input
@@ -100,7 +100,7 @@ export function DistrictDirectory() {
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted">{PROVINCE_LABEL[d.province]}</p>
+                <p className="text-[12.5px] font-semibold text-muted">{PROVINCE_LABEL[d.province]}</p>
                 <p className="font-display text-xl font-bold tracking-[-0.02em] text-ink group-hover:text-royal">{d.name}</p>
               </div>
               <PriorityBadge priority={priorityFor(d)} />

@@ -23,7 +23,7 @@ export function SelectField({
 }) {
   return (
     <label className={cn("flex min-w-0 flex-col gap-1.5", className)}>
-      <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-muted">{label}</span>
+      <span className="text-[13px] font-bold text-muted">{label}</span>
       <span className="relative">
         <select
           value={value}

@@ -26,9 +26,7 @@ export function MapLegend({ indicator, scale, compact = false }: { indicator: In
           </div>
         ))}
       </div>
-      <p className="mt-1.5 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-muted">
-        {caption} · 5 groups of about 6 districts
-      </p>
+      <p className="mt-1.5 text-[12px] font-semibold text-muted">{caption} · 5 groups of about 6 districts</p>
     </div>
   );
 }
