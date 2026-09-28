@@ -295,7 +295,7 @@ export default function SocialProtectionPage() {
               late: trend("2023/24", "More than 20 days"),
               lateLabel: "last payment more than 20 days late",
             },
-          ].map((col, i) => (
+          ].map((col) => (
             <div key={col.year}>
               <div className="card h-full p-6">
                 <p className="font-display text-2xl font-bold text-ink">{col.year}</p>

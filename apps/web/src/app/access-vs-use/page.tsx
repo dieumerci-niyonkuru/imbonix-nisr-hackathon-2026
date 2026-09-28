@@ -40,7 +40,7 @@ export default function AccessVsUsePage() {
 
       <section className="container-page py-12">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {tiles.map((t, i) => (
+          {tiles.map((t) => (
             <div key={t.label}>
               <div className="card h-full p-6">
                 <span className="block h-1 w-10 rounded-full" style={{ background: t.color }} />

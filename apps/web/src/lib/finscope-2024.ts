@@ -17,7 +17,6 @@ export const INCLUSION_BY_ROUND = [
 
 /** Adults in 2024, in millions, and the number of excluded adults. */
 export const INCLUDED_ADULTS_MILLIONS = 7.8;
-export const BANKED_ADULTS_MILLIONS = 1.8;
 export const EXCLUDED_ADULTS = 316_000;
 
 /** Mobile money, 2020 and 2024. */

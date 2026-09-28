@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { rankOf, type District } from "@/lib/data";
 import { formatValue } from "@/lib/format";
 import { CORE_DIMENSIONS, DIMENSIONS, meta } from "@/lib/indicators";
@@ -67,13 +66,5 @@ export function OverlapBadge({ district }: { district: District }) {
     >
       {count} of 4 in the most affected third
     </span>
-  );
-}
-
-export function DistrictLink({ district, className = "" }: { district: District; className?: string }) {
-  return (
-    <Link href={`/districts/${district.slug}`} className={`link ${className}`}>
-      {district.name}
-    </Link>
   );
 }

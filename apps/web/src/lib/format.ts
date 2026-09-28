@@ -23,10 +23,6 @@ export function formatValue(indicator: Pick<IndicatorMeta, "format">, value: num
   }
 }
 
-export function formatCompact(value: number): string {
-  return new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(value);
-}
-
 export function formatDiff(indicator: Pick<IndicatorMeta, "format">, diff: number): string {
   const sign = diff > 0 ? "+" : diff < 0 ? "−" : "±";
   const magnitude = Math.abs(diff);

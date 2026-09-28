@@ -48,7 +48,7 @@ export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
         />
 
         <ul className="mt-10 grid gap-6 lg:grid-cols-3">
-          {parts.map((part, index) => {
+          {parts.map((part) => {
             const caption = `Map: ${meta(part.indicatorId).short.toLowerCase()} by district, ${SOURCES[part.indicatorId].year}. Brighter is higher.`;
             return (
               <li key={part.area}>
