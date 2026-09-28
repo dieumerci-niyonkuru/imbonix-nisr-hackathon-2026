@@ -1,5 +1,4 @@
 import { StoryBanner, TextCard } from "@/components/home/story-cards";
-import { Reveal } from "@/components/ui/reveal";
 import { cn } from "@/lib/utils";
 
 export type Audience = { title: string; body: string; href: string; linkLabel: string };
@@ -21,9 +20,9 @@ export function AudienceSection({ audiences }: { audiences: Audience[] }) {
         <ul className="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-6">
           {audiences.map((audience, index) => (
             <li key={audience.title} className={cn(index < 3 ? "lg:col-span-2" : "lg:col-span-3")}>
-              <Reveal delay={index * 0.05} className="h-full">
+              <div className="h-full">
                 <TextCard title={audience.title} body={audience.body} href={audience.href} linkLabel={audience.linkLabel} />
-              </Reveal>
+              </div>
             </li>
           ))}
         </ul>

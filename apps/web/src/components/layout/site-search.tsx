@@ -413,10 +413,7 @@ export function SiteSearch({
                               <HighlightedLabel text={entry.label} query={trimmedQuery} />
                             </span>
                             <span
-                              className={cn(
-                                "shrink-0 text-[11px] font-bold uppercase tracking-[0.1em]",
-                                selected ? "text-royal" : "text-transparent",
-                              )}
+                              className={cn("shrink-0 text-[12.5px] font-bold", selected ? "text-royal" : "text-transparent")}
                               aria-hidden="true"
                             >
                               Open

@@ -33,7 +33,7 @@ export function OverlapMatrix() {
           <caption className="sr-only">
             Rank of each district on poverty, financial access, nutrition and shocks; 1 is the most affected of 30.
           </caption>
-          <thead className="bg-paper text-[11px] uppercase tracking-[0.06em] text-muted">
+          <thead className="bg-paper text-[12.5px] text-muted">
             <tr>
               <th scope="col" className="px-4 py-3">
                 District

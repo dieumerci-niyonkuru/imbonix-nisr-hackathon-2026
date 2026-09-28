@@ -62,10 +62,18 @@ const config: Config = {
         body: ['"Manrope Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
       },
       maxWidth: { page: "1320px" },
-      borderRadius: { lg: "var(--radius)", md: "calc(var(--radius) - 2px)", sm: "calc(var(--radius) - 4px)" },
+      // Squarer corners than the Tailwind defaults, for a calmer, more institutional look.
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+        xl: "0.625rem",
+        "2xl": "0.75rem",
+        "3xl": "0.875rem",
+      },
       boxShadow: {
-        card: "0 1px 2px rgba(0,36,84,0.05), 0 8px 24px -14px rgba(0,36,84,0.16)",
-        lift: "0 24px 56px -22px rgba(0,36,84,0.38)",
+        card: "0 1px 2px rgba(0,36,84,0.06)",
+        lift: "0 14px 32px -18px rgba(0,36,84,0.32)",
       },
       keyframes: {
         "fade-up": { from: { opacity: "0", transform: "translateY(14px)" }, to: { opacity: "1", transform: "translateY(0)" } },
