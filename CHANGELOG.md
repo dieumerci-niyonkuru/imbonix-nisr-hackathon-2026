@@ -14,6 +14,28 @@ and versions follow [Semantic Versioning](https://semver.org/).
 - Each focus area has its own page at a glance (/focus/exclusion, /focus/poverty, /focus/protection): the question
   it answers, the claim with its key numbers and the charts behind it, then the pages that go deeper and the other
   focus areas. The menus, footer, search and breadcrumbs link to these pages.
+- Every chart and interactive tool has a plain "How to read" line saying what its bars, slices, dots, lines, shapes
+  or colours mean: on the focus area pages, Rwanda in figures, Where needs overlap, VUP support and payments, Who
+  uses financial services, Where to act first, Test a policy target and each district's sector map. The women and
+  men comparison now names its real colours (cyan and navy).
+- The homepage is short and holds only what a first visit needs: an opening banner in deep navy over the outline of
+  the 30 districts, with the headline, one sentence, Explore the data and Read the evidence, and four headline
+  figures with their sources; the challenge in large type with its three tests (a real gap, evidence from NISR data,
+  practical impact) as cards; one featured insight, the gap between using a financial service and being financially
+  healthy, with how to read it; the three focus areas; and "Explore Rwanda through evidence" with the district
+  finder.
+- A new About page holds Why IMBONIX, who benefits (households, policymakers, researchers, civil society and
+  development organisations) and the method in five steps from data to impact. It is in the header, the footer and
+  the search.
+- Data & methods opens with what the evidence covers: the themes of the 64 indicators, with the studies behind
+  each, and the NISR studies linked to the catalog. The poverty map with the five poorest districts moves to the
+  poverty focus area page.
+- The search finds everything on the site: pages, focus areas, the 30 districts, all 416 sectors, 2,148 cells and
+  14,815 villages (each with the cell, sector and district it lies in, opening its district's profile), all 64
+  indicators (on the map, or in the catalogue), every chart (opening the page at that chart) and the seven policy
+  levers. Places are found by their own name, and adding a sector or district narrows them down; each group says
+  when more matched than are shown. Cell and village names come from geoBoundaries (Open Data Rwanda and the World
+  Bank, CC BY 4.0) and are credited on Data & methods.
 
 ### Minimal homepage and navigation
 

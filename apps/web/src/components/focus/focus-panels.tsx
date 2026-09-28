@@ -48,8 +48,8 @@ import { LEVERS } from "@/lib/priorities";
 import { DELAY_RAMP, timeliness, usagePairs, usageRows, VUP_COMPONENTS } from "@/lib/surveys";
 import { TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
 
-const VUP_TIMELINESS_SOURCE = "NISR, EICV7 VUP thematic report 2023/24, Tables 4.2, 4.5, 4.8 and 4.11";
-const DHS_SOURCE = "NISR, Rwanda DHS 2025, Tables 15.5.1 and 15.5.2";
+export const VUP_TIMELINESS_SOURCE = "NISR, EICV7 VUP thematic report 2023/24, Tables 4.2, 4.5, 4.8 and 4.11";
+export const DHS_SOURCE = "NISR, Rwanda DHS 2025, Tables 15.5.1 and 15.5.2";
 const PROVINCE_SOURCE = "IMBONIX calculation from the NISR EICV7 2023/24 and FinScope 2024 district tables";
 
 const ACCESS_SERIES: ShareSeries = [
@@ -143,6 +143,16 @@ function describeShares(rows: Record<string, string | number>[], categoryKey: st
     .join("; ");
 }
 
+/** How late each VUP programme's last payment was: on time, then up to 10, 20 and more than 20 days late. */
+export function paymentTimelinessByProgramme() {
+  return VUP_COMPONENTS.map((component) => {
+    const [onTime, lateUpToTenDays, lateUpToTwentyDays, lateOverTwentyDays] = timeliness(component.id).map((row) =>
+      oneDecimal(row.all!),
+    );
+    return { programme: component.short, onTime, lateUpToTenDays, lateUpToTwentyDays, lateOverTwentyDays };
+  });
+}
+
 /**
  * The evidence for each focus area: the claim with its key numbers, and the charts that back it. Each focus area
  * page shows one of these panels.
@@ -177,13 +187,7 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
     men: row.men!,
   }));
 
-  // Each programme's timeliness rows run from on time to more than 20 days late.
-  const paymentTimeliness = VUP_COMPONENTS.map((component) => {
-    const [onTime, lateUpToTenDays, lateUpToTwentyDays, lateOverTwentyDays] = timeliness(component.id).map((row) =>
-      oneDecimal(row.all!),
-    );
-    return { programme: component.short, onTime, lateUpToTenDays, lateUpToTwentyDays, lateOverTwentyDays };
-  });
+  const paymentTimeliness = paymentTimelinessByProgramme();
   const directSupportOnTime = paymentTimeliness.find((row) => row.programme === "Direct Support")!.onTime;
 
   const [povertyIn2017, povertyIn2024] = POVERTY_RATE_BY_YEAR;
@@ -244,8 +248,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
           links={[{ href: "/dashboard", label: "Rwanda in figures" }]}
         >
           <ChartCard
+            id="chart-inclusion-by-service"
             title="Inclusion rose, bank use did not"
             note="Share of adults using each kind of service. One adult can use several, so rows overlap."
+            howToRead="Each pair of bars is one kind of service: grey is 2020, blue is 2024. A longer blue bar means more adults used it in 2024."
             source={FINSCOPE_2024_SOURCE}
           >
             <ComparisonBars
@@ -256,8 +262,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             />
           </ChartCard>
           <ChartCard
+            id="chart-financial-health"
             title={`Only ${healthyShare}% of adults are financially healthy`}
             note="Adults by financial health segment. The published shares are rounded, so they add up to 101%."
+            howToRead="The ring splits all adults into four groups; the bigger the slice, the more adults in it. The number in the middle is the financially healthy share."
             source={`${FINSCOPE_2024_SOURCE}, section 5.2`}
           >
             <ShareDonut
@@ -275,8 +283,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
         <div className="grid gap-6 lg:grid-cols-2">
           <ChartCard
             className="lg:col-span-2"
+            id="chart-access-strand"
             title={`Adults relying only on informal services fell from ${strandIn2020.informalOnly}% to ${strandIn2024.informalOnly}%`}
             note="Every adult counted once, by the most formal service they use. Other formal only is formally served minus banked."
+            howToRead="Each bar is all adults in one year, split by the most formal service they use. Compare the cyan slice, informal only, between the two years."
             source={FINSCOPE_2024_SOURCE}
           >
             <StackedShareChart
@@ -288,8 +298,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             />
           </ChartCard>
           <ChartCard
+            id="chart-mobile-money"
             title={`Daily mobile money use rose from ${dailyMobileMoney.in2020}% to ${dailyMobileMoney.in2024}%`}
             note={`${MOBILE_MONEY_EVER_USED}% of adults own or have used mobile money.`}
+            howToRead="Grey is 2020, blue is 2024. Each pair shows the share of adults who own a wallet, or use one weekly or daily."
             source={FINSCOPE_2024_SOURCE}
           >
             <ComparisonBars
@@ -301,8 +313,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
           </ChartCard>
           <ChartCard
             className="lg:row-span-2"
+            id="chart-credit-sources"
             title="Households borrow from tontines and relatives, not banks"
             note="Households with credit, by source. Cyan is informal, blue is formal finance, navy is a government scheme. A household can use several sources."
+            howToRead="Each bar is one source of credit; the longer the bar, the more households with credit borrowed from it."
             source={HOUSEHOLD_SURVEY_SOURCE}
           >
             <ValueBars
@@ -313,8 +327,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             />
           </ChartCard>
           <ChartCard
+            id="chart-bank-account-by-sex"
             title="Women are less likely to have a bank account"
             note={`Adults aged 18 and over. ${HOUSEHOLDS_WITH_A_BANK_ACCOUNT}% of households have at least one member with an account.`}
+            howToRead="Each bar is the share with a bank account: all adults first, then men and women."
             source={HOUSEHOLD_SURVEY_SOURCE}
           >
             <ValueBars
@@ -353,8 +369,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
           ]}
         >
           <ChartCard
+            id="chart-province-poverty-finance"
             title="Poverty and adults outside formal finance, by province"
             note={`Each district's published rate, weighted by its 2022 population for poverty and its projected 2024 adults for finance. Nationally this gives ${povertyIn()}% and ${notFormallyIncludedIn()}%, against the published ${reference("eicv7_poverty_rate").value}% and ${reference("finscope_not_formally_included").value}%.`}
+            howToRead="For each province, one bar is the poverty rate and the other the share of adults outside formal finance. Where both are long, the two needs overlap."
             source={PROVINCE_SOURCE}
             status="calculated"
           >
@@ -367,8 +385,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             />
           </ChartCard>
           <ChartCard
+            id="chart-use-by-wealth"
             title="Account or mobile money use rises with wealth"
             note="Women and men aged 15 to 49 who used a bank account or mobile money in the past year, by household wealth fifth."
+            howToRead="Groups run from the poorest fifth of households to the richest. In each, one bar is women and one is men; longer means more used an account or mobile money."
             source={DHS_SOURCE}
           >
             <ComparisonBars
@@ -381,8 +401,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
         </FocusPanel>
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
           <ChartCard
+            id="chart-poverty-trend"
             title={`Poverty fell ${povertyDrop} points in seven years`}
             note={`About ${PEOPLE_OUT_OF_POVERTY_MILLIONS} million people left poverty, around ${PEOPLE_OUT_OF_POVERTY_PER_YEAR.toLocaleString("en-US")} a year.`}
+            howToRead="Each bar is the national poverty rate in one survey; the difference between them is the fall in seven years."
             source={EICV7_PROFILE_SOURCE}
           >
             <ValueBars
@@ -396,8 +418,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             />
           </ChartCard>
           <ChartCard
+            id="chart-living-conditions"
             title="Living conditions improved"
             note="Improved drinking water is at least 90% in 2024."
+            howToRead="Grey is 2017, blue is 2024. A longer blue bar means more households had that condition in 2024."
             source={EICV7_PROFILE_SOURCE}
           >
             <ComparisonBars
@@ -408,8 +432,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             />
           </ChartCard>
           <ChartCard
+            id="chart-electricity"
             title={`${householdsWithElectricity}% of households have electricity`}
             note={`No electricity is 100% minus the ${householdsWithElectricity}% with access.`}
+            howToRead="The ring splits all households by their main source of electricity; the light grey slice has none."
             source={EICV7_PROFILE_SOURCE}
           >
             <ShareDonut
@@ -425,8 +451,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             />
           </ChartCard>
           <ChartCard
+            id="chart-cooking-fuel"
             title="Three in four households cook with firewood or straw"
             note="Gas and other is the 24% using improved methods, minus 19% charcoal."
+            howToRead="Each bar is the share of households cooking mainly with that fuel. Navy is wood or straw, cyan is cleaner fuel."
             source={EICV7_PROFILE_SOURCE}
           >
             <ValueBars
@@ -437,8 +465,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             />
           </ChartCard>
           <ChartCard
+            id="chart-literacy"
             title="The poorest are least literate"
             note="Literacy rate by fifth of consumption per adult."
+            howToRead="Bars run from the poorest fifth of people to the richest; the longer the bar, the higher the share who can read and write."
             source={EICV7_PROFILE_SOURCE}
           >
             <ValueBars
@@ -451,7 +481,13 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
               description={`Literacy rate: ${LITERACY_BY_QUINTILE.map((row) => `${row.quintile} ${row.literacyRate}%`).join(", ")}.`}
             />
           </ChartCard>
-          <ChartCard title={`${plannedVillageShare}% of households live in planned villages`} source={EICV7_PROFILE_SOURCE}>
+          <ChartCard
+            id="chart-settlement"
+            title={`${plannedVillageShare}% of households live in planned villages`}
+            note="Households by type of settlement, 2023/24."
+            howToRead="The ring splits all households by the kind of place they live in; the largest slice is planned rural villages (umudugudu)."
+            source={EICV7_PROFILE_SOURCE}
+          >
             <ShareDonut
               segments={SETTLEMENT_TYPES.map((row, index) => ({
                 label: row.settlement,
@@ -495,8 +531,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             ))}
           </ul>
           <ChartCard
+            id="chart-payment-timeliness"
             title="Fewer than one in five last payments arrived on time"
             note="VUP beneficiaries by how late their last payment was, for each programme."
+            howToRead="Each bar is one VUP programme, split by how late the last payment arrived. The lightest slice is on time; the darker the slice, the later the payment."
             source={VUP_TIMELINESS_SOURCE}
           >
             <StackedShareChart
@@ -507,8 +545,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             />
           </ChartCard>
           <ChartCard
+            id="chart-national-targets"
             title="Where Rwanda stands against its national targets"
             note="Financial inclusion targets are for 2030; the social protection target is for 2028/29."
+            howToRead="For each measure, grey is where Rwanda started and blue is the target. The gap between the two bars is the distance still to go."
             source={TARGETS_SOURCE}
             status="target"
           >
@@ -522,8 +562,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
         </FocusPanel>
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
           <ChartCard
+            id="chart-vup-poverty"
             title="VUP reaches poorer people"
             note={`Poverty rate among the ${VUP_BENEFICIARIES.toLocaleString("en-US")} VUP beneficiaries and nationally.`}
+            howToRead="The first bar is the poverty rate for all Rwandans, the second for VUP beneficiaries. The longer second bar shows VUP reaches poorer people."
             source={SOCIAL_PROTECTION_SOURCE}
           >
             <ValueBars
@@ -537,8 +579,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
             />
           </ChartCard>
           <ChartCard
+            id="chart-vup-by-sex"
             title="Three in four VUP beneficiaries are women"
             note="Women's share of the population is 100% minus the published 47.9% men."
+            howToRead="For women and for men, grey is their share of the population and blue their share of VUP beneficiaries."
             source={SOCIAL_PROTECTION_SOURCE}
           >
             <ComparisonBars
@@ -551,8 +595,10 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
           </ChartCard>
           <ChartCard
             className="lg:col-span-2 xl:col-span-1"
+            id="chart-vup-programmes"
             title="Nutrition sensitive Direct Support is the largest VUP programme"
             note="Other programmes is 100% minus the three published shares."
+            howToRead="The ring splits VUP beneficiaries by programme; the number in the middle is the share in nutrition sensitive Direct Support (NSDS)."
             source={SOCIAL_PROTECTION_SOURCE}
           >
             <ShareDonut

@@ -8,6 +8,7 @@ import { PovertyProvinceChart, PovertyTrendChart } from "@/components/charts/rec
 import { TargetTracker } from "@/components/charts/target-tracker";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { HowToRead } from "@/components/ui/chart-card";
 import { PageHero, SectionHeader } from "@/components/ui/section";
 import { StatTile } from "@/components/ui/stat-tile";
 import { RESILIENCE_FACTS, TARGETS } from "@/lib/national";
@@ -81,13 +82,17 @@ export default function DashboardPage() {
         <h2 id="inclusion-heading" className="sr-only">
           Financial inclusion
         </h2>
-        <Card>
+        <Card id="chart-dashboard-access" className="scroll-mt-28">
           <CardHeader>
             <CardTitle>Access has deepened, but banking has not</CardTitle>
             <CardDescription>
               Each adult is counted once, by the most formal service they use. Mobile money and SACCOs drove the shift out of
               informal only use; the banked share stayed at 22%.
             </CardDescription>
+            <HowToRead className="mt-2">
+              Each bar is all adults in one year, split by the most formal service they use. Compare the slices between 2020 and
+              2024: the cyan slice, informal only, shrank.
+            </HowToRead>
           </CardHeader>
           <CardContent>
             <AccessStrandChart />
@@ -96,12 +101,16 @@ export default function DashboardPage() {
             </Source>
           </CardContent>
         </Card>
-        <Card>
+        <Card id="chart-dashboard-health" className="scroll-mt-28">
           <CardHeader>
             <CardTitle>Included, but not yet financially healthy</CardTitle>
             <CardDescription>
               Only one adult in ten is financially healthy. The Roadmap aims to cut the vulnerable share from 31% to 10% by 2030.
             </CardDescription>
+            <HowToRead className="mt-2">
+              For each group, one bar is the share of adults in 2024 and the other the 2030 target. Where the target bar is
+              longer, the group should grow; where it is shorter, the group should shrink.
+            </HowToRead>
           </CardHeader>
           <CardContent>
             <FinancialHealthChart />
@@ -148,22 +157,26 @@ export default function DashboardPage() {
             intro="Measured on the same EICV7 method, poverty fell by 12 points in seven years. The Western and Southern provinces remain far above the national rate."
           />
         </div>
-        <Card>
+        <Card id="chart-dashboard-poverty-trend" className="scroll-mt-28">
           <CardHeader>
             <CardTitle>National poverty, 2016/17 and 2023/24</CardTitle>
             <CardDescription>
               2016/17 is NISR&apos;s estimate recalculated on the EICV7 method, so the two periods compare directly.
             </CardDescription>
+            <HowToRead className="mt-2">
+              Each pair of bars is one survey period: the first bar is poverty, the second extreme poverty. Lower is better.
+            </HowToRead>
           </CardHeader>
           <CardContent>
             <PovertyTrendChart />
             <Source>NISR EICV7 Poverty Profile, 2023/24.</Source>
           </CardContent>
         </Card>
-        <Card>
+        <Card id="chart-dashboard-poverty-province" className="scroll-mt-28">
           <CardHeader>
             <CardTitle>Poverty by province, 2023/24</CardTitle>
             <CardDescription>Share of people below the poverty line.</CardDescription>
+            <HowToRead className="mt-2">Each bar is one province, from the highest poverty rate to the lowest.</HowToRead>
           </CardHeader>
           <CardContent>
             <PovertyProvinceChart />

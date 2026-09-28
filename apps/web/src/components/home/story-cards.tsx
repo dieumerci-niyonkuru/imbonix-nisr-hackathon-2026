@@ -123,28 +123,35 @@ export function MapCard({
 }
 
 /**
- * A full width banner that opens a part of the page, like a photo banner with a centred title: here the "photo" is
- * the outline of Rwanda's 30 districts, drawn faintly behind the text.
+ * The outline of Rwanda's 30 districts, drawn faintly behind the text of a dark band, where a photo banner would put
+ * its photo. Decorative only.
  */
+export function DistrictBackdrop() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 flex items-center justify-center">
+      <svg viewBox={VIEWBOX} className="h-[135%] w-auto max-w-none opacity-30">
+        {SHAPES.map((shape) => (
+          <path
+            key={shape.slug}
+            d={shape.d}
+            fill={BRAND.navy}
+            stroke={BRAND.cyan}
+            strokeOpacity={0.55}
+            strokeWidth={1}
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
+/** A full width banner that opens a part of the page: a centred title and paragraph over the district backdrop. */
 export function StoryBanner({ eyebrow, title, body, id }: { eyebrow: string; title: string; body: string; id: string }) {
   return (
     <section className="relative overflow-hidden bg-navy-950 py-20 text-center text-white sm:py-28" aria-labelledby={id}>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <svg viewBox={VIEWBOX} className="h-[135%] w-auto max-w-none opacity-30">
-          {SHAPES.map((shape) => (
-            <path
-              key={shape.slug}
-              d={shape.d}
-              fill={BRAND.navy}
-              stroke={BRAND.cyan}
-              strokeOpacity={0.55}
-              strokeWidth={1}
-              strokeLinejoin="round"
-              vectorEffect="non-scaling-stroke"
-            />
-          ))}
-        </svg>
-      </div>
+      <DistrictBackdrop />
       <div className="container-page relative">
         <p className="eyebrow text-cyan">{eyebrow}</p>
         <h2
