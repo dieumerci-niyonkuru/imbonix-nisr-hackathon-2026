@@ -22,6 +22,8 @@ and versions follow [Semantic Versioning](https://semver.org/).
   out from the data) and a link to the area at a glance; beside it, the pages that go deeper, each with one line on
   what it holds. Inside an open menu the arrow keys move between links, and Home and End jump to the ends. The
   panels fit the screen from 1280px wide.
+- In the menus, the page you are on is solid navy with a cyan bar and "You are here" in cyan, like the chosen top
+  menu; other pages tint light on hover or keyboard focus, with a cyan bar and blue text. The phone menu matches.
 
 ### District intelligence and a decision focus
 
