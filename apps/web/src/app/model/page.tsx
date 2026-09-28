@@ -10,7 +10,7 @@ import { FEATURES, METHOD_STEPS, MODEL_QUESTION, MODEL_STATUS, MODEL_TARGET, WIL
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const metadata: Metadata = {
-  title: "Explainable model",
+  title: "Who is most at risk",
   description:
     "The planned explainable model of financial vulnerability: design, features, evaluation and fairness checks. Results pending FinScope 2024 microdata.",
 };
@@ -42,7 +42,7 @@ export default function ModelPage() {
   return (
     <>
       <PageHero
-        eyebrow="Explainable model"
+        eyebrow="Who is most at risk"
         title="What is associated with financial vulnerability?"
         intro="IMBONIX's model will explain, not just predict: which household and place characteristics go with being financially vulnerable, and how that differs for rural women. This page sets out the design. Results will appear here only after the model is trained on NISR microdata and checked against published figures."
       >
@@ -70,8 +70,8 @@ export default function ModelPage() {
           </CardHeader>
           <CardContent>
             <p className="text-[14px] leading-6 text-muted">
-              Answering it district by district and group by group shows which barriers matter most where, which feeds the
-              intervention priorities.
+              Answering it district by district and group by group shows which barriers matter most where, which helps decide
+              where to act first.
             </p>
           </CardContent>
         </Card>
@@ -175,19 +175,19 @@ export default function ModelPage() {
         <div className="space-y-4">
           <SectionHeader eyebrow="In the meantime" title="What you can already explore" />
           <Callout title="Associations across districts">
-            The{" "}
+            The page{" "}
             <Link href="/vulnerability" className="link">
-              vulnerability analysis
+              Where needs overlap
             </Link>{" "}
             shows which published indicators move together across districts. It describes places, not households, but it previews
             the patterns the model will test at household level.
           </Callout>
           <Callout title="Transparent priority rules">
-            The{" "}
+            The page{" "}
             <Link href="/priorities" className="link">
-              intervention priorities
+              Where to act first
             </Link>{" "}
-            use stated rules on published data: explainable by design, with no model required.
+            uses stated rules on published data: explainable by design, with no model required.
           </Callout>
           <Callout title="Model card">
             When the model is trained, a model card (data, performance, fairness and limits) will be published with it, following
