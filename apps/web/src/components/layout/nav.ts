@@ -1,21 +1,3 @@
-import type { ComponentType, SVGProps } from "react";
-import {
-  AdjustmentsHorizontalIcon,
-  ArrowTrendingDownIcon,
-  BanknotesIcon,
-  BookOpenIcon,
-  ChartPieIcon,
-  CpuChipIcon,
-  DevicePhoneMobileIcon,
-  FlagIcon,
-  HomeIcon,
-  MapIcon,
-  MapPinIcon,
-  ScaleIcon,
-  ShieldCheckIcon,
-  Squares2X2Icon,
-} from "@heroicons/react/24/outline";
-
 /**
  * The three focus areas: financial exclusion, poverty dynamics and the impact of social protection. They are the homepage tabs (which follow the URL hash, for example /#poverty) and the header menus.
  */
@@ -92,21 +74,6 @@ export const NAV: NavItem[] = [
   ...NAV_LINKS,
 ];
 
-/** One icon per page, shared by the menus, the search and the homepage tool grid. */
-export const NAV_ICONS: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
-  "/": HomeIcon,
-  "/dashboard": ChartPieIcon,
-  "/map": MapIcon,
-  "/districts": MapPinIcon,
-  "/vulnerability": Squares2X2Icon,
-  "/access-vs-use": DevicePhoneMobileIcon,
-  "/social-protection": BanknotesIcon,
-  "/priorities": FlagIcon,
-  "/scenarios": AdjustmentsHorizontalIcon,
-  "/model": CpuChipIcon,
-  "/data": BookOpenIcon,
-};
-
 export const NISR_CATALOG_URL = "https://microdata.statistics.gov.rw/index.php/catalog";
 
 /** The surveys and censuses behind the figures, each with its study number in the NISR microdata catalog. */
@@ -119,13 +86,6 @@ export const SOURCE_STUDIES = [
   { label: "LFS 2025", studyId: 125 },
   { label: "Establishment Census 2023", studyId: 112 },
 ];
-
-/** One icon per homepage focus area, shared by the header menu and the search. */
-export const FOCUS_AREA_ICONS: Record<FocusAreaId, ComponentType<SVGProps<SVGSVGElement>>> = {
-  exclusion: ScaleIcon,
-  poverty: ArrowTrendingDownIcon,
-  protection: ShieldCheckIcon,
-};
 
 export const REPOSITORY_URL = "https://github.com/dieumerci-niyonkuru/imbonix-nisr-hackathon-2026";
 
