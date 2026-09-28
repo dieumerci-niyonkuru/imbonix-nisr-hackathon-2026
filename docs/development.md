@@ -123,4 +123,4 @@ colour or uses a Tailwind default colour family instead.
 | `Port 3000 is in use` | Another dev server is still running. On Windows a stopped terminal can leave `node.exe` behind: find it with `Get-NetTCPConnection -LocalPort 3000` and stop that process |
 | Prettier reports every file changed on Windows | Line endings: the repository uses LF (`.gitattributes`). Run `git add --renormalize .` |
 | TypeScript errors about missing `.next/types` | Run `npm run typecheck`, which generates the route types first |
-| `build_web_data.py` cannot download boundaries | It fetches geoBoundaries from github.com on first run. If HTTPS to GitHub is blocked, copy the two files into `data/raw/geo/` by other means |
+| `build_web_data.py` cannot download boundaries | It fetches geoBoundaries from github.com on first run. If HTTPS to GitHub is blocked, copy the two files into `data/raw/geo/` by other means (`build_place_index.py` also needs the ADM4 cell and ADM5 village files) |
