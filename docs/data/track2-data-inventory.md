@@ -145,6 +145,7 @@ Documentation in the catalog: questionnaire (29 June 2025 version), full report,
 | --- | --- | --- |
 | HDX Rwanda subnational boundaries (from NISR): https://data.humdata.org/dataset/cod-ab-rwa | Province, district and sector polygons (cell level incomplete) for maps | Verified listing |
 | geoBoundaries RWA (gbOpen, from NISR open geodata, CC BY 4.0) | District (30) and sector (416) outlines, 2012 units | **Used by the website** (`scripts/data/build_web_data.py`); all 416 sectors matched to census names |
+| geoBoundaries RWA ADM4 and ADM5 (gbOpen; cells from Open Data Rwanda, villages from the World Bank; CC BY 4.0) | Cell (2,148) and village (14,815) names and outlines, 2012 units | **Used by the site search** (`scripts/data/build_place_index.py`): each cell placed in its sector and each village in its cell by the outlines; names only, no statistics |
 | Meta Relative Wealth Index: https://data.humdata.org/dataset/relative-wealth-index | 2.4 km wealth estimates; covariate for small-area work; cite Chi et al. 2022 (PNAS) | Verified listing |
 | NBR Financial Inclusion Dashboard | Weekly supply-side active accounts by gender, age and location | Launched 2025 and reported as public. Check the URL and whether data can be exported |
 | CHIRPS rainfall (UCSB Climate Hazards Center) | Rainfall anomalies for Shock Watch | To verify |
