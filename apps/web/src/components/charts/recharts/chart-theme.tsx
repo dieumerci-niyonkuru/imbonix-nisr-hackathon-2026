@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { Text } from "recharts";
 import { LINE, MUTED } from "@/lib/palette";
 
-/** Shared Recharts styling: hairline solid grid, muted axis text, navy tooltip (see the dataviz rules in README). */
+/** Shared Recharts styling: hairline solid grid, muted axis text, white tooltip (see the dataviz rules in README). */
 export const AXIS = {
   tick: { fill: MUTED, fontSize: 11.5, fontFamily: "Manrope Variable, sans-serif" },
   axisLine: { stroke: LINE },
@@ -43,12 +43,12 @@ export function ChartTooltip({
 }) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="min-w-44 rounded-xl bg-navy-900 px-3.5 py-3 text-white shadow-lift">
+    <div className="min-w-44 rounded-xl bg-white px-3.5 py-3 text-ink shadow-lift ring-1 ring-line">
       <p className="text-[12px] font-bold">{title ? title(label) : label}</p>
       <ul className="mt-1.5 space-y-1">
         {payload.map((p) => (
           <li key={String(p.dataKey ?? p.name)} className="flex items-center justify-between gap-4 text-[12px]">
-            <span className="flex items-center gap-1.5 text-white/75">
+            <span className="flex items-center gap-1.5 text-muted">
               <span className="h-2.5 w-2.5 rounded-sm" style={{ background: p.color }} />
               {p.name}
             </span>

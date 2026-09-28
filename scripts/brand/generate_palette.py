@@ -1,13 +1,13 @@
-"""Generate the IMBONIX colour ramps from the two brand colours (apps/web/src/lib/palette.ts).
+"""Generate the IMBONIX colours from the brand cyan (apps/web/src/lib/palette.ts).
 
     python scripts/brand/generate_palette.py
 
-The website uses two brand colours only: deep navy #022657 (main) and bright cyan #02A5DC (the accent). Every
-other colour is a lighter or darker step of one of them, plus a neutral blue grey for missing data and baselines.
+The website uses two colours only: bright cyan #02A5DC and white. Text is a neutral near black so it can be read,
+data scales are steps of the cyan, and a neutral grey marks missing data, baselines and anything that recedes.
 
 Each ramp keeps one brand hue and steps evenly in OKLCH lightness from 0.775 to 0.32, reducing chroma only where a
 colour falls outside sRGB. The script prints each brand colour in OKLCH, each ramp, the contrast of its lightest step
-against white, the weakest label contrast (navy or white text, whichever is better) and the text shades used on
+against white, the weakest label contrast (near black or white text, whichever is better) and the text shades used on
 light backgrounds. Standard library only.
 """
 import json
@@ -79,49 +79,50 @@ def contrast(first, second):
     return (lighter + 0.05) / (darker + 0.05)
 
 
-BRAND = {"navy": "#022657", "cyan": "#02A5DC"}
-WHITE, PAPER, MIST = "#FFFFFF", "#F4F7FB", "#EEF3F9"
-for name, value in BRAND.items():
-    lightness, chroma, hue = to_oklch(value)
-    print(f"brand {name:5} {value}  OKLCH L={lightness:.3f} C={chroma:.3f} H={hue:.1f}  on white {contrast(value, WHITE):.2f}")
+BRAND = {"cyan": "#02A5DC"}
+WHITE = "#FFFFFF"
+CYAN_HUE = to_oklch(BRAND["cyan"])[2]
+lightness, chroma, hue = to_oklch(BRAND["cyan"])
+print(f"brand cyan  {BRAND['cyan']}  OKLCH L={lightness:.3f} C={chroma:.3f} H={hue:.1f}  on white {contrast(BRAND['cyan'], WHITE):.2f}")
 
-HUES = {name: to_oklch(value)[2] for name, value in BRAND.items()}
 STEPS = [0.775, 0.665, 0.555, 0.44, 0.32]
 # The cyan hue is lighter at the same lightness, so its first step starts a little darker to clear white at 2:1.
 FIRST_STEP = {"cyan": 0.77}
 RAMP_CHROMA = {
-    "navy": [0.05, 0.08, 0.10, 0.11, 0.10],
     "cyan": [0.08, 0.12, 0.12, 0.10, 0.08],
-    # A neutral blue grey on the navy hue, for counts, baselines and anything that should recede.
-    "steel": [0.02, 0.03, 0.04, 0.045, 0.045],
+    # A neutral grey, with the faintest cool cast, for counts, baselines and anything that should recede.
+    "grey": [0.006, 0.007, 0.008, 0.008, 0.008],
 }
 ramps = {}
 for name, chromas in RAMP_CHROMA.items():
-    hue = HUES["navy" if name == "steel" else name]
     steps = [FIRST_STEP.get(name, STEPS[0])] + STEPS[1:]
-    ramp = [oklch(lightness, chroma, hue) for lightness, chroma in zip(steps, chromas)]
+    ramp = [oklch(step, step_chroma, CYAN_HUE) for step, step_chroma in zip(steps, chromas)]
     ramps[name] = ramp
-    labels = [max(contrast(step, BRAND["navy"]), contrast(step, WHITE)) for step in ramp]
+    labels = [max(contrast(step, "#1B1E20"), contrast(step, WHITE)) for step in ramp]
     print(f"{name:5} {ramp}  light end on white {contrast(ramp[0], WHITE):.2f}  weakest label {min(labels):.2f}")
 
-# Shades for the interface: cyan text on light backgrounds, pale surfaces, a hover step, and navy surface steps.
+# Text and surfaces. Text is a neutral near black, the only dark colour on the site; surfaces are white and pale
+# cyan tints of the brand hue.
 tokens = {
-    "cyanSoft": oklch(0.96, 0.025, HUES["cyan"]),
-    "cyanHover": oklch(0.74, 0.13, HUES["cyan"]),
-    "navyDeep": oklch(0.20, 0.08, HUES["navy"]),
-    "navy800": oklch(0.33, 0.10, HUES["navy"]),
-    "navy700": oklch(0.39, 0.11, HUES["navy"]),
-    "navy600": oklch(0.45, 0.12, HUES["navy"]),
+    "ink": oklch(0.235, 0.008, CYAN_HUE),
+    "muted": oklch(0.50, 0.012, CYAN_HUE),
+    "line": oklch(0.925, 0.008, CYAN_HUE),
+    "paper": oklch(0.975, 0.010, CYAN_HUE),
+    "noData": oklch(0.94, 0.006, CYAN_HUE),
+    "mist": oklch(0.955, 0.018, CYAN_HUE),
+    "mistStrong": oklch(0.925, 0.028, CYAN_HUE),
+    "cyanSoft": oklch(0.96, 0.025, CYAN_HUE),
+    "cyanHover": oklch(0.74, 0.13, CYAN_HUE),
 }
-# Cyan for links and small text: the lightest step of the cyan hue that keeps 4.6:1 on white, paper, mist and the
-# pale cyan surface, so it stays as bright as it can while every text use passes WCAG AA.
-surfaces = [WHITE, PAPER, MIST, tokens["cyanSoft"]]
+# Cyan for links and small text: the lightest step of the cyan hue that keeps 4.6:1 on white and on every pale
+# surface, so it stays as bright as it can while every text use passes WCAG AA.
+surfaces = [WHITE, tokens["paper"], tokens["mist"], tokens["cyanSoft"]]
 tokens["cyanInk"] = next(
     shade
-    for shade in (oklch(step / 1000, 0.12, HUES["cyan"]) for step in range(700, 300, -5))
+    for shade in (oklch(step / 1000, 0.12, CYAN_HUE) for step in range(700, 300, -5))
     if min(contrast(shade, surface) for surface in surfaces) >= 4.6
 )
 for name, value in tokens.items():
-    print(f"token {name:9} {value}  on white {contrast(value, WHITE):.2f}  on paper {contrast(value, PAPER):.2f}")
-print(f"navy text on cyan {contrast(BRAND['navy'], BRAND['cyan']):.2f}  cyan on navy {contrast(BRAND['cyan'], BRAND['navy']):.2f}")
+    print(f"token {name:10} {value}  on white {contrast(value, WHITE):.2f}  on paper {contrast(value, tokens['paper']):.2f}")
+print(f"ink on cyan {contrast(tokens['ink'], BRAND['cyan']):.2f}  muted on paper {contrast(tokens['muted'], tokens['paper']):.2f}")
 print(json.dumps({"ramps": ramps, "tokens": tokens}, indent=1))
