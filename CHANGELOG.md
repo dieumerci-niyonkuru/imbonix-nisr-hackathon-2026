@@ -5,6 +5,14 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Search in the top bar
+
+- The cyan top bar now holds only the site search, as a white field in its right corner (full width on phones),
+  with the keyboard shortcut shown. The project links and coverage counts that were there are in the footer, the
+  phone menu and the homepage figures.
+- The header no longer has its own search box. Once the bar scrolls out of view, a round search button appears in
+  the sticky header, so search stays one click away anywhere on the page.
+
 ### Cyan and white only
 
 - The site now uses two colours: bright cyan #02A5DC and white. Navy is gone. Text is a neutral near black so it
