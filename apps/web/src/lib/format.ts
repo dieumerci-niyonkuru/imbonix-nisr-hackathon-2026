@@ -38,3 +38,14 @@ export const STATUS_LABEL: Record<string, string> = {
   scenario: "Scenario",
   target: "Policy target",
 };
+
+/** A screen reader summary of 100% bars: each category with its shares. */
+export function describeShares(
+  rows: Record<string, string | number>[],
+  categoryKey: string,
+  series: { key: string; label: string }[],
+) {
+  return rows
+    .map((row) => `${row[categoryKey]}: ${series.map((segment) => `${segment.label} ${row[segment.key]}%`).join(", ")}`)
+    .join("; ");
+}

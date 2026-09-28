@@ -5,6 +5,22 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Find any place, down to the village, and clearer charts
+
+- A place finder on the homepage and the districts page searches all 30 districts, 416 sectors, 2,148 cells and
+  14,815 villages in one box. Many names repeat across the country, so each result shows the cell, sector and
+  district it lies in. Site search results for places now open the district page at its sectors.
+- On a district page a sector can be selected from a search, the map or the table. The selection shows the
+  sector's published poverty figures, its rank among the district's sectors and its cells and villages, with the
+  searched cell open and the village marked. NISR publishes poverty estimates down to the sector, so a cell or
+  village is shown with its sector's figures and the page says so.
+- Parts of a whole are shown as bars instead of rings (financial health, electricity, settlement and VUP
+  programmes): a strip for the whole, then one labelled bar per part. Stacked bars have a table of every value
+  under them, so no slice depends on being wide enough for a label, and a white gap between slices.
+- Bar charts use a zero based scale that fits the data instead of always running to 100%. The province chart
+  uses navy and cyan, which were validated as distinguishable; the two blues it used before were not. The
+  dashboard uses the same access strand chart as the focus page.
+
 ### Unused code removed
 
 - Removed code nothing on the site used: an unused animation library (framer-motion), a logo variant for dark
