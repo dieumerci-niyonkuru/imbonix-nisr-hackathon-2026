@@ -2,30 +2,14 @@
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  useEffect,
-  useId,
-  useMemo,
-  useState,
-  type ComponentType,
-  type KeyboardEvent as ReactKeyboardEvent,
-  type ReactNode,
-  type SVGProps,
-} from "react";
+import { useEffect, useId, useMemo, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import { ArrowDownIcon, ArrowTurnDownLeftIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
-import {
-  ArrowRightIcon,
-  ChartBarIcon,
-  MagnifyingGlassIcon,
-  MapPinIcon,
-  RectangleGroupIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-import { FOCUS_AREA_ICONS, FOCUS_AREAS, NAV, NAV_GROUPS, NAV_ICONS } from "@/components/layout/nav";
+import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { FOCUS_AREAS, NAV, NAV_GROUPS, NAV_LINKS } from "@/components/layout/nav";
 import { cn } from "@/lib/utils";
 
 export type SearchDistrict = { name: string; slug: string; province: string };
-export type SearchMeasure = { id: string; label: string; hint: string; terms: string; accent: string };
+export type SearchMeasure = { id: string; label: string; hint: string; terms: string };
 
 type ResultKind = "page" | "district" | "measure" | "sector";
 type SearchEntry = {
@@ -35,9 +19,8 @@ type SearchEntry = {
   hint: string;
   href: string;
   terms: string;
-  icon?: ComponentType<SVGProps<SVGSVGElement>>;
-  accent?: string;
 };
+type ResultGroup = { title: string; items: SearchEntry[] };
 
 const RESULT_GROUPS: { kind: ResultKind; title: string; limit: number }[] = [
   { kind: "page", title: "Pages", limit: 6 },
@@ -57,6 +40,55 @@ function matchScore(entry: SearchEntry, query: string, words: string[]): number 
   if (label.split(/[\s(/]+/).some((part) => part.startsWith(words[0]))) return 1;
   return label.includes(words[0]) ? 2 : 3;
 }
+
+/**
+ * What the search shows before anything is typed: every page, grouped like the header menus (each focus area opens
+ * with its homepage overview), then the project pages.
+ */
+const JUMP_GROUPS: ResultGroup[] = [
+  ...NAV_GROUPS.map((group) => ({
+    title: group.label,
+    items: [
+      {
+        key: `jump:/#${group.focusId}`,
+        kind: "page" as const,
+        label: "Overview",
+        hint: FOCUS_AREAS.find((area) => area.id === group.focusId)?.hint ?? "",
+        href: `/#${group.focusId}`,
+        terms: "",
+      },
+      ...group.items.map((item) => ({
+        key: `jump:${item.href}`,
+        kind: "page" as const,
+        label: item.label,
+        hint: item.description,
+        href: item.href,
+        terms: "",
+      })),
+    ],
+  })),
+  {
+    title: "Project",
+    items: [
+      {
+        key: "jump:/",
+        kind: "page" as const,
+        label: "Homepage",
+        hint: NAV.find((item) => item.href === "/")?.description ?? "",
+        href: "/",
+        terms: "",
+      },
+      ...NAV_LINKS.map((item) => ({
+        key: `jump:${item.href}`,
+        kind: "page" as const,
+        label: item.label,
+        hint: item.description,
+        href: item.href,
+        terms: "",
+      })),
+    ],
+  },
+];
 
 function isTypingIn(target: EventTarget | null) {
   return target instanceof HTMLElement && (target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName));
@@ -147,7 +179,6 @@ export function SiteSearch({
         hint: item.description,
         href: item.href,
         terms: foldText(`${item.description} ${groupLabelByHref[item.href] ?? ""}`),
-        icon: NAV_ICONS[item.href],
       })),
       ...FOCUS_AREAS.map((area) => ({
         key: `page:/#${area.id}`,
@@ -156,7 +187,6 @@ export function SiteSearch({
         hint: `Homepage focus area · ${area.hint}`,
         href: `/#${area.id}`,
         terms: foldText(`${area.hint} focus area homepage`),
-        icon: FOCUS_AREA_ICONS[area.id],
       })),
       ...districts.map((district) => ({
         key: `district:${district.slug}`,
@@ -173,20 +203,16 @@ export function SiteSearch({
         hint: measure.hint,
         href: `/map?layer=${measure.id}`,
         terms: foldText(measure.terms),
-        accent: measure.accent,
       })),
       ...(sectors ?? []),
     ];
   }, [districts, measures, sectors]);
 
   const trimmedQuery = foldText(query.trim());
-  const resultGroups = useMemo(() => {
-    if (!trimmedQuery) {
-      return [{ kind: "page" as ResultKind, title: "Jump to", items: entries.filter((entry) => entry.kind === "page") }];
-    }
+  const resultGroups = useMemo<ResultGroup[]>(() => {
+    if (!trimmedQuery) return JUMP_GROUPS;
     const words = trimmedQuery.split(/\s+/);
     return RESULT_GROUPS.map(({ kind, title, limit }) => ({
-      kind,
       title,
       items: entries
         .filter((entry) => entry.kind === kind)
@@ -238,7 +264,7 @@ export function SiteSearch({
         <DialogPrimitive.Overlay className="fixed inset-0 z-[60] bg-navy-950/60 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
         <DialogPrimitive.Content
           aria-describedby={undefined}
-          className="fixed inset-x-0 top-[7vh] z-[60] mx-auto flex max-h-[min(640px,84vh)] w-[calc(100%-2rem)] max-w-[680px] flex-col overflow-hidden rounded-3xl bg-white shadow-lift ring-1 ring-line duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2"
+          className="fixed inset-x-0 top-[7vh] z-[60] mx-auto flex max-h-[min(720px,86vh)] w-[calc(100%-2rem)] max-w-[680px] flex-col overflow-hidden rounded-3xl bg-white shadow-lift ring-1 ring-line duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2"
         >
           <DialogPrimitive.Title className="sr-only">Search IMBONIX</DialogPrimitive.Title>
           <div className="flex items-center gap-3 border-b border-line px-5">
@@ -266,12 +292,31 @@ export function SiteSearch({
             </DialogPrimitive.Close>
           </div>
 
-          <div className="min-h-0 flex-1 overflow-y-auto p-2">
+          {/* Focusable, so the list can be scrolled from the keyboard when it is taller than the dialog. */}
+          <div
+            role="region"
+            aria-label="Search results"
+            tabIndex={0}
+            className="min-h-0 flex-1 overflow-y-auto p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-royal"
+          >
+            {!trimmedQuery && (
+              <p className="px-3 pb-1 pt-3 text-[13px] font-semibold text-muted">
+                Jump to a page, or type to search districts, sectors and measures.
+              </p>
+            )}
             {flatResults.length ? (
-              <div role="listbox" id={listId} aria-label="Results">
-                {resultGroups.map((group) => (
-                  <div key={group.title} role="group" aria-labelledby={`${listId}-${group.kind}`} className="pb-1">
-                    <p id={`${listId}-${group.kind}`} className="eyebrow px-3 pb-1.5 pt-3 text-muted">
+              <div
+                role="listbox"
+                id={listId}
+                aria-label={trimmedQuery ? "Results" : "Jump to a page"}
+                className={cn(!trimmedQuery && "grid gap-x-2 sm:grid-cols-2")}
+              >
+                {resultGroups.map((group, groupIndex) => (
+                  <div key={group.title} role="group" aria-labelledby={`${listId}-group-${groupIndex}`} className="pb-2">
+                    <p
+                      id={`${listId}-group-${groupIndex}`}
+                      className="eyebrow mx-3 mb-1 mt-3 border-b border-line pb-2 text-royal"
+                    >
                       {group.title}
                     </p>
                     {group.items.map((entry) => {
@@ -287,21 +332,29 @@ export function SiteSearch({
                           onMouseMove={() => setActiveIndex(entryIndex)}
                           onClick={() => openResult(entry)}
                           className={cn(
-                            "flex cursor-pointer items-center gap-3 rounded-2xl px-3 py-2.5 transition-colors",
-                            selected ? "bg-mist" : "bg-transparent",
+                            "cursor-pointer rounded-r-lg border-l-[3px] px-3 py-2 transition-colors",
+                            selected ? "border-cyan bg-cyan-soft" : "border-transparent",
                           )}
                         >
-                          <ResultIcon entry={entry} selected={selected} />
-                          <span className="min-w-0 flex-1">
-                            <span className="block truncate text-[14.5px] font-semibold text-ink">
+                          <span className="flex items-baseline justify-between gap-3">
+                            <span className="truncate text-[14.5px] font-bold text-ink">
                               <HighlightedLabel text={entry.label} query={trimmedQuery} />
                             </span>
-                            <span className="block truncate text-[12.5px] text-muted">{entry.hint}</span>
+                            <span
+                              className={cn(
+                                "shrink-0 text-[11px] font-bold uppercase tracking-[0.1em]",
+                                selected ? "text-royal" : "text-transparent",
+                              )}
+                              aria-hidden="true"
+                            >
+                              Open
+                            </span>
                           </span>
-                          <ArrowTurnDownLeftIcon
-                            className={cn("h-4 w-4 shrink-0", selected ? "text-royal" : "text-transparent")}
-                            aria-hidden="true"
-                          />
+                          <span
+                            className={cn("block text-[12.5px] leading-5 text-muted", trimmedQuery ? "truncate" : "line-clamp-2")}
+                          >
+                            {entry.hint}
+                          </span>
                         </div>
                       );
                     })}
@@ -347,24 +400,6 @@ export function SiteSearch({
         </DialogPrimitive.Content>
       </DialogPrimitive.Portal>
     </DialogPrimitive.Root>
-  );
-}
-
-function ResultIcon({ entry, selected }: { entry: SearchEntry; selected: boolean }) {
-  const tileStyle = "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors";
-  if (entry.kind === "measure") {
-    return (
-      <span className={cn(tileStyle, "bg-white ring-1 ring-line")} aria-hidden="true">
-        <ChartBarIcon className="h-5 w-5" style={{ color: entry.accent }} />
-      </span>
-    );
-  }
-  const Icon: ComponentType<SVGProps<SVGSVGElement>> =
-    entry.kind === "page" ? (entry.icon ?? ArrowRightIcon) : entry.kind === "district" ? MapPinIcon : RectangleGroupIcon;
-  return (
-    <span className={cn(tileStyle, selected ? "bg-royal text-white" : "bg-white text-royal ring-1 ring-line")} aria-hidden="true">
-      <Icon className="h-5 w-5" />
-    </span>
   );
 }
 

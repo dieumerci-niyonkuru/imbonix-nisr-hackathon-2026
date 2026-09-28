@@ -22,6 +22,26 @@ and versions follow [Semantic Versioning](https://semver.org/).
   in the interface. The opening reads "Financial inclusion and poverty reduction in Rwanda", the homepage speaks of
   the problem IMBONIX addresses and its three focus areas, and the independence notes keep saying it is not an
   official NISR product. The project documents keep the hackathon context.
+- The bar above the header is now a deep navy band with a cyan rule: "Independent evidence platform", the coverage
+  counted from the data (30 districts, 416 sectors, 64 indicators, 13 publications, from 1280px wide) and the three
+  project links in white, turning cyan on hover.
+- The footer follows a university footer on deep navy: four centred link columns with large bold headings and no
+  dividers, then a bottom row with the copyright on the left, the stacked logo straight on the dark background in the
+  middle (the white wordmark and tagline over the full colour emblem, like a crest) and icon links on the right
+  (source code, NISR microdata catalog, report a data issue, back to top). The credits line left the footer: data
+  sources are cited beside every chart, the map shows its own credits, and the methods page lists them all, with the
+  background map now included, and states the version. The floating scroll buttons fade away over the footer.
+- On the resilience map, the district panel no longer slides over the district ranking while it stays in view: the
+  ranking sits in the left column beside the panel instead of running under it.
+- The homepage cards follow a university site. The three parts of the problem are tall image cards whose picture is
+  a district map of a related measure on navy (brighter is higher, with a caption saying what it shows), with the
+  finding as a large white title, its source and a circled arrow link. A full width banner over a faint outline of
+  the districts opens "Who it serves", followed by text cards for households, policymakers and civil society, and
+  the four steps of "How it works" are text cards too, each with a page to go deeper. The whole card is the link.
+- Search shows no icons. Before anything is typed, "Jump to" lists every page grouped like the header menus
+  (financial exclusion, poverty dynamics, social protection, each opening with its homepage overview, then the
+  project pages) in two columns on wider screens. Results are plain text rows; the highlighted one has a cyan bar
+  and an "Open" label, and the list can be scrolled from the keyboard.
 - The site uses three brand colours only, on white and light neutral backgrounds: deep navy #022657 (main), bright
   cyan #02A5DC (buttons, active navigation, highlights) and medium blue #0461B1 (links, secondary elements, data).
   Gold and every other colour were removed from the interface and the charts; ramps are steps of the three colours

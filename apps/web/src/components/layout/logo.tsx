@@ -17,6 +17,27 @@ const COMPACT = {
 } as const;
 
 /**
+ * The stacked logo for the footer, set like a university crest straight on the dark background: the wordmark and
+ * tagline drawn for dark backgrounds (white letters, the brand cyan kept in the needle and the X) over the full
+ * colour emblem.
+ */
+export function StackedBrandLogo({ className }: { className?: string }) {
+  return (
+    <span className={cn("inline-flex flex-col items-center", className)}>
+      <img src="/brand/imbonix-wordmark-on-dark.svg" alt="IMBONIX" width={Math.round(44 * WORDMARK_RATIO)} height={44} />
+      <img
+        src="/brand/imbonix-tagline-on-dark.svg"
+        alt="Data for Inclusive Prosperity"
+        width={Math.round(13 * TAGLINE_RATIO)}
+        height={13}
+        className="mt-3"
+      />
+      <img src="/brand/imbonix-emblem.svg" alt="" width={92} height={92} className="mt-6" />
+    </span>
+  );
+}
+
+/**
  * The IMBONIX logo: the vector emblem beside the wordmark and tagline, all drawn from the logo's own colours.
  *
  * `onDark` uses the navy-background files: the emblem on a white disc and the white wordmark and tagline. Below
