@@ -3,20 +3,13 @@ import { DISTRICTS, PROVINCE_LABEL, SOURCES } from "@/lib/data";
 import { CHART_INDEX } from "@/lib/chart-index";
 import { DIMENSIONS, INDICATORS } from "@/lib/indicators";
 import { LEVERS } from "@/lib/priorities";
-import { SITE_FACTS } from "@/lib/site-facts";
 
 /**
- * The site header. The coverage figures and the search lists (districts, indicators, charts and policy levers) are
- * worked out here on the server, so the browser only receives the small lists it needs.
+ * The site header. The search lists (districts, indicators, charts and policy levers) are worked out here on the
+ * server, so the browser only receives the small lists it needs.
  */
 export function SiteHeader() {
   const data: HeaderData = {
-    coverage: [
-      { value: SITE_FACTS.districts, label: "districts" },
-      { value: SITE_FACTS.sectors, label: "sectors" },
-      { value: SITE_FACTS.indicators, label: "indicators" },
-      { value: SITE_FACTS.publications, label: "publications" },
-    ],
     search: {
       districts: DISTRICTS.map((district) => ({
         name: district.name,
