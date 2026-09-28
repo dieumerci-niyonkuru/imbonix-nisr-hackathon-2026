@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { ArrowLeftIcon, ArrowRightIcon, ExclamationTriangleIcon, MapIcon } from "@heroicons/react/24/outline";
 import { StackedBar } from "@/components/charts/stacked-bar";
 import { DistrictIntelligence, PriorityBadge } from "@/components/district/district-intelligence";
 import { IndicatorRow } from "@/components/district/indicator-row";
-import { SectorExplorer } from "@/components/district/sector-explorer";
+import { LinkedSectorExplorer, SectorExplorer } from "@/components/district/sector-explorer";
 import { RwandaMap } from "@/components/map/rwanda-map";
 import { SourceLine } from "@/components/ui/source-line";
 import { DISTRICTS, districtBySlug, PROVINCE_LABEL, type District } from "@/lib/data";
@@ -101,17 +102,18 @@ export default async function DistrictPage({ params }: Params) {
   const index = DISTRICTS.findIndex((d) => d.slug === district.slug);
   const previous = DISTRICTS[(index - 1 + DISTRICTS.length) % DISTRICTS.length];
   const next = DISTRICTS[(index + 1) % DISTRICTS.length];
+  const sectors = sectorsOf(district.name);
   const locator = Object.fromEntries(
     DISTRICTS.map((d) => [
       d.slug,
-      d.slug === district.slug ? BRAND.blue : d.province === district.province ? RAMPS.blue[0] : NO_DATA,
+      d.slug === district.slug ? BRAND.navy : d.province === district.province ? RAMPS.navy[0] : NO_DATA,
     ]),
   );
   const v = (id: string) => district.values[id]?.v;
   const facts = [
     { label: "Population, 2022", value: formatValue(meta("census_population"), v("census_population")) },
     { label: "Adults 16+, 2024", value: formatValue(meta("proj_adults_16plus_2024"), v("proj_adults_16plus_2024")) },
-    { label: "Sectors", value: String(sectorsOf(district.name).length) },
+    { label: "Sectors", value: String(sectors.length) },
     { label: "Households headed by women", value: formatValue(meta("census_female_headed_hh"), v("census_female_headed_hh")) },
   ];
 
@@ -126,7 +128,7 @@ export default async function DistrictPage({ params }: Params) {
               <PriorityBadge priority={priorityFor(district)} />
               <Link
                 href={`/map?district=${district.slug}`}
-                className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-royal hover:underline"
+                className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-cyan-ink hover:underline"
               >
                 <MapIcon className="h-4 w-4" /> See it on the district map
               </Link>
@@ -154,7 +156,7 @@ export default async function DistrictPage({ params }: Params) {
       {/* Detailed sections */}
       <section className="container-page space-y-6 py-12" aria-labelledby="evidence-heading">
         <div className="max-w-3xl">
-          <p className="eyebrow text-royal">The evidence in detail</p>
+          <p className="eyebrow text-cyan-ink">The evidence in detail</p>
           <h2 id="evidence-heading" className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-ink">
             Every published indicator for {district.name}
           </h2>
@@ -188,19 +190,23 @@ export default async function DistrictPage({ params }: Params) {
       </section>
 
       {/* Sectors */}
-      <section className="border-y border-line bg-white py-12 sm:py-14">
+      <section id="sectors" className="scroll-mt-28 border-y border-line bg-white py-12 sm:py-14">
         <div className="container-page">
           <p className="eyebrow text-dim-poverty">Inside the district</p>
           <h2 className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-ink">{district.name}&apos;s sectors</h2>
           <p className="mt-3 max-w-3xl text-[15px] leading-7 text-muted">
-            A district average can hide very different sectors. Hover a sector on the map, or sort the table by any column.
+            A district average can hide very different sectors. Select a sector on the map or in the table to see its figures, its
+            rank in the district and its cells and villages, or sort the table by any column.
           </p>
           <HowToRead className="mt-3 max-w-3xl">
             Each shape is one sector of the district. The darker the colour, the higher the value on the chosen measure; colours
             compare sectors within this district only.
           </HowToRead>
           <div className="mt-8">
-            <SectorExplorer district={district.name} sectors={sectorsOf(district.name)} />
+            {/* The static page shows the explorer with nothing selected; a search link then selects its sector. */}
+            <Suspense fallback={<SectorExplorer district={district.name} districtSlug={district.slug} sectors={sectors} />}>
+              <LinkedSectorExplorer district={district.name} districtSlug={district.slug} sectors={sectors} />
+            </Suspense>
           </div>
         </div>
       </section>

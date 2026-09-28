@@ -4,16 +4,16 @@ import { forwardRef, type ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 export const buttonVariants = cva(
-  "inline-flex max-w-full items-center justify-center gap-2 text-center rounded-full font-bold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex max-w-full items-center justify-center gap-2 text-center rounded font-bold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-brand-700",
+        default: "bg-primary text-primary-foreground hover:bg-navy-800",
         cyan: "bg-cyan text-navy-900 hover:bg-cyan-hover focus-visible:ring-offset-navy-950",
-        outline: "border border-line bg-white text-ink hover:border-royal hover:text-royal",
+        outline: "border border-line bg-white text-ink hover:border-cyan-ink hover:text-cyan-ink",
         ghost: "text-ink hover:bg-paper",
         onDark: "border border-white/25 text-white hover:border-white hover:bg-white/5 focus-visible:ring-offset-navy-950",
-        link: "rounded-none px-0 text-royal underline-offset-4 hover:underline",
+        link: "rounded-none px-0 text-cyan-ink underline-offset-4 hover:underline",
       },
       size: {
         sm: "min-h-9 px-4 py-1.5 text-[13px]",

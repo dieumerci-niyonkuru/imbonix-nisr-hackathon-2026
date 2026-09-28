@@ -21,7 +21,7 @@ const LOCATION_GROUPS = LOCATIONS.reduce<{ group: string; items: typeof LOCATION
 function Panel({ step, title, children, className }: { step: number; title: string; children: ReactNode; className?: string }) {
   return (
     <section className={cn("flex flex-col rounded-2xl border border-line bg-white p-6 shadow-card", className)}>
-      <p className="flex items-center gap-2.5 text-[13px] font-bold text-royal">
+      <p className="flex items-center gap-2.5 text-[13px] font-bold text-cyan-ink">
         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-navy-900 text-[12px] text-white">{step}</span>
         {title}
       </p>
@@ -127,7 +127,10 @@ export function InterventionExplorer({
               >
                 <span className="tabular text-[12.5px] font-bold text-muted">{index + 1}</span>
                 {row.href ? (
-                  <Link href={row.href} className="truncate text-[14px] font-semibold text-ink hover:text-royal hover:underline">
+                  <Link
+                    href={row.href}
+                    className="truncate text-[14px] font-semibold text-ink hover:text-cyan-ink hover:underline"
+                  >
                     {row.label}
                   </Link>
                 ) : (
@@ -136,7 +139,7 @@ export function InterventionExplorer({
                 <span className="relative h-5 rounded bg-mist">
                   <span
                     className="absolute inset-y-0 left-0 rounded"
-                    style={{ width: `${(row.share / maxShare) * 100}%`, background: row.highlight ? CHART_CYAN : BRAND.blue }}
+                    style={{ width: `${(row.share / maxShare) * 100}%`, background: row.highlight ? CHART_CYAN : BRAND.navy }}
                   />
                 </span>
                 <span className="tabular whitespace-nowrap text-right text-[13px] font-bold text-ink">
@@ -152,7 +155,7 @@ export function InterventionExplorer({
         <Panel step={4} title="What could be considered">
           <ul className="space-y-3">
             {result.options.map((option) => (
-              <li key={option} className="border-l-2 border-royal pl-3 text-[14.5px] leading-6 text-ink">
+              <li key={option} className="border-l-2 border-cyan-ink pl-3 text-[14.5px] leading-6 text-ink">
                 {option}
               </li>
             ))}
@@ -178,7 +181,7 @@ export function InterventionExplorer({
         {districtSlug && (
           <Link
             href={`/districts/${districtSlug}`}
-            className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+            className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
           >
             Open the district intelligence for {result.placeLabel.replace(" district", "")}
             <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
@@ -186,7 +189,7 @@ export function InterventionExplorer({
         )}
         <Link
           href="/priorities"
-          className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+          className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
         >
           See where to act first, district by district
           <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

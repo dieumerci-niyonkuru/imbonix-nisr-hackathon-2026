@@ -5,6 +5,43 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Two colours and a cleaner layout, in the manner of Rwanda's government sites
+
+- The site now uses two brand colours on white: deep navy #022657 and bright cyan #02A5DC. The medium blue is
+  gone from the interface and the charts. Links and small text use a deeper step of the cyan (#01749C, at least
+  4.6:1 on every light surface), buttons are navy, and chart categories use navy, cyan, a light navy and a dark
+  grey, a set that passes the colour vision check for every pair.
+- The homepage follows the layout of gov.rw and visitrwanda.com: a navy banner with four white cards overlapping
+  it (the three focus areas and the planning tool), a cyan band with the challenge, headline figures as plain
+  ruled tiles with their sources, the focus areas as article cards with a district map, the three tests, and a
+  place section that sets the outline of Rwanda beside the count of provinces, districts, sectors, cells and
+  villages, above the place finder.
+- The header uses plain capitals with a cyan underline for the current section and a search box; the footer
+  has cyan headings in capitals. Corners are nearly square throughout, and About opens with an overview table.
+- The floating scroll buttons no longer cover text on phones, and an unused map card was removed.
+
+### Find any place, down to the village, and clearer charts
+
+- A place finder on the homepage and the districts page searches all 30 districts, 416 sectors, 2,148 cells and
+  14,815 villages in one box. Many names repeat across the country, so each result shows the cell, sector and
+  district it lies in. Site search results for places now open the district page at its sectors.
+- On a district page a sector can be selected from a search, the map or the table. The selection shows the
+  sector's published poverty figures, its rank among the district's sectors and its cells and villages, with the
+  searched cell open and the village marked. NISR publishes poverty estimates down to the sector, so a cell or
+  village is shown with its sector's figures and the page says so.
+- Parts of a whole are shown as bars instead of rings (financial health, electricity, settlement and VUP
+  programmes): a strip for the whole, then one labelled bar per part. Stacked bars have a table of every value
+  under them, so no slice depends on being wide enough for a label, and a white gap between slices.
+- Bar charts use a zero based scale that fits the data instead of always running to 100%. The province chart
+  uses navy and cyan, which were validated as distinguishable; the two blues it used before were not. The
+  dashboard uses the same access strand chart as the focus page.
+
+### Unused code removed
+
+- Removed code nothing on the site used: an unused animation library (framer-motion), a logo variant for dark
+  backgrounds that the header no longer needs, and helper functions, components and constants left over from
+  earlier designs. The type check now also passes with unused locals and parameters reported as errors.
+
 ### More NISR evidence on the groups social protection serves
 
 - Three district indicators from the 2022 census thematic reports, extracted by the same reproducible script:
