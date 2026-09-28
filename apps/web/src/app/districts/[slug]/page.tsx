@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeftIcon, ArrowRightIcon, ExclamationTriangleIcon, MapIcon } from "@heroicons/react/24/outline";
-import { OverlapBadge } from "@/components/charts/fingerprint";
 import { StackedBar } from "@/components/charts/stacked-bar";
+import { DistrictIntelligence, PriorityBadge } from "@/components/district/district-intelligence";
 import { IndicatorRow } from "@/components/district/indicator-row";
 import { SectorExplorer } from "@/components/district/sector-explorer";
 import { RwandaMap } from "@/components/map/rwanda-map";
 import { SourceLine } from "@/components/ui/source-line";
-import { DISTRICTS, districtBySlug, PROVINCE_LABEL, rankOf, reference, type District } from "@/lib/data";
-import { formatDiff, formatValue } from "@/lib/format";
-import { CORE_DIMENSIONS, DIMENSIONS, meta, type Dimension } from "@/lib/indicators";
+import { DISTRICTS, districtBySlug, PROVINCE_LABEL, type District } from "@/lib/data";
+import { formatValue } from "@/lib/format";
+import { DIMENSIONS, meta, type Dimension } from "@/lib/indicators";
+import { priorityFor } from "@/lib/district-intelligence";
 import { sectorsOf } from "@/lib/sectors";
 import { Button } from "@/components/ui/button";
 import { BRAND, CORE, NO_DATA, RAMPS } from "@/lib/palette";
@@ -119,7 +120,7 @@ export default async function DistrictPage({ params }: Params) {
             <Breadcrumbs extra={[{ label: PROVINCE_LABEL[district.province] }, { label: district.name }]} />
             <h1 className="mt-3 font-display text-5xl font-bold tracking-[-0.04em] text-ink sm:text-6xl">{district.name}</h1>
             <div className="mt-4 flex flex-wrap items-center gap-3">
-              <OverlapBadge district={district} />
+              <PriorityBadge priority={priorityFor(district)} />
               <Link
                 href={`/map?district=${district.slug}`}
                 className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-royal hover:underline"
@@ -145,26 +146,19 @@ export default async function DistrictPage({ params }: Params) {
         </div>
       </section>
 
-      {/* Four core dimensions */}
-      <section className="container-page py-12">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="eyebrow text-royal">Four dimensions</p>
-            <h2 className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-ink">Where {district.name} stands</h2>
-          </div>
-          <p className="max-w-md text-[13px] leading-6 text-muted">
-            Rank 1 means the most affected of the 30 districts. Ranks are indicative: many districts overlap within survey error.
-          </p>
-        </div>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {CORE_DIMENSIONS.map((dimension) => (
-            <DimensionCard key={dimension} district={district} dimension={dimension} />
-          ))}
-        </div>
-      </section>
+      <DistrictIntelligence district={district} />
 
       {/* Detailed sections */}
-      <section className="container-page space-y-6 pb-12">
+      <section className="container-page space-y-6 py-12" aria-labelledby="evidence-heading">
+        <div className="max-w-3xl">
+          <p className="eyebrow text-royal">The evidence in detail</p>
+          <h2 id="evidence-heading" className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-ink">
+            Every published indicator for {district.name}
+          </h2>
+          <p className="mt-3 text-[15px] leading-7 text-muted">
+            Grouped by theme, each with its value, how it compares with Rwanda, its rank among the 30 districts and its source.
+          </p>
+        </div>
         {SECTIONS.map((section) => {
           const info = DIMENSIONS[section.dimension];
           return (
@@ -224,39 +218,6 @@ export default async function DistrictPage({ params }: Params) {
         </Button>
       </nav>
     </>
-  );
-}
-
-function DimensionCard({ district, dimension }: { district: District; dimension: Dimension }) {
-  const info = DIMENSIONS[dimension];
-  const indicator = meta(info.headline!);
-  const value = district.values[indicator.id];
-  const rank = rankOf(district, indicator);
-  const ref = reference(indicator.id);
-  const worstThird = rank && rank.rank <= Math.ceil(rank.of / 3);
-  return (
-    <div className="card relative overflow-hidden p-5">
-      <span className="absolute inset-x-0 top-0 h-1" style={{ background: info.accent }} />
-      <p className="text-[12px] font-bold uppercase tracking-[0.1em]" style={{ color: info.ink }}>
-        {info.label}
-      </p>
-      <p className="mt-1 text-[12.5px] text-muted">{indicator.short}</p>
-      <p className="mt-3 font-display text-4xl font-bold tracking-[-0.03em] text-ink">{formatValue(indicator, value?.v)}</p>
-      {value && (
-        <p className="mt-1 text-[12px] text-muted">
-          {formatDiff(indicator, value.v - ref.value)} vs {ref.label === "Rwanda" ? "Rwanda" : "the district median"} (
-          {formatValue(indicator, ref.value)})
-        </p>
-      )}
-      {rank && (
-        <p
-          className={`mt-3 inline-flex rounded-full px-2.5 py-1 text-[11.5px] font-bold ${worstThird ? "bg-cyan-ink text-white" : "bg-paper text-ink"}`}
-        >
-          #{rank.rank} of {rank.of} most affected
-        </p>
-      )}
-      <SourceLine id={indicator.id} className="mt-4" />
-    </div>
   );
 }
 
