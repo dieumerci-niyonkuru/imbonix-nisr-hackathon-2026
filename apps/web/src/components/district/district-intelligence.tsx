@@ -152,10 +152,10 @@ export function DistrictIntelligence({ district }: { district: District }) {
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
               <p className="text-[12.5px] text-muted">Options the evidence points to, not proven effects.</p>
               <Link
-                href="/priorities"
+                href={`/interventions?place=district:${district.slug}`}
                 className="group inline-flex items-center gap-1.5 rounded text-[14px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
               >
-                See every district and lever
+                Plan an intervention in {district.name}
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </Link>
             </div>
