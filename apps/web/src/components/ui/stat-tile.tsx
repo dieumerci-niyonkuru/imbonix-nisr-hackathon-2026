@@ -9,7 +9,7 @@ export function StatTile({
   label,
   source,
   status = "observed",
-  accent = BRAND.blue,
+  accent = BRAND.navy,
   detail,
   className,
 }: {

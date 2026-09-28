@@ -44,7 +44,7 @@ export function PriorityExplorer({ levers, districts }: { levers: Lever[]; distr
                 "flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-[12.5px] font-semibold transition-colors",
                 l.id === active
                   ? "border-navy-900 bg-navy-900 text-white"
-                  : "border-line bg-white text-ink/80 hover:border-royal hover:text-ink",
+                  : "border-line bg-white text-ink/80 hover:border-cyan-ink hover:text-ink",
               )}
             >
               <span className="h-2.5 w-2.5 rounded-full" style={{ background: l.color }} aria-hidden="true" />
@@ -87,7 +87,7 @@ export function PriorityExplorer({ levers, districts }: { levers: Lever[]; distr
             <li key={d.slug} className="flex items-start gap-3 py-3">
               <span className="tabular mt-0.5 w-5 shrink-0 text-right text-[12px] font-semibold text-muted">{i + 1}</span>
               <div className="min-w-0 flex-1">
-                <Link href={`/districts/${d.slug}`} className="font-semibold text-ink hover:text-royal">
+                <Link href={`/districts/${d.slug}`} className="font-semibold text-ink hover:text-cyan-ink">
                   {d.name}
                 </Link>
                 <span className="ml-2 text-[11.5px] text-muted">{PROVINCE_LABEL[d.province]}</span>
@@ -128,7 +128,7 @@ export function PriorityMatrix({ levers, districts }: { levers: Lever[]; distric
           {districts.map((d) => (
             <tr key={d.slug} className="border-t border-line">
               <th scope="row" className="px-4 py-2 font-semibold">
-                <Link href={`/districts/${d.slug}`} className="text-ink hover:text-royal">
+                <Link href={`/districts/${d.slug}`} className="text-ink hover:text-cyan-ink">
                   {d.name}
                 </Link>
               </th>

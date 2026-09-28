@@ -83,14 +83,14 @@ export function DistrictDirectory() {
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="text-[12.5px] font-semibold text-muted">{PROVINCE_LABEL[d.province]}</p>
-                <p className="font-display text-xl font-bold tracking-[-0.02em] text-ink group-hover:text-royal">{d.name}</p>
+                <p className="font-display text-xl font-bold tracking-[-0.02em] text-ink group-hover:text-cyan-ink">{d.name}</p>
               </div>
               <PriorityBadge priority={priorityFor(d)} />
             </div>
             <div className="mt-4">
               <Fingerprint district={d} compact />
             </div>
-            <p className="mt-4 inline-flex items-center gap-1 text-[12.5px] font-bold text-royal">
+            <p className="mt-4 inline-flex items-center gap-1 text-[12.5px] font-bold text-cyan-ink">
               Open profile <ArrowRightIcon className="h-3.5 w-3.5" aria-hidden="true" />
             </p>
           </Link>

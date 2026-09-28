@@ -23,7 +23,7 @@ export function MethodologyJourney({ steps }: { steps: JourneyStep[] }) {
           />
           <Link
             href="/data"
-            className="group inline-flex shrink-0 items-center gap-1.5 self-start rounded text-[15px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal lg:self-end"
+            className="group inline-flex shrink-0 items-center gap-1.5 self-start rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink lg:self-end"
           >
             Read the full methodology
             <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
@@ -37,7 +37,7 @@ export function MethodologyJourney({ steps }: { steps: JourneyStep[] }) {
               {index < steps.length - 1 && (
                 <span aria-hidden="true" className="absolute left-14 right-0 top-6 hidden h-px bg-line md:block" />
               )}
-              <span className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-royal bg-white font-display text-[17px] font-bold text-royal">
+              <span className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-cyan-ink bg-white font-display text-[17px] font-bold text-cyan-ink">
                 {index + 1}
               </span>
               <p className="mt-5 font-display text-[22px] font-bold tracking-[-0.01em] text-ink">{step.name}</p>

@@ -103,7 +103,7 @@ export function PriorityWeights() {
                 <li key={r.slug} className="flex items-center gap-3 py-2.5">
                   <span className="tabular w-6 text-right text-[13px] font-bold text-ink">{r.rank}</span>
                   <div className="min-w-0 flex-1">
-                    <Link href={`/districts/${r.slug}`} className="font-semibold text-ink hover:text-royal">
+                    <Link href={`/districts/${r.slug}`} className="font-semibold text-ink hover:text-cyan-ink">
                       {r.name}
                     </Link>
                     <span className="ml-2 text-[11.5px] text-muted">{PROVINCE_LABEL[r.province]}</span>
@@ -111,7 +111,7 @@ export function PriorityWeights() {
                   <span
                     className={cn(
                       "tabular flex w-16 items-center justify-end gap-0.5 text-[12px] font-semibold",
-                      move > 0 ? "text-cyan-ink" : move < 0 ? "text-royal" : "text-muted",
+                      move > 0 ? "text-cyan-ink" : move < 0 ? "text-cyan-ink" : "text-muted",
                     )}
                   >
                     {move > 0 ? (

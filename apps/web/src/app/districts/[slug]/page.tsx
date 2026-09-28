@@ -106,7 +106,7 @@ export default async function DistrictPage({ params }: Params) {
   const locator = Object.fromEntries(
     DISTRICTS.map((d) => [
       d.slug,
-      d.slug === district.slug ? BRAND.blue : d.province === district.province ? RAMPS.blue[0] : NO_DATA,
+      d.slug === district.slug ? BRAND.navy : d.province === district.province ? RAMPS.navy[0] : NO_DATA,
     ]),
   );
   const v = (id: string) => district.values[id]?.v;
@@ -128,7 +128,7 @@ export default async function DistrictPage({ params }: Params) {
               <PriorityBadge priority={priorityFor(district)} />
               <Link
                 href={`/map?district=${district.slug}`}
-                className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-royal hover:underline"
+                className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-cyan-ink hover:underline"
               >
                 <MapIcon className="h-4 w-4" /> See it on the district map
               </Link>
@@ -156,7 +156,7 @@ export default async function DistrictPage({ params }: Params) {
       {/* Detailed sections */}
       <section className="container-page space-y-6 py-12" aria-labelledby="evidence-heading">
         <div className="max-w-3xl">
-          <p className="eyebrow text-royal">The evidence in detail</p>
+          <p className="eyebrow text-cyan-ink">The evidence in detail</p>
           <h2 id="evidence-heading" className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-ink">
             Every published indicator for {district.name}
           </h2>

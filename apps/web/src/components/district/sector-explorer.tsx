@@ -148,7 +148,7 @@ export function SectorExplorer({ district, districtSlug, sectors, searchedPlace 
                 className={`rounded-md border px-3 py-1.5 text-[12.5px] font-semibold transition-colors ${
                   m.id === measure
                     ? "border-navy-900 bg-navy-900 text-white"
-                    : "border-line bg-white text-ink/80 hover:border-royal hover:text-ink"
+                    : "border-line bg-white text-ink/80 hover:border-cyan-ink hover:text-ink"
                 }`}
               >
                 {m.short}
@@ -255,7 +255,7 @@ export function SectorExplorer({ district, districtSlug, sectors, searchedPlace 
                     key={s.sector}
                     className={cn(
                       "border-t border-line",
-                      isSelected ? "bg-mist" : hover?.sector === s.sector || rowHover === s.sector ? "bg-royal/5" : "bg-white",
+                      isSelected ? "bg-mist" : hover?.sector === s.sector || rowHover === s.sector ? "bg-cyan-ink/5" : "bg-white",
                     )}
                     onMouseEnter={() => setRowHover(s.sector)}
                     onMouseLeave={() => setRowHover(undefined)}
@@ -271,7 +271,7 @@ export function SectorExplorer({ district, districtSlug, sectors, searchedPlace 
                         type="button"
                         aria-pressed={isSelected}
                         onClick={() => toggleSector(s.sector)}
-                        className="inline-flex items-center rounded text-left underline-offset-4 hover:text-royal hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+                        className="inline-flex items-center rounded text-left underline-offset-4 hover:text-cyan-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
                       >
                         <span
                           className="mr-2 inline-block h-2.5 w-2.5 shrink-0 rounded-sm"
@@ -353,7 +353,7 @@ function SectorDetail({
         <button
           type="button"
           onClick={onClose}
-          className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-[13px] font-semibold text-ink transition-colors hover:border-royal hover:text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-[13px] font-semibold text-ink transition-colors hover:border-cyan-ink hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
         >
           <XMarkIcon className="h-4 w-4" aria-hidden="true" />
           Clear selection
@@ -362,7 +362,7 @@ function SectorDetail({
 
       <dl className="mt-6 grid gap-5 sm:grid-cols-3">
         {SECTOR_MEASURES.map((measure) => (
-          <div key={measure.id} className="border-l-[3px] border-royal pl-4">
+          <div key={measure.id} className="border-l-[3px] border-cyan-ink pl-4">
             <dt className="text-[13px] font-semibold text-muted">{measure.label}</dt>
             <dd className="tabular mt-1 font-display text-3xl font-bold tracking-[-0.02em] text-ink">
               {pct(sector[measure.id])}
@@ -449,7 +449,7 @@ function CellsAndVillages({
                   open={searched}
                   className={cn("group rounded-lg border bg-white", searched ? "border-cyan" : "border-line")}
                 >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-lg px-3.5 py-2.5 text-[14px] font-semibold text-ink hover:bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-royal [&::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-lg px-3.5 py-2.5 text-[14px] font-semibold text-ink hover:bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink [&::-webkit-details-marker]:hidden">
                     <span className="min-w-0 truncate">
                       {cell.name} cell
                       <span className="ml-2 font-normal text-muted">

@@ -49,7 +49,7 @@ export function PovertyMapSection() {
         </figure>
 
         <div>
-          <p className="eyebrow text-royal">Where poverty is deepest</p>
+          <p className="eyebrow text-cyan-ink">Where poverty is deepest</p>
           <h2
             id="poverty-map-heading"
             className="mt-3 text-balance font-display text-3xl font-bold tracking-[-0.03em] text-ink sm:text-4xl"
@@ -63,7 +63,7 @@ export function PovertyMapSection() {
           </p>
           <p className="mt-3 text-[14px] leading-6 text-ink/80">
             <span className="font-semibold text-ink">How to read the map: </span>
-            the darker the blue, the higher the share of people living in poverty. Select a district below to open its profile.
+            the darker the navy, the higher the share of people living in poverty. Select a district below to open its profile.
           </p>
           <ol className="mt-6 space-y-2.5">
             {ranked.slice(0, RANKED_COUNT).map((district, index) => {
@@ -73,10 +73,12 @@ export function PovertyMapSection() {
                 <li key={district.slug}>
                   <Link
                     href={`/districts/${district.slug}`}
-                    className="group grid grid-cols-[1.75rem_minmax(0,7.5rem)_minmax(0,1fr)] items-center gap-3 rounded-xl bg-white px-3 py-2.5 ring-1 ring-line transition-colors hover:ring-royal/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+                    className="group grid grid-cols-[1.75rem_minmax(0,7.5rem)_minmax(0,1fr)] items-center gap-3 rounded-xl bg-white px-3 py-2.5 ring-1 ring-line transition-colors hover:ring-cyan-ink/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
                   >
                     <span className="tabular text-[13px] font-bold text-muted">{index + 1}</span>
-                    <span className="truncate text-[14.5px] font-semibold text-ink group-hover:text-royal">{district.name}</span>
+                    <span className="truncate text-[14.5px] font-semibold text-ink group-hover:text-cyan-ink">
+                      {district.name}
+                    </span>
                     <span className="relative h-6 overflow-hidden rounded-md bg-mist">
                       <span
                         className="absolute inset-y-0 left-0 flex items-center justify-end rounded-md pr-2 text-[12px] font-bold"
@@ -93,14 +95,14 @@ export function PovertyMapSection() {
           <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
             <Link
               href="/map"
-              className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+              className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
             >
               Open the district map
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
             <Link
               href="/districts"
-              className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+              className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
             >
               Compare all {DISTRICTS.length} districts
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

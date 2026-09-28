@@ -5,8 +5,8 @@ import { AXIS, ChartTooltip, GRID, LegendRow } from "@/components/charts/rechart
 import { FINANCIAL_HEALTH } from "@/lib/national";
 import { BRAND, INK, MUTED, RAMPS } from "@/lib/palette";
 
-const NOW = BRAND.blue;
-const TARGET = RAMPS.blue[0];
+const NOW = BRAND.navy;
+const TARGET = RAMPS.navy[0];
 
 /** FinScope 2024 financial health segments against the Roadmap's 2030 targets. */
 export function FinancialHealthChart() {

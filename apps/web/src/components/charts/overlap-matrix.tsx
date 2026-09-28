@@ -58,7 +58,7 @@ export function OverlapMatrix() {
             {rows.map(({ district, cells, overlap }) => (
               <tr key={district.slug} className="border-t border-line">
                 <th scope="row" className="px-4 py-2 font-semibold">
-                  <Link href={`/districts/${district.slug}`} className="text-ink hover:text-royal">
+                  <Link href={`/districts/${district.slug}`} className="text-ink hover:text-cyan-ink">
                     {district.name}
                   </Link>
                   <span className="block text-[11px] font-normal text-muted">{PROVINCE_LABEL[district.province]}</span>

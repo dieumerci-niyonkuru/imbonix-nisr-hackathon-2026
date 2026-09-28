@@ -97,7 +97,7 @@ export function DistrictScatter({
         <text x={W - PAD.right - 6} y={PAD.top + 14} textAnchor="end" fontSize={11} fontWeight={700} fill={BRAND.navy}>
           {quadrants.highHigh}
         </text>
-        <text x={W - PAD.right - 6} y={H - PAD.bottom - 8} textAnchor="end" fontSize={11} fontWeight={700} fill={BRAND.blue}>
+        <text x={W - PAD.right - 6} y={H - PAD.bottom - 8} textAnchor="end" fontSize={11} fontWeight={700} fill={CYAN_INK}>
           {quadrants.highLow}
         </text>
         <text x={PAD.left + 6} y={PAD.top + 14} fontSize={11} fontWeight={700} fill={CYAN_INK}>
