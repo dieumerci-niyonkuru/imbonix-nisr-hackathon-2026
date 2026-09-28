@@ -21,7 +21,7 @@ export function GapChart({
   title: string;
   note: string;
   rows: GapRow[];
-  takeaway: string;
+  takeaway?: string;
   source: string;
 }) {
   return (
@@ -60,7 +60,9 @@ export function GapChart({
           </li>
         ))}
       </ul>
-      <p className="mt-6 rounded-xl bg-navy-900 px-4 py-3 text-[14px] font-semibold leading-6 text-white">{takeaway}</p>
+      {takeaway && (
+        <p className="mt-6 rounded-xl bg-navy-900 px-4 py-3 text-[14px] font-semibold leading-6 text-white">{takeaway}</p>
+      )}
       <p className="mt-4 text-[12px] leading-5 text-muted">{source}</p>
     </figure>
   );

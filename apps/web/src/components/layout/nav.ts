@@ -14,24 +14,27 @@ export type NavItem = { href: string; label: string; description: string; badge?
 /** Each group is one focus area: `focusId` is its homepage tab. */
 export type NavGroup = { label: string; intro: string; focusId: FocusAreaId; items: NavItem[] };
 
-/** Pages grouped by the focus area they answer, in the same order as the homepage tabs. */
+/**
+ * Pages grouped by the focus area they answer, in the same order as the focus areas. Names say what a visitor will
+ * find, in everyday words, and are used the same way in the menus, footer, search, breadcrumbs and page headings.
+ */
 export const NAV_GROUPS: NavGroup[] = [
   {
     label: "Financial exclusion",
     intro: "Who is outside formal finance, and who has access but does not use it.",
     focusId: "exclusion",
     items: [
-      { href: "/dashboard", label: "Dashboard", description: "National inclusion, poverty and progress to targets" },
+      { href: "/dashboard", label: "Rwanda in figures", description: "Key national figures and progress to the 2030 targets" },
       {
         href: "/access-vs-use",
-        label: "Access vs use",
-        description: "Who actually uses a bank account or mobile money",
+        label: "Who uses financial services",
+        description: "Who has an account, and who actually uses one",
         badge: "DHS 2025",
       },
       {
         href: "/model",
-        label: "Explainable model",
-        description: "What is associated with financial vulnerability (pending microdata)",
+        label: "Who is most at risk",
+        description: "Household analysis, coming when NISR releases the microdata",
         badge: "Pending",
       },
     ],
@@ -41,13 +44,9 @@ export const NAV_GROUPS: NavGroup[] = [
     intro: "Where poverty is deepest, and where it overlaps with other needs.",
     focusId: "poverty",
     items: [
-      { href: "/map", label: "Resilience map", description: "Every district on 25 measures of vulnerability" },
-      { href: "/districts", label: "District profiles", description: "Four dimensions, indicators and sectors per district" },
-      {
-        href: "/vulnerability",
-        label: "Vulnerability analysis",
-        description: "Where poverty, exclusion, nutrition and shocks overlap",
-      },
+      { href: "/map", label: "Map of every district", description: "Compare the 30 districts on 25 measures" },
+      { href: "/districts", label: "Find your district", description: "Figures and sectors for each of the 30 districts" },
+      { href: "/vulnerability", label: "Where needs overlap", description: "Poverty, exclusion, nutrition and shocks together" },
     ],
   },
   {
@@ -55,21 +54,26 @@ export const NAV_GROUPS: NavGroup[] = [
     intro: "How VUP reaches households, and where support should go next.",
     focusId: "protection",
     items: [
-      { href: "/social-protection", label: "VUP delivery", description: "How VUP payments reach households" },
-      { href: "/priorities", label: "Intervention priorities", description: "Where the evidence points for seven policy levers" },
-      { href: "/scenarios", label: "Scenario simulator", description: "Test inclusion targets and priority weights" },
+      {
+        href: "/social-protection",
+        label: "VUP support and payments",
+        description: "Who VUP reaches, and whether payments arrive on time",
+      },
+      { href: "/priorities", label: "Where to act first", description: "Seven policy levers, flagged district by district" },
+      { href: "/scenarios", label: "Test a policy target", description: "See what a target would mean for each district" },
     ],
   },
 ];
 
 /** Top-level links shown without a dropdown. */
 export const NAV_LINKS: NavItem[] = [
-  { href: "/data", label: "Data & methods", description: "Sources, value labels, caveats and the NISR catalog" },
+  { href: "/data", label: "Data & methods", description: "Where every figure comes from, and how far to trust it" },
+  { href: "/about", label: "About", description: "Why IMBONIX exists, who it serves and how it works" },
 ];
 
 /** Flat list (for the footer and sitemap), starting with the overview. */
 export const NAV: NavItem[] = [
-  { href: "/", label: "Overview", description: "What IMBONIX shows and why it matters" },
+  { href: "/", label: "Homepage", description: "What IMBONIX shows and why it matters" },
   ...NAV_GROUPS.flatMap((g) => g.items),
   ...NAV_LINKS,
 ];
