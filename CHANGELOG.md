@@ -5,6 +5,24 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### District intelligence and a decision focus
+
+- Every district page opens with district intelligence, read left to right: financial and digital access, poverty,
+  vulnerability (child stunting and natural hazards) and social protection (health insurance, the district measure
+  available), each rated low, moderate or good against the other 29 districts with its figures and rank; then the
+  priority (high, moderate or lower, under a stated rule on the four core dimensions) and why; the policy levers the
+  evidence flags, with the figure and existing programmes; and what the evidence cannot tell us.
+- The district list shows each district's priority and can be filtered by it. Dropdowns across the site use one
+  labelled, white field with a clear arrow and strong hover and focus states.
+- Pages sit on white; light grey only marks alternate sections. The header menus open with the focus area and its
+  question, and list each page with one line on what it holds; the page you are on says "You are here".
+- A new Intervention Explorer (Plan an intervention) lets a policymaker choose a problem (financial exclusion,
+  poverty, limited digital access, work, social protection gap), a group (everyone, women, youth, rural households,
+  the poorest) and a place (Rwanda, a province or a district). It answers in five parts: the evidence, the people
+  affected (counted only where a published population fits, with the calculation shown), where the problem is
+  concentrated (districts, or a district's poorest sectors), options to consider from existing programmes and the
+  Roadmap, and what the evidence cannot tell us. District pages link to it, set on their district.
+
 ### Plain language and a lighter homepage
 
 - Pages have plain, descriptive names, used the same way in the menus, footer, search, breadcrumbs and page

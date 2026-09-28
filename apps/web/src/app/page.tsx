@@ -57,8 +57,8 @@ export default function Home() {
       name: "Practical impact",
       figure: `${SITE_FACTS.levers} policy levers`,
       body: "Each lever is flagged district by district by one published figure and a rule anyone can check, so support can go where the need is greatest.",
-      href: "/priorities",
-      linkLabel: "See where to act first",
+      href: "/interventions",
+      linkLabel: "Plan an intervention",
     },
   ];
 
