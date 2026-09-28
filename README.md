@@ -42,7 +42,7 @@ IMBONIX is an independent team project. It is **not an official NISR product** a
 | Area | What it does |
 | --- | --- |
 | **Homepage** | One argument in three tabs: the gap (96% included, 10% financially healthy), the evidence in NISR data on poverty, income and access, and the impact for households, policymakers and civil society. |
-| **Resilience map** | 25 measures in 8 dimensions on an interactive MapLibre map. Select a district to zoom to its sectors, shaded by small-area poverty estimates. Links can be shared (`/map?layer=…&district=…`). |
+| **Map of every district** | 28 measures in 8 dimensions on an interactive MapLibre map. Select a district to zoom to its sectors, shaded by small-area poverty estimates. Links can be shared (`/map?layer=…&district=…`). |
 | **District profiles** | 30 profiles with four-dimension ranks, every indicator with its confidence interval, and a sector table and map. |
 | **Dashboard** | National inclusion, poverty trends and progress towards national targets. |
 | **Vulnerability analysis** | Where poverty, financial exclusion, nutrition and shocks overlap, with correlations between districts. |

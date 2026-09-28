@@ -11,7 +11,7 @@ files, how they fit together, how to update them, and when a database would beco
 | `data/extracts/sector_census2022.csv` | extraction script | All 416 sectors: population, non-monetary poverty categories, MPI |
 | `data/extracts/sector_poverty_eicv7_sae.csv` | transcription | Sector small-area poverty estimates (EICV7) |
 | `data/extracts/*.csv` (others) | extraction scripts | DHS usage by group, VUP delivery and timeliness, LFS series, and more; see the extracts README |
-| `apps/web/src/data/generated/districts.json` | `build_web_data.py` | 30 districts × 64 indicators, with indicator metadata |
+| `apps/web/src/data/generated/districts.json` | `build_web_data.py` | 30 districts × 67 indicators, with indicator metadata |
 | `apps/web/src/data/generated/sectors.json` | `build_web_data.py` | 416 sectors grouped by district, with figures and SVG outlines |
 | `apps/web/src/data/generated/geo.json` | `build_web_data.py` | District outlines as SVG paths |
 | `apps/web/src/data/generated/usage.json`, `vup.json` | `build_web_data.py` | DHS 2025 usage and VUP delivery tables |

@@ -1,3 +1,5 @@
+import { MAP_LAYERS } from "@/lib/indicators";
+
 /**
  * The three focus areas: financial exclusion, poverty dynamics and the impact of social protection. They are the homepage tabs (which follow the URL hash, for example /#poverty) and the header menus.
  */
@@ -44,7 +46,7 @@ export const NAV_GROUPS: NavGroup[] = [
     intro: "Where poverty is deepest, and where it overlaps with other needs.",
     focusId: "poverty",
     items: [
-      { href: "/map", label: "Map of every district", description: "Compare the 30 districts on 25 measures" },
+      { href: "/map", label: "Map of every district", description: `Compare the 30 districts on ${MAP_LAYERS.length} measures` },
       { href: "/districts", label: "Find your district", description: "Figures and sectors for each of the 30 districts" },
       { href: "/vulnerability", label: "Where needs overlap", description: "Poverty, exclusion, nutrition and shocks together" },
     ],
