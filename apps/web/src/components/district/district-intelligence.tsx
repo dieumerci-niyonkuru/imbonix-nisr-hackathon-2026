@@ -11,7 +11,7 @@ const STEP_NOTES: Record<string, string> = {
     "Formal inclusion counts adults using a bank, a SACCO, mobile money or another formal service. Smartphones matter because most digital finance and payments now run on them.",
   vulnerability: "Child stunting (DHS 2025) and natural hazards (CFSVA 2024) are the two measures of vulnerability.",
   protection:
-    "VUP coverage and payment timeliness are not published by district, so health insurance cover is the district measure of social protection.",
+    "VUP coverage and payment timeliness are not published by district, so health insurance cover sets the level. Older people and persons with disabilities are two groups Direct Support serves: their share shows where its help may be needed most (Census 2022).",
 };
 
 const NEED_STYLE: Record<Need, string> = {
