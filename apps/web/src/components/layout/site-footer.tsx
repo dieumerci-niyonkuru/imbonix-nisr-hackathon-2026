@@ -4,19 +4,18 @@ import { ArrowUpIcon, CircleStackIcon, CodeBracketIcon, FlagIcon } from "@heroic
 import { StackedBrandLogo } from "@/components/layout/logo";
 import { NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
 
-/** `hashLink` marks homepage tab links, which need a plain anchor so the tabs see the hash change. */
-type FooterLink = { href: string; label: string; external?: boolean; hashLink?: boolean };
+type FooterLink = { href: string; label: string; external?: boolean };
 type FooterColumn = { heading: string; links: FooterLink[] };
 type IconLink = { href: string; label: string; icon: ComponentType<SVGProps<SVGSVGElement>>; external: boolean };
 
 const DATA_ISSUE_URL = `${REPOSITORY_URL}/issues/new?template=data_issue.md`;
 
-/** One column per focus area, each opening with its homepage tab, then the project links. */
+/** One column per focus area, each opening with its page at a glance, then the project links. */
 const COLUMNS: FooterColumn[] = [
   ...NAV_GROUPS.map((group) => ({
     heading: group.label,
     links: [
-      { href: `/#${group.focusId}`, label: "At a glance", hashLink: true },
+      { href: `/focus/${group.focusId}`, label: "At a glance" },
       ...group.items.map((item) => ({ href: item.href, label: item.label })),
     ],
   })),
@@ -48,13 +47,6 @@ function FooterAnchor({ link }: { link: FooterLink }) {
       <a href={link.href} target="_blank" rel="noreferrer" className={LINK_STYLE}>
         {link.label}
         <span className="sr-only"> (opens in a new tab)</span>
-      </a>
-    );
-  }
-  if (link.hashLink) {
-    return (
-      <a href={link.href} className={LINK_STYLE}>
-        {link.label}
       </a>
     );
   }
