@@ -3,14 +3,14 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { paymentTimelinessByProgramme } from "@/components/focus/focus-panels";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { ChallengeStatement, type Requirement } from "@/components/home/challenge-statement";
-import { DistrictFinder, type FinderProvince } from "@/components/home/district-finder";
+import { PlaceFinder } from "@/components/district/place-finder";
 import { FeaturedInsight } from "@/components/home/featured-insight";
 import { GapChart, type GapRow } from "@/components/home/gap-chart";
 import { HomeHero, type HeroFigure } from "@/components/home/home-hero";
 import { NISR_CATALOG_URL, SOURCE_STUDIES } from "@/components/layout/nav";
 import { ReadMoreSection } from "@/components/ui/read-more";
 import { STATUS_DESCRIPTION } from "@/components/ui/status-badge";
-import { DISTRICTS, PROVINCE_LABEL, PROVINCES } from "@/lib/data";
+import { DISTRICTS, PROVINCE_LABEL } from "@/lib/data";
 import { POVERTY_RATE_BY_YEAR } from "@/lib/eicv7-poverty-profile";
 import {
   EXCLUDED_ADULTS,
@@ -27,7 +27,7 @@ import { SITE_FACTS } from "@/lib/site-facts";
 
 /**
  * The homepage, short on purpose: the opening banner with four headline figures, the challenge and the three tests a
- * useful answer has to meet, one featured insight, the three focus areas and a way in by district. Why IMBONIX, who
+ * useful answer has to meet, one featured insight, the three focus areas and a way in by place, down to the village. Why IMBONIX, who
  * benefits and the method are on the About page; the sources on Data & methods; the evidence on the focus area pages.
  */
 export default function Home() {
@@ -236,11 +236,10 @@ export default function Home() {
     },
   ];
 
-  const finderProvinces: FinderProvince[] = PROVINCES.map((province) => ({
-    label: PROVINCE_LABEL[province],
-    districts: DISTRICTS.filter((district) => district.province === province)
-      .map((district) => ({ name: district.name, slug: district.slug }))
-      .sort((first, second) => first.name.localeCompare(second.name)),
+  const finderDistricts = DISTRICTS.map((district) => ({
+    name: district.name,
+    slug: district.slug,
+    province: PROVINCE_LABEL[district.province],
   }));
 
   return (
@@ -281,29 +280,35 @@ export default function Home() {
                 id="find-district-heading"
                 className="mt-3 text-balance font-display text-3xl font-bold tracking-[-0.03em] sm:text-4xl"
               >
-                Explore Rwanda through evidence
+                Find any place in Rwanda, down to the village
               </h2>
               <p className="mt-3 max-w-lg text-[15px] leading-7 text-white/85">
-                Choose a district to see its four dimensions, every published indicator and a map of its sectors, with sources.
+                Type any district, sector, cell or village. A district opens its profile: four dimensions, every published
+                indicator and a map of its sectors. A sector, cell or village opens the sector it belongs to, with its poverty
+                figures and its rank in the district.
               </p>
               <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+                <Link
+                  href="/districts"
+                  className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-white underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  Browse all 30 districts
+                  <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                </Link>
                 <Link
                   href="/map"
                   className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-white underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  Open the map of every district
-                  <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </Link>
-                <Link
-                  href="/about"
-                  className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-white underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                >
-                  About IMBONIX
+                  Compare the districts on the map
                   <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                 </Link>
               </div>
             </div>
-            <DistrictFinder provinces={finderProvinces} />
+            <PlaceFinder
+              tone="royal"
+              districts={finderDistricts}
+              counts={{ sectors: SITE_FACTS.sectors, cells: SITE_FACTS.cells, villages: SITE_FACTS.villages }}
+            />
           </div>
         </div>
       </section>
