@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatCompact, formatDiff, formatNumber, formatValue, STATUS_LABEL } from "@/lib/format";
+import { formatDiff, formatNumber, formatValue, STATUS_LABEL } from "@/lib/format";
 
 describe("formatValue", () => {
   it("keeps whole percentages whole and rounds others to one decimal", () => {
@@ -33,9 +33,8 @@ describe("formatDiff", () => {
 });
 
 describe("number helpers", () => {
-  it("formats fixed decimals and compact numbers", () => {
+  it("formats fixed decimals", () => {
     expect(formatNumber(1234.5, 1)).toBe("1,234.5");
-    expect(formatCompact(1_250_000)).toBe("1.3M");
   });
 
   it("labels every value status, including scenarios and policy targets", () => {

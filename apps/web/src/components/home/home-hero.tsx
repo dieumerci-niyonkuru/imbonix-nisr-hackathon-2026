@@ -2,68 +2,84 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { DistrictBackdrop } from "@/components/home/story-cards";
 
-/** One headline figure in the opening strip. */
-export type HeroFigure = { value: string; label: string };
-
-const PRIMARY_BUTTON =
-  "inline-flex h-12 items-center gap-2 rounded-xl bg-cyan px-6 text-[15px] font-bold text-navy-900 transition-colors hover:bg-cyan-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950";
-const SECONDARY_BUTTON =
-  "inline-flex h-12 items-center gap-2 rounded-xl px-6 text-[15px] font-bold text-white ring-1 ring-white/35 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white";
+/** One of the doors under the banner: a focus area or a tool, in a sentence. */
+export type HeroCard = { title: string; body: string; href: string };
 
 /**
- * The opening of the homepage, set like a photo banner: a deep navy band with the outline of Rwanda's districts
- * behind a large centred headline, one sentence on what IMBONIX does, a way into the data and a way into the
- * evidence, then four headline figures with their sources.
+ * The opening of the homepage, laid out like Rwanda's national sites: a navy banner with the outline of the districts
+ * behind a left aligned headline, four white cards that overlap its lower edge and open the focus areas and the
+ * planning tool, and a cyan band under them with the challenge IMBONIX answers and a way to learn more.
  */
 export function HomeHero({
-  figures,
-  sources,
+  cards,
   districtCount,
   sectorCount,
 }: {
-  figures: HeroFigure[];
-  sources: string;
+  cards: HeroCard[];
   districtCount: number;
   sectorCount: number;
 }) {
   return (
-    <section className="relative overflow-hidden bg-navy-950 text-white">
-      <DistrictBackdrop />
-      <div className="container-page relative pb-12 pt-20 text-center sm:pb-14 sm:pt-28">
-        <p className="eyebrow text-balance text-cyan">Financial inclusion and poverty reduction in Rwanda</p>
-        <h1 className="mx-auto mt-5 max-w-4xl text-balance font-display text-[2.6rem] font-bold leading-[1.04] tracking-[-0.035em] sm:text-6xl lg:text-7xl">
-          Almost every adult is included. Few are financially healthy.
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-[17px] leading-8 text-white/85 sm:text-[19px] sm:leading-9">
-          IMBONIX brings NISR&apos;s published statistics together for all {districtCount} districts and {sectorCount} sectors, to
-          show where financial exclusion, poverty and gaps in social protection meet, and where to act first.
-        </p>
-        <div className="mt-9 flex flex-wrap justify-center gap-3">
-          <Link href="/map" className={PRIMARY_BUTTON}>
-            Explore the data
-            <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
-          </Link>
-          <a href="#research" className={SECONDARY_BUTTON}>
-            Read the evidence
-          </a>
+    <section aria-labelledby="home-heading">
+      <div className="relative overflow-hidden bg-navy-950 text-white">
+        <DistrictBackdrop />
+        <div className="container-page relative pb-40 pt-16 sm:pb-44 sm:pt-24">
+          <p className="font-display text-[18px] font-bold text-white/90 sm:text-[22px]">
+            Financial inclusion and poverty in Rwanda
+          </p>
+          <h1
+            id="home-heading"
+            className="mt-3 max-w-4xl text-balance font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-6xl lg:text-7xl"
+          >
+            Almost every adult is included. Few are financially healthy.
+          </h1>
+          <p className="mt-6 max-w-2xl text-pretty text-[17px] leading-8 text-white/85 sm:text-[19px] sm:leading-9">
+            IMBONIX brings NISR&apos;s published statistics together for all {districtCount} districts and {sectorCount} sectors,
+            to show where financial exclusion, poverty and gaps in social protection meet, and where to act first.
+          </p>
+          <p className="mt-5 text-[13px] text-white/70">
+            An independent project built on NISR data, not an official NISR product. Every figure names its source.
+          </p>
         </div>
-        <p className="mt-5 text-[12.5px] text-white/65">
-          An independent project, not an official NISR product. Every figure names its source and table.
-        </p>
       </div>
 
-      <div className="container-page relative pb-14 sm:pb-16">
-        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-white/15 ring-1 ring-white/15 lg:grid-cols-4">
-          {figures.map((figure) => (
-            <div key={figure.label} className="flex flex-col bg-navy-950/90 px-4 py-6 text-center sm:px-6 sm:py-7">
-              <dt className="order-2 mt-2 text-pretty text-[13.5px] leading-5 text-white/80">{figure.label}</dt>
-              <dd className="order-1 font-display text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl">
-                {figure.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-        <p className="mt-4 text-center text-[12px] leading-5 text-white/65">Sources: {sources}</p>
+      <div className="bg-cyan pb-16 sm:pb-20">
+        <div className="container-page relative -mt-28">
+          <ul className="grid gap-px bg-line shadow-lift ring-1 ring-line sm:grid-cols-2 lg:grid-cols-4">
+            {cards.map((card) => (
+              <li key={card.href} className="bg-white">
+                <Link
+                  href={card.href}
+                  className="group flex h-full flex-col p-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink sm:p-8"
+                >
+                  <h2 className="font-display text-[24px] font-bold leading-tight tracking-[-0.015em] text-cyan-ink sm:text-[26px]">
+                    {card.title}
+                  </h2>
+                  <p className="mt-4 text-pretty text-[16px] leading-7 text-ink/85">{card.body}</p>
+                  <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-bold text-ink group-hover:text-cyan-ink">
+                    Open
+                    <span className="sr-only"> {card.title}</span>
+                    <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="container-page mt-14 text-center text-navy-900 sm:mt-16">
+          <p className="font-display text-[26px] font-bold tracking-[-0.02em] sm:text-[32px]">The challenge</p>
+          <p className="mx-auto mt-4 max-w-3xl text-pretty text-[17px] leading-8 sm:text-[19px] sm:leading-9">
+            Use data to understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda,
+            so that support reaches vulnerable households and decisions rest on evidence.
+          </p>
+          <Link
+            href="/about"
+            className="mt-8 inline-flex min-h-12 items-center justify-center rounded bg-white px-10 text-[15px] font-bold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-900 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan"
+          >
+            Learn more about IMBONIX
+          </Link>
+        </div>
       </div>
     </section>
   );

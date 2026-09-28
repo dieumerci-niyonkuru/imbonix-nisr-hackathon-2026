@@ -45,13 +45,14 @@ const MENU_GROUPS: MenuGroup[] = NAV_GROUPS.map((group) => ({
 /** How long the pointer may leave a menu before it closes, so moving diagonally into the panel keeps it open. */
 const HOVER_CLOSE_DELAY = 160;
 
-// Top level items, as on the NISR site: bold navy text that turns into a solid block on hover and when open or current.
+// Top level items, as on the government's sites: plain capitals that take a cyan underline on hover, when open and
+// for the section you are in.
 const TOP_LINK_STYLE =
-  "inline-flex h-12 items-center gap-1 whitespace-nowrap rounded-md px-2.5 text-[14.5px] font-bold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white hover:shadow-[inset_0_-3px_0_var(--cyan)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 xl:px-3.5 xl:text-[15.5px]";
-const TOP_ACTIVE_STYLE = "bg-navy-900 text-white shadow-[inset_0_-3px_0_var(--cyan)]";
+  "inline-flex h-12 items-center gap-1 whitespace-nowrap px-2 text-[13px] font-semibold uppercase tracking-[0.03em] text-navy-900 transition-colors hover:text-cyan-ink hover:shadow-[inset_0_-3px_0_var(--cyan)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2";
+const TOP_ACTIVE_STYLE = "text-navy-900 shadow-[inset_0_-3px_0_var(--cyan)]";
 // Links inside a menu panel or the phone menu keep a light highlight, so the text stays readable.
 const ACTIVE_STYLE = "bg-paper text-ink";
-const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal";
+const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
 
 /**
  * The header: a thin bar with project links, then the logo, a home link, one dropdown menu per focus area,
@@ -276,7 +277,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               aria-label={`Search the site (${shortcutLabel})`}
               title={`Search the site (${shortcutLabel})`}
               className={cn(
-                "inline-flex h-12 items-center gap-2 rounded-md px-3 text-[15px] font-bold text-navy-900 transition-colors hover:bg-cyan xl:text-[15.5px]",
+                "inline-flex h-11 items-center gap-2 rounded border-line px-3 text-[15px] text-muted transition-colors hover:border-cyan-ink hover:text-cyan-ink sm:w-32 sm:justify-between sm:border",
                 FOCUS_RING,
               )}
             >
@@ -312,7 +313,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                       FOCUS_RING,
                     )}
                   >
-                    <MagnifyingGlassIcon className="h-5 w-5 text-royal" aria-hidden="true" />
+                    <MagnifyingGlassIcon className="h-5 w-5 text-cyan-ink" aria-hidden="true" />
                     Search places, indicators and charts
                   </button>
                   <nav aria-label="Main">
@@ -329,7 +330,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                     </Link>
                     {MENU_GROUPS.map((group) => (
                       <section key={group.id} aria-labelledby={`sheet-${group.id}`} className="mt-5">
-                        <h2 id={`sheet-${group.id}`} className="eyebrow px-2.5 text-royal">
+                        <h2 id={`sheet-${group.id}`} className="eyebrow px-2.5 text-cyan-ink">
                           {group.label}
                         </h2>
                         <ul className="mt-1.5">
@@ -427,7 +428,7 @@ function MenuLink({
         compact ? "rounded-r-lg px-3 py-2.5 text-[15px]" : "px-5 py-3 text-[13px] uppercase tracking-[0.06em]",
         current
           ? "border-cyan bg-navy-900 text-white focus-visible:ring-cyan"
-          : "border-transparent text-navy-900 hover:border-cyan hover:bg-mist hover:text-royal focus-visible:border-cyan focus-visible:bg-mist focus-visible:text-royal focus-visible:ring-royal",
+          : "border-transparent text-navy-900 hover:border-cyan hover:bg-mist hover:text-cyan-ink focus-visible:border-cyan focus-visible:bg-mist focus-visible:text-cyan-ink focus-visible:ring-cyan-ink",
       )}
     >
       {item.label}

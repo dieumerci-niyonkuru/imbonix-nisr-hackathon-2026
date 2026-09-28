@@ -1,16 +1,15 @@
-import Link from "next/link";
-import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { paymentTimelinessByProgramme } from "@/components/focus/focus-panels";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { ChallengeStatement, type Requirement } from "@/components/home/challenge-statement";
-import { DistrictFinder, type FinderProvince } from "@/components/home/district-finder";
 import { FeaturedInsight } from "@/components/home/featured-insight";
 import { GapChart, type GapRow } from "@/components/home/gap-chart";
-import { HomeHero, type HeroFigure } from "@/components/home/home-hero";
+import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
+import { HomeHero, type HeroCard } from "@/components/home/home-hero";
+import { PlaceSection } from "@/components/home/place-section";
 import { NISR_CATALOG_URL, SOURCE_STUDIES } from "@/components/layout/nav";
 import { ReadMoreSection } from "@/components/ui/read-more";
 import { STATUS_DESCRIPTION } from "@/components/ui/status-badge";
-import { DISTRICTS, PROVINCE_LABEL, PROVINCES } from "@/lib/data";
+import { DISTRICTS, PROVINCE_LABEL } from "@/lib/data";
 import { POVERTY_RATE_BY_YEAR } from "@/lib/eicv7-poverty-profile";
 import {
   EXCLUDED_ADULTS,
@@ -27,7 +26,7 @@ import { SITE_FACTS } from "@/lib/site-facts";
 
 /**
  * The homepage, short on purpose: the opening banner with four headline figures, the challenge and the three tests a
- * useful answer has to meet, one featured insight, the three focus areas and a way in by district. Why IMBONIX, who
+ * useful answer has to meet, one featured insight, the three focus areas and a way in by place, down to the village. Why IMBONIX, who
  * benefits and the method are on the About page; the sources on Data & methods; the evidence on the focus area pages.
  */
 export default function Home() {
@@ -47,14 +46,54 @@ export default function Home() {
   const poorestWomen = womenByWealth.find((row) => row.category === "Lowest")!;
   const richestWomen = womenByWealth.find((row) => row.category === "Highest")!;
 
-  const heroFigures: HeroFigure[] = [
-    { value: EXCLUDED_ADULTS.toLocaleString("en-US"), label: "adults use no financial service at all" },
+  // The doors under the banner: the three focus areas and the planning tool.
+  const heroCards: HeroCard[] = [
+    {
+      title: "Financial exclusion",
+      body: "Who is left out of finance, and who uses it without being able to save, borrow or cope with a shock.",
+      href: "/focus/exclusion",
+    },
+    {
+      title: "Poverty dynamics",
+      body: `How poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}%, and where it is still highest.`,
+      href: "/focus/poverty",
+    },
+    {
+      title: "Social protection",
+      body: "Whether VUP and Direct Support reach the poorest households, and how late their payments arrive.",
+      href: "/focus/protection",
+    },
+    {
+      title: "Plan an intervention",
+      body: "Bring the evidence together for one problem, one group and one place, with the options that fit.",
+      href: "/interventions",
+    },
+  ];
+
+  // The headline figures, each with its source.
+  const figureTiles: FigureTile[] = [
+    { value: `${includedShare}%`, label: "of adults use a financial service", source: "NISR, FinScope 2024" },
+    { value: `${healthyShare}%`, label: "of adults are financially healthy", source: "NISR, FinScope 2024, section 5.2" },
     {
       value: `${bankedRow.in2024}%`,
       label: bankedRow.in2024 === bankedRow.in2020 ? "of adults are banked, the same as in 2020" : "of adults are banked",
+      source: "NISR, FinScope 2020 and 2024",
     },
-    { value: `${povertyIn2024.povertyRate}%`, label: "of people live in poverty" },
-    { value: `${directSupportOnTime}%`, label: "of Direct Support households were paid on time" },
+    {
+      value: EXCLUDED_ADULTS.toLocaleString("en-US"),
+      label: "adults use no financial service at all",
+      source: "NISR, FinScope 2024",
+    },
+    {
+      value: `${povertyIn2024.povertyRate}%`,
+      label: `of people live in poverty, down from ${povertyIn2017.povertyRate}% in 2016/17`,
+      source: "NISR, EICV7 Poverty Profile 2023/24",
+    },
+    {
+      value: `${directSupportOnTime}%`,
+      label: "of Direct Support households were paid on time the last time",
+      source: "NISR, EICV7 VUP thematic report 2023/24",
+    },
   ];
 
   // The three tests a useful answer has to meet, each with the figure that shows IMBONIX meets it.
@@ -113,7 +152,7 @@ export default function Home() {
                     href={`${NISR_CATALOG_URL}/${study.studyId}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex rounded border border-line bg-paper px-2.5 py-1 text-[13.5px] font-semibold text-ink hover:border-royal hover:text-royal"
+                    className="inline-flex rounded border border-line bg-paper px-2.5 py-1 text-[13.5px] font-semibold text-ink hover:border-cyan-ink hover:text-cyan-ink"
                   >
                     {study.label}
                     <span className="sr-only"> (NISR microdata catalog, opens in a new tab)</span>
@@ -189,9 +228,9 @@ export default function Home() {
 
   // The featured chart: FinScope 2024 measures from access to financial health, with the gap drawn in.
   const gapRows: GapRow[] = [
-    { label: "Use a financial service", value: includedShare, color: BRAND.blue },
-    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: BRAND.blue },
-    { label: "Have a mobile money wallet", value: registeredWallet, color: BRAND.blue },
+    { label: "Use a financial service", value: includedShare, color: BRAND.navy },
+    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: BRAND.navy },
+    { label: "Have a mobile money wallet", value: registeredWallet, color: BRAND.navy },
     { label: "Are banked", value: bankedRow.in2024, color: BRAND.navy },
     {
       label: "Are financially healthy",
@@ -210,49 +249,55 @@ export default function Home() {
         bankedRow.in2024 === bankedRow.in2020
           ? `Only ${bankedRow.in2024}% of adults are banked, the same share as in 2020`
           : `${bankedRow.in2024}% of adults are banked, against ${bankedRow.in2020}% in 2020`,
+      summary:
+        "Who uses which services, how financial health compares with access, and which districts have most adults outside formal finance.",
       source: "NISR, FinScope 2020 and 2024",
       indicatorId: "finscope_not_formally_included",
+      caption: "Map: adults not formally included, by district, 2024. Darker is higher.",
       ramp: "cyan",
       href: "/focus/exclusion",
-      linkLabel: "Read the evidence on financial exclusion",
     },
     {
       area: "Poverty dynamics",
       title: `Poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}% in seven years`,
+      summary:
+        "How poverty and living conditions changed since 2016/17, who is poorest and where poverty and financial exclusion overlap.",
       source: "NISR, EICV7 2023/24 (Poverty Profile and Main Indicators)",
       indicatorId: "eicv7_poverty_rate",
-      ramp: "blue",
+      caption: "Map: poverty rate by district, 2023/24. Darker is higher.",
+      ramp: "navy",
       href: "/focus/poverty",
-      linkLabel: "Read the evidence on poverty",
     },
     {
       area: "Social protection impact",
       title: `VUP reaches poorer people, but at best ${bestOnTimeShare}% are paid on time`,
+      summary:
+        "Who VUP reaches, how its payments are made and how late they arrive, and how far Rwanda is from its protection targets.",
       source: "NISR, EICV7 2023/24 (VUP survey and Main Indicators)",
       indicatorId: "eicv7_health_insurance",
-      ramp: "navy",
+      caption: "Map: health insurance coverage by district, 2023/24. Darker is higher.",
+      ramp: "cyan",
       href: "/focus/protection",
-      linkLabel: "Read the evidence on social protection",
     },
   ];
 
-  const finderProvinces: FinderProvince[] = PROVINCES.map((province) => ({
-    label: PROVINCE_LABEL[province],
-    districts: DISTRICTS.filter((district) => district.province === province)
-      .map((district) => ({ name: district.name, slug: district.slug }))
-      .sort((first, second) => first.name.localeCompare(second.name)),
+  const finderDistricts = DISTRICTS.map((district) => ({
+    name: district.name,
+    slug: district.slug,
+    province: PROVINCE_LABEL[district.province],
   }));
 
   return (
     <>
-      <HomeHero
-        figures={heroFigures}
-        sources="NISR, FinScope 2020 and 2024; EICV7 2023/24 and its VUP thematic report."
-        districtCount={SITE_FACTS.districts}
-        sectorCount={SITE_FACTS.sectors}
-      />
+      <HomeHero cards={heroCards} districtCount={SITE_FACTS.districts} sectorCount={SITE_FACTS.sectors} />
 
-      <ChallengeStatement requirements={requirements} />
+      <FigureTiles
+        id="figures-heading"
+        eyebrow="What the NISR data shows"
+        title="Included, but not yet financially healthy"
+        intro="Six published figures frame the challenge: access to finance is almost universal, but financial health, banking and timely social protection payments lag far behind."
+        tiles={figureTiles}
+      />
 
       <FeaturedInsight
         title={`${gap} points separate using a financial service from being financially healthy`}
@@ -272,41 +317,20 @@ export default function Home() {
 
       <ChallengeSection parts={focusCards} />
 
-      <section className="bg-paper py-16 sm:py-20" aria-labelledby="find-district-heading">
-        <div className="container-page">
-          <div className="grid gap-8 rounded-3xl bg-royal p-7 text-white sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-12">
-            <div>
-              <p className="eyebrow text-white/80">Start with a place</p>
-              <h2
-                id="find-district-heading"
-                className="mt-3 text-balance font-display text-3xl font-bold tracking-[-0.03em] sm:text-4xl"
-              >
-                Explore Rwanda through evidence
-              </h2>
-              <p className="mt-3 max-w-lg text-[15px] leading-7 text-white/85">
-                Choose a district to see its four dimensions, every published indicator and a map of its sectors, with sources.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
-                <Link
-                  href="/map"
-                  className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-white underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                >
-                  Open the map of every district
-                  <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </Link>
-                <Link
-                  href="/about"
-                  className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-white underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                >
-                  About IMBONIX
-                  <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </Link>
-              </div>
-            </div>
-            <DistrictFinder provinces={finderProvinces} />
-          </div>
-        </div>
-      </section>
+      <ChallengeStatement requirements={requirements} />
+
+      <PlaceSection
+        units={[
+          { value: 5, label: "Provinces and the City of Kigali" },
+          { value: SITE_FACTS.districts, label: "Districts" },
+          { value: SITE_FACTS.sectors, label: "Sectors" },
+          { value: SITE_FACTS.cells, label: "Cells" },
+          { value: SITE_FACTS.villages, label: "Villages" },
+          { value: SITE_FACTS.indicators, label: "District indicators" },
+        ]}
+        districts={finderDistricts}
+        counts={{ sectors: SITE_FACTS.sectors, cells: SITE_FACTS.cells, villages: SITE_FACTS.villages }}
+      />
     </>
   );
 }

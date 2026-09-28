@@ -22,22 +22,8 @@ const config: Config = {
         ink: INK,
         // The main brand colour, with deeper and lighter steps for surfaces.
         navy: { 950: BRAND.navyDeep, 900: BRAND.navy, 800: "#0E3467", 700: "#1A447F", 600: "#255496" },
-        // The supporting brand colour: links and secondary actions on white.
-        royal: BRAND.blue,
-        brand: {
-          50: "#EAF3FB",
-          100: "#D4E6F7",
-          200: "#A9CDEF",
-          300: "#6FAAE3",
-          400: "#2F87D3",
-          500: "#0A70C4",
-          600: BRAND.blue,
-          700: "#004E96",
-          800: "#003D78",
-          900: "#002D5C",
-        },
-        // The action brand colour: buttons (with navy text), active states and highlights. `ink` is the shade for
-        // cyan text on light backgrounds, `soft` a pale background, `hover` a lighter step for buttons.
+        // The accent brand colour: highlights, active states and bands (with navy text). `ink` is the deeper step for
+        // links and small text on light backgrounds, `soft` a pale background, `hover` a lighter step for buttons.
         cyan: { DEFAULT: BRAND.cyan, ink: CYAN_INK, soft: "#E3F5FF", hover: "#3EB9EE" },
         // Pale blue-grey surfaces for inputs, chips and panels.
         mist: { DEFAULT: "#EEF3F9", strong: "#E3EAF3" },
@@ -62,14 +48,14 @@ const config: Config = {
         body: ['"Manrope Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
       },
       maxWidth: { page: "1320px" },
-      // Squarer corners than the Tailwind defaults, for a calmer, more institutional look.
+      // Nearly square corners, as on the government's sites: calm and institutional.
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-        xl: "0.625rem",
-        "2xl": "0.75rem",
-        "3xl": "0.875rem",
+        md: "calc(var(--radius) - 1px)",
+        sm: "calc(var(--radius) - 2px)",
+        xl: "0.375rem",
+        "2xl": "0.5rem",
+        "3xl": "0.5rem",
       },
       boxShadow: {
         card: "0 1px 2px rgba(0,36,84,0.06)",

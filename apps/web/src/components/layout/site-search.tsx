@@ -6,6 +6,7 @@ import { useEffect, useId, useMemo, useState, type KeyboardEvent as ReactKeyboar
 import { ArrowDownIcon, ArrowTurnDownLeftIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { FOCUS_AREAS, NAV, NAV_GROUPS, NAV_LINKS } from "@/components/layout/nav";
+import { foldText, listPlaces, loadPlaceIndex, PLACE_KIND_LABEL, placeAddress, placeHref, placeMatchScore } from "@/lib/places";
 import { cn } from "@/lib/utils";
 
 export type SearchDistrict = { name: string; slug: string; province: string };
@@ -26,8 +27,6 @@ type SearchEntry = {
 };
 /** `total` is how many matched, when more matched than are shown. */
 type ResultGroup = { title: string; items: SearchEntry[]; total?: number };
-/** The place index from /api/search-index: sectors by district slug, cells by sector, villages by cell. */
-type PlaceIndex = { sectors: [string, string][]; cells: [string, number][]; villages: [string, number][] };
 
 const RESULT_GROUPS: { kind: ResultKind; title: string; limit: number }[] = [
   { kind: "page", title: "Pages", limit: 6 },
@@ -40,9 +39,6 @@ const RESULT_GROUPS: { kind: ResultKind; title: string; limit: number }[] = [
   { kind: "lever", title: "Policy levers", limit: 4 },
 ];
 
-/** Lower case without accents, so a query matches however it is typed. */
-const foldText = (text: string) => text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
-
 /** A search entry, with its label folded for matching. */
 function entry(fields: Omit<SearchEntry, "folded">): SearchEntry {
   return { ...fields, folded: foldText(fields.label) };
@@ -53,9 +49,9 @@ const PLACE_KINDS = new Set<ResultKind>(["sector", "cell", "village"]);
 
 /** Lower is better; undefined means no match. Every word of the query must appear in the label or its terms. */
 function matchScore(entry: SearchEntry, query: string, words: string[]): number | undefined {
+  if (PLACE_KINDS.has(entry.kind)) return placeMatchScore(entry, query, words);
   const label = entry.folded;
   if (!words.every((word) => label.includes(word) || entry.terms.includes(word))) return undefined;
-  if (PLACE_KINDS.has(entry.kind) && !words.some((word) => label.includes(word))) return undefined;
   if (label.startsWith(query)) return 0;
   if (label.split(/[\s(/]+/).some((part) => part.startsWith(words[0]))) return 1;
   return label.includes(words[0]) ? 2 : 3;
@@ -100,43 +96,17 @@ const JUMP_GROUPS: ResultGroup[] = [
   },
 ];
 
-/** Every sector, cell and village as a search entry. Each opens its district's profile. */
-function placeEntries(index: PlaceIndex, districtNameBySlug: Record<string, string>): SearchEntry[] {
-  const districtName = (slug: string) => districtNameBySlug[slug] ?? slug;
-  const sectors = index.sectors.map(([name, districtSlug], sectorIndex) =>
-    entry({
-      key: `sector:${sectorIndex}`,
-      kind: "sector",
-      label: name,
-      hint: `Sector in ${districtName(districtSlug)} district`,
-      href: `/districts/${districtSlug}`,
-      terms: foldText(`${districtName(districtSlug)} sector umurenge`),
-    }),
-  );
-  const cells = index.cells.map(([name, sectorIndex], cellIndex) => {
-    const [sectorName, districtSlug] = index.sectors[sectorIndex];
-    return entry({
-      key: `cell:${cellIndex}`,
-      kind: "cell",
-      label: name,
-      hint: `Cell in ${sectorName} sector, ${districtName(districtSlug)} district`,
-      href: `/districts/${districtSlug}`,
-      terms: foldText(`${sectorName} ${districtName(districtSlug)} cell akagari`),
-    });
-  });
-  const villages = index.villages.map(([name, cellIndex], villageIndex) => {
-    const [cellName, sectorIndex] = index.cells[cellIndex];
-    const [sectorName, districtSlug] = index.sectors[sectorIndex];
-    return entry({
-      key: `village:${villageIndex}`,
-      kind: "village",
-      label: name,
-      hint: `Village in ${cellName} cell, ${sectorName} sector, ${districtName(districtSlug)} district`,
-      href: `/districts/${districtSlug}`,
-      terms: foldText(`${cellName} ${sectorName} ${districtName(districtSlug)} village umudugudu`),
-    });
-  });
-  return [...sectors, ...cells, ...villages];
+/** Every sector, cell and village as a search entry. Each opens its district's page with that sector selected. */
+function placeEntries(places: ReturnType<typeof listPlaces>): SearchEntry[] {
+  return places.map((place) => ({
+    key: place.key,
+    kind: place.kind,
+    label: place.name,
+    hint: `${PLACE_KIND_LABEL[place.kind]} in ${placeAddress(place)}`,
+    href: placeHref(place),
+    folded: place.folded,
+    terms: place.terms,
+  }));
 }
 
 function isTypingIn(target: EventTarget | null) {
@@ -198,11 +168,10 @@ export function SiteSearch({
   useEffect(() => {
     if (!open || places) return;
     let cancelled = false;
-    fetch("/api/search-index")
-      .then((response) => (response.ok ? response.json() : Promise.reject(new Error(String(response.status)))))
-      .then((index: PlaceIndex) => {
+    loadPlaceIndex()
+      .then((index) => {
         if (cancelled) return;
-        setPlaces(placeEntries(index, districtNameBySlug));
+        setPlaces(placeEntries(listPlaces(index, districtNameBySlug)));
         setPlaceCounts({ sectors: index.sectors.length, cells: index.cells.length, villages: index.villages.length });
       })
       // Pages, districts, indicators and charts still work without the place list.
@@ -334,7 +303,7 @@ export function SiteSearch({
         >
           <DialogPrimitive.Title className="sr-only">Search IMBONIX</DialogPrimitive.Title>
           <div className="flex items-center gap-3 border-b border-line px-5">
-            <MagnifyingGlassIcon className="h-5 w-5 shrink-0 text-royal" aria-hidden="true" />
+            <MagnifyingGlassIcon className="h-5 w-5 shrink-0 text-cyan-ink" aria-hidden="true" />
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
@@ -350,7 +319,7 @@ export function SiteSearch({
               spellCheck={false}
               className="h-16 min-w-0 flex-1 bg-transparent text-[16px] font-semibold text-ink placeholder:font-medium placeholder:text-muted focus:outline-none focus-visible:outline-none"
             />
-            <DialogPrimitive.Close className="group inline-flex shrink-0 items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[13.5px] font-semibold text-ink transition-colors hover:text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal">
+            <DialogPrimitive.Close className="group inline-flex shrink-0 items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[13.5px] font-semibold text-ink transition-colors hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink">
               Close
               <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-cyan group-hover:text-navy-900 group-hover:ring-cyan">
                 <XMarkIcon className="h-4 w-4" aria-hidden="true" />
@@ -363,7 +332,7 @@ export function SiteSearch({
             role="region"
             aria-label="Search results"
             tabIndex={0}
-            className="min-h-0 flex-1 overflow-y-auto p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-royal"
+            className="min-h-0 flex-1 overflow-y-auto p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink"
           >
             {!trimmedQuery && (
               <p className="px-3 pb-1 pt-3 text-[13px] font-semibold text-muted">
@@ -383,7 +352,7 @@ export function SiteSearch({
                       id={`${listId}-group-${groupIndex}`}
                       className="mx-3 mb-1 mt-3 flex flex-wrap items-baseline justify-between gap-x-3 border-b border-line pb-2"
                     >
-                      <span className="eyebrow text-royal">{group.title}</span>
+                      <span className="eyebrow text-cyan-ink">{group.title}</span>
                       {/* When more matched than are shown, say so, and how to narrow it down. */}
                       {group.total !== undefined && group.total > group.items.length && (
                         <span className="text-[12px] font-semibold text-muted">
@@ -413,7 +382,7 @@ export function SiteSearch({
                               <HighlightedLabel text={entry.label} query={trimmedQuery} />
                             </span>
                             <span
-                              className={cn("shrink-0 text-[12.5px] font-bold", selected ? "text-royal" : "text-transparent")}
+                              className={cn("shrink-0 text-[12.5px] font-bold", selected ? "text-cyan-ink" : "text-transparent")}
                               aria-hidden="true"
                             >
                               Open

@@ -1,7 +1,7 @@
 # API reference
 
 The IMBONIX API is a read-only JSON service over the same published aggregates as the website: 30 districts,
-64 indicators and 416 sectors, each with its source. It needs no authentication.
+67 indicators and 416 sectors, each with its source. It needs no authentication.
 
 - Local base URL: `http://localhost:4000`
 - Version prefix: `/api/v1`

@@ -37,7 +37,7 @@ export function Breadcrumbs({
         ...extra,
       ];
   const dark = tone === "dark";
-  const linkClass = cn("rounded transition-colors", dark ? "hover:text-white" : "hover:text-royal");
+  const linkClass = cn("rounded transition-colors", dark ? "hover:text-white" : "hover:text-cyan-ink");
 
   return (
     <nav aria-label="Breadcrumb" className={className}>
