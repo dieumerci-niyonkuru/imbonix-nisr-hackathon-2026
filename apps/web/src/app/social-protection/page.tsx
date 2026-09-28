@@ -8,7 +8,7 @@ import { channel, DELAY_LABELS, DELAY_RAMP, timeliness, VUP, VUP_COMPONENTS } fr
 import { BRAND, CORE, RAMPS } from "@/lib/palette";
 
 export const metadata: Metadata = {
-  title: "Social protection",
+  title: "VUP support and payments",
   description:
     "How VUP social-protection payments reach households: timeliness, payment channel and amounts, from the EICV7 VUP survey.",
 };
@@ -48,7 +48,7 @@ export default function SocialProtectionPage() {
   return (
     <>
       <PageHero
-        eyebrow="Social protection"
+        eyebrow="VUP support and payments"
         title="VUP payments are faster, but rarely on time"
         intro="The Vision 2020 Umurenge Programme (VUP) pays cash to Rwanda's poorest households through Direct Support and public works. NISR's EICV7 VUP survey asked about 3,800 beneficiary households when their last payment arrived, how it was paid, and how much they received."
       />
