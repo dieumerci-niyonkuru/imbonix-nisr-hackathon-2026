@@ -36,7 +36,7 @@ const MENU_GROUPS: MenuGroup[] = NAV_GROUPS.map((group) => ({
   id: group.focusId,
   label: group.label,
   items: [
-    { href: `/#${group.focusId}`, label: "Overview", focusId: group.focusId },
+    { href: `/#${group.focusId}`, label: "At a glance", focusId: group.focusId },
     ...group.items.map((item) => ({ href: item.href, label: item.label })),
   ],
 }));

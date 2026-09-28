@@ -9,7 +9,7 @@ import { UsageExplorer } from "@/components/usage/usage-explorer";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Access vs use",
+  title: "Who uses financial services",
   description:
     "FinScope 2024 counts 96% of adults as financially included. DHS 2025 shows how many actually used a bank account or mobile money.",
 };
@@ -33,7 +33,7 @@ export default function AccessVsUsePage() {
   return (
     <>
       <PageHero
-        eyebrow="Access vs use"
+        eyebrow="Who uses financial services"
         title="96% are included. Far fewer actually use an account."
         intro="FinScope 2024 counts an adult as financially included if they use any financial product, formal or informal, including savings groups. DHS 2025 asks a stricter question: did you personally use a bank account or your phone for a financial transaction in the past 12 months? Both surveys can be right. The gap between them shows who has access on paper but little active use."
       />

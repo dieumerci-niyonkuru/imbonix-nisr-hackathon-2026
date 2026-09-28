@@ -209,7 +209,7 @@ export default function Home() {
       value: `${directSupportOnTime}%`,
       text: "of Direct Support households received their last payment on time.",
       href: "/social-protection",
-      cta: "Benefit delivery",
+      cta: "VUP support and payments",
     },
     {
       icon: BuildingLibraryIcon,
@@ -217,7 +217,7 @@ export default function Home() {
       value: String(LEVERS.length),
       text: "policy levers, each flagged district by district by one figure and a rule anyone can check.",
       href: "/priorities",
-      cta: "Intervention priorities",
+      cta: "Where to act first",
     },
     {
       icon: UserGroupIcon,
@@ -225,7 +225,7 @@ export default function Home() {
       value: `${poorestWomen.either}%`,
       text: "of women aged 15 to 49 in the poorest fifth used a bank account or mobile money in the past year.",
       href: "/access-vs-use",
-      cta: "Access against use",
+      cta: "Who uses financial services",
     },
   ];
 
@@ -249,7 +249,7 @@ export default function Home() {
               color: CORE.cyan,
             },
           ]}
-          links={[{ href: "/dashboard", label: "National dashboard" }]}
+          links={[{ href: "/dashboard", label: "Rwanda in figures" }]}
         >
           <ChartCard
             title="Inclusion rose, bank use did not"
@@ -356,8 +356,8 @@ export default function Home() {
             },
           ]}
           links={[
-            { href: "/map", label: "Resilience map" },
-            { href: "/districts", label: "District profiles" },
+            { href: "/map", label: "Map of every district" },
+            { href: "/districts", label: "Find your district" },
           ]}
         >
           <ChartCard
@@ -481,7 +481,7 @@ export default function Home() {
           kicker="Practical use"
           title="Evidence each actor can act on."
           body="IMBONIX turns the same figures into clear starting points for the people who can change them, with every rule and source in the open. It describes places, not households, so it points to where to look rather than who should receive support."
-          links={[{ href: "/scenarios", label: "Scenario simulator" }]}
+          links={[{ href: "/scenarios", label: "Test a policy target" }]}
         >
           <ul className="grid gap-4 md:grid-cols-3">
             {audiences.map((audience) => (
