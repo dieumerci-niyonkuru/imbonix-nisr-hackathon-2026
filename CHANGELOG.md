@@ -5,6 +5,13 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Plain language and a lighter homepage
+
+- Pages have plain, descriptive names, used the same way in the menus, footer, search, breadcrumbs and page
+  headings: Rwanda in figures, Who uses financial services, Who is most at risk, Map of every district, Find your
+  district, Where needs overlap, VUP support and payments, Where to act first and Test a policy target. Each menu
+  opens with "At a glance". The search jump list shows the names only, one per line.
+
 ### Minimal homepage and navigation
 
 - The homepage tabs and the header menus follow the three parts of the Track 2 challenge: financial exclusion,

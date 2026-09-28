@@ -5,7 +5,7 @@ import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 import { allFlags, LEVERS } from "@/lib/priorities";
 
 export const metadata: Metadata = {
-  title: "Intervention priorities",
+  title: "Where to act first",
   description: "Where NISR evidence points for seven policy levers, district by district, with every rule stated.",
 };
 
@@ -17,7 +17,7 @@ export default function PrioritiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Intervention priorities"
+        eyebrow="Where to act first"
         title="Where the evidence points, lever by lever"
         intro="Seven policy levers, each tied to one published indicator and a stated rule. A district is flagged for a lever when its NISR evidence crosses that rule. The flags show where a lever deserves a closer look; they do not decide budgets or who is eligible."
       />

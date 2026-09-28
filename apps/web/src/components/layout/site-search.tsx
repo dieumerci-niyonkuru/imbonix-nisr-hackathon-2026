@@ -52,7 +52,7 @@ const JUMP_GROUPS: ResultGroup[] = [
       {
         key: `jump:/#${group.focusId}`,
         kind: "page" as const,
-        label: "Overview",
+        label: "At a glance",
         hint: FOCUS_AREAS.find((area) => area.id === group.focusId)?.hint ?? "",
         href: `/#${group.focusId}`,
         terms: "",
@@ -332,7 +332,7 @@ export function SiteSearch({
                           onMouseMove={() => setActiveIndex(entryIndex)}
                           onClick={() => openResult(entry)}
                           className={cn(
-                            "cursor-pointer rounded-r-lg border-l-[3px] px-3 py-2 transition-colors",
+                            "cursor-pointer rounded-r-lg border-l-[3px] px-3 py-2.5 transition-colors",
                             selected ? "border-cyan bg-cyan-soft" : "border-transparent",
                           )}
                         >
@@ -350,11 +350,10 @@ export function SiteSearch({
                               Open
                             </span>
                           </span>
-                          <span
-                            className={cn("block text-[12.5px] leading-5 text-muted", trimmedQuery ? "truncate" : "line-clamp-2")}
-                          >
-                            {entry.hint}
-                          </span>
+                          {/* The jump list shows page names only; search results add a short line on what each one is. */}
+                          {trimmedQuery && (
+                            <span className="block truncate text-[12.5px] leading-5 text-muted">{entry.hint}</span>
+                          )}
                         </div>
                       );
                     })}

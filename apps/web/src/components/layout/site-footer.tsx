@@ -16,7 +16,7 @@ const COLUMNS: FooterColumn[] = [
   ...NAV_GROUPS.map((group) => ({
     heading: group.label,
     links: [
-      { href: `/#${group.focusId}`, label: "Overview", hashLink: true },
+      { href: `/#${group.focusId}`, label: "At a glance", hashLink: true },
       ...group.items.map((item) => ({ href: item.href, label: item.label })),
     ],
   })),
