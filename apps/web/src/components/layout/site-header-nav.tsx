@@ -11,7 +11,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { BrandLogo } from "@/components/layout/logo";
-import { NAV_GROUPS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
+import { FOCUS_AREAS, NAV_GROUPS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
 import {
   SiteSearch,
   type SearchChart,
@@ -29,16 +29,21 @@ export type HeaderData = {
   search: { districts: SearchDistrict[]; measures: SearchMeasure[]; charts: SearchChart[]; levers: SearchLever[] };
 };
 
-type MenuItem = { href: string; label: string };
-type MenuGroup = { id: string; label: string; items: MenuItem[] };
+type MenuItem = { href: string; label: string; description: string };
+type MenuGroup = { id: string; label: string; intro: string; items: MenuItem[] };
 
-/** One menu per focus area: its page at a glance, then the pages that go deeper. */
+/** One menu per focus area: its page at a glance, then the pages that go deeper, each with one line on what it holds. */
 const MENU_GROUPS: MenuGroup[] = NAV_GROUPS.map((group) => ({
   id: group.focusId,
   label: group.label,
+  intro: group.intro,
   items: [
-    { href: `/focus/${group.focusId}`, label: "At a glance" },
-    ...group.items.map((item) => ({ href: item.href, label: item.label })),
+    {
+      href: `/focus/${group.focusId}`,
+      label: "At a glance",
+      description: FOCUS_AREAS.find((area) => area.id === group.focusId)?.hint ?? "",
+    },
+    ...group.items.map((item) => ({ href: item.href, label: item.label, description: item.description })),
   ],
 }));
 
@@ -220,10 +225,14 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                     <div
                       id={panelId}
                       hidden={!expanded}
-                      className={cn("absolute top-full w-64 pt-2", groupIndex >= 2 ? "right-0" : "left-0")}
+                      className={cn("absolute top-full w-[23rem] pt-2", groupIndex >= 2 ? "right-0" : "left-0")}
                     >
-                      <div className="rounded-2xl bg-white py-2 shadow-lift ring-1 ring-line">
-                        <ul>
+                      <div className="overflow-hidden rounded-2xl bg-white shadow-lift ring-1 ring-line">
+                        <div className="border-b border-line bg-paper px-5 pb-3.5 pt-4">
+                          <p className="eyebrow text-royal">{group.label}</p>
+                          <p className="mt-1.5 text-[13px] leading-5 text-ink/80">{group.intro}</p>
+                        </div>
+                        <ul className="py-2">
                           {group.items.map((item) => (
                             <li key={item.href}>
                               <MenuLink item={item} current={isCurrentPage(item.href)} onNavigate={() => setOpenGroupId(null)} />
@@ -294,7 +303,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                     )}
                   >
                     <MagnifyingGlassIcon className="h-5 w-5 text-royal" aria-hidden="true" />
-                    Search districts and measures
+                    Search places, indicators and charts
                   </button>
                   <nav aria-label="Main">
                     <Link
@@ -380,8 +389,8 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 }
 
 /**
- * One link in a menu, as plain text: capitals in the desktop dropdown, sentence case in the phone menu. The current
- * page is marked with a cyan bar and a light background.
+ * One link in a menu, as plain text: the page name in bold with one line on what it holds. The page you are on, and the
+ * link under the pointer, are marked with a cyan bar and a light background.
  */
 function MenuLink({
   item,
@@ -395,17 +404,21 @@ function MenuLink({
   compact?: boolean;
 }) {
   const className = cn(
-    "block border-l-[3px] transition-colors hover:bg-cyan-soft",
-    compact
-      ? "rounded-r-lg px-3 py-2.5 text-[15px] font-semibold text-ink"
-      : "px-5 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-navy-900",
+    "group/item block border-l-[3px] transition-colors hover:border-cyan hover:bg-cyan-soft",
+    compact ? "rounded-r-lg px-3 py-2.5" : "px-5 py-3",
     current ? "border-cyan bg-cyan-soft" : "border-transparent",
     FOCUS_RING,
   );
 
   return (
     <Link href={item.href} onClick={onNavigate} aria-current={current ? "page" : undefined} className={className}>
-      {item.label}
+      <span className="flex items-center justify-between gap-3">
+        <span className="text-[15px] font-bold text-navy-900">{item.label}</span>
+        {current && <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-royal">You are here</span>}
+      </span>
+      <span className={cn("mt-0.5 block leading-5 text-muted", compact ? "text-[12.5px]" : "text-[13px]")}>
+        {item.description}
+      </span>
     </Link>
   );
 }
