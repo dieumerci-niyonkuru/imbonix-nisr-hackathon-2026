@@ -14,7 +14,7 @@ import { SourceLine } from "@/components/ui/source-line";
 import { DISTRICTS, PROVINCE_LABEL, rankOf, reference, sortedDistricts, valuesFor } from "@/lib/data";
 import { formatDiff, formatValue } from "@/lib/format";
 import { DIMENSIONS, MAP_LAYERS, meta, type Dimension } from "@/lib/indicators";
-import { scaleFor, textOn } from "@/lib/scales";
+import { scaleFor } from "@/lib/scales";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -90,8 +90,9 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
     <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
       <div className="card overflow-hidden">
         {/* Layer picker */}
-        <div className="border-b border-line p-4 sm:p-5">
-          <div className="flex flex-wrap gap-1.5">
+        <div className="border-b border-line">
+          {/* Dimensions as a tab bar: the chosen one has a cyan underline. It scrolls sideways on a phone. */}
+          <div className="flex gap-0.5 overflow-x-auto border-b border-line px-3 sm:px-4" aria-label="Dimension">
             {DIMENSION_ORDER.map((dim) => {
               const active = dim === dimension;
               const first = MAP_LAYERS.find((l) => l.dimension === dim);
@@ -101,17 +102,17 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                   key={dim}
                   type="button"
                   onClick={() => setLayerId(DIMENSIONS[dim].headline ?? first.id)}
-                  className={`shrink-0 rounded-full border px-3.5 py-1.5 text-[12.5px] font-bold transition-colors ${
-                    active ? "border-transparent" : "border-line bg-white text-muted hover:text-ink"
+                  aria-pressed={active}
+                  className={`-mb-px shrink-0 border-b-[3px] px-2 pb-3 pt-3.5 text-[13.5px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-royal ${
+                    active ? "border-cyan text-navy-900" : "border-transparent text-muted hover:border-line hover:text-ink"
                   }`}
-                  style={active ? { background: DIMENSIONS[dim].accent, color: textOn(DIMENSIONS[dim].accent) } : undefined}
                 >
                   {DIMENSIONS[dim].label}
                 </button>
               );
             })}
           </div>
-          <div className="mt-3 flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-2 p-4 sm:px-5">
             {MAP_LAYERS.filter((l) => l.dimension === dimension).map((layer) => {
               const active = layer.id === layerId;
               return (
@@ -120,8 +121,10 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                   type="button"
                   onClick={() => setLayerId(layer.id)}
                   aria-pressed={active}
-                  className={`rounded-lg px-3 py-1.5 text-[12.5px] font-semibold transition-colors ${
-                    active ? "bg-navy-900 text-white" : "bg-paper text-ink/80 hover:bg-line/70"
+                  className={`rounded-md border px-3 py-1.5 text-[13px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal ${
+                    active
+                      ? "border-navy-900 bg-navy-900 text-white"
+                      : "border-line bg-white text-ink/80 hover:border-royal hover:text-ink"
                   }`}
                 >
                   {layer.short}
@@ -139,13 +142,13 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
               <p className="mt-1 text-[13px] leading-5 text-muted">{DIMENSIONS[dimension].question}</p>
             </div>
             <div className="text-right">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted">{ref.label}</p>
+              <p className="text-[12.5px] font-semibold text-muted">{ref.label}</p>
               <p className="font-display text-2xl font-bold text-ink">{formatValue(indicator, ref.value)}</p>
             </div>
           </div>
 
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex rounded-full bg-paper p-1" role="radiogroup" aria-label="Map view">
+            <div className="inline-flex rounded-lg border border-line bg-paper p-1" role="radiogroup" aria-label="Map view">
               {(
                 [
                   ["interactive", "Interactive · zoom to sectors"],
@@ -163,7 +166,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                     setSectorHover(undefined);
                   }}
                   className={cn(
-                    "rounded-full px-3.5 py-1.5 text-[12.5px] font-semibold transition-colors",
+                    "rounded-md px-3.5 py-1.5 text-[13px] font-semibold transition-colors",
                     view === id ? "bg-white text-ink shadow-sm" : "text-muted hover:text-ink",
                   )}
                 >
@@ -229,9 +232,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                   top: sectorHover.y,
                 }}
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-white/60">
-                  {sectorHover.district} district
-                </p>
+                <p className="text-[12.5px] font-semibold text-white/60">{sectorHover.district} district</p>
                 <p className="font-display text-base font-bold">{sectorHover.sector} sector</p>
                 <p className="mt-1 text-[13px]">
                   Poverty (small area estimate):{" "}
@@ -248,9 +249,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
                 className="pointer-events-none absolute z-10 w-56 -translate-x-1/2 -translate-y-[calc(100%+14px)] rounded-xl bg-navy-900 px-3.5 py-3 text-white shadow-lift"
                 style={{ left: Math.min(Math.max(hover.x, 110), (frame.current?.clientWidth ?? 600) - 110), top: hover.y }}
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-white/60">
-                  {PROVINCE_LABEL[hovered.province]}
-                </p>
+                <p className="text-[12.5px] font-semibold text-white/60">{PROVINCE_LABEL[hovered.province]}</p>
                 <p className="font-display text-base font-bold">{hovered.name}</p>
                 <p className="tabular mt-1 text-xl font-bold text-cyan">{formatValue(indicator, hovered.values[layerId]?.v)}</p>
                 {hovered.values[layerId]?.lo !== undefined && (
@@ -311,9 +310,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
             <>
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
-                    {PROVINCE_LABEL[district.province]}
-                  </p>
+                  <p className="text-[12.5px] font-semibold text-muted">{PROVINCE_LABEL[district.province]}</p>
                   <h3 className="font-display text-2xl font-bold tracking-[-0.02em] text-ink">{district.name}</h3>
                 </div>
                 <button
@@ -342,7 +339,7 @@ export function MapExplorer({ initialLayer, initialDistrict }: { initialLayer?: 
               </div>
               <div className="mt-5">
                 <div className="mb-3 space-y-2">
-                  <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-ink">Four dimensions</p>
+                  <p className="text-[13px] font-bold text-ink">Four dimensions</p>
                   <OverlapBadge district={district} />
                 </div>
                 <Fingerprint district={district} />

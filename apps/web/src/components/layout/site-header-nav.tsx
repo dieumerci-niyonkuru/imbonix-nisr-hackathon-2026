@@ -52,8 +52,8 @@ const HOVER_CLOSE_DELAY = 160;
 
 // Top level items, as on the NISR site: bold navy text that turns into a solid block on hover and when open or current.
 const TOP_LINK_STYLE =
-  "inline-flex h-12 items-center gap-1 whitespace-nowrap rounded-md px-2.5 text-[14.5px] font-bold text-navy-900 transition-colors hover:bg-cyan hover:text-navy-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 xl:px-3.5 xl:text-[15.5px]";
-const TOP_ACTIVE_STYLE = "bg-cyan text-navy-900";
+  "inline-flex h-12 items-center gap-1 whitespace-nowrap rounded-md px-2.5 text-[14.5px] font-bold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white hover:shadow-[inset_0_-3px_0_var(--cyan)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 xl:px-3.5 xl:text-[15.5px]";
+const TOP_ACTIVE_STYLE = "bg-navy-900 text-white shadow-[inset_0_-3px_0_var(--cyan)]";
 // Links inside a menu panel or the phone menu keep a light highlight, so the text stays readable.
 const ACTIVE_STYLE = "bg-paper text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal";
@@ -414,7 +414,7 @@ function MenuLink({
     <Link href={item.href} onClick={onNavigate} aria-current={current ? "page" : undefined} className={className}>
       <span className="flex items-center justify-between gap-3">
         <span className="text-[15px] font-bold text-navy-900">{item.label}</span>
-        {current && <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-royal">You are here</span>}
+        {current && <span className="text-[12.5px] font-bold text-royal">You are here</span>}
       </span>
       <span className={cn("mt-0.5 block leading-5 text-muted", compact ? "text-[12.5px]" : "text-[13px]")}>
         {item.description}

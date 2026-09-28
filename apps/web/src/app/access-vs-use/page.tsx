@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { MEN, WOMEN } from "@/components/charts/dumbbell";
-import { Reveal } from "@/components/ui/reveal";
 import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 import { usageRows, usageTotal } from "@/lib/surveys";
 import { UsageExplorer } from "@/components/usage/usage-explorer";
@@ -42,13 +41,13 @@ export default function AccessVsUsePage() {
       <section className="container-page py-12">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {tiles.map((t, i) => (
-            <Reveal key={t.label} delay={i * 0.05}>
+            <div key={t.label}>
               <div className="card h-full p-6">
                 <span className="block h-1 w-10 rounded-full" style={{ background: t.color }} />
                 <p className="mt-4 font-display text-5xl font-bold tracking-[-0.04em] text-ink">{t.value.toFixed(1)}%</p>
                 <p className="mt-2 text-[14px] leading-6 text-ink/80">{t.label}</p>
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
         <p className="mt-3 text-[12px] text-muted">Source: NISR Rwanda DHS 2025 final report, Tables 15.5.1 and 15.5.2.</p>
