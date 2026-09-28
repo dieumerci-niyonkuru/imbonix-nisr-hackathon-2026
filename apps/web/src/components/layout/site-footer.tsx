@@ -22,6 +22,7 @@ const COLUMNS: FooterColumn[] = [
   {
     heading: "Project",
     links: [
+      { href: "/about", label: "About IMBONIX" },
       { href: "/data", label: "Data & methods" },
       { href: REPOSITORY_URL, label: "Source code", external: true },
       { href: `${REPOSITORY_URL}/blob/main/SECURITY.md`, label: "Security policy", external: true },

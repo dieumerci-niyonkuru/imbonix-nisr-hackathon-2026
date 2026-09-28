@@ -68,6 +68,7 @@ export const NAV_GROUPS: NavGroup[] = [
 /** Top-level links shown without a dropdown. */
 export const NAV_LINKS: NavItem[] = [
   { href: "/data", label: "Data & methods", description: "Where every figure comes from, and how far to trust it" },
+  { href: "/about", label: "About", description: "Why IMBONIX exists, who it serves and how it works" },
 ];
 
 /** Flat list (for the footer and sitemap), starting with the overview. */
