@@ -87,6 +87,11 @@ const SECTIONS: { dimension: Dimension; title: string; ids: string[] }[] = [
     ],
   },
   { dimension: "health", title: "Health cover", ids: ["eicv7_health_insurance", "census_medical_insurance"] },
+  {
+    dimension: "people",
+    title: "Groups Direct Support serves",
+    ids: ["census_older_people_share", "census_disability_prevalence", "census_older_people_mobile_phone"],
+  },
 ];
 
 export default async function DistrictPage({ params }: Params) {

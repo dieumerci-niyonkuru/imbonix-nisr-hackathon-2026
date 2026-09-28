@@ -84,7 +84,11 @@ export function stepsFor(district: District): Step[] {
     reading(district, "dhs_stunting", "Children under five who are stunted"),
     reading(district, "cfsva_hazard_any", "Households hit by a natural hazard"),
   ]);
-  const protection = present([reading(district, "eicv7_health_insurance", "People with health insurance")]);
+  const protection = present([
+    reading(district, "eicv7_health_insurance", "People with health insurance"),
+    reading(district, "census_older_people_share", "People aged 60 and over"),
+    reading(district, "census_disability_prevalence", "Persons with disabilities"),
+  ]);
 
   // Access is as weak as the weaker of formal inclusion and smartphones, which digital finance depends on.
   const accessNeed = worstNeed(access.map((item) => item.need));

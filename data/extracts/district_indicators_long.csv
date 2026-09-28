@@ -2,6 +2,7 @@ district,province,indicator_id,indicator,value,se,ci_low,ci_high,unit,year,sourc
 Nyarugenge,Kigali City,calc_establishments_per_1000_adults,"Establishments per 1,000 adults (2023 census / 2024 adults)",86.6452,,,,"per 1,000 adults",2023/24,IMBONIX calculation,ec_establishments / proj_adults_16plus_2024,calculated
 Nyarugenge,Kigali City,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),62.5602,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Nyarugenge,Kigali City,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,243052.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Nyarugenge,Kigali City,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.2,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Nyarugenge,Kigali City,census_electricity,Households with access to electricity (%),92.9,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Nyarugenge,Kigali City,census_female_headed_hh,Households headed by women (%),25.4,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Nyarugenge,Kigali City,census_hh_mobile_phone,Households with a member owning a mobile phone (%),92.8,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -11,6 +12,8 @@ Nyarugenge,Kigali City,census_moderately_poor,"Moderately poor, census non-monet
 Nyarugenge,Kigali City,census_mpi,"Multidimensional Poverty Index (M0), census",0.038,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyarugenge,Kigali City,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",9.0,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyarugenge,Kigali City,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",78.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Nyarugenge,Kigali City,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),65.1,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Nyarugenge,Kigali City,census_older_people_share,People aged 60+ among residents (%),3.3,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Nyarugenge,Kigali City,census_population,Resident population,374319.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Nyarugenge,Kigali City,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",2.0,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Nyarugenge,Kigali City,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",12.0,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -64,6 +67,7 @@ Gasabo,Kigali City,calc_excluded_adults_2024,"Financially excluded adults, appro
 Gasabo,Kigali City,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",12352.44,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Gasabo,Kigali City,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),44.4312,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Gasabo,Kigali City,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,489434.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Gasabo,Kigali City,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.0,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Gasabo,Kigali City,census_electricity,Households with access to electricity (%),86.5,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Gasabo,Kigali City,census_female_headed_hh,Households headed by women (%),23.6,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Gasabo,Kigali City,census_hh_mobile_phone,Households with a member owning a mobile phone (%),91.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -73,6 +77,8 @@ Gasabo,Kigali City,census_moderately_poor,"Moderately poor, census non-monetary 
 Gasabo,Kigali City,census_mpi,"Multidimensional Poverty Index (M0), census",0.047,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Gasabo,Kigali City,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",11.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Gasabo,Kigali City,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",76.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Gasabo,Kigali City,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),62.7,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Gasabo,Kigali City,census_older_people_share,People aged 60+ among residents (%),3.2,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Gasabo,Kigali City,census_population,Resident population,879505.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Gasabo,Kigali City,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",2.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Gasabo,Kigali City,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",12.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -128,6 +134,7 @@ Kicukiro,Kigali City,calc_excluded_adults_2024,"Financially excluded adults, app
 Kicukiro,Kigali City,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",7202.62,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Kicukiro,Kigali City,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),20.6553,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Kicukiro,Kigali City,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,256878.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Kicukiro,Kigali City,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),1.8,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Kicukiro,Kigali City,census_electricity,Households with access to electricity (%),92.9,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Kicukiro,Kigali City,census_female_headed_hh,Households headed by women (%),23.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Kicukiro,Kigali City,census_hh_mobile_phone,Households with a member owning a mobile phone (%),94.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -137,6 +144,8 @@ Kicukiro,Kigali City,census_moderately_poor,"Moderately poor, census non-monetar
 Kicukiro,Kigali City,census_mpi,"Multidimensional Poverty Index (M0), census",0.028,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Kicukiro,Kigali City,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",6.7,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Kicukiro,Kigali City,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",83.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Kicukiro,Kigali City,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),76.5,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Kicukiro,Kigali City,census_older_people_share,People aged 60+ among residents (%),2.9,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Kicukiro,Kigali City,census_population,Resident population,491731.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Kicukiro,Kigali City,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",1.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Kicukiro,Kigali City,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",9.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -192,6 +201,7 @@ Nyanza,South,calc_excluded_adults_2024,"Financially excluded adults, approx. (Fi
 Nyanza,South,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",9019.4,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Nyanza,South,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),3.1466,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Nyanza,South,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,321006.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Nyanza,South,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.5,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Nyanza,South,census_electricity,Households with access to electricity (%),51.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Nyanza,South,census_female_headed_hh,Households headed by women (%),34.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Nyanza,South,census_hh_mobile_phone,Households with a member owning a mobile phone (%),69.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -201,6 +211,8 @@ Nyanza,South,census_moderately_poor,"Moderately poor, census non-monetary measur
 Nyanza,South,census_mpi,"Multidimensional Poverty Index (M0), census",0.177,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyanza,South,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",40.0,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyanza,South,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",36.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Nyanza,South,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),29.3,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Nyanza,South,census_older_people_share,People aged 60+ among residents (%),8.2,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Nyanza,South,census_population,Resident population,365718.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Nyanza,South,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",11.3,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Nyanza,South,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",23.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -256,6 +268,7 @@ Gisagara,South,calc_excluded_adults_2024,"Financially excluded adults, approx. (
 Gisagara,South,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",21605.31,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Gisagara,South,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),2.4715,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Gisagara,South,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,372835.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Gisagara,South,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.9,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Gisagara,South,census_electricity,Households with access to electricity (%),52.6,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Gisagara,South,census_female_headed_hh,Households headed by women (%),35.2,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Gisagara,South,census_hh_mobile_phone,Households with a member owning a mobile phone (%),66.5,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -265,6 +278,8 @@ Gisagara,South,census_moderately_poor,"Moderately poor, census non-monetary meas
 Gisagara,South,census_mpi,"Multidimensional Poverty Index (M0), census",0.196,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Gisagara,South,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",45.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Gisagara,South,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",32.7,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Gisagara,South,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),30.6,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Gisagara,South,census_older_people_share,People aged 60+ among residents (%),7.6,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Gisagara,South,census_population,Resident population,397051.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Gisagara,South,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",11.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Gisagara,South,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",22.1,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -320,6 +335,7 @@ Nyaruguru,South,calc_excluded_adults_2024,"Financially excluded adults, approx. 
 Nyaruguru,South,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",9420.7,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Nyaruguru,South,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),8.9967,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Nyaruguru,South,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,312463.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Nyaruguru,South,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.1,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Nyaruguru,South,census_electricity,Households with access to electricity (%),65.8,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Nyaruguru,South,census_female_headed_hh,Households headed by women (%),30.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Nyaruguru,South,census_hh_mobile_phone,Households with a member owning a mobile phone (%),67.6,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -329,6 +345,8 @@ Nyaruguru,South,census_moderately_poor,"Moderately poor, census non-monetary mea
 Nyaruguru,South,census_mpi,"Multidimensional Poverty Index (M0), census",0.156,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyaruguru,South,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",37.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyaruguru,South,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",37.7,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Nyaruguru,South,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),25.4,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Nyaruguru,South,census_older_people_share,People aged 60+ among residents (%),8.2,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Nyaruguru,South,census_population,Resident population,318126.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Nyaruguru,South,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",7.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Nyaruguru,South,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",24.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -384,6 +402,7 @@ Huye,South,calc_excluded_adults_2024,"Financially excluded adults, approx. (FinS
 Huye,South,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",14672.88,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Huye,South,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),4.7488,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Huye,South,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,325879.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Huye,South,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.6,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Huye,South,census_electricity,Households with access to electricity (%),56.4,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Huye,South,census_female_headed_hh,Households headed by women (%),34.9,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Huye,South,census_hh_mobile_phone,Households with a member owning a mobile phone (%),70.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -393,6 +412,8 @@ Huye,South,census_moderately_poor,"Moderately poor, census non-monetary measure 
 Huye,South,census_mpi,"Multidimensional Poverty Index (M0), census",0.133,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Huye,South,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",31.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Huye,South,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",45.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Huye,South,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),28.6,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Huye,South,census_older_people_share,People aged 60+ among residents (%),8.5,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Huye,South,census_population,Resident population,381900.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Huye,South,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",6.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Huye,South,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",22.7,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -448,6 +469,7 @@ Nyamagabe,South,calc_excluded_adults_2024,"Financially excluded adults, approx. 
 Nyamagabe,South,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",9356.0,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Nyamagabe,South,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),6.2954,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Nyamagabe,South,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,341195.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Nyamagabe,South,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.2,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Nyamagabe,South,census_electricity,Households with access to electricity (%),46.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Nyamagabe,South,census_female_headed_hh,Households headed by women (%),30.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Nyamagabe,South,census_hh_mobile_phone,Households with a member owning a mobile phone (%),70.5,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -457,6 +479,8 @@ Nyamagabe,South,census_moderately_poor,"Moderately poor, census non-monetary mea
 Nyamagabe,South,census_mpi,"Multidimensional Poverty Index (M0), census",0.167,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyamagabe,South,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",38.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyamagabe,South,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",32.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Nyamagabe,South,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),28.5,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Nyamagabe,South,census_older_people_share,People aged 60+ among residents (%),8.4,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Nyamagabe,South,census_population,Resident population,371501.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Nyamagabe,South,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",8.1,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Nyamagabe,South,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",28.3,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -512,6 +536,7 @@ Ruhango,South,calc_excluded_adults_2024,"Financially excluded adults, approx. (F
 Ruhango,South,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",11202.25,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Ruhango,South,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),3.19,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Ruhango,South,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,343213.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Ruhango,South,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),4.0,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Ruhango,South,census_electricity,Households with access to electricity (%),58.6,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Ruhango,South,census_female_headed_hh,Households headed by women (%),32.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Ruhango,South,census_hh_mobile_phone,Households with a member owning a mobile phone (%),71.2,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -521,6 +546,8 @@ Ruhango,South,census_moderately_poor,"Moderately poor, census non-monetary measu
 Ruhango,South,census_mpi,"Multidimensional Poverty Index (M0), census",0.156,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Ruhango,South,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",36.0,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Ruhango,South,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",38.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Ruhango,South,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),36.2,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Ruhango,South,census_older_people_share,People aged 60+ among residents (%),8.4,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Ruhango,South,census_population,Resident population,359121.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Ruhango,South,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",8.7,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Ruhango,South,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",25.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -576,6 +603,7 @@ Muhanga,South,calc_excluded_adults_2024,"Financially excluded adults, approx. (F
 Muhanga,South,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",11687.9,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Muhanga,South,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),4.9748,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Muhanga,South,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,324772.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Muhanga,South,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.2,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Muhanga,South,census_electricity,Households with access to electricity (%),57.2,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Muhanga,South,census_female_headed_hh,Households headed by women (%),29.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Muhanga,South,census_hh_mobile_phone,Households with a member owning a mobile phone (%),77.9,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -585,6 +613,8 @@ Muhanga,South,census_moderately_poor,"Moderately poor, census non-monetary measu
 Muhanga,South,census_mpi,"Multidimensional Poverty Index (M0), census",0.107,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Muhanga,South,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",26.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Muhanga,South,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",50.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Muhanga,South,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),36.6,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Muhanga,South,census_older_people_share,People aged 60+ among residents (%),8.5,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Muhanga,South,census_population,Resident population,358433.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Muhanga,South,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",3.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Muhanga,South,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",23.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -640,6 +670,7 @@ Kamonyi,South,calc_excluded_adults_2024,"Financially excluded adults, approx. (F
 Kamonyi,South,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",11700.64,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Kamonyi,South,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),2.5185,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Kamonyi,South,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,412417.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Kamonyi,South,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.8,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Kamonyi,South,census_electricity,Households with access to electricity (%),54.0,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Kamonyi,South,census_female_headed_hh,Households headed by women (%),28.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Kamonyi,South,census_hh_mobile_phone,Households with a member owning a mobile phone (%),79.6,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -649,6 +680,8 @@ Kamonyi,South,census_moderately_poor,"Moderately poor, census non-monetary measu
 Kamonyi,South,census_mpi,"Multidimensional Poverty Index (M0), census",0.111,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Kamonyi,South,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",26.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Kamonyi,South,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",49.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Kamonyi,South,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),41.0,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Kamonyi,South,census_older_people_share,People aged 60+ among residents (%),7.3,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Kamonyi,South,census_population,Resident population,450849.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Kamonyi,South,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",4.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Kamonyi,South,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",24.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -704,6 +737,7 @@ Karongi,West,calc_excluded_adults_2024,"Financially excluded adults, approx. (Fi
 Karongi,West,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",13793.94,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Karongi,West,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),5.0653,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Karongi,West,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,326229.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Karongi,West,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.4,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Karongi,West,census_electricity,Households with access to electricity (%),50.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Karongi,West,census_female_headed_hh,Households headed by women (%),31.8,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Karongi,West,census_hh_mobile_phone,Households with a member owning a mobile phone (%),74.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -713,6 +747,8 @@ Karongi,West,census_moderately_poor,"Moderately poor, census non-monetary measur
 Karongi,West,census_mpi,"Multidimensional Poverty Index (M0), census",0.145,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Karongi,West,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",34.3,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Karongi,West,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",36.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Karongi,West,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),29.3,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Karongi,West,census_older_people_share,People aged 60+ among residents (%),7.9,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Karongi,West,census_population,Resident population,373869.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Karongi,West,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",6.3,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Karongi,West,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",28.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -768,6 +804,7 @@ Rutsiro,West,calc_excluded_adults_2024,"Financially excluded adults, approx. (Fi
 Rutsiro,West,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",13525.56,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Rutsiro,West,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),2.9597,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Rutsiro,West,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,340844.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Rutsiro,West,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.8,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Rutsiro,West,census_electricity,Households with access to electricity (%),50.2,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Rutsiro,West,census_female_headed_hh,Households headed by women (%),28.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Rutsiro,West,census_hh_mobile_phone,Households with a member owning a mobile phone (%),73.0,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -777,6 +814,8 @@ Rutsiro,West,census_moderately_poor,"Moderately poor, census non-monetary measur
 Rutsiro,West,census_mpi,"Multidimensional Poverty Index (M0), census",0.172,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Rutsiro,West,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",39.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Rutsiro,West,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",31.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Rutsiro,West,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),30.4,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Rutsiro,West,census_older_people_share,People aged 60+ among residents (%),6.9,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Rutsiro,West,census_population,Resident population,369180.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Rutsiro,West,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",9.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Rutsiro,West,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",28.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -832,6 +871,7 @@ Rubavu,West,calc_excluded_adults_2024,"Financially excluded adults, approx. (Fin
 Rubavu,West,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",13414.52,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Rubavu,West,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),4.9919,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Rubavu,West,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,429929.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Rubavu,West,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.6,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Rubavu,West,census_electricity,Households with access to electricity (%),71.4,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Rubavu,West,census_female_headed_hh,Households headed by women (%),28.2,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Rubavu,West,census_hh_mobile_phone,Households with a member owning a mobile phone (%),79.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -841,6 +881,8 @@ Rubavu,West,census_moderately_poor,"Moderately poor, census non-monetary measure
 Rubavu,West,census_mpi,"Multidimensional Poverty Index (M0), census",0.147,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Rubavu,West,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",32.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Rubavu,West,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",49.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Rubavu,West,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),39.2,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Rubavu,West,census_older_people_share,People aged 60+ among residents (%),4.8,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Rubavu,West,census_population,Resident population,546683.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Rubavu,West,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",10.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Rubavu,West,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",17.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -896,6 +938,7 @@ Nyabihu,West,calc_excluded_adults_2024,"Financially excluded adults, approx. (Fi
 Nyabihu,West,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",9635.65,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Nyabihu,West,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),7.5049,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Nyabihu,West,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,296794.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Nyabihu,West,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.2,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Nyabihu,West,census_electricity,Households with access to electricity (%),47.0,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Nyabihu,West,census_female_headed_hh,Households headed by women (%),30.9,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Nyabihu,West,census_hh_mobile_phone,Households with a member owning a mobile phone (%),76.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -905,6 +948,8 @@ Nyabihu,West,census_moderately_poor,"Moderately poor, census non-monetary measur
 Nyabihu,West,census_mpi,"Multidimensional Poverty Index (M0), census",0.147,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyabihu,West,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",34.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyabihu,West,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",35.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Nyabihu,West,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),36.1,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Nyabihu,West,census_older_people_share,People aged 60+ among residents (%),6.3,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Nyabihu,West,census_population,Resident population,319047.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Nyabihu,West,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",6.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Nyabihu,West,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",29.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -960,6 +1005,7 @@ Ngororero,West,calc_excluded_adults_2024,"Financially excluded adults, approx. (
 Ngororero,West,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",11019.5,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Ngororero,West,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),2.4189,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Ngororero,West,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,353270.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Ngororero,West,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.8,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Ngororero,West,census_electricity,Households with access to electricity (%),40.5,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Ngororero,West,census_female_headed_hh,Households headed by women (%),32.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Ngororero,West,census_hh_mobile_phone,Households with a member owning a mobile phone (%),72.4,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -969,6 +1015,8 @@ Ngororero,West,census_moderately_poor,"Moderately poor, census non-monetary meas
 Ngororero,West,census_mpi,"Multidimensional Poverty Index (M0), census",0.164,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Ngororero,West,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",38.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Ngororero,West,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",30.1,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Ngororero,West,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),34.6,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Ngororero,West,census_older_people_share,People aged 60+ among residents (%),7.2,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Ngororero,West,census_population,Resident population,367955.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Ngororero,West,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",7.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Ngororero,West,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",31.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1024,6 +1072,7 @@ Rusizi,West,calc_excluded_adults_2024,"Financially excluded adults, approx. (Fin
 Rusizi,West,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",14530.95,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Rusizi,West,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),5.4239,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Rusizi,West,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,440030.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Rusizi,West,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.0,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Rusizi,West,census_electricity,Households with access to electricity (%),67.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Rusizi,West,census_female_headed_hh,Households headed by women (%),27.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Rusizi,West,census_hh_mobile_phone,Households with a member owning a mobile phone (%),81.0,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1033,6 +1082,8 @@ Rusizi,West,census_moderately_poor,"Moderately poor, census non-monetary measure
 Rusizi,West,census_mpi,"Multidimensional Poverty Index (M0), census",0.143,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Rusizi,West,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",34.0,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Rusizi,West,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",43.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Rusizi,West,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),38.4,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Rusizi,West,census_older_people_share,People aged 60+ among residents (%),7.4,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Rusizi,West,census_population,Resident population,485529.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Rusizi,West,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",7.7,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Rusizi,West,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",22.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1088,6 +1139,7 @@ Nyamasheke,West,calc_excluded_adults_2024,"Financially excluded adults, approx. 
 Nyamasheke,West,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",7728.36,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Nyamasheke,West,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),6.1441,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Nyamasheke,West,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,413430.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Nyamasheke,West,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.7,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Nyamasheke,West,census_electricity,Households with access to electricity (%),61.5,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Nyamasheke,West,census_female_headed_hh,Households headed by women (%),28.8,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Nyamasheke,West,census_hh_mobile_phone,Households with a member owning a mobile phone (%),82.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1097,6 +1149,8 @@ Nyamasheke,West,census_moderately_poor,"Moderately poor, census non-monetary mea
 Nyamasheke,West,census_mpi,"Multidimensional Poverty Index (M0), census",0.133,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyamasheke,West,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",32.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyamasheke,West,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",41.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Nyamasheke,West,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),39.8,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Nyamasheke,West,census_older_people_share,People aged 60+ among residents (%),8.1,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Nyamasheke,West,census_population,Resident population,434221.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Nyamasheke,West,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",5.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Nyamasheke,West,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",26.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1152,6 +1206,7 @@ Rulindo,North,calc_excluded_adults_2024,"Financially excluded adults, approx. (F
 Rulindo,North,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",9368.52,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Rulindo,North,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),8.9525,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Rulindo,North,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,340010.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Rulindo,North,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.8,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Rulindo,North,census_electricity,Households with access to electricity (%),54.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Rulindo,North,census_female_headed_hh,Households headed by women (%),27.4,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Rulindo,North,census_hh_mobile_phone,Households with a member owning a mobile phone (%),77.8,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1161,6 +1216,8 @@ Rulindo,North,census_moderately_poor,"Moderately poor, census non-monetary measu
 Rulindo,North,census_mpi,"Multidimensional Poverty Index (M0), census",0.105,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Rulindo,North,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",25.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Rulindo,North,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",48.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Rulindo,North,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),30.9,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Rulindo,North,census_older_people_share,People aged 60+ among residents (%),7.6,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Rulindo,North,census_population,Resident population,360144.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Rulindo,North,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",3.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Rulindo,North,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",25.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1216,6 +1273,7 @@ Gakenke,North,calc_excluded_adults_2024,"Financially excluded adults, approx. (F
 Gakenke,North,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",11769.9,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Gakenke,North,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),2.8951,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Gakenke,North,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,373137.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Gakenke,North,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.9,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Gakenke,North,census_electricity,Households with access to electricity (%),49.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Gakenke,North,census_female_headed_hh,Households headed by women (%),27.4,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Gakenke,North,census_hh_mobile_phone,Households with a member owning a mobile phone (%),76.2,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1225,6 +1283,8 @@ Gakenke,North,census_moderately_poor,"Moderately poor, census non-monetary measu
 Gakenke,North,census_mpi,"Multidimensional Poverty Index (M0), census",0.12,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Gakenke,North,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",29.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Gakenke,North,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",40.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Gakenke,North,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),28.9,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Gakenke,North,census_older_people_share,People aged 60+ among residents (%),8.5,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Gakenke,North,census_population,Resident population,365292.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Gakenke,North,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",3.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Gakenke,North,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",29.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1280,6 +1340,7 @@ Musanze,North,calc_excluded_adults_2024,"Financially excluded adults, approx. (F
 Musanze,North,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",15677.3,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Musanze,North,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),5.0745,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Musanze,North,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,404862.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Musanze,North,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.7,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Musanze,North,census_electricity,Households with access to electricity (%),62.9,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Musanze,North,census_female_headed_hh,Households headed by women (%),27.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Musanze,North,census_hh_mobile_phone,Households with a member owning a mobile phone (%),81.6,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1289,6 +1350,8 @@ Musanze,North,census_moderately_poor,"Moderately poor, census non-monetary measu
 Musanze,North,census_mpi,"Multidimensional Poverty Index (M0), census",0.118,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Musanze,North,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",28.1,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Musanze,North,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",50.0,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Musanze,North,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),35.1,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Musanze,North,census_older_people_share,People aged 60+ among residents (%),6.1,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Musanze,North,census_population,Resident population,476522.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Musanze,North,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",5.1,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Musanze,North,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",21.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1344,6 +1407,7 @@ Burera,North,calc_excluded_adults_2024,"Financially excluded adults, approx. (Fi
 Burera,North,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",4867.9,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Burera,North,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),3.0288,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Burera,North,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,381650.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Burera,North,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.2,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Burera,North,census_electricity,Households with access to electricity (%),52.7,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Burera,North,census_female_headed_hh,Households headed by women (%),25.4,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Burera,North,census_hh_mobile_phone,Households with a member owning a mobile phone (%),77.6,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1353,6 +1417,8 @@ Burera,North,census_moderately_poor,"Moderately poor, census non-monetary measur
 Burera,North,census_mpi,"Multidimensional Poverty Index (M0), census",0.139,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Burera,North,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",34.3,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Burera,North,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",38.1,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Burera,North,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),29.8,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Burera,North,census_older_people_share,People aged 60+ among residents (%),7.1,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Burera,North,census_population,Resident population,387729.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Burera,North,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",4.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Burera,North,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",27.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1408,6 +1474,7 @@ Gicumbi,North,calc_excluded_adults_2024,"Financially excluded adults, approx. (F
 Gicumbi,North,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",31645.35,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Gicumbi,North,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),5.5707,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Gicumbi,North,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,433201.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Gicumbi,North,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.2,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Gicumbi,North,census_electricity,Households with access to electricity (%),49.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Gicumbi,North,census_female_headed_hh,Households headed by women (%),26.5,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Gicumbi,North,census_hh_mobile_phone,Households with a member owning a mobile phone (%),74.5,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1417,6 +1484,8 @@ Gicumbi,North,census_moderately_poor,"Moderately poor, census non-monetary measu
 Gicumbi,North,census_mpi,"Multidimensional Poverty Index (M0), census",0.129,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Gicumbi,North,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",31.7,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Gicumbi,North,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",41.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Gicumbi,North,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),27.8,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Gicumbi,North,census_older_people_share,People aged 60+ among residents (%),7.6,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Gicumbi,North,census_population,Resident population,448824.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Gicumbi,North,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",4.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Gicumbi,North,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",26.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1472,6 +1541,7 @@ Rwamagana,East,calc_excluded_adults_2024,"Financially excluded adults, approx. (
 Rwamagana,East,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",9773.49,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Rwamagana,East,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),3.5696,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Rwamagana,East,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,376048.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Rwamagana,East,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),2.7,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Rwamagana,East,census_electricity,Households with access to electricity (%),67.6,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Rwamagana,East,census_female_headed_hh,Households headed by women (%),30.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Rwamagana,East,census_hh_mobile_phone,Households with a member owning a mobile phone (%),81.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1481,6 +1551,8 @@ Rwamagana,East,census_moderately_poor,"Moderately poor, census non-monetary meas
 Rwamagana,East,census_mpi,"Multidimensional Poverty Index (M0), census",0.112,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Rwamagana,East,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",26.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Rwamagana,East,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",53.3,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Rwamagana,East,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),41.1,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Rwamagana,East,census_older_people_share,People aged 60+ among residents (%),5.8,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Rwamagana,East,census_population,Resident population,484953.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Rwamagana,East,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",5.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Rwamagana,East,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",20.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1536,6 +1608,7 @@ Nyagatare,East,calc_excluded_adults_2024,"Financially excluded adults, approx. (
 Nyagatare,East,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",16262.44,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Nyagatare,East,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),2.1738,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Nyagatare,East,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,549611.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Nyagatare,East,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.2,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Nyagatare,East,census_electricity,Households with access to electricity (%),54.5,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Nyagatare,East,census_female_headed_hh,Households headed by women (%),27.9,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Nyagatare,East,census_hh_mobile_phone,Households with a member owning a mobile phone (%),78.9,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1545,6 +1618,8 @@ Nyagatare,East,census_moderately_poor,"Moderately poor, census non-monetary meas
 Nyagatare,East,census_mpi,"Multidimensional Poverty Index (M0), census",0.164,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyagatare,East,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",37.3,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Nyagatare,East,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",38.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Nyagatare,East,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),45.9,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Nyagatare,East,census_older_people_share,People aged 60+ among residents (%),5.6,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Nyagatare,East,census_population,Resident population,653861.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Nyagatare,East,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",9.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Nyagatare,East,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",24.3,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1600,6 +1675,7 @@ Gatsibo,East,calc_excluded_adults_2024,"Financially excluded adults, approx. (Fi
 Gatsibo,East,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",10248.54,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Gatsibo,East,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),2.3848,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Gatsibo,East,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,462329.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Gatsibo,East,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.0,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Gatsibo,East,census_electricity,Households with access to electricity (%),48.8,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Gatsibo,East,census_female_headed_hh,Households headed by women (%),29.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Gatsibo,East,census_hh_mobile_phone,Households with a member owning a mobile phone (%),71.4,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1609,6 +1685,8 @@ Gatsibo,East,census_moderately_poor,"Moderately poor, census non-monetary measur
 Gatsibo,East,census_mpi,"Multidimensional Poverty Index (M0), census",0.162,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Gatsibo,East,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",37.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Gatsibo,East,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",37.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Gatsibo,East,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),31.9,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Gatsibo,East,census_older_people_share,People aged 60+ among residents (%),6.5,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Gatsibo,East,census_population,Resident population,551164.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Gatsibo,East,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",9.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Gatsibo,East,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",25.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1664,6 +1742,7 @@ Kayonza,East,calc_excluded_adults_2024,"Financially excluded adults, approx. (Fi
 Kayonza,East,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",22735.6,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Kayonza,East,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),4.4082,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Kayonza,East,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,386487.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Kayonza,East,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.3,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Kayonza,East,census_electricity,Households with access to electricity (%),57.9,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Kayonza,East,census_female_headed_hh,Households headed by women (%),30.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Kayonza,East,census_hh_mobile_phone,Households with a member owning a mobile phone (%),76.2,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1673,6 +1752,8 @@ Kayonza,East,census_moderately_poor,"Moderately poor, census non-monetary measur
 Kayonza,East,census_mpi,"Multidimensional Poverty Index (M0), census",0.152,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Kayonza,East,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",35.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Kayonza,East,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",41.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Kayonza,East,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),39.9,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Kayonza,East,census_older_people_share,People aged 60+ among residents (%),6.1,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Kayonza,East,census_population,Resident population,457156.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Kayonza,East,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",8.8,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Kayonza,East,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",23.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1728,6 +1809,7 @@ Kirehe,East,calc_excluded_adults_2024,"Financially excluded adults, approx. (Fin
 Kirehe,East,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",14429.8,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Kirehe,East,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),2.9948,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Kirehe,East,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,401788.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Kirehe,East,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.1,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Kirehe,East,census_electricity,Households with access to electricity (%),57.1,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Kirehe,East,census_female_headed_hh,Households headed by women (%),30.8,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Kirehe,East,census_hh_mobile_phone,Households with a member owning a mobile phone (%),76.9,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1737,6 +1819,8 @@ Kirehe,East,census_moderately_poor,"Moderately poor, census non-monetary measure
 Kirehe,East,census_mpi,"Multidimensional Poverty Index (M0), census",0.145,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Kirehe,East,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",34.9,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Kirehe,East,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",43.1,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Kirehe,East,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),36.2,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Kirehe,East,census_older_people_share,People aged 60+ among residents (%),6.4,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Kirehe,East,census_population,Resident population,460860.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Kirehe,East,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",7.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Kirehe,East,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",22.0,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1792,6 +1876,7 @@ Ngoma,East,calc_excluded_adults_2024,"Financially excluded adults, approx. (FinS
 Ngoma,East,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",14880.3,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Ngoma,East,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),2.7302,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Ngoma,East,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,373065.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Ngoma,East,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.3,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Ngoma,East,census_electricity,Households with access to electricity (%),58.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Ngoma,East,census_female_headed_hh,Households headed by women (%),31.4,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Ngoma,East,census_hh_mobile_phone,Households with a member owning a mobile phone (%),71.4,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1801,6 +1886,8 @@ Ngoma,East,census_moderately_poor,"Moderately poor, census non-monetary measure 
 Ngoma,East,census_mpi,"Multidimensional Poverty Index (M0), census",0.161,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Ngoma,East,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",37.1,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Ngoma,East,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",40.5,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Ngoma,East,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),32.2,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Ngoma,East,census_older_people_share,People aged 60+ among residents (%),7.0,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Ngoma,East,census_population,Resident population,404048.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Ngoma,East,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",9.7,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Ngoma,East,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",22.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
@@ -1856,6 +1943,7 @@ Bugesera,East,calc_excluded_adults_2024,"Financially excluded adults, approx. (F
 Bugesera,East,calc_informal_only_adults_2024,"Adults relying on informal finance only, approx.",17515.65,,,,persons,2024,IMBONIX calculation,finscope_informal_only x proj_adults_16plus_2024,calculated
 Bugesera,East,calc_rssb_members_per_100_adults,RSSB active members per 100 adults (formal-sector pension reach proxy),2.7581,,,,per 100 adults,2024,IMBONIX calculation,rssb_active_members / proj_adults_16plus_2024,calculated
 Bugesera,East,cbhi_registrations,Mutuelle de Sante (CBHI) registrations,431457.0,,,,persons,2024/25,NISR Statistical Yearbook 2025 (RSSB data),Table 12.2.9,observed
+Bugesera,East,census_disability_prevalence,Persons with disabilities among residents aged 5+ (%),3.1,,,,%,2022,NISR RPHC5 Persons with Disabilities thematic report (tables),Table C.1,observed
 Bugesera,East,census_electricity,Households with access to electricity (%),60.8,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 74,observed
 Bugesera,East,census_female_headed_hh,Households headed by women (%),28.8,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 59,observed
 Bugesera,East,census_hh_mobile_phone,Households with a member owning a mobile phone (%),78.3,,,,%,2022,NISR RPHC5 Main Indicators (tables),Table 25,observed
@@ -1865,6 +1953,8 @@ Bugesera,East,census_moderately_poor,"Moderately poor, census non-monetary measu
 Bugesera,East,census_mpi,"Multidimensional Poverty Index (M0), census",0.148,,,,index 0-1,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Bugesera,East,census_mpi_headcount,"Multidimensional poverty headcount, census (% of people)",33.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 7.2,observed
 Bugesera,East,census_nonpoor,"Non-poor, census non-monetary measure (% of people)",45.2,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
+Bugesera,East,census_older_people_mobile_phone,People aged 60+ who own a mobile phone (%),40.2,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 19,observed
+Bugesera,East,census_older_people_share,People aged 60+ among residents (%),5.6,,,,%,2022,NISR RPHC5 Older People thematic report (tables),Table 2,observed
 Bugesera,East,census_population,Resident population,551103.0,,,,persons,2022,NISR RPHC5 Main Indicators (tables),Table 1,observed
 Bugesera,East,census_severely_poor,"Severely poor, census non-monetary measure (% of people)",9.6,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed
 Bugesera,East,census_vulnerable,"Vulnerable, census non-monetary measure (% of people)",21.4,,,,%,2022,NISR RPHC5 Non-Monetary Poverty report,Table 4.2,observed

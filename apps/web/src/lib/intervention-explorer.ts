@@ -13,7 +13,7 @@ import { sectorsOf } from "@/lib/sectors";
 import { timeliness, USAGE, type UsageRow } from "@/lib/surveys";
 
 export type ProblemId = "exclusion" | "poverty" | "digital" | "work" | "protection";
-export type GroupId = "all" | "women" | "youth" | "rural" | "poorest";
+export type GroupId = "all" | "women" | "youth" | "rural" | "poorest" | "older" | "disability";
 
 type Problem = {
   id: ProblemId;
@@ -95,6 +95,8 @@ export const GROUPS: { id: GroupId; label: string }[] = [
   { id: "youth", label: "Youth" },
   { id: "rural", label: "Rural households" },
   { id: "poorest", label: "The poorest households" },
+  { id: "older", label: "Older people (60+)" },
+  { id: "disability", label: "Persons with disabilities" },
 ];
 
 /** Places to choose from: Rwanda, each province, then each district by province. */
@@ -108,7 +110,8 @@ export const LOCATIONS: { value: string; label: string; group: string }[] = [
   ),
 ];
 
-export type Evidence = { text: string; source: string };
+/** `local` marks evidence for the chosen place rather than for Rwanda as a whole. */
+export type Evidence = { text: string; source: string; local?: boolean };
 export type Affected = { count?: number; text: string; note?: string };
 export type ConcentrationRow = { label: string; href?: string; share: number; count?: number; highlight?: boolean };
 export type Concentration = { title: string; rows: ConcentrationRow[]; note: string };
@@ -140,6 +143,13 @@ function usage(sex: UsageRow["sex"], group: string, category: string): UsageRow 
 
 /** National evidence for the chosen group, from the published breakdowns. Undefined when there is none. */
 function groupEvidence(problem: ProblemId, group: GroupId): Evidence | undefined {
+  if (group === "older" && problem !== "poverty" && problem !== "work") {
+    const phones = meta("census_older_people_mobile_phone");
+    return {
+      text: `${phones.national}% of people aged 60 and over own a mobile phone, which paying benefits by mobile money depends on.`,
+      source: "NISR, Census 2022 thematic report on older people, Table 19",
+    };
+  }
   const dhs = "NISR, Rwanda DHS 2025 (women and men aged 15 to 49)";
   const field = problem === "digital" ? "smartphone" : "either";
   const doing = problem === "digital" ? "own a smartphone" : "used a bank account or mobile money in the past year";
@@ -234,6 +244,22 @@ const BASES: Record<ProblemId, Partial<Record<GroupId, string>>> = {
   protection: { all: "census_population" },
 };
 
+/** How large each of these groups is, from the 2022 census, for the place chosen. */
+const GROUP_SHARES: Partial<
+  Record<GroupId, { indicatorId: string; source: string; text: (share: string, place: string) => string }>
+> = {
+  older: {
+    indicatorId: "census_older_people_share",
+    source: "NISR, Census 2022 thematic report on older people, Table 2",
+    text: (share, place) => `People aged 60 and over are ${share} of residents in ${place}.`,
+  },
+  disability: {
+    indicatorId: "census_disability_prevalence",
+    source: "NISR, Census 2022 thematic report on persons with disabilities, Table C.1",
+    text: (share, place) => `${share} of residents aged 5 and over in ${place} live with a disability.`,
+  },
+};
+
 /** Options to consider: the programmes and Roadmap measures that address the problem, then those for the group. */
 const OPTIONS: Record<ProblemId, { all: string[] } & Partial<Record<Exclude<GroupId, "all">, string>>> = {
   exclusion: {
@@ -245,6 +271,9 @@ const OPTIONS: Record<ProblemId, { all: string[] } & Partial<Record<Exclude<Grou
     youth: "Pair first accounts with access to credit: the Roadmap aims to raise youth access to formal credit from 8.8% to 12%.",
     rural: "Put agent coverage first in rural cells and sectors far from a bank branch or SACCO.",
     poorest: "Pay VUP benefits into basic accounts or mobile money, so receiving support also means being included.",
+    older:
+      "Help older people use accounts and mobile money, for example through agents, trusted relatives or cards that need no smartphone.",
+    disability: "Make agents, SACCO branches and phone services accessible to persons with disabilities.",
   },
   poverty: {
     all: [
@@ -255,6 +284,8 @@ const OPTIONS: Record<ProblemId, { all: string[] } & Partial<Record<Exclude<Grou
     youth: "Public works and skills training for young people in poor households.",
     rural: "Look inside districts: target the sectors where small area estimates show the deepest poverty.",
     poorest: "Put the extremely poor first, with Direct Support where no one in the household can work.",
+    older: "Direct Support for poor households where no one can work, which often means older people.",
+    disability: "Direct Support and inclusive public works for poor households with a member with a disability.",
   },
   digital: {
     all: [
@@ -265,6 +296,8 @@ const OPTIONS: Record<ProblemId, { all: string[] } & Partial<Record<Exclude<Grou
     youth: "Use schools and TVET centres for digital skills, where young people already are.",
     rural: "Pair rural agent networks with simple phone based services that do not need a smartphone.",
     poorest: "Offer services that work on basic phones: few of the poorest own a smartphone.",
+    older: "Offer payments and services that work on basic phones: many older people own no phone at all.",
+    disability: "Accessible phone services, such as voice and simple USSD menus.",
   },
   work: {
     all: [
@@ -273,6 +306,7 @@ const OPTIONS: Record<ProblemId, { all: string[] } & Partial<Record<Exclude<Grou
     ],
     youth: "Youth access to formal credit and start up support: the Roadmap aims to raise it from 8.8% to 12%.",
     women: "Flexible public works, which suit people who also care for children.",
+    disability: "Inclusive public works and skills programmes for persons with disabilities.",
   },
   protection: {
     all: [
@@ -282,6 +316,8 @@ const OPTIONS: Record<ProblemId, { all: string[] } & Partial<Record<Exclude<Grou
     ],
     women: "Nutrition Sensitive Direct Support for mothers and young children.",
     poorest: "Put extremely poor beneficiaries first in payment schedules: in several programmes they wait longest.",
+    older: "Check that eligible older people are enrolled in Direct Support and health insurance.",
+    disability: "Check that households with a member with a disability are enrolled in Direct Support and health insurance.",
   },
 };
 
@@ -338,6 +374,21 @@ export function explore(problemId: ProblemId, groupId: GroupId, location: string
   }
   const groupFact = groupEvidence(problemId, groupId);
   if (groupFact) evidence.push(groupFact);
+  // For older people and persons with disabilities, how large the group is in the chosen place (Census 2022).
+  const groupShare = GROUP_SHARES[groupId];
+  if (groupShare) {
+    const shareInPlace = place.district
+      ? valueOf(place.district, groupShare.indicatorId)
+      : location === "rwanda" && meta(groupShare.indicatorId).national !== undefined
+        ? meta(groupShare.indicatorId).national
+        : weightedRate(
+            groupShare.indicatorId,
+            "census_population",
+            location.startsWith("province:") ? location.slice(9) : undefined,
+          );
+    if (shareInPlace !== undefined)
+      evidence.push({ text: groupShare.text(pct(shareInPlace), place.label), source: groupShare.source, local: true });
+  }
 
   // People affected: the rate times the population it applies to, where that population is published.
   const baseId = youthWork ? "proj_youth_16_30_2024" : BASES[problemId][groupId];
@@ -416,8 +467,13 @@ export function explore(problemId: ProblemId, groupId: GroupId, location: string
     ...(groupId !== "all" && groupFact
       ? [`The figure for ${groupLabel.toLowerCase()} is national; it is not published by district.`]
       : []),
-    ...(groupId !== "all" && !groupFact
+    ...(groupId !== "all" && !groupFact && !groupShare
       ? [`There is no published figure for ${groupLabel.toLowerCase()} on this problem, so the evidence is for everyone.`]
+      : []),
+    ...(groupShare
+      ? [
+          `The size of the group comes from the 2022 census; how the problem affects ${groupLabel.toLowerCase()} is not published by district.`,
+        ]
       : []),
     ...(problemId === "protection"
       ? ["VUP coverage is not published by district; health insurance is the district measure of social protection."]

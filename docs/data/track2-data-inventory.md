@@ -115,7 +115,7 @@ Documentation in the catalog: questionnaire (29 June 2025 version), full report,
 
 | Dataset in `extracts/` | Coverage | Source |
 | --- | --- | --- |
-| `district_indicators_long.csv` / `_wide.csv` | 30 districts × 63 indicators, with SE/CI where published | EICV7 annex tables, FinScope 2024 Fig. 13 and 2020 Fig. 17, RPHC5, LFS 2025, projections, Statistical Yearbook 2025, Establishment Census 2023, DHS 2025 (child nutrition), CFSVA 2024 (food consumption, natural hazards) |
+| `district_indicators_long.csv` / `_wide.csv` | 30 districts × 67 indicators, with SE/CI where published | EICV7 annex tables, FinScope 2024 Fig. 13 and 2020 Fig. 17, RPHC5 (including the disability and older people thematic reports), LFS 2025, projections, Statistical Yearbook 2025, Establishment Census 2023, DHS 2025 (child nutrition), CFSVA 2024 (food consumption, natural hazards) |
 | `dhs2025_mobile_bank_by_group.csv` | Phone, mobile-money and bank-account use by sex × age, residence, province, education, wealth | DHS 2025 Tables 15.5.1–15.5.2 |
 | `vup_timeliness_trend.csv` | VUP payment timeliness 2013/14, 2016/17, 2023/24 | EICV4 SP report, EICV5 VUP report, EICV7 VUP tables |
 | `sector_census2022.csv` | 416 sectors: non-monetary poverty, MPI, population | RPHC5 Non-Monetary Poverty report (Tables C.1, C.10) and Main Indicators (Tables 96–100) |

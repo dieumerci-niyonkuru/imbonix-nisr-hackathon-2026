@@ -5,8 +5,8 @@ const { loadDataStore } = require("../src/services/data-store");
 const { store } = require("./helpers");
 
 describe("data store", () => {
-  it("loads all 30 districts, 64 indicators and 416 sectors", () => {
-    assert.deepEqual(store.counts, { districts: 30, indicators: 64, sectors: 416 });
+  it("loads all 30 districts, 67 indicators and 416 sectors", () => {
+    assert.deepEqual(store.counts, { districts: 30, indicators: 67, sectors: 416 });
     assert.deepEqual(store.provinces, ["East", "Kigali City", "North", "South", "West"]);
   });
 
