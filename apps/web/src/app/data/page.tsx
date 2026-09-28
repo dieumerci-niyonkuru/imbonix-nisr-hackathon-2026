@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import pkg from "../../../package.json";
 import { NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
+import { DataEvidence } from "@/components/home/data-evidence";
 import { Callout, SectionHeader } from "@/components/ui/section";
+import { SITE_FACTS } from "@/lib/site-facts";
 import { STATUS_DESCRIPTION, StatusBadge } from "@/components/ui/status-badge";
 import { SOURCES } from "@/lib/data";
 import { DIMENSIONS, INDICATORS, type Dimension } from "@/lib/indicators";
@@ -156,7 +158,7 @@ export default function DataPage() {
           </h1>
           <p className="mt-5 max-w-3xl text-pretty text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
             All NISR publicly available datasets can be found in the NISR microdata catalog. IMBONIX currently uses published
-            tables and reports. Household-level analysis starts once the team&apos;s data requests are approved.
+            tables and reports. Household level analysis starts once the team&apos;s data requests are approved.
           </p>
           <Button asChild variant="cyan" className="mt-8">
             <a href={NISR_CATALOG_URL} target="_blank" rel="noreferrer">
@@ -167,6 +169,12 @@ export default function DataPage() {
       </section>
 
       {/* Microdata to request */}
+      <DataEvidence
+        indicatorCount={SITE_FACTS.indicators}
+        districtCount={SITE_FACTS.districts}
+        sectorCount={SITE_FACTS.sectors}
+      />
+
       <section className="container-page py-14">
         <SectionHeader
           eyebrow="Microdata"

@@ -1,7 +1,7 @@
 import { SiteHeaderNav, type HeaderData } from "@/components/layout/site-header-nav";
 import { DISTRICTS, PROVINCE_LABEL, SOURCES } from "@/lib/data";
 import { DIMENSIONS, MAP_LAYERS } from "@/lib/indicators";
-import { sectorsOf } from "@/lib/sectors";
+import { SITE_FACTS } from "@/lib/site-facts";
 
 /**
  * The site header. The coverage figures and the search lists (districts and map measures) are worked out here on the
@@ -10,10 +10,10 @@ import { sectorsOf } from "@/lib/sectors";
 export function SiteHeader() {
   const data: HeaderData = {
     coverage: [
-      { value: DISTRICTS.length, label: "districts" },
-      { value: DISTRICTS.reduce((count, district) => count + sectorsOf(district.name).length, 0), label: "sectors" },
-      { value: Object.keys(SOURCES).length, label: "indicators" },
-      { value: new Set(Object.values(SOURCES).map((source) => source.source)).size, label: "publications" },
+      { value: SITE_FACTS.districts, label: "districts" },
+      { value: SITE_FACTS.sectors, label: "sectors" },
+      { value: SITE_FACTS.indicators, label: "indicators" },
+      { value: SITE_FACTS.publications, label: "publications" },
     ],
     search: {
       districts: DISTRICTS.map((district) => ({

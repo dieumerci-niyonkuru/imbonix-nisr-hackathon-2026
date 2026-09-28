@@ -5,6 +5,31 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Plain language and a lighter homepage
+
+- Pages have plain, descriptive names, used the same way in the menus, footer, search, breadcrumbs and page
+  headings: Rwanda in figures, Who uses financial services, Who is most at risk, Map of every district, Find your
+  district, Where needs overlap, VUP support and payments, Where to act first and Test a policy target. Each menu
+  opens with "At a glance". The search jump list shows the names only, one per line.
+- Each focus area has its own page at a glance (/focus/exclusion, /focus/poverty, /focus/protection): the question
+  it answers, the claim with its key numbers and the charts behind it, then the pages that go deeper and the other
+  focus areas. The menus, footer, search and breadcrumbs link to these pages.
+- Every chart on the focus area pages, the national figures page and the overlap page has a plain "How to read"
+  line under its title, saying what the bars, slices, dots or colours mean, so a first time reader understands it
+  without help.
+- The homepage is short and holds only what a first visit needs: an opening banner in deep navy over the outline of
+  the 30 districts, with the headline, one sentence, Explore the data and Read the evidence, and four headline
+  figures with their sources; the challenge in large type with its three tests (a real gap, evidence from NISR data,
+  practical impact) as cards; one featured insight, the gap between using a financial service and being financially
+  healthy, with how to read it; the three focus areas; and "Explore Rwanda through evidence" with the district
+  finder.
+- A new About page holds Why IMBONIX, who benefits (households, policymakers, researchers, civil society and
+  development organisations) and the method in five steps from data to impact. It is in the header, the footer and
+  the search.
+- Data & methods opens with what the evidence covers: the themes of the 64 indicators, with the studies behind
+  each, and the NISR studies linked to the catalog. The poverty map with the five poorest districts moves to the
+  poverty focus area page.
+
 ### Minimal homepage and navigation
 
 - The homepage tabs and the header menus follow the three parts of the Track 2 challenge: financial exclusion,

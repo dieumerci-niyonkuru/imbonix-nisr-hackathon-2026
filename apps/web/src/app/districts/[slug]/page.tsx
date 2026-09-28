@@ -123,7 +123,7 @@ export default async function DistrictPage({ params }: Params) {
                 href={`/map?district=${district.slug}`}
                 className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-royal hover:underline"
               >
-                <MapIcon className="h-4 w-4" /> See it on the resilience map
+                <MapIcon className="h-4 w-4" /> See it on the district map
               </Link>
             </div>
             <dl className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">

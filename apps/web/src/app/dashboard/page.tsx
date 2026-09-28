@@ -8,6 +8,7 @@ import { PovertyProvinceChart, PovertyTrendChart } from "@/components/charts/rec
 import { TargetTracker } from "@/components/charts/target-tracker";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { HowToRead } from "@/components/ui/chart-card";
 import { PageHero, SectionHeader } from "@/components/ui/section";
 import { StatTile } from "@/components/ui/stat-tile";
 import { RESILIENCE_FACTS, TARGETS } from "@/lib/national";
@@ -15,7 +16,7 @@ import { timeliness, usageTotal } from "@/lib/surveys";
 import { BRAND, CORE, RAMPS } from "@/lib/palette";
 
 export const metadata: Metadata = {
-  title: "Dashboard",
+  title: "Rwanda in figures",
   description:
     "Rwanda's financial inclusion, financial health, poverty and social protection at a glance, with progress toward official targets.",
 };
@@ -31,7 +32,7 @@ export default function DashboardPage() {
   return (
     <>
       <PageHero
-        eyebrow="Dashboard"
+        eyebrow="Rwanda in figures"
         title="Financial inclusion and poverty in Rwanda, at a glance"
         intro="The national picture from NISR's latest surveys, and how far Rwanda still is from its 2030 targets. Every figure links back to its published source; district detail is one click away on the map."
       />
@@ -88,6 +89,10 @@ export default function DashboardPage() {
               Each adult is counted once, by the most formal service they use. Mobile money and SACCOs drove the shift out of
               informal only use; the banked share stayed at 22%.
             </CardDescription>
+            <HowToRead className="mt-2">
+              Each bar is all adults in one year, split by the most formal service they use. Compare the slices between 2020 and
+              2024: the cyan slice, informal only, shrank.
+            </HowToRead>
           </CardHeader>
           <CardContent>
             <AccessStrandChart />
@@ -102,6 +107,10 @@ export default function DashboardPage() {
             <CardDescription>
               Only one adult in ten is financially healthy. The Roadmap aims to cut the vulnerable share from 31% to 10% by 2030.
             </CardDescription>
+            <HowToRead className="mt-2">
+              For each group, one bar is the share of adults in 2024 and the other the 2030 target. Where the target bar is
+              longer, the group should grow; where it is shorter, the group should shrink.
+            </HowToRead>
           </CardHeader>
           <CardContent>
             <FinancialHealthChart />
@@ -154,6 +163,9 @@ export default function DashboardPage() {
             <CardDescription>
               2016/17 is NISR&apos;s estimate recalculated on the EICV7 method, so the two periods compare directly.
             </CardDescription>
+            <HowToRead className="mt-2">
+              Each pair of bars is one survey period: the first bar is poverty, the second extreme poverty. Lower is better.
+            </HowToRead>
           </CardHeader>
           <CardContent>
             <PovertyTrendChart />
@@ -164,6 +176,7 @@ export default function DashboardPage() {
           <CardHeader>
             <CardTitle>Poverty by province, 2023/24</CardTitle>
             <CardDescription>Share of people below the poverty line.</CardDescription>
+            <HowToRead className="mt-2">Each bar is one province, from the highest poverty rate to the lowest.</HowToRead>
           </CardHeader>
           <CardContent>
             <PovertyProvinceChart />
@@ -193,7 +206,7 @@ export default function DashboardPage() {
           </div>
           <Button asChild variant="outline" className="mt-10">
             <Link href="/map">
-              Open the resilience map <ArrowRightIcon />
+              Open the map of every district <ArrowRightIcon />
             </Link>
           </Button>
         </div>

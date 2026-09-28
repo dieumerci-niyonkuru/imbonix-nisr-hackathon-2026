@@ -11,8 +11,8 @@ const RANKED_COUNT = 5;
 const HEADLINE_COUNT = 10;
 
 /**
- * Where poverty is deepest: the district map of EICV7 poverty rates beside the poorest districts, ranked. The headline
- * is worked out from the data, so it stays true if the figures change.
+ * Where poverty is deepest: the district map of EICV7 poverty rates beside the poorest districts, ranked, with a line on how to read the map. The headline is worked out from the data, so it stays true
+ * if the figures change.
  */
 export function PovertyMapSection() {
   const poverty = meta("eicv7_poverty_rate");
@@ -61,6 +61,10 @@ export function PovertyMapSection() {
             {formatValue(poverty, valueOf(ranked[ranked.length - 1], poverty.id))} in {ranked[ranked.length - 1].name}. These are
             the {RANKED_COUNT} poorest districts.
           </p>
+          <p className="mt-3 text-[14px] leading-6 text-ink/80">
+            <span className="font-semibold text-ink">How to read the map: </span>
+            the darker the blue, the higher the share of people living in poverty. Select a district below to open its profile.
+          </p>
           <ol className="mt-6 space-y-2.5">
             {ranked.slice(0, RANKED_COUNT).map((district, index) => {
               const value = valueOf(district, poverty.id)!;
@@ -91,7 +95,7 @@ export function PovertyMapSection() {
               href="/map"
               className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
             >
-              Open the resilience map
+              Open the district map
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
             <Link

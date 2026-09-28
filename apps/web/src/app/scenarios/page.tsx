@@ -4,7 +4,7 @@ import { ReachCalculator } from "@/components/scenarios/reach-calculator";
 import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 
 export const metadata: Metadata = {
-  title: "Scenario simulator",
+  title: "Test a policy target",
   description:
     "Scenario tools on published NISR figures: how many adults to reach for an inclusion target, and how priorities shift with weights.",
 };
@@ -13,7 +13,7 @@ export default function ScenariosPage() {
   return (
     <>
       <PageHero
-        eyebrow="Scenario simulator"
+        eyebrow="Test a policy target"
         title="What if? Test targets and priorities on real district data"
         intro="Two tools for planning conversations. Both do transparent arithmetic on published NISR figures and label every output as a scenario: they help compare options, they do not forecast what a policy would achieve."
       />
