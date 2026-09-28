@@ -9,8 +9,9 @@ import { cn } from "@/lib/utils";
 export type Crumb = { label: string; href?: string };
 
 /**
- * Home › menu group › page, worked out from the navigation list so it always matches the menus. Sub-pages (a district
- * profile, say) add their own `extra` crumbs; the last crumb is the current page.
+ * Home › focus area › page, worked out from the navigation list so it always matches the menus. The focus area links
+ * to its page at a glance. Sub-pages (a district profile, say) add their own `extra` crumbs; the last crumb is the
+ * current page.
  */
 export function Breadcrumbs({
   extra = [],
@@ -23,15 +24,18 @@ export function Breadcrumbs({
 }) {
   const pathname = usePathname() ?? "/";
   const matches = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const focusGroup = NAV_GROUPS.find((g) => pathname === `/focus/${g.focusId}`);
   const group = NAV_GROUPS.find((g) => g.items.some((item) => matches(item.href)));
   const page = group?.items.find((item) => matches(item.href)) ?? NAV_LINKS.find((item) => matches(item.href));
-  if (!page) return null;
+  if (!focusGroup && !page) return null;
 
-  const crumbs: Crumb[] = [
-    ...(group ? [{ label: group.label }] : []),
-    { label: page.label, href: extra.length ? page.href : undefined },
-    ...extra,
-  ];
+  const crumbs: Crumb[] = focusGroup
+    ? [{ label: focusGroup.label }]
+    : [
+        ...(group ? [{ label: group.label, href: `/focus/${group.focusId}` }] : []),
+        { label: page!.label, href: extra.length ? page!.href : undefined },
+        ...extra,
+      ];
   const dark = tone === "dark";
   const linkClass = cn("rounded transition-colors", dark ? "hover:text-white" : "hover:text-royal");
 

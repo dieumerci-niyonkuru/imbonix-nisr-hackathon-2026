@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowTopRightOnSquareIcon,
   ChevronDownIcon,
@@ -23,20 +23,15 @@ export type HeaderData = {
   search: { districts: SearchDistrict[]; measures: SearchMeasure[] };
 };
 
-type MenuItem = {
-  href: string;
-  label: string;
-  /** Set for homepage tabs, which switch in place when the homepage is already open. */
-  focusId?: string;
-};
+type MenuItem = { href: string; label: string };
 type MenuGroup = { id: string; label: string; items: MenuItem[] };
 
-/** One menu per focus area: its homepage overview, then the pages that go deeper. */
+/** One menu per focus area: its page at a glance, then the pages that go deeper. */
 const MENU_GROUPS: MenuGroup[] = NAV_GROUPS.map((group) => ({
   id: group.focusId,
   label: group.label,
   items: [
-    { href: `/#${group.focusId}`, label: "At a glance", focusId: group.focusId },
+    { href: `/focus/${group.focusId}`, label: "At a glance" },
     ...group.items.map((item) => ({ href: item.href, label: item.label })),
   ],
 }));
@@ -109,19 +104,9 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
     closeTimer.current = window.setTimeout(() => setOpenGroupId(null), HOVER_CLOSE_DELAY);
   };
 
-  /** On the homepage, switch the tab in place (the tabs follow the hash); elsewhere, go to the homepage tab. */
-  const openFocusArea = (event: MouseEvent<HTMLAnchorElement>, focusId: string) => {
-    setSheetOpen(false);
-    setOpenGroupId(null);
-    if (pathname !== "/") return;
-    event.preventDefault();
-    if (window.location.hash === `#${focusId}`) window.dispatchEvent(new HashChangeEvent("hashchange"));
-    else window.location.hash = focusId;
-  };
-
   const isCurrentPage = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
-  const groupHasCurrentPage = (group: MenuGroup) => group.items.some((item) => !item.focusId && isCurrentPage(item.href));
+  const groupHasCurrentPage = (group: MenuGroup) => group.items.some((item) => isCurrentPage(item.href));
   const openSearch = () => {
     setSheetOpen(false);
     setOpenGroupId(null);
@@ -235,12 +220,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                         <ul>
                           {group.items.map((item) => (
                             <li key={item.href}>
-                              <MenuLink
-                                item={item}
-                                current={!item.focusId && isCurrentPage(item.href)}
-                                onFocusArea={openFocusArea}
-                                onNavigate={() => setOpenGroupId(null)}
-                              />
+                              <MenuLink item={item} current={isCurrentPage(item.href)} onNavigate={() => setOpenGroupId(null)} />
                             </li>
                           ))}
                         </ul>
@@ -332,8 +312,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                             <li key={item.href}>
                               <MenuLink
                                 item={item}
-                                current={!item.focusId && isCurrentPage(item.href)}
-                                onFocusArea={openFocusArea}
+                                current={isCurrentPage(item.href)}
                                 onNavigate={() => setSheetOpen(false)}
                                 compact
                               />
@@ -399,13 +378,11 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 function MenuLink({
   item,
   current,
-  onFocusArea,
   onNavigate,
   compact = false,
 }: {
   item: MenuItem;
   current: boolean;
-  onFocusArea: (event: MouseEvent<HTMLAnchorElement>, focusId: string) => void;
   onNavigate: () => void;
   compact?: boolean;
 }) {
@@ -418,14 +395,6 @@ function MenuLink({
     FOCUS_RING,
   );
 
-  if (item.focusId) {
-    const focusId = item.focusId;
-    return (
-      <a href={item.href} onClick={(event) => onFocusArea(event, focusId)} className={className}>
-        {item.label}
-      </a>
-    );
-  }
   return (
     <Link href={item.href} onClick={onNavigate} aria-current={current ? "page" : undefined} className={className}>
       {item.label}

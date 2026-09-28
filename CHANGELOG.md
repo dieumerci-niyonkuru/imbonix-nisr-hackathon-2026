@@ -11,6 +11,9 @@ and versions follow [Semantic Versioning](https://semver.org/).
   headings: Rwanda in figures, Who uses financial services, Who is most at risk, Map of every district, Find your
   district, Where needs overlap, VUP support and payments, Where to act first and Test a policy target. Each menu
   opens with "At a glance". The search jump list shows the names only, one per line.
+- Each focus area has its own page at a glance (/focus/exclusion, /focus/poverty, /focus/protection): the question
+  it answers, the claim with its key numbers and the charts behind it, then the pages that go deeper and the other
+  focus areas. The menus, footer, search and breadcrumbs link to these pages.
 
 ### Minimal homepage and navigation
 
