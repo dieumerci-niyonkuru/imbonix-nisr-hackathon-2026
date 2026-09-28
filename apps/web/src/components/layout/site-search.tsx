@@ -1,7 +1,7 @@
 "use client";
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useId, useMemo, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import { ArrowDownIcon, ArrowTurnDownLeftIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -43,18 +43,18 @@ function matchScore(entry: SearchEntry, query: string, words: string[]): number 
 
 /**
  * What the search shows before anything is typed: every page, grouped like the header menus (each focus area opens
- * with its homepage overview), then the project pages.
+ * with its page at a glance), then the project pages.
  */
 const JUMP_GROUPS: ResultGroup[] = [
   ...NAV_GROUPS.map((group) => ({
     title: group.label,
     items: [
       {
-        key: `jump:/#${group.focusId}`,
+        key: `jump:/focus/${group.focusId}`,
         kind: "page" as const,
-        label: "Overview",
+        label: "At a glance",
         hint: FOCUS_AREAS.find((area) => area.id === group.focusId)?.hint ?? "",
-        href: `/#${group.focusId}`,
+        href: `/focus/${group.focusId}`,
         terms: "",
       },
       ...group.items.map((item) => ({
@@ -111,7 +111,6 @@ export function SiteSearch({
   measures: SearchMeasure[];
 }) {
   const router = useRouter();
-  const pathname = usePathname() ?? "/";
   const listId = useId();
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -181,12 +180,12 @@ export function SiteSearch({
         terms: foldText(`${item.description} ${groupLabelByHref[item.href] ?? ""}`),
       })),
       ...FOCUS_AREAS.map((area) => ({
-        key: `page:/#${area.id}`,
+        key: `page:/focus/${area.id}`,
         kind: "page" as const,
-        label: area.label,
-        hint: `Homepage focus area · ${area.hint}`,
-        href: `/#${area.id}`,
-        terms: foldText(`${area.hint} focus area homepage`),
+        label: `${area.label} at a glance`,
+        hint: area.hint,
+        href: `/focus/${area.id}`,
+        terms: foldText(`${area.hint} focus area overview`),
       })),
       ...districts.map((district) => ({
         key: `district:${district.slug}`,
@@ -235,11 +234,6 @@ export function SiteSearch({
   const openResult = (entry: SearchEntry | undefined) => {
     if (!entry) return;
     onOpenChange(false);
-    // On the homepage a focus area link switches the tab in place, since the tabs follow the URL hash.
-    if (entry.href.startsWith("/#") && pathname === "/") {
-      window.location.hash = entry.href.slice(2);
-      return;
-    }
     router.push(entry.href);
   };
 
@@ -332,7 +326,7 @@ export function SiteSearch({
                           onMouseMove={() => setActiveIndex(entryIndex)}
                           onClick={() => openResult(entry)}
                           className={cn(
-                            "cursor-pointer rounded-r-lg border-l-[3px] px-3 py-2 transition-colors",
+                            "cursor-pointer rounded-r-lg border-l-[3px] px-3 py-2.5 transition-colors",
                             selected ? "border-cyan bg-cyan-soft" : "border-transparent",
                           )}
                         >
@@ -350,11 +344,10 @@ export function SiteSearch({
                               Open
                             </span>
                           </span>
-                          <span
-                            className={cn("block text-[12.5px] leading-5 text-muted", trimmedQuery ? "truncate" : "line-clamp-2")}
-                          >
-                            {entry.hint}
-                          </span>
+                          {/* The jump list shows page names only; search results add a short line on what each one is. */}
+                          {trimmedQuery && (
+                            <span className="block truncate text-[12.5px] leading-5 text-muted">{entry.hint}</span>
+                          )}
                         </div>
                       );
                     })}

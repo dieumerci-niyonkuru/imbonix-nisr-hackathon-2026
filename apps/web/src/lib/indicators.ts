@@ -26,7 +26,7 @@ export type IndicatorMeta = {
   national?: number;
   /** Caveat shown next to the indicator. */
   note?: string;
-  /** Offered as a layer on the resilience map. */
+  /** Offered as a layer on the district map. */
   layer?: boolean;
 };
 

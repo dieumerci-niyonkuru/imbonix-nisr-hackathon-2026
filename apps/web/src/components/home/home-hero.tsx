@@ -63,7 +63,7 @@ export function HomeHero({
               <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
             </a>
             <Link href="/map" className={SECONDARY_BUTTON}>
-              Open the resilience map
+              Open the district map
             </Link>
           </div>
           <p className="mt-5 text-[12.5px] text-white/60">

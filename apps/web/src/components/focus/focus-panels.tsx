@@ -7,19 +7,10 @@ import { ComparisonBars, type ComparisonSeries } from "@/components/charts/recha
 import { ShareDonut } from "@/components/charts/recharts/share-donut";
 import { StackedShareChart, type ShareSeries } from "@/components/charts/recharts/stacked-share-chart";
 import { ValueBars } from "@/components/charts/recharts/value-bars";
-import { AudienceSection, type Audience } from "@/components/home/audience-section";
-import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
-import { DistrictFinder, type FinderProvince } from "@/components/home/district-finder";
 import { FocusPanel } from "@/components/home/focus-panel";
-import { GapChart, type GapRow } from "@/components/home/gap-chart";
-import { HomeHero, type HeroFigure, type ProofPoint } from "@/components/home/home-hero";
-import { PovertyMapSection } from "@/components/home/poverty-map-section";
-import { HowItWorks, type WorkStep } from "@/components/home/how-it-works";
-import { FOCUS_AREAS, REPOSITORY_URL, type FocusAreaId } from "@/components/layout/nav";
+import type { FocusAreaId } from "@/components/layout/nav";
 import { ChartCard } from "@/components/ui/chart-card";
-import { SectionHeader } from "@/components/ui/section";
-import { Tabs } from "@/components/ui/tabs";
-import { DISTRICTS, PROVINCE_LABEL, PROVINCES, reference, SOURCES, valueOf, weightedRate } from "@/lib/data";
+import { PROVINCE_LABEL, PROVINCES, reference, weightedRate } from "@/lib/data";
 import {
   COOKING_FUELS,
   EICV7_PROFILE_SOURCE,
@@ -53,10 +44,7 @@ import {
   VUP_SHARE_BY_SEX,
 } from "@/lib/poverty-social-protection";
 import { BRAND, CORE, DIMENSION_COLORS, NO_DATA, RAMPS, STRAND } from "@/lib/palette";
-import { formatValue } from "@/lib/format";
-import { meta } from "@/lib/indicators";
 import { LEVERS } from "@/lib/priorities";
-import { sectorsOf } from "@/lib/sectors";
 import { DELAY_RAMP, timeliness, usagePairs, usageRows, VUP_COMPONENTS } from "@/lib/surveys";
 import { TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
 
@@ -155,7 +143,11 @@ function describeShares(rows: Record<string, string | number>[], categoryKey: st
     .join("; ");
 }
 
-export default function Home() {
+/**
+ * The evidence for each focus area: the claim with its key numbers, and the charts that back it. Each focus area
+ * page shows one of these panels.
+ */
+export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
   const healthyShare = FINANCIAL_HEALTH_SEGMENTS.find((segment) => segment.segment === "Financially healthy")!.share;
   const inclusionOf = (measure: string) => INCLUSION_BY_ROUND.find((row) => row.measure === measure)!;
   const includedShare = inclusionOf("Financially included").in2024;
@@ -580,227 +572,5 @@ export default function Home() {
     ),
   };
 
-  // The opening figures, the three parts of the problem, the method steps and the district finder.
-  const povertyId = "eicv7_poverty_rate";
-  const poorestDistrict = [...DISTRICTS]
-    .filter((district) => valueOf(district, povertyId) !== undefined)
-    .sort((first, second) => valueOf(second, povertyId)! - valueOf(first, povertyId)!)[0];
-  const sectorCount = DISTRICTS.reduce((count, district) => count + sectorsOf(district.name).length, 0);
-  const publicationCount = new Set(Object.values(SOURCES).map((source) => source.source)).size;
-  const [nationalPoverty, beneficiaryPoverty] = POVERTY_AMONG_VUP_BENEFICIARIES;
-  const bestOnTimeShare = Math.max(...paymentTimeliness.map((row) => row.onTime));
-
-  // The opening chart: FinScope 2024 measures from access to financial health, with health highlighted.
-  const registeredWallet = MOBILE_MONEY_BY_ROUND.find((row) => row.measure === "Registered wallet in own name")!.in2024;
-  const gapRows: GapRow[] = [
-    { label: "Use a financial service", value: includedShare, color: BRAND.blue },
-    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: BRAND.blue },
-    { label: "Have a mobile money wallet", value: registeredWallet, color: BRAND.blue },
-    { label: "Are banked", value: bankedRow.in2024, color: BRAND.navy },
-    {
-      label: "Are financially healthy",
-      value: healthyShare,
-      color: CORE.cyan,
-      gapTo: includedShare,
-      gapLabel: `${includedShare - healthyShare} point gap`,
-    },
-  ];
-
-  // Key figures across the three focus areas, none repeating the chart.
-  const heroFigures: HeroFigure[] = [
-    {
-      value: EXCLUDED_ADULTS.toLocaleString("en-US"),
-      label: "adults use no financial service at all, formal or informal",
-      source: FINSCOPE_2024_SOURCE,
-      accent: BRAND.navy,
-    },
-    {
-      value: `${povertyIn2024.povertyRate}%`,
-      label: `of people live in poverty, down from ${povertyIn2017.povertyRate}% in 2017`,
-      source: EICV7_PROFILE_SOURCE,
-      accent: DIMENSION_COLORS.poverty.accent,
-    },
-    {
-      value: `${poorestWomen.either}%`,
-      label: "of women in the poorest fifth used a bank account or mobile money in the past year",
-      source: DHS_SOURCE,
-      accent: CORE.cyan,
-    },
-    {
-      value: `${directSupportOnTime}%`,
-      label: "of Direct Support households were paid on time",
-      source: VUP_TIMELINESS_SOURCE,
-      accent: BRAND.blue,
-    },
-  ];
-
-  // The three parts of the problem, each an image card whose picture is a district map of a related measure.
-  const challengeParts: ChallengePart[] = [
-    {
-      area: "Financial exclusion",
-      title:
-        bankedRow.in2024 === bankedRow.in2020
-          ? `Only ${bankedRow.in2024}% of adults are banked, the same share as in 2020`
-          : `${bankedRow.in2024}% of adults are banked, against ${bankedRow.in2020}% in 2020`,
-      source: "NISR, FinScope 2020 and 2024",
-      indicatorId: "finscope_not_formally_included",
-      ramp: "cyan",
-      href: "/access-vs-use",
-      linkLabel: "Learn more about financial exclusion",
-    },
-    {
-      area: "Poverty dynamics",
-      title: `Poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}% in seven years`,
-      source: "NISR, EICV7 2023/24 (Poverty Profile and Main Indicators)",
-      indicatorId: "eicv7_poverty_rate",
-      ramp: "blue",
-      href: "/districts",
-      linkLabel: "Learn more about poverty dynamics",
-    },
-    {
-      area: "Social protection impact",
-      title: `VUP reaches poorer people, but at best ${bestOnTimeShare}% are paid on time`,
-      source: "NISR, EICV7 2023/24 (VUP survey and Main Indicators)",
-      indicatorId: "eicv7_health_insurance",
-      ramp: "navy",
-      href: "/social-protection",
-      linkLabel: "Learn more about social protection",
-    },
-  ];
-
-  // The groups IMBONIX serves, each with the page that serves it best.
-  const servedGroups: Audience[] = [
-    {
-      title: "Vulnerable households",
-      body: "Shows where payments arrive late and formal finance is far, so support can reach them sooner.",
-      href: "/social-protection",
-      linkLabel: "See how support is delivered",
-    },
-    {
-      title: "Policymakers",
-      body: `${LEVERS.length} policy levers, each flagged district by district by one published figure and a rule anyone can check.`,
-      href: "/priorities",
-      linkLabel: "Explore the policy levers",
-    },
-    {
-      title: "Civil society",
-      body: "Open figures with their sources, to follow programmes and speak up for the places left behind.",
-      href: "/districts",
-      linkLabel: "Open the district profiles",
-    },
-  ];
-
-  // The three things the solution stands on: a real gap, NISR data and practical impact.
-  const proofPoints: ProofPoint[] = [
-    {
-      criterion: "A real gap",
-      evidence: `${includedShare}% of adults use a financial service, yet only ${healthyShare}% are financially healthy.`,
-    },
-    {
-      criterion: "Informed by NISR data",
-      evidence: `${Object.keys(SOURCES).length} indicators from ${publicationCount} publications, for ${DISTRICTS.length} districts and ${sectorCount} sectors.`,
-    },
-    {
-      criterion: "Practical impact",
-      evidence: `${LEVERS.length} policy levers, flagged district by district, that policymakers and civil society can act on.`,
-    },
-  ];
-
-  const workSteps: WorkStep[] = [
-    {
-      title: "Collect",
-      body: `${Object.keys(SOURCES).length} indicators transcribed from ${publicationCount} NISR and partner publications, each with its table, year and status.`,
-      href: "/data",
-      linkLabel: "Read the methods",
-    },
-    {
-      title: "Compare",
-      body: `All ${DISTRICTS.length} districts and ${sectorCount} sectors side by side, with confidence intervals wherever NISR publishes them.`,
-      href: "/districts",
-      linkLabel: "Compare the districts",
-    },
-    {
-      title: "Prioritise",
-      body: `${LEVERS.length} policy levers, each flagged district by district by one published figure and a stated rule.`,
-      href: "/priorities",
-      linkLabel: "See the priorities",
-    },
-    {
-      title: "Share",
-      body: "Open source code, a JSON API that serves the same figures, and automated checks that rebuild the data from its sources.",
-      href: REPOSITORY_URL,
-      linkLabel: "Get the source code",
-    },
-  ];
-
-  const finderProvinces: FinderProvince[] = PROVINCES.map((province) => ({
-    label: PROVINCE_LABEL[province],
-    districts: DISTRICTS.filter((district) => district.province === province)
-      .map((district) => ({ name: district.name, slug: district.slug }))
-      .sort((first, second) => first.name.localeCompare(second.name)),
-  }));
-
-  return (
-    <>
-      <HomeHero
-        figures={heroFigures}
-        proofPoints={proofPoints}
-        districtCount={DISTRICTS.length}
-        sectorCount={sectorCount}
-        chart={
-          <GapChart
-            title="Access is high. Financial health is not."
-            note="Share of adults aged 16 and over, 2024. Each bar is a separate FinScope measure, so an adult can count in several."
-            rows={gapRows}
-            takeaway={`${includedShare - healthyShare} points separate using a financial service from being financially healthy.`}
-            source={`${FINSCOPE_2024_SOURCE}; financial health from section 5.2`}
-          />
-        }
-      />
-
-      <ChallengeSection parts={challengeParts} />
-
-      <PovertyMapSection />
-
-      <section className="bg-paper py-16 sm:py-20" aria-labelledby="focus-areas-heading">
-        <div className="container-page">
-          <SectionHeader
-            eyebrow="The evidence"
-            title={<span id="focus-areas-heading">Explore the evidence, one question at a time</span>}
-            intro="Each tab gathers the published figures behind one of the three questions. Every chart names its source and says how far to trust it."
-          />
-          <div className="mt-10">
-            <Tabs
-              label="The three focus areas"
-              items={FOCUS_AREAS.map((area) => ({ id: area.id, label: area.label, hint: area.hint, content: panels[area.id] }))}
-            />
-          </div>
-        </div>
-      </section>
-
-      <AudienceSection audiences={servedGroups} />
-
-      <HowItWorks steps={workSteps} />
-
-      <section className="bg-white pb-16 sm:pb-20" aria-labelledby="find-district-heading">
-        <div className="container-page">
-          <div className="grid gap-8 rounded-3xl bg-royal p-7 text-white sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-12">
-            <div>
-              <p className="eyebrow text-white/80">Start with a place</p>
-              <h2
-                id="find-district-heading"
-                className="mt-3 text-balance font-display text-3xl font-bold tracking-[-0.03em] sm:text-4xl"
-              >
-                See how your district compares
-              </h2>
-              <p className="mt-3 max-w-lg text-[15px] leading-7 text-white/85">
-                Each profile shows the four dimensions, every published indicator and a map of its sectors, with sources.
-              </p>
-            </div>
-            <DistrictFinder provinces={finderProvinces} />
-          </div>
-        </div>
-      </section>
-    </>
-  );
+  return panels;
 }
