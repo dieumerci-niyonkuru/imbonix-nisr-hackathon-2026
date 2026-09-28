@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { BRAND, CORE, NO_DATA, RAMPS } from "@/lib/palette";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { HeroRings } from "@/components/ui/section";
+import { HowToRead } from "@/components/ui/chart-card";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -197,6 +198,10 @@ export default async function DistrictPage({ params }: Params) {
           <p className="mt-3 max-w-3xl text-[15px] leading-7 text-muted">
             A district average can hide very different sectors. Hover a sector on the map, or sort the table by any column.
           </p>
+          <HowToRead className="mt-3 max-w-3xl">
+            Each shape is one sector of the district. The darker the colour, the higher the value on the chosen measure; colours
+            compare sectors within this district only.
+          </HowToRead>
           <div className="mt-8">
             <SectorExplorer district={district.name} sectors={sectorsOf(district.name)} />
           </div>

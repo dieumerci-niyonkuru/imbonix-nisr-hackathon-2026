@@ -12,7 +12,13 @@ import {
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { BrandLogo } from "@/components/layout/logo";
 import { NAV_GROUPS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
-import { SiteSearch, type SearchDistrict, type SearchMeasure } from "@/components/layout/site-search";
+import {
+  SiteSearch,
+  type SearchChart,
+  type SearchDistrict,
+  type SearchLever,
+  type SearchMeasure,
+} from "@/components/layout/site-search";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
@@ -20,7 +26,7 @@ import { cn } from "@/lib/utils";
 export type CoverageFigure = { value: number; label: string };
 export type HeaderData = {
   coverage: CoverageFigure[];
-  search: { districts: SearchDistrict[]; measures: SearchMeasure[] };
+  search: { districts: SearchDistrict[]; measures: SearchMeasure[]; charts: SearchChart[]; levers: SearchLever[] };
 };
 
 type MenuItem = { href: string; label: string };
@@ -366,6 +372,8 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
         onOpenChange={setSearchOpen}
         districts={data.search.districts}
         measures={data.search.measures}
+        charts={data.search.charts}
+        levers={data.search.levers}
       />
     </>
   );
