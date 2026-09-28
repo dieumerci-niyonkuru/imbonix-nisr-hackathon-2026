@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PriorityWeights } from "@/components/scenarios/priority-weights";
 import { ReachCalculator } from "@/components/scenarios/reach-calculator";
 import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
+import { HowToRead } from "@/components/ui/chart-card";
 
 export const metadata: Metadata = {
   title: "Test a policy target",
@@ -25,6 +26,10 @@ export default function ScenariosPage() {
           title={<span id="reach-heading">How many adults would a target mean, and where?</span>}
           intro="Set a ceiling for the share of adults outside formal finance in every district. The calculator shows how many adults that means reaching, and how concentrated the effort would be."
         />
+        <HowToRead className="mt-4 max-w-3xl">
+          Choose a measure and move the slider to set the target. The totals show how many adults that means reaching, and the
+          bars show the districts with the most adults to reach.
+        </HowToRead>
         <div className="mt-8">
           <ReachCalculator />
         </div>
@@ -37,6 +42,10 @@ export default function ScenariosPage() {
             title={<span id="weights-heading">Whose priority list? It depends on the weights</span>}
             intro="Any single priority ranking weighs poverty, financial access, nutrition and shocks somehow. Choose the weights yourself and watch which districts move."
           />
+          <HowToRead className="mt-4 max-w-3xl">
+            Move a slider to give a dimension more or less weight. The list shows the ten districts that rank highest under your
+            weights, and the arrows show how each moved against equal weights.
+          </HowToRead>
           <div className="mt-8">
             <PriorityWeights />
           </div>
