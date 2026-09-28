@@ -3,7 +3,7 @@ import { STATUS_LABEL } from "@/lib/format";
 const STYLES: Record<string, string> = {
   observed: "bg-cyan-soft text-cyan-ink ring-cyan-ink/25",
   calculated: "bg-cyan-soft text-cyan-ink ring-cyan/40",
-  model_estimate: "bg-mist text-navy-700 ring-navy-700/25",
+  model_estimate: "bg-mist text-ink ring-ink/20",
   projection: "bg-white text-cyan-ink ring-cyan-ink/40",
   scenario: "bg-white text-ink ring-ink/30",
   target: "bg-white text-cyan-ink ring-cyan-ink/40",

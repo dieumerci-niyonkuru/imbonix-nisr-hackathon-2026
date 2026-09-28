@@ -40,7 +40,7 @@ const ICON_LINKS: IconLink[] = [
 ];
 
 const LINK_STYLE =
-  "rounded text-[15px] leading-7 text-white/90 transition-colors hover:text-cyan hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan sm:text-[17px]";
+  "rounded text-[15px] leading-7 text-ink transition-colors hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink sm:text-[17px]";
 
 function FooterAnchor({ link }: { link: FooterLink }) {
   if (link.external) {
@@ -59,18 +59,18 @@ function FooterAnchor({ link }: { link: FooterLink }) {
 }
 
 /**
- * The site footer, laid out like the government's sites: link columns under cyan headings in capitals, then a bottom
- * row with the copyright on the left, the stacked logo straight on the dark background in the middle and a row of
- * icon links on the right. Data and map credits live beside the charts, on the map and on the methods page.
+ * The site footer, in the site's two colours: a cyan band of link columns under headings in capitals, then a white
+ * row with the copyright on the left, the stacked logo in the middle and a row of icon links on the right. Data and
+ * map credits live beside the charts, on the map and on the methods page.
  */
 export function SiteFooter() {
   return (
-    <footer className="bg-navy-950 text-white">
-      <div className="container-page pb-12 pt-16 sm:pb-14 sm:pt-20">
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4">
+    <footer>
+      <div className="bg-cyan text-ink">
+        <nav aria-label="Footer" className="container-page grid grid-cols-2 gap-x-6 gap-y-12 py-16 sm:py-20 lg:grid-cols-4">
           {COLUMNS.map((column) => (
             <div key={column.heading}>
-              <h2 className="font-display text-[15px] font-bold uppercase tracking-[0.03em] text-cyan sm:text-[18px]">
+              <h2 className="font-display text-[15px] font-bold uppercase tracking-[0.03em] text-ink sm:text-[18px]">
                 {column.heading}
               </h2>
               <ul className="mt-5 space-y-3 sm:mt-6 sm:space-y-3.5">
@@ -83,29 +83,31 @@ export function SiteFooter() {
             </div>
           ))}
         </nav>
+      </div>
 
-        <div className="mt-20 grid items-end gap-10 sm:mt-24 md:grid-cols-[1fr_auto_1fr]">
+      <div className="bg-white">
+        <div className="container-page grid items-center gap-8 py-10 md:grid-cols-[1fr_auto_1fr]">
           <Link
             href="/"
             aria-label="IMBONIX home"
-            className="justify-self-center rounded-xl p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan md:order-2"
+            className="justify-self-center rounded-xl p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink md:order-2"
           >
             <StackedBrandLogo />
           </Link>
 
-          <div className="pb-2 text-center text-[15px] leading-7 text-white/65 sm:text-[18px] sm:leading-8 md:order-1 md:text-left">
+          <div className="text-center text-[15px] leading-7 text-muted sm:text-[16px] md:order-1 md:text-left">
             <p>Copyright © 2026 IMBONIX team.</p>
             <p>Built on NISR data. Not an official NISR product.</p>
           </div>
 
-          <ul className="flex items-center justify-center gap-4 pb-2 sm:gap-6 md:order-3 md:justify-end">
+          <ul className="flex items-center justify-center gap-4 sm:gap-6 md:order-3 md:justify-end">
             {ICON_LINKS.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
                   title={link.label}
                   {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                  className="flex h-12 w-12 items-center justify-center rounded-lg text-white/70 transition-colors hover:bg-white/10 hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
+                  className="flex h-12 w-12 items-center justify-center rounded-lg text-ink transition-colors hover:bg-cyan-soft hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
                 >
                   <link.icon className="h-8 w-8" aria-hidden="true" />
                   <span className="sr-only">

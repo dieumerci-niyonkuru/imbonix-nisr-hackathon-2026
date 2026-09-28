@@ -21,7 +21,7 @@ import {
 import { STATUS_LABEL } from "@/lib/format";
 import { LEVERS } from "@/lib/priorities";
 import { usageRows } from "@/lib/surveys";
-import { BRAND, CORE } from "@/lib/palette";
+import { CORE, DEEP_CYAN } from "@/lib/palette";
 import { SITE_FACTS } from "@/lib/site-facts";
 
 /**
@@ -228,10 +228,10 @@ export default function Home() {
 
   // The featured chart: FinScope 2024 measures from access to financial health, with the gap drawn in.
   const gapRows: GapRow[] = [
-    { label: "Use a financial service", value: includedShare, color: BRAND.navy },
-    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: BRAND.navy },
-    { label: "Have a mobile money wallet", value: registeredWallet, color: BRAND.navy },
-    { label: "Are banked", value: bankedRow.in2024, color: BRAND.navy },
+    { label: "Use a financial service", value: includedShare, color: DEEP_CYAN },
+    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: DEEP_CYAN },
+    { label: "Have a mobile money wallet", value: registeredWallet, color: DEEP_CYAN },
+    { label: "Are banked", value: bankedRow.in2024, color: DEEP_CYAN },
     {
       label: "Are financially healthy",
       value: healthyShare,
@@ -265,7 +265,7 @@ export default function Home() {
       source: "NISR, EICV7 2023/24 (Poverty Profile and Main Indicators)",
       indicatorId: "eicv7_poverty_rate",
       caption: "Map: poverty rate by district, 2023/24. Darker is higher.",
-      ramp: "navy",
+      ramp: "cyan",
       href: "/focus/poverty",
     },
     {

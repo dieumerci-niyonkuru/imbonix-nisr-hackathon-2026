@@ -49,7 +49,7 @@ export function contrastRatio(a: string, b: string): number {
   return (light + 0.05) / (dark + 0.05);
 }
 
-/** Text colour for a label on a fill: navy or white, whichever contrasts more. */
+/** Text colour for a label on a fill: near black or white, whichever contrasts more. */
 export function textOn(fill: string): string {
   return contrastRatio(fill, INK) >= contrastRatio(fill, WHITE) ? INK : WHITE;
 }
