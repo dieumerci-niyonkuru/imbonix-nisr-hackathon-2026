@@ -40,27 +40,23 @@ export function StackedBrandLogo({ className }: { className?: string }) {
 /**
  * The IMBONIX logo: the vector emblem beside the wordmark and tagline, all drawn from the logo's own colours.
  *
- * `onDark` uses the navy-background files: the emblem on a white disc and the white wordmark and tagline. Below
- * 360px the header logo steps down a size and hides the tagline, so a phone header keeps room for its buttons. The favicon uses the simplified mark
+ * Below 360px the header logo steps down a size and hides the tagline, so a phone header keeps room for its buttons. The favicon uses the simplified mark
  * (public/brand/imbonix-mark.svg).
  */
 export function BrandLogo({
-  onDark = false,
   size = "md",
   showTagline = true,
   className,
 }: {
-  onDark?: boolean;
   size?: keyof typeof SIZES;
   showTagline?: boolean;
   className?: string;
 }) {
   const s = SIZES[size];
-  const suffix = onDark ? "-on-dark" : "";
   return (
     <span className={cn("inline-flex items-center gap-3", className)}>
       <img
-        src={onDark ? "/brand/imbonix-emblem-disc.svg" : "/brand/imbonix-emblem.svg"}
+        src="/brand/imbonix-emblem.svg"
         alt=""
         width={s.emblem}
         height={s.emblem}
@@ -69,7 +65,7 @@ export function BrandLogo({
       />
       <span className="flex flex-col justify-center">
         <img
-          src={`/brand/imbonix-wordmark${suffix}.svg`}
+          src="/brand/imbonix-wordmark.svg"
           alt="IMBONIX"
           width={Math.round(s.wordmark * WORDMARK_RATIO)}
           height={s.wordmark}
@@ -78,7 +74,7 @@ export function BrandLogo({
         />
         {showTagline && (
           <img
-            src={`/brand/imbonix-tagline${suffix}.svg`}
+            src="/brand/imbonix-tagline.svg"
             alt="Data for Inclusive Prosperity"
             width={Math.round(s.tagline * TAGLINE_RATIO)}
             height={s.tagline}

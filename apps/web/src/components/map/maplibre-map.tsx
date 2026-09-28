@@ -48,7 +48,7 @@ const PLAIN_STYLE: Style = {
 };
 
 /** Is WebGL available? MapLibre cannot render without it. */
-export function webglAvailable(): boolean {
+function webglAvailable(): boolean {
   try {
     const canvas = document.createElement("canvas");
     return Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl"));

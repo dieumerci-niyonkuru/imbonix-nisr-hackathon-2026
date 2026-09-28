@@ -5,6 +5,12 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Unused code removed
+
+- Removed code nothing on the site used: an unused animation library (framer-motion), a logo variant for dark
+  backgrounds that the header no longer needs, and helper functions, components and constants left over from
+  earlier designs. The type check now also passes with unused locals and parameters reported as errors.
+
 ### More NISR evidence on the groups social protection serves
 
 - Three district indicators from the 2022 census thematic reports, extracted by the same reproducible script:
