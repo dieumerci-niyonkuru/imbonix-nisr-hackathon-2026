@@ -17,7 +17,8 @@ const BUTTON_STYLE =
  * Floating buttons to go back to the top of a long page or down to its end. They show only on pages long enough to
  * need them. At either end the matching button is dimmed but stays in place, so keyboard focus is never lost, and the
  * scroll is instant for people who prefer reduced motion. Once the footer is in view they fade away, so they never
- * cover it (the footer has its own back to top link), unless one of them has keyboard focus.
+ * cover it (the footer has its own back to top link), unless one of them has keyboard focus. Phones scroll by touch
+ * and have little room, so the controls start at the small tablet width.
  */
 export function ScrollControls() {
   const pathname = usePathname();
@@ -69,7 +70,7 @@ export function ScrollControls() {
       role="group"
       aria-label="Page scrolling"
       className={cn(
-        "fixed bottom-4 right-4 z-40 flex flex-col overflow-hidden rounded-2xl bg-navy-900 shadow-lift ring-1 ring-white/15 transition-[opacity,visibility] duration-200 sm:bottom-6 sm:right-6 print:hidden",
+        "fixed bottom-4 right-4 z-40 hidden flex-col overflow-hidden rounded-2xl bg-navy-900 shadow-lift ring-1 ring-white/15 transition-[opacity,visibility] duration-200 sm:bottom-6 sm:right-6 sm:flex print:hidden",
         footerInView && "invisible opacity-0 focus-within:visible focus-within:opacity-100",
       )}
     >

@@ -379,7 +379,7 @@ export default function DataPage() {
               href={`${REPOSITORY_URL}/blob/main/CHANGELOG.md`}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-royal underline underline-offset-2 hover:text-navy-900"
+              className="font-semibold text-cyan-ink underline underline-offset-2 hover:text-navy-900"
             >
               project changelog
               <span className="sr-only"> (opens in a new tab)</span>

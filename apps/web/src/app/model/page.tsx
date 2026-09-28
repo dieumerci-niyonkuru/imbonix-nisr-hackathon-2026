@@ -65,7 +65,7 @@ export default function ModelPage() {
       <section className="container-page grid gap-6 py-12 lg:grid-cols-2">
         <Card>
           <CardHeader>
-            <p className="eyebrow text-royal">The question</p>
+            <p className="eyebrow text-cyan-ink">The question</p>
             <CardTitle className="text-xl">{MODEL_QUESTION}</CardTitle>
           </CardHeader>
           <CardContent>
@@ -77,7 +77,7 @@ export default function ModelPage() {
         </Card>
         <Card>
           <CardHeader>
-            <p className="eyebrow text-royal">What is predicted</p>
+            <p className="eyebrow text-cyan-ink">What is predicted</p>
             <CardTitle className="text-xl">{MODEL_TARGET.label}</CardTitle>
           </CardHeader>
           <CardContent>

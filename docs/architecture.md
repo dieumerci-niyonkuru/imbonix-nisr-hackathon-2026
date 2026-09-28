@@ -83,8 +83,8 @@ apps/web/src/
 - **Status on every value.** `STATUS_LABEL` and the status badge cover observed, calculated, model estimate, projection
   and scenario values.
 - **No composite index.** Priority weights are an explicit, user-controlled scenario, compared against equal weights.
-- **One palette, from the logo.** Colours come only from `lib/palette.ts` (the logo's navy, blue, azure, cyan and gold,
-  and scales built from them); `palette.test.ts` fails on any other hex colour or Tailwind default colour family.
+- **Two colours, one palette.** Colours come only from `lib/palette.ts` (the brand navy and cyan, the scales built
+  from them and a neutral grey); `palette.test.ts` fails on any other hex colour or Tailwind default colour family.
 - **Colour palettes were validated** for colour-vision deficiencies; every ramp step takes navy or white text at 4.5:1
   (`textOn` picks whichever contrasts more).
 

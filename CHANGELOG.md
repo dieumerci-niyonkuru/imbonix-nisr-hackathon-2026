@@ -5,6 +5,21 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Two colours and a cleaner layout, in the manner of Rwanda's government sites
+
+- The site now uses two brand colours on white: deep navy #022657 and bright cyan #02A5DC. The medium blue is
+  gone from the interface and the charts. Links and small text use a deeper step of the cyan (#01749C, at least
+  4.6:1 on every light surface), buttons are navy, and chart categories use navy, cyan, a light navy and a dark
+  grey, a set that passes the colour vision check for every pair.
+- The homepage follows the layout of gov.rw and visitrwanda.com: a navy banner with four white cards overlapping
+  it (the three focus areas and the planning tool), a cyan band with the challenge, headline figures as plain
+  ruled tiles with their sources, the focus areas as article cards with a district map, the three tests, and a
+  place section that sets the outline of Rwanda beside the count of provinces, districts, sectors, cells and
+  villages, above the place finder.
+- The header uses plain capitals with a cyan underline for the current section and a search box; the footer
+  has cyan headings in capitals. Corners are nearly square throughout, and About opens with an overview table.
+- The floating scroll buttons no longer cover text on phones, and an unused map card was removed.
+
 ### Find any place, down to the village, and clearer charts
 
 - A place finder on the homepage and the districts page searches all 30 districts, 416 sectors, 2,148 cells and

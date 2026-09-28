@@ -22,7 +22,7 @@ export function DistrictStrip({ id }: { id: string }) {
   return (
     <div>
       <div className="flex items-baseline justify-between gap-3">
-        <Link href={`/map?layer=${id}`} className="text-[13.5px] font-semibold text-ink hover:text-royal">
+        <Link href={`/map?layer=${id}`} className="text-[13.5px] font-semibold text-ink hover:text-cyan-ink">
           {indicator.short}
         </Link>
         <span className="text-[12px] text-muted">

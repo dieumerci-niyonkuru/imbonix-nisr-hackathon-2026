@@ -54,7 +54,7 @@ export function ReachCalculator() {
                 "rounded-md border px-3 py-1.5 text-[13px] font-semibold transition-colors",
                 m.id === measureId
                   ? "border-navy-900 bg-navy-900 text-white"
-                  : "border-line bg-white text-ink/80 hover:border-royal hover:text-ink",
+                  : "border-line bg-white text-ink/80 hover:border-cyan-ink hover:text-ink",
               )}
             >
               {m.label}
@@ -62,7 +62,7 @@ export function ReachCalculator() {
           ))}
         </div>
         <label id="reach-target-label" className="mt-6 block text-[14px] font-semibold text-ink">
-          Target: at most <span className="text-royal">{target}%</span> of adults {measure.detail}, in every district
+          Target: at most <span className="text-cyan-ink">{target}%</span> of adults {measure.detail}, in every district
         </label>
         <Slider
           className="mt-3"
@@ -118,7 +118,7 @@ export function ReachCalculator() {
                 <XAxis type="number" tickFormatter={(v: number) => formatNumber(v)} {...AXIS} />
                 <YAxis type="category" dataKey="name" width={96} {...AXIS} />
                 <Tooltip content={<ChartTooltip unit=" adults" />} cursor={{ fill: "rgba(10,27,61,0.04)" }} />
-                <Bar dataKey="toReach" name="Adults to reach" fill={BRAND.blue} radius={[0, 4, 4, 0]} isAnimationActive={false}>
+                <Bar dataKey="toReach" name="Adults to reach" fill={BRAND.navy} radius={[0, 4, 4, 0]} isAnimationActive={false}>
                   <LabelList
                     dataKey="toReach"
                     position="right"
@@ -163,7 +163,7 @@ export function ReachCalculator() {
                 {rows.map((r) => (
                   <tr key={r.slug} className="border-t border-line">
                     <th scope="row" className="px-4 py-1.5 font-semibold">
-                      <Link href={`/districts/${r.slug}`} className="text-ink hover:text-royal">
+                      <Link href={`/districts/${r.slug}`} className="text-ink hover:text-cyan-ink">
                         {r.name}
                       </Link>
                     </th>

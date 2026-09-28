@@ -43,7 +43,7 @@ export default function PrioritiesPage() {
               {districts[0].flags.length} of 7 levers in{" "}
               {most.map((d, i) => (
                 <span key={d.slug}>
-                  <Link href={`/districts/${d.slug}`} className="font-semibold text-ink hover:text-royal">
+                  <Link href={`/districts/${d.slug}`} className="font-semibold text-ink hover:text-cyan-ink">
                     {d.name}
                   </Link>
                   {i < most.length - 1 ? ", " : ""}

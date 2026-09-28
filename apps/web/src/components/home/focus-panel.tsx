@@ -25,7 +25,7 @@ export function FocusPanel({
     <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
       {/* The claim stays in view beside the charts, so a tall column of charts never leaves an empty gap. */}
       <div className="lg:sticky lg:top-24 lg:self-start">
-        {kicker && <p className="eyebrow mb-3 text-royal">{kicker}</p>}
+        {kicker && <p className="eyebrow mb-3 text-cyan-ink">{kicker}</p>}
         <h2 className="text-balance font-display text-3xl font-bold leading-[1.1] tracking-[-0.03em] text-ink sm:text-4xl">
           {title}
         </h2>
@@ -51,7 +51,7 @@ export function FocusPanel({
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
             {links.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="group inline-flex items-center gap-1.5 text-[14.5px] font-bold text-royal">
+                <Link href={link.href} className="group inline-flex items-center gap-1.5 text-[14.5px] font-bold text-cyan-ink">
                   {link.label}
                   <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                 </Link>
