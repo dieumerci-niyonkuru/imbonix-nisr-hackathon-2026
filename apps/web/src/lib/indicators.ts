@@ -254,6 +254,16 @@ export const INDICATORS: IndicatorMeta[] = [
   },
   { id: "eicv7_internet_home", short: "Internet access at home", dimension: "digital", better: "higher", format: "pct" },
   {
+    id: "census_older_people_mobile_phone",
+    short: "People aged 60+ with a mobile phone",
+    dimension: "digital",
+    better: "higher",
+    format: "pct",
+    national: 36.4,
+    note: "Matters for paying benefits by mobile money.",
+    layer: true,
+  },
+  {
     id: "census_hh_mobile_phone",
     short: "Households with a phone (census)",
     dimension: "digital",
@@ -374,6 +384,26 @@ export const INDICATORS: IndicatorMeta[] = [
   { id: "proj_women_16plus_2026", short: "Women 16+ (2026)", dimension: "people", better: "neutral", format: "count" },
   { id: "proj_youth_16_30_2026", short: "Youth 16 to 30 (2026)", dimension: "people", better: "neutral", format: "count" },
   { id: "census_female_headed_hh", short: "Households headed by women", dimension: "people", better: "neutral", format: "pct" },
+  // Groups Direct Support serves (Census 2022 thematic reports)
+  {
+    id: "census_disability_prevalence",
+    short: "Persons with disabilities",
+    dimension: "people",
+    better: "lower",
+    format: "pct",
+    national: 3,
+    note: "Residents aged 5 and over with a disability.",
+    layer: true,
+  },
+  {
+    id: "census_older_people_share",
+    short: "People aged 60 and over",
+    dimension: "people",
+    better: "lower",
+    format: "pct",
+    note: "A larger share means more people in the age group Direct Support serves.",
+    layer: true,
+  },
   {
     id: "eicv7_hh_sending_transfers",
     short: "Households sending transfers",

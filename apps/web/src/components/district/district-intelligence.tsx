@@ -11,7 +11,7 @@ const STEP_NOTES: Record<string, string> = {
     "Formal inclusion counts adults using a bank, a SACCO, mobile money or another formal service. Smartphones matter because most digital finance and payments now run on them.",
   vulnerability: "Child stunting (DHS 2025) and natural hazards (CFSVA 2024) are the two measures of vulnerability.",
   protection:
-    "VUP coverage and payment timeliness are not published by district, so health insurance cover is the district measure of social protection.",
+    "VUP coverage and payment timeliness are not published by district, so health insurance cover sets the level. Older people and persons with disabilities are two groups Direct Support serves: their share shows where its help may be needed most (Census 2022).",
 };
 
 const NEED_STYLE: Record<Need, string> = {
@@ -58,7 +58,7 @@ export function DistrictIntelligence({ district }: { district: District }) {
       <div className="container-page">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-3xl">
-            <p className="eyebrow text-royal">District intelligence</p>
+            <p className="eyebrow text-cyan-ink">District intelligence</p>
             <h2
               id="intelligence-heading"
               className="mt-2 text-balance font-display text-3xl font-bold tracking-[-0.03em] text-ink sm:text-4xl"
@@ -80,7 +80,7 @@ export function DistrictIntelligence({ district }: { district: District }) {
               <li key={step.id} className="relative">
                 <article className="flex h-full flex-col rounded-2xl border border-line bg-white p-5 shadow-card">
                   <div className="flex items-center justify-between gap-3">
-                    <p className="text-[13px] font-bold text-royal">
+                    <p className="text-[13px] font-bold text-cyan-ink">
                       {index + 1}. {step.title}
                     </p>
                     <span className={cn("rounded-full px-2.5 py-0.5 text-[12px] font-bold", NEED_STYLE[step.need])}>
@@ -143,7 +143,7 @@ export function DistrictIntelligence({ district }: { district: District }) {
                 </article>
                 {index < steps.length - 1 && (
                   <ChevronRightIcon
-                    className="absolute -right-4 top-1/2 z-10 hidden h-6 w-6 -translate-y-1/2 text-royal xl:block"
+                    className="absolute -right-4 top-1/2 z-10 hidden h-6 w-6 -translate-y-1/2 text-cyan-ink xl:block"
                     aria-hidden="true"
                   />
                 )}
@@ -168,7 +168,7 @@ export function DistrictIntelligence({ district }: { district: District }) {
           </div>
 
           <div className="rounded-2xl border border-line bg-white p-6 sm:p-7">
-            <p className="eyebrow text-royal">What decision makers can consider</p>
+            <p className="eyebrow text-cyan-ink">What decision makers can consider</p>
             {actions.length ? (
               <ul className="mt-4 divide-y divide-line">
                 {actions.map((action) => (
@@ -215,7 +215,7 @@ export function DistrictIntelligence({ district }: { district: District }) {
               <p className="text-[12.5px] text-muted">Options the evidence points to, not proven effects.</p>
               <Link
                 href={`/interventions?place=district:${district.slug}`}
-                className="group inline-flex items-center gap-1.5 rounded text-[14px] font-bold text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal"
+                className="group inline-flex items-center gap-1.5 rounded text-[14px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
               >
                 Plan an intervention in {district.name}
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
@@ -225,7 +225,7 @@ export function DistrictIntelligence({ district }: { district: District }) {
         </div>
 
         <div className="mt-6 rounded-2xl border border-line bg-paper p-6 sm:p-7">
-          <p className="eyebrow text-royal">What the evidence cannot tell us</p>
+          <p className="eyebrow text-cyan-ink">What the evidence cannot tell us</p>
           <ul className="mt-3 grid gap-x-8 gap-y-2 text-[14px] leading-6 text-ink/80 md:grid-cols-2">
             {limitations.map((limitation) => (
               <li key={limitation} className="border-l-2 border-cyan pl-3">

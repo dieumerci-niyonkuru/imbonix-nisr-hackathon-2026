@@ -12,7 +12,7 @@ export function ScrollArea({ label, className, children }: { label: string; clas
       aria-label={label}
       tabIndex={0}
       className={cn(
-        "scrollbar-thin overflow-x-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royal",
+        "scrollbar-thin overflow-x-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-ink",
         className,
       )}
     >

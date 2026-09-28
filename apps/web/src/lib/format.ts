@@ -23,10 +23,6 @@ export function formatValue(indicator: Pick<IndicatorMeta, "format">, value: num
   }
 }
 
-export function formatCompact(value: number): string {
-  return new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(value);
-}
-
 export function formatDiff(indicator: Pick<IndicatorMeta, "format">, diff: number): string {
   const sign = diff > 0 ? "+" : diff < 0 ? "−" : "±";
   const magnitude = Math.abs(diff);
@@ -42,3 +38,14 @@ export const STATUS_LABEL: Record<string, string> = {
   scenario: "Scenario",
   target: "Policy target",
 };
+
+/** A screen reader summary of 100% bars: each category with its shares. */
+export function describeShares(
+  rows: Record<string, string | number>[],
+  categoryKey: string,
+  series: { key: string; label: string }[],
+) {
+  return rows
+    .map((row) => `${row[categoryKey]}: ${series.map((segment) => `${segment.label} ${row[segment.key]}%`).join(", ")}`)
+    .join("; ");
+}

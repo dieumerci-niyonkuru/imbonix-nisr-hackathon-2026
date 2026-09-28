@@ -5,7 +5,7 @@ export function SectionHeader({
   eyebrow,
   title,
   intro,
-  accent = "text-royal",
+  accent = "text-cyan-ink",
   align = "left",
   dark = false,
 }: {
@@ -48,7 +48,7 @@ export function PageHero({
     <section className="relative overflow-hidden border-b border-line bg-white">
       <div className="container-page relative pb-14 pt-6 sm:pb-16 sm:pt-8">
         <Breadcrumbs />
-        <p className="eyebrow mt-10 flex items-center gap-2.5 text-royal sm:mt-12">
+        <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan-ink sm:mt-12">
           <BarsMotif />
           {eyebrow}
         </p>
@@ -68,13 +68,13 @@ export function BarsMotif({ className = "" }: { className?: string }) {
     <span className={`inline-flex h-3 items-end gap-[2px] ${className}`} aria-hidden="true">
       <span className="h-[45%] w-[3px] rounded-full bg-cyan" />
       <span className="h-[72%] w-[3px] rounded-full bg-cyan" />
-      <span className="h-full w-[3px] rounded-full bg-royal" />
+      <span className="h-full w-[3px] rounded-full bg-cyan-ink" />
     </span>
   );
 }
 
 export function Callout({ title, children, tone = "info" }: { title: string; children: ReactNode; tone?: "info" | "warn" }) {
-  const styles = tone === "warn" ? "border-cyan/60 bg-cyan-soft text-ink" : "border-royal/20 bg-brand-50/60 text-ink";
+  const styles = tone === "warn" ? "border-cyan/60 bg-cyan-soft text-ink" : "border-cyan-ink/20 bg-cyan-soft/60 text-ink";
   const body = "text-ink/85";
   return (
     <div className={`rounded-2xl border ${styles} p-5`}>

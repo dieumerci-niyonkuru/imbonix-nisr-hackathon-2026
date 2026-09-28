@@ -13,6 +13,18 @@ export const AXIS = {
 
 export const GRID = { stroke: LINE, strokeDasharray: "0" };
 
+/**
+ * A percentage axis from zero that fits the data: up to 100% once a value passes 60%, otherwise up to the next round
+ * step above the largest value, so short bars are not lost at the bottom of an empty scale.
+ */
+export function percentScale(values: number[]): { domain: [number, number]; ticks: number[] } {
+  const highest = Math.max(0, ...values);
+  if (highest > 60) return { domain: [0, 100], ticks: [0, 25, 50, 75, 100] };
+  const step = highest > 25 ? 10 : 5;
+  const top = Math.max(step, Math.ceil((highest * 1.12) / step) * step);
+  return { domain: [0, top], ticks: Array.from({ length: top / step + 1 }, (_, index) => index * step) };
+}
+
 type Payload = { name?: string | number; value?: number | string; color?: string; dataKey?: string | number };
 
 /** Tooltip content: series swatch, name and value; values stay in ink, the swatch carries identity. */

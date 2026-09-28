@@ -32,7 +32,7 @@ export function ReadMore({
       <DialogPrimitive.Trigger
         className={cn(
           "group inline-flex items-center gap-1 rounded text-[14px] font-bold underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2",
-          tone === "light" ? "text-royal focus-visible:ring-royal" : "text-white focus-visible:ring-white",
+          tone === "light" ? "text-cyan-ink focus-visible:ring-cyan-ink" : "text-white focus-visible:ring-white",
           className,
         )}
       >
@@ -53,7 +53,7 @@ export function ReadMore({
               </DialogPrimitive.Title>
               {subtitle && <p className="mt-1 text-[14px] leading-6 text-muted">{subtitle}</p>}
             </div>
-            <DialogPrimitive.Close className="group inline-flex shrink-0 items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[14px] font-semibold text-ink transition-colors hover:text-royal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal">
+            <DialogPrimitive.Close className="group inline-flex shrink-0 items-center gap-2 rounded-full py-1 pl-2 pr-1 text-[14px] font-semibold text-ink transition-colors hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink">
               Close
               <span className="flex h-8 w-8 items-center justify-center rounded-full ring-1 ring-line transition-colors group-hover:bg-navy-900 group-hover:text-white group-hover:ring-navy-900">
                 <XMarkIcon className="h-4 w-4" aria-hidden="true" />
@@ -63,7 +63,7 @@ export function ReadMore({
           {/* Focusable, so a long explanation can be scrolled from the keyboard. */}
           <div
             tabIndex={0}
-            className="min-h-0 flex-1 overflow-y-auto px-6 py-5 text-[15px] leading-7 text-ink/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-royal"
+            className="min-h-0 flex-1 overflow-y-auto px-6 py-5 text-[15px] leading-7 text-ink/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink"
           >
             {children}
           </div>

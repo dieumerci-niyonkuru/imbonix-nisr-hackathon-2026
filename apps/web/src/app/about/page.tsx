@@ -177,7 +177,30 @@ const JOURNEY: JourneyStep[] = [
   },
 ];
 
-/** About IMBONIX: why it exists, who benefits, and the method from data to impact. */
+/** IMBONIX in brief, as a two column table of facts. */
+const OVERVIEW: { term: string; detail: string }[] = [
+  { term: "Name", detail: "IMBONIX: Data for Inclusive Prosperity" },
+  {
+    term: "Purpose",
+    detail:
+      "To understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda, and to show where support is needed most.",
+  },
+  {
+    term: "Evidence",
+    detail: `${SITE_FACTS.indicators} district indicators from ${SITE_FACTS.publications} NISR and partner publications, including FinScope, EICV7, the Rwanda DHS and the 2022 census.`,
+  },
+  {
+    term: "Coverage",
+    detail: `All ${SITE_FACTS.districts} districts and ${SITE_FACTS.sectors} sectors, with a search for ${SITE_FACTS.cells.toLocaleString("en-US")} cells and ${SITE_FACTS.villages.toLocaleString("en-US")} villages.`,
+  },
+  { term: "Built for", detail: "Vulnerable households and those who serve them, policymakers, researchers and civil society." },
+  {
+    term: "Status",
+    detail: "Independent and open source. Not an official NISR product. Built on published tables; microdata is never published.",
+  },
+];
+
+/** About IMBONIX: an overview, why it exists, who benefits, and the method from data to impact. */
 export default function AboutPage() {
   return (
     <>
@@ -186,6 +209,21 @@ export default function AboutPage() {
         title="Evidence for financial inclusion and poverty reduction in Rwanda"
         intro={`An independent project that brings NISR's published statistics together for all ${SITE_FACTS.districts} districts and ${SITE_FACTS.sectors} sectors, and says how far to trust every figure. It is not an official NISR product.`}
       />
+      <section className="bg-white py-14 sm:py-20" aria-labelledby="overview-heading">
+        <div className="container-page">
+          <h2 id="overview-heading" className="font-display text-3xl font-bold tracking-[-0.025em] text-ink sm:text-4xl">
+            Overview
+          </h2>
+          <dl className="mt-8 max-w-4xl divide-y divide-line border-y border-line">
+            {OVERVIEW.map((row) => (
+              <div key={row.term} className="grid gap-1 py-4 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-8">
+                <dt className="text-[16px] font-bold text-ink">{row.term}</dt>
+                <dd className="text-pretty text-[16px] leading-7 text-ink/80">{row.detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
       <WhySection contributions={CONTRIBUTIONS} />
       <AudienceSection audiences={BENEFICIARIES} />
       <MethodologyJourney steps={JOURNEY} />

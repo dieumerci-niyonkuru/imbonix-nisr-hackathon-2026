@@ -44,6 +44,18 @@ describe("intervention explorer", () => {
     expect(shares).toEqual([...shares].sort((first, second) => second - first));
   });
 
+  it("sizes older people and persons with disabilities in the chosen place from the census", () => {
+    const older = explore("protection", "older", "district:nyamagabe");
+    expect(older.evidence.map((item) => item.text)).toContain(
+      "People aged 60 and over are 8.4% of residents in Nyamagabe district.",
+    );
+    const disability = explore("poverty", "disability", "rwanda");
+    expect(disability.evidence.map((item) => item.text)).toContain(
+      "3% of residents aged 5 and over in Rwanda live with a disability.",
+    );
+    expect(disability.options.some((option) => option.includes("disability"))).toBe(true);
+  });
+
   it("measures work for young people by those not in employment, education or training", () => {
     const result = explore("work", "youth", "rwanda");
     expect(result.headline).toBe("24.5% of young people are not in employment, education or training in Rwanda");

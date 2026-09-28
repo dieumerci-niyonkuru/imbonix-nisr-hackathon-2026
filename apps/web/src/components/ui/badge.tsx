@@ -13,7 +13,7 @@ export const badgeVariants = cva(
         dark: "bg-navy-900 text-white",
         severe: "bg-cyan-ink text-white",
         warn: "bg-cyan-soft text-cyan-ink ring-1 ring-inset ring-cyan/50",
-        calm: "bg-brand-50 text-brand-700",
+        calm: "bg-cyan-soft text-cyan-ink",
       },
     },
     defaultVariants: { variant: "default" },

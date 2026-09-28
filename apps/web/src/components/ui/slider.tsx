@@ -13,13 +13,13 @@ export const Slider = forwardRef<ElementRef<typeof SliderPrimitive.Root>, Compon
       {...props}
     >
       <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-line">
-        <SliderPrimitive.Range className="absolute h-full bg-royal" />
+        <SliderPrimitive.Range className="absolute h-full bg-cyan-ink" />
       </SliderPrimitive.Track>
       {(props.value ?? props.defaultValue ?? [0]).map((_, i) => (
         <SliderPrimitive.Thumb
           key={i}
           aria-label={props["aria-label"]}
-          className="block h-5 w-5 rounded-full border-2 border-royal bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+          className="block h-5 w-5 rounded-full border-2 border-cyan-ink bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
         />
       ))}
     </SliderPrimitive.Root>

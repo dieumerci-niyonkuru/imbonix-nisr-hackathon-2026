@@ -1,7 +1,7 @@
 "use client";
 
 import { Bar, BarChart, CartesianGrid, LabelList, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { AXIS, CategoryTick, ChartTooltip, GRID, LegendRow } from "@/components/charts/recharts/chart-theme";
+import { AXIS, CategoryTick, ChartTooltip, GRID, LegendRow, percentScale } from "@/components/charts/recharts/chart-theme";
 import { MUTED } from "@/lib/palette";
 
 export type ComparisonSeries = { key: string; label: string; color: string }[];
@@ -22,6 +22,7 @@ export function ComparisonBars({
   description: string;
   labelWidth?: number;
 }) {
+  const scale = percentScale(rows.flatMap((row) => series.map((entry) => Number(row[entry.key]) || 0)));
   return (
     <div>
       <div style={{ height: rows.length * ROW_HEIGHT + 36 }} role="img" aria-label={description}>
@@ -34,7 +35,7 @@ export function ComparisonBars({
             barGap={3}
           >
             <CartesianGrid {...GRID} horizontal={false} />
-            <XAxis type="number" domain={[0, 100]} ticks={[0, 25, 50, 75, 100]} unit="%" {...AXIS} />
+            <XAxis type="number" domain={scale.domain} ticks={scale.ticks} unit="%" {...AXIS} />
             <YAxis
               type="category"
               dataKey={categoryKey}
