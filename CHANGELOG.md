@@ -5,6 +5,23 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### A district year by year, from 1978 to 2026
+
+- Each district page has a new Over time section with a year selector from 1978, the first census, to 2026. For
+  the chosen year it lists the district's own figures and Rwanda's, each with its period, source, status label and a
+  small trend line marking the year.
+- District figures come from the labour force survey for every year from 2017 (unemployment, participation,
+  employment, underutilisation, NEET and median earnings), the projected population from 2023, and every indicator
+  measured that year, grouped by theme with the district's rank. Unemployment before 2024 is worked out from the
+  published counts of unemployed people and the labour force, and labelled as a calculation.
+- Rwanda's figures come from the censuses since 1978, the EICV, DHS and labour force survey rounds in the
+  Statistical Yearbook 2025, and poverty by province in 2016/17 and 2023/24. A strip shows at a glance which years
+  hold figures, and a year without figures says so and links to the nearest years that have them.
+- The district page has its own menu under the header (Overview, Priority, Over time, All indicators, Sectors), a
+  guide to reading each indicator card, and links to jump to each theme.
+- New extracts: `timeline_national.csv` and `district_population_2023_2032.csv`, with `timeline.json` built from
+  them.
+
 ### All three focus areas, told as stories
 
 - Financial exclusion and Social protection now follow the poverty page: four key figures with their sources, a
