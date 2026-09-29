@@ -3,13 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-export type AboutSection = { id: string; label: string };
+export type PageSection = { id: string; label: string };
 
 /**
- * The About page's own menu, as on the government's About pages: its sections in capitals, in a bar that stays under
- * the header while you read, with the section in view underlined in cyan. On phones the row scrolls sideways.
+ * A long page's own menu, as on the government's About pages: the page's name, then its sections in capitals, in a
+ * bar that stays under the header while you read, with the section in view underlined in cyan. On phones the row
+ * scrolls sideways and keeps the current section in view. Each section needs an id and `scroll-mt-36`.
  */
-export function AboutNav({ sections }: { sections: AboutSection[] }) {
+export function SectionNav({ label, sections }: { label: string; sections: PageSection[] }) {
   const [activeId, setActiveId] = useState(sections[0]?.id);
   const listRef = useRef<HTMLUListElement>(null);
 
@@ -42,7 +43,9 @@ export function AboutNav({ sections }: { sections: AboutSection[] }) {
   return (
     <nav aria-label="On this page" className="sticky top-[85px] z-40 border-b border-line bg-white">
       <div className="container-page flex items-center gap-6">
-        <p className="hidden shrink-0 font-display text-[16px] font-bold uppercase tracking-[0.04em] text-ink lg:block">About</p>
+        <p className="hidden shrink-0 font-display text-[16px] font-bold uppercase tracking-[0.04em] text-ink lg:block">
+          {label}
+        </p>
         <ul
           ref={listRef}
           className="scrollbar-none -mx-4 flex flex-1 items-center overflow-x-auto px-2 sm:-mx-6 sm:px-4 lg:mx-0 lg:justify-end lg:px-0"

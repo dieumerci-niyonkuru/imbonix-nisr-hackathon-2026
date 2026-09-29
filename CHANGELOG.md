@@ -5,6 +5,18 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Poverty dynamics, told as one story
+
+- The poverty focus page now opens with four key figures (the poverty rate, extreme poverty, people who left
+  poverty and the gap between the poorest and least poor districts), each with its source, and has its own menu
+  under the header: Key figures, What changed, Where, Who is poorest, How households live and Go deeper.
+- What changed shows poverty and extreme poverty for both survey periods, and living conditions. Where brings the
+  district map and the province comparison together. Who is poorest sets literacy beside account and mobile money
+  use by wealth. How households live covers electricity, cooking fuel and settlement. Headings and figures are
+  worked out from the data.
+- Survey periods are labelled as 2016/17 and 2023/24 instead of 2017 and 2024. The section menu is now one shared
+  component used by About and this page, and the links to deeper pages say where they go.
+
 ### A fuller About page
 
 - About now has its own menu under the header, as on the government's About pages: its sections in capitals, with
