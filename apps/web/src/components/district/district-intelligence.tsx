@@ -3,6 +3,7 @@ import { ArrowRightIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { ReadMore, ReadMoreSection } from "@/components/ui/read-more";
 import { SOURCES, type District } from "@/lib/data";
 import { actionsFor, limitationsFor, priorityFor, stepsFor, type Need, type Priority } from "@/lib/district-intelligence";
+import { LevelMeter } from "@/components/ui/level-meter";
 import { cn } from "@/lib/utils";
 
 /** What a reader should know about each step's measures, beyond the figures. */
@@ -14,29 +15,26 @@ const STEP_NOTES: Record<string, string> = {
     "VUP coverage and payment timeliness are not published by district, so health insurance cover sets the level. Older people and persons with disabilities are two groups Direct Support serves: their share shows where its help may be needed most (Census 2022).",
 };
 
-const NEED_STYLE: Record<Need, string> = {
-  high: "bg-cyan text-ink",
-  moderate: "bg-cyan-soft text-cyan-ink ring-1 ring-inset ring-cyan/40",
-  low: "bg-mist text-ink",
-};
+/** How many of the meter's three bars each level of need fills. */
+const NEED_BARS: Record<Need, 1 | 2 | 3> = { high: 3, moderate: 2, low: 1 };
+const PRIORITY_BARS: Record<Priority["level"], 1 | 2 | 3> = { High: 3, Moderate: 2, Lower: 1 };
 
-const PRIORITY_STYLE: Record<Priority["level"], string> = {
-  High: "bg-cyan text-ink",
-  Moderate: "bg-cyan-soft text-cyan-ink ring-1 ring-inset ring-cyan/50",
-  Lower: "bg-mist text-ink",
-};
-
-/** A district's priority level as a badge, for its page and the district directory. */
+/**
+ * A district's priority level, for its page and the district directory: a three-bar meter and the level in small
+ * capitals. The large version sits in a plain white box beside the section heading.
+ */
 export function PriorityBadge({ priority, size = "sm" }: { priority: Priority; size?: "sm" | "lg" }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full font-bold",
-        size === "lg" ? "px-4 py-2 text-[14px]" : "px-2.5 py-1 text-[11.5px]",
-        PRIORITY_STYLE[priority.level],
+        "inline-flex shrink-0 items-center font-bold uppercase text-ink",
+        size === "lg"
+          ? "gap-3 rounded-md border border-line bg-white px-4 py-2.5 text-[13px] tracking-[0.06em] shadow-card"
+          : "gap-2 text-[11.5px] tracking-[0.07em]",
       )}
       title="Priority under the IMBONIX rule: the 4 core dimensions on which the district is among the 10 most affected"
     >
+      <LevelMeter filled={PRIORITY_BARS[priority.level]} size={size} />
       {priority.level} priority
     </span>
   );
@@ -83,8 +81,13 @@ export function DistrictIntelligence({ district }: { district: District }) {
                     <p className="text-[13px] font-bold text-cyan-ink">
                       {index + 1}. {step.title}
                     </p>
-                    <span className={cn("rounded-full px-2.5 py-0.5 text-[12px] font-bold", NEED_STYLE[step.need])}>
+                    <span
+                      className="inline-flex shrink-0 items-center gap-2 text-[11.5px] font-bold uppercase tracking-[0.07em] text-ink"
+                      title={`${step.level}: ${step.need} need`}
+                    >
+                      <LevelMeter filled={NEED_BARS[step.need]} />
                       {step.level}
+                      <span className="sr-only">, {step.need} need</span>
                     </span>
                   </div>
                   {main && (

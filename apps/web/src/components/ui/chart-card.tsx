@@ -47,8 +47,9 @@ export function ChartCard({
         {howToRead && <HowToRead className="mt-2">{howToRead}</HowToRead>}
       </figcaption>
       <div className="mt-6 flex-1">{children}</div>
-      <p className="mt-6 flex flex-wrap items-center gap-2 border-t border-line pt-4 text-[11.5px] leading-4 text-muted">
+      <p className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-line pt-4 text-[11.5px] leading-4 text-muted">
         <StatusBadge status={status} />
+        <span className="hidden h-3.5 w-px bg-line sm:block" aria-hidden="true" />
         <span>{source}</span>
       </p>
     </figure>
