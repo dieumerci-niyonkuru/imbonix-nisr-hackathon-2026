@@ -5,6 +5,19 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### A fuller About page
+
+- About now has its own menu under the header, as on the government's About pages: its sections in capitals, with
+  the section in view underlined in cyan, scrolling sideways on phones.
+- New sections: an overview that sets a table of facts beside counts (districts, sectors, cells, villages,
+  indicators, publications, map measures and policy levers); a guide to every page, grouped by focus area; the
+  publications behind the figures, worked out from the data with their years, topics and number of indicators and a
+  link to each study in the NISR microdata catalog; six principles; the limits of the evidence; and ways to report
+  a data issue, see the code, reach the NISR catalog or report a security problem.
+- The publication count no longer counts IMBONIX's own calculations as a publication: the figures come from 14
+  publications, not 15, and the 9 indicators that are arithmetic on published figures are counted separately.
+- The method no longer says that no figure is typed in by hand, since some are transcribed from report tables.
+
 ### Search in the top bar
 
 - The cyan top bar now holds only the site search, as a white field in its right corner (full width on phones),
