@@ -2,7 +2,7 @@ import { FocusAreaPage, focusAreaMetadata } from "@/components/focus/focus-area-
 
 export const metadata = focusAreaMetadata("exclusion");
 
-/** Financial exclusion at a glance: the key evidence, then the pages that go deeper. */
+/** Financial exclusion overview: the key evidence, then the pages that go deeper. */
 export default function FinancialExclusionPage() {
   return <FocusAreaPage areaId="exclusion" />;
 }

@@ -173,7 +173,7 @@ export function ChangeOverTime() {
 
   return (
     <>
-      <SectionNav label="Change over time" sections={SECTIONS} />
+      <SectionNav label="Trends" sections={SECTIONS} />
 
       <div id="key-figures" className="scroll-mt-36">
         <FigureTiles
@@ -205,7 +205,7 @@ export function ChangeOverTime() {
                 { value: `${rwandaExtreme.after}%`, label: "extreme poverty rate, 2023/24", color: CORE.deep },
               ]}
               links={[
-                { href: "/poverty-dynamics", label: "Poverty dynamics at a glance" },
+                { href: "/poverty-dynamics", label: "Poverty dynamics overview" },
                 { href: "/poverty-dynamics/district-map", label: "Poverty district by district" },
               ]}
             >

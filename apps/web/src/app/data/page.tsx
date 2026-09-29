@@ -14,7 +14,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { BarsMotif } from "@/components/ui/section";
 
 export const metadata: Metadata = {
-  title: { absolute: "Data & methods | IMBONIX" },
+  title: { absolute: "Sources and methods | IMBONIX" },
   description:
     "Every source behind IMBONIX, how values are labelled, the datasets still to request from NISR, and the caveats that matter.",
 };
@@ -154,7 +154,7 @@ export default function DataPage() {
         <div className="container-page relative pb-14 pt-6 sm:pb-16 sm:pt-8">
           <Breadcrumbs />
           <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan-ink sm:mt-12">
-            <BarsMotif /> Data &amp; methods
+            <BarsMotif /> Sources and methods
           </p>
           <h1 className="mt-3 max-w-4xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
             Every number, where it comes from, and how far to trust it

@@ -2,8 +2,8 @@ import { MAP_LAYERS } from "@/lib/indicators";
 
 /**
  * The three focus areas of the challenge: financial exclusion, poverty dynamics and the impact of social protection.
- * Each has its own section of the site: `href` is its page at a glance, and its pages sit under that address, so a
- * URL such as /poverty-dynamics/change-over-time says where you are. They are also the homepage tabs (which follow
+ * Each has its own section of the site: `href` is its overview page, and its pages sit under that address, so a
+ * URL such as /poverty-dynamics/trends says where you are. They are also the homepage tabs (which follow
  * the URL hash, for example /#poverty) and the header menus.
  */
 export const FOCUS_AREAS = [
@@ -16,11 +16,11 @@ export type FocusAreaId = (typeof FOCUS_AREAS)[number]["id"];
 
 /** `badge` is a short label shown next to the page in the menus, such as the survey behind it or its status. */
 export type NavItem = { href: string; label: string; description: string; badge?: string };
-/** Each group is one focus area: `focusId` is its homepage tab and `href` its page at a glance. */
+/** Each group is one focus area: `focusId` is its homepage tab and `href` its overview page. */
 export type NavGroup = { label: string; intro: string; focusId: FocusAreaId; href: string; items: NavItem[] };
 
 /**
- * A header menu: its landing page (a focus area at a glance, or Data & methods), then the pages under it. `title` is
+ * A header menu: its landing page (a focus area's overview, or Sources and methods), then the pages under it. `title` is
  * the landing page's own name, used in breadcrumbs; `landingLabel` is how the menus list it.
  */
 export type MenuSection = {
@@ -49,14 +49,14 @@ export const NAV_GROUPS: NavGroup[] = [
     href: areaHref("exclusion"),
     items: [
       {
-        href: "/financial-exclusion/who-uses-financial-services",
-        label: "Who uses financial services",
+        href: "/financial-exclusion/access-and-use",
+        label: "Access and use",
         description: "Who has an account, and who actually uses one",
         badge: "DHS 2025",
       },
       {
-        href: "/financial-exclusion/who-is-most-at-risk",
-        label: "Who is most at risk",
+        href: "/financial-exclusion/risk-model",
+        label: "Risk model",
         description: "Household analysis, coming when NISR releases the microdata",
         badge: "Pending",
       },
@@ -69,23 +69,23 @@ export const NAV_GROUPS: NavGroup[] = [
     href: areaHref("poverty"),
     items: [
       {
-        href: "/poverty-dynamics/change-over-time",
-        label: "Change over time",
+        href: "/poverty-dynamics/trends",
+        label: "Trends",
         description: "Poverty, living conditions, health and work, from the first census to the latest surveys",
       },
       {
         href: "/poverty-dynamics/district-map",
-        label: "Map of every district",
+        label: "District map",
         description: `Compare the 30 districts on ${MAP_LAYERS.length} measures`,
       },
       {
         href: "/districts",
-        label: "Find your district",
+        label: "District profiles",
         description: "Figures, trends and sectors for each of the 30 districts",
       },
       {
-        href: "/poverty-dynamics/where-needs-overlap",
-        label: "Where needs overlap",
+        href: "/poverty-dynamics/overlapping-needs",
+        label: "Overlapping needs",
         description: "Poverty, exclusion, nutrition and shocks together",
       },
     ],
@@ -98,22 +98,22 @@ export const NAV_GROUPS: NavGroup[] = [
     items: [
       {
         href: "/social-protection/vup-payments",
-        label: "VUP support and payments",
+        label: "VUP payments",
         description: "Who VUP reaches, and whether payments arrive on time",
       },
       {
-        href: "/social-protection/where-to-act-first",
-        label: "Where to act first",
+        href: "/social-protection/priority-districts",
+        label: "Priority districts",
         description: "Seven policy levers, flagged district by district",
       },
       {
-        href: "/social-protection/test-a-policy-target",
-        label: "Test a policy target",
+        href: "/social-protection/policy-scenarios",
+        label: "Policy scenarios",
         description: "See what a target would mean for each district",
       },
       {
-        href: "/social-protection/plan-an-intervention",
-        label: "Plan an intervention",
+        href: "/social-protection/intervention-planner",
+        label: "Intervention planner",
         description: "Pick a problem, a group and a place: see the evidence and the options",
       },
     ],
@@ -126,16 +126,16 @@ export const DATA_SECTION: MenuSection = {
   label: "Data",
   intro: "Where every figure comes from, Rwanda's key figures, and every chart on the site in one list.",
   href: "/data",
-  title: "Data & methods",
-  landingLabel: "Data & methods",
+  title: "Sources and methods",
+  landingLabel: "Sources and methods",
   landingDescription: "Where every figure comes from, and how far to trust it",
   items: [
     {
-      href: "/data/rwanda-in-figures",
-      label: "Rwanda in figures",
+      href: "/data/key-figures",
+      label: "Key figures",
       description: "Key national figures and progress to the 2030 targets",
     },
-    { href: "/data/charts", label: "All charts", description: "Every chart on the site, grouped by focus area" },
+    { href: "/data/chart-library", label: "Chart library", description: "Every chart on the site, grouped by focus area" },
   ],
 };
 
@@ -147,7 +147,7 @@ export const MENU_SECTIONS: MenuSection[] = [
     intro: group.intro,
     href: group.href,
     title: group.label,
-    landingLabel: "At a glance",
+    landingLabel: "Overview",
     landingDescription: FOCUS_AREAS.find((area) => area.id === group.focusId)!.hint,
     items: group.items,
   })),
@@ -165,7 +165,7 @@ export const NAV: NavItem[] = [
   ...MENU_SECTIONS.flatMap((section) => [
     {
       href: section.href,
-      label: section.landingLabel === "At a glance" ? `${section.label} at a glance` : section.title,
+      label: section.landingLabel === "Overview" ? `${section.label} overview` : section.title,
       description: section.landingDescription,
     },
     ...section.items,

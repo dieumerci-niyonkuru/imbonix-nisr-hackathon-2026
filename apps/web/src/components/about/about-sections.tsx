@@ -74,7 +74,7 @@ export function ToolGuide() {
               <h3 className="font-display text-[21px] font-bold tracking-[-0.01em] text-ink">{group.label}</h3>
               <p className="mt-2 text-pretty text-[15px] leading-6 text-muted">{group.intro}</p>
               <ul className="mt-5 divide-y divide-line border-t border-line">
-                {[{ href: group.href, label: "At a glance", description: "The key evidence on one page" }, ...group.items].map(
+                {[{ href: group.href, label: "Overview", description: "The key evidence on one page" }, ...group.items].map(
                   (item) => (
                     <li key={item.href}>
                       <Link

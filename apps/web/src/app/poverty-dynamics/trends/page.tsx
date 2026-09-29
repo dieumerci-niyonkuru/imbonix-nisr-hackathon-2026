@@ -3,7 +3,7 @@ import { ChangeOverTime } from "@/components/over-time/change-over-time";
 import { PageHero } from "@/components/ui/section";
 
 export const metadata: Metadata = {
-  title: "Change over time",
+  title: "Trends",
   description:
     "How poverty, homes, services, health and work have changed in Rwanda, from the 1978 census to the latest NISR surveys.",
 };

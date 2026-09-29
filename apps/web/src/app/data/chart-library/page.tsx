@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/section";
 import { CHART_INDEX } from "@/lib/chart-index";
 
 export const metadata: Metadata = {
-  title: "All charts",
+  title: "Chart library",
   description: "Every chart and interactive tool on IMBONIX, grouped by focus area and page, with a filter.",
 };
 

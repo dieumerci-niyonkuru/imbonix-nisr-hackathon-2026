@@ -6,7 +6,7 @@
 export type ChartEntry = { id: string; title: string; about: string; page: string; interactive?: boolean };
 
 export const CHART_INDEX: ChartEntry[] = [
-  // Financial exclusion at a glance
+  // Financial exclusion overview
   {
     id: "chart-inclusion-by-service",
     title: "Inclusion rose, bank use did not",
@@ -43,7 +43,7 @@ export const CHART_INDEX: ChartEntry[] = [
     about: "Adults with a bank account, by sex",
     page: "/financial-exclusion",
   },
-  // Poverty dynamics at a glance
+  // Poverty dynamics overview
   {
     id: "chart-province-poverty-finance",
     title: "Poverty and financial exclusion by province",
@@ -92,7 +92,7 @@ export const CHART_INDEX: ChartEntry[] = [
     about: "Planned villages (umudugudu), dispersed, informal and urban settlements",
     page: "/poverty-dynamics",
   },
-  // Social protection at a glance
+  // Social protection overview
   {
     id: "chart-payment-timeliness",
     title: "VUP payments on time or late",
@@ -123,121 +123,121 @@ export const CHART_INDEX: ChartEntry[] = [
     about: "Nutrition sensitive Direct Support, Direct Support, public works and other programmes",
     page: "/social-protection",
   },
-  // Rwanda in figures
+  // Key figures
   {
     id: "chart-dashboard-access",
     title: "Access has deepened, but banking has not",
     about: "Adults by the most formal service they use, 2020 and 2024",
-    page: "/data/rwanda-in-figures",
+    page: "/data/key-figures",
   },
   {
     id: "chart-dashboard-health",
     title: "Financial health against the 2030 targets",
     about: "Healthy, coping and vulnerable adults in 2024 and the Roadmap targets",
-    page: "/data/rwanda-in-figures",
+    page: "/data/key-figures",
   },
   {
     id: "chart-dashboard-poverty-trend",
     title: "Poverty and extreme poverty, 2016/17 and 2023/24",
     about: "National poverty on the EICV7 method",
-    page: "/data/rwanda-in-figures",
+    page: "/data/key-figures",
   },
   {
     id: "chart-dashboard-poverty-province",
     title: "Poverty by province, 2023/24",
     about: "Share of people below the poverty line in each province",
-    page: "/data/rwanda-in-figures",
+    page: "/data/key-figures",
   },
-  // Change over time
+  // Trends
   {
     id: "chart-poverty-by-province-change",
     title: "Poverty by province, 2016/17 and 2023/24",
     about: "Rwanda and each province, before and after",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-extreme-poverty-by-province-change",
     title: "Extreme poverty by province, 2016/17 and 2023/24",
     about: "People below the food poverty line, before and after",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-population-censuses",
     title: "Population at every census since 1978",
     about: "Census counts from 1978 to 2022, and NISR's projection to 2032",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-household-size",
     title: "Average household size",
     about: "People per household in each EICV round since 2005/06",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-homes-over-time",
     title: "Homes over time",
     about: "Electricity, water, sanitation, roofs, floors and cooking fuel, EICV round by round",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-services-over-time",
     title: "Services over time",
     about: "Time to a health centre, health insurance, school, phones, internet and planned villages",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-child-mortality",
     title: "Child deaths per 1,000 live births",
     about: "Infant and under five mortality in every DHS round since 1992",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-maternal-mortality",
     title: "Maternal deaths per 100,000 live births",
     about: "Maternal mortality in every DHS round since 2000",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-child-nutrition",
     title: "Stunting, underweight and wasting",
     about: "Children under five in every DHS round since 1992",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-maternal-child-care",
     title: "Care around birth",
     about: "Assisted delivery, vaccination, contraception and children per woman",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-labour-market",
     title: "Participation, employment and unemployment",
     about: "The Labour Force Survey, 2019 to 2024",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
   {
     id: "chart-district-unemployment-spread",
     title: "Unemployment across the 30 districts",
     about: "Lowest, median and highest district each year, 2017 to 2025",
-    page: "/poverty-dynamics/change-over-time",
+    page: "/poverty-dynamics/trends",
   },
-  // Map of every district
+  // District map
   {
     id: "chart-district-map",
-    title: "Map of every district",
+    title: "District map",
     about: "Any of the measures on a map of the 30 districts and their sectors",
     page: "/poverty-dynamics/district-map",
     interactive: true,
   },
-  // Who uses financial services
+  // Access and use
   {
     id: "chart-usage-explorer",
     title: "Account and mobile money use by group",
     about: "Women and men by age, residence, education, province and wealth",
-    page: "/financial-exclusion/who-uses-financial-services",
+    page: "/financial-exclusion/access-and-use",
     interactive: true,
   },
-  // VUP support and payments
+  // VUP payments
   {
     id: "chart-vup-timeliness",
     title: "How late was the last VUP payment",
@@ -268,53 +268,53 @@ export const CHART_INDEX: ChartEntry[] = [
     about: "Direct Support households paid on time or late, 2013/14 to 2023/24",
     page: "/social-protection/vup-payments",
   },
-  // Where to act first
+  // Priority districts
   {
     id: "chart-priority-explorer",
     title: "Where each policy lever points",
     about: "Districts flagged for each of seven policy levers",
-    page: "/social-protection/where-to-act-first",
+    page: "/social-protection/priority-districts",
     interactive: true,
   },
   {
     id: "chart-priority-matrix",
     title: "Every district against every lever",
     about: "Which levers flag which districts, all at once",
-    page: "/social-protection/where-to-act-first",
+    page: "/social-protection/priority-districts",
     interactive: true,
   },
-  // Test a policy target
+  // Policy scenarios
   {
     id: "chart-reach-scenario",
     title: "Adults to reach for an inclusion target",
     about: "How many adults each district would need to include to meet a target",
-    page: "/social-protection/test-a-policy-target",
+    page: "/social-protection/policy-scenarios",
     interactive: true,
   },
   {
     id: "chart-priority-weights",
     title: "Priorities under your own weights",
     about: "How the district ranking shifts as you weight each dimension",
-    page: "/social-protection/test-a-policy-target",
+    page: "/social-protection/policy-scenarios",
     interactive: true,
   },
-  // Where needs overlap
+  // Overlapping needs
   {
     id: "overlap-matrix",
     title: "All 30 districts on the four dimensions",
     about: "Poverty, financial exclusion, stunting and shocks, district by district",
-    page: "/poverty-dynamics/where-needs-overlap",
+    page: "/poverty-dynamics/overlapping-needs",
   },
   {
     id: "chart-scatter-finance",
     title: "Poverty and financial exclusion, by district",
     about: "Each district's poverty rate against its adults outside formal finance",
-    page: "/poverty-dynamics/where-needs-overlap",
+    page: "/poverty-dynamics/overlapping-needs",
   },
   {
     id: "chart-scatter-stunting",
     title: "Poverty and child stunting, by district",
     about: "Each district's poverty rate against its share of stunted children",
-    page: "/poverty-dynamics/where-needs-overlap",
+    page: "/poverty-dynamics/overlapping-needs",
   },
 ];

@@ -12,7 +12,7 @@ import { DISTRICTS } from "@/lib/data";
 import { correlation, formatR } from "@/lib/stats";
 
 export const metadata: Metadata = {
-  title: "Where needs overlap",
+  title: "Overlapping needs",
   description: "Where poverty, financial exclusion, poor nutrition and natural hazards overlap across Rwanda's 30 districts.",
 };
 
@@ -40,7 +40,7 @@ export default function VulnerabilityPage() {
   return (
     <>
       <PageHero
-        eyebrow="Where needs overlap"
+        eyebrow="Overlapping needs"
         title="Where do vulnerabilities overlap?"
         intro="A household can be poor, financially excluded, poorly fed or exposed to shocks, and these do not always come together. This page compares the four dimensions across all 30 districts, shows how the underlying indicators relate, and looks inside districts at their sectors."
       />
