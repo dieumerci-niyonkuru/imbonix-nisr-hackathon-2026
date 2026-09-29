@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { buildFocusPanels } from "@/components/focus/focus-panels";
-import { PovertyMapSection } from "@/components/home/poverty-map-section";
+import { PovertyFocus } from "@/components/focus/poverty-focus";
 import { TextCard } from "@/components/home/story-cards";
 import { FOCUS_AREAS, NAV_GROUPS, type FocusAreaId } from "@/components/layout/nav";
 import { PageHero, SectionHeader } from "@/components/ui/section";
@@ -34,13 +34,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 /**
  * One focus area at a glance: the question, the claim with its key numbers and the charts behind it, then the pages
- * that go deeper and the other two focus areas.
+ * that go deeper and the other two focus areas. Poverty dynamics is told as a longer story in sections, with its own
+ * menu under the header.
  */
 export default async function FocusAreaPage({ params }: Params) {
   const area = focusArea((await params).area);
   if (!area) notFound();
   const group = NAV_GROUPS.find((item) => item.focusId === area.id)!;
-  const panel = buildFocusPanels()[area.id];
   const otherAreas = FOCUS_AREAS.filter((item) => item.id !== area.id);
 
   return (
@@ -51,13 +51,15 @@ export default async function FocusAreaPage({ params }: Params) {
         intro={`${group.intro} Every chart below says what it shows, where the figures come from and how far to trust them.`}
       />
 
-      <section className="bg-paper py-12 sm:py-16" aria-label={`${area.label}: the evidence`}>
-        <div className="container-page">{panel}</div>
-      </section>
+      {area.id === "poverty" ? (
+        <PovertyFocus />
+      ) : (
+        <section className="bg-paper py-12 sm:py-16" aria-label={`${area.label}: the evidence`}>
+          <div className="container-page">{buildFocusPanels()[area.id]}</div>
+        </section>
+      )}
 
-      {area.id === "poverty" && <PovertyMapSection />}
-
-      <section className="bg-white py-16 sm:py-20" aria-labelledby="deeper-heading">
+      <section id="deeper" className="scroll-mt-36 border-t border-line bg-white py-16 sm:py-20" aria-labelledby="deeper-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Go deeper"
@@ -67,7 +69,13 @@ export default async function FocusAreaPage({ params }: Params) {
           <ul className="mt-10 grid gap-6 lg:grid-cols-3">
             {group.items.map((item) => (
               <li key={item.href}>
-                <TextCard title={item.label} body={item.description} href={item.href} linkLabel="Open the page" tone="paper" />
+                <TextCard
+                  title={item.label}
+                  body={item.description}
+                  href={item.href}
+                  linkLabel={`Go to ${item.label.toLowerCase()}`}
+                  tone="paper"
+                />
               </li>
             ))}
           </ul>
