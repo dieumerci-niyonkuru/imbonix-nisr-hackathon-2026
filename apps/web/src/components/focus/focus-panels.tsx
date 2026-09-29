@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { BuildingLibraryIcon, HomeIcon, UserGroupIcon } from "@heroicons/react/24/outline";
-import { MEN, WOMEN } from "@/components/charts/dumbbell";
 import { ComparisonBars, type ComparisonSeries } from "@/components/charts/recharts/comparison-bars";
 import { StackedShareChart, type ShareSeries } from "@/components/charts/recharts/stacked-share-chart";
 import { ShareBars } from "@/components/charts/share-bars";
@@ -10,16 +9,6 @@ import { ValueBars } from "@/components/charts/recharts/value-bars";
 import { FocusPanel } from "@/components/home/focus-panel";
 import type { FocusAreaId } from "@/components/layout/nav";
 import { ChartCard } from "@/components/ui/chart-card";
-import { PROVINCE_LABEL, PROVINCES, reference, weightedRate } from "@/lib/data";
-import {
-  COOKING_FUELS,
-  EICV7_PROFILE_SOURCE,
-  ELECTRICITY_SOURCES,
-  LITERACY_BY_QUINTILE,
-  LIVING_STANDARDS_BY_YEAR,
-  POVERTY_RATE_BY_YEAR,
-  SETTLEMENT_TYPES,
-} from "@/lib/eicv7-poverty-profile";
 import {
   EXCLUDED_ADULTS,
   FINANCIAL_HEALTH_SEGMENTS,
@@ -36,22 +25,18 @@ import {
   CREDIT_SOURCES,
   HOUSEHOLD_SURVEY_SOURCE,
   HOUSEHOLDS_WITH_A_BANK_ACCOUNT,
-  PEOPLE_OUT_OF_POVERTY_MILLIONS,
-  PEOPLE_OUT_OF_POVERTY_PER_YEAR,
   POVERTY_AMONG_VUP_BENEFICIARIES,
   SOCIAL_PROTECTION_SOURCE,
   VUP_BENEFICIARIES,
   VUP_BENEFICIARIES_BY_PROGRAMME,
   VUP_SHARE_BY_SEX,
 } from "@/lib/poverty-social-protection";
-import { COMPARE, CORE, DEEP_CYAN, DIMENSION_COLORS, LIGHT_GREY, MID_GREY, RAMPS, STRAND } from "@/lib/palette";
+import { COMPARE, CORE, DEEP_CYAN, LIGHT_GREY, MID_GREY, RAMPS, STRAND } from "@/lib/palette";
 import { LEVERS } from "@/lib/priorities";
-import { DELAY_RAMP, timeliness, usagePairs, usageRows, VUP_COMPONENTS } from "@/lib/surveys";
+import { DELAY_RAMP, timeliness, usageRows, VUP_COMPONENTS } from "@/lib/surveys";
 import { TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
 
 const VUP_TIMELINESS_SOURCE = "NISR, EICV7 VUP thematic report 2023/24, Tables 4.2, 4.5, 4.8 and 4.11";
-const DHS_SOURCE = "NISR, Rwanda DHS 2025, Tables 15.5.1 and 15.5.2";
-const PROVINCE_SOURCE = "IMBONIX calculation from the NISR EICV7 2023/24 and FinScope 2024 district tables";
 
 /** The FinScope access strand: every adult once, by the most formal service they use. */
 export const ACCESS_SERIES: ShareSeries = [
@@ -67,26 +52,6 @@ const TIMELINESS_SERIES: ShareSeries = [
   { key: "lateUpToTwentyDays", label: "11 to 20 days late", color: DELAY_RAMP[2] },
   { key: "lateOverTwentyDays", label: "More than 20 days late", color: DELAY_RAMP[3] },
 ];
-
-/** Deep cyan and cyan: the two measures sit side by side, so they need colours that cannot be confused. */
-const PROVINCE_SERIES: ComparisonSeries = [
-  { key: "povertyRate", label: "Poverty rate", color: DEEP_CYAN },
-  { key: "notFormallyIncluded", label: "Not formally included", color: CORE.cyan },
-];
-
-const SEX_SERIES: ComparisonSeries = [
-  { key: "women", label: "Women", color: WOMEN },
-  { key: "men", label: "Men", color: MEN },
-];
-
-/** DHS wealth fifths, poorest first, with the two ends named so they read without a legend. */
-const WEALTH_LABEL: Record<string, string> = {
-  Lowest: "Poorest",
-  Second: "Second",
-  Middle: "Middle",
-  Fourth: "Fourth",
-  Highest: "Richest",
-};
 
 /** Healthy in cyan, then coping, vulnerable and extremely vulnerable from light grey to deep cyan: darker is worse. */
 const HEALTH_COLORS = [CORE.cyan, LIGHT_GREY, MID_GREY, DEEP_CYAN];
@@ -118,27 +83,6 @@ const VUP_SEX_SERIES: ComparisonSeries = [
 
 const VUP_PROGRAMME_COLORS = [CORE.cyan, LIGHT_GREY, DEEP_CYAN, MID_GREY];
 
-const SURVEY_YEAR_SERIES: ComparisonSeries = [
-  { key: "in2017", label: "2017", color: COMPARE.before },
-  { key: "in2024", label: "2024", color: COMPARE.after },
-];
-
-const ELECTRICITY_COLORS: Record<string, string> = {
-  "National grid": DEEP_CYAN,
-  Solar: CORE.cyan,
-  "No electricity": LIGHT_GREY,
-};
-
-/** Wood and straw in deep cyan, cleaner fuels in cyan. */
-const COOKING_FUEL_COLORS: Record<string, string> = {
-  Firewood: DEEP_CYAN,
-  "Straw or sticks": DEEP_CYAN,
-  Charcoal: CORE.cyan,
-  "Gas and other": CORE.cyan,
-};
-
-const SETTLEMENT_COLORS = [DEEP_CYAN, LIGHT_GREY, CORE.cyan, MID_GREY];
-
 /** How late each VUP programme's last payment was: on time, then up to 10, 20 and more than 20 days late. */
 export function paymentTimelinessByProgramme() {
   return VUP_COMPONENTS.map((component) => {
@@ -153,7 +97,7 @@ export function paymentTimelinessByProgramme() {
  * The evidence for each focus area: the claim with its key numbers, and the charts that back it. Each focus area
  * page shows one of these panels.
  */
-export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
+export function buildFocusPanels(): Record<Exclude<FocusAreaId, "poverty">, ReactNode> {
   const healthyShare = FINANCIAL_HEALTH_SEGMENTS.find((segment) => segment.segment === "Financially healthy")!.share;
   const inclusionOf = (measure: string) => INCLUSION_BY_ROUND.find((row) => row.measure === measure)!;
   const includedShare = inclusionOf("Financially included").in2024;
@@ -162,37 +106,11 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
   const [strandIn2020, strandIn2024] = ACCESS_STRAND;
   const dailyMobileMoney = MOBILE_MONEY_BY_ROUND.find((row) => row.measure === "Use it daily")!;
 
-  // Province rates weighted from the 30 district rates: poverty by people, finance by adults.
-  const povertyIn = (province?: string) => oneDecimal(weightedRate("eicv7_poverty_rate", "census_population", province)!);
-  const notFormallyIncludedIn = (province?: string) =>
-    oneDecimal(weightedRate("finscope_not_formally_included", "proj_adults_16plus_2024", province)!);
-  const provinceRows = PROVINCES.map((province) => ({
-    // Short names, so the five labels fit under the bars on a phone.
-    province: PROVINCE_LABEL[province].replace(" Province", "").replace("City of ", ""),
-    povertyRate: povertyIn(province),
-    notFormallyIncluded: notFormallyIncludedIn(province),
-  }));
-  const poorestProvince = [...provinceRows].sort((first, second) => second.povertyRate - first.povertyRate)[0];
-
   const womenByWealth = usageRows("Wealth quintile", "women");
   const poorestWomen = womenByWealth.find((row) => row.category === "Lowest")!;
-  const richestWomen = womenByWealth.find((row) => row.category === "Highest")!;
-  const useByWealth = usagePairs("Wealth quintile", "either").map((row) => ({
-    wealth: WEALTH_LABEL[row.label],
-    women: row.women,
-    men: row.men!,
-  }));
 
   const paymentTimeliness = paymentTimelinessByProgramme();
   const directSupportOnTime = paymentTimeliness.find((row) => row.programme === "Direct Support")!.onTime;
-
-  const [povertyIn2017, povertyIn2024] = POVERTY_RATE_BY_YEAR;
-  const povertyDrop = (povertyIn2017.povertyRate - povertyIn2024.povertyRate).toFixed(1);
-  const householdsWithElectricity = ELECTRICITY_SOURCES.filter((row) => row.source !== "No electricity").reduce(
-    (sum, row) => sum + row.share,
-    0,
-  );
-  const plannedVillageShare = SETTLEMENT_TYPES[0].share;
 
   const audiences = [
     {
@@ -221,7 +139,7 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
     },
   ];
 
-  const panels: Record<FocusAreaId, ReactNode> = {
+  const panels: Record<Exclude<FocusAreaId, "poverty">, ReactNode> = {
     exclusion: (
       <div className="grid gap-6">
         <FocusPanel
@@ -335,156 +253,6 @@ export function buildFocusPanels(): Record<FocusAreaId, ReactNode> {
                 color: row.group === "Women" ? CORE.cyan : row.group === "Men" ? DEEP_CYAN : MID_GREY,
               }))}
               description={`Adults with a bank account: ${BANK_ACCOUNT_BY_SEX.map((row) => `${row.group} ${row.share}%`).join(", ")}.`}
-            />
-          </ChartCard>
-        </div>
-      </div>
-    ),
-    poverty: (
-      <div className="grid gap-6">
-        <FocusPanel
-          title="Poverty and exclusion mostly overlap. The North is the exception."
-          body="The Western and Southern provinces have the most poverty and the most adults outside formal finance. The Northern Province is the second least poor, yet almost as many of its adults are outside formal finance as in the West. Wealth matters too: use of a bank account or mobile money rises with every wealth fifth, for women and for men."
-          stats={[
-            {
-              value: `${poorestProvince.povertyRate}%`,
-              label: `of people are poor in the ${poorestProvince.province} Province, the highest rate (district rates weighted by population)`,
-              color: DIMENSION_COLORS.poverty.accent,
-            },
-            {
-              value: `${poorestWomen.bank}%`,
-              label: `of women in the poorest fifth have and use a bank account, against ${richestWomen.bank}% in the richest`,
-              color: STRAND.banked,
-            },
-          ]}
-          links={[
-            { href: "/map", label: "Map of every district" },
-            { href: "/districts", label: "Find your district" },
-          ]}
-        >
-          <ChartCard
-            id="chart-province-poverty-finance"
-            title="Poverty and adults outside formal finance, by province"
-            note={`Each district's published rate, weighted by its 2022 population for poverty and its projected 2024 adults for finance. Nationally this gives ${povertyIn()}% and ${notFormallyIncludedIn()}%, against the published ${reference("eicv7_poverty_rate").value}% and ${reference("finscope_not_formally_included").value}%.`}
-            howToRead="For each province, one bar is the poverty rate and the other the share of adults outside formal finance. Where both are long, the two needs overlap."
-            source={PROVINCE_SOURCE}
-            status="calculated"
-          >
-            <ComparisonBars
-              rows={provinceRows}
-              categoryKey="province"
-              series={PROVINCE_SERIES}
-              labelWidth={64}
-              description={`Poverty rate and adults not formally included, by province. ${provinceRows.map((row) => `${row.province}: poverty ${row.povertyRate}%, not formally included ${row.notFormallyIncluded}%`).join("; ")}.`}
-            />
-          </ChartCard>
-          <ChartCard
-            id="chart-use-by-wealth"
-            title="Account or mobile money use rises with wealth"
-            note="Women and men aged 15 to 49 who used a bank account or mobile money in the past year, by household wealth fifth."
-            howToRead="Groups run from the poorest fifth of households to the richest. In each, one bar is women and one is men; longer means more used an account or mobile money."
-            source={DHS_SOURCE}
-          >
-            <ComparisonBars
-              rows={useByWealth}
-              categoryKey="wealth"
-              series={SEX_SERIES}
-              description={`Used a bank account or mobile money in the past year, by wealth fifth. ${useByWealth.map((row) => `${row.wealth}: women ${row.women}%, men ${row.men}%`).join("; ")}.`}
-            />
-          </ChartCard>
-        </FocusPanel>
-        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-          <ChartCard
-            id="chart-poverty-trend"
-            title={`Poverty fell ${povertyDrop} points in seven years`}
-            note={`About ${PEOPLE_OUT_OF_POVERTY_MILLIONS} million people left poverty, around ${PEOPLE_OUT_OF_POVERTY_PER_YEAR.toLocaleString("en-US")} a year.`}
-            howToRead="Each bar is the national poverty rate in one survey; the difference between them is the fall in seven years."
-            source={EICV7_PROFILE_SOURCE}
-          >
-            <ValueBars
-              seriesName="Poverty rate"
-              bars={POVERTY_RATE_BY_YEAR.map((row, index) => ({
-                label: row.year,
-                value: row.povertyRate,
-                color: index === 0 ? RAMPS.cyan[1] : CORE.deep,
-              }))}
-              description={`Poverty rate: ${POVERTY_RATE_BY_YEAR.map((row) => `${row.year} ${row.povertyRate}%`).join(", ")}.`}
-            />
-          </ChartCard>
-          <ChartCard
-            id="chart-living-conditions"
-            title="Living conditions improved"
-            note="Improved drinking water is at least 90% in 2024."
-            howToRead="Grey is 2017, cyan is 2024. A longer cyan bar means more households had that condition in 2024."
-            source={EICV7_PROFILE_SOURCE}
-          >
-            <ComparisonBars
-              rows={LIVING_STANDARDS_BY_YEAR}
-              categoryKey="measure"
-              series={SURVEY_YEAR_SERIES}
-              description={`Living conditions in 2017 and 2024. ${LIVING_STANDARDS_BY_YEAR.map((row) => `${row.measure}: ${row.in2017}% then ${row.in2024}%`).join("; ")}.`}
-            />
-          </ChartCard>
-          <ChartCard
-            id="chart-electricity"
-            title={`${householdsWithElectricity}% of households have electricity`}
-            note={`No electricity is 100% minus the ${householdsWithElectricity}% with access.`}
-            howToRead="The strip at the top is all households, split by their main source of electricity. Below it, each bar is one source; grey is no electricity."
-            source={EICV7_PROFILE_SOURCE}
-          >
-            <ShareBars
-              segments={ELECTRICITY_SOURCES.map((row) => ({
-                label: row.source,
-                share: row.share,
-                color: ELECTRICITY_COLORS[row.source],
-              }))}
-            />
-          </ChartCard>
-          <ChartCard
-            id="chart-cooking-fuel"
-            title="Three in four households cook with firewood or straw"
-            note="Gas and other is the 24% using improved methods, minus 19% charcoal."
-            howToRead="Each bar is the share of households cooking mainly with that fuel. Dark cyan is wood or straw, bright cyan is cleaner fuel."
-            source={EICV7_PROFILE_SOURCE}
-          >
-            <ValueBars
-              orientation="row"
-              seriesName="Households"
-              bars={COOKING_FUELS.map((row) => ({ label: row.fuel, value: row.share, color: COOKING_FUEL_COLORS[row.fuel] }))}
-              description={`Main cooking fuel: ${COOKING_FUELS.map((row) => `${row.fuel} ${row.share}%`).join(", ")}.`}
-            />
-          </ChartCard>
-          <ChartCard
-            id="chart-literacy"
-            title="The poorest are least literate"
-            note="Literacy rate by fifth of consumption per adult."
-            howToRead="Bars run from the poorest fifth of people to the richest; the longer the bar, the higher the share who can read and write."
-            source={EICV7_PROFILE_SOURCE}
-          >
-            <ValueBars
-              seriesName="Literacy rate"
-              bars={LITERACY_BY_QUINTILE.map((row, index) => ({
-                label: row.quintile,
-                value: row.literacyRate,
-                color: index === 0 ? CORE.cyan : DEEP_CYAN,
-              }))}
-              description={`Literacy rate: ${LITERACY_BY_QUINTILE.map((row) => `${row.quintile} ${row.literacyRate}%`).join(", ")}.`}
-            />
-          </ChartCard>
-          <ChartCard
-            id="chart-settlement"
-            title={`${plannedVillageShare}% of households live in planned villages`}
-            note="Households by type of settlement, 2023/24."
-            howToRead="The strip at the top is all households, split by the kind of place they live in. Below it, each bar is one kind; the longest is planned rural villages (umudugudu)."
-            source={EICV7_PROFILE_SOURCE}
-          >
-            <ShareBars
-              segments={SETTLEMENT_TYPES.map((row, index) => ({
-                label: row.settlement,
-                share: row.share,
-                color: SETTLEMENT_COLORS[index],
-              }))}
-              highlight={SETTLEMENT_TYPES[0].settlement}
             />
           </ChartCard>
         </div>
