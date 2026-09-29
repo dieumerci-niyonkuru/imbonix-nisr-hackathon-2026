@@ -10,6 +10,8 @@ Outputs (small published aggregates, safe to commit) in data/extracts/:
   district_indicators_wide.csv   one row per district, one column per indicator value
   sector_census2022.csv          416 sectors: census non-monetary poverty, MPI and population
   lfs_district_2017_2025.csv     LFS district labour indicators by year
+  timeline_national.csv          Rwanda over the years: census totals, EICV, DHS and LFS rounds, province poverty
+  district_population_2023_2032.csv  each district's projected population, year by year
 """
 
 import csv
@@ -493,6 +495,130 @@ with (OUT / "sector_census2022.csv").open("w", newline="", encoding="utf-8") as 
     for item in sorted(sectors.values(), key=lambda s: (DISTRICTS.index(s["district"]), s["sector"])):
         writer.writerow({k: item.get(k) for k in sector_fields})
 
+# --- Timeline: Rwanda over the years and each district's projected population
+# Census totals from 1978 (RPHC5 Table 4); EICV, DHS and LFS rounds from the Statistical Yearbook 2025 trend tables
+# (Tables 1.1 to 1.3); province poverty in 2016/17 (modelled on the EICV7 method) and 2023/24 (EICV7 poverty profile,
+# Table 5.1); and each district's projected population for every year from 2023 to 2032.
+timeline = []
+
+
+def add_point(series_id, label, unit, period, value, area, source, table, status="observed", note=""):
+    """One published value for one period: a single year (2022) or a survey period (2023/24)."""
+    if value is None:
+        return
+    first, _, last = str(period).partition("/")
+    start = int(first)
+    end = int(first[:2] + last) if last else start
+    timeline.append({"series_id": series_id, "label": label, "unit": unit, "period": str(period), "start": start,
+                     "end": end, "area": area, "value": round(value, 4), "source": source, "table": table,
+                     "status": status, "note": note})
+
+
+def clean_label(value):
+    return re.sub(r"\s+", " ", value).strip() if isinstance(value, str) else ""
+
+
+for row in xlsx_rows(PHC, "Table 4"):
+    year = row[1] if len(row) > 1 else None
+    if isinstance(year, (int, float)) and 1970 < year < 2030:
+        add_point("census_population", "Population", "persons", int(year), number(row[2]), "Rwanda",
+                  "NISR RPHC5 Main Indicators (tables)", "Table 4")
+
+YEARBOOK_TRENDS = [
+    # Table 1.1, household indicators by EICV round: the indicator name is in column B, values from column C.
+    ("EICV", lambda row: clean_label(row[1] if len(row) > 1 else None) == "Indicator Name", 1, {
+        r"^Average household size": ("household_size", "Average household size", "persons"),
+        r"ever attended school": ("ever_attended_school", "People aged 6 and over who ever attended school (%)", "%"),
+        r"Living in Umudugudu": ("umudugudu", "Households living in umudugudu (%)", "%"),
+        r"metal \(iron\) sheet roof": ("metal_roof", "Households with an iron sheet roof (%)", "%"),
+        r"cement floor": ("cement_floor", "Households with a cement floor (%)", "%"),
+        r"electricity as main source of lighting": ("electricity_lighting", "Households lit mainly by electricity (%)", "%"),
+        r"firewood as main cooking fuel": ("firewood_cooking", "Households cooking mainly with firewood (%)", "%"),
+        r"improved drinking water": ("improved_water", "Households using improved drinking water (%)", "%"),
+        r"improved sanitation": ("improved_sanitation", "Households using improved sanitation (%)", "%"),
+        r"internet at home": ("internet_home", "Households with internet access at home (%)", "%"),
+        r"Owning mobile phone": ("mobile_phone", "Households owning a mobile phone (%)", "%"),
+        r"reach a health center": ("minutes_to_health_centre", "Average time to reach a health centre (minutes)", "minutes"),
+        r"health insurance": ("health_insurance", "People with health insurance (%)", "%"),
+    }, "Table 1.1", ""),
+    # Table 1.2, demographic and health indicators by DHS round: the indicator name is in column A.
+    ("DHS", lambda row: clean_label(row[0] if row else None) == "Indicators" and str(row[1]).strip() == "1992", 0, {
+        r"^Total fertility Rate": ("fertility_rate", "Total fertility rate (children per woman)", "children"),
+        r"^The use of Modern Contraceptive": ("modern_contraception", "Married women using modern contraception (%)", "%"),
+        r"^Vaccination": ("vaccination", "Children vaccinated (%)", "%"),
+        r"^Infant mortality": ("infant_mortality", "Infant mortality (per 1,000 live births)", "per 1,000"),
+        r"^Child mortality": ("under_five_mortality", "Under five mortality (per 1,000 live births)", "per 1,000"),
+        r"^Stunted": ("stunting", "Children under five who are stunted (%)", "%"),
+        r"^Wasted": ("wasting", "Children under five who are wasted (%)", "%"),
+        r"^Underweight": ("underweight", "Children under five who are underweight (%)", "%"),
+        r"^Maternal mortality ratio": ("maternal_mortality", "Maternal mortality (per 100,000 live births)", "per 100,000"),
+        r"^Assistance during delivery": ("assisted_delivery", "Births with assistance during delivery (%)", "%"),
+    }, "Table 1.2", "Some DHS rates refer to the years before the survey."),
+    # Table 1.3, national labour force indicators by year: the indicator name is in column A.
+    ("LFS", lambda row: clean_label(row[0] if row else None) == "Indicators" and str(row[1]).strip() == "2019", 0, {
+        r"^Labour force participation rate": ("labour_force_participation", "Labour force participation rate (%)", "%"),
+        r"^Employment to population ratio": ("employment_to_population", "Employment to population ratio (%)", "%"),
+        r"^Unemployment rate \(%\)$": ("unemployment", "Unemployment rate (%)", "%"),
+    }, "Table 1.3", ""),
+]
+YEARBOOK_FILE = RAW / "other-nisr" / "Rwanda_Statistical_Yearbook_2025.xlsx"
+trend_rows = xlsx_rows(YEARBOOK_FILE, openpyxl.load_workbook(YEARBOOK_FILE, read_only=True).sheetnames[0])
+for survey, is_header, label_col, patterns, table, note in YEARBOOK_TRENDS:
+    header = next(i for i, row in enumerate(trend_rows) if len(row) > 1 and is_header(row))
+    periods = {col: str(value).strip() for col, value in enumerate(trend_rows[header]) if col > label_col and value is not None}
+    for row in trend_rows[header + 1:]:
+        label = clean_label(row[label_col] if len(row) > label_col else None)
+        if label.startswith(("Source", "Table")):
+            break
+        match = next((spec for pattern, spec in patterns.items() if re.search(pattern, label)), None)
+        if not match:
+            continue
+        series_id, series_label, unit = match
+        for col, period in periods.items():
+            add_point(series_id, series_label, unit, period, number(row[col]) if col < len(row) else None, "Rwanda",
+                      f"NISR Statistical Yearbook 2025 ({survey} rounds)", table, note=note)
+
+POVERTY_PROFILE = RAW / "eicv7" / "EICV7_Tables_Rwanda_Poverty_Profile.xlsx"
+profile_sheet = next(s for s in openpyxl.load_workbook(POVERTY_PROFILE, read_only=True).sheetnames if s.strip() == "Table 5.1.")
+for row in xlsx_rows(POVERTY_PROFILE, profile_sheet):
+    area = clean_label(row[0] if row else None)
+    if area == "Area of residence":
+        break
+    if area not in ("Rwanda", "Kigali City", "South", "West", "North", "East"):
+        continue
+    for series_id, label, now_col, before_col in (("poverty_rate", "Poverty rate (%)", 1, 3),
+                                                  ("extreme_poverty_rate", "Extreme poverty rate (%)", 6, 8)):
+        add_point(series_id, label, "%", "2016/17", number(row[before_col]), area,
+                  "NISR EICV7 Rwanda Poverty Profile (tables)", "Table 5.1", status="model_estimate",
+                  note="2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24.")
+        add_point(series_id, label, "%", "2023/24", number(row[now_col]), area,
+                  "NISR EICV7 Rwanda Poverty Profile (tables)", "Table 5.1")
+
+projected = []
+for path in sorted((RAW / "population-projections").glob("*.xlsx")):
+    name = next((d for d in DISTRICTS if d.lower() in path.stem.lower()), None)
+    if not name:
+        continue
+    rows = xlsx_rows(path, openpyxl.load_workbook(path, read_only=True).sheetnames[0])
+    year_row = next(r for r in rows if sum(isinstance(v, int) and 2020 < v < 2040 for v in r) >= 5)
+    columns = {v: i for i, v in enumerate(year_row) if isinstance(v, int) and 2020 < v < 2040}
+    total = next(r for r in rows if isinstance(r[0], str) and r[0].strip().lower() == "total")
+    for year, col in sorted(columns.items()):
+        projected.append({"district": name, "province": PROVINCE[name], "year": year, "population": number(total[col])})
+projected.sort(key=lambda r: (DISTRICTS.index(r["district"]), r["year"]))
+
+timeline_fields = ["series_id", "label", "unit", "period", "start", "end", "area", "value", "source", "table", "status",
+                   "note"]
+with (OUT / "timeline_national.csv").open("w", newline="", encoding="utf-8") as handle:
+    writer = csv.DictWriter(handle, fieldnames=timeline_fields, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(timeline)
+with (OUT / "district_population_2023_2032.csv").open("w", newline="", encoding="utf-8") as handle:
+    writer = csv.DictWriter(handle, fieldnames=["district", "province", "year", "population"], lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(projected)
+
 print(f"district records: {len(records)} ({len(indicator_ids)} indicators)")
 print(f"LFS series rows: {len(lfs_series)}")
 print(f"sectors: {len(sectors)}; with population: {sum(1 for s in sectors.values() if s.get('population_2022'))}")
+print(f"timeline points: {len(timeline)}; projected district years: {len(projected)}")

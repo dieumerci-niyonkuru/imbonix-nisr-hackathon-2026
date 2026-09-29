@@ -99,6 +99,26 @@ class ReproducibilityTests(unittest.TestCase):
     def test_vup_json_matches_the_extracts(self):
         self.assertEqual(build.build_vup(), generated("vup.json"))
 
+    def test_timeline_json_matches_the_extracts(self):
+        self.assertEqual(build.build_timeline(), generated("timeline.json"))
+
+    def test_timeline_points_have_a_known_series_status_and_period(self):
+        timeline = generated("timeline.json")
+        for point in timeline["national"]:
+            self.assertIn(point["id"], timeline["series"])
+            self.assertIn(point["status"], STATUSES)
+            self.assertTrue(1970 < point["start"] <= point["end"] < 2035, point)
+        for points in timeline["districts"].values():
+            for point in points:
+                self.assertIn(point["id"], timeline["series"])
+
+    def test_every_district_has_a_projected_population_for_each_year_to_2032(self):
+        timeline = generated("timeline.json")
+        self.assertEqual(len(timeline["districts"]), 30)
+        for points in timeline["districts"].values():
+            years = sorted(p["year"] for p in points if p["id"] == "projected_population")
+            self.assertEqual(years, list(range(2023, 2033)))
+
 
 if __name__ == "__main__":
     unittest.main()
