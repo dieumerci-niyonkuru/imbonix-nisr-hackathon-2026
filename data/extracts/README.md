@@ -18,6 +18,8 @@ Every row carries a `status`:
 | `sector_census2022.csv` | All **416 sectors**: Census 2022 non-monetary poverty (non-poor / vulnerable / moderately / severely poor), census MPI (headcount, intensity, M0), population by sex | script |
 | `sector_poverty_eicv7_sae.csv` | All **416 sectors**: EICV7 monetary poverty rate from NISR small-area estimation, transcribed from the district presentation maps (see caveats) | manual transcription, validated |
 | `lfs_district_2017_2025.csv` | LFS district labour indicators per year, 2017–2025 (unemployment, NEET, earnings, participation, underutilisation…) | script |
+| `timeline_national.csv` | Rwanda over the years: census population 1978 to 2022 (RPHC5 Table 4); EICV, DHS and LFS rounds (Statistical Yearbook 2025, Tables 1.1 to 1.3); poverty and extreme poverty for Rwanda and each province in 2016/17 (NISR's estimate on the EICV7 method) and 2023/24 (EICV7 Poverty Profile, Table 5.1). One row per series, area and period, with its status | script |
+| `district_population_2023_2032.csv` | Each district's projected total population for every year from 2023 to 2032 (NISR subnational projections, "Total" row) | script |
 | `vup_benefit_delivery_eicv7.csv` | VUP benefit amounts, payment channel and payment timeliness by component and poverty status | script |
 | `eicv7_district_poverty_2024.csv` | District poverty 2024 and modelled 2017 (Poverty Profile Annex B). Superseded by the long file, which adds SE and CI | manual |
 | `finscope2024_district_access_strand.csv` | FinScope 2024 district access strand, read from report Figure 13 | manual |

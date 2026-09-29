@@ -14,6 +14,7 @@ Outputs in apps/web/src/data/generated/:
   sectors.json     416 sectors: census non-monetary poverty, MPI, EICV7 small-area poverty and SVG paths
   usage.json       DHS 2025 phone, mobile-money and bank-account use by sex and group
   vup.json         VUP delivery 2023/24 and the 2013/14-2023/24 timeliness series
+  timeline.json    Rwanda from the 1978 census to 2025, and each district's yearly labour and population series
 
 And in apps/web/public/geo/ (fetched by the browser for the interactive MapLibre map):
   districts.geojson, sectors.geojson   simplified outlines in longitude/latitude, sectors with their values
@@ -279,6 +280,60 @@ def build_vup():
     return {"delivery": delivery, "trend": trend}
 
 
+# District series shown on the district pages over time: the LFS 2025 annual tables (Tables 21 to 25) give each district
+# a value for every year from 2017, and the subnational projections give its population for every year from 2023.
+LFS_TIMELINE = {
+    "LU1-Unemployment rate (%)": ("lfs_unemployment", "Unemployment rate (%)", "%"),
+    "Employment-to-population ratio(%)": ("lfs_employment_to_population", "Employment to population ratio (%)", "%"),
+    "Labour force participation rate(%)": ("lfs_labour_force_participation", "Labour force participation rate (%)", "%"),
+    "LU4 - Composite measure of labour underutilization(%)": ("lfs_underutilisation", "Labour underutilisation (%)", "%"),
+    "NEET rate-Youth not in employment nor currently in education or training(%)": (
+        "lfs_neet", "Youth not in employment, education or training (%)", "%"),
+    "Median monthly earnings at main job": ("lfs_median_earnings", "Median monthly earnings at main job (RWF)", "RWF"),
+}
+
+
+def build_timeline():
+    """Rwanda over the years and each district's yearly series, with each series' label, unit and source kept once."""
+    series, national = {}, []
+    for r in read_csv("timeline_national.csv"):
+        series[r["series_id"]] = {"label": r["label"], "unit": r["unit"], "source": r["source"], "table": r["table"]}
+        point = {"id": r["series_id"], "area": r["area"], "period": r["period"], "start": int(r["start"]),
+                 "end": int(r["end"]), "value": num(r["value"]), "status": r["status"]}
+        if r["note"]:
+            point["note"] = r["note"]
+        national.append(point)
+    districts = defaultdict(list)
+    lfs = read_csv("lfs_district_2017_2025.csv")
+    for r in lfs:
+        spec = LFS_TIMELINE.get(r["indicator"])
+        if not spec:
+            continue
+        series_id, label, unit = spec
+        series[series_id] = {"label": label, "unit": unit, "source": "NISR LFS 2025 annual tables", "table": "Tables 21 to 25"}
+        districts[slug(r["district"])].append({"id": series_id, "year": int(r["year"]), "value": num(r["value"])})
+    # The tables give the unemployment rate itself only for 2024 and 2025, but the unemployed and the labour force for
+    # every year. Their ratio reproduces the published rate for 2024 and 2025 (to 0.001 points), so earlier years are
+    # worked out the same way and labelled as calculations.
+    counts = defaultdict(dict)
+    for r in lfs:
+        counts[(r["district"], int(r["year"]))][r["indicator"]] = float(r["value"])
+    for (district, year), values in sorted(counts.items()):
+        if "LU1-Unemployment rate (%)" in values or not values.get("Labour force") or "Unemployed" not in values:
+            continue
+        districts[slug(district)].append({"id": "lfs_unemployment", "year": year, "status": "calculated",
+                                          "value": round(values["Unemployed"] / values["Labour force"] * 100, 3)})
+    for points in districts.values():
+        points.sort(key=lambda point: (point["id"], point["year"]))
+    series["projected_population"] = {"label": "Projected population", "unit": "persons",
+                                      "source": "NISR subnational population projections 2023 to 2032",
+                                      "table": "single-age tables"}
+    for r in read_csv("district_population_2023_2032.csv"):
+        districts[slug(r["district"])].append({"id": "projected_population", "year": int(r["year"]),
+                                               "value": num(r["population"])})
+    return {"series": series, "national": national, "districts": dict(districts)}
+
+
 # ------------------------------------------------------------------------------------ GeoJSON for MapLibre
 PUBLIC_GEO = REPO / "apps" / "web" / "public" / "geo"
 
@@ -352,6 +407,7 @@ def main() -> None:
     write("sectors.json", build_sectors(sector_paths))
     write("usage.json", build_usage())
     write("vup.json", build_vup())
+    write("timeline.json", build_timeline())
     write_lonlat_geojson(sector_match)
 
 

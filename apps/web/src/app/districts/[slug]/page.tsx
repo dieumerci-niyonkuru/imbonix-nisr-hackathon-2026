@@ -5,17 +5,21 @@ import { Suspense } from "react";
 import { ArrowLeftIcon, ArrowRightIcon, ExclamationTriangleIcon, MapIcon } from "@heroicons/react/24/outline";
 import { StackedBar } from "@/components/charts/stacked-bar";
 import { DistrictIntelligence, PriorityBadge } from "@/components/district/district-intelligence";
+import { DistrictTimeline, type YearIndicator } from "@/components/district/district-timeline";
 import { IndicatorRow } from "@/components/district/indicator-row";
 import { LinkedSectorExplorer, SectorExplorer } from "@/components/district/sector-explorer";
 import { RwandaMap } from "@/components/map/rwanda-map";
+import { SectionNav } from "@/components/ui/section-nav";
 import { SourceLine } from "@/components/ui/source-line";
-import { DISTRICTS, districtBySlug, PROVINCE_LABEL, type District } from "@/lib/data";
+import { StatusBadge } from "@/components/ui/status-badge";
+import { DISTRICTS, districtBySlug, PROVINCE_LABEL, rankOf, SOURCES, type District } from "@/lib/data";
 import { formatValue } from "@/lib/format";
-import { DIMENSIONS, meta, type Dimension } from "@/lib/indicators";
+import { DIMENSIONS, INDICATOR_BY_ID, meta, type Dimension } from "@/lib/indicators";
 import { priorityFor } from "@/lib/district-intelligence";
 import { sectorsOf } from "@/lib/sectors";
 import { Button } from "@/components/ui/button";
-import { DEEP_CYAN, NO_DATA, RAMPS, STRAND } from "@/lib/palette";
+import { CHART_CYAN, DEEP_CYAN, NO_DATA, RAMPS, STRAND } from "@/lib/palette";
+import { periodYears, timelineFor } from "@/lib/timeline";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { HowToRead } from "@/components/ui/chart-card";
 
@@ -95,6 +99,52 @@ const SECTIONS: { dimension: Dimension; title: string; ids: string[] }[] = [
   },
 ];
 
+const PAGE_SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "priority", label: "Priority" },
+  { id: "over-time", label: "Over time" },
+  { id: "indicators", label: "All indicators" },
+  { id: "sectors", label: "Sectors" },
+];
+
+/** The LFS 2025 indicators the yearly LFS series already show for 2025, so the year view lists them once. */
+const SHOWN_YEAR_BY_YEAR = new Set([
+  "lfs_unemployment_rate",
+  "lfs_employment_ratio",
+  "lfs_participation_rate",
+  "lfs_labour_underutilisation",
+  "lfs_neet_youth",
+  "lfs_median_monthly_earnings",
+]);
+
+/** Every indicator the district has, with the period it was measured in, for the year view, grouped by theme. */
+function yearIndicatorsOf(district: District): YearIndicator[] {
+  const order = Object.keys(DIMENSIONS);
+  return Object.entries(district.values)
+    .filter(([id, value]) => value && INDICATOR_BY_ID[id] && SOURCES[id] && !SHOWN_YEAR_BY_YEAR.has(id))
+    .map(([id, value]) => {
+      const indicator = meta(id);
+      const source = SOURCES[id];
+      const [start, end] = periodYears(source.year);
+      const rank = indicator.better === "neutral" ? undefined : rankOf(district, indicator);
+      return {
+        id,
+        label: indicator.short,
+        period: source.year,
+        start,
+        end,
+        value: formatValue(indicator, value?.v),
+        status: source.status,
+        group: DIMENSIONS[indicator.dimension].label,
+        source: source.source.replace(/^NISR /, ""),
+        rank: rank && `#${rank.rank} of ${rank.of} most affected`,
+        order: order.indexOf(indicator.dimension),
+      };
+    })
+    .sort((first, second) => first.order - second.order)
+    .map(({ order: _order, ...indicator }) => indicator);
+}
+
 export default async function DistrictPage({ params }: Params) {
   const district = districtBySlug((await params).slug);
   if (!district) notFound();
@@ -116,10 +166,11 @@ export default async function DistrictPage({ params }: Params) {
     { label: "Sectors", value: String(sectors.length) },
     { label: "Households headed by women", value: formatValue(meta("census_female_headed_hh"), v("census_female_headed_hh")) },
   ];
+  const timeline = timelineFor(district.slug, district.province);
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line bg-white">
+      <section id="overview" className="relative scroll-mt-36 overflow-hidden border-b border-line bg-white">
         <div className="container-page relative grid gap-10 py-10 sm:py-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
           <div>
             <Breadcrumbs extra={[{ label: PROVINCE_LABEL[district.province] }, { label: district.name }]} />
@@ -151,10 +202,44 @@ export default async function DistrictPage({ params }: Params) {
         </div>
       </section>
 
-      <DistrictIntelligence district={district} />
+      <SectionNav label={district.name} sections={PAGE_SECTIONS} />
+
+      <div id="priority" className="scroll-mt-36">
+        <DistrictIntelligence district={district} />
+      </div>
+
+      <section
+        id="over-time"
+        className="scroll-mt-36 border-b border-line bg-paper py-12 sm:py-16"
+        aria-labelledby="over-time-heading"
+      >
+        <div className="container-page">
+          <div className="max-w-3xl">
+            <p className="eyebrow text-cyan-ink">Over time</p>
+            <h2 id="over-time-heading" className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-ink">
+              {district.name} and Rwanda, year by year from 1978
+            </h2>
+            <p className="mt-3 text-[15px] leading-7 text-muted">
+              Choose a year to see what NISR published for {district.name} and for Rwanda in that year. Rwanda&apos;s figures go
+              back to the 1978 census. For {district.name} this site holds the labour force survey for every year from 2017, the
+              projected population from 2023, and the latest census and surveys, from 2020 to 2026.
+            </p>
+          </div>
+          <div className="mt-8">
+            <DistrictTimeline
+              district={district.name}
+              provinceLabel={PROVINCE_LABEL[district.province]}
+              series={timeline.series}
+              national={timeline.national}
+              districtPoints={timeline.district}
+              indicators={yearIndicatorsOf(district)}
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Detailed sections */}
-      <section className="container-page space-y-6 py-12" aria-labelledby="evidence-heading">
+      <section id="indicators" className="container-page scroll-mt-36 space-y-6 py-12" aria-labelledby="evidence-heading">
         <div className="max-w-3xl">
           <p className="eyebrow text-cyan-ink">The evidence in detail</p>
           <h2 id="evidence-heading" className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-ink">
@@ -164,10 +249,23 @@ export default async function DistrictPage({ params }: Params) {
             Grouped by theme, each with its value, how it compares with Rwanda, its rank among the 30 districts and its source.
           </p>
         </div>
+        <CardLegend />
+        <nav aria-label="Themes" className="flex flex-wrap items-center gap-2">
+          <span className="mr-1 text-[13px] font-semibold text-muted">Go to a theme</span>
+          {SECTIONS.map((section) => (
+            <a
+              key={section.dimension}
+              href={`#theme-${section.dimension}`}
+              className="rounded-full bg-white px-3 py-1.5 text-[13px] font-semibold text-ink ring-1 ring-line transition-colors hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+            >
+              {section.title}
+            </a>
+          ))}
+        </nav>
         {SECTIONS.map((section) => {
           const info = DIMENSIONS[section.dimension];
           return (
-            <div key={section.title} className="card p-5 sm:p-7">
+            <div key={section.title} id={`theme-${section.dimension}`} className="card scroll-mt-36 p-5 sm:p-7">
               <div className="flex flex-wrap items-end justify-between gap-3">
                 <div>
                   <p className="eyebrow" style={{ color: info.ink }}>
@@ -190,7 +288,7 @@ export default async function DistrictPage({ params }: Params) {
       </section>
 
       {/* Sectors */}
-      <section id="sectors" className="scroll-mt-28 border-y border-line bg-white py-12 sm:py-14">
+      <section id="sectors" className="scroll-mt-36 border-y border-line bg-white py-12 sm:py-14">
         <div className="container-page">
           <p className="eyebrow text-dim-poverty">Inside the district</p>
           <h2 className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-ink">{district.name}&apos;s sectors</h2>
@@ -227,6 +325,50 @@ export default async function DistrictPage({ params }: Params) {
         </Button>
       </nav>
     </>
+  );
+}
+
+/** What each indicator card shows, drawn the way the cards draw it. */
+function CardLegend() {
+  const items = [
+    {
+      mark: <span className="h-3.5 w-3.5 rounded-full border-2 border-white shadow" style={{ background: CHART_CYAN }} />,
+      text: "The dot is this district.",
+    },
+    {
+      mark: <span className="h-5 w-px bg-ink/60" />,
+      text: "The line is Rwanda, or the median district when there is no national figure.",
+    },
+    {
+      mark: <span className="h-1 w-8 rounded-full opacity-30" style={{ background: CHART_CYAN }} />,
+      text: "The pale band is the 95% confidence interval, where the survey gives one.",
+    },
+    {
+      mark: <span className="text-[12px] font-semibold text-ink">#1</span>,
+      text: "The rank counts from the most affected district: #1 of 30 is the most affected.",
+    },
+    {
+      mark: <StatusBadge status="observed" />,
+      text: "The label says whether the figure is published, calculated or projected.",
+    },
+  ];
+  return (
+    <div className="rounded-xl border border-line bg-white p-5">
+      <p className="text-[14px] font-bold text-ink">How to read each card</p>
+      <p className="mt-1 text-[13px] leading-5 text-muted">
+        The strip runs from the lowest district on the left to the highest on the right.
+      </p>
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+        {items.map((item) => (
+          <li key={item.text} className="flex items-center gap-3 text-[13px] leading-5 text-ink/80">
+            <span className="flex h-6 w-28 shrink-0 items-center justify-center" aria-hidden="true">
+              {item.mark}
+            </span>
+            {item.text}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
