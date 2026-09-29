@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 /** One headline figure: the number, what it counts and where it comes from. */
 export type FigureTile = { value: string; label: string; source: string };
 
@@ -11,12 +13,15 @@ export function FigureTiles({
   intro,
   tiles,
   id,
+  columns = 3,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
   tiles: FigureTile[];
   id: string;
+  /** Tiles per row on wide screens: three for six figures, four for four. */
+  columns?: 3 | 4;
 }) {
   return (
     <section className="bg-white py-16 sm:py-24" aria-labelledby={id}>
@@ -29,7 +34,12 @@ export function FigureTiles({
           {title}
         </h2>
         <p className="mt-4 max-w-3xl text-pretty text-[16px] leading-7 text-muted sm:text-[17px] sm:leading-8">{intro}</p>
-        <dl className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+        <dl
+          className={cn(
+            "mt-10 grid border-l border-t border-line sm:grid-cols-2",
+            columns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3",
+          )}
+        >
           {tiles.map((tile) => (
             <div key={tile.label} className="flex flex-col border-b border-r border-line px-7 py-8 sm:px-8 sm:py-10">
               <dt className="order-2 mt-3 text-pretty text-[16px] leading-6 text-ink">{tile.label}</dt>
