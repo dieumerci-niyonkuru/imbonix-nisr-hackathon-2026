@@ -5,6 +5,29 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Plain page names and addresses that follow the challenge, and many more charts
+
+- Every page now sits under the focus area of the challenge it answers, with a short, plain name that its address
+  repeats. Financial exclusion: Overview (`/financial-exclusion`), Access and use, Risk model. Poverty dynamics:
+  Overview (`/poverty-dynamics`), Trends, District map, District profiles (`/districts`), Overlapping needs. Social
+  protection: Overview (`/social-protection`), VUP payments, Priority districts, Policy scenarios, Intervention
+  planner. For example, Access and use is at `/financial-exclusion/access-and-use`. Earlier addresses redirect
+  permanently and keep their query strings.
+- A new Data menu holds Sources and methods (`/data`), Key figures (`/data/key-figures`) and the Chart library
+  (`/data/chart-library`). Menus, breadcrumbs, the footer, the search and browser tab titles are all worked out from
+  one list of pages, and a test checks that every menu entry and internal link points to a page that exists.
+- New page, Trends (`/poverty-dynamics/trends`): poverty by province in 2016/17 and 2023/24, population at every
+  census since 1978 with NISR's projection to 2032, homes and services in every EICV round, child and maternal health
+  in every DHS round, and work from the Labour Force Survey, with the spread of unemployment across the 30 districts.
+  Each heading is worked out from the figures.
+- New page, Chart library (`/data/chart-library`): all 49 charts and interactive tools, grouped by focus area and page
+  like a service portal's list of services, with a filter. Every chart has an anchor, so the list and the search open
+  it at its place.
+- Each district page shows its unemployment, youth not in employment, education or training, labour force
+  participation and median earnings from 2017, against the median of the 30 districts.
+- Page headers and the homepage banner carry a new emblem in the style of Rwanda's national bulletin covers: the map
+  of the 30 districts with a network joining them and a chart at its heart.
+
 ### A district year by year, from 1978 to 2026
 
 - Each district page has a new Over time section with a year selector from 1978, the first census, to 2026. For

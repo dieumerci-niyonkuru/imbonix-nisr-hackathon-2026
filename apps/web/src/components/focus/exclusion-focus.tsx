@@ -56,7 +56,7 @@ const SECTIONS: PageSection[] = [
 ];
 
 /**
- * Financial exclusion at a glance, as one story in sections with a menu under the header: the key figures, how access
+ * The financial exclusion overview, as one story in sections with a menu under the header: the key figures, how access
  * grew, why access is not financial health, how people pay and borrow, and who is left out. Headings and figures are
  * worked out from the published FinScope and household survey tables.
  */
@@ -256,8 +256,8 @@ export function ExclusionFocus() {
               },
             ]}
             links={[
-              { href: "/access-vs-use", label: "Who uses financial services" },
-              { href: "/dashboard", label: "Rwanda in figures" },
+              { href: "/financial-exclusion/access-and-use", label: "Access and use" },
+              { href: "/data/key-figures", label: "Key figures" },
             ]}
           >
             <ChartCard
