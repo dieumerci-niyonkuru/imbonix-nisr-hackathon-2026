@@ -117,8 +117,8 @@ export function ChartCatalogue({ sections, total }: { sections: CatalogueSection
                               {chart.title}
                             </span>
                             {chart.interactive && (
-                              <span className="ml-2 inline-flex translate-y-[-1px] items-center gap-1 rounded bg-cyan-soft px-1.5 py-0.5 align-middle text-[11px] font-semibold text-cyan-ink">
-                                <CursorArrowRaysIcon className="h-3 w-3" aria-hidden="true" />
+                              <span className="ml-2 inline-flex items-center gap-1 whitespace-nowrap align-middle text-[11px] font-bold uppercase tracking-[0.07em] text-cyan-ink">
+                                <CursorArrowRaysIcon className="h-3.5 w-3.5" aria-hidden="true" />
                                 Interactive
                               </span>
                             )}
