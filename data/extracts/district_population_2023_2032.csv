@@ -1,0 +1,301 @@
+district,province,year,population
+Nyarugenge,Kigali City,2023,383348.0
+Nyarugenge,Kigali City,2024,394014.0
+Nyarugenge,Kigali City,2025,404639.0
+Nyarugenge,Kigali City,2026,415174.0
+Nyarugenge,Kigali City,2027,425676.0
+Nyarugenge,Kigali City,2028,436203.0
+Nyarugenge,Kigali City,2029,446697.0
+Nyarugenge,Kigali City,2030,457046.0
+Nyarugenge,Kigali City,2031,467238.0
+Nyarugenge,Kigali City,2032,477324.0
+Gasabo,Kigali City,2023,919472.0
+Gasabo,Kigali City,2024,967512.0
+Gasabo,Kigali City,2025,1017220.0
+Gasabo,Kigali City,2026,1068544.0
+Gasabo,Kigali City,2027,1121662.0
+Gasabo,Kigali City,2028,1176771.0
+Gasabo,Kigali City,2029,1233799.0
+Gasabo,Kigali City,2030,1292489.0
+Gasabo,Kigali City,2031,1352812.0
+Gasabo,Kigali City,2032,1414990.0
+Kicukiro,Kigali City,2023,510900.0
+Kicukiro,Kigali City,2024,533837.0
+Kicukiro,Kigali City,2025,557373.0
+Kicukiro,Kigali City,2026,581465.0
+Kicukiro,Kigali City,2027,606193.0
+Kicukiro,Kigali City,2028,631666.0
+Kicukiro,Kigali City,2029,657819.0
+Kicukiro,Kigali City,2030,684506.0
+Kicukiro,Kigali City,2031,711703.0
+Kicukiro,Kigali City,2032,739518.0
+Nyanza,South,2023,367357.0
+Nyanza,South,2024,369562.0
+Nyanza,South,2025,371717.0
+Nyanza,South,2026,373818.0
+Nyanza,South,2027,375837.0
+Nyanza,South,2028,377757.0
+Nyanza,South,2029,379571.0
+Nyanza,South,2030,381316.0
+Nyanza,South,2031,382969.0
+Nyanza,South,2032,384491.0
+Gisagara,South,2023,401840.0
+Gisagara,South,2024,407736.0
+Gisagara,South,2025,413652.0
+Gisagara,South,2026,419575.0
+Gisagara,South,2027,425478.0
+Gisagara,South,2028,431338.0
+Gisagara,South,2029,437156.0
+Gisagara,South,2030,442944.0
+Gisagara,South,2031,448696.0
+Gisagara,South,2032,454369.0
+Nyaruguru,South,2023,318302.0
+Nyaruguru,South,2024,318784.0
+Nyaruguru,South,2025,319214.0
+Nyaruguru,South,2026,319589.0
+Nyaruguru,South,2027,319883.0
+Nyaruguru,South,2028,320082.0
+Nyaruguru,South,2029,320189.0
+Nyaruguru,South,2030,320221.0
+Nyaruguru,South,2031,320169.0
+Nyaruguru,South,2032,320004.0
+Huye,South,2023,384604.0
+Huye,South,2024,388056.0
+Huye,South,2025,391480.0
+Huye,South,2026,394863.0
+Huye,South,2027,398180.0
+Huye,South,2028,401412.0
+Huye,South,2029,404552.0
+Huye,South,2030,407628.0
+Huye,South,2031,410630.0
+Huye,South,2032,413510.0
+Nyamagabe,South,2023,371910.0
+Nyamagabe,South,2024,372722.0
+Nyamagabe,South,2025,373468.0
+Nyamagabe,South,2026,374146.0
+Nyamagabe,South,2027,374730.0
+Nyamagabe,South,2028,375205.0
+Nyamagabe,South,2029,375575.0
+Nyamagabe,South,2030,375851.0
+Nyamagabe,South,2031,376035.0
+Nyamagabe,South,2032,376086.0
+Ruhango,South,2023,360524.0
+Ruhango,South,2024,362460.0
+Ruhango,South,2025,364340.0
+Ruhango,South,2026,366168.0
+Ruhango,South,2027,367912.0
+Ruhango,South,2028,369561.0
+Ruhango,South,2029,371106.0
+Ruhango,South,2030,372572.0
+Ruhango,South,2031,373953.0
+Ruhango,South,2032,375205.0
+Muhanga,South,2023,359852.0
+Muhanga,South,2024,361801.0
+Muhanga,South,2025,363698.0
+Muhanga,South,2026,365543.0
+Muhanga,South,2027,367304.0
+Muhanga,South,2028,368969.0
+Muhanga,South,2029,370529.0
+Muhanga,South,2030,372016.0
+Muhanga,South,2031,373411.0
+Muhanga,South,2032,374682.0
+Kamonyi,South,2023,459158.0
+Kamonyi,South,2024,469227.0
+Kamonyi,South,2025,479417.0
+Kamonyi,South,2026,489729.0
+Kamonyi,South,2027,500124.0
+Kamonyi,South,2028,510572.0
+Kamonyi,South,2029,521072.0
+Kamonyi,South,2030,531654.0
+Kamonyi,South,2031,542296.0
+Kamonyi,South,2032,552941.0
+Karongi,West,2023,375845.0
+Karongi,West,2024,378261.0
+Karongi,West,2025,380616.0
+Karongi,West,2026,382921.0
+Karongi,West,2027,385170.0
+Karongi,West,2028,387325.0
+Karongi,West,2029,389398.0
+Karongi,West,2030,391400.0
+Karongi,West,2031,393335.0
+Karongi,West,2032,395185.0
+Rutsiro,West,2023,371431.0
+Rutsiro,West,2024,374161.0
+Rutsiro,West,2025,376836.0
+Rutsiro,West,2026,379463.0
+Rutsiro,West,2027,382035.0
+Rutsiro,West,2028,384522.0
+Rutsiro,West,2029,386936.0
+Rutsiro,West,2030,389279.0
+Rutsiro,West,2031,391563.0
+Rutsiro,West,2032,393759.0
+Rubavu,West,2023,558416.0
+Rubavu,West,2024,572283.0
+Rubavu,West,2025,586353.0
+Rubavu,West,2026,600638.0
+Rubavu,West,2027,615121.0
+Rubavu,West,2028,629761.0
+Rubavu,West,2029,644552.0
+Rubavu,West,2030,659528.0
+Rubavu,West,2031,674686.0
+Rubavu,West,2032,689990.0
+Nyabihu,West,2023,319590.0
+Nyabihu,West,2024,320340.0
+Nyabihu,West,2025,321029.0
+Nyabihu,West,2026,321657.0
+Nyabihu,West,2027,322220.0
+Nyabihu,West,2028,322706.0
+Nyabihu,West,2029,323103.0
+Nyabihu,West,2030,323433.0
+Nyabihu,West,2031,323700.0
+Nyabihu,West,2032,323887.0
+Ngororero,West,2023,369181.0
+Ngororero,West,2024,370734.0
+Ngororero,West,2025,372219.0
+Ngororero,West,2026,373643.0
+Ngororero,West,2027,374999.0
+Ngororero,West,2028,376253.0
+Ngororero,West,2029,377423.0
+Ngororero,West,2030,378514.0
+Ngororero,West,2031,379534.0
+Ngororero,West,2032,380463.0
+Rusizi,West,2023,491205.0
+Rusizi,West,2024,497959.0
+Rusizi,West,2025,504698.0
+Rusizi,West,2026,511445.0
+Rusizi,West,2027,518179.0
+Rusizi,West,2028,524860.0
+Rusizi,West,2029,531499.0
+Rusizi,West,2030,538111.0
+Rusizi,West,2031,544704.0
+Rusizi,West,2032,551235.0
+Nyamasheke,West,2023,436865.0
+Nyamasheke,West,2024,440082.0
+Nyamasheke,West,2025,443235.0
+Nyamasheke,West,2026,446328.0
+Nyamasheke,West,2027,449359.0
+Nyamasheke,West,2028,452284.0
+Nyamasheke,West,2029,455124.0
+Nyamasheke,West,2030,457891.0
+Nyamasheke,West,2031,460580.0
+Nyamasheke,West,2032,463169.0
+Rulindo,North,2023,368177.0
+Rulindo,North,2024,376888.0
+Rulindo,North,2025,385899.0
+Rulindo,North,2026,395204.0
+Rulindo,North,2027,404746.0
+Rulindo,North,2028,414469.0
+Rulindo,North,2029,424371.0
+Rulindo,North,2030,434486.0
+Rulindo,North,2031,444799.0
+Rulindo,North,2032,455275.0
+Gakenke,North,2023,368601.0
+Gakenke,North,2024,371758.0
+Gakenke,North,2025,375027.0
+Gakenke,North,2026,378402.0
+Gakenke,North,2027,381808.0
+Gakenke,North,2028,385196.0
+Gakenke,North,2029,388563.0
+Gakenke,North,2030,391933.0
+Gakenke,North,2031,395287.0
+Gakenke,North,2032,398594.0
+Musanze,North,2023,488522.0
+Musanze,North,2024,501682.0
+Musanze,North,2025,515309.0
+Musanze,North,2026,529395.0
+Musanze,North,2027,543877.0
+Musanze,North,2028,558675.0
+Musanze,North,2029,573804.0
+Musanze,North,2030,589287.0
+Musanze,North,2031,605118.0
+Musanze,North,2032,621251.0
+Burera,North,2023,393499.0
+Burera,North,2024,399483.0
+Burera,North,2025,405654.0
+Burera,North,2026,412011.0
+Burera,North,2027,418472.0
+Burera,North,2028,424993.0
+Burera,North,2029,431563.0
+Burera,North,2030,438207.0
+Burera,North,2031,444916.0
+Burera,North,2032,451644.0
+Gicumbi,North,2023,454894.0
+Gicumbi,North,2024,461101.0
+Gicumbi,North,2025,467520.0
+Gicumbi,North,2026,474112.0
+Gicumbi,North,2027,480813.0
+Gicumbi,North,2028,487555.0
+Gicumbi,North,2029,494334.0
+Gicumbi,North,2030,501168.0
+Gicumbi,North,2031,508061.0
+Gicumbi,North,2032,514955.0
+Rwamagana,East,2023,504006.0
+Rwamagana,East,2024,526876.0
+Rwamagana,East,2025,550694.0
+Rwamagana,East,2026,575477.0
+Rwamagana,East,2027,601254.0
+Rwamagana,East,2028,628030.0
+Rwamagana,East,2029,655823.0
+Rwamagana,East,2030,684616.0
+Rwamagana,East,2031,714419.0
+Rwamagana,East,2032,745276.0
+Nyagatare,East,2023,673792.0
+Nyagatare,East,2024,697595.0
+Nyagatare,East,2025,722124.0
+Nyagatare,East,2026,747392.0
+Nyagatare,East,2027,773387.0
+Nyagatare,East,2028,800117.0
+Nyagatare,East,2029,827556.0
+Nyagatare,East,2030,855666.0
+Nyagatare,East,2031,884440.0
+Nyagatare,East,2032,913888.0
+Gatsibo,East,2023,563078.0
+Gatsibo,East,2024,577251.0
+Gatsibo,East,2025,591693.0
+Gatsibo,East,2026,606375.0
+Gatsibo,East,2027,621308.0
+Gatsibo,East,2028,636462.0
+Gatsibo,East,2029,651812.0
+Gatsibo,East,2030,667313.0
+Gatsibo,East,2031,682956.0
+Gatsibo,East,2032,698734.0
+Kayonza,East,2023,468815.0
+Kayonza,East,2024,482703.0
+Kayonza,East,2025,496930.0
+Kayonza,East,2026,511488.0
+Kayonza,East,2027,526365.0
+Kayonza,East,2028,541564.0
+Kayonza,East,2029,557052.0
+Kayonza,East,2030,572808.0
+Kayonza,East,2031,588810.0
+Kayonza,East,2032,605073.0
+Kirehe,East,2023,473409.0
+Kirehe,East,2024,488370.0
+Kirehe,East,2025,503733.0
+Kirehe,East,2026,519483.0
+Kirehe,East,2027,535626.0
+Kirehe,East,2028,552153.0
+Kirehe,East,2029,569042.0
+Kirehe,East,2030,586263.0
+Kirehe,East,2031,603809.0
+Kirehe,East,2032,621683.0
+Ngoma,East,2023,410599.0
+Ngoma,East,2024,418396.0
+Ngoma,East,2025,426271.0
+Ngoma,East,2026,434203.0
+Ngoma,East,2027,442194.0
+Ngoma,East,2028,450226.0
+Ngoma,East,2029,458277.0
+Ngoma,East,2030,466314.0
+Ngoma,East,2031,474323.0
+Ngoma,East,2032,482311.0
+Bugesera,East,2023,571942.0
+Bugesera,East,2024,596933.0
+Bugesera,East,2025,622909.0
+Bugesera,East,2026,649894.0
+Bugesera,East,2027,677910.0
+Bugesera,East,2028,706956.0
+Bugesera,East,2029,737052.0
+Bugesera,East,2030,768166.0
+Bugesera,East,2031,800324.0
+Bugesera,East,2032,833539.0
