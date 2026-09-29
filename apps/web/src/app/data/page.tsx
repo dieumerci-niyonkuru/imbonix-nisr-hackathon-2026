@@ -14,7 +14,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { BarsMotif } from "@/components/ui/section";
 
 export const metadata: Metadata = {
-  title: "Data & methods",
+  title: { absolute: "Data & methods | IMBONIX" },
   description:
     "Every source behind IMBONIX, how values are labelled, the datasets still to request from NISR, and the caveats that matter.",
 };

@@ -74,26 +74,25 @@ export function ToolGuide() {
               <h3 className="font-display text-[21px] font-bold tracking-[-0.01em] text-ink">{group.label}</h3>
               <p className="mt-2 text-pretty text-[15px] leading-6 text-muted">{group.intro}</p>
               <ul className="mt-5 divide-y divide-line border-t border-line">
-                {[
-                  { href: `/focus/${group.focusId}`, label: "At a glance", description: "The key evidence on one page" },
-                  ...group.items,
-                ].map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="group flex items-start justify-between gap-4 py-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink"
-                    >
-                      <span className="min-w-0">
-                        <span className="block text-[15.5px] font-bold text-ink group-hover:text-cyan-ink">{item.label}</span>
-                        <span className="mt-0.5 block text-pretty text-[14px] leading-6 text-muted">{item.description}</span>
-                      </span>
-                      <ArrowRightIcon
-                        className="mt-1 h-4 w-4 shrink-0 text-cyan-ink transition-transform group-hover:translate-x-0.5"
-                        aria-hidden="true"
-                      />
-                    </Link>
-                  </li>
-                ))}
+                {[{ href: group.href, label: "At a glance", description: "The key evidence on one page" }, ...group.items].map(
+                  (item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="group flex items-start justify-between gap-4 py-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink"
+                      >
+                        <span className="min-w-0">
+                          <span className="block text-[15.5px] font-bold text-ink group-hover:text-cyan-ink">{item.label}</span>
+                          <span className="mt-0.5 block text-pretty text-[14px] leading-6 text-muted">{item.description}</span>
+                        </span>
+                        <ArrowRightIcon
+                          className="mt-1 h-4 w-4 shrink-0 text-cyan-ink transition-transform group-hover:translate-x-0.5"
+                          aria-hidden="true"
+                        />
+                      </Link>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           ))}

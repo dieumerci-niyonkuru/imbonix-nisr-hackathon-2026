@@ -94,7 +94,7 @@ export function PovertyMapSection() {
           </ol>
           <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
             <Link
-              href="/map"
+              href="/poverty-dynamics/district-map"
               className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
             >
               Open the district map

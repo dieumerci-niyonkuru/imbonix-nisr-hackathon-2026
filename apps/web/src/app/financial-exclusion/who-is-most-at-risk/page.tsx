@@ -176,7 +176,7 @@ export default function ModelPage() {
           <SectionHeader eyebrow="In the meantime" title="What you can already explore" />
           <Callout title="Associations across districts">
             The page{" "}
-            <Link href="/vulnerability" className="link">
+            <Link href="/poverty-dynamics/where-needs-overlap" className="link">
               Where needs overlap
             </Link>{" "}
             shows which published indicators move together across districts. It describes places, not households, but it previews
@@ -184,7 +184,7 @@ export default function ModelPage() {
           </Callout>
           <Callout title="Transparent priority rules">
             The page{" "}
-            <Link href="/priorities" className="link">
+            <Link href="/social-protection/where-to-act-first" className="link">
               Where to act first
             </Link>{" "}
             uses stated rules on published data: explainable by design, with no model required.

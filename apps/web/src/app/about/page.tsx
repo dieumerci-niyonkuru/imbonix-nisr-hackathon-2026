@@ -50,13 +50,13 @@ const BENEFICIARIES: Audience[] = [
   {
     title: "Vulnerable households",
     body: "Shows where payments arrive late and formal finance is far, so support can reach people sooner.",
-    href: "/social-protection",
+    href: "/social-protection/vup-payments",
     linkLabel: "See how VUP support arrives",
   },
   {
     title: "Policymakers",
     body: `${SITE_FACTS.levers} policy levers, each flagged district by district by one published figure and a rule anyone can check.`,
-    href: "/priorities",
+    href: "/social-protection/where-to-act-first",
     linkLabel: "See where to act first",
   },
   {
@@ -74,7 +74,7 @@ const BENEFICIARIES: Audience[] = [
   {
     title: "Development organisations",
     body: "See where poverty, financial exclusion, poor nutrition and shocks overlap, to aim programmes at the districts that need them most.",
-    href: "/vulnerability",
+    href: "/poverty-dynamics/where-needs-overlap",
     linkLabel: "See where needs overlap",
   },
 ];

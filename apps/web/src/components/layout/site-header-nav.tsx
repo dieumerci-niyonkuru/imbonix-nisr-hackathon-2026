@@ -6,7 +6,7 @@ import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent }
 import { ArrowTopRightOnSquareIcon, ChevronDownIcon, HomeIcon as HomeSolidIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { BrandLogo } from "@/components/layout/logo";
-import { NAV_GROUPS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
+import { MENU_SECTIONS, NAV_LINKS, UTILITY_LINKS } from "@/components/layout/nav";
 import {
   SiteSearch,
   type SearchChart,
@@ -24,13 +24,13 @@ export type HeaderData = {
 type MenuItem = { href: string; label: string };
 type MenuGroup = { id: string; label: string; items: MenuItem[] };
 
-/** One menu per focus area: its page at a glance, then the pages that go deeper. */
-const MENU_GROUPS: MenuGroup[] = NAV_GROUPS.map((group) => ({
-  id: group.focusId,
-  label: group.label,
+/** One menu per focus area, then the data: its landing page first, then the pages under it. */
+const MENU_GROUPS: MenuGroup[] = MENU_SECTIONS.map((section) => ({
+  id: section.id,
+  label: section.label,
   items: [
-    { href: `/focus/${group.focusId}`, label: "At a glance" },
-    ...group.items.map((item) => ({ href: item.href, label: item.label })),
+    { href: section.href, label: section.landingLabel },
+    ...section.items.map((item) => ({ href: item.href, label: item.label })),
   ],
 }));
 
@@ -115,8 +115,9 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
     closeTimer.current = window.setTimeout(() => setOpenGroupId(null), HOVER_CLOSE_DELAY);
   };
 
-  const isCurrentPage = (href: string) =>
-    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+  // A menu's landing page is current only on its own address; its pages sit under that address too.
+  const isCurrentPage = (href: string, exact = false) =>
+    href === "/" || exact ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
   const groupHasCurrentPage = (group: MenuGroup) => group.items.some((item) => isCurrentPage(item.href));
   /** Inside an open menu, the arrow keys move between its links, Home and End jump to the ends. */
   const moveInMenu = (event: ReactKeyboardEvent<HTMLDivElement>, groupId: string) => {
@@ -230,9 +231,9 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                           <li key={item.href} className={cn(itemIndex === 0 && "mb-1 border-b border-line pb-1")}>
                             <MenuLink
                               item={item}
-                              current={isCurrentPage(item.href)}
+                              current={isCurrentPage(item.href, itemIndex === 0)}
                               onNavigate={() => setOpenGroupId(null)}
-                              label={itemIndex === 0 ? `${group.label}: At a glance` : undefined}
+                              label={itemIndex === 0 && item.label === "At a glance" ? `${group.label}: At a glance` : undefined}
                             />
                           </li>
                         ))}
@@ -320,11 +321,11 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                           {group.label}
                         </h2>
                         <ul className="mt-1.5">
-                          {group.items.map((item) => (
+                          {group.items.map((item, itemIndex) => (
                             <li key={item.href}>
                               <MenuLink
                                 item={item}
-                                current={isCurrentPage(item.href)}
+                                current={isCurrentPage(item.href, itemIndex === 0)}
                                 onNavigate={() => setSheetOpen(false)}
                                 compact
                               />

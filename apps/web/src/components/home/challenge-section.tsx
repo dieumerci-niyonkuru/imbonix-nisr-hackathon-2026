@@ -81,7 +81,7 @@ export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
 
         <div className="mt-12 text-center">
           <Link
-            href="/dashboard"
+            href="/data/rwanda-in-figures"
             className="inline-flex min-h-12 items-center justify-center rounded bg-cyan px-10 text-[15px] font-bold text-ink transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
           >
             See Rwanda in figures

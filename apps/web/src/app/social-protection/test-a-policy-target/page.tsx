@@ -19,7 +19,7 @@ export default function ScenariosPage() {
         intro="Two tools for planning conversations. Both do transparent arithmetic on published NISR figures and label every output as a scenario: they help compare options, they do not forecast what a policy would achieve."
       />
 
-      <section className="container-page py-12" aria-labelledby="reach-heading">
+      <section id="chart-reach-scenario" className="container-page scroll-mt-36 py-12" aria-labelledby="reach-heading">
         <SectionHeader
           eyebrow="Scenario 1"
           accent="text-dim-finance"
@@ -35,7 +35,11 @@ export default function ScenariosPage() {
         </div>
       </section>
 
-      <section className="border-y border-line bg-white py-12" aria-labelledby="weights-heading">
+      <section
+        id="chart-priority-weights"
+        className="scroll-mt-36 border-y border-line bg-white py-12"
+        aria-labelledby="weights-heading"
+      >
         <div className="container-page">
           <SectionHeader
             eyebrow="Scenario 2"

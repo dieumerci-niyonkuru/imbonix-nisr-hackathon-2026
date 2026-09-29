@@ -37,21 +37,34 @@ IMBONIX is an independent team project. It is **not an official NISR product** a
 
 ![The IMBONIX homepage](docs/screenshots/home.png)
 
-## Features
+## Site map
 
-| Area | What it does |
-| --- | --- |
-| **Homepage** | One argument in three tabs: the gap (96% included, 10% financially healthy), the evidence in NISR data on poverty, income and access, and the impact for households, policymakers and civil society. |
-| **Map of every district** | 28 measures in 8 dimensions on an interactive MapLibre map. Select a district to zoom to its sectors, shaded by small-area poverty estimates. Links can be shared (`/map?layer=…&district=…`). |
-| **District profiles** | 30 profiles with four-dimension ranks, every indicator with its confidence interval, and a sector table and map. |
-| **Dashboard** | National inclusion, poverty trends and progress towards national targets. |
-| **Vulnerability analysis** | Where poverty, financial exclusion, nutrition and shocks overlap, with correlations between districts. |
-| **Access vs use** | FinScope's 96% inclusion compared with DHS 2025 account and mobile-money use, by sex and wealth. |
-| **Social protection** | How VUP payments reach households: channels, and how late they arrive. |
-| **Intervention priorities** | Seven policy levers, each tied to one indicator and a stated rule, showing which districts each lever flags and why. |
-| **Scenario simulator** | Test inclusion targets (how many adults each district would need to reach) and priority weights. |
-| **Explainable model** | The design of a model of financial vulnerability, with features checked against the FinScope 2024 dictionary. Results appear only after it is trained on the microdata. |
-| **Public data API** | Read-only JSON endpoints for districts, indicators and sectors, with validation, rate limiting and security headers. |
+The site follows the three parts of the challenge. Each focus area has its own address, and its pages sit under it, so
+the address says where you are. Earlier addresses (such as `/map` or `/dashboard`) redirect permanently.
+
+| Menu | Page | Address | What it does |
+| --- | --- | --- | --- |
+| Home | Homepage | `/` | One argument in three tabs: the gap (96% included, 10% financially healthy), the evidence in NISR data, and the impact for households, policymakers and civil society. |
+| Financial exclusion | At a glance | `/financial-exclusion` | Inclusion by service, financial health, the access strand, mobile money and credit. |
+| | Who uses financial services | `/financial-exclusion/who-uses-financial-services` | FinScope's 96% inclusion against DHS 2025 account and mobile money use, by sex, age, residence, education and wealth. |
+| | Who is most at risk | `/financial-exclusion/who-is-most-at-risk` | The design of an explainable model of financial vulnerability; results appear only after it is trained on the microdata. |
+| Poverty dynamics | At a glance | `/poverty-dynamics` | Poverty in 2016/17 and 2023/24, where it is deepest, who is poorest and how households live. |
+| | Change over time | `/poverty-dynamics/change-over-time` | Every census since 1978 and every EICV, DHS and LFS round: poverty by province, population, homes, services, health and work. |
+| | Map of every district | `/poverty-dynamics/district-map` | 28 measures on an interactive map; select a district to see its sectors. Links can be shared (`?layer=…&district=…`). |
+| | Find your district | `/districts`, `/districts/<name>` | 30 profiles: priority, a year selector from 1978 to 2026, labour trends against the median district, every indicator with its confidence interval, and sectors. |
+| | Where needs overlap | `/poverty-dynamics/where-needs-overlap` | Where poverty, financial exclusion, nutrition and shocks overlap, with correlations between districts. |
+| Social protection | At a glance | `/social-protection` | Who VUP reaches, how late payments arrive and how far Rwanda is from its targets. |
+| | VUP support and payments | `/social-protection/vup-payments` | Payment timeliness by programme and poverty status, payment channels, amounts and ten years of reports. |
+| | Where to act first | `/social-protection/where-to-act-first` | Seven policy levers, each tied to one indicator and a stated rule, showing which districts each lever flags and why. |
+| | Test a policy target | `/social-protection/test-a-policy-target` | How many adults each district would need to reach for an inclusion target, and priorities under your own weights. |
+| | Plan an intervention | `/social-protection/plan-an-intervention` | Pick a problem, a group and a place to see the evidence and the options. |
+| Data | Data & methods | `/data` | Where every figure comes from, and how far to trust it. |
+| | Rwanda in figures | `/data/rwanda-in-figures` | National inclusion, poverty trends and progress towards national targets. |
+| | All charts | `/data/charts` | Every chart and interactive tool on the site, grouped by focus area and page, with a filter. |
+| About | About | `/about` | Why IMBONIX exists, who it serves and how it works. |
+
+The **public data API** (`apps/api`) serves read-only JSON for districts, indicators and sectors, with validation, rate
+limiting and security headers.
 
 <table>
   <tr>

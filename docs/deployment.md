@@ -95,7 +95,7 @@ The web app can also run on Vercel without Docker (import `apps/web` as the proj
 - [ ] `testing` is merged into `main` by pull request, and CI is green on `main`.
 - [ ] `docker compose up --build` works locally from a clean checkout.
 - [ ] Both health checks return `"status": "ok"` on the deployed URLs.
-- [ ] Spot-check `/`, `/map` (the interactive map loads its basemap and sectors), a district page and `/data`.
+- [ ] Spot-check `/`, `/poverty-dynamics/district-map` (the interactive map loads its basemap and sectors), a district page and `/data`.
 - [ ] Response headers include `Content-Security-Policy` on the web app, and `X-Request-Id` and `RateLimit` on the API.
 - [ ] `CORS_ORIGINS` names only the real website origin.
 - [ ] The README states the deployed URLs and the date of the deployment.

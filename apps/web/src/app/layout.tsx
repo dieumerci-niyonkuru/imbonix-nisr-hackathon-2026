@@ -9,7 +9,7 @@ import { BRAND } from "@/lib/palette";
 
 export const metadata: Metadata = {
   title: {
-    default: "IMBONIX | Rwanda resilience atlas",
+    default: "IMBONIX | Financial inclusion and poverty in Rwanda",
     template: "%s | IMBONIX",
   },
   description:
