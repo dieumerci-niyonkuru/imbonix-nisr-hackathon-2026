@@ -39,7 +39,7 @@ export function ChartCard({
   return (
     <figure
       id={id}
-      className={cn("flex h-full scroll-mt-28 flex-col rounded-3xl border border-line bg-white p-5 sm:p-7", className)}
+      className={cn("flex h-full scroll-mt-36 flex-col rounded-3xl border border-line bg-white p-5 sm:p-7", className)}
     >
       <figcaption>
         <p className="font-display text-lg font-bold tracking-[-0.01em] text-ink">{title}</p>
