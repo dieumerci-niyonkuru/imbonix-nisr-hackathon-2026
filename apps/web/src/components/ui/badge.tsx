@@ -3,7 +3,7 @@ import type { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 export const badgeVariants = cva(
-  "inline-flex shrink-0 items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-bold transition-colors",
+  "inline-flex shrink-0 items-center gap-1 rounded px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.06em] transition-colors",
   {
     variants: {
       variant: {
