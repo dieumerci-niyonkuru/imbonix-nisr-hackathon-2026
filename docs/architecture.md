@@ -48,9 +48,9 @@ committed files, so the website data can never drift from its documented sources
 | --- | --- |
 | Framework | Next.js 15 App Router, React 19, TypeScript in strict mode |
 | Styling | Tailwind CSS with design tokens (brand scale, dimension ramps), shadcn/ui-style components on Radix primitives |
-| Rendering | Most pages are static; the 30 district pages are generated at build time (`generateStaticParams`); `/map` renders per request because it reads `?layer=&district=` on the server so shared links open in the right state; `/api/health` is dynamic |
+| Rendering | Most pages are static; the 30 district pages are generated at build time (`generateStaticParams`); `/poverty-dynamics/district-map` renders per request because it reads `?layer=&district=` on the server so shared links open in the right state; `/api/health` is dynamic |
 | Charts | Hand-built SVG charts (rank bars, dumbbells, small multiples, matrices) and Recharts for time series; every chart has a table or text alternative |
-| Maps | A lightweight SVG map everywhere, and an interactive MapLibre GL map on `/map`, loaded only in the browser (`next/dynamic`, about 800 KB) with an SVG fallback when WebGL is missing |
+| Maps | A lightweight SVG map everywhere, and an interactive MapLibre GL map on `/poverty-dynamics/district-map`, loaded only in the browser (`next/dynamic`, about 800 KB) with an SVG fallback when WebGL is missing |
 | States | `loading.tsx` (skeleton), `error.tsx` (recoverable, keeps navigation), `global-error.tsx` (self-contained), `not-found.tsx` |
 | Security | Content Security Policy and related headers in `next.config.mjs`; the only outside host is the basemap |
 | Output | Docker builds set `NEXT_OUTPUT=standalone`, so the image contains only the files the server needs; local builds use the default output and `npm run start` |

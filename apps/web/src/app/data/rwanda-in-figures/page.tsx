@@ -213,7 +213,7 @@ export default function DashboardPage() {
             ))}
           </div>
           <Button asChild variant="outline" className="mt-10">
-            <Link href="/map">
+            <Link href="/poverty-dynamics/district-map">
               Open the map of every district <ArrowRightIcon />
             </Link>
           </Button>

@@ -256,8 +256,8 @@ export function ExclusionFocus() {
               },
             ]}
             links={[
-              { href: "/access-vs-use", label: "Who uses financial services" },
-              { href: "/dashboard", label: "Rwanda in figures" },
+              { href: "/financial-exclusion/who-uses-financial-services", label: "Who uses financial services" },
+              { href: "/data/rwanda-in-figures", label: "Rwanda in figures" },
             ]}
           >
             <ChartCard

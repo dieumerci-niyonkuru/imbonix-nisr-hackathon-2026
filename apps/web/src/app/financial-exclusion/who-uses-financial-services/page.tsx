@@ -105,7 +105,7 @@ export default function AccessVsUsePage() {
           Each row is one group of people. The cyan dot is women and the dark cyan dot is men; the further right, the higher the
           share, and the longer the line between the dots, the wider the gap between them.
         </HowToRead>
-        <div className="mt-8">
+        <div id="chart-usage-explorer" className="mt-8 scroll-mt-36">
           <UsageExplorer />
         </div>
       </section>
@@ -127,7 +127,7 @@ export default function AccessVsUsePage() {
 
       <section className="container-page pb-20">
         <Button asChild variant="default">
-          <Link href="/map?layer=finscope_not_formally_included">
+          <Link href="/poverty-dynamics/district-map?layer=finscope_not_formally_included">
             See formal inclusion by district on the map <ArrowRightIcon className="h-4 w-4" />
           </Link>
         </Button>

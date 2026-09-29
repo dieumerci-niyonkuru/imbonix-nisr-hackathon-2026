@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ComponentType, SVGProps } from "react";
 import { ArrowUpIcon, CircleStackIcon, CodeBracketIcon, FlagIcon } from "@heroicons/react/24/solid";
 import { StackedBrandLogo } from "@/components/layout/logo";
-import { NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
+import { DATA_SECTION, NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
 
 type FooterLink = { href: string; label: string; external?: boolean };
 type FooterColumn = { heading: string; links: FooterLink[] };
@@ -10,20 +10,18 @@ type IconLink = { href: string; label: string; icon: ComponentType<SVGProps<SVGS
 
 const DATA_ISSUE_URL = `${REPOSITORY_URL}/issues/new?template=data_issue.md`;
 
-/** One column per focus area, each opening with its page at a glance, then the project links. */
+/** One column per focus area, each opening with its page at a glance, then the data and the project links. */
 const COLUMNS: FooterColumn[] = [
   ...NAV_GROUPS.map((group) => ({
     heading: group.label,
-    links: [
-      { href: `/focus/${group.focusId}`, label: "At a glance" },
-      ...group.items.map((item) => ({ href: item.href, label: item.label })),
-    ],
+    links: [{ href: group.href, label: "At a glance" }, ...group.items.map((item) => ({ href: item.href, label: item.label }))],
   })),
   {
-    heading: "Project",
+    heading: "Data and project",
     links: [
+      { href: DATA_SECTION.href, label: DATA_SECTION.landingLabel },
+      ...DATA_SECTION.items.map((item) => ({ href: item.href, label: item.label })),
       { href: "/about", label: "About IMBONIX" },
-      { href: "/data", label: "Data & methods" },
       { href: REPOSITORY_URL, label: "Source code", external: true },
       { href: `${REPOSITORY_URL}/blob/main/SECURITY.md`, label: "Security policy", external: true },
       { href: DATA_ISSUE_URL, label: "Report a data issue", external: true },

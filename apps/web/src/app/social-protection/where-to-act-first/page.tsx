@@ -65,7 +65,7 @@ export default function PrioritiesPage() {
           Choose a lever. The map marks the districts it flags, and the list gives the published figure behind each flag,
           strongest evidence first. Each district name opens its profile.
         </HowToRead>
-        <div className="mt-8">
+        <div id="chart-priority-explorer" className="mt-8 scroll-mt-36">
           <PriorityExplorer levers={LEVERS} districts={districts} />
         </div>
       </section>
@@ -81,7 +81,7 @@ export default function PrioritiesPage() {
             Each row is a district and each column a lever. A tick means that lever&apos;s rule flags the district; hover a tick
             to see the figure behind it.
           </HowToRead>
-          <div className="mt-8">
+          <div id="chart-priority-matrix" className="mt-8 scroll-mt-36">
             <PriorityMatrix levers={LEVERS} districts={districts} />
           </div>
         </div>

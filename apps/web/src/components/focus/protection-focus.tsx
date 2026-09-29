@@ -92,7 +92,7 @@ export function ProtectionFocus() {
       audience: "Vulnerable households",
       value: `${directSupport.onTime}%`,
       text: "of Direct Support households received their last payment on time.",
-      href: "/social-protection",
+      href: "/social-protection/vup-payments",
       cta: "VUP support and payments",
     },
     {
@@ -100,7 +100,7 @@ export function ProtectionFocus() {
       audience: "Policymakers",
       value: String(LEVERS.length),
       text: "policy levers, each flagged district by district by one figure and a rule anyone can check.",
-      href: "/priorities",
+      href: "/social-protection/where-to-act-first",
       cta: "Where to act first",
     },
     {
@@ -108,7 +108,7 @@ export function ProtectionFocus() {
       audience: "Civil society",
       value: `${poorestWomen.either}%`,
       text: "of women aged 15 to 49 in the poorest fifth used a bank account or mobile money in the past year.",
-      href: "/access-vs-use",
+      href: "/financial-exclusion/who-uses-financial-services",
       cta: "Who uses financial services",
     },
   ];
@@ -202,7 +202,7 @@ export function ProtectionFocus() {
                 color: DEEP_CYAN,
               },
             ]}
-            links={[{ href: "/social-protection", label: "VUP support and payments" }]}
+            links={[{ href: "/social-protection/vup-payments", label: "VUP support and payments" }]}
           >
             <ChartCard
               id="chart-payment-timeliness"
@@ -236,7 +236,7 @@ export function ProtectionFocus() {
                 color: CORE.cyan,
               },
             ]}
-            links={[{ href: "/scenarios", label: "Test a policy target" }]}
+            links={[{ href: "/social-protection/test-a-policy-target", label: "Test a policy target" }]}
           >
             <ChartCard
               id="chart-national-targets"

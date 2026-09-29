@@ -32,7 +32,7 @@ export default async function MapPage({ searchParams }: { searchParams: SearchPa
           </div>
         </div>
       </section>
-      <section className="container-page py-8 sm:py-10">
+      <section id="chart-district-map" className="container-page scroll-mt-36 py-8 sm:py-10">
         {/* Keyed on the address, so a link to another layer (from the header, say) resets the explorer even when the
             map is already open. The explorer's own choices only rewrite the address, so they do not remount it. */}
         <MapExplorer key={`${layer ?? ""}:${district ?? ""}`} initialLayer={layer} initialDistrict={district} />

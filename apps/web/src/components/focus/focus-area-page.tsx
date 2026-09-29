@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { ExclusionFocus } from "@/components/focus/exclusion-focus";
 import { PovertyFocus } from "@/components/focus/poverty-focus";
@@ -8,8 +7,6 @@ import { ProtectionFocus } from "@/components/focus/protection-focus";
 import { TextCard } from "@/components/home/story-cards";
 import { FOCUS_AREAS, NAV_GROUPS, type FocusAreaId } from "@/components/layout/nav";
 import { PageHero, SectionHeader } from "@/components/ui/section";
-
-type Params = { params: Promise<{ area: string }> };
 
 /** The question each focus area answers, in plain words. */
 const QUESTIONS: Record<FocusAreaId, string> = {
@@ -22,28 +19,19 @@ const QUESTIONS: Record<FocusAreaId, string> = {
 const lowerFirst = (label: string) =>
   /^(Rwanda\b|[A-Z]{2})/.test(label) ? label : label.charAt(0).toLowerCase() + label.slice(1);
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return FOCUS_AREAS.map((area) => ({ area: area.id }));
-}
-
-function focusArea(id: string) {
-  return FOCUS_AREAS.find((area) => area.id === id);
-}
-
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const area = focusArea((await params).area);
-  return area ? { title: `${area.label} at a glance`, description: QUESTIONS[area.id] } : {};
+/** The page title and description for a focus area at a glance. */
+export function focusAreaMetadata(areaId: FocusAreaId): Metadata {
+  const area = FOCUS_AREAS.find((item) => item.id === areaId)!;
+  // An absolute title, so the section layout does not add the section name a second time.
+  return { title: { absolute: `${area.label} at a glance | IMBONIX` }, description: QUESTIONS[area.id] };
 }
 
 /**
  * One focus area at a glance, told as a story in sections with its own menu under the header: the key figures, the
  * evidence behind them, then the pages that go deeper and the other two focus areas.
  */
-export default async function FocusAreaPage({ params }: Params) {
-  const area = focusArea((await params).area);
-  if (!area) notFound();
+export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
+  const area = FOCUS_AREAS.find((item) => item.id === areaId)!;
   const group = NAV_GROUPS.find((item) => item.focusId === area.id)!;
   const otherAreas = FOCUS_AREAS.filter((item) => item.id !== area.id);
 
@@ -88,7 +76,7 @@ export default async function FocusAreaPage({ params }: Params) {
             {otherAreas.map((other) => (
               <Link
                 key={other.id}
-                href={`/focus/${other.id}`}
+                href={other.href}
                 className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
               >
                 {other.label} at a glance
