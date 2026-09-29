@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { DistrictBackdrop } from "@/components/home/story-cards";
+import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 
 /** One of the doors under the banner: a focus area or a tool, in a sentence. */
 export type HeroCard = { title: string; body: string; href: string };
@@ -22,12 +23,16 @@ export function HomeHero({
   return (
     <section aria-labelledby="home-heading">
       <div className="relative overflow-hidden bg-cyan text-ink">
-        <DistrictBackdrop />
+        {/* Wide screens show the emblem beside the headline instead of the map behind it. */}
+        <div className="xl:hidden">
+          <DistrictBackdrop />
+        </div>
         <div className="container-page relative pb-40 pt-16 sm:pb-44 sm:pt-24">
+          <RwandaEmblem tone="cyan" className="absolute right-10 top-14 hidden w-[25rem] xl:block" />
           <p className="font-display text-[18px] font-bold sm:text-[22px]">Financial inclusion and poverty in Rwanda</p>
           <h1
             id="home-heading"
-            className="mt-3 max-w-4xl text-balance font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-6xl lg:text-7xl"
+            className="mt-3 max-w-4xl text-balance font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-6xl lg:text-7xl xl:max-w-[46rem]"
           >
             Almost every adult is included. Few are financially healthy.
           </h1>
