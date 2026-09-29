@@ -4,7 +4,7 @@ import { PageHero } from "@/components/ui/section";
 import { GROUPS, LOCATIONS, PROBLEMS, type GroupId, type ProblemId } from "@/lib/intervention-explorer";
 
 export const metadata: Metadata = {
-  title: "Plan an intervention",
+  title: "Intervention planner",
   description:
     "Choose a problem, a group and a place: see the evidence, the people affected, where the problem is concentrated, options to consider and the limits of the evidence.",
 };
@@ -21,7 +21,7 @@ export default async function InterventionsPage({ searchParams }: { searchParams
   return (
     <>
       <PageHero
-        eyebrow="Plan an intervention"
+        eyebrow="Intervention planner"
         title="Choose a problem, a group and a place. See the evidence, and what could be done."
         intro="For policymakers and organisations: the explorer brings together what NISR data shows, who is affected, where the problem is concentrated, which options existing programmes offer, and what the evidence cannot tell you."
       />

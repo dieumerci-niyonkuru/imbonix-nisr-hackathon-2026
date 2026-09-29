@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useId, useMemo, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import { ArrowDownIcon, ArrowTurnDownLeftIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { FOCUS_AREAS, NAV, NAV_GROUPS, NAV_LINKS } from "@/components/layout/nav";
+import { MENU_SECTIONS, NAV, NAV_LINKS } from "@/components/layout/nav";
 import { foldText, listPlaces, loadPlaceIndex, PLACE_KIND_LABEL, placeAddress, placeHref, placeMatchScore } from "@/lib/places";
 import { cn } from "@/lib/utils";
 
@@ -59,21 +59,21 @@ function matchScore(entry: SearchEntry, query: string, words: string[]): number 
 
 /**
  * What the search shows before anything is typed: every page, grouped like the header menus (each focus area opens
- * with its page at a glance), then the project pages.
+ * with its overview, the data with Sources and methods), then the project pages.
  */
 const JUMP_GROUPS: ResultGroup[] = [
-  ...NAV_GROUPS.map((group) => ({
-    title: group.label,
+  ...MENU_SECTIONS.map((section) => ({
+    title: section.label,
     items: [
       entry({
-        key: `jump:/focus/${group.focusId}`,
+        key: `jump:${section.href}`,
         kind: "page",
-        label: "At a glance",
-        hint: FOCUS_AREAS.find((area) => area.id === group.focusId)?.hint ?? "",
-        href: `/focus/${group.focusId}`,
+        label: section.landingLabel,
+        hint: section.landingDescription,
+        href: section.href,
         terms: "",
       }),
-      ...group.items.map((item) =>
+      ...section.items.map((item) =>
         entry({ key: `jump:${item.href}`, kind: "page", label: item.label, hint: item.description, href: item.href, terms: "" }),
       ),
     ],
@@ -183,7 +183,9 @@ export function SiteSearch({
 
   const entries = useMemo<SearchEntry[]>(() => {
     const groupLabelByHref = Object.fromEntries(
-      NAV_GROUPS.flatMap((group) => group.items.map((item) => [item.href, group.label])),
+      MENU_SECTIONS.flatMap((section) =>
+        [section.href, ...section.items.map((item) => item.href)].map((href) => [href, section.label]),
+      ),
     );
     return [
       ...NAV.map((item) =>
@@ -194,16 +196,6 @@ export function SiteSearch({
           hint: item.description,
           href: item.href,
           terms: foldText(`${item.description} ${groupLabelByHref[item.href] ?? ""}`),
-        }),
-      ),
-      ...FOCUS_AREAS.map((area) =>
-        entry({
-          key: `page:/focus/${area.id}`,
-          kind: "page",
-          label: `${area.label} at a glance`,
-          hint: area.hint,
-          href: `/focus/${area.id}`,
-          terms: foldText(`${area.hint} focus area overview`),
         }),
       ),
       ...districts.map((district) =>
@@ -243,7 +235,7 @@ export function SiteSearch({
           kind: "lever",
           label: lever.title,
           hint: lever.question,
-          href: "/priorities",
+          href: "/social-protection/priority-districts",
           terms: foldText(`${lever.question} policy lever priority`),
         }),
       ),

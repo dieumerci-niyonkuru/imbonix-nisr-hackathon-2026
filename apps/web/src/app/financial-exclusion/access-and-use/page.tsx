@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { HowToRead } from "@/components/ui/chart-card";
 
 export const metadata: Metadata = {
-  title: "Who uses financial services",
+  title: "Access and use",
   description:
     "FinScope 2024 counts 96% of adults as financially included. DHS 2025 shows how many actually used a bank account or mobile money.",
 };
@@ -33,7 +33,7 @@ export default function AccessVsUsePage() {
   return (
     <>
       <PageHero
-        eyebrow="Who uses financial services"
+        eyebrow="Access and use"
         title="96% are included. Far fewer actually use an account."
         intro="FinScope 2024 counts an adult as financially included if they use any financial product, formal or informal, including savings groups. DHS 2025 asks a stricter question: did you personally use a bank account or your phone for a financial transaction in the past 12 months? Both surveys can be right. The gap between them shows who has access on paper but little active use."
       />
@@ -105,7 +105,7 @@ export default function AccessVsUsePage() {
           Each row is one group of people. The cyan dot is women and the dark cyan dot is men; the further right, the higher the
           share, and the longer the line between the dots, the wider the gap between them.
         </HowToRead>
-        <div className="mt-8">
+        <div id="chart-usage-explorer" className="mt-8 scroll-mt-36">
           <UsageExplorer />
         </div>
       </section>
@@ -127,7 +127,7 @@ export default function AccessVsUsePage() {
 
       <section className="container-page pb-20">
         <Button asChild variant="default">
-          <Link href="/map?layer=finscope_not_formally_included">
+          <Link href="/poverty-dynamics/district-map?layer=finscope_not_formally_included">
             See formal inclusion by district on the map <ArrowRightIcon className="h-4 w-4" />
           </Link>
         </Button>

@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { BarsMotif } from "@/components/ui/section";
 
 export const metadata: Metadata = {
-  title: "Map of every district",
+  title: "District map",
   description:
     "Explore 30 Rwandan districts across poverty, financial access, digital readiness, nutrition, shocks, work and health cover.",
 };
@@ -19,7 +19,7 @@ export default async function MapPage({ searchParams }: { searchParams: SearchPa
         <div className="container-page pb-10 pt-6 sm:pb-12 sm:pt-8">
           <Breadcrumbs />
           <p className="eyebrow mt-8 flex items-center gap-2.5 text-cyan-ink">
-            <BarsMotif /> Map of every district
+            <BarsMotif /> District map
           </p>
           <div className="mt-3 flex flex-wrap items-end justify-between gap-6">
             <h1 className="max-w-3xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
@@ -32,7 +32,7 @@ export default async function MapPage({ searchParams }: { searchParams: SearchPa
           </div>
         </div>
       </section>
-      <section className="container-page py-8 sm:py-10">
+      <section id="chart-district-map" className="container-page scroll-mt-36 py-8 sm:py-10">
         {/* Keyed on the address, so a link to another layer (from the header, say) resets the explorer even when the
             map is already open. The explorer's own choices only rewrite the address, so they do not remount it. */}
         <MapExplorer key={`${layer ?? ""}:${district ?? ""}`} initialLayer={layer} initialDistrict={district} />

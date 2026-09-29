@@ -30,7 +30,7 @@ describe("chart index", () => {
 
   it("links only to pages that exist", () => {
     for (const chart of CHART_INDEX) {
-      const page = chart.page.startsWith("/focus/") ? "focus/[area]" : chart.page.slice(1);
+      const page = chart.page.slice(1);
       expect(existsSync(join(SOURCE_ROOT, "app", page, "page.tsx")), chart.page).toBe(true);
     }
   });

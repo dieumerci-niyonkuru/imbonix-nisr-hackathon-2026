@@ -80,7 +80,7 @@ const SECTIONS: PageSection[] = [
 ];
 
 /**
- * Poverty dynamics at a glance, as one story in sections with a menu under the header: the key figures, what changed
+ * The poverty dynamics overview, as one story in sections with a menu under the header: the key figures, what changed
  * between the two EICV rounds, where poverty is deepest, who is poorest and how households live. Every figure is
  * worked out from the data or a named NISR table, so the headings stay true if the figures change.
  */

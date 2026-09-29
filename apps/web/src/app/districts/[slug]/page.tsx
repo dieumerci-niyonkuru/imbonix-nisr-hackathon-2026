@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ArrowLeftIcon, ArrowRightIcon, ExclamationTriangleIcon, MapIcon } from "@heroicons/react/24/outline";
+import { TrendLines } from "@/components/charts/recharts/trend-charts";
 import { StackedBar } from "@/components/charts/stacked-bar";
 import { DistrictIntelligence, PriorityBadge } from "@/components/district/district-intelligence";
 import { DistrictTimeline, type YearIndicator } from "@/components/district/district-timeline";
@@ -18,10 +19,10 @@ import { DIMENSIONS, INDICATOR_BY_ID, meta, type Dimension } from "@/lib/indicat
 import { priorityFor } from "@/lib/district-intelligence";
 import { sectorsOf } from "@/lib/sectors";
 import { Button } from "@/components/ui/button";
-import { CHART_CYAN, DEEP_CYAN, NO_DATA, RAMPS, STRAND } from "@/lib/palette";
-import { periodYears, timelineFor } from "@/lib/timeline";
+import { CHART_CYAN, DEEP_CYAN, MID_GREY, NO_DATA, RAMPS, STRAND } from "@/lib/palette";
+import { districtSpread, formatPoint, periodYears, timelineFor, type TrendPoint } from "@/lib/timeline";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { HowToRead } from "@/components/ui/chart-card";
+import { ChartCard, HowToRead } from "@/components/ui/chart-card";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -117,6 +118,29 @@ const SHOWN_YEAR_BY_YEAR = new Set([
   "lfs_median_monthly_earnings",
 ]);
 
+/** The labour series drawn year by year on each district page, each against the median district. */
+const WORK_TRENDS = [
+  { id: "lfs_unemployment", title: "Unemployment rate", lowerIsBetter: true },
+  { id: "lfs_neet", title: "Young people not in employment, education or training", lowerIsBetter: true },
+  { id: "lfs_labour_force_participation", title: "Labour force participation", lowerIsBetter: false },
+  { id: "lfs_median_earnings", title: "Median monthly earnings at the main job", lowerIsBetter: false },
+];
+
+/** A district's yearly series and the median district's, as two lines for a trend chart. */
+function workTrend(id: string, points: ReturnType<typeof timelineFor>["district"]) {
+  const names = Object.fromEntries(DISTRICTS.map((item) => [item.slug, item.name]));
+  const own: TrendPoint[] = points
+    .filter((point) => point.id === id)
+    .map((point) => ({ x: point.year, period: String(point.year), value: point.value, status: point.status ?? "observed" }));
+  const median: TrendPoint[] = districtSpread(id, names).map((year) => ({
+    x: year.year,
+    period: String(year.year),
+    value: Math.round(year.median * 10) / 10,
+    status: "calculated",
+  }));
+  return { own, median, calculated: own.some((point) => point.status === "calculated") };
+}
+
 /** Every indicator the district has, with the period it was measured in, for the year view, grouped by theme. */
 function yearIndicatorsOf(district: District): YearIndicator[] {
   const order = Object.keys(DIMENSIONS);
@@ -178,7 +202,7 @@ export default async function DistrictPage({ params }: Params) {
             <div className="mt-4 flex flex-wrap items-center gap-3">
               <PriorityBadge priority={priorityFor(district)} />
               <Link
-                href={`/map?district=${district.slug}`}
+                href={`/poverty-dynamics/district-map?district=${district.slug}`}
                 className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-cyan-ink hover:underline"
               >
                 <MapIcon className="h-4 w-4" /> See it on the district map
@@ -234,6 +258,56 @@ export default async function DistrictPage({ params }: Params) {
               districtPoints={timeline.district}
               indicators={yearIndicatorsOf(district)}
             />
+          </div>
+
+          <h3 className="mt-14 font-display text-2xl font-bold tracking-[-0.02em] text-ink">
+            Work in {district.name}, year by year since 2017
+          </h3>
+          <p className="mt-2 max-w-3xl text-[15px] leading-7 text-muted">
+            Each chart sets {district.name} against the median of the 30 districts, from the Labour Force Survey district tables.
+          </p>
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+            {WORK_TRENDS.map((trend) => {
+              const { own, median, calculated } = workTrend(trend.id, timeline.district);
+              if (own.length < 2) return null;
+              const unit = timeline.series[trend.id].unit;
+              const latest = own[own.length - 1];
+              const latestMedian = median.find((point) => point.x === latest.x);
+              // Compared as shown, so a district level with the median at the shown precision is not called above or below it.
+              const comparison =
+                latestMedian === undefined
+                  ? undefined
+                  : formatPoint(latest.value, unit) === formatPoint(latestMedian.value, unit)
+                    ? "Level with"
+                    : latest.value > latestMedian.value
+                      ? "Above"
+                      : "Below";
+              return (
+                <ChartCard
+                  key={trend.id}
+                  id={`chart-district-${trend.id.replace("lfs_", "").replaceAll("_", "-")}`}
+                  title={`${trend.title}: ${formatPoint(latest.value, unit)} in ${latest.period}`}
+                  note={
+                    latestMedian && comparison
+                      ? `${comparison} the median district (${formatPoint(latestMedian.value, unit)}) in ${latest.period}.`
+                      : undefined
+                  }
+                  howToRead={`The dark line is ${district.name}, the grey line the median of the 30 districts.${trend.lowerIsBetter ? " Lower is better." : ""}`}
+                  source={`NISR, LFS 2025 annual tables, Tables 21 to 25${calculated ? "; unemployment before 2024 is the published number of unemployed people divided by the labour force" : ""}`}
+                  status={calculated ? "calculated" : "observed"}
+                >
+                  <TrendLines
+                    lines={[
+                      { key: "district", label: district.name, color: DEEP_CYAN, points: own },
+                      { key: "median", label: "Median district", color: MID_GREY, points: median, endLabel: "below" },
+                    ]}
+                    unit={unit}
+                    height={240}
+                    description={`${trend.title} in ${district.name}: ${own.map((point) => `${point.period} ${formatPoint(point.value, unit)}`).join(", ")}. Median district: ${median.map((point) => `${point.period} ${formatPoint(point.value, unit)}`).join(", ")}.`}
+                  />
+                </ChartCard>
+              );
+            })}
           </div>
         </div>
       </section>

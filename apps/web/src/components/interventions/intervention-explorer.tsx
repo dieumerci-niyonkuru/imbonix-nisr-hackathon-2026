@@ -188,7 +188,7 @@ export function InterventionExplorer({
           </Link>
         )}
         <Link
-          href="/priorities"
+          href="/social-protection/priority-districts"
           className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
         >
           See where to act first, district by district
