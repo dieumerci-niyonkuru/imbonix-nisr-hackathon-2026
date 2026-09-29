@@ -1,0 +1,186 @@
+series_id,label,unit,period,start,end,area,value,source,table,status,note
+census_population,Population,persons,1978,1978,1978,Rwanda,4831527.0,NISR RPHC5 Main Indicators (tables),Table 4,observed,
+census_population,Population,persons,1991,1991,1991,Rwanda,7157551.0,NISR RPHC5 Main Indicators (tables),Table 4,observed,
+census_population,Population,persons,2002,2002,2002,Rwanda,8128553.0,NISR RPHC5 Main Indicators (tables),Table 4,observed,
+census_population,Population,persons,2012,2012,2012,Rwanda,10515973.0,NISR RPHC5 Main Indicators (tables),Table 4,observed,
+census_population,Population,persons,2022,2022,2022,Rwanda,13246394.0,NISR RPHC5 Main Indicators (tables),Table 4,observed,
+household_size,Average household size,persons,2005/06,2005,2006,Rwanda,5.0,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+household_size,Average household size,persons,2010/11,2010,2011,Rwanda,4.8,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+household_size,Average household size,persons,2013/14,2013,2014,Rwanda,4.6,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+household_size,Average household size,persons,2016/17,2016,2017,Rwanda,4.4,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+household_size,Average household size,persons,2023/24,2023,2024,Rwanda,4.1,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+ever_attended_school,People aged 6 and over who ever attended school (%),%,2005/06,2005,2006,Rwanda,78.7,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+ever_attended_school,People aged 6 and over who ever attended school (%),%,2010/11,2010,2011,Rwanda,83.2,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+ever_attended_school,People aged 6 and over who ever attended school (%),%,2013/14,2013,2014,Rwanda,86.1,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+ever_attended_school,People aged 6 and over who ever attended school (%),%,2016/17,2016,2017,Rwanda,87.2,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+ever_attended_school,People aged 6 and over who ever attended school (%),%,2023/24,2023,2024,Rwanda,91.9,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+umudugudu,Households living in umudugudu (%),%,2005/06,2005,2006,Rwanda,17.6,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+umudugudu,Households living in umudugudu (%),%,2010/11,2010,2011,Rwanda,37.5,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+umudugudu,Households living in umudugudu (%),%,2013/14,2013,2014,Rwanda,49.2,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+umudugudu,Households living in umudugudu (%),%,2016/17,2016,2017,Rwanda,58.9,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+umudugudu,Households living in umudugudu (%),%,2023/24,2023,2024,Rwanda,67.9,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+metal_roof,Households with an iron sheet roof (%),%,2005/06,2005,2006,Rwanda,43.7,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+metal_roof,Households with an iron sheet roof (%),%,2010/11,2010,2011,Rwanda,54.4,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+metal_roof,Households with an iron sheet roof (%),%,2013/14,2013,2014,Rwanda,61.1,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+metal_roof,Households with an iron sheet roof (%),%,2016/17,2016,2017,Rwanda,67.3,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+metal_roof,Households with an iron sheet roof (%),%,2023/24,2023,2024,Rwanda,75.8,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+cement_floor,Households with a cement floor (%),%,2005/06,2005,2006,Rwanda,13.3,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+cement_floor,Households with a cement floor (%),%,2010/11,2010,2011,Rwanda,17.1,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+cement_floor,Households with a cement floor (%),%,2013/14,2013,2014,Rwanda,21.1,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+cement_floor,Households with a cement floor (%),%,2016/17,2016,2017,Rwanda,25.8,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+cement_floor,Households with a cement floor (%),%,2023/24,2023,2024,Rwanda,34.9,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+electricity_lighting,Households lit mainly by electricity (%),%,2005/06,2005,2006,Rwanda,4.3,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+electricity_lighting,Households lit mainly by electricity (%),%,2010/11,2010,2011,Rwanda,11.1,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+electricity_lighting,Households lit mainly by electricity (%),%,2013/14,2013,2014,Rwanda,21.5,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+electricity_lighting,Households lit mainly by electricity (%),%,2016/17,2016,2017,Rwanda,34.4,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+electricity_lighting,Households lit mainly by electricity (%),%,2023/24,2023,2024,Rwanda,72.0,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+firewood_cooking,Households cooking mainly with firewood (%),%,2005/06,2005,2006,Rwanda,88.2,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+firewood_cooking,Households cooking mainly with firewood (%),%,2010/11,2010,2011,Rwanda,86.3,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+firewood_cooking,Households cooking mainly with firewood (%),%,2013/14,2013,2014,Rwanda,83.3,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+firewood_cooking,Households cooking mainly with firewood (%),%,2016/17,2016,2017,Rwanda,79.9,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+firewood_cooking,Households cooking mainly with firewood (%),%,2023/24,2023,2024,Rwanda,75.0,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+improved_water,Households using improved drinking water (%),%,2005/06,2005,2006,Rwanda,70.3,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+improved_water,Households using improved drinking water (%),%,2010/11,2010,2011,Rwanda,74.2,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+improved_water,Households using improved drinking water (%),%,2013/14,2013,2014,Rwanda,84.8,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+improved_water,Households using improved drinking water (%),%,2016/17,2016,2017,Rwanda,87.4,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+improved_water,Households using improved drinking water (%),%,2023/24,2023,2024,Rwanda,89.7,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+improved_sanitation,Households using improved sanitation (%),%,2005/06,2005,2006,Rwanda,58.5,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+improved_sanitation,Households using improved sanitation (%),%,2010/11,2010,2011,Rwanda,74.5,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+improved_sanitation,Households using improved sanitation (%),%,2013/14,2013,2014,Rwanda,83.4,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+improved_sanitation,Households using improved sanitation (%),%,2016/17,2016,2017,Rwanda,86.2,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+improved_sanitation,Households using improved sanitation (%),%,2023/24,2023,2024,Rwanda,94.3,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+internet_home,Households with internet access at home (%),%,2010/11,2010,2011,Rwanda,3.7,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+internet_home,Households with internet access at home (%),%,2013/14,2013,2014,Rwanda,9.3,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+internet_home,Households with internet access at home (%),%,2016/17,2016,2017,Rwanda,17.2,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+internet_home,Households with internet access at home (%),%,2023/24,2023,2024,Rwanda,29.8,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+mobile_phone,Households owning a mobile phone (%),%,2005/06,2005,2006,Rwanda,6.2,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+mobile_phone,Households owning a mobile phone (%),%,2010/11,2010,2011,Rwanda,45.2,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+mobile_phone,Households owning a mobile phone (%),%,2013/14,2013,2014,Rwanda,63.6,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+mobile_phone,Households owning a mobile phone (%),%,2016/17,2016,2017,Rwanda,66.9,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+mobile_phone,Households owning a mobile phone (%),%,2023/24,2023,2024,Rwanda,84.6,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+minutes_to_health_centre,Average time to reach a health centre (minutes),minutes,2005/06,2005,2006,Rwanda,95.1,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+minutes_to_health_centre,Average time to reach a health centre (minutes),minutes,2010/11,2010,2011,Rwanda,61.4,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+minutes_to_health_centre,Average time to reach a health centre (minutes),minutes,2013/14,2013,2014,Rwanda,56.5,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+minutes_to_health_centre,Average time to reach a health centre (minutes),minutes,2016/17,2016,2017,Rwanda,49.9,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+minutes_to_health_centre,Average time to reach a health centre (minutes),minutes,2023/24,2023,2024,Rwanda,31.7,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+health_insurance,People with health insurance (%),%,2005/06,2005,2006,Rwanda,43.3,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+health_insurance,People with health insurance (%),%,2010/11,2010,2011,Rwanda,68.8,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+health_insurance,People with health insurance (%),%,2013/14,2013,2014,Rwanda,70.0,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+health_insurance,People with health insurance (%),%,2016/17,2016,2017,Rwanda,73.9,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+health_insurance,People with health insurance (%),%,2023/24,2023,2024,Rwanda,85.3,NISR Statistical Yearbook 2025 (EICV rounds),Table 1.1,observed,
+fertility_rate,Total fertility rate (children per woman),children,1992,1992,1992,Rwanda,6.2,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+fertility_rate,Total fertility rate (children per woman),children,2000,2000,2000,Rwanda,5.8,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+fertility_rate,Total fertility rate (children per woman),children,2005/06,2005,2006,Rwanda,6.1,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+fertility_rate,Total fertility rate (children per woman),children,2007/08,2007,2008,Rwanda,5.5,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+fertility_rate,Total fertility rate (children per woman),children,2010/11,2010,2011,Rwanda,4.6,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+fertility_rate,Total fertility rate (children per woman),children,2014/15,2014,2015,Rwanda,4.2,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+fertility_rate,Total fertility rate (children per woman),children,2019/20,2019,2020,Rwanda,4.1,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+fertility_rate,Total fertility rate (children per woman),children,2025,2025,2025,Rwanda,3.7,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+modern_contraception,Married women using modern contraception (%),%,1992,1992,1992,Rwanda,13.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+modern_contraception,Married women using modern contraception (%),%,2000,2000,2000,Rwanda,5.7,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+modern_contraception,Married women using modern contraception (%),%,2005/06,2005,2006,Rwanda,10.3,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+modern_contraception,Married women using modern contraception (%),%,2007/08,2007,2008,Rwanda,27.4,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+modern_contraception,Married women using modern contraception (%),%,2010/11,2010,2011,Rwanda,45.1,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+modern_contraception,Married women using modern contraception (%),%,2014/15,2014,2015,Rwanda,47.5,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+modern_contraception,Married women using modern contraception (%),%,2019/20,2019,2020,Rwanda,58.4,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+modern_contraception,Married women using modern contraception (%),%,2025,2025,2025,Rwanda,64.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+vaccination,Children vaccinated (%),%,1992,1992,1992,Rwanda,86.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+vaccination,Children vaccinated (%),%,2000,2000,2000,Rwanda,76.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+vaccination,Children vaccinated (%),%,2005/06,2005,2006,Rwanda,75.2,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+vaccination,Children vaccinated (%),%,2007/08,2007,2008,Rwanda,80.4,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+vaccination,Children vaccinated (%),%,2010/11,2010,2011,Rwanda,90.1,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+vaccination,Children vaccinated (%),%,2014/15,2014,2015,Rwanda,92.6,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+vaccination,Children vaccinated (%),%,2019/20,2019,2020,Rwanda,96.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+vaccination,Children vaccinated (%),%,2025,2025,2025,Rwanda,94.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+infant_mortality,"Infant mortality (per 1,000 live births)","per 1,000",1992,1992,1992,Rwanda,85.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+infant_mortality,"Infant mortality (per 1,000 live births)","per 1,000",2000,2000,2000,Rwanda,107.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+infant_mortality,"Infant mortality (per 1,000 live births)","per 1,000",2005/06,2005,2006,Rwanda,86.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+infant_mortality,"Infant mortality (per 1,000 live births)","per 1,000",2007/08,2007,2008,Rwanda,62.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+infant_mortality,"Infant mortality (per 1,000 live births)","per 1,000",2010/11,2010,2011,Rwanda,50.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+infant_mortality,"Infant mortality (per 1,000 live births)","per 1,000",2014/15,2014,2015,Rwanda,32.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+infant_mortality,"Infant mortality (per 1,000 live births)","per 1,000",2019/20,2019,2020,Rwanda,33.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+infant_mortality,"Infant mortality (per 1,000 live births)","per 1,000",2025,2025,2025,Rwanda,27.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+under_five_mortality,"Under five mortality (per 1,000 live births)","per 1,000",1992,1992,1992,Rwanda,151.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+under_five_mortality,"Under five mortality (per 1,000 live births)","per 1,000",2000,2000,2000,Rwanda,196.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+under_five_mortality,"Under five mortality (per 1,000 live births)","per 1,000",2005/06,2005,2006,Rwanda,152.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+under_five_mortality,"Under five mortality (per 1,000 live births)","per 1,000",2007/08,2007,2008,Rwanda,103.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+under_five_mortality,"Under five mortality (per 1,000 live births)","per 1,000",2010/11,2010,2011,Rwanda,76.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+under_five_mortality,"Under five mortality (per 1,000 live births)","per 1,000",2014/15,2014,2015,Rwanda,50.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+under_five_mortality,"Under five mortality (per 1,000 live births)","per 1,000",2019/20,2019,2020,Rwanda,45.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+under_five_mortality,"Under five mortality (per 1,000 live births)","per 1,000",2025,2025,2025,Rwanda,36.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+stunting,Children under five who are stunted (%),%,1992,1992,1992,Rwanda,56.8,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+stunting,Children under five who are stunted (%),%,2000,2000,2000,Rwanda,48.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+stunting,Children under five who are stunted (%),%,2005/06,2005,2006,Rwanda,51.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+stunting,Children under five who are stunted (%),%,2010/11,2010,2011,Rwanda,44.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+stunting,Children under five who are stunted (%),%,2014/15,2014,2015,Rwanda,38.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+stunting,Children under five who are stunted (%),%,2019/20,2019,2020,Rwanda,33.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+stunting,Children under five who are stunted (%),%,2025,2025,2025,Rwanda,27.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+wasting,Children under five who are wasted (%),%,1992,1992,1992,Rwanda,5.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+wasting,Children under five who are wasted (%),%,2000,2000,2000,Rwanda,8.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+wasting,Children under five who are wasted (%),%,2005/06,2005,2006,Rwanda,5.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+wasting,Children under five who are wasted (%),%,2010/11,2010,2011,Rwanda,3.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+wasting,Children under five who are wasted (%),%,2014/15,2014,2015,Rwanda,2.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+wasting,Children under five who are wasted (%),%,2019/20,2019,2020,Rwanda,1.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+wasting,Children under five who are wasted (%),%,2025,2025,2025,Rwanda,1.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+underweight,Children under five who are underweight (%),%,1992,1992,1992,Rwanda,24.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+underweight,Children under five who are underweight (%),%,2000,2000,2000,Rwanda,20.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+underweight,Children under five who are underweight (%),%,2005/06,2005,2006,Rwanda,18.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+underweight,Children under five who are underweight (%),%,2010/11,2010,2011,Rwanda,11.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+underweight,Children under five who are underweight (%),%,2014/15,2014,2015,Rwanda,9.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+underweight,Children under five who are underweight (%),%,2019/20,2019,2020,Rwanda,8.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+maternal_mortality,"Maternal mortality (per 100,000 live births)","per 100,000",2000,2000,2000,Rwanda,1071.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+maternal_mortality,"Maternal mortality (per 100,000 live births)","per 100,000",2005/06,2005,2006,Rwanda,750.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+maternal_mortality,"Maternal mortality (per 100,000 live births)","per 100,000",2010/11,2010,2011,Rwanda,476.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+maternal_mortality,"Maternal mortality (per 100,000 live births)","per 100,000",2014/15,2014,2015,Rwanda,210.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+maternal_mortality,"Maternal mortality (per 100,000 live births)","per 100,000",2019/20,2019,2020,Rwanda,203.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+maternal_mortality,"Maternal mortality (per 100,000 live births)","per 100,000",2025,2025,2025,Rwanda,149.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+assisted_delivery,Births with assistance during delivery (%),%,1992,1992,1992,Rwanda,26.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+assisted_delivery,Births with assistance during delivery (%),%,2000,2000,2000,Rwanda,25.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+assisted_delivery,Births with assistance during delivery (%),%,2005/06,2005,2006,Rwanda,30.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+assisted_delivery,Births with assistance during delivery (%),%,2007/08,2007,2008,Rwanda,45.2,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+assisted_delivery,Births with assistance during delivery (%),%,2010/11,2010,2011,Rwanda,81.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+assisted_delivery,Births with assistance during delivery (%),%,2014/15,2014,2015,Rwanda,92.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+assisted_delivery,Births with assistance during delivery (%),%,2019/20,2019,2020,Rwanda,95.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+assisted_delivery,Births with assistance during delivery (%),%,2025,2025,2025,Rwanda,98.0,NISR Statistical Yearbook 2025 (DHS rounds),Table 1.2,observed,Some DHS rates refer to the years before the survey.
+labour_force_participation,Labour force participation rate (%),%,2019,2019,2019,Rwanda,53.4,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+labour_force_participation,Labour force participation rate (%),%,2020,2020,2020,Rwanda,56.4,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+labour_force_participation,Labour force participation rate (%),%,2021,2021,2021,Rwanda,54.0,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+labour_force_participation,Labour force participation rate (%),%,2022,2022,2022,Rwanda,56.0,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+labour_force_participation,Labour force participation rate (%),%,2023,2023,2023,Rwanda,59.3,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+labour_force_participation,Labour force participation rate (%),%,2024,2024,2024,Rwanda,62.9,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+employment_to_population,Employment to population ratio (%),%,2019,2019,2019,Rwanda,45.3,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+employment_to_population,Employment to population ratio (%),%,2020,2020,2020,Rwanda,46.3,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+employment_to_population,Employment to population ratio (%),%,2021,2021,2021,Rwanda,42.6,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+employment_to_population,Employment to population ratio (%),%,2022,2022,2022,Rwanda,44.5,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+employment_to_population,Employment to population ratio (%),%,2023,2023,2023,Rwanda,49.0,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+employment_to_population,Employment to population ratio (%),%,2024,2024,2024,Rwanda,53.5,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+unemployment,Unemployment rate (%),%,2019,2019,2019,Rwanda,15.2,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+unemployment,Unemployment rate (%),%,2020,2020,2020,Rwanda,17.9,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+unemployment,Unemployment rate (%),%,2021,2021,2021,Rwanda,21.1,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+unemployment,Unemployment rate (%),%,2022,2022,2022,Rwanda,20.5,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+unemployment,Unemployment rate (%),%,2023,2023,2023,Rwanda,17.2,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+unemployment,Unemployment rate (%),%,2024,2024,2024,Rwanda,14.9,NISR Statistical Yearbook 2025 (LFS rounds),Table 1.3,observed,
+poverty_rate,Poverty rate (%),%,2016/17,2016,2017,Rwanda,39.8,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+poverty_rate,Poverty rate (%),%,2023/24,2023,2024,Rwanda,27.4,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+extreme_poverty_rate,Extreme poverty rate (%),%,2016/17,2016,2017,Rwanda,11.3,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+extreme_poverty_rate,Extreme poverty rate (%),%,2023/24,2023,2024,Rwanda,5.4,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+poverty_rate,Poverty rate (%),%,2016/17,2016,2017,Kigali City,14.3,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+poverty_rate,Poverty rate (%),%,2023/24,2023,2024,Kigali City,9.1,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+extreme_poverty_rate,Extreme poverty rate (%),%,2016/17,2016,2017,Kigali City,2.5,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+extreme_poverty_rate,Extreme poverty rate (%),%,2023/24,2023,2024,Kigali City,1.1,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+poverty_rate,Poverty rate (%),%,2016/17,2016,2017,South,47.6,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+poverty_rate,Poverty rate (%),%,2023/24,2023,2024,South,34.7,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+extreme_poverty_rate,Extreme poverty rate (%),%,2016/17,2016,2017,South,15.3,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+extreme_poverty_rate,Extreme poverty rate (%),%,2023/24,2023,2024,South,7.4,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+poverty_rate,Poverty rate (%),%,2016/17,2016,2017,West,51.7,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+poverty_rate,Poverty rate (%),%,2023/24,2023,2024,West,37.4,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+extreme_poverty_rate,Extreme poverty rate (%),%,2016/17,2016,2017,West,17.3,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+extreme_poverty_rate,Extreme poverty rate (%),%,2023/24,2023,2024,West,9.0,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+poverty_rate,Poverty rate (%),%,2016/17,2016,2017,North,33.0,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+poverty_rate,Poverty rate (%),%,2023/24,2023,2024,North,20.2,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+extreme_poverty_rate,Extreme poverty rate (%),%,2016/17,2016,2017,North,8.1,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+extreme_poverty_rate,Extreme poverty rate (%),%,2023/24,2023,2024,North,3.2,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+poverty_rate,Poverty rate (%),%,2016/17,2016,2017,East,39.2,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+poverty_rate,Poverty rate (%),%,2023/24,2023,2024,East,26.8,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
+extreme_poverty_rate,Extreme poverty rate (%),%,2016/17,2016,2017,East,9.7,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,model_estimate,"2016/17 is NISR's estimate on the EICV7 method, so it compares directly with 2023/24."
+extreme_poverty_rate,Extreme poverty rate (%),%,2023/24,2023,2024,East,4.5,NISR EICV7 Rwanda Poverty Profile (tables),Table 5.1,observed,
