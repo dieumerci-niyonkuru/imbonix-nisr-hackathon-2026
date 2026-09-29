@@ -33,14 +33,14 @@ const MOVED_PAGES = [
   ["/focus/exclusion", "/financial-exclusion"],
   ["/focus/poverty", "/poverty-dynamics"],
   ["/focus/protection", "/social-protection"],
-  ["/access-vs-use", "/financial-exclusion/who-uses-financial-services"],
-  ["/model", "/financial-exclusion/who-is-most-at-risk"],
+  ["/access-vs-use", "/financial-exclusion/access-and-use"],
+  ["/model", "/financial-exclusion/risk-model"],
   ["/map", "/poverty-dynamics/district-map"],
-  ["/vulnerability", "/poverty-dynamics/where-needs-overlap"],
-  ["/priorities", "/social-protection/where-to-act-first"],
-  ["/scenarios", "/social-protection/test-a-policy-target"],
-  ["/interventions", "/social-protection/plan-an-intervention"],
-  ["/dashboard", "/data/rwanda-in-figures"],
+  ["/vulnerability", "/poverty-dynamics/overlapping-needs"],
+  ["/priorities", "/social-protection/priority-districts"],
+  ["/scenarios", "/social-protection/policy-scenarios"],
+  ["/interventions", "/social-protection/intervention-planner"],
+  ["/dashboard", "/data/key-figures"],
 ];
 
 /** @type {import('next').NextConfig} */

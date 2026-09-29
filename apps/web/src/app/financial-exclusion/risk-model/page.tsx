@@ -10,7 +10,7 @@ import { FEATURES, METHOD_STEPS, MODEL_QUESTION, MODEL_STATUS, MODEL_TARGET, WIL
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const metadata: Metadata = {
-  title: "Who is most at risk",
+  title: "Risk model",
   description:
     "The planned explainable model of financial vulnerability: design, features, evaluation and fairness checks. Results pending FinScope 2024 microdata.",
 };
@@ -42,7 +42,7 @@ export default function ModelPage() {
   return (
     <>
       <PageHero
-        eyebrow="Who is most at risk"
+        eyebrow="Risk model"
         title="What is associated with financial vulnerability?"
         intro="IMBONIX's model will explain, not just predict: which household and place characteristics go with being financially vulnerable, and how that differs for rural women. This page sets out the design. Results will appear here only after the model is trained on NISR microdata and checked against published figures."
       >
@@ -176,16 +176,16 @@ export default function ModelPage() {
           <SectionHeader eyebrow="In the meantime" title="What you can already explore" />
           <Callout title="Associations across districts">
             The page{" "}
-            <Link href="/poverty-dynamics/where-needs-overlap" className="link">
-              Where needs overlap
+            <Link href="/poverty-dynamics/overlapping-needs" className="link">
+              Overlapping needs
             </Link>{" "}
             shows which published indicators move together across districts. It describes places, not households, but it previews
             the patterns the model will test at household level.
           </Callout>
           <Callout title="Transparent priority rules">
             The page{" "}
-            <Link href="/social-protection/where-to-act-first" className="link">
-              Where to act first
+            <Link href="/social-protection/priority-districts" className="link">
+              Priority districts
             </Link>{" "}
             uses stated rules on published data: explainable by design, with no model required.
           </Callout>

@@ -19,15 +19,15 @@ const QUESTIONS: Record<FocusAreaId, string> = {
 const lowerFirst = (label: string) =>
   /^(Rwanda\b|[A-Z]{2})/.test(label) ? label : label.charAt(0).toLowerCase() + label.slice(1);
 
-/** The page title and description for a focus area at a glance. */
+/** The page title and description for a focus area's overview. */
 export function focusAreaMetadata(areaId: FocusAreaId): Metadata {
   const area = FOCUS_AREAS.find((item) => item.id === areaId)!;
   // An absolute title, so the section layout does not add the section name a second time.
-  return { title: { absolute: `${area.label} at a glance | IMBONIX` }, description: QUESTIONS[area.id] };
+  return { title: { absolute: `${area.label} overview | IMBONIX` }, description: QUESTIONS[area.id] };
 }
 
 /**
- * One focus area at a glance, told as a story in sections with its own menu under the header: the key figures, the
+ * One focus area's overview, told as a story in sections with its own menu under the header: the key figures, the
  * evidence behind them, then the pages that go deeper and the other two focus areas.
  */
 export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
@@ -38,7 +38,7 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
   return (
     <>
       <PageHero
-        eyebrow={`${area.label} at a glance`}
+        eyebrow={`${area.label} overview`}
         title={QUESTIONS[area.id]}
         intro={`${group.intro} Every chart below says what it shows, where the figures come from and how far to trust them.`}
       />
@@ -79,7 +79,7 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
                 href={other.href}
                 className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
               >
-                {other.label} at a glance
+                {other.label} overview
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </Link>
             ))}

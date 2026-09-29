@@ -27,7 +27,7 @@ import { SITE_FACTS } from "@/lib/site-facts";
 /**
  * The homepage, short on purpose: the opening banner with four headline figures, the challenge and the three tests a
  * useful answer has to meet, one featured insight, the three focus areas and a way in by place, down to the village. Why IMBONIX, who
- * benefits and the method are on the About page; the sources on Data & methods; the evidence on the focus area pages.
+ * benefits and the method are on the About page; the sources on Sources and methods; the evidence on the focus area pages.
  */
 export default function Home() {
   const inclusionOf = (measure: string) => INCLUSION_BY_ROUND.find((row) => row.measure === measure)!;
@@ -64,9 +64,9 @@ export default function Home() {
       href: "/social-protection",
     },
     {
-      title: "Plan an intervention",
+      title: "Intervention planner",
       body: "Bring the evidence together for one problem, one group and one place, with the options that fit.",
-      href: "/social-protection/plan-an-intervention",
+      href: "/social-protection/intervention-planner",
     },
   ];
 
@@ -221,8 +221,8 @@ export default function Home() {
           </ReadMoreSection>
         </>
       ),
-      href: "/social-protection/plan-an-intervention",
-      linkLabel: "Plan an intervention",
+      href: "/social-protection/intervention-planner",
+      linkLabel: "Intervention planner",
     },
   ];
 

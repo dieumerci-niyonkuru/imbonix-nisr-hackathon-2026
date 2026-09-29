@@ -233,7 +233,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                               item={item}
                               current={isCurrentPage(item.href, itemIndex === 0)}
                               onNavigate={() => setOpenGroupId(null)}
-                              label={itemIndex === 0 && item.label === "At a glance" ? `${group.label}: At a glance` : undefined}
+                              label={itemIndex === 0 && item.label === "Overview" ? `${group.label}: Overview` : undefined}
                             />
                           </li>
                         ))}
@@ -400,7 +400,7 @@ function MenuLink({
   item: MenuItem;
   current: boolean;
   onNavigate: () => void;
-  /** A fuller name for screen readers, such as the focus area for At a glance. */
+  /** A fuller name for screen readers, such as the focus area for Overview. */
   label?: string;
   compact?: boolean;
 }) {

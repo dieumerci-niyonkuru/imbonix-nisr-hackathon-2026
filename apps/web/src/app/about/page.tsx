@@ -56,7 +56,7 @@ const BENEFICIARIES: Audience[] = [
   {
     title: "Policymakers",
     body: `${SITE_FACTS.levers} policy levers, each flagged district by district by one published figure and a rule anyone can check.`,
-    href: "/social-protection/where-to-act-first",
+    href: "/social-protection/priority-districts",
     linkLabel: "See where to act first",
   },
   {
@@ -69,12 +69,12 @@ const BENEFICIARIES: Audience[] = [
     title: "Civil society",
     body: "Open figures with their sources, to follow programmes and speak up for the places left behind.",
     href: "/districts",
-    linkLabel: "Find your district",
+    linkLabel: "District profiles",
   },
   {
     title: "Development organisations",
     body: "See where poverty, financial exclusion, poor nutrition and shocks overlap, to aim programmes at the districts that need them most.",
-    href: "/poverty-dynamics/where-needs-overlap",
+    href: "/poverty-dynamics/overlapping-needs",
     linkLabel: "See where needs overlap",
   },
 ];

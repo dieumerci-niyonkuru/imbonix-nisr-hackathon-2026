@@ -10,11 +10,11 @@ type IconLink = { href: string; label: string; icon: ComponentType<SVGProps<SVGS
 
 const DATA_ISSUE_URL = `${REPOSITORY_URL}/issues/new?template=data_issue.md`;
 
-/** One column per focus area, each opening with its page at a glance, then the data and the project links. */
+/** One column per focus area, each opening with its overview, then the data and the project links. */
 const COLUMNS: FooterColumn[] = [
   ...NAV_GROUPS.map((group) => ({
     heading: group.label,
-    links: [{ href: group.href, label: "At a glance" }, ...group.items.map((item) => ({ href: item.href, label: item.label }))],
+    links: [{ href: group.href, label: "Overview" }, ...group.items.map((item) => ({ href: item.href, label: item.label }))],
   })),
   {
     heading: "Data and project",

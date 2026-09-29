@@ -59,7 +59,7 @@ function matchScore(entry: SearchEntry, query: string, words: string[]): number 
 
 /**
  * What the search shows before anything is typed: every page, grouped like the header menus (each focus area opens
- * with its page at a glance, the data with Data & methods), then the project pages.
+ * with its overview, the data with Sources and methods), then the project pages.
  */
 const JUMP_GROUPS: ResultGroup[] = [
   ...MENU_SECTIONS.map((section) => ({
@@ -235,7 +235,7 @@ export function SiteSearch({
           kind: "lever",
           label: lever.title,
           hint: lever.question,
-          href: "/social-protection/where-to-act-first",
+          href: "/social-protection/priority-districts",
           terms: foldText(`${lever.question} policy lever priority`),
         }),
       ),

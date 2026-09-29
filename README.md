@@ -45,22 +45,22 @@ the address says where you are. Earlier addresses (such as `/map` or `/dashboard
 | Menu | Page | Address | What it does |
 | --- | --- | --- | --- |
 | Home | Homepage | `/` | One argument in three tabs: the gap (96% included, 10% financially healthy), the evidence in NISR data, and the impact for households, policymakers and civil society. |
-| Financial exclusion | At a glance | `/financial-exclusion` | Inclusion by service, financial health, the access strand, mobile money and credit. |
-| | Who uses financial services | `/financial-exclusion/who-uses-financial-services` | FinScope's 96% inclusion against DHS 2025 account and mobile money use, by sex, age, residence, education and wealth. |
-| | Who is most at risk | `/financial-exclusion/who-is-most-at-risk` | The design of an explainable model of financial vulnerability; results appear only after it is trained on the microdata. |
-| Poverty dynamics | At a glance | `/poverty-dynamics` | Poverty in 2016/17 and 2023/24, where it is deepest, who is poorest and how households live. |
-| | Change over time | `/poverty-dynamics/change-over-time` | Every census since 1978 and every EICV, DHS and LFS round: poverty by province, population, homes, services, health and work. |
-| | Map of every district | `/poverty-dynamics/district-map` | 28 measures on an interactive map; select a district to see its sectors. Links can be shared (`?layer=…&district=…`). |
-| | Find your district | `/districts`, `/districts/<name>` | 30 profiles: priority, a year selector from 1978 to 2026, labour trends against the median district, every indicator with its confidence interval, and sectors. |
-| | Where needs overlap | `/poverty-dynamics/where-needs-overlap` | Where poverty, financial exclusion, nutrition and shocks overlap, with correlations between districts. |
-| Social protection | At a glance | `/social-protection` | Who VUP reaches, how late payments arrive and how far Rwanda is from its targets. |
-| | VUP support and payments | `/social-protection/vup-payments` | Payment timeliness by programme and poverty status, payment channels, amounts and ten years of reports. |
-| | Where to act first | `/social-protection/where-to-act-first` | Seven policy levers, each tied to one indicator and a stated rule, showing which districts each lever flags and why. |
-| | Test a policy target | `/social-protection/test-a-policy-target` | How many adults each district would need to reach for an inclusion target, and priorities under your own weights. |
-| | Plan an intervention | `/social-protection/plan-an-intervention` | Pick a problem, a group and a place to see the evidence and the options. |
-| Data | Data & methods | `/data` | Where every figure comes from, and how far to trust it. |
-| | Rwanda in figures | `/data/rwanda-in-figures` | National inclusion, poverty trends and progress towards national targets. |
-| | All charts | `/data/charts` | Every chart and interactive tool on the site, grouped by focus area and page, with a filter. |
+| Financial exclusion | Overview | `/financial-exclusion` | Inclusion by service, financial health, the access strand, mobile money and credit. |
+| | Access and use | `/financial-exclusion/access-and-use` | FinScope's 96% inclusion against DHS 2025 account and mobile money use, by sex, age, residence, education and wealth. |
+| | Risk model | `/financial-exclusion/risk-model` | The design of an explainable model of financial vulnerability; results appear only after it is trained on the microdata. |
+| Poverty dynamics | Overview | `/poverty-dynamics` | Poverty in 2016/17 and 2023/24, where it is deepest, who is poorest and how households live. |
+| | Trends | `/poverty-dynamics/trends` | Every census since 1978 and every EICV, DHS and LFS round: poverty by province, population, homes, services, health and work. |
+| | District map | `/poverty-dynamics/district-map` | 28 measures on an interactive map; select a district to see its sectors. Links can be shared (`?layer=…&district=…`). |
+| | District profiles | `/districts`, `/districts/<name>` | 30 profiles: priority, a year selector from 1978 to 2026, labour trends against the median district, every indicator with its confidence interval, and sectors. |
+| | Overlapping needs | `/poverty-dynamics/overlapping-needs` | Where poverty, financial exclusion, nutrition and shocks overlap, with correlations between districts. |
+| Social protection | Overview | `/social-protection` | Who VUP reaches, how late payments arrive and how far Rwanda is from its targets. |
+| | VUP payments | `/social-protection/vup-payments` | Payment timeliness by programme and poverty status, payment channels, amounts and ten years of reports. |
+| | Priority districts | `/social-protection/priority-districts` | Seven policy levers, each tied to one indicator and a stated rule, showing which districts each lever flags and why. |
+| | Policy scenarios | `/social-protection/policy-scenarios` | How many adults each district would need to reach for an inclusion target, and priorities under your own weights. |
+| | Intervention planner | `/social-protection/intervention-planner` | Pick a problem, a group and a place to see the evidence and the options. |
+| Data | Sources and methods | `/data` | Where every figure comes from, and how far to trust it. |
+| | Key figures | `/data/key-figures` | National inclusion, poverty trends and progress towards national targets. |
+| | Chart library | `/data/chart-library` | Every chart and interactive tool on the site, grouped by focus area and page, with a filter. |
 | About | About | `/about` | Why IMBONIX exists, who it serves and how it works. |
 
 The **public data API** (`apps/api`) serves read-only JSON for districts, indicators and sectors, with validation, rate
@@ -88,7 +88,7 @@ limiting and security headers.
 - **Reproducible.** `scripts/data/build_web_data.py` rebuilds the website data from the committed extracts, and CI checks
   that the result matches exactly.
 
-See [docs/database.md](docs/database.md) for the data model, and the site's **Data & methods** page (`/data`) for every
+See [docs/database.md](docs/database.md) for the data model, and the site's **Sources and methods** page (`/data`) for every
 source and caveat.
 
 ## Design

@@ -48,7 +48,7 @@ const SECTIONS: PageSection[] = [
 ];
 
 /**
- * Social protection at a glance, as one story in sections with a menu under the header: the key figures, who VUP
+ * The social protection overview, as one story in sections with a menu under the header: the key figures, who VUP
  * reaches, how late its payments arrive, how far Rwanda is from its targets and what each actor can do with the
  * evidence. Headings and figures are worked out from the published tables.
  */
@@ -93,23 +93,23 @@ export function ProtectionFocus() {
       value: `${directSupport.onTime}%`,
       text: "of Direct Support households received their last payment on time.",
       href: "/social-protection/vup-payments",
-      cta: "VUP support and payments",
+      cta: "VUP payments",
     },
     {
       icon: BuildingLibraryIcon,
       audience: "Policymakers",
       value: String(LEVERS.length),
       text: "policy levers, each flagged district by district by one figure and a rule anyone can check.",
-      href: "/social-protection/where-to-act-first",
-      cta: "Where to act first",
+      href: "/social-protection/priority-districts",
+      cta: "Priority districts",
     },
     {
       icon: UserGroupIcon,
       audience: "Civil society",
       value: `${poorestWomen.either}%`,
       text: "of women aged 15 to 49 in the poorest fifth used a bank account or mobile money in the past year.",
-      href: "/financial-exclusion/who-uses-financial-services",
-      cta: "Who uses financial services",
+      href: "/financial-exclusion/access-and-use",
+      cta: "Access and use",
     },
   ];
 
@@ -202,7 +202,7 @@ export function ProtectionFocus() {
                 color: DEEP_CYAN,
               },
             ]}
-            links={[{ href: "/social-protection/vup-payments", label: "VUP support and payments" }]}
+            links={[{ href: "/social-protection/vup-payments", label: "VUP payments" }]}
           >
             <ChartCard
               id="chart-payment-timeliness"
@@ -236,7 +236,7 @@ export function ProtectionFocus() {
                 color: CORE.cyan,
               },
             ]}
-            links={[{ href: "/social-protection/test-a-policy-target", label: "Test a policy target" }]}
+            links={[{ href: "/social-protection/policy-scenarios", label: "Policy scenarios" }]}
           >
             <ChartCard
               id="chart-national-targets"

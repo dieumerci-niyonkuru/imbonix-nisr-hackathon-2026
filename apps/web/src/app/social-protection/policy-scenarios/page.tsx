@@ -5,7 +5,7 @@ import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 import { HowToRead } from "@/components/ui/chart-card";
 
 export const metadata: Metadata = {
-  title: "Test a policy target",
+  title: "Policy scenarios",
   description:
     "Scenario tools on published NISR figures: how many adults to reach for an inclusion target, and how priorities shift with weights.",
 };
@@ -14,7 +14,7 @@ export default function ScenariosPage() {
   return (
     <>
       <PageHero
-        eyebrow="Test a policy target"
+        eyebrow="Policy scenarios"
         title="What if? Test targets and priorities on real district data"
         intro="Two tools for planning conversations. Both do transparent arithmetic on published NISR figures and label every output as a scenario: they help compare options, they do not forecast what a policy would achieve."
       />
