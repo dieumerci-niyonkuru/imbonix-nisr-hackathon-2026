@@ -19,7 +19,7 @@ export function MethodologyJourney({ steps }: { steps: JourneyStep[] }) {
           <SectionHeader
             eyebrow="Methodology"
             title={<span id="journey-heading">From data to impact, in five steps</span>}
-            intro="No figure is typed in by hand, and nothing is hidden: every step can be checked against its published source."
+            intro="Nothing is hidden: every figure names its table, and every step can be checked against its published source."
           />
           <Link
             href="/data"
