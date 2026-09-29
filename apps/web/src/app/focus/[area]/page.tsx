@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { buildFocusPanels } from "@/components/focus/focus-panels";
+import { ExclusionFocus } from "@/components/focus/exclusion-focus";
 import { PovertyFocus } from "@/components/focus/poverty-focus";
+import { ProtectionFocus } from "@/components/focus/protection-focus";
 import { TextCard } from "@/components/home/story-cards";
 import { FOCUS_AREAS, NAV_GROUPS, type FocusAreaId } from "@/components/layout/nav";
 import { PageHero, SectionHeader } from "@/components/ui/section";
@@ -16,6 +17,10 @@ const QUESTIONS: Record<FocusAreaId, string> = {
   poverty: "Who is poor, where, and what has changed?",
   protection: "Who does social protection reach, and how well?",
 };
+
+/** A page name inside a sentence: first letter lower case, unless it starts with a proper noun or an acronym. */
+const lowerFirst = (label: string) =>
+  /^(Rwanda\b|[A-Z]{2})/.test(label) ? label : label.charAt(0).toLowerCase() + label.slice(1);
 
 export const dynamicParams = false;
 
@@ -33,9 +38,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 /**
- * One focus area at a glance: the question, the claim with its key numbers and the charts behind it, then the pages
- * that go deeper and the other two focus areas. Poverty dynamics is told as a longer story in sections, with its own
- * menu under the header.
+ * One focus area at a glance, told as a story in sections with its own menu under the header: the key figures, the
+ * evidence behind them, then the pages that go deeper and the other two focus areas.
  */
 export default async function FocusAreaPage({ params }: Params) {
   const area = focusArea((await params).area);
@@ -51,13 +55,9 @@ export default async function FocusAreaPage({ params }: Params) {
         intro={`${group.intro} Every chart below says what it shows, where the figures come from and how far to trust them.`}
       />
 
-      {area.id === "poverty" ? (
-        <PovertyFocus />
-      ) : (
-        <section className="bg-paper py-12 sm:py-16" aria-label={`${area.label}: the evidence`}>
-          <div className="container-page">{buildFocusPanels()[area.id]}</div>
-        </section>
-      )}
+      {area.id === "exclusion" && <ExclusionFocus />}
+      {area.id === "poverty" && <PovertyFocus />}
+      {area.id === "protection" && <ProtectionFocus />}
 
       <section id="deeper" className="scroll-mt-36 border-t border-line bg-white py-16 sm:py-20" aria-labelledby="deeper-heading">
         <div className="container-page">
@@ -73,7 +73,7 @@ export default async function FocusAreaPage({ params }: Params) {
                   title={item.label}
                   body={item.description}
                   href={item.href}
-                  linkLabel={`Go to ${item.label.toLowerCase()}`}
+                  linkLabel={`Go to ${lowerFirst(item.label)}`}
                   tone="paper"
                 />
               </li>

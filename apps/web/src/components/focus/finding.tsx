@@ -2,38 +2,34 @@ import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
-export type FocusStat = { value: string; label: string; color: string };
-export type FocusLink = { href: string; label: string };
+export type FindingStat = { value: string; label: string; color: string };
 
-/** One homepage tab: the claim and its key numbers on the left, the charts that back it on the right. */
-export function FocusPanel({
-  kicker,
+/**
+ * A claim with its figures, beside the chart that backs it. On wide screens the claim stays in view while the chart
+ * column scrolls, so a tall chart never leaves an empty gap beside it.
+ */
+export function Finding({
   title,
   body,
   stats = [],
   links = [],
   children,
 }: {
-  kicker?: string;
   title: string;
   body: string;
-  stats?: FocusStat[];
-  links?: FocusLink[];
+  stats?: FindingStat[];
+  links?: { href: string; label: string }[];
   children: ReactNode;
 }) {
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
-      {/* The claim stays in view beside the charts, so a tall column of charts never leaves an empty gap. */}
-      <div className="lg:sticky lg:top-24 lg:self-start">
-        {kicker && <p className="eyebrow mb-3 text-cyan-ink">{kicker}</p>}
-        <h2 className="text-balance font-display text-3xl font-bold leading-[1.1] tracking-[-0.03em] text-ink sm:text-4xl">
+      <div className="lg:sticky lg:top-40 lg:self-start">
+        <h3 className="text-balance font-display text-2xl font-bold leading-[1.15] tracking-[-0.02em] text-ink sm:text-3xl">
           {title}
-        </h2>
+        </h3>
         <p className="mt-4 text-pretty text-[15px] leading-7 text-muted sm:text-base">{body}</p>
-
         {stats.length > 0 && (
-          <dl className="mt-8 grid gap-5">
-            {/* Each group holds only its dt and dd, as a description list requires; the colour bar is drawn in CSS. */}
+          <dl className="mt-7 grid gap-5">
             {stats.map((stat) => (
               <div
                 key={stat.label}
@@ -46,12 +42,14 @@ export function FocusPanel({
             ))}
           </dl>
         )}
-
         {links.length > 0 && (
-          <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+          <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
             {links.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="group inline-flex items-center gap-1.5 text-[14.5px] font-bold text-cyan-ink">
+                <Link
+                  href={link.href}
+                  className="group inline-flex items-center gap-1.5 rounded text-[14.5px] font-bold text-ink underline-offset-4 hover:text-cyan-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                >
                   {link.label}
                   <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                 </Link>
