@@ -1,4 +1,4 @@
-import { paymentTimelinessByProgramme } from "@/components/focus/focus-panels";
+import { paymentTimelinessByProgramme } from "@/components/focus/focus-shared";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { ChallengeStatement, type Requirement } from "@/components/home/challenge-statement";
 import { FeaturedInsight } from "@/components/home/featured-insight";

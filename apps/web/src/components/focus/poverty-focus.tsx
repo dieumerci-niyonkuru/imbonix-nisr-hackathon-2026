@@ -1,9 +1,10 @@
-import type { CSSProperties, ReactNode } from "react";
 import { ComparisonBars, type ComparisonSeries } from "@/components/charts/recharts/comparison-bars";
 import { PovertyTrendChart } from "@/components/charts/recharts/poverty-charts";
 import { ValueBars } from "@/components/charts/recharts/value-bars";
 import { ShareBars } from "@/components/charts/share-bars";
 import { MEN, WOMEN } from "@/components/charts/dumbbell";
+import { Finding } from "@/components/focus/finding";
+import { oneDecimal } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { PovertyMapSection } from "@/components/home/poverty-map-section";
 import { ChartCard } from "@/components/ui/chart-card";
@@ -77,45 +78,6 @@ const SECTIONS: PageSection[] = [
   { id: "living", label: "How households live" },
   { id: "deeper", label: "Go deeper" },
 ];
-
-const oneDecimal = (value: number) => Math.round(value * 10) / 10;
-
-/** A claim with its figures, beside the chart that backs it. */
-function Finding({
-  title,
-  body,
-  stats,
-  children,
-}: {
-  title: string;
-  body: string;
-  stats: { value: string; label: string; color: string }[];
-  children: ReactNode;
-}) {
-  return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
-      <div className="lg:sticky lg:top-40 lg:self-start">
-        <h3 className="text-balance font-display text-2xl font-bold leading-[1.15] tracking-[-0.02em] text-ink sm:text-3xl">
-          {title}
-        </h3>
-        <p className="mt-4 text-pretty text-[15px] leading-7 text-muted sm:text-base">{body}</p>
-        <dl className="mt-7 grid gap-5">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="relative flex flex-col pl-5 before:absolute before:inset-y-0 before:left-0 before:w-1 before:rounded-full before:bg-[var(--stat-color)]"
-              style={{ "--stat-color": stat.color } as CSSProperties}
-            >
-              <dt className="order-2 text-[14px] leading-5 text-muted">{stat.label}</dt>
-              <dd className="order-1 font-display text-4xl font-bold tracking-[-0.03em] text-ink">{stat.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-      <div>{children}</div>
-    </div>
-  );
-}
 
 /**
  * Poverty dynamics at a glance, as one story in sections with a menu under the header: the key figures, what changed
