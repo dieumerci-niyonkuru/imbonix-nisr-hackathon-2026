@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { DistrictStrip } from "@/components/charts/district-strip";
 import { StackedShareChart } from "@/components/charts/recharts/stacked-share-chart";
-import { ACCESS_SERIES } from "@/components/focus/focus-panels";
+import { ACCESS_SERIES } from "@/components/focus/focus-shared";
 import { FinancialHealthChart } from "@/components/charts/recharts/financial-health-chart";
 import { PovertyProvinceChart, PovertyTrendChart } from "@/components/charts/recharts/poverty-charts";
 import { TargetTracker } from "@/components/charts/target-tracker";
