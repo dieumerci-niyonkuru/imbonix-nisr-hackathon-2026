@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 
 export function SectionHeader({
   eyebrow,
@@ -48,15 +49,20 @@ export function PageHero({
     <section className="relative overflow-hidden border-b border-line bg-white">
       <div className="container-page relative pb-14 pt-6 sm:pb-16 sm:pt-8">
         <Breadcrumbs />
-        <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan-ink sm:mt-12">
-          <BarsMotif />
-          {eyebrow}
-        </p>
-        <h1 className="mt-3 max-w-4xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
-          {title}
-        </h1>
-        <p className="mt-5 max-w-3xl text-pretty text-base leading-7 text-muted sm:text-lg sm:leading-8">{intro}</p>
-        {children}
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-center lg:gap-12 xl:grid-cols-[minmax(0,1fr)_20rem]">
+          <div>
+            <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan-ink sm:mt-12">
+              <BarsMotif />
+              {eyebrow}
+            </p>
+            <h1 className="mt-3 max-w-4xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
+              {title}
+            </h1>
+            <p className="mt-5 max-w-3xl text-pretty text-base leading-7 text-muted sm:text-lg sm:leading-8">{intro}</p>
+            {children}
+          </div>
+          <RwandaEmblem className="mt-10 hidden lg:block" />
+        </div>
       </div>
     </section>
   );

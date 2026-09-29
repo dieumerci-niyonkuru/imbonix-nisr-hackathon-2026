@@ -18,7 +18,7 @@ import { timeliness, usageTotal } from "@/lib/surveys";
 import { CORE, DEEP_CYAN, RAMPS } from "@/lib/palette";
 
 export const metadata: Metadata = {
-  title: "Rwanda in figures",
+  title: "Key figures",
   description:
     "Rwanda's financial inclusion, financial health, poverty and social protection at a glance, with progress toward official targets.",
 };
@@ -34,7 +34,7 @@ export default function DashboardPage() {
   return (
     <>
       <PageHero
-        eyebrow="Rwanda in figures"
+        eyebrow="Key figures"
         title="Financial inclusion and poverty in Rwanda, at a glance"
         intro="The national picture from NISR's latest surveys, and how far Rwanda still is from its 2030 targets. Every figure links back to its published source; district detail is one click away on the map."
       />
@@ -213,7 +213,7 @@ export default function DashboardPage() {
             ))}
           </div>
           <Button asChild variant="outline" className="mt-10">
-            <Link href="/map">
+            <Link href="/poverty-dynamics/district-map">
               Open the map of every district <ArrowRightIcon />
             </Link>
           </Button>

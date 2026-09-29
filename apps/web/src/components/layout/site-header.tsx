@@ -25,7 +25,7 @@ export function SiteHeader() {
           label: indicator.short,
           hint: `${dimension.label} · ${source.source}, ${source.year}${indicator.layer ? " · on the map" : ""}`,
           terms: `${source.label} ${source.source} ${dimension.label} indicator`,
-          href: indicator.layer ? `/map?layer=${indicator.id}` : `/data#indicator-${indicator.id}`,
+          href: indicator.layer ? `/poverty-dynamics/district-map?layer=${indicator.id}` : `/data#indicator-${indicator.id}`,
         };
       }),
       charts: CHART_INDEX,
