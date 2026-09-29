@@ -5,6 +5,17 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### All three focus areas, told as stories
+
+- Financial exclusion and Social protection now follow the poverty page: four key figures with their sources, a
+  menu of sections under the header, and one claim per section beside the charts that back it.
+- Financial exclusion covers access (inclusion by service and the access strand), financial health against the
+  2030 Roadmap targets, mobile money and credit, and who is left out.
+- Social protection covers who VUP reaches, how late its payments arrive, how far Rwanda is from its national
+  targets, and what vulnerable households, policymakers and civil society can do with the evidence.
+- The shared panel component these pages used is removed; each focus area has its own page component, and the
+  claim beside a chart is one shared block. Links to deeper pages keep proper nouns and acronyms in capitals.
+
 ### Poverty dynamics, told as one story
 
 - The poverty focus page now opens with four key figures (the poverty rate, extreme poverty, people who left
