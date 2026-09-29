@@ -27,7 +27,7 @@ import { SITE_FACTS } from "@/lib/site-facts";
 /**
  * The homepage, short on purpose: the opening banner with four headline figures, the challenge and the three tests a
  * useful answer has to meet, one featured insight, the three focus areas and a way in by place, down to the village. Why IMBONIX, who
- * benefits and the method are on the About page; the sources on Data & methods; the evidence on the focus area pages.
+ * benefits and the method are on the About page; the sources on Sources and methods; the evidence on the focus area pages.
  */
 export default function Home() {
   const inclusionOf = (measure: string) => INCLUSION_BY_ROUND.find((row) => row.measure === measure)!;
@@ -51,22 +51,22 @@ export default function Home() {
     {
       title: "Financial exclusion",
       body: "Who is left out of finance, and who uses it without being able to save, borrow or cope with a shock.",
-      href: "/focus/exclusion",
+      href: "/financial-exclusion",
     },
     {
       title: "Poverty dynamics",
       body: `How poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}%, and where it is still highest.`,
-      href: "/focus/poverty",
+      href: "/poverty-dynamics",
     },
     {
       title: "Social protection",
       body: "Whether VUP and Direct Support reach the poorest households, and how late their payments arrive.",
-      href: "/focus/protection",
+      href: "/social-protection",
     },
     {
-      title: "Plan an intervention",
+      title: "Intervention planner",
       body: "Bring the evidence together for one problem, one group and one place, with the options that fit.",
-      href: "/interventions",
+      href: "/social-protection/intervention-planner",
     },
   ];
 
@@ -135,7 +135,7 @@ export default function Home() {
           </p>
         </>
       ),
-      href: "/focus/exclusion",
+      href: "/financial-exclusion",
       linkLabel: "See the gap",
     },
     {
@@ -221,8 +221,8 @@ export default function Home() {
           </ReadMoreSection>
         </>
       ),
-      href: "/interventions",
-      linkLabel: "Plan an intervention",
+      href: "/social-protection/intervention-planner",
+      linkLabel: "Intervention planner",
     },
   ];
 
@@ -255,7 +255,7 @@ export default function Home() {
       indicatorId: "finscope_not_formally_included",
       caption: "Map: adults not formally included, by district, 2024. Darker is higher.",
       ramp: "cyan",
-      href: "/focus/exclusion",
+      href: "/financial-exclusion",
     },
     {
       area: "Poverty dynamics",
@@ -266,7 +266,7 @@ export default function Home() {
       indicatorId: "eicv7_poverty_rate",
       caption: "Map: poverty rate by district, 2023/24. Darker is higher.",
       ramp: "cyan",
-      href: "/focus/poverty",
+      href: "/poverty-dynamics",
     },
     {
       area: "Social protection impact",
@@ -277,7 +277,7 @@ export default function Home() {
       indicatorId: "eicv7_health_insurance",
       caption: "Map: health insurance coverage by district, 2023/24. Darker is higher.",
       ramp: "cyan",
-      href: "/focus/protection",
+      href: "/social-protection",
     },
   ];
 
@@ -303,7 +303,7 @@ export default function Home() {
         title={`${gap} points separate using a financial service from being financially healthy`}
         body={`Almost every adult in Rwanda now uses some financial service, formal or informal. Yet only ${healthyShare}% are financially healthy as FinScope 2024 measures it, and ${bankedRow.in2024}% are banked, the same share as in 2020. The question is no longer only who has access, but who can use finance to manage, save and cope with a shock.`}
         howToRead="Each bar is a separate FinScope measure of adults in 2024. The dashed band on the last bar is the gap between using a financial service and being financially healthy."
-        href="/focus/exclusion"
+        href="/financial-exclusion"
         linkLabel="Read the evidence on financial exclusion"
         chart={
           <GapChart

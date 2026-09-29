@@ -3,28 +3,28 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/20/solid";
-import { NAV_GROUPS, NAV_LINKS } from "@/components/layout/nav";
+import { MENU_SECTIONS, NAV_LINKS } from "@/components/layout/nav";
 import { cn } from "@/lib/utils";
 
 export type Crumb = { label: string; href?: string };
 
 /**
- * Home › focus area › page, worked out from the navigation list so it always matches the menus. The focus area links
- * to its page at a glance. Sub-pages (a district profile, say) add their own `extra` crumbs; the last crumb is the
- * current page.
+ * Home › section › page, worked out from the navigation list so it always matches the menus and the address: a
+ * focus area (or the data section) links to its landing page. Sub-pages (a district profile, say) add their own
+ * `extra` crumbs; the last crumb is the current page.
  */
 export function Breadcrumbs({ extra = [], className }: { extra?: Crumb[]; className?: string }) {
   const pathname = usePathname() ?? "/";
   const matches = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
-  const focusGroup = NAV_GROUPS.find((g) => pathname === `/focus/${g.focusId}`);
-  const group = NAV_GROUPS.find((g) => g.items.some((item) => matches(item.href)));
-  const page = group?.items.find((item) => matches(item.href)) ?? NAV_LINKS.find((item) => matches(item.href));
-  if (!focusGroup && !page) return null;
+  const landing = MENU_SECTIONS.find((section) => pathname === section.href);
+  const section = MENU_SECTIONS.find((candidate) => candidate.items.some((item) => matches(item.href)));
+  const page = section?.items.find((item) => matches(item.href)) ?? NAV_LINKS.find((item) => matches(item.href));
+  if (!landing && !page) return null;
 
-  const crumbs: Crumb[] = focusGroup
-    ? [{ label: focusGroup.label }]
+  const crumbs: Crumb[] = landing
+    ? [{ label: landing.title }]
     : [
-        ...(group ? [{ label: group.label, href: `/focus/${group.focusId}` }] : []),
+        ...(section ? [{ label: section.title, href: section.href }] : []),
         { label: page!.label, href: extra.length ? page!.href : undefined },
         ...extra,
       ];

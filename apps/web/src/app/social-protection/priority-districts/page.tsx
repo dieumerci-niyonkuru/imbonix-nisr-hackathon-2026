@@ -6,7 +6,7 @@ import { allFlags, LEVERS } from "@/lib/priorities";
 import { HowToRead } from "@/components/ui/chart-card";
 
 export const metadata: Metadata = {
-  title: "Where to act first",
+  title: "Priority districts",
   description: "Where NISR evidence points for seven policy levers, district by district, with every rule stated.",
 };
 
@@ -18,7 +18,7 @@ export default function PrioritiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Where to act first"
+        eyebrow="Priority districts"
         title="Where the evidence points, lever by lever"
         intro="Seven policy levers, each tied to one published indicator and a stated rule. A district is flagged for a lever when its NISR evidence crosses that rule. The flags show where a lever deserves a closer look; they do not decide budgets or who is eligible."
       />
@@ -65,7 +65,7 @@ export default function PrioritiesPage() {
           Choose a lever. The map marks the districts it flags, and the list gives the published figure behind each flag,
           strongest evidence first. Each district name opens its profile.
         </HowToRead>
-        <div className="mt-8">
+        <div id="chart-priority-explorer" className="mt-8 scroll-mt-36">
           <PriorityExplorer levers={LEVERS} districts={districts} />
         </div>
       </section>
@@ -81,7 +81,7 @@ export default function PrioritiesPage() {
             Each row is a district and each column a lever. A tick means that lever&apos;s rule flags the district; hover a tick
             to see the figure behind it.
           </HowToRead>
-          <div className="mt-8">
+          <div id="chart-priority-matrix" className="mt-8 scroll-mt-36">
             <PriorityMatrix levers={LEVERS} districts={districts} />
           </div>
         </div>
