@@ -80,7 +80,9 @@ export function PlatformApproach() {
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-soft text-cyan-ink ring-1 ring-cyan/30">
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </span>
-                    <span className="tabular font-display text-[15px] font-bold text-line">0{index + 1}</span>
+                    <span aria-hidden="true" className="tabular font-display text-[13px] font-bold text-muted">
+                      0{index + 1}
+                    </span>
                   </div>
                   <h3 className="mt-4 font-display text-[20px] font-bold tracking-[-0.01em] text-ink">{step.verb}</h3>
                   <p className="mt-0.5 text-[13.5px] font-semibold text-cyan-ink">{step.question}</p>
