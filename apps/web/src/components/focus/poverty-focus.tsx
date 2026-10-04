@@ -153,7 +153,7 @@ export function PovertyFocus() {
 
   return (
     <>
-      <SectionNav label="Poverty dynamics" sections={SECTIONS} />
+      <SectionNav label="Poverty & vulnerability" sections={SECTIONS} />
 
       <div id="key-figures" className="scroll-mt-36">
         <FigureTiles

@@ -205,7 +205,7 @@ export function ChangeOverTime() {
                 { value: `${rwandaExtreme.after}%`, label: "extreme poverty rate, 2023/24", color: CORE.deep },
               ]}
               links={[
-                { href: "/poverty-dynamics", label: "Poverty dynamics overview" },
+                { href: "/poverty-dynamics", label: "Poverty & vulnerability overview" },
                 { href: "/poverty-dynamics/district-map", label: "Poverty district by district" },
               ]}
             >

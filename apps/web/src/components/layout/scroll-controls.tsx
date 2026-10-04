@@ -66,8 +66,8 @@ export function ScrollControls() {
   };
 
   return (
-    <div
-      role="group"
+    // A navigation landmark, so these floating controls are inside a landmark like the rest of the page content.
+    <nav
       aria-label="Page scrolling"
       className={cn(
         "fixed bottom-4 right-4 z-40 hidden flex-col overflow-hidden rounded-2xl bg-cyan shadow-lift transition-[opacity,visibility] duration-200 sm:bottom-6 sm:right-6 sm:flex print:hidden",
@@ -95,6 +95,6 @@ export function ScrollControls() {
       >
         <ArrowDownIcon className="h-5 w-5" aria-hidden="true" />
       </button>
-    </div>
+    </nav>
   );
 }
