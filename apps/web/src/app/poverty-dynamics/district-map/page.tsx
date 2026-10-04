@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { BarsMotif } from "@/components/ui/section";
 
 export const metadata: Metadata = {
-  title: "District map",
+  title: "Rwanda map",
   description:
     "Explore 30 Rwandan districts across poverty, financial access, digital readiness, nutrition, shocks, work and health cover.",
 };
@@ -19,7 +19,7 @@ export default async function MapPage({ searchParams }: { searchParams: SearchPa
         <div className="container-page pb-10 pt-6 sm:pb-12 sm:pt-8">
           <Breadcrumbs />
           <p className="eyebrow mt-8 flex items-center gap-2.5 text-cyan-ink">
-            <BarsMotif /> District map
+            <BarsMotif /> Rwanda map
           </p>
           <div className="mt-3 flex flex-wrap items-end justify-between gap-6">
             <h1 className="max-w-3xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
