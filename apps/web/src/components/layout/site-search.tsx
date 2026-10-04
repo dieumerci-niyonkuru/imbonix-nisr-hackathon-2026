@@ -3,8 +3,19 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useMemo, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
-import { ArrowDownIcon, ArrowTurnDownLeftIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
+import {
+  AdjustmentsHorizontalIcon,
+  ArrowDownIcon,
+  ArrowTurnDownLeftIcon,
+  ArrowUpIcon,
+  ChartBarIcon,
+  DocumentTextIcon,
+  MapIcon,
+  MapPinIcon,
+  PresentationChartLineIcon,
+} from "@heroicons/react/20/solid";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import type { ComponentType, SVGProps } from "react";
 import { MENU_SECTIONS, NAV, NAV_LINKS } from "@/components/layout/nav";
 import { foldText, listPlaces, loadPlaceIndex, PLACE_KIND_LABEL, placeAddress, placeHref, placeMatchScore } from "@/lib/places";
 import { cn } from "@/lib/utils";
@@ -27,6 +38,18 @@ type SearchEntry = {
 };
 /** `total` is how many matched, when more matched than are shown. */
 type ResultGroup = { title: string; items: SearchEntry[]; total?: number };
+
+/** A small icon for each kind of result, so the list is scannable by type at a glance. */
+const KIND_ICON: Record<ResultKind, ComponentType<SVGProps<SVGSVGElement>>> = {
+  page: DocumentTextIcon,
+  district: MapIcon,
+  sector: MapPinIcon,
+  cell: MapPinIcon,
+  village: MapPinIcon,
+  measure: ChartBarIcon,
+  chart: PresentationChartLineIcon,
+  lever: AdjustmentsHorizontalIcon,
+};
 
 const RESULT_GROUPS: { kind: ResultKind; title: string; limit: number }[] = [
   { kind: "page", title: "Pages", limit: 6 },
@@ -356,6 +379,7 @@ export function SiteSearch({
                       runningIndex += 1;
                       const entryIndex = runningIndex;
                       const selected = entryIndex === activeIndex;
+                      const Icon = KIND_ICON[entry.kind];
                       return (
                         <div
                           key={entry.key}
@@ -365,25 +389,39 @@ export function SiteSearch({
                           onMouseMove={() => setActiveIndex(entryIndex)}
                           onClick={() => openResult(entry)}
                           className={cn(
-                            "cursor-pointer rounded-r-lg border-l-[3px] px-3 py-2.5 transition-colors",
+                            "flex cursor-pointer items-center gap-3 rounded-r-lg border-l-[3px] px-3 py-2 transition-colors",
                             selected ? "border-cyan bg-cyan-soft" : "border-transparent",
                           )}
                         >
-                          <span className="flex items-baseline justify-between gap-3">
-                            <span className="truncate text-[14.5px] font-bold text-ink">
-                              <HighlightedLabel text={entry.label} query={trimmedQuery} />
-                            </span>
-                            <span
-                              className={cn("shrink-0 text-[12.5px] font-bold", selected ? "text-cyan-ink" : "text-transparent")}
-                              aria-hidden="true"
-                            >
-                              Open
-                            </span>
+                          <span
+                            className={cn(
+                              "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ring-1 transition-colors",
+                              selected ? "bg-white text-cyan-ink ring-cyan/40" : "bg-paper text-muted ring-line",
+                            )}
+                            aria-hidden="true"
+                          >
+                            <Icon className="h-5 w-5" />
                           </span>
-                          {/* The jump list shows page names only; search results add a short line on what each one is. */}
-                          {trimmedQuery && (
-                            <span className="block truncate text-[12.5px] leading-5 text-muted">{entry.hint}</span>
-                          )}
+                          <span className="min-w-0 flex-1">
+                            <span className="flex items-baseline justify-between gap-3">
+                              <span className="truncate text-[14.5px] font-bold text-ink">
+                                <HighlightedLabel text={entry.label} query={trimmedQuery} />
+                              </span>
+                              <span
+                                className={cn(
+                                  "shrink-0 text-[12px] font-bold uppercase tracking-[0.06em]",
+                                  selected ? "text-cyan-ink" : "text-transparent",
+                                )}
+                                aria-hidden="true"
+                              >
+                                Open
+                              </span>
+                            </span>
+                            {/* The jump list shows page names only; search results add a short line on what each one is. */}
+                            {trimmedQuery && (
+                              <span className="block truncate text-[12.5px] leading-5 text-muted">{entry.hint}</span>
+                            )}
+                          </span>
                         </div>
                       );
                     })}
