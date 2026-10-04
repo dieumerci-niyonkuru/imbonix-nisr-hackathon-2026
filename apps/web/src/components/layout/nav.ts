@@ -140,6 +140,11 @@ export const DATA_SECTION: MenuSection = {
       label: "Key figures",
       description: "Key national figures and progress to the 2030 targets",
     },
+    {
+      href: "/data/catalog",
+      label: "Data catalog",
+      description: "Every NISR survey and census, 1978 to today, searchable by theme",
+    },
     { href: "/data/chart-library", label: "Chart library", description: "Every chart on the site, grouped by focus area" },
   ],
 };
