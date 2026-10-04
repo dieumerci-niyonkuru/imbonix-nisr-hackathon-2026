@@ -115,7 +115,7 @@ export function ProtectionFocus() {
 
   return (
     <>
-      <SectionNav label="Social protection" sections={SECTIONS} />
+      <SectionNav label="Priority areas" sections={SECTIONS} />
 
       <div id="key-figures" className="scroll-mt-36">
         <FigureTiles

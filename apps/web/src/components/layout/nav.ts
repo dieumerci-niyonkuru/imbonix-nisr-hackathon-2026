@@ -14,7 +14,7 @@ export const FOCUS_AREAS = [
     hint: "Who is poor and vulnerable, where, and what changed",
     href: "/poverty-dynamics",
   },
-  { id: "protection", label: "Social protection", hint: "Who is reached, and how well", href: "/social-protection" },
+  { id: "protection", label: "Priority areas", hint: "Where to act first, and who VUP reaches", href: "/social-protection" },
 ] as const;
 
 export type FocusAreaId = (typeof FOCUS_AREAS)[number]["id"];
@@ -61,7 +61,7 @@ export const NAV_GROUPS: NavGroup[] = [
       },
       {
         href: "/financial-exclusion/risk-model",
-        label: "Vulnerability model",
+        label: "AI insights",
         description: "An explainable model of household financial vulnerability, with its method and limits",
         badge: "AI",
       },
@@ -80,7 +80,7 @@ export const NAV_GROUPS: NavGroup[] = [
       },
       {
         href: "/poverty-dynamics/district-map",
-        label: "District map",
+        label: "Rwanda map",
         description: `Compare the 30 districts on ${MAP_LAYERS.length} measures`,
       },
       {
@@ -96,8 +96,8 @@ export const NAV_GROUPS: NavGroup[] = [
     ],
   },
   {
-    label: "Social protection",
-    intro: "How VUP reaches households, and where support should go next.",
+    label: "Priority areas",
+    intro: "Where to act first: who VUP reaches, how payments arrive, and the levers, scenarios and plans for targeting.",
     focusId: "protection",
     href: areaHref("protection"),
     items: [
@@ -108,7 +108,7 @@ export const NAV_GROUPS: NavGroup[] = [
       },
       {
         href: "/social-protection/priority-districts",
-        label: "Priority areas",
+        label: "Priority ranking",
         description: "Where to act first: seven policy levers, flagged district by district",
       },
       {
