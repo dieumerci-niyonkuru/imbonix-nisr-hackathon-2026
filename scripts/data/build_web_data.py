@@ -389,6 +389,74 @@ def write_lonlat_geojson(sector_match: dict) -> None:
         print(f"-> {target.relative_to(REPO)} ({target.stat().st_size / 1024:.0f} KB, {len(features)} features)")
 
 
+CATALOG_CSV = REPO / "data" / "dictionaries" / "nada_catalog.csv"
+# Each theme is the first keyword (in a study's title, producer or note) to match, in this order.
+CATALOG_THEMES: list[tuple[str, tuple[str, ...]]] = [
+    ("Financial inclusion", ("finscope", "financial inclusion")),
+    ("Poverty & living conditions", ("eicv", "integrated household living", "poverty", "living conditions", "household living", "budget")),
+    ("Health & nutrition", ("demographic and health", "dhs", "malaria", "service provision", "nutrition", "health", "démographique", "santé", "mics", "indicateurs multiples")),
+    ("Food security", ("food security", "cfsva", "vulnerability analysis", "comprehensive food")),
+    ("Agriculture", ("agricultur", "seasonal", "livestock", "crop")),
+    ("Population & housing", ("population and housing", "census", "recensement", "population", "post enumeration", "housing")),
+    ("Labour & employment", ("labour", "labor", "employment", "manpower", "workforce")),
+    ("Economy & business", ("establishment census", "economic", "enterprise", "gdp", "price index", "cpi", "integrated business", "informal", "manufacturing", "tourism")),
+    ("Education", ("education", "school", "literacy")),
+    ("Governance & services", ("governance", "satisfaction", "citizen", "umurenge", "gender", "service delivery")),
+]
+
+
+def catalog_year(row: dict) -> int | None:
+    """A study's year: the catalogued end/start year when set, else the latest year named in its title."""
+    for key in ("year_end", "year_start"):
+        value = row.get(key, "").strip()
+        if value.isdigit() and 1960 < int(value) < 2030:
+            return int(value)
+    years = [int(y) for y in re.findall(r"(19[6-9]\d|20[0-2]\d)", row.get("title", ""))]
+    return max(years) if years else None
+
+
+def catalog_theme(row: dict) -> str:
+    # From the title only: the producer ("Ministry of Finance...") and the note (which may mention mobile money in a
+    # health survey, say) both carry words that would pull a study into the wrong theme.
+    title = row.get("title", "").lower()
+    for theme, keywords in CATALOG_THEMES:
+        if any(word in title for word in keywords):
+            return theme
+    return "Other surveys"
+
+
+def build_catalog() -> dict:
+    """The NISR microdata catalogue (NADA) as the website shows it: one entry per study, 1978 to today, with the
+    year, producer, access, size and theme, and whether IMBONIX draws on it. Source: scripts/data/index_nada_catalog.py."""
+    access_short = {
+        "Public use data files": "Public use",
+        "Data available from external repository": "External repository",
+        "No microdata is available": "No microdata",
+    }
+    studies = []
+    with CATALOG_CSV.open(encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            year = catalog_year(row)
+            if year is None:
+                continue
+            variables = row.get("total_variables", "").strip()
+            studies.append({
+                "id": row["study_id"],
+                "title": re.sub(r"\s+", " ", row["title"]).strip(),
+                "year": year,
+                "producer": re.sub(r"\s+", " ", row.get("producer", "")).strip() or "NISR",
+                "access": access_short.get(row.get("access", "").strip(), row.get("access", "").strip()),
+                "variables": int(variables) if variables.isdigit() else None,
+                "theme": catalog_theme(row),
+                "used": row.get("track2_priority", "").strip() in ("core", "high"),
+                "note": re.sub(r"\s+", " ", row.get("track2_note", "")).strip(),
+                "url": row.get("url", "").strip(),
+            })
+    studies.sort(key=lambda study: (-study["year"], study["title"]))
+    themes = sorted({study["theme"] for study in studies})
+    return {"studies": studies, "themes": themes, "used": sum(study["used"] for study in studies)}
+
+
 def write(name: str, payload) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     target = OUT / name
@@ -408,6 +476,7 @@ def main() -> None:
     write("usage.json", build_usage())
     write("vup.json", build_vup())
     write("timeline.json", build_timeline())
+    write("catalog.json", build_catalog())
     write_lonlat_geojson(sector_match)
 
 
