@@ -2,6 +2,7 @@ import { paymentTimelinessByProgramme } from "@/components/focus/focus-shared";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { ChallengeStatement, type Requirement } from "@/components/home/challenge-statement";
 import { FeaturedInsight } from "@/components/home/featured-insight";
+import { PlatformApproach } from "@/components/home/platform-approach";
 import { GapChart, type GapRow } from "@/components/home/gap-chart";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { HomeHero, type HeroCard } from "@/components/home/home-hero";
@@ -307,7 +308,7 @@ export default function Home() {
         body={`Almost every adult in Rwanda now uses some financial service, formal or informal. Yet only ${healthyShare}% are financially healthy as FinScope 2024 measures it, and ${bankedRow.in2024}% are banked, the same share as in 2020. The question is no longer only who has access, but who can use finance to manage, save and cope with a shock.`}
         howToRead="Each bar is a separate FinScope measure of adults in 2024. The dashed band on the last bar is the gap between using a financial service and being financially healthy."
         href="/financial-exclusion"
-        linkLabel="Read the evidence on financial exclusion"
+        linkLabel="Read the evidence on financial inclusion"
         chart={
           <GapChart
             title="Access is high. Financial health is not."
@@ -318,6 +319,8 @@ export default function Home() {
           />
         }
       />
+
+      <PlatformApproach />
 
       <ChallengeSection parts={focusCards} />
 
