@@ -57,7 +57,7 @@ export function PlaceSection({
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
             <Link
-              href="/map"
+              href="/poverty-dynamics/district-map"
               className="group inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-ink underline-offset-4 hover:text-cyan-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
             >
               Compare the districts on the map

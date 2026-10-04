@@ -1,7 +1,8 @@
-import { paymentTimelinessByProgramme } from "@/components/focus/focus-panels";
+import { paymentTimelinessByProgramme } from "@/components/focus/focus-shared";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { ChallengeStatement, type Requirement } from "@/components/home/challenge-statement";
 import { FeaturedInsight } from "@/components/home/featured-insight";
+import { PlatformApproach } from "@/components/home/platform-approach";
 import { GapChart, type GapRow } from "@/components/home/gap-chart";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { HomeHero, type HeroCard } from "@/components/home/home-hero";
@@ -21,13 +22,13 @@ import {
 import { STATUS_LABEL } from "@/lib/format";
 import { LEVERS } from "@/lib/priorities";
 import { usageRows } from "@/lib/surveys";
-import { CORE, DEEP_CYAN } from "@/lib/palette";
+import { CHART_CYAN, DEEP_CYAN } from "@/lib/palette";
 import { SITE_FACTS } from "@/lib/site-facts";
 
 /**
  * The homepage, short on purpose: the opening banner with four headline figures, the challenge and the three tests a
  * useful answer has to meet, one featured insight, the three focus areas and a way in by place, down to the village. Why IMBONIX, who
- * benefits and the method are on the About page; the sources on Data & methods; the evidence on the focus area pages.
+ * benefits and the method are on the About page; the sources on Data & methodology; the evidence on the focus area pages.
  */
 export default function Home() {
   const inclusionOf = (measure: string) => INCLUSION_BY_ROUND.find((row) => row.measure === measure)!;
@@ -49,24 +50,24 @@ export default function Home() {
   // The doors under the banner: the three focus areas and the planning tool.
   const heroCards: HeroCard[] = [
     {
-      title: "Financial exclusion",
-      body: "Who is left out of finance, and who uses it without being able to save, borrow or cope with a shock.",
-      href: "/focus/exclusion",
+      title: "Financial inclusion",
+      body: "Who reaches finance, who is left out, and who uses it but still cannot save, borrow or cope with a shock.",
+      href: "/financial-exclusion",
     },
     {
-      title: "Poverty dynamics",
+      title: "Poverty & vulnerability",
       body: `How poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}%, and where it is still highest.`,
-      href: "/focus/poverty",
+      href: "/poverty-dynamics",
     },
     {
       title: "Social protection",
       body: "Whether VUP and Direct Support reach the poorest households, and how late their payments arrive.",
-      href: "/focus/protection",
+      href: "/social-protection",
     },
     {
-      title: "Plan an intervention",
+      title: "Intervention planner",
       body: "Bring the evidence together for one problem, one group and one place, with the options that fit.",
-      href: "/interventions",
+      href: "/social-protection/intervention-planner",
     },
   ];
 
@@ -135,7 +136,7 @@ export default function Home() {
           </p>
         </>
       ),
-      href: "/focus/exclusion",
+      href: "/financial-exclusion",
       linkLabel: "See the gap",
     },
     {
@@ -221,21 +222,24 @@ export default function Home() {
           </ReadMoreSection>
         </>
       ),
-      href: "/interventions",
-      linkLabel: "Plan an intervention",
+      href: "/social-protection/intervention-planner",
+      linkLabel: "Intervention planner",
     },
   ];
 
   // The featured chart: FinScope 2024 measures from access to financial health, with the gap drawn in.
+  // Five separate FinScope measures, highest access first down to financial health. The access measures share one
+  // cyan; the small financial-health bar is the deepest cyan, the hard truth the title points to, with the gap up to
+  // the highest measure drawn beside it.
   const gapRows: GapRow[] = [
-    { label: "Use a financial service", value: includedShare, color: DEEP_CYAN },
-    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: DEEP_CYAN },
-    { label: "Have a mobile money wallet", value: registeredWallet, color: DEEP_CYAN },
-    { label: "Are banked", value: bankedRow.in2024, color: DEEP_CYAN },
+    { label: "Use a financial service", value: includedShare, color: CHART_CYAN },
+    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: CHART_CYAN },
+    { label: "Have a mobile money wallet", value: registeredWallet, color: CHART_CYAN },
+    { label: "Are banked", value: bankedRow.in2024, color: CHART_CYAN },
     {
       label: "Are financially healthy",
       value: healthyShare,
-      color: CORE.cyan,
+      color: DEEP_CYAN,
       gapTo: includedShare,
       gapLabel: `${gap} point gap`,
     },
@@ -244,7 +248,7 @@ export default function Home() {
   // The three focus areas, each an image card whose picture is a district map of a related measure.
   const focusCards: ChallengePart[] = [
     {
-      area: "Financial exclusion",
+      area: "Financial inclusion",
       title:
         bankedRow.in2024 === bankedRow.in2020
           ? `Only ${bankedRow.in2024}% of adults are banked, the same share as in 2020`
@@ -255,10 +259,10 @@ export default function Home() {
       indicatorId: "finscope_not_formally_included",
       caption: "Map: adults not formally included, by district, 2024. Darker is higher.",
       ramp: "cyan",
-      href: "/focus/exclusion",
+      href: "/financial-exclusion",
     },
     {
-      area: "Poverty dynamics",
+      area: "Poverty & vulnerability",
       title: `Poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}% in seven years`,
       summary:
         "How poverty and living conditions changed since 2016/17, who is poorest and where poverty and financial exclusion overlap.",
@@ -266,7 +270,7 @@ export default function Home() {
       indicatorId: "eicv7_poverty_rate",
       caption: "Map: poverty rate by district, 2023/24. Darker is higher.",
       ramp: "cyan",
-      href: "/focus/poverty",
+      href: "/poverty-dynamics",
     },
     {
       area: "Social protection impact",
@@ -277,7 +281,7 @@ export default function Home() {
       indicatorId: "eicv7_health_insurance",
       caption: "Map: health insurance coverage by district, 2023/24. Darker is higher.",
       ramp: "cyan",
-      href: "/focus/protection",
+      href: "/social-protection",
     },
   ];
 
@@ -303,17 +307,20 @@ export default function Home() {
         title={`${gap} points separate using a financial service from being financially healthy`}
         body={`Almost every adult in Rwanda now uses some financial service, formal or informal. Yet only ${healthyShare}% are financially healthy as FinScope 2024 measures it, and ${bankedRow.in2024}% are banked, the same share as in 2020. The question is no longer only who has access, but who can use finance to manage, save and cope with a shock.`}
         howToRead="Each bar is a separate FinScope measure of adults in 2024. The dashed band on the last bar is the gap between using a financial service and being financially healthy."
-        href="/focus/exclusion"
-        linkLabel="Read the evidence on financial exclusion"
+        href="/financial-exclusion"
+        linkLabel="Read the evidence on financial inclusion"
         chart={
           <GapChart
             title="Access is high. Financial health is not."
             note="Share of adults aged 16 and over, 2024. Each bar is a separate FinScope measure, so an adult can count in several."
             rows={gapRows}
+            takeaway={`Financial health means being able to manage daily money, save for the future and cope with a shock, not just holding an account. Only ${healthyShare}% of adults reach it.`}
             source={`${FINSCOPE_2024_SOURCE}; financial health from section 5.2`}
           />
         }
       />
+
+      <PlatformApproach />
 
       <ChallengeSection parts={focusCards} />
 

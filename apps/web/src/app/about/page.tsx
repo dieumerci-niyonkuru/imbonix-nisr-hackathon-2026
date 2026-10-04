@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { CircleStackIcon, CodeBracketIcon, FlagIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
-import { AboutNav, type AboutSection } from "@/components/about/about-nav";
 import {
   AboutOverview,
   ContactSection,
@@ -19,6 +18,7 @@ import { MethodologyJourney, type JourneyStep } from "@/components/home/methodol
 import { WhySection, type Contribution } from "@/components/home/why-section";
 import { ReadMoreSection } from "@/components/ui/read-more";
 import { PageHero } from "@/components/ui/section";
+import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import { STATUS_DESCRIPTION } from "@/components/ui/status-badge";
 import { NISR_CATALOG_URL, REPOSITORY_URL, SOURCE_STUDIES } from "@/components/layout/nav";
 import { SOURCES } from "@/lib/data";
@@ -50,13 +50,13 @@ const BENEFICIARIES: Audience[] = [
   {
     title: "Vulnerable households",
     body: "Shows where payments arrive late and formal finance is far, so support can reach people sooner.",
-    href: "/social-protection",
+    href: "/social-protection/vup-payments",
     linkLabel: "See how VUP support arrives",
   },
   {
     title: "Policymakers",
     body: `${SITE_FACTS.levers} policy levers, each flagged district by district by one published figure and a rule anyone can check.`,
-    href: "/priorities",
+    href: "/social-protection/priority-districts",
     linkLabel: "See where to act first",
   },
   {
@@ -69,12 +69,12 @@ const BENEFICIARIES: Audience[] = [
     title: "Civil society",
     body: "Open figures with their sources, to follow programmes and speak up for the places left behind.",
     href: "/districts",
-    linkLabel: "Find your district",
+    linkLabel: "District profiles",
   },
   {
     title: "Development organisations",
     body: "See where poverty, financial exclusion, poor nutrition and shocks overlap, to aim programmes at the districts that need them most.",
-    href: "/vulnerability",
+    href: "/poverty-dynamics/overlapping-needs",
     linkLabel: "See where needs overlap",
   },
 ];
@@ -196,7 +196,7 @@ const JOURNEY: JourneyStep[] = [
 ];
 
 /** The sections of the page, in order, for the menu under the header. */
-const SECTIONS: AboutSection[] = [
+const SECTIONS: PageSection[] = [
   { id: "overview", label: "Overview" },
   { id: "why", label: "Why IMBONIX" },
   { id: "tools", label: "What you can do" },
@@ -375,7 +375,7 @@ export default function AboutPage() {
         title="Evidence for financial inclusion and poverty reduction in Rwanda"
         intro={`An independent project that brings NISR's published statistics together for all ${SITE_FACTS.districts} districts and ${SITE_FACTS.sectors} sectors, and says how far to trust every figure. It is not an official NISR product.`}
       />
-      <AboutNav sections={SECTIONS} />
+      <SectionNav label="About" sections={SECTIONS} />
       <AboutOverview
         lead="IMBONIX is an independent evidence platform for Rwanda. It brings NISR's published figures on financial inclusion, poverty, nutrition, shocks and social protection together for every district, says how far to trust each one, and turns them into clear starting points for action."
         rows={OVERVIEW}

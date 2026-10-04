@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { CHART_INDEX } from "@/lib/chart-index";
+import { KIND_BY_ID } from "@/lib/chart-kinds";
 
 const SOURCE_ROOT = resolve(process.cwd(), "src");
 
@@ -30,8 +31,14 @@ describe("chart index", () => {
 
   it("links only to pages that exist", () => {
     for (const chart of CHART_INDEX) {
-      const page = chart.page.startsWith("/focus/") ? "focus/[area]" : chart.page.slice(1);
+      const page = chart.page.slice(1);
       expect(existsSync(join(SOURCE_ROOT, "app", page, "page.tsx")), chart.page).toBe(true);
     }
+  });
+
+  it("classifies every chart by shape, with no stale entries", () => {
+    const ids = new Set(CHART_INDEX.map((chart) => chart.id));
+    for (const chart of CHART_INDEX) expect(KIND_BY_ID[chart.id], `${chart.id} is unclassified`).toBeDefined();
+    for (const id of Object.keys(KIND_BY_ID)) expect(ids.has(id), `${id} is not a chart`).toBe(true);
   });
 });

@@ -28,6 +28,21 @@ const securityHeaders = [
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
 ];
 
+/** Earlier page addresses and where each page lives now. */
+const MOVED_PAGES = [
+  ["/focus/exclusion", "/financial-exclusion"],
+  ["/focus/poverty", "/poverty-dynamics"],
+  ["/focus/protection", "/social-protection"],
+  ["/access-vs-use", "/financial-exclusion/access-and-use"],
+  ["/model", "/financial-exclusion/risk-model"],
+  ["/map", "/poverty-dynamics/district-map"],
+  ["/vulnerability", "/poverty-dynamics/overlapping-needs"],
+  ["/priorities", "/social-protection/priority-districts"],
+  ["/scenarios", "/social-protection/policy-scenarios"],
+  ["/interventions", "/social-protection/intervention-planner"],
+  ["/dashboard", "/data/key-figures"],
+];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -44,6 +59,11 @@ const nextConfig = {
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
+  },
+  // Each page now sits under the focus area it answers (for example /poverty-dynamics/district-map). The earlier
+  // addresses redirect permanently, keeping any query string, so shared links and bookmarks still open the right page.
+  async redirects() {
+    return MOVED_PAGES.map(([source, destination]) => ({ source, destination, permanent: true }));
   },
 };
 

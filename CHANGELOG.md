@@ -5,6 +5,69 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Plain page names and addresses that follow the challenge, and many more charts
+
+- Every page now sits under the focus area of the challenge it answers, with a short, plain name that its address
+  repeats. Financial exclusion: Overview (`/financial-exclusion`), Access and use, Risk model. Poverty dynamics:
+  Overview (`/poverty-dynamics`), Trends, District map, District profiles (`/districts`), Overlapping needs. Social
+  protection: Overview (`/social-protection`), VUP payments, Priority districts, Policy scenarios, Intervention
+  planner. For example, Access and use is at `/financial-exclusion/access-and-use`. Earlier addresses redirect
+  permanently and keep their query strings.
+- A new Data menu holds Sources and methods (`/data`), Key figures (`/data/key-figures`) and the Chart library
+  (`/data/chart-library`). Menus, breadcrumbs, the footer, the search and browser tab titles are all worked out from
+  one list of pages, and a test checks that every menu entry and internal link points to a page that exists.
+- New page, Trends (`/poverty-dynamics/trends`): poverty by province in 2016/17 and 2023/24, population at every
+  census since 1978 with NISR's projection to 2032, homes and services in every EICV round, child and maternal health
+  in every DHS round, and work from the Labour Force Survey, with the spread of unemployment across the 30 districts.
+  Each heading is worked out from the figures.
+- New page, Chart library (`/data/chart-library`): all 49 charts and interactive tools, grouped by focus area and page
+  like a service portal's list of services, with a filter. Every chart has an anchor, so the list and the search open
+  it at its place.
+- Each district page shows its unemployment, youth not in employment, education or training, labour force
+  participation and median earnings from 2017, against the median of the 30 districts.
+- Page headers and the homepage banner carry a new emblem in the style of Rwanda's national bulletin covers: the map
+  of the 30 districts with a network joining them and a chart at its heart.
+
+### A district year by year, from 1978 to 2026
+
+- Each district page has a new Over time section with a year selector from 1978, the first census, to 2026. For
+  the chosen year it lists the district's own figures and Rwanda's, each with its period, source, status label and a
+  small trend line marking the year.
+- District figures come from the labour force survey for every year from 2017 (unemployment, participation,
+  employment, underutilisation, NEET and median earnings), the projected population from 2023, and every indicator
+  measured that year, grouped by theme with the district's rank. Unemployment before 2024 is worked out from the
+  published counts of unemployed people and the labour force, and labelled as a calculation.
+- Rwanda's figures come from the censuses since 1978, the EICV, DHS and labour force survey rounds in the
+  Statistical Yearbook 2025, and poverty by province in 2016/17 and 2023/24. A strip shows at a glance which years
+  hold figures, and a year without figures says so and links to the nearest years that have them.
+- The district page has its own menu under the header (Overview, Priority, Over time, All indicators, Sectors), a
+  guide to reading each indicator card, and links to jump to each theme.
+- New extracts: `timeline_national.csv` and `district_population_2023_2032.csv`, with `timeline.json` built from
+  them.
+
+### All three focus areas, told as stories
+
+- Financial exclusion and Social protection now follow the poverty page: four key figures with their sources, a
+  menu of sections under the header, and one claim per section beside the charts that back it.
+- Financial exclusion covers access (inclusion by service and the access strand), financial health against the
+  2030 Roadmap targets, mobile money and credit, and who is left out.
+- Social protection covers who VUP reaches, how late its payments arrive, how far Rwanda is from its national
+  targets, and what vulnerable households, policymakers and civil society can do with the evidence.
+- The shared panel component these pages used is removed; each focus area has its own page component, and the
+  claim beside a chart is one shared block. Links to deeper pages keep proper nouns and acronyms in capitals.
+
+### Poverty dynamics, told as one story
+
+- The poverty focus page now opens with four key figures (the poverty rate, extreme poverty, people who left
+  poverty and the gap between the poorest and least poor districts), each with its source, and has its own menu
+  under the header: Key figures, What changed, Where, Who is poorest, How households live and Go deeper.
+- What changed shows poverty and extreme poverty for both survey periods, and living conditions. Where brings the
+  district map and the province comparison together. Who is poorest sets literacy beside account and mobile money
+  use by wealth. How households live covers electricity, cooking fuel and settlement. Headings and figures are
+  worked out from the data.
+- Survey periods are labelled as 2016/17 and 2023/24 instead of 2017 and 2024. The section menu is now one shared
+  component used by About and this page, and the links to deeper pages say where they go.
+
 ### A fuller About page
 
 - About now has its own menu under the header, as on the government's About pages: its sections in capitals, with

@@ -39,7 +39,7 @@ export function ChartCard({
   return (
     <figure
       id={id}
-      className={cn("flex h-full scroll-mt-28 flex-col rounded-3xl border border-line bg-white p-5 sm:p-7", className)}
+      className={cn("flex h-full scroll-mt-36 flex-col rounded-3xl border border-line bg-white p-5 sm:p-7", className)}
     >
       <figcaption>
         <p className="font-display text-lg font-bold tracking-[-0.01em] text-ink">{title}</p>
@@ -47,8 +47,9 @@ export function ChartCard({
         {howToRead && <HowToRead className="mt-2">{howToRead}</HowToRead>}
       </figcaption>
       <div className="mt-6 flex-1">{children}</div>
-      <p className="mt-6 flex flex-wrap items-center gap-2 border-t border-line pt-4 text-[11.5px] leading-4 text-muted">
+      <p className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-line pt-4 text-[11.5px] leading-4 text-muted">
         <StatusBadge status={status} />
+        <span className="hidden h-3.5 w-px bg-line sm:block" aria-hidden="true" />
         <span>{source}</span>
       </p>
     </figure>

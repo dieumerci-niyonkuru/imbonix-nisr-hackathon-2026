@@ -7,11 +7,11 @@ export const EICV7_PROFILE_SOURCE = "NISR, EICV7 Poverty Profile 2023/24";
 
 /** Poverty rate on the updated methodology. */
 export const POVERTY_RATE_BY_YEAR = [
-  { year: "2017", povertyRate: 39.8 },
-  { year: "2024", povertyRate: 27.4 },
+  { year: "2016/17", povertyRate: 39.8 },
+  { year: "2023/24", povertyRate: 27.4 },
 ];
 
-/** Living conditions in 2017 (EICV5) and 2024 (EICV7). Improved drinking water is "at least 90%" in 2024. */
+/** Living conditions in 2016/17 (EICV5) and 2023/24 (EICV7). Improved drinking water is "at least 90%" in 2024. */
 export const LIVING_STANDARDS_BY_YEAR = [
   { measure: "Near an all weather road", in2017: 93, in2024: 96 },
   { measure: "Improved drinking water", in2017: 87, in2024: 90 },
