@@ -105,7 +105,7 @@ export function ExclusionFocus() {
 
   return (
     <>
-      <SectionNav label="Financial exclusion" sections={SECTIONS} />
+      <SectionNav label="Financial inclusion" sections={SECTIONS} />
 
       <div id="key-figures" className="scroll-mt-36">
         <FigureTiles
