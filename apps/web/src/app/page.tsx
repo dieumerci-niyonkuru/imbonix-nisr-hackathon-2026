@@ -21,7 +21,7 @@ import {
 import { STATUS_LABEL } from "@/lib/format";
 import { LEVERS } from "@/lib/priorities";
 import { usageRows } from "@/lib/surveys";
-import { CORE, DEEP_CYAN } from "@/lib/palette";
+import { CHART_CYAN, DEEP_CYAN } from "@/lib/palette";
 import { SITE_FACTS } from "@/lib/site-facts";
 
 /**
@@ -227,15 +227,18 @@ export default function Home() {
   ];
 
   // The featured chart: FinScope 2024 measures from access to financial health, with the gap drawn in.
+  // Five separate FinScope measures, highest access first down to financial health. The access measures share one
+  // cyan; the small financial-health bar is the deepest cyan, the hard truth the title points to, with the gap up to
+  // the highest measure drawn beside it.
   const gapRows: GapRow[] = [
-    { label: "Use a financial service", value: includedShare, color: DEEP_CYAN },
-    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: DEEP_CYAN },
-    { label: "Have a mobile money wallet", value: registeredWallet, color: DEEP_CYAN },
-    { label: "Are banked", value: bankedRow.in2024, color: DEEP_CYAN },
+    { label: "Use a financial service", value: includedShare, color: CHART_CYAN },
+    { label: "Are formally served", value: inclusionOf("Formally served").in2024, color: CHART_CYAN },
+    { label: "Have a mobile money wallet", value: registeredWallet, color: CHART_CYAN },
+    { label: "Are banked", value: bankedRow.in2024, color: CHART_CYAN },
     {
       label: "Are financially healthy",
       value: healthyShare,
-      color: CORE.cyan,
+      color: DEEP_CYAN,
       gapTo: includedShare,
       gapLabel: `${gap} point gap`,
     },
@@ -310,6 +313,7 @@ export default function Home() {
             title="Access is high. Financial health is not."
             note="Share of adults aged 16 and over, 2024. Each bar is a separate FinScope measure, so an adult can count in several."
             rows={gapRows}
+            takeaway={`Financial health means being able to manage daily money, save for the future and cope with a shock, not just holding an account. Only ${healthyShare}% of adults reach it.`}
             source={`${FINSCOPE_2024_SOURCE}; financial health from section 5.2`}
           />
         }
