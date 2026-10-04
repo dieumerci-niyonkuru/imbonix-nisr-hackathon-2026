@@ -6,7 +6,7 @@ import { allFlags, LEVERS } from "@/lib/priorities";
 import { HowToRead } from "@/components/ui/chart-card";
 
 export const metadata: Metadata = {
-  title: "Priority districts",
+  title: "Priority ranking",
   description: "Where NISR evidence points for seven policy levers, district by district, with every rule stated.",
 };
 
@@ -18,7 +18,7 @@ export default function PrioritiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Priority districts"
+        eyebrow="Priority ranking"
         title="Where the evidence points, lever by lever"
         intro="Seven policy levers, each tied to one published indicator and a stated rule. A district is flagged for a lever when its NISR evidence crosses that rule. The flags show where a lever deserves a closer look; they do not decide budgets or who is eligible."
       />
