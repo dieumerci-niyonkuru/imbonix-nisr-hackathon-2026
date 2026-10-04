@@ -98,16 +98,16 @@ export function SiteFooter() {
             <p>Built on NISR data. Not an official NISR product.</p>
           </div>
 
-          <ul className="flex items-center justify-center gap-4 sm:gap-6 md:order-3 md:justify-end">
+          <ul className="flex items-center justify-center gap-3 md:order-3 md:justify-end">
             {ICON_LINKS.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
                   title={link.label}
                   {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                  className="flex h-12 w-12 items-center justify-center rounded-lg text-ink transition-colors hover:bg-cyan-soft hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                  className="flex h-11 w-11 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-cyan hover:text-ink hover:ring-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
                 >
-                  <link.icon className="h-8 w-8" aria-hidden="true" />
+                  <link.icon className="h-5 w-5" aria-hidden="true" />
                   <span className="sr-only">
                     {link.label}
                     {link.external ? " (opens in a new tab)" : ""}
