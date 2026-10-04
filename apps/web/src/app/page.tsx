@@ -27,7 +27,7 @@ import { SITE_FACTS } from "@/lib/site-facts";
 /**
  * The homepage, short on purpose: the opening banner with four headline figures, the challenge and the three tests a
  * useful answer has to meet, one featured insight, the three focus areas and a way in by place, down to the village. Why IMBONIX, who
- * benefits and the method are on the About page; the sources on Sources and methods; the evidence on the focus area pages.
+ * benefits and the method are on the About page; the sources on Data & methodology; the evidence on the focus area pages.
  */
 export default function Home() {
   const inclusionOf = (measure: string) => INCLUSION_BY_ROUND.find((row) => row.measure === measure)!;
@@ -49,12 +49,12 @@ export default function Home() {
   // The doors under the banner: the three focus areas and the planning tool.
   const heroCards: HeroCard[] = [
     {
-      title: "Financial exclusion",
-      body: "Who is left out of finance, and who uses it without being able to save, borrow or cope with a shock.",
+      title: "Financial inclusion",
+      body: "Who reaches finance, who is left out, and who uses it but still cannot save, borrow or cope with a shock.",
       href: "/financial-exclusion",
     },
     {
-      title: "Poverty dynamics",
+      title: "Poverty & vulnerability",
       body: `How poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}%, and where it is still highest.`,
       href: "/poverty-dynamics",
     },
@@ -247,7 +247,7 @@ export default function Home() {
   // The three focus areas, each an image card whose picture is a district map of a related measure.
   const focusCards: ChallengePart[] = [
     {
-      area: "Financial exclusion",
+      area: "Financial inclusion",
       title:
         bankedRow.in2024 === bankedRow.in2020
           ? `Only ${bankedRow.in2024}% of adults are banked, the same share as in 2020`
@@ -261,7 +261,7 @@ export default function Home() {
       href: "/financial-exclusion",
     },
     {
-      area: "Poverty dynamics",
+      area: "Poverty & vulnerability",
       title: `Poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}% in seven years`,
       summary:
         "How poverty and living conditions changed since 2016/17, who is poorest and where poverty and financial exclusion overlap.",
