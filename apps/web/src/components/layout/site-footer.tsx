@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ComponentType, SVGProps } from "react";
 import { ArrowUpIcon, CircleStackIcon, CodeBracketIcon, FlagIcon } from "@heroicons/react/24/solid";
 import { StackedBrandLogo } from "@/components/layout/logo";
+import { FacebookIcon, InstagramIcon, LinkedInIcon, XIcon } from "@/components/layout/social-icons";
 import { DATA_SECTION, NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
 
 type FooterLink = { href: string; label: string; external?: boolean };
@@ -9,6 +10,17 @@ type FooterColumn = { heading: string; links: FooterLink[] };
 type IconLink = { href: string; label: string; icon: ComponentType<SVGProps<SVGSVGElement>>; external: boolean };
 
 const DATA_ISSUE_URL = `${REPOSITORY_URL}/issues/new?template=data_issue.md`;
+
+/**
+ * IMBONIX's official social accounts. These are PLACEHOLDER handles: set each `href` to the real account before
+ * launch, or remove the platforms that do not apply. Brand marks live in social-icons.tsx.
+ */
+const SOCIAL_LINKS: IconLink[] = [
+  { href: "https://x.com/imbonix", label: "IMBONIX on X", icon: XIcon, external: true },
+  { href: "https://www.linkedin.com/company/imbonix", label: "IMBONIX on LinkedIn", icon: LinkedInIcon, external: true },
+  { href: "https://www.facebook.com/imbonix", label: "IMBONIX on Facebook", icon: FacebookIcon, external: true },
+  { href: "https://www.instagram.com/imbonix", label: "IMBONIX on Instagram", icon: InstagramIcon, external: true },
+];
 
 /** One column per focus area, each opening with its overview, then the data and the project links. */
 const COLUMNS: FooterColumn[] = [
@@ -56,6 +68,24 @@ function FooterAnchor({ link }: { link: FooterLink }) {
   );
 }
 
+/** A round icon button for a social or utility link: a hairline ring, filling cyan on hover. */
+function IconButton({ link }: { link: IconLink }) {
+  return (
+    <a
+      href={link.href}
+      title={link.label}
+      {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
+      className="flex h-10 w-10 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-cyan hover:text-ink hover:ring-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+    >
+      <link.icon className="h-[18px] w-[18px]" aria-hidden="true" />
+      <span className="sr-only">
+        {link.label}
+        {link.external ? " (opens in a new tab)" : ""}
+      </span>
+    </a>
+  );
+}
+
 /**
  * The site footer, in the site's two colours: a cyan band of link columns under headings in capitals, then a white
  * row with the copyright on the left, the stacked logo in the middle and a row of icon links on the right. Data and
@@ -98,21 +128,16 @@ export function SiteFooter() {
             <p>Built on NISR data. Not an official NISR product.</p>
           </div>
 
-          <ul className="flex items-center justify-center gap-3 md:order-3 md:justify-end">
+          <ul className="flex flex-wrap items-center justify-center gap-2 md:order-3 md:justify-end">
+            {SOCIAL_LINKS.map((link) => (
+              <li key={link.label}>
+                <IconButton link={link} />
+              </li>
+            ))}
+            <li aria-hidden="true" className="mx-0.5 h-6 w-px bg-line" />
             {ICON_LINKS.map((link) => (
               <li key={link.label}>
-                <a
-                  href={link.href}
-                  title={link.label}
-                  {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                  className="flex h-11 w-11 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-cyan hover:text-ink hover:ring-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
-                >
-                  <link.icon className="h-5 w-5" aria-hidden="true" />
-                  <span className="sr-only">
-                    {link.label}
-                    {link.external ? " (opens in a new tab)" : ""}
-                  </span>
-                </a>
+                <IconButton link={link} />
               </li>
             ))}
           </ul>
