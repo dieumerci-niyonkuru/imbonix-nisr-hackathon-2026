@@ -1,14 +1,19 @@
 import { MAP_LAYERS } from "@/lib/indicators";
 
 /**
- * The three focus areas of the challenge: financial exclusion, poverty dynamics and the impact of social protection.
+ * The three focus areas of the challenge: financial inclusion, poverty & vulnerability and social protection.
  * Each has its own section of the site: `href` is its overview page, and its pages sit under that address, so a
  * URL such as /poverty-dynamics/trends says where you are. They are also the homepage tabs (which follow
  * the URL hash, for example /#poverty) and the header menus.
  */
 export const FOCUS_AREAS = [
-  { id: "exclusion", label: "Financial exclusion", hint: "Included, but not resilient", href: "/financial-exclusion" },
-  { id: "poverty", label: "Poverty dynamics", hint: "Who is poor, where, and what changed", href: "/poverty-dynamics" },
+  { id: "exclusion", label: "Financial inclusion", hint: "Included, but not resilient", href: "/financial-exclusion" },
+  {
+    id: "poverty",
+    label: "Poverty & vulnerability",
+    hint: "Who is poor and vulnerable, where, and what changed",
+    href: "/poverty-dynamics",
+  },
   { id: "protection", label: "Social protection", hint: "Who is reached, and how well", href: "/social-protection" },
 ] as const;
 
@@ -43,8 +48,8 @@ const areaHref = (id: FocusAreaId) => FOCUS_AREAS.find((area) => area.id === id)
  */
 export const NAV_GROUPS: NavGroup[] = [
   {
-    label: "Financial exclusion",
-    intro: "Who is outside formal finance, and who has access but does not use it.",
+    label: "Financial inclusion",
+    intro: "Who reaches formal finance, who is left out, and who has access but cannot yet use it to cope.",
     focusId: "exclusion",
     href: areaHref("exclusion"),
     items: [
@@ -56,14 +61,14 @@ export const NAV_GROUPS: NavGroup[] = [
       },
       {
         href: "/financial-exclusion/risk-model",
-        label: "Risk model",
-        description: "Household analysis, coming when NISR releases the microdata",
-        badge: "Pending",
+        label: "Vulnerability model",
+        description: "An explainable model of household financial vulnerability, with its method and limits",
+        badge: "AI",
       },
     ],
   },
   {
-    label: "Poverty dynamics",
+    label: "Poverty & vulnerability",
     intro: "How poverty and living conditions changed, where poverty is deepest, and where it overlaps with other needs.",
     focusId: "poverty",
     href: areaHref("poverty"),
@@ -103,8 +108,8 @@ export const NAV_GROUPS: NavGroup[] = [
       },
       {
         href: "/social-protection/priority-districts",
-        label: "Priority districts",
-        description: "Seven policy levers, flagged district by district",
+        label: "Priority areas",
+        description: "Where to act first: seven policy levers, flagged district by district",
       },
       {
         href: "/social-protection/policy-scenarios",
@@ -124,10 +129,10 @@ export const NAV_GROUPS: NavGroup[] = [
 export const DATA_SECTION: MenuSection = {
   id: "data",
   label: "Data",
-  intro: "Where every figure comes from, Rwanda's key figures, and every chart on the site in one list.",
+  intro: "The datasets behind the platform, Rwanda's key figures, and every chart on the site in one list.",
   href: "/data",
-  title: "Sources and methods",
-  landingLabel: "Sources and methods",
+  title: "Data & methodology",
+  landingLabel: "Data & methodology",
   landingDescription: "Where every figure comes from, and how far to trust it",
   items: [
     {

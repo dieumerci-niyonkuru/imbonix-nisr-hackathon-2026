@@ -101,7 +101,7 @@ export function ProtectionFocus() {
       value: String(LEVERS.length),
       text: "policy levers, each flagged district by district by one figure and a rule anyone can check.",
       href: "/social-protection/priority-districts",
-      cta: "Priority districts",
+      cta: "Priority areas",
     },
     {
       icon: UserGroupIcon,

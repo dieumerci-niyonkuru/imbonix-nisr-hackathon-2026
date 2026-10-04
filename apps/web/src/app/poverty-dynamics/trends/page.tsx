@@ -13,7 +13,7 @@ export default function ChangeOverTimePage() {
   return (
     <>
       <PageHero
-        eyebrow="Poverty dynamics"
+        eyebrow="Poverty & vulnerability"
         title="How Rwanda has changed, from the first census to the latest surveys"
         intro="Poverty by province, population, homes, services, health and work, round by round. Each chart names its NISR table, and each claim is worked out from the figures in it."
       />
