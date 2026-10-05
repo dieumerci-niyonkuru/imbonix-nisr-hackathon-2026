@@ -1,4 +1,6 @@
+import { CATALOG_STUDIES, CATALOG_THEMES, CATALOG_YEARS } from "@/lib/catalog";
 import { DISTRICTS, PROVINCE_LABEL, rankOf, reference, SOURCES, valueOf, type District } from "@/lib/data";
+import { FINANCIAL_HEALTH_SEGMENTS, FINSCOPE_2024_SOURCE, INCLUSION_BY_ROUND } from "@/lib/finscope-2024";
 import { formatValue } from "@/lib/format";
 import { meta, type IndicatorMeta } from "@/lib/indicators";
 
@@ -59,6 +61,30 @@ const PROFILE_IDS = [
 ];
 const HIGH_WORDS = ["highest", "most", "worst", "top", "biggest", "greatest"];
 const LOW_WORDS = ["lowest", "least", "best", "bottom", "smallest", "fewest"];
+/** Common questions that aren't about one district or measure, answered from the figures the site already holds. */
+const DATASET_WORDS = [
+  "dataset",
+  "datasets",
+  "data do you have",
+  "what data",
+  "data behind",
+  "catalogue",
+  "catalog",
+  "what surveys",
+  "which surveys",
+  "what sources",
+];
+const HEALTH_WORDS = ["financial health", "financially healthy", "health vs", "health versus", "healthy vs", "health against"];
+const HELP_WORDS = [
+  "what can you do",
+  "who are you",
+  "what do you do",
+  "how can you help",
+  "what can you help",
+  "your capabilities",
+  "what are you",
+];
+const hasAny = (query: string, words: string[]) => words.some((word) => query.includes(word));
 
 const lower = (text: string) => text.toLowerCase();
 const districtByName = (query: string): District[] =>
@@ -198,13 +224,71 @@ function districtOverview(district: District): Answer {
   };
 }
 
+/** What data the platform is built on, from the NISR microdata catalogue the site indexes. */
+function datasetsAnswer(): Answer {
+  return {
+    heading: "The data behind IMBONIX",
+    body:
+      `IMBONIX draws on the NISR microdata catalogue — ${CATALOG_STUDIES.length} studies from ${CATALOG_YEARS[0]} to ` +
+      `${CATALOG_YEARS[1]}, across ${CATALOG_THEMES.length} themes: the censuses, EICV, FinScope, the DHS, the labour ` +
+      `force and establishment surveys, the CFSVA and more. Every figure on the site is traced to a published NISR ` +
+      `table, including partner data collected under NISR (the DHS with ICF, the CFSVA with the World Food Programme).`,
+    stats: [
+      { value: String(CATALOG_STUDIES.length), label: "studies in the catalogue" },
+      { value: `${CATALOG_YEARS[0]}–${CATALOG_YEARS[1]}`, label: "years covered" },
+    ],
+    source: "NISR microdata catalogue (NADA)",
+    links: [
+      { href: "/data/catalog", label: "Browse the catalogue" },
+      { href: "/data/key-figures", label: "Rwanda in figures" },
+      { href: "/about#sources", label: "Sources & method" },
+    ],
+  };
+}
+
+/** The difference between using a financial service and being financially healthy, from FinScope 2024. */
+function financialHealthAnswer(): Answer {
+  const included = INCLUSION_BY_ROUND.find((row) => row.measure === "Financially included")!.in2024;
+  const healthy = FINANCIAL_HEALTH_SEGMENTS.find((segment) => segment.segment === "Financially healthy")!.share;
+  return {
+    heading: `Access is ${included}%, but financial health is ${healthy}%`,
+    body:
+      "Being financially included means using any financial service — a bank, a SACCO, mobile money, insurance or a " +
+      "savings group. Being financially healthy is harder: it means managing day-to-day money, saving for the future " +
+      `and coping with a shock. In 2024, ${included}% of adults were included, yet only ${healthy}% were financially ` +
+      "healthy. That gap, not access alone, is the heart of what IMBONIX examines.",
+    rows: FINANCIAL_HEALTH_SEGMENTS.map((segment) => ({ label: segment.segment, value: `${segment.share}%` })),
+    rowsCaption: "Adults by financial health, 2024",
+    source: `${FINSCOPE_2024_SOURCE}, section 5.2`,
+    status: "observed",
+    links: [{ href: "/financial-exclusion", label: "See the evidence" }],
+  };
+}
+
+/** What the assistant can do, for a "who are you" or "what can you do" question. */
+function helpAnswer(): Answer {
+  return {
+    heading: "What I can help with",
+    body:
+      "Ask me about any of Rwanda's 30 districts or the measures behind financial inclusion and poverty: a single " +
+      "figure, where a measure is highest or lowest, a comparison of two districts, or what a measure means. When the " +
+      "site's AI service is connected I can also read a picture or document you attach. Every answer comes from NISR's " +
+      "published figures, with the source named.",
+    links: [
+      { href: "/data/key-figures", label: "Rwanda in figures" },
+      { href: "/districts", label: "All 30 districts" },
+      { href: "/data/catalog", label: "The data catalogue" },
+    ],
+  };
+}
+
 export const SUGGESTIONS = [
   "How poor is Rulindo?",
   "Where is financial exclusion highest?",
   "Compare Rulindo and Gasabo",
   "Which district has the most child stunting?",
-  "Unemployment in Nyamasheke",
-  "Who is most affected by natural hazards?",
+  "Explain financial health vs. access",
+  "What datasets do you have?",
 ];
 
 /**
@@ -226,6 +310,9 @@ export function answerQuery(raw: string): Answer {
   if (topic && districts.length === 1) return districtValue(districts[0], topic) ?? nationalTopic(topic);
   if (districts.length === 1) return districtOverview(districts[0]);
   if (topic) return nationalTopic(topic);
+  if (hasAny(query, HEALTH_WORDS)) return financialHealthAnswer();
+  if (hasAny(query, DATASET_WORDS)) return datasetsAnswer();
+  if (hasAny(query, HELP_WORDS)) return helpAnswer();
   if (wantsHigh || wantsLow) return extremes(meta("eicv7_poverty_rate"), wantsHigh || !wantsLow);
   return fallback();
 }

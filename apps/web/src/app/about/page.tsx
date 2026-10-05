@@ -217,6 +217,11 @@ const OVERVIEW: OverviewRow[] = [
       "To understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda, and to show where support is needed most.",
   },
   {
+    term: "Aligned to",
+    detail:
+      "Rwanda's national priorities: Vision 2050, NST2, the National Financial Inclusion Roadmap 2025 to 2030 and the Social Protection Sector Strategic Plan.",
+  },
+  {
     term: "Evidence",
     detail: `${SITE_FACTS.indicators} district indicators from ${SITE_FACTS.publications} NISR and partner publications, including EICV7, FinScope, the Rwanda DHS and the 2022 census.`,
   },
@@ -240,6 +245,12 @@ const TILES: OverviewTile[] = [
   { value: String(SITE_FACTS.publications), label: "Publications" },
   { value: String(MAP_LAYERS.length), label: "Map measures" },
   { value: String(SITE_FACTS.levers), label: "Policy levers" },
+];
+
+/** Publications that NISR collects together with an external partner, found by a word in the publication title. */
+const PARTNER_MATCH: [RegExp, string][] = [
+  [/DHS/, "NISR + ICF (The DHS Program)"],
+  [/CFSVA/, "NISR + WFP"],
 ];
 
 /** Each study in the NISR microdata catalog, found by a word its publication title contains. */
@@ -276,6 +287,7 @@ function sourceRows(): SourceRow[] {
         topics: [...entry.topics].join(", "),
         indicators: entry.indicators,
         catalogUrl: studyId ? `${NISR_CATALOG_URL}/${studyId}` : undefined,
+        collectedWith: PARTNER_MATCH.find(([pattern]) => pattern.test(publication))?.[1] ?? "NISR",
       };
     })
     .sort((first, second) => second.indicators - first.indicators || first.publication.localeCompare(second.publication));
@@ -393,7 +405,7 @@ export default function AboutPage() {
       </div>
       <SourcesTable
         rows={sourceRows()}
-        intro={`${SITE_FACTS.indicators} district indicators come from ${SITE_FACTS.publications} publications by NISR and its partners. ${SITE_FACTS.calculated} of them are IMBONIX arithmetic on those published figures, such as a rate multiplied by a population, and are labelled as calculations.`}
+        intro={`${SITE_FACTS.indicators} district indicators come from ${SITE_FACTS.publications} publications by NISR and its partners. Most are NISR-led; the data also combines NISR's official statistics with external partners, including ICF (The DHS Program) for the Rwanda DHS and the World Food Programme for the CFSVA. ${SITE_FACTS.calculated} of the indicators are IMBONIX arithmetic on those published figures, such as a rate multiplied by a population, and are labelled as calculations.`}
       />
       <Principles items={PRINCIPLES} />
       <Limits items={LIMITS} />

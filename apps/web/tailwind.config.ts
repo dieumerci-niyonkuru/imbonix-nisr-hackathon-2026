@@ -64,11 +64,20 @@ const config: Config = {
         "fade-up": { from: { opacity: "0", transform: "translateY(14px)" }, to: { opacity: "1", transform: "translateY(0)" } },
         "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
         "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
+        // The IMBONIX AI launcher: a glow that circles the button forever, and a ring that pulses outward.
+        orbit: { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } },
+        halo: {
+          "0%": { transform: "scale(1)", opacity: "0.55" },
+          "70%": { transform: "scale(1.45)", opacity: "0" },
+          "100%": { transform: "scale(1.45)", opacity: "0" },
+        },
       },
       animation: {
         "fade-up": "fade-up 700ms cubic-bezier(.2,.75,.2,1) both",
         "accordion-down": "accordion-down 200ms ease-out",
         "accordion-up": "accordion-up 200ms ease-out",
+        orbit: "orbit 5s linear infinite",
+        halo: "halo 2.8s cubic-bezier(0,0,0.2,1) infinite",
       },
     },
   },
