@@ -17,7 +17,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const ANTHROPIC_MODEL = "claude-opus-5-5";
-const GEMINI_MODEL = process.env.GEMINI_MODEL ?? "gemini-3.5-flash";
+const GEMINI_MODEL = process.env.GEMINI_MODEL ?? "gemini-flash-lite-latest";
 const MAX_OUTPUT_TOKENS = 2048;
 const MAX_TURNS = 12;
 const MAX_TURN_CHARS = 4000;
