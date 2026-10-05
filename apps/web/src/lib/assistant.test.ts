@@ -40,4 +40,16 @@ describe("IMBONIX AI answers", () => {
     expect(answer.source).toBeTruthy();
     expect(answer.heading.toLowerCase()).toContain("nyamasheke");
   });
+
+  it("explains financial health versus access from FinScope", () => {
+    const answer = answerQuery("Explain financial health vs. access");
+    expect(answer.rows?.some((row) => row.label === "Financially healthy")).toBe(true);
+    expect(answer.source).toContain("FinScope");
+  });
+
+  it("describes the datasets it is built on, with a link to the catalogue", () => {
+    const answer = answerQuery("What datasets do you have?");
+    expect(answer.heading.toLowerCase()).toContain("data");
+    expect(answer.links?.some((link) => link.href === "/data/catalog")).toBe(true);
+  });
 });

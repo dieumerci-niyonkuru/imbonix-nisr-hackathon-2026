@@ -217,6 +217,11 @@ const OVERVIEW: OverviewRow[] = [
       "To understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda, and to show where support is needed most.",
   },
   {
+    term: "Aligned to",
+    detail:
+      "Rwanda's national priorities: Vision 2050, NST2, the National Financial Inclusion Roadmap 2025 to 2030 and the Social Protection Sector Strategic Plan.",
+  },
+  {
     term: "Evidence",
     detail: `${SITE_FACTS.indicators} district indicators from ${SITE_FACTS.publications} NISR and partner publications, including EICV7, FinScope, the Rwanda DHS and the 2022 census.`,
   },
