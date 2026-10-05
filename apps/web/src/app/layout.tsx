@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/lexend";
 import "./globals.css";
+import { ImbonixAI } from "@/components/assistant/imbonix-ai";
 import { ScrollControls } from "@/components/layout/scroll-controls";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </main>
         <SiteFooter />
         <ScrollControls />
+        <ImbonixAI />
       </body>
     </html>
   );
