@@ -103,7 +103,15 @@ export function ToolGuide() {
 }
 
 /** One publication behind the figures, with how many indicators it gives and on which topics. */
-export type SourceRow = { publication: string; year: string; topics: string; indicators: number; catalogUrl?: string };
+export type SourceRow = {
+  publication: string;
+  year: string;
+  topics: string;
+  indicators: number;
+  catalogUrl?: string;
+  /** Who collected the data: "NISR", or NISR together with an external partner (for example ICF or the WFP). */
+  collectedWith?: string;
+};
 
 /** The publications behind every figure, counted from the site's own data. */
 export function SourcesTable({ rows, intro }: { rows: SourceRow[]; intro: ReactNode }) {
@@ -114,14 +122,17 @@ export function SourcesTable({ rows, intro }: { rows: SourceRow[]; intro: ReactN
           {intro}
         </SectionIntro>
         <div className="scrollbar-thin mt-10 overflow-x-auto border border-line">
-          <table className="w-full min-w-[680px] text-left text-[14.5px]">
+          <table className="w-full min-w-[820px] text-left text-[14.5px]">
             <caption className="sr-only">
-              Publications, their year, topics and the number of district indicators each gives
+              Publications, who collected them, their year, topics and the number of district indicators each gives
             </caption>
             <thead className="bg-paper text-[13px] text-muted">
               <tr>
                 <th scope="col" className="px-5 py-3 font-semibold">
                   Publication
+                </th>
+                <th scope="col" className="px-5 py-3 font-semibold">
+                  Collected with
                 </th>
                 <th scope="col" className="px-5 py-3 font-semibold">
                   Year
@@ -152,6 +163,15 @@ export function SourcesTable({ rows, intro }: { rows: SourceRow[]; intro: ReactN
                       </a>
                     )}
                   </th>
+                  <td className="px-5 py-3.5">
+                    {row.collectedWith && row.collectedWith !== "NISR" ? (
+                      <span className="inline-flex rounded-full bg-cyan-soft px-2.5 py-1 text-[12.5px] font-semibold text-cyan-ink ring-1 ring-cyan/30">
+                        {row.collectedWith}
+                      </span>
+                    ) : (
+                      <span className="text-ink/70">NISR</span>
+                    )}
+                  </td>
                   <td className="tabular px-5 py-3.5 text-ink/85">{row.year}</td>
                   <td className="px-5 py-3.5 text-ink/85">{row.topics}</td>
                   <td className="tabular px-5 py-3.5 text-right font-bold text-ink">{row.indicators}</td>
