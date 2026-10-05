@@ -18,7 +18,6 @@ import {
 } from "@heroicons/react/20/solid";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { answerQuery, SUGGESTIONS, type Answer } from "@/lib/assistant";
-import { BRAND } from "@/lib/palette";
 
 /** An image, PDF or text file the person attached, ready to send to the AI route. */
 type Attachment = { kind: "image" | "document" | "text"; mediaType: string; data: string; name: string };
@@ -57,10 +56,7 @@ const NOT_CONNECTED: Answer = {
     "I can read pictures and documents once this site's AI service is connected (a free Gemini or an Anthropic key on " +
     "the server). Until then I can still answer questions about any district, measure or the national picture straight " +
     "from NISR's figures — ask away.",
-  links: [
-    { href: "/data/key-figures", label: "Rwanda in figures" },
-    { href: "/data/catalog", label: "The data behind this" },
-  ],
+  links: [{ href: "/data/key-figures", label: "Rwanda in figures" }],
 };
 
 // --- Voice: speech synthesis (read answers aloud) and speech recognition (dictate questions), both browser-native. ---
@@ -787,34 +783,20 @@ export function ImbonixAI() {
 
   return (
     <>
-      {/* The launcher: a brand-cyan pill with an assistant avatar and an infinite circling glow to draw the eye. */}
+      {/* The launcher: a clean, professional brand-cyan pill with an assistant avatar. */}
       <div className="fixed bottom-5 right-5 z-[55] sm:bottom-6 sm:right-6 print:hidden">
-        {!open && (
-          <>
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-[3px] rounded-full opacity-80 blur-[4px] motion-safe:animate-orbit motion-reduce:hidden"
-              style={{ background: `conic-gradient(from 0deg, transparent, ${BRAND.cyan}, ${BRAND.cyan} 20%, transparent 55%)` }}
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-[3px] rounded-full motion-safe:animate-halo motion-reduce:hidden"
-              style={{ boxShadow: `0 0 0 2px ${BRAND.cyan}` }}
-            />
-          </>
-        )}
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
           aria-controls={panelId}
-          className="group relative inline-flex h-14 items-center gap-2.5 rounded-full bg-gradient-to-br from-cyan to-cyan-hover pl-2.5 pr-5 font-bold text-ink shadow-lift ring-1 ring-cyan-ink/20 transition-transform duration-200 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2 active:scale-95"
+          className="group inline-flex h-14 items-center gap-2.5 rounded-full bg-cyan pl-2.5 pr-5 font-bold text-ink shadow-lift ring-1 ring-cyan-ink/20 transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/30 ring-1 ring-white/50 transition-colors group-hover:bg-white/45">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/25 ring-1 ring-white/40 transition-colors group-hover:bg-white/20">
             {open ? (
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             ) : (
-              <SparklesIcon className="h-6 w-6 motion-safe:animate-pulse" aria-hidden="true" />
+              <SparklesIcon className="h-6 w-6" aria-hidden="true" />
             )}
           </span>
           <span className="pr-0.5 text-[15px] tracking-[-0.01em]">{open ? "Close" : "IMBONIX AI"}</span>
