@@ -70,7 +70,7 @@ export function ScrollControls() {
     <nav
       aria-label="Page scrolling"
       className={cn(
-        "fixed bottom-4 right-4 z-40 hidden flex-col overflow-hidden rounded-2xl bg-cyan shadow-lift transition-[opacity,visibility] duration-200 sm:bottom-6 sm:right-6 sm:flex print:hidden",
+        "fixed bottom-24 right-4 z-40 hidden flex-col overflow-hidden rounded-2xl bg-cyan shadow-lift transition-[opacity,visibility] duration-200 sm:bottom-28 sm:right-6 sm:flex print:hidden",
         footerInView && "invisible opacity-0 focus-within:visible focus-within:opacity-100",
       )}
     >
