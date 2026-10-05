@@ -117,13 +117,11 @@ function extremes(indicator: IndicatorMeta, high: boolean): Answer {
   return {
     heading: `${top.name} has the ${high ? "highest" : "lowest"} ${short}`,
     body: `Across the 30 districts, ${top.name} has the ${high ? "highest" : "lowest"} ${short} at ${value(top, indicator.id)}. ${ranked[ranked.length - 1].name} has the ${high ? "lowest" : "highest"}, at ${value(ranked[ranked.length - 1], indicator.id)}.`,
-    rows: ranked
-      .slice(0, 6)
-      .map((district) => ({
-        label: district.name,
-        value: value(district, indicator.id),
-        hint: PROVINCE_LABEL[district.province],
-      })),
+    rows: ranked.slice(0, 6).map((district) => ({
+      label: district.name,
+      value: value(district, indicator.id),
+      hint: PROVINCE_LABEL[district.province],
+    })),
     rowsCaption: `${high ? "Highest" : "Lowest"} ${short}, top 6`,
     source: sourceLine(indicator.id),
     status: SOURCES[indicator.id]?.status,
