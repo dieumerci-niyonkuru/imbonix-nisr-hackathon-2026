@@ -229,17 +229,16 @@ function datasetsAnswer(): Answer {
   return {
     heading: "The data behind IMBONIX",
     body:
-      `IMBONIX draws on the NISR microdata catalogue — ${CATALOG_STUDIES.length} studies from ${CATALOG_YEARS[0]} to ` +
-      `${CATALOG_YEARS[1]}, across ${CATALOG_THEMES.length} themes: the censuses, EICV, FinScope, the DHS, the labour ` +
-      `force and establishment surveys, the CFSVA and more. Every figure on the site is traced to a published NISR ` +
-      `table, including partner data collected under NISR (the DHS with ICF, the CFSVA with the World Food Programme).`,
+      `IMBONIX draws on ${CATALOG_STUDIES.length} NISR studies from ${CATALOG_YEARS[0]} to ${CATALOG_YEARS[1]}, across ` +
+      `${CATALOG_THEMES.length} themes: the censuses, EICV, FinScope, the DHS, the labour force and establishment surveys, ` +
+      `the CFSVA and more. Every figure here is traced to a published NISR table, including partner data collected under ` +
+      `NISR (the DHS with ICF, the CFSVA with the World Food Programme).`,
     stats: [
-      { value: String(CATALOG_STUDIES.length), label: "studies in the catalogue" },
+      { value: String(CATALOG_STUDIES.length), label: "NISR studies used" },
       { value: `${CATALOG_YEARS[0]}–${CATALOG_YEARS[1]}`, label: "years covered" },
     ],
-    source: "NISR microdata catalogue (NADA)",
+    source: "NISR, national surveys and censuses",
     links: [
-      { href: "/data/catalog", label: "Browse the catalogue" },
       { href: "/data/key-figures", label: "Rwanda in figures" },
       { href: "/about#sources", label: "Sources & method" },
     ],
@@ -277,7 +276,6 @@ function helpAnswer(): Answer {
     links: [
       { href: "/data/key-figures", label: "Rwanda in figures" },
       { href: "/districts", label: "All 30 districts" },
-      { href: "/data/catalog", label: "The data catalogue" },
     ],
   };
 }
@@ -327,7 +325,6 @@ function fallback(): Answer {
     links: [
       { href: "/data/key-figures", label: "Rwanda in figures" },
       { href: "/districts", label: "All 30 districts" },
-      { href: "/data/catalog", label: "The data behind this" },
     ],
   };
 }
