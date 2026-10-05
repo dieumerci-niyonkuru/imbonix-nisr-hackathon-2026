@@ -79,8 +79,9 @@ source, and never invent a number.
   browser's Web Speech API, so no audio leaves the page to a service of ours.
 - **Reads pictures and documents.** Attach an image, PDF or text file and it extracts and analyses the content, relating
   it to the NISR data where relevant.
-- **Works with or without a key.** When `ANTHROPIC_API_KEY` is set on the server, answers come from Claude
-  (`claude-opus-5-5`) through a same-origin route (`apps/web/src/app/api/assistant/route.ts`); the key is read only on
+- **Works with or without a key, free or paid.** Set either `GEMINI_API_KEY` (Google Gemini — a free tier, no credit
+  card) or `ANTHROPIC_API_KEY` (Claude `claude-opus-5-5`, used in preference when present) on the server, and answers
+  come from that model through a same-origin route (`apps/web/src/app/api/assistant/route.ts`); the key is read only on
   the server and never reaches the browser. With no key, the assistant falls back to an instant on-device engine over the
   same figures, so it always works — including in a demo.
 
@@ -126,15 +127,15 @@ source and caveat.
 
 ## Tech stack
 
-| Layer           | Tools                                                                                                                        |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Web app         | Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, shadcn/ui patterns with Radix primitives                        |
-| Assistant       | Anthropic Claude (`@anthropic-ai/sdk`, server route) with a grounded on-device fallback; Web Speech API for voice in and out |
-| Charts and maps | Recharts, custom SVG charts, MapLibre GL with OpenFreeMap tiles, geoBoundaries outlines                                      |
-| API             | Node.js 22, Express 5, zod validation, helmet, express-rate-limit                                                            |
-| Data pipeline   | Python 3.12+ (standard library for the build; openpyxl and xlrd for extraction)                                              |
-| Quality         | Vitest, node:test with supertest, Python unittest, ESLint, Prettier, gitleaks, npm audit                                     |
-| Delivery        | Docker (multi-stage images), docker compose, GitHub Actions                                                                  |
+| Layer           | Tools                                                                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Web app         | Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, shadcn/ui patterns with Radix primitives                                     |
+| Assistant       | Google Gemini (free tier) or Anthropic Claude via a server route, with a grounded on-device fallback; Web Speech API for voice in and out |
+| Charts and maps | Recharts, custom SVG charts, MapLibre GL with OpenFreeMap tiles, geoBoundaries outlines                                                   |
+| API             | Node.js 22, Express 5, zod validation, helmet, express-rate-limit                                                                         |
+| Data pipeline   | Python 3.12+ (standard library for the build; openpyxl and xlrd for extraction)                                                           |
+| Quality         | Vitest, node:test with supertest, Python unittest, ESLint, Prettier, gitleaks, npm audit                                                  |
+| Delivery        | Docker (multi-stage images), docker compose, GitHub Actions                                                                               |
 
 ## Architecture
 
@@ -183,10 +184,10 @@ The website does not depend on the API: both read the same generated data.
 No secrets are needed to run IMBONIX. Every setting has a safe default, and each app documents its variables in its
 `.env.example`:
 
-| App                                                  | Variables                                                                                                                                                                                                                                         |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API ([apps/api/.env.example](apps/api/.env.example)) | `NODE_ENV`, `PORT`, `HOST`, `CORS_ORIGINS`, `RATE_LIMIT_PER_MINUTE`, `TRUST_PROXY`, `LOG_LEVEL`, `DATA_DIR`                                                                                                                                       |
-| Web ([apps/web/.env.example](apps/web/.env.example)) | `NEXT_PUBLIC_API_URL` (reserved; the site does not call the API yet), `ANTHROPIC_API_KEY` (optional; powers IMBONIX AI's generative answers and document reading — the on-device engine works without it, and the key is read only on the server) |
+| App                                                  | Variables                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| API ([apps/api/.env.example](apps/api/.env.example)) | `NODE_ENV`, `PORT`, `HOST`, `CORS_ORIGINS`, `RATE_LIMIT_PER_MINUTE`, `TRUST_PROXY`, `LOG_LEVEL`, `DATA_DIR`                                                                                                                                                                                            |
+| Web ([apps/web/.env.example](apps/web/.env.example)) | `NEXT_PUBLIC_API_URL` (reserved; the site does not call the API yet), and **one of** `GEMINI_API_KEY` (free, no card) or `ANTHROPIC_API_KEY` (optional; powers IMBONIX AI's generative answers and document reading — the on-device engine works without either, and keys are read only on the server) |
 
 Copy a `.env.example` to `.env` for local changes. `.env` files are ignored by git and must never be committed.
 
