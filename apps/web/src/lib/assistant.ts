@@ -203,8 +203,8 @@ export const SUGGESTIONS = [
   "Where is financial exclusion highest?",
   "Compare Rulindo and Gasabo",
   "Which district has the most child stunting?",
-  "Unemployment in Nyamasheke",
-  "Who is most affected by natural hazards?",
+  "Explain financial health vs. access",
+  "What datasets do you have?",
 ];
 
 /**

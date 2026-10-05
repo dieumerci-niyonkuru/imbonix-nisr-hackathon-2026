@@ -6,6 +6,7 @@ import { PlatformApproach } from "@/components/home/platform-approach";
 import { GapChart, type GapRow } from "@/components/home/gap-chart";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { HomeHero, type HeroCard } from "@/components/home/home-hero";
+import { NationalPriorities } from "@/components/home/national-priorities";
 import { PlaceSection } from "@/components/home/place-section";
 import { NISR_CATALOG_URL, SOURCE_STUDIES } from "@/components/layout/nav";
 import { ReadMoreSection } from "@/components/ui/read-more";
@@ -165,6 +166,11 @@ export default function Home() {
               With the EICV7 VUP thematic report, the Statistical Yearbook 2025 and NISR&apos;s population projections:{" "}
               {SITE_FACTS.indicators} indicators from {SITE_FACTS.publications} publications in all.
             </p>
+            <p className="mt-3">
+              These combine NISR&apos;s official statistics with external partner datasets collected under NISR — the Rwanda DHS
+              with ICF (The DHS Program) and the CFSVA with the World Food Programme — alongside NISR-led surveys and the 2022
+              census.
+            </p>
           </ReadMoreSection>
           <ReadMoreSection title="How far to trust each figure">
             <p>Every value carries one of these labels:</p>
@@ -321,6 +327,8 @@ export default function Home() {
       />
 
       <PlatformApproach />
+
+      <NationalPriorities />
 
       <ChallengeSection parts={focusCards} />
 
