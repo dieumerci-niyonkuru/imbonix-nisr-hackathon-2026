@@ -99,14 +99,23 @@ export async function POST(request: Request) {
   }
 
   const encoder = new TextEncoder();
-  const anthropic = anthropicKey();
-  const body = anthropic
-    ? anthropicStream(toAnthropicMessages(turns, attachment), encoder)
-    : geminiStream(turns, attachment, geminiKey()!, encoder);
+  const streamHeaders = {
+    "Content-Type": "text/plain; charset=utf-8",
+    "Cache-Control": "no-store",
+    "X-Imbonix-Ai": "live",
+  };
 
-  return new Response(body, {
-    headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store", "X-Imbonix-Ai": "live" },
-  });
+  if (anthropicKey()) {
+    return new Response(anthropicStream(toAnthropicMessages(turns, attachment), encoder), { headers: streamHeaders });
+  }
+
+  // Gemini: fetch first (with retries on transient errors). If it never succeeds, return 502 so the client can fall
+  // back to its on-device engine and the person still gets a grounded answer.
+  const upstream = await geminiFetch(turns, attachment, geminiKey()!);
+  if (!upstream) {
+    return Response.json({ error: "The AI service is busy right now.", fallback: true }, { status: 502 });
+  }
+  return new Response(geminiStreamFrom(upstream, encoder), { headers: streamHeaders });
 }
 
 /** Validate and normalise an uploaded attachment, or return null when it is missing or not allowed. */
@@ -223,34 +232,41 @@ function toGeminiContents(turns: ChatTurn[], attachment: Attachment | null) {
   });
 }
 
-function geminiStream(
-  turns: ChatTurn[],
-  attachment: Attachment | null,
-  apiKey: string,
-  encoder: TextEncoder,
-): ReadableStream<Uint8Array> {
+const RETRYABLE = new Set([429, 500, 502, 503, 504]);
+
+/** Call Gemini's streaming endpoint, retrying transient errors (busy, rate limit). Returns the live response or null. */
+async function geminiFetch(turns: ChatTurn[], attachment: Attachment | null, apiKey: string): Promise<Response | null> {
   const requestBody = JSON.stringify({
     systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
     contents: toGeminiContents(turns, attachment),
     generationConfig: { temperature: 0.4, maxOutputTokens: MAX_OUTPUT_TOKENS },
   });
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(GEMINI_MODEL)}:streamGenerateContent?alt=sse`;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+        body: requestBody,
+      });
+      if (response.ok && response.body) return response;
+      await response.body?.cancel().catch(() => {});
+      if (!RETRYABLE.has(response.status)) return null;
+    } catch {
+      // Network error — fall through to the backoff and retry.
+    }
+    await new Promise((resolve) => setTimeout(resolve, 350 * (attempt + 1)));
+  }
+  return null;
+}
 
+/** Stream the text out of an already-open Gemini SSE response. */
+function geminiStreamFrom(response: Response, encoder: TextEncoder): ReadableStream<Uint8Array> {
   let emitted = false;
   return new ReadableStream<Uint8Array>({
     async start(controller) {
       try {
-        const response = await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
-          body: requestBody,
-        });
-        if (!response.ok || !response.body) {
-          controller.enqueue(encoder.encode(REACH_ERROR));
-          controller.close();
-          return;
-        }
-        const reader = response.body.getReader();
+        const reader = response.body!.getReader();
         const decoder = new TextDecoder();
         let buffer = "";
         for (;;) {
