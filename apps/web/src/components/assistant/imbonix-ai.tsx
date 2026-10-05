@@ -6,9 +6,12 @@ import {
   MicrophoneIcon,
   PaperAirplaneIcon,
   PaperClipIcon,
+  PauseIcon,
+  PlayIcon,
   SparklesIcon,
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
+  StopIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
 import { StatusBadge } from "@/components/ui/status-badge";
@@ -91,7 +94,7 @@ function recognitionCtor(): SpeechRecognitionCtor | null {
  * the engine, because Chrome otherwise silently stops long speech after about fifteen seconds. onDone fires when the
  * whole answer has been read (or on error), so the caller can clear the speaking state.
  */
-function speakText(text: string, onDone: () => void) {
+function speakText(text: string, onDone: () => void, isPaused: () => boolean) {
   const synthesis = window.speechSynthesis;
   synthesis.cancel();
   const chunks = (text.match(/[^.!?]+[.!?]*/g) ?? [text]).map((part) => part.trim()).filter(Boolean);
@@ -100,8 +103,9 @@ function speakText(text: string, onDone: () => void) {
     return;
   }
   const keepAlive = window.setInterval(() => {
-    if (synthesis.speaking) synthesis.resume();
-    else window.clearInterval(keepAlive);
+    // Nudge the engine so Chrome does not stall, but never fight a deliberate pause.
+    if (synthesis.speaking && !isPaused()) synthesis.resume();
+    else if (!synthesis.speaking) window.clearInterval(keepAlive);
   }, 9000);
   const finish = () => {
     window.clearInterval(keepAlive);
@@ -139,22 +143,48 @@ function plainFromAnswer(answer: Answer): string {
   return parts.filter(Boolean).join(". ");
 }
 
-/** A small round button to read an answer aloud, or stop reading it. */
-function SpeakButton({ active, onClick }: { active: boolean; onClick: () => void }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={active ? "Stop reading aloud" : "Read this answer aloud"}
-      aria-pressed={active}
-      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted ring-1 ring-line transition-colors hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
-    >
-      {active ? (
-        <SpeakerXMarkIcon className="h-4 w-4" aria-hidden="true" />
-      ) : (
+type Playback = "idle" | "playing" | "paused";
+
+const roundBtn =
+  "flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted ring-1 ring-line transition-colors hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
+
+/** Read-aloud controls for one answer: play when idle; pause/resume and stop while it is being read. */
+function PlaybackControls({
+  state,
+  onPlay,
+  onPauseResume,
+  onStop,
+}: {
+  state: Playback;
+  onPlay: () => void;
+  onPauseResume: () => void;
+  onStop: () => void;
+}) {
+  if (state === "idle") {
+    return (
+      <button type="button" onClick={onPlay} aria-label="Read this answer aloud" className={roundBtn}>
         <SpeakerWaveIcon className="h-4 w-4" aria-hidden="true" />
-      )}
-    </button>
+      </button>
+    );
+  }
+  return (
+    <span className="flex shrink-0 items-center gap-1">
+      <button
+        type="button"
+        onClick={onPauseResume}
+        aria-label={state === "paused" ? "Resume reading" : "Pause reading"}
+        className={`${roundBtn} text-cyan-ink ring-cyan-ink`}
+      >
+        {state === "paused" ? (
+          <PlayIcon className="h-4 w-4" aria-hidden="true" />
+        ) : (
+          <PauseIcon className="h-4 w-4" aria-hidden="true" />
+        )}
+      </button>
+      <button type="button" onClick={onStop} aria-label="Stop reading" className={roundBtn}>
+        <StopIcon className="h-4 w-4" aria-hidden="true" />
+      </button>
+    </span>
   );
 }
 
@@ -212,7 +242,7 @@ function RichText({ text }: { text: string }) {
         const heading = lines.length === 1 ? block.match(/^#{1,3}\s+(.*)$/) : null;
         if (heading) {
           return (
-            <p key={index} className="font-bold text-ink">
+            <p key={index} className="pt-1 text-[11.5px] font-bold uppercase tracking-[0.05em] text-cyan-ink">
               {renderInline(heading[1])}
             </p>
           );
@@ -232,20 +262,24 @@ function RichText({ text }: { text: string }) {
   );
 }
 
-/** A streamed, generative answer with a typing indicator while it arrives, and a read-aloud button once it is done. */
+type SpeakProps = {
+  canSpeak: boolean;
+  playback: Playback;
+  onPlay: () => void;
+  onPauseResume: () => void;
+  onStop: () => void;
+};
+
+/** A streamed, generative answer with a typing indicator while it arrives, and read-aloud controls once it is done. */
 function StreamedCard({
   markdown,
   streaming,
   canSpeak,
-  speaking,
-  onSpeak,
-}: {
-  markdown: string;
-  streaming?: boolean;
-  canSpeak: boolean;
-  speaking: boolean;
-  onSpeak: () => void;
-}) {
+  playback,
+  onPlay,
+  onPauseResume,
+  onStop,
+}: { markdown: string; streaming?: boolean } & SpeakProps) {
   return (
     <div className="rounded-2xl rounded-tl-sm border border-line bg-white p-3.5 shadow-card">
       {markdown ? (
@@ -253,7 +287,9 @@ function StreamedCard({
           <div className="min-w-0 flex-1">
             <RichText text={markdown} />
           </div>
-          {canSpeak && !streaming && <SpeakButton active={speaking} onClick={onSpeak} />}
+          {canSpeak && !streaming && (
+            <PlaybackControls state={playback} onPlay={onPlay} onPauseResume={onPauseResume} onStop={onStop} />
+          )}
         </div>
       ) : (
         <span className="flex gap-1 py-1" aria-label="IMBONIX AI is thinking">
@@ -275,21 +311,17 @@ function AnswerCard({
   answer,
   onAsk,
   canSpeak,
-  speaking,
-  onSpeak,
-}: {
-  answer: Answer;
-  onAsk: (query: string) => void;
-  canSpeak: boolean;
-  speaking: boolean;
-  onSpeak: () => void;
-}) {
+  playback,
+  onPlay,
+  onPauseResume,
+  onStop,
+}: { answer: Answer; onAsk: (query: string) => void } & SpeakProps) {
   const showSuggestions = answer === WELCOME;
   return (
     <div className="rounded-2xl rounded-tl-sm border border-line bg-white p-3.5 shadow-card">
       <div className="flex items-start gap-2">
         <p className="min-w-0 flex-1 text-[14.5px] font-bold leading-5 text-ink">{answer.heading}</p>
-        {canSpeak && <SpeakButton active={speaking} onClick={onSpeak} />}
+        {canSpeak && <PlaybackControls state={playback} onPlay={onPlay} onPauseResume={onPauseResume} onStop={onStop} />}
       </div>
       <p className="mt-1 text-pretty text-[13.5px] leading-6 text-ink/80">{answer.body}</p>
 
@@ -426,6 +458,8 @@ export function ImbonixAI() {
   /** null while unknown, then whether the server has the AI service connected. */
   const [configured, setConfigured] = useState<boolean | null>(null);
   const [speakingId, setSpeakingId] = useState<number | null>(null);
+  const [paused, setPaused] = useState(false);
+  const pausedRef = useRef(false);
   const [canSpeak, setCanSpeak] = useState(false);
   const [canListen, setCanListen] = useState(false);
   const [listening, setListening] = useState(false);
@@ -461,12 +495,50 @@ export function ImbonixAI() {
       .filter((turn): turn is ChatTurn => turn !== null)
       .slice(-MAX_HISTORY_TURNS);
 
-  /** Speak an answer aloud and track it as the one currently being read. */
+  /** Start reading an answer aloud and track it as the one currently playing. */
   const speakAnswer = (id: number, text: string) => {
     if (!canSpeak || !text) return;
+    pausedRef.current = false;
+    setPaused(false);
     setSpeakingId(id);
-    speakText(text, () => setSpeakingId((current) => (current === id ? null : current)));
+    speakText(
+      text,
+      () =>
+        setSpeakingId((current) => {
+          if (current === id) {
+            pausedRef.current = false;
+            setPaused(false);
+            return null;
+          }
+          return current;
+        }),
+      () => pausedRef.current,
+    );
   };
+
+  /** Pause or resume the answer currently being read. */
+  const togglePause = () => {
+    if (pausedRef.current) {
+      pausedRef.current = false;
+      setPaused(false);
+      window.speechSynthesis.resume();
+    } else {
+      pausedRef.current = true;
+      setPaused(true);
+      window.speechSynthesis.pause();
+    }
+  };
+
+  /** Stop reading entirely. */
+  const stopSpeaking = () => {
+    window.speechSynthesis.cancel();
+    pausedRef.current = false;
+    setPaused(false);
+    setSpeakingId(null);
+  };
+
+  /** The playback state for one answer, for its read-aloud controls. */
+  const playbackFor = (id: number): Playback => (speakingId !== id ? "idle" : paused ? "paused" : "playing");
 
   const ask = async (rawText: string, attachment?: Attachment | null, fromVoice = false) => {
     const text = rawText.trim();
@@ -567,17 +639,6 @@ export function ImbonixAI() {
     if (fileRef.current) fileRef.current.value = "";
   };
 
-  const toggleSpeak = (id: number, text: string) => {
-    if (!canSpeak) return;
-    if (speakingId === id) {
-      window.speechSynthesis.cancel();
-      setSpeakingId(null);
-      return;
-    }
-    setSpeakingId(id);
-    speakText(text, () => setSpeakingId((current) => (current === id ? null : current)));
-  };
-
   const toggleListen = () => {
     if (listening) {
       recognitionRef.current?.stop();
@@ -629,6 +690,8 @@ export function ImbonixAI() {
       if (configured === null) void probe();
     } else {
       if (canSpeak) window.speechSynthesis.cancel();
+      pausedRef.current = false;
+      setPaused(false);
       setSpeakingId(null);
       recognitionRef.current?.stop();
     }
@@ -699,6 +762,8 @@ export function ImbonixAI() {
                       setAutoSpeak((value) => {
                         if (value) {
                           window.speechSynthesis.cancel();
+                          pausedRef.current = false;
+                          setPaused(false);
                           setSpeakingId(null);
                         }
                         return !value;
@@ -757,8 +822,10 @@ export function ImbonixAI() {
                       markdown={message.markdown}
                       streaming={message.streaming}
                       canSpeak={canSpeak}
-                      speaking={speakingId === message.id}
-                      onSpeak={() => toggleSpeak(message.id, plainFromMarkdown(message.markdown ?? ""))}
+                      playback={playbackFor(message.id)}
+                      onPlay={() => speakAnswer(message.id, plainFromMarkdown(message.markdown ?? ""))}
+                      onPauseResume={togglePause}
+                      onStop={stopSpeaking}
                     />
                   );
                 }
@@ -768,8 +835,10 @@ export function ImbonixAI() {
                     answer={message.answer!}
                     onAsk={ask}
                     canSpeak={canSpeak}
-                    speaking={speakingId === message.id}
-                    onSpeak={() => toggleSpeak(message.id, plainFromAnswer(message.answer!))}
+                    playback={playbackFor(message.id)}
+                    onPlay={() => speakAnswer(message.id, plainFromAnswer(message.answer!))}
+                    onPauseResume={togglePause}
+                    onStop={stopSpeaking}
                   />
                 );
               })}
