@@ -787,27 +787,37 @@ export function ImbonixAI() {
 
   return (
     <>
-      {/* The launcher, with an infinite circling glow in the brand cyan to draw the eye. */}
+      {/* The launcher: a brand-cyan pill with an assistant avatar and an infinite circling glow to draw the eye. */}
       <div className="fixed bottom-5 right-5 z-[55] sm:bottom-6 sm:right-6 print:hidden">
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -inset-[3px] rounded-full opacity-80 blur-[4px] motion-safe:animate-orbit motion-reduce:hidden"
-          style={{ background: `conic-gradient(from 0deg, transparent, ${BRAND.cyan}, ${BRAND.cyan} 20%, transparent 55%)` }}
-        />
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -inset-[3px] rounded-full motion-safe:animate-halo motion-reduce:hidden"
-          style={{ boxShadow: `0 0 0 2px ${BRAND.cyan}` }}
-        />
+        {!open && (
+          <>
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-[3px] rounded-full opacity-80 blur-[4px] motion-safe:animate-orbit motion-reduce:hidden"
+              style={{ background: `conic-gradient(from 0deg, transparent, ${BRAND.cyan}, ${BRAND.cyan} 20%, transparent 55%)` }}
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-[3px] rounded-full motion-safe:animate-halo motion-reduce:hidden"
+              style={{ boxShadow: `0 0 0 2px ${BRAND.cyan}` }}
+            />
+          </>
+        )}
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
           aria-controls={panelId}
-          className="relative inline-flex h-14 items-center gap-2 rounded-full bg-cyan pl-4 pr-5 font-bold text-ink shadow-lift ring-1 ring-cyan-ink/20 transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
+          className="group relative inline-flex h-14 items-center gap-2.5 rounded-full bg-gradient-to-br from-cyan to-cyan-hover pl-2.5 pr-5 font-bold text-ink shadow-lift ring-1 ring-cyan-ink/20 transition-transform duration-200 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2 active:scale-95"
         >
-          <SparklesIcon className="h-6 w-6 motion-safe:animate-pulse" aria-hidden="true" />
-          <span className="text-[15px]">IMBONIX AI</span>
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/30 ring-1 ring-white/50 transition-colors group-hover:bg-white/45">
+            {open ? (
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            ) : (
+              <SparklesIcon className="h-6 w-6 motion-safe:animate-pulse" aria-hidden="true" />
+            )}
+          </span>
+          <span className="pr-0.5 text-[15px] tracking-[-0.01em]">{open ? "Close" : "IMBONIX AI"}</span>
         </button>
       </div>
 
@@ -819,7 +829,7 @@ export function ImbonixAI() {
             role="dialog"
             aria-label="IMBONIX AI assistant"
             aria-modal="false"
-            className="fixed inset-x-3 bottom-3 top-16 z-[56] flex flex-col overflow-hidden rounded-3xl bg-paper shadow-lift ring-1 ring-line sm:inset-x-auto sm:bottom-24 sm:right-6 sm:top-auto sm:h-[min(620px,78vh)] sm:w-[400px]"
+            className="fixed inset-x-3 bottom-3 top-16 z-[56] flex flex-col overflow-hidden rounded-3xl bg-paper shadow-lift ring-1 ring-line motion-safe:animate-fade-up sm:inset-x-auto sm:bottom-24 sm:right-6 sm:top-auto sm:h-[min(620px,78vh)] sm:w-[400px]"
           >
             <div className="flex items-center justify-between gap-3 border-b border-line bg-white px-4 py-3">
               <div className="flex items-center gap-2.5">
@@ -828,7 +838,10 @@ export function ImbonixAI() {
                 </span>
                 <div>
                   <p className="font-display text-[15px] font-bold leading-4 text-ink">IMBONIX AI</p>
-                  <p className="text-[11.5px] leading-4 text-muted">Answers from NISR data</p>
+                  <p className="mt-0.5 flex items-center gap-1.5 text-[11.5px] leading-4 text-muted">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan motion-safe:animate-pulse" aria-hidden="true" />
+                    Grounded in NISR data
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-1.5">
