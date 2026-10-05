@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { Fragment, type ReactNode, useEffect, useId, useRef, useState } from "react";
 import {
+  CheckIcon,
+  ClipboardDocumentIcon,
   MicrophoneIcon,
   PaperAirplaneIcon,
   PaperClipIcon,
@@ -193,6 +195,33 @@ function PlaybackControls({
 const LINK_STYLE =
   "font-semibold text-cyan-ink underline underline-offset-2 transition-colors hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
 
+/** Copy an answer's text to the clipboard, with a brief confirmation. */
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(text);
+          setCopied(true);
+          window.setTimeout(() => setCopied(false), 1500);
+        } catch {
+          // Clipboard blocked (e.g. insecure context); ignore.
+        }
+      }}
+      aria-label={copied ? "Answer copied" : "Copy this answer"}
+      className={roundBtn}
+    >
+      {copied ? (
+        <CheckIcon className="h-4 w-4 text-cyan-ink" aria-hidden="true" />
+      ) : (
+        <ClipboardDocumentIcon className="h-4 w-4" aria-hidden="true" />
+      )}
+    </button>
+  );
+}
+
 /** Render Markdown links, **bold** and `code` spans inside a line of assistant prose. */
 function renderInline(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
@@ -315,8 +344,11 @@ function StreamedCard({
           <div className="min-w-0 flex-1">
             <RichText text={markdown} />
           </div>
-          {canSpeak && !streaming && (
-            <PlaybackControls state={playback} onPlay={onPlay} onPauseResume={onPauseResume} onStop={onStop} />
+          {!streaming && (
+            <span className="flex shrink-0 items-center gap-1">
+              <CopyButton text={plainFromMarkdown(markdown)} />
+              {canSpeak && <PlaybackControls state={playback} onPlay={onPlay} onPauseResume={onPauseResume} onStop={onStop} />}
+            </span>
           )}
         </div>
       ) : (
@@ -349,7 +381,10 @@ function AnswerCard({
     <div className="rounded-2xl rounded-tl-sm border border-line bg-white p-3.5 shadow-card">
       <div className="flex items-start gap-2">
         <p className="min-w-0 flex-1 text-[14.5px] font-bold leading-5 text-ink">{answer.heading}</p>
-        {canSpeak && <PlaybackControls state={playback} onPlay={onPlay} onPauseResume={onPauseResume} onStop={onStop} />}
+        <span className="flex shrink-0 items-center gap-1">
+          {!showSuggestions && <CopyButton text={plainFromAnswer(answer)} />}
+          {canSpeak && <PlaybackControls state={playback} onPlay={onPlay} onPauseResume={onPauseResume} onStop={onStop} />}
+        </span>
       </div>
       <p className="mt-1 text-pretty text-[13.5px] leading-6 text-ink/80">{answer.body}</p>
 
@@ -620,11 +655,15 @@ export function ImbonixAI() {
         return;
       }
       if (!response.ok || !response.body) {
-        const message =
-          response.status === 429
-            ? "I'm getting a lot of questions right now. Please try again in a moment."
-            : "Sorry, something went wrong. Please try again.";
-        update({ streaming: false, markdown: message });
+        if (response.status === 429) {
+          update({ streaming: false, markdown: "I'm getting a lot of questions right now. Please try again in a moment." });
+        } else if (text) {
+          // The model was briefly unavailable (e.g. busy). Answer from the on-device engine so the person still
+          // gets a grounded reply instead of an error.
+          update({ streaming: false, markdown: undefined, answer: answerQuery(text) });
+        } else {
+          update({ streaming: false, markdown: "The AI service was briefly unavailable. Please ask again." });
+        }
         return;
       }
 
