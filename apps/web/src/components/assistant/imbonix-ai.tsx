@@ -67,6 +67,7 @@ type RecognitionAlternative = { transcript: string };
 type RecognitionResult = { isFinal: boolean; 0: RecognitionAlternative };
 type RecognitionResultList = { readonly length: number; [index: number]: RecognitionResult };
 type RecognitionEvent = { results: RecognitionResultList };
+type RecognitionErrorEvent = { error?: string };
 interface SpeechRecognitionLike {
   lang: string;
   interimResults: boolean;
@@ -76,7 +77,7 @@ interface SpeechRecognitionLike {
   abort(): void;
   onresult: ((event: RecognitionEvent) => void) | null;
   onend: (() => void) | null;
-  onerror: (() => void) | null;
+  onerror: ((event: RecognitionErrorEvent) => void) | null;
 }
 type SpeechRecognitionCtor = new () => SpeechRecognitionLike;
 
@@ -126,6 +127,7 @@ function speakText(text: string, onDone: () => void, isPaused: () => boolean) {
 /** Flatten a streamed markdown answer to plain words for reading aloud. */
 function plainFromMarkdown(text: string): string {
   return text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/`([^`]+)`/g, "$1")
     .replace(/\*\*([^*]+)\*\*/g, "$1")
     .replace(/^#{1,3}\s+/gm, "")
@@ -188,23 +190,49 @@ function PlaybackControls({
   );
 }
 
-/** Render **bold** and `code` spans inside a line of assistant prose. */
+const LINK_STYLE =
+  "font-semibold text-cyan-ink underline underline-offset-2 transition-colors hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
+
+/** Render Markdown links, **bold** and `code` spans inside a line of assistant prose. */
 function renderInline(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
-  const pattern = /(\*\*[^*]+\*\*|`[^`]+`)/g;
+  const pattern = /(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|`[^`]+`)/g;
   let last = 0;
   let key = 0;
   let match: RegExpExecArray | null;
   while ((match = pattern.exec(text)) !== null) {
     if (match.index > last) nodes.push(text.slice(last, match.index));
     const token = match[0];
-    if (token.startsWith("**")) nodes.push(<strong key={key++}>{token.slice(2, -2)}</strong>);
-    else
+    if (token.startsWith("[")) {
+      const link = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(token);
+      if (link && link[2].startsWith("/")) {
+        nodes.push(
+          <Link key={key++} href={link[2]} className={LINK_STYLE}>
+            {link[1]}
+          </Link>,
+        );
+      } else if (link && /^https?:\/\//.test(link[2])) {
+        nodes.push(
+          <a key={key++} href={link[2]} target="_blank" rel="noreferrer" className={LINK_STYLE}>
+            {link[1]}
+          </a>,
+        );
+      } else {
+        nodes.push(link ? link[1] : token);
+      }
+    } else if (token.startsWith("**")) {
+      nodes.push(
+        <strong key={key++} className="font-bold text-ink">
+          {token.slice(2, -2)}
+        </strong>,
+      );
+    } else {
       nodes.push(
         <code key={key++} className="rounded bg-paper px-1 py-0.5 text-[12px] text-cyan-ink">
           {token.slice(1, -1)}
         </code>,
       );
+    }
     last = match.index + token.length;
   }
   if (last < text.length) nodes.push(text.slice(last));
@@ -661,9 +689,19 @@ export function ImbonixAI() {
       }
       setQuery(text);
     };
-    recognition.onerror = () => {
+    recognition.onerror = (event) => {
       setListening(false);
       recognitionRef.current = null;
+      const code = event.error;
+      if (code === "not-allowed" || code === "service-not-allowed") {
+        setNotice("Microphone blocked. Allow the microphone for this site in your browser, then tap the mic again.");
+      } else if (code === "no-speech") {
+        setNotice("I didn't catch that — tap the mic and speak again.");
+      } else if (code === "audio-capture") {
+        setNotice("No microphone found. Check your mic, then try again.");
+      } else if (code === "network") {
+        setNotice("Voice needs a connection right now — please try again in a moment.");
+      }
     };
     recognition.onend = () => {
       setListening(false);
