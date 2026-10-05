@@ -49,9 +49,9 @@ const WELCOME: Answer = {
 const NOT_CONNECTED: Answer = {
   heading: "File reading needs the AI service",
   body:
-    "I can read pictures and documents once this site's AI service is connected (an ANTHROPIC_API_KEY on the server). " +
-    "Until then I can still answer questions about any district, measure or the national picture straight from NISR's " +
-    "figures — ask away.",
+    "I can read pictures and documents once this site's AI service is connected (a free Gemini or an Anthropic key on " +
+    "the server). Until then I can still answer questions about any district, measure or the national picture straight " +
+    "from NISR's figures — ask away.",
   links: [
     { href: "/data/key-figures", label: "Rwanda in figures" },
     { href: "/data/catalog", label: "The data behind this" },
