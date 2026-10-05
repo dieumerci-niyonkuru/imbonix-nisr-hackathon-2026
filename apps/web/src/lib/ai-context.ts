@@ -13,6 +13,7 @@ import {
 import { EICV7_PROFILE_SOURCE, LIVING_STANDARDS_BY_YEAR, POVERTY_RATE_BY_YEAR } from "@/lib/eicv7-poverty-profile";
 import { NATIONAL_FRAMEWORKS, TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
 import { SITE_FACTS } from "@/lib/site-facts";
+import { sectorsOf } from "@/lib/sectors";
 
 /**
  * The knowledge IMBONIX AI is grounded in. Everything here comes from the same published NISR figures the rest of the
@@ -79,6 +80,30 @@ function buildNationalFindings(): string {
   ].join("\n");
 }
 
+/** The place hierarchy, so the assistant can answer about a sector, cell or village, not only a district. */
+function buildGeography(): string {
+  const lines = DISTRICTS.map((district) => {
+    const sectors = sectorsOf(district.name);
+    if (sectors.length === 0) return `- ${district.name} (${PROVINCE_LABEL[district.province]}): sectors not listed`;
+    const list = sectors
+      .map((sector) =>
+        sector.povertySae !== null && sector.povertySae !== undefined
+          ? `${sector.sector} ${Math.round(sector.povertySae)}%`
+          : sector.sector,
+      )
+      .join(", ");
+    return `- ${district.name} (${PROVINCE_LABEL[district.province]}): ${list}`;
+  });
+  return [
+    "## Geography: provinces, districts, sectors, cells, villages",
+    "Rwanda is divided into 5 provinces plus the City of Kigali, then 30 districts, then 416 sectors, then cells, then villages.",
+    "Where figures exist: NISR publishes national and district figures (from the surveys and the census). The site also shows a NISR sector-level poverty rate — a small-area-estimate model, so compare sectors WITHIN a district, never across the country, and always flag it as a model estimate. Cells and villages have no separately published figures of their own, so they take the figures of the sector they sit in; the site lets people search down to every cell and village.",
+    "Answering a place question: for a SECTOR, name the district it is in, give its poverty estimate from the list below (as a model estimate) together with the district's figures, and link the district map and the district profile. For a CELL or a VILLAGE, say which district and sector it belongs to if you can tell, give that sector/district figure, and point to the place search on the district pages; if you cannot identify it, ask which district it is in.",
+    "Sectors in each district, with each sector's poverty rate (small-area estimate, %, a model — compare only within the district):",
+    lines.join("\n"),
+  ].join("\n");
+}
+
 function buildDataDigest(): string {
   const sections: string[] = [];
   sections.push(
@@ -92,6 +117,8 @@ function buildDataDigest(): string {
     const block = indicatorBlock(dimension);
     if (block) sections.push(block);
   }
+
+  sections.push(buildGeography());
 
   const catalogLines = CATALOG_STUDIES.sort((first, second) => second.year - first.year).map(
     (study) => `- ${study.year} — ${study.title} — ${study.producer} — ${study.access}${study.used ? " [used by IMBONIX]" : ""}`,
@@ -112,7 +139,8 @@ const INSTRUCTIONS = `You are IMBONIX AI, the assistant on IMBONIX — an indepe
 HOW YOU ANSWER
 - Be fast and tight. Keep a normal answer under about 90 words. Structure it the same way every time: one short sentence that answers directly with the key figure in **bold**; then, only if useful, 2 to 4 short bullet points each starting with a **bold figure**; then one short next-step line (for example, "Open the Rulindo profile" or "See it on the district map"). Do not pad, do not repeat the question, do not add headings for a short answer.
 - Use richer structure (a few "## " sub-headings and more bullets) only when the person asks for detail or when you are analysing an attached document; even then, stay scannable.
-- Write in plain English a busy decision-maker reads in seconds. Lead with the answer, then the context.
+- Write in plain English a busy decision-maker reads in seconds. Lead with the answer, then the context. Sound like a calm, professional analyst, and define any term you use in a few plain words so anyone understands.
+- Always write a page you point to as a clickable Markdown link, never a bare path — for example [the district map](/poverty-dynamics/district-map), [Rulindo's profile](/districts/rulindo), [Rwanda in figures](/data/key-figures) or [the data catalogue](/data/catalog). Real paths: /districts/<name>, /poverty-dynamics/district-map, /poverty-dynamics/overlapping-needs, /financial-exclusion, /financial-exclusion/access-and-use, /social-protection, /social-protection/priority-districts, /social-protection/intervention-planner, /data/key-figures, /data/catalog.
 - When you give a figure, name where it comes from — the survey or census and the year — using the DATA below. Flag anything that is a projection, a model estimate or an IMBONIX calculation rather than an official NISR estimate.
 
 WHAT YOU ARE FOR (stay on topic)
