@@ -2,6 +2,17 @@ import { DISTRICTS, PROVINCE_LABEL, SOURCES, valueOf } from "@/lib/data";
 import { formatValue, STATUS_LABEL } from "@/lib/format";
 import { DIMENSIONS, INDICATORS, type Dimension } from "@/lib/indicators";
 import { CATALOG_STUDIES, CATALOG_THEMES, CATALOG_USED, CATALOG_YEARS } from "@/lib/catalog";
+import {
+  EXCLUDED_ADULTS,
+  FINANCIAL_HEALTH_SEGMENTS,
+  FINSCOPE_2024_SOURCE,
+  INCLUDED_ADULTS_MILLIONS,
+  INCLUSION_BY_ROUND,
+  MOBILE_MONEY_BY_ROUND,
+} from "@/lib/finscope-2024";
+import { EICV7_PROFILE_SOURCE, LIVING_STANDARDS_BY_YEAR, POVERTY_RATE_BY_YEAR } from "@/lib/eicv7-poverty-profile";
+import { NATIONAL_FRAMEWORKS, TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
+import { SITE_FACTS } from "@/lib/site-facts";
 
 /**
  * The knowledge IMBONIX AI is grounded in. Everything here comes from the same published NISR figures the rest of the
@@ -42,12 +53,39 @@ function indicatorBlock(dimension: Dimension): string | null {
   return `## ${info.label} — ${info.question}\n${lines.join("\n")}`;
 }
 
+/** The headline national story, so the assistant can answer the most-asked questions without a district named. */
+function buildNationalFindings(): string {
+  const [poverty2017, poverty2024] = POVERTY_RATE_BY_YEAR;
+  const inclusion = INCLUSION_BY_ROUND.map((row) => `${row.measure} ${row.in2024}% in 2024 (${row.in2020}% in 2020)`).join("; ");
+  const health = FINANCIAL_HEALTH_SEGMENTS.map((segment) => `${segment.segment} ${segment.share}%`).join(", ");
+  const mobile = MOBILE_MONEY_BY_ROUND.map((row) => `${row.measure} ${row.in2024}% (${row.in2020}% in 2020)`).join("; ");
+  const living = LIVING_STANDARDS_BY_YEAR.map((row) => `${row.measure} ${row.in2017}%→${row.in2024}%`).join("; ");
+  const targets = TARGET_PROGRESS.map((row) => `${row.measure} ${row.baseline}% now, target ${row.target}% by ${row.by}`).join(
+    "; ",
+  );
+  return [
+    "## National figures and the headline story",
+    `National priorities: this work serves ${NATIONAL_FRAMEWORKS.join(", ")}. Tracked targets (${TARGETS_SOURCE}): ${targets}.`,
+    `Financial inclusion (${FINSCOPE_2024_SOURCE}, about ${INCLUDED_ADULTS_MILLIONS} million adults): ${inclusion}. ` +
+      `Excluded adults use no financial service at all — about ${EXCLUDED_ADULTS.toLocaleString("en-US")} people. ` +
+      `The story is that access is almost universal but financial health is not: adults by financial health are ${health} ` +
+      "(being financially healthy means managing day-to-day money, saving, and coping with a shock — not just holding an account).",
+    `Mobile money (${FINSCOPE_2024_SOURCE}): ${mobile}.`,
+    `Poverty (${EICV7_PROFILE_SOURCE}): the poverty rate fell from ${poverty2017.povertyRate}% in ${poverty2017.year} to ${poverty2024.povertyRate}% in ${poverty2024.year}. ` +
+      `Living conditions (2016/17→2023/24): ${living}.`,
+    `Scale IMBONIX covers: ${SITE_FACTS.districts} districts and ${SITE_FACTS.sectors} sectors, ${SITE_FACTS.indicators} district ` +
+      `indicators from ${SITE_FACTS.publications} NISR and partner publications (${SITE_FACTS.calculated} are labelled IMBONIX calculations), ` +
+      `plus a searchable catalogue of the full microdata library and a place search down to cells and villages.`,
+  ].join("\n");
+}
+
 function buildDataDigest(): string {
   const sections: string[] = [];
   sections.push(
     `Rwanda has 30 districts in 5 provinces: ${Object.values(PROVINCE_LABEL).join(", ")}. ` +
       `The districts are: ${DISTRICTS.map((district) => `${district.name} (${PROVINCE_LABEL[district.province]})`).join("; ")}.`,
   );
+  sections.push(buildNationalFindings());
 
   const order: Dimension[] = ["poverty", "finance", "nutrition", "shocks", "work", "digital", "health", "people"];
   for (const dimension of order) {
