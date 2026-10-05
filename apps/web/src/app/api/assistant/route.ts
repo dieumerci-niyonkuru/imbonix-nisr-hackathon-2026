@@ -1,5 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { SYSTEM_PROMPT } from "@/lib/ai-context";
+import { resolvePlaces } from "@/lib/ai-places";
 
 /**
  * IMBONIX AI's generative layer. The browser talks only to this same-origin route; the route talks to the model with a
@@ -96,6 +97,15 @@ export async function POST(request: Request) {
   if (turns.length === 0) {
     if (!attachment) return Response.json({ error: "Nothing to answer." }, { status: 400 });
     turns.push({ role: "user", text: "Please look at this file and tell me everything useful you can from it." });
+  }
+
+  // If the question names a sector, cell or village, add its sector and district so the model can answer about it.
+  const lastUser = [...turns].reverse().find((turn) => turn.role === "user");
+  if (lastUser) {
+    const placeNote = resolvePlaces(lastUser.text);
+    if (placeNote) {
+      lastUser.text += `\n\n[Place context — ${placeNote}. NISR publishes figures down to sector level, so for a cell or village use its sector's or district's figure, and name the sector and district.]`;
+    }
   }
 
   const encoder = new TextEncoder();
