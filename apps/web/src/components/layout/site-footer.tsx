@@ -1,25 +1,39 @@
 import Link from "next/link";
-import type { ComponentType, SVGProps } from "react";
+import type { ComponentType, CSSProperties, SVGProps } from "react";
 import { ArrowUpIcon, CircleStackIcon, CodeBracketIcon, FlagIcon } from "@heroicons/react/24/solid";
 import { StackedBrandLogo } from "@/components/layout/logo";
-import { FacebookIcon, InstagramIcon, LinkedInIcon, XIcon } from "@/components/layout/social-icons";
+import { FacebookIcon, InstagramGradientIcon, LinkedInIcon, XIcon } from "@/components/layout/social-icons";
 import { DATA_SECTION, NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
+import { SOCIAL_BRAND } from "@/lib/palette";
 
 type FooterLink = { href: string; label: string; external?: boolean };
 type FooterColumn = { heading: string; links: FooterLink[] };
 type IconLink = { href: string; label: string; icon: ComponentType<SVGProps<SVGSVGElement>>; external: boolean };
+/** A social link, shown in the platform's own official colour. */
+type SocialLink = { href: string; label: string; icon: ComponentType<SVGProps<SVGSVGElement>>; brand: string };
 
 const DATA_ISSUE_URL = `${REPOSITORY_URL}/issues/new?template=data_issue.md`;
 
 /**
- * IMBONIX's official social accounts. These are PLACEHOLDER handles: set each `href` to the real account before
+ * IMBONIX's official social accounts, each shown in that platform's own brand colour (X black, LinkedIn and Facebook
+ * their blues, Instagram its gradient). These are PLACEHOLDER handles: set each `href` to the real account before
  * launch, or remove the platforms that do not apply. Brand marks live in social-icons.tsx.
  */
-const SOCIAL_LINKS: IconLink[] = [
-  { href: "https://x.com/imbonix", label: "IMBONIX on X", icon: XIcon, external: true },
-  { href: "https://www.linkedin.com/company/imbonix", label: "IMBONIX on LinkedIn", icon: LinkedInIcon, external: true },
-  { href: "https://www.facebook.com/imbonix", label: "IMBONIX on Facebook", icon: FacebookIcon, external: true },
-  { href: "https://www.instagram.com/imbonix", label: "IMBONIX on Instagram", icon: InstagramIcon, external: true },
+const SOCIAL_LINKS: SocialLink[] = [
+  { href: "https://x.com/imbonix", label: "IMBONIX on X", icon: XIcon, brand: SOCIAL_BRAND.x },
+  {
+    href: "https://www.linkedin.com/company/imbonix",
+    label: "IMBONIX on LinkedIn",
+    icon: LinkedInIcon,
+    brand: SOCIAL_BRAND.linkedin,
+  },
+  { href: "https://www.facebook.com/imbonix", label: "IMBONIX on Facebook", icon: FacebookIcon, brand: SOCIAL_BRAND.facebook },
+  {
+    href: "https://www.instagram.com/imbonix",
+    label: "IMBONIX on Instagram",
+    icon: InstagramGradientIcon,
+    brand: SOCIAL_BRAND.instagram,
+  },
 ];
 
 /** One column per focus area, each opening with its overview, then the data and the project links. */
@@ -68,7 +82,25 @@ function FooterAnchor({ link }: { link: FooterLink }) {
   );
 }
 
-/** A round icon button for a social or utility link: a hairline ring, filling cyan on hover. */
+/** A round social button that shows the platform's mark in its own official colour, with a branded ring on hover. */
+function BrandIconButton({ link }: { link: SocialLink }) {
+  const Icon = link.icon;
+  return (
+    <a
+      href={link.href}
+      title={link.label}
+      target="_blank"
+      rel="noreferrer"
+      style={{ color: link.brand, ["--brand"]: link.brand } as CSSProperties}
+      className="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-line transition-[background-color,box-shadow] hover:bg-paper hover:ring-2 hover:ring-[color:var(--brand)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--brand)]"
+    >
+      <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
+      <span className="sr-only">{link.label} (opens in a new tab)</span>
+    </a>
+  );
+}
+
+/** A round icon button for a utility link: a hairline ring, filling cyan on hover. */
 function IconButton({ link }: { link: IconLink }) {
   return (
     <a
@@ -131,7 +163,7 @@ export function SiteFooter() {
           <ul className="flex flex-wrap items-center justify-center gap-2 md:order-3 md:justify-end">
             {SOCIAL_LINKS.map((link) => (
               <li key={link.label}>
-                <IconButton link={link} />
+                <BrandIconButton link={link} />
               </li>
             ))}
             <li aria-hidden="true" className="mx-0.5 h-6 w-px bg-line" />
