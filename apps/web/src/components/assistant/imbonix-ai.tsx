@@ -86,15 +86,37 @@ function recognitionCtor(): SpeechRecognitionCtor | null {
   return scope.SpeechRecognition ?? scope.webkitSpeechRecognition ?? null;
 }
 
+/**
+ * Read text aloud, robustly. The text is split into sentence-sized utterances and queued, and a keep-alive timer nudges
+ * the engine, because Chrome otherwise silently stops long speech after about fifteen seconds. onDone fires when the
+ * whole answer has been read (or on error), so the caller can clear the speaking state.
+ */
 function speakText(text: string, onDone: () => void) {
   const synthesis = window.speechSynthesis;
   synthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  utterance.rate = 1;
-  utterance.onend = onDone;
-  utterance.onerror = onDone;
-  synthesis.speak(utterance);
+  const chunks = (text.match(/[^.!?]+[.!?]*/g) ?? [text]).map((part) => part.trim()).filter(Boolean);
+  if (chunks.length === 0) {
+    onDone();
+    return;
+  }
+  const keepAlive = window.setInterval(() => {
+    if (synthesis.speaking) synthesis.resume();
+    else window.clearInterval(keepAlive);
+  }, 9000);
+  const finish = () => {
+    window.clearInterval(keepAlive);
+    onDone();
+  };
+  chunks.forEach((chunk, index) => {
+    const utterance = new SpeechSynthesisUtterance(chunk);
+    utterance.lang = "en-US";
+    utterance.rate = 1;
+    if (index === chunks.length - 1) {
+      utterance.onend = finish;
+      utterance.onerror = finish;
+    }
+    synthesis.speak(utterance);
+  });
 }
 
 /** Flatten a streamed markdown answer to plain words for reading aloud. */
@@ -407,6 +429,8 @@ export function ImbonixAI() {
   const [canSpeak, setCanSpeak] = useState(false);
   const [canListen, setCanListen] = useState(false);
   const [listening, setListening] = useState(false);
+  /** When on, every answer is read aloud; a voice question is always read aloud regardless. */
+  const [autoSpeak, setAutoSpeak] = useState(false);
   const nextId = useRef(1);
   const inputRef = useRef<HTMLInputElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -437,9 +461,17 @@ export function ImbonixAI() {
       .filter((turn): turn is ChatTurn => turn !== null)
       .slice(-MAX_HISTORY_TURNS);
 
-  const ask = async (rawText: string, attachment?: Attachment | null) => {
+  /** Speak an answer aloud and track it as the one currently being read. */
+  const speakAnswer = (id: number, text: string) => {
+    if (!canSpeak || !text) return;
+    setSpeakingId(id);
+    speakText(text, () => setSpeakingId((current) => (current === id ? null : current)));
+  };
+
+  const ask = async (rawText: string, attachment?: Attachment | null, fromVoice = false) => {
     const text = rawText.trim();
     if ((!text && !attachment) || busy) return;
+    const readAloud = (fromVoice || autoSpeak) && canSpeak;
     setNotice(null);
 
     const priorHistory = historyFrom(messages);
@@ -454,14 +486,18 @@ export function ImbonixAI() {
     const live = configured ?? (await probe());
 
     if (!live) {
-      setMessages((current) => {
-        const next = [...current];
-        if (attachment) next.push({ id: nextId.current++, role: "ai", answer: NOT_CONNECTED });
-        if (text) next.push({ id: nextId.current++, role: "ai", answer: answerQuery(text) });
-        else if (!attachment) next.push({ id: nextId.current++, role: "ai", answer: answerQuery("") });
-        return next;
-      });
+      const extra: Message[] = [];
+      let spoken: { id: number; text: string } | null = null;
+      if (attachment) extra.push({ id: nextId.current++, role: "ai", answer: NOT_CONNECTED });
+      if (text || !attachment) {
+        const answer = answerQuery(text);
+        const id = nextId.current++;
+        extra.push({ id, role: "ai", answer });
+        spoken = { id, text: plainFromAnswer(answer) };
+      }
+      setMessages((current) => [...current, ...extra]);
       setBusy(false);
+      if (readAloud && spoken) speakAnswer(spoken.id, spoken.text);
       return;
     }
 
@@ -501,7 +537,9 @@ export function ImbonixAI() {
         accumulated += decoder.decode(value, { stream: true });
         update({ markdown: accumulated });
       }
-      update({ markdown: accumulated || "I don't have anything to add there.", streaming: false });
+      const finalText = accumulated || "I don't have anything to add there.";
+      update({ markdown: finalText, streaming: false });
+      if (readAloud) speakAnswer(aiId, plainFromMarkdown(finalText));
     } catch {
       setMessages((current) =>
         current.map((message) =>
@@ -570,7 +608,7 @@ export function ImbonixAI() {
       setListening(false);
       recognitionRef.current = null;
       const spoken = finalText.trim();
-      if (spoken) void ask(spoken, pending);
+      if (spoken) void ask(spoken, pending, true);
     };
     recognitionRef.current = recognition;
     setListening(true);
@@ -653,14 +691,44 @@ export function ImbonixAI() {
                   <p className="text-[11.5px] leading-4 text-muted">Answers from NISR data</p>
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                aria-label="Close the assistant"
-                className="flex h-9 w-9 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
-              >
-                <XMarkIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
+              <div className="flex items-center gap-1.5">
+                {canSpeak && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAutoSpeak((value) => {
+                        if (value) {
+                          window.speechSynthesis.cancel();
+                          setSpeakingId(null);
+                        }
+                        return !value;
+                      });
+                    }}
+                    aria-pressed={autoSpeak}
+                    aria-label={autoSpeak ? "Turn off reading answers aloud" : "Read every answer aloud"}
+                    title={autoSpeak ? "Reading answers aloud: on" : "Read answers aloud"}
+                    className={
+                      autoSpeak
+                        ? "flex h-9 w-9 items-center justify-center rounded-full bg-cyan text-ink ring-1 ring-cyan transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                        : "flex h-9 w-9 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                    }
+                  >
+                    {autoSpeak ? (
+                      <SpeakerWaveIcon className="h-5 w-5" aria-hidden="true" />
+                    ) : (
+                      <SpeakerXMarkIcon className="h-5 w-5" aria-hidden="true" />
+                    )}
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="Close the assistant"
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                >
+                  <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+                </button>
+              </div>
             </div>
 
             <div ref={logRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3.5">
