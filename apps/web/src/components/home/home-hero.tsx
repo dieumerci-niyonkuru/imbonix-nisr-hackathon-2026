@@ -22,7 +22,16 @@ export function HomeHero({
 }) {
   return (
     <section aria-labelledby="home-heading">
-      <div className="relative overflow-hidden bg-cyan text-ink">
+      <div className="relative overflow-hidden bg-gradient-to-br from-cyan to-cyan-hover text-ink">
+        {/* A faint dot texture, evoking the data behind IMBONIX, over the brand-cyan banner. */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-70"
+          style={{
+            backgroundImage: "radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1.5px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
         {/* Wide screens show the emblem beside the headline instead of the map behind it. */}
         <div className="xl:hidden">
           <DistrictBackdrop />
