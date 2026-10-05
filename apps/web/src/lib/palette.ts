@@ -19,6 +19,20 @@ export const BRAND = {
   cyan: "#02A5DC",
 } as const;
 
+/**
+ * Social platforms' own official brand colours, used only for the social links in the footer. These sit outside the
+ * IMBONIX cyan-and-white palette on purpose: a brand mark has to appear in its owner's colour. Instagram's mark uses
+ * its official gradient, so its stops are listed in order from one corner to the other.
+ */
+export const SOCIAL_BRAND = {
+  x: "#000000",
+  linkedin: "#0A66C2",
+  facebook: "#1877F2",
+  instagram: "#D62976",
+} as const;
+
+export const INSTAGRAM_GRADIENT = ["#FEDA75", "#FA7E1E", "#D62976", "#962FBF", "#4F5BD5"] as const;
+
 /** Text and surfaces: near black text, white pages and pale cyan tints. */
 export const INK = "#1A1F21";
 export const MUTED = "#5D6569";
