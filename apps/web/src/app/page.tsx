@@ -10,6 +10,7 @@ import { NationalPriorities } from "@/components/home/national-priorities";
 import { PlaceSection } from "@/components/home/place-section";
 import { NISR_CATALOG_URL, SOURCE_STUDIES } from "@/components/layout/nav";
 import { ReadMoreSection } from "@/components/ui/read-more";
+import { Reveal } from "@/components/ui/reveal";
 import { STATUS_DESCRIPTION } from "@/components/ui/status-badge";
 import { DISTRICTS, PROVINCE_LABEL } from "@/lib/data";
 import { POVERTY_RATE_BY_YEAR } from "@/lib/eicv7-poverty-profile";
@@ -301,51 +302,65 @@ export default function Home() {
     <>
       <HomeHero cards={heroCards} districtCount={SITE_FACTS.districts} sectorCount={SITE_FACTS.sectors} />
 
-      <FigureTiles
-        id="figures-heading"
-        eyebrow="What the NISR data shows"
-        title="Included, but not yet financially healthy"
-        intro="Six published figures frame the challenge: access to finance is almost universal, but financial health, banking and timely social protection payments lag far behind."
-        tiles={figureTiles}
-      />
+      <Reveal>
+        <FigureTiles
+          id="figures-heading"
+          eyebrow="What the NISR data shows"
+          title="Included, but not yet financially healthy"
+          intro="Six published figures frame the challenge: access to finance is almost universal, but financial health, banking and timely social protection payments lag far behind."
+          tiles={figureTiles}
+        />
+      </Reveal>
 
-      <FeaturedInsight
-        title={`${gap} points separate using a financial service from being financially healthy`}
-        body={`Almost every adult in Rwanda now uses some financial service, formal or informal. Yet only ${healthyShare}% are financially healthy as FinScope 2024 measures it, and ${bankedRow.in2024}% are banked, the same share as in 2020. The question is no longer only who has access, but who can use finance to manage, save and cope with a shock.`}
-        howToRead="Each bar is a separate FinScope measure of adults in 2024. The dashed band on the last bar is the gap between using a financial service and being financially healthy."
-        href="/financial-exclusion"
-        linkLabel="Read the evidence on financial inclusion"
-        chart={
-          <GapChart
-            title="Access is high. Financial health is not."
-            note="Share of adults aged 16 and over, 2024. Each bar is a separate FinScope measure, so an adult can count in several."
-            rows={gapRows}
-            takeaway={`Financial health means being able to manage daily money, save for the future and cope with a shock, not just holding an account. Only ${healthyShare}% of adults reach it.`}
-            source={`${FINSCOPE_2024_SOURCE}; financial health from section 5.2`}
-          />
-        }
-      />
+      <Reveal>
+        <FeaturedInsight
+          title={`${gap} points separate using a financial service from being financially healthy`}
+          body={`Almost every adult in Rwanda now uses some financial service, formal or informal. Yet only ${healthyShare}% are financially healthy as FinScope 2024 measures it, and ${bankedRow.in2024}% are banked, the same share as in 2020. The question is no longer only who has access, but who can use finance to manage, save and cope with a shock.`}
+          howToRead="Each bar is a separate FinScope measure of adults in 2024. The dashed band on the last bar is the gap between using a financial service and being financially healthy."
+          href="/financial-exclusion"
+          linkLabel="Read the evidence on financial inclusion"
+          chart={
+            <GapChart
+              title="Access is high. Financial health is not."
+              note="Share of adults aged 16 and over, 2024. Each bar is a separate FinScope measure, so an adult can count in several."
+              rows={gapRows}
+              takeaway={`Financial health means being able to manage daily money, save for the future and cope with a shock, not just holding an account. Only ${healthyShare}% of adults reach it.`}
+              source={`${FINSCOPE_2024_SOURCE}; financial health from section 5.2`}
+            />
+          }
+        />
+      </Reveal>
 
-      <PlatformApproach />
+      <Reveal>
+        <PlatformApproach />
+      </Reveal>
 
-      <NationalPriorities />
+      <Reveal>
+        <NationalPriorities />
+      </Reveal>
 
-      <ChallengeSection parts={focusCards} />
+      <Reveal>
+        <ChallengeSection parts={focusCards} />
+      </Reveal>
 
-      <ChallengeStatement requirements={requirements} />
+      <Reveal>
+        <ChallengeStatement requirements={requirements} />
+      </Reveal>
 
-      <PlaceSection
-        units={[
-          { value: 5, label: "Provinces and the City of Kigali" },
-          { value: SITE_FACTS.districts, label: "Districts" },
-          { value: SITE_FACTS.sectors, label: "Sectors" },
-          { value: SITE_FACTS.cells, label: "Cells" },
-          { value: SITE_FACTS.villages, label: "Villages" },
-          { value: SITE_FACTS.indicators, label: "District indicators" },
-        ]}
-        districts={finderDistricts}
-        counts={{ sectors: SITE_FACTS.sectors, cells: SITE_FACTS.cells, villages: SITE_FACTS.villages }}
-      />
+      <Reveal>
+        <PlaceSection
+          units={[
+            { value: 5, label: "Provinces and the City of Kigali" },
+            { value: SITE_FACTS.districts, label: "Districts" },
+            { value: SITE_FACTS.sectors, label: "Sectors" },
+            { value: SITE_FACTS.cells, label: "Cells" },
+            { value: SITE_FACTS.villages, label: "Villages" },
+            { value: SITE_FACTS.indicators, label: "District indicators" },
+          ]}
+          districts={finderDistricts}
+          counts={{ sectors: SITE_FACTS.sectors, cells: SITE_FACTS.cells, villages: SITE_FACTS.villages }}
+        />
+      </Reveal>
     </>
   );
 }
