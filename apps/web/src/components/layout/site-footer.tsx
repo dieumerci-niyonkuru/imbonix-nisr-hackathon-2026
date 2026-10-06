@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { ComponentType, CSSProperties, SVGProps } from "react";
-import { ArrowUpIcon, CircleStackIcon, CodeBracketIcon, FlagIcon } from "@heroicons/react/24/solid";
+import { ArrowUpIcon } from "@heroicons/react/24/solid";
 import { StackedBrandLogo } from "@/components/layout/logo";
 import { FacebookIcon, InstagramGradientIcon, LinkedInIcon, XIcon } from "@/components/layout/social-icons";
-import { DATA_SECTION, NAV_GROUPS, NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
+import { DATA_SECTION, NAV_GROUPS, REPOSITORY_URL } from "@/components/layout/nav";
 import { SOCIAL_BRAND } from "@/lib/palette";
 
 type FooterLink = { href: string; label: string; external?: boolean };
@@ -55,13 +55,8 @@ const COLUMNS: FooterColumn[] = [
   },
 ];
 
-/** The icon row in the bottom right, where a university footer puts its social links. */
-const ICON_LINKS: IconLink[] = [
-  { href: REPOSITORY_URL, label: "Source code", icon: CodeBracketIcon, external: true },
-  { href: NISR_CATALOG_URL, label: "NISR microdata catalog", icon: CircleStackIcon, external: true },
-  { href: DATA_ISSUE_URL, label: "Report a data issue", icon: FlagIcon, external: true },
-  { href: "#main", label: "Back to top", icon: ArrowUpIcon, external: false },
-];
+/** The utility icon beside the social links: just back to top (the project links live in the columns above). */
+const ICON_LINKS: IconLink[] = [{ href: "#main", label: "Back to top", icon: ArrowUpIcon, external: false }];
 
 const LINK_STYLE =
   "rounded text-[15px] leading-7 text-ink transition-colors hover:underline hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink sm:text-[17px]";
