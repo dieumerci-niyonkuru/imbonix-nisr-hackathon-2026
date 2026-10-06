@@ -45,17 +45,23 @@ export function StackedBrandLogo({ className }: { className?: string }) {
 export function BrandLogo({
   size = "md",
   showTagline = true,
+  onDark = false,
   className,
 }: {
   size?: keyof typeof SIZES;
   showTagline?: boolean;
+  /** Use the light-on-dark wordmark and tagline (and the disc emblem) so the logo reads over a photo. */
+  onDark?: boolean;
   className?: string;
 }) {
   const s = SIZES[size];
+  const emblem = onDark ? "/brand/imbonix-emblem-disc.svg" : "/brand/imbonix-emblem.svg";
+  const wordmark = onDark ? "/brand/imbonix-wordmark-on-dark.svg" : "/brand/imbonix-wordmark.svg";
+  const tagline = onDark ? "/brand/imbonix-tagline-on-dark.svg" : "/brand/imbonix-tagline.svg";
   return (
     <span className={cn("inline-flex items-center gap-3", className)}>
       <img
-        src="/brand/imbonix-emblem.svg"
+        src={emblem}
         alt=""
         width={s.emblem}
         height={s.emblem}
@@ -64,7 +70,7 @@ export function BrandLogo({
       />
       <span className="flex flex-col justify-center">
         <img
-          src="/brand/imbonix-wordmark.svg"
+          src={wordmark}
           alt="IMBONIX"
           width={Math.round(s.wordmark * WORDMARK_RATIO)}
           height={s.wordmark}
@@ -73,7 +79,7 @@ export function BrandLogo({
         />
         {showTagline && (
           <img
-            src="/brand/imbonix-tagline.svg"
+            src={tagline}
             alt="Data for Inclusive Prosperity"
             width={Math.round(s.tagline * TAGLINE_RATIO)}
             height={s.tagline}
