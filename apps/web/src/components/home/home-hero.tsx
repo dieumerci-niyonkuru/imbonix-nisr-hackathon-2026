@@ -7,6 +7,9 @@ import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 /** One of the doors under the banner: a focus area or a tool, in a sentence. */
 export type HeroCard = { title: string; body: string; href: string };
 
+/** The hero background photo (in public/hero/), or null to use the cyan data-network backdrop instead. */
+const HERO_PHOTO: string | null = "/hero/hero-team.png";
+
 /**
  * The opening of the homepage, laid out like Rwanda's national sites in the site's two colours: a cyan banner with the
  * outline of the districts behind a left aligned headline, four white cards that overlap its lower edge and open the
@@ -24,22 +27,43 @@ export function HomeHero({
   return (
     <section aria-labelledby="home-heading">
       <div className="relative overflow-hidden bg-gradient-to-br from-cyan to-cyan-hover text-ink">
-        {/* A faint dot texture, evoking the data behind IMBONIX, over the brand-cyan banner. */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-70"
-          style={{
-            backgroundImage: "radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1.5px)",
-            backgroundSize: "24px 24px",
-          }}
-        />
-        {/* Wide screens get a faint data-network behind the headline; narrow screens keep the map backdrop. */}
-        <HeroBackdrop />
-        <div className="xl:hidden">
-          <DistrictBackdrop />
-        </div>
+        {HERO_PHOTO ? (
+          <>
+            {/* The team photo, under a brand-cyan wash: heavy on the left so the headline reads, lighter on the right
+                so the photo shows through, and deeper at the bottom where the cards overlap. */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${HERO_PHOTO})` }}
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan via-cyan/90 to-cyan/50"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cyan/70 to-transparent"
+            />
+          </>
+        ) : (
+          <>
+            {/* A faint dot texture and a data-network over the brand-cyan banner; the map shows on narrow screens. */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 opacity-70"
+              style={{
+                backgroundImage: "radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1.5px)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+            <HeroBackdrop />
+            <div className="xl:hidden">
+              <DistrictBackdrop />
+            </div>
+          </>
+        )}
         <div className="container-page relative pb-40 pt-16 sm:pb-44 sm:pt-24">
-          <RwandaEmblem tone="cyan" className="absolute right-10 top-14 hidden w-[25rem] xl:block" />
+          {!HERO_PHOTO && <RwandaEmblem tone="cyan" className="absolute right-10 top-14 hidden w-[25rem] xl:block" />}
           <p className="font-display text-[18px] font-bold sm:text-[22px]">Financial inclusion and poverty in Rwanda</p>
           <h1
             id="home-heading"
