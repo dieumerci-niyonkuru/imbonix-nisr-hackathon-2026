@@ -26,25 +26,26 @@ export function HomeHero({
 }) {
   return (
     <section aria-labelledby="home-heading">
-      <div className="relative overflow-hidden bg-gradient-to-br from-cyan to-cyan-hover text-ink">
+      <div
+        className={`relative overflow-hidden bg-gradient-to-br from-cyan to-cyan-hover ${HERO_PHOTO ? "text-white" : "text-ink"}`}
+      >
         {HERO_PHOTO ? (
           <>
-            {/* The team photo, under a brand-cyan wash: heavy on the left so the headline reads, lighter on the right
-                so the photo shows through, and deeper at the bottom where the cards overlap. */}
+            {/* The team photo in its own colours, filling the banner. */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-cover bg-[position:60%_center]"
               style={{ backgroundImage: `url(${HERO_PHOTO})` }}
             />
-            {/* A cyan wash kept strong across the left/centre where the headline sits (near-black text needs a light
-                backing), then dropping away on the right third so the photo reads clearly there. */}
+            {/* A neutral dark scrim (no colour cast) so the white headline stays readable: strong down the left where
+                the text sits, clearing to the right so the photo shows in full colour. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan via-cyan/85 to-cyan/20"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/45 to-transparent"
             />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cyan/60 to-transparent"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/55 to-transparent"
             />
           </>
         ) : (
