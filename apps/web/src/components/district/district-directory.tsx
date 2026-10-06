@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Fingerprint, worstThirdCount } from "@/components/charts/fingerprint";
 import { PriorityBadge } from "@/components/district/district-intelligence";
 import { SelectField } from "@/components/ui/select-field";
@@ -19,13 +20,20 @@ const SORTS = [
 ];
 
 export function DistrictDirectory() {
+  const [query, setQuery] = useState("");
   const [province, setProvince] = useState<string>("all");
   const [sort, setSort] = useState("overlap");
   const [priority, setPriority] = useState("all");
 
   const list = useMemo(() => {
+    const term = query.trim().toLowerCase();
+    const matchesTerm = (d: (typeof DISTRICTS)[number]) =>
+      !term || d.name.toLowerCase().includes(term) || PROVINCE_LABEL[d.province].toLowerCase().includes(term);
     const filtered = DISTRICTS.filter(
-      (d) => (province === "all" || d.province === province) && (priority === "all" || priorityFor(d).level === priority),
+      (d) =>
+        matchesTerm(d) &&
+        (province === "all" || d.province === province) &&
+        (priority === "all" || priorityFor(d).level === priority),
     );
     const rank = (d: (typeof DISTRICTS)[number], dimension: string) =>
       rankOf(d, meta(DIMENSIONS[dimension as keyof typeof DIMENSIONS].headline!))?.rank ?? 99;
@@ -39,10 +47,24 @@ export function DistrictDirectory() {
       }
       return rank(a, sort) - rank(b, sort);
     });
-  }, [province, priority, sort]);
+  }, [query, province, priority, sort]);
 
   return (
     <div>
+      <label className="relative mb-4 block">
+        <span className="sr-only">Search districts</span>
+        <MagnifyingGlassIcon
+          className="pointer-events-none absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-muted"
+          aria-hidden="true"
+        />
+        <input
+          type="search"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Search districts"
+          className="h-12 w-full rounded-lg bg-paper pl-11 pr-4 text-[15px] text-ink ring-1 ring-line placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+        />
+      </label>
       <div className="card grid gap-4 p-4 sm:grid-cols-3 sm:p-5">
         <SelectField label="Province" value={province} onChange={setProvince}>
           <option value="all">All provinces</option>
