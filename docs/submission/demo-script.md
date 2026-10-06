@@ -5,8 +5,9 @@ quick pitch and the 3-minute run for a full review. All figures shown are NISR's
 screen with its source and how far to trust it.
 
 - **Live site:** run `npm run dev` in `apps/web` (or open the deployed URL).
-- **Optional — turn on the full AI:** set `ANTHROPIC_API_KEY` in `apps/web/.env`. Without it, IMBONIX AI still works
-  from the on-device engine over the same figures, so the demo never depends on a key.
+- **Optional — turn on the full AI:** set a key in `apps/web/.env` — either `ANTHROPIC_API_KEY`, or a free-tier
+  `GEMINI_API_KEY`. Without any key, IMBONIX AI still works from the on-device engine over the same figures, so the demo
+  never depends on a key. Details in [`../ai-assistant.md`](../ai-assistant.md).
 
 ---
 
