@@ -55,6 +55,7 @@ const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visibl
  */
 export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const pathname = usePathname() ?? "/";
+  const isHome = pathname === "/";
   const [sheetOpen, setSheetOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [openGroupId, setOpenGroupId] = useState<string | null>(null);
@@ -151,9 +152,20 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 
   return (
     <>
-      {/* The site search, as a field in the right corner of a cyan bar, on every screen. */}
-      <div ref={searchBarRef} className="bg-cyan">
-        <div className="container-page flex justify-end py-2.5 sm:py-3">
+      {/* The site search, as a field in the right corner of a cyan bar; on the homepage the hero photo shows faintly
+          behind it, under a cyan wash so the white field still stands out. */}
+      <div ref={searchBarRef} className="relative overflow-hidden bg-cyan">
+        {isHome && (
+          <>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: "url(/hero/hero-team.png)" }}
+            />
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-cyan/80" />
+          </>
+        )}
+        <div className="container-page relative flex justify-end py-2.5 sm:py-3">
           <button
             type="button"
             onClick={openSearch}
@@ -179,7 +191,19 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
           scrolled && "shadow-[0_6px_20px_-12px_rgba(26,31,33,0.35)]",
         )}
       >
-        <div className="container-page flex h-[84px] items-center gap-4">
+        {isHome && !scrolled && (
+          <>
+            {/* At the top of the homepage the hero photo continues faintly behind the header, under a near-white wash
+                so the logo and links stay readable; on scroll the header turns solid white. */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: "url(/hero/hero-team.png)" }}
+            />
+            <div aria-hidden="true" className="bg-white/88 pointer-events-none absolute inset-0" />
+          </>
+        )}
+        <div className="container-page relative flex h-[84px] items-center gap-4">
           <Link href="/" aria-label="IMBONIX home" className={cn("shrink-0 rounded-xl", FOCUS_RING)}>
             <BrandLogo />
           </Link>
