@@ -47,9 +47,10 @@ describe("IMBONIX AI answers", () => {
     expect(answer.source).toContain("FinScope");
   });
 
-  it("describes the datasets it is built on, with a link to the catalogue", () => {
+  it("describes the datasets it is built on, without linking the catalogue page", () => {
     const answer = answerQuery("What datasets do you have?");
     expect(answer.heading.toLowerCase()).toContain("data");
-    expect(answer.links?.some((link) => link.href === "/data/catalog")).toBe(true);
+    expect(answer.links?.some((link) => link.href === "/data/catalog")).toBe(false);
+    expect(answer.links?.some((link) => link.href === "/data/key-figures")).toBe(true);
   });
 });

@@ -40,8 +40,13 @@ const HOVER_CLOSE_DELAY = 160;
 // Top level items, as on the government's sites: plain capitals that take a cyan underline on hover, when open and
 // for the section you are in.
 const TOP_LINK_STYLE =
-  "inline-flex h-12 items-center gap-1 whitespace-nowrap px-2 text-[13px] font-semibold uppercase tracking-[0.03em] text-ink transition-colors hover:text-cyan-ink hover:shadow-[inset_0_-3px_0_var(--cyan)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2";
-const TOP_ACTIVE_STYLE = "text-ink shadow-[inset_0_-3px_0_var(--cyan)]";
+  "inline-flex h-12 items-center gap-1 whitespace-nowrap px-2 text-[13px] font-semibold uppercase tracking-[0.03em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+/** Link colours on the solid white header. */
+const TOP_LINK_SOLID = "text-ink hover:text-cyan-ink hover:shadow-[inset_0_-3px_0_var(--cyan)] focus-visible:ring-cyan-ink";
+const TOP_ACTIVE_SOLID = "text-ink shadow-[inset_0_-3px_0_var(--cyan)]";
+/** Link colours when the header sits over the hero photo (white). */
+const TOP_LINK_OVER = "text-white hover:text-white hover:shadow-[inset_0_-3px_0_white] focus-visible:ring-white";
+const TOP_ACTIVE_OVER = "text-white shadow-[inset_0_-3px_0_white]";
 // Links inside a menu panel or the phone menu keep a light highlight, so the text stays readable.
 const ACTIVE_STYLE = "bg-paper text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
@@ -55,11 +60,13 @@ const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visibl
  */
 export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const pathname = usePathname() ?? "/";
+  const isHome = pathname === "/";
   const [sheetOpen, setSheetOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [openGroupId, setOpenGroupId] = useState<string | null>(null);
   const [shortcutLabel, setShortcutLabel] = useState("Ctrl K");
   const [searchBarInView, setSearchBarInView] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const searchBarRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number | undefined>(undefined);
@@ -73,6 +80,14 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   useEffect(() => {
     if (/Mac|iPhone|iPad/.test(navigator.platform)) setShortcutLabel("Cmd K");
     return () => window.clearTimeout(closeTimer.current);
+  }, []);
+
+  // Once the page has scrolled, the sticky header lifts off the content with a soft shadow.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // The header's own search button shows only once the search bar above it has scrolled out of view.
@@ -140,17 +155,23 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
     setSearchOpen(true);
   };
 
+  // At the top of the homepage the header sits over the hero photo (transparent, white text); on scroll it turns solid.
+  const overlay = isHome && !scrolled;
+  const topLink = cn(TOP_LINK_STYLE, overlay ? TOP_LINK_OVER : TOP_LINK_SOLID);
+  const topActive = overlay ? TOP_ACTIVE_OVER : TOP_ACTIVE_SOLID;
+
   return (
     <>
-      {/* The site search, as a field in the right corner of a cyan bar, on every screen. */}
-      <div ref={searchBarRef} className="bg-cyan">
-        <div className="container-page flex justify-end py-2.5 sm:py-3">
+      {/* The site search, a field in the right corner. On the homepage top the bar is clear so the one hero photo
+          behind the header shows through; elsewhere it is the brand cyan. */}
+      <div ref={searchBarRef} className={cn("relative z-50", overlay ? "bg-transparent" : "bg-cyan")}>
+        <div className="container-page flex justify-end py-2">
           <button
             type="button"
             onClick={openSearch}
             aria-haspopup="dialog"
             aria-label={`Search the site (${shortcutLabel})`}
-            className="flex h-11 w-full items-center gap-3 rounded-md bg-white px-4 text-left shadow-card ring-1 ring-ink/10 transition-shadow hover:ring-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink sm:w-[26rem]"
+            className="flex h-10 w-full items-center gap-3 rounded-md bg-white px-4 text-left shadow-card ring-1 ring-ink/10 transition-shadow hover:ring-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink sm:w-[21rem]"
           >
             <MagnifyingGlassIcon className="h-5 w-5 shrink-0 stroke-2 text-ink" aria-hidden="true" />
             <span className="min-w-0 flex-1 truncate text-[15px] text-muted">
@@ -164,10 +185,18 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
         </div>
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-line bg-white">
-        <div className="container-page flex h-[84px] items-center gap-4">
+      <header
+        className={cn(
+          "sticky top-0 z-50 border-b transition-shadow duration-200",
+          overlay ? "border-transparent bg-transparent" : "border-line bg-white",
+          scrolled && "shadow-[0_6px_20px_-12px_rgba(26,31,33,0.35)]",
+        )}
+      >
+        {/* Over the hero photo a dark scrim keeps the white logo and links clearly readable. */}
+        {overlay && <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink/50" />}
+        <div className="container-page relative flex h-[84px] items-center gap-4">
           <Link href="/" aria-label="IMBONIX home" className={cn("shrink-0 rounded-xl", FOCUS_RING)}>
-            <BrandLogo />
+            <BrandLogo onDark={overlay} />
           </Link>
 
           <nav ref={navRef} aria-label="Main" className="ml-auto hidden xl:block">
@@ -177,7 +206,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                   href="/"
                   aria-label="Home"
                   aria-current={isCurrentPage("/") ? "page" : undefined}
-                  className={cn(TOP_LINK_STYLE, "w-12 justify-center px-0 xl:px-0", isCurrentPage("/") && TOP_ACTIVE_STYLE)}
+                  className={cn(topLink, "w-12 justify-center px-0 xl:px-0", isCurrentPage("/") && topActive)}
                 >
                   <HomeSolidIcon className="h-6 w-6" aria-hidden="true" />
                 </Link>
@@ -211,7 +240,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                         setOpenGroupId(group.id);
                         window.requestAnimationFrame(() => document.getElementById(panelId)?.querySelector("a")?.focus());
                       }}
-                      className={cn(TOP_LINK_STYLE, (expanded || groupHasCurrentPage(group)) && TOP_ACTIVE_STYLE)}
+                      className={cn(topLink, (expanded || groupHasCurrentPage(group)) && topActive)}
                     >
                       {group.label}
                       <ChevronDownIcon
@@ -247,7 +276,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                   <Link
                     href={link.href}
                     aria-current={isCurrentPage(link.href) ? "page" : undefined}
-                    className={cn(TOP_LINK_STYLE, isCurrentPage(link.href) && TOP_ACTIVE_STYLE)}
+                    className={cn(topLink, isCurrentPage(link.href) && topActive)}
                   >
                     {link.label}
                   </Link>
@@ -278,7 +307,8 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                   type="button"
                   aria-label="Open menu"
                   className={cn(
-                    "inline-flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-paper xl:hidden",
+                    "inline-flex h-10 w-10 items-center justify-center rounded-full transition-colors xl:hidden",
+                    overlay ? "text-white hover:bg-white/15" : "text-ink hover:bg-paper",
                     FOCUS_RING,
                   )}
                 >

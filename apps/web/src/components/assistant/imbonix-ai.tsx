@@ -3,17 +3,23 @@
 import Link from "next/link";
 import { Fragment, type ReactNode, useEffect, useId, useRef, useState } from "react";
 import {
+  ArrowUpIcon,
+  CheckIcon,
+  ClipboardDocumentIcon,
   MicrophoneIcon,
-  PaperAirplaneIcon,
   PaperClipIcon,
-  SparklesIcon,
+  PauseIcon,
+  PhotoIcon,
+  PlayIcon,
+  PlusIcon,
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
+  StopIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
+import { AiMark } from "@/components/assistant/ai-mark";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { answerQuery, SUGGESTIONS, type Answer } from "@/lib/assistant";
-import { BRAND } from "@/lib/palette";
 
 /** An image, PDF or text file the person attached, ready to send to the AI route. */
 type Attachment = { kind: "image" | "document" | "text"; mediaType: string; data: string; name: string };
@@ -52,10 +58,7 @@ const NOT_CONNECTED: Answer = {
     "I can read pictures and documents once this site's AI service is connected (a free Gemini or an Anthropic key on " +
     "the server). Until then I can still answer questions about any district, measure or the national picture straight " +
     "from NISR's figures — ask away.",
-  links: [
-    { href: "/data/key-figures", label: "Rwanda in figures" },
-    { href: "/data/catalog", label: "The data behind this" },
-  ],
+  links: [{ href: "/data/key-figures", label: "Rwanda in figures" }],
 };
 
 // --- Voice: speech synthesis (read answers aloud) and speech recognition (dictate questions), both browser-native. ---
@@ -64,6 +67,7 @@ type RecognitionAlternative = { transcript: string };
 type RecognitionResult = { isFinal: boolean; 0: RecognitionAlternative };
 type RecognitionResultList = { readonly length: number; [index: number]: RecognitionResult };
 type RecognitionEvent = { results: RecognitionResultList };
+type RecognitionErrorEvent = { error?: string };
 interface SpeechRecognitionLike {
   lang: string;
   interimResults: boolean;
@@ -73,7 +77,7 @@ interface SpeechRecognitionLike {
   abort(): void;
   onresult: ((event: RecognitionEvent) => void) | null;
   onend: (() => void) | null;
-  onerror: (() => void) | null;
+  onerror: ((event: RecognitionErrorEvent) => void) | null;
 }
 type SpeechRecognitionCtor = new () => SpeechRecognitionLike;
 
@@ -86,20 +90,44 @@ function recognitionCtor(): SpeechRecognitionCtor | null {
   return scope.SpeechRecognition ?? scope.webkitSpeechRecognition ?? null;
 }
 
-function speakText(text: string, onDone: () => void) {
+/**
+ * Read text aloud, robustly. The text is split into sentence-sized utterances and queued, and a keep-alive timer nudges
+ * the engine, because Chrome otherwise silently stops long speech after about fifteen seconds. onDone fires when the
+ * whole answer has been read (or on error), so the caller can clear the speaking state.
+ */
+function speakText(text: string, onDone: () => void, isPaused: () => boolean) {
   const synthesis = window.speechSynthesis;
   synthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  utterance.rate = 1;
-  utterance.onend = onDone;
-  utterance.onerror = onDone;
-  synthesis.speak(utterance);
+  const chunks = (text.match(/[^.!?]+[.!?]*/g) ?? [text]).map((part) => part.trim()).filter(Boolean);
+  if (chunks.length === 0) {
+    onDone();
+    return;
+  }
+  const keepAlive = window.setInterval(() => {
+    // Nudge the engine so Chrome does not stall, but never fight a deliberate pause.
+    if (synthesis.speaking && !isPaused()) synthesis.resume();
+    else if (!synthesis.speaking) window.clearInterval(keepAlive);
+  }, 9000);
+  const finish = () => {
+    window.clearInterval(keepAlive);
+    onDone();
+  };
+  chunks.forEach((chunk, index) => {
+    const utterance = new SpeechSynthesisUtterance(chunk);
+    utterance.lang = "en-US";
+    utterance.rate = 1;
+    if (index === chunks.length - 1) {
+      utterance.onend = finish;
+      utterance.onerror = finish;
+    }
+    synthesis.speak(utterance);
+  });
 }
 
 /** Flatten a streamed markdown answer to plain words for reading aloud. */
 function plainFromMarkdown(text: string): string {
   return text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/`([^`]+)`/g, "$1")
     .replace(/\*\*([^*]+)\*\*/g, "$1")
     .replace(/^#{1,3}\s+/gm, "")
@@ -117,42 +145,121 @@ function plainFromAnswer(answer: Answer): string {
   return parts.filter(Boolean).join(". ");
 }
 
-/** A small round button to read an answer aloud, or stop reading it. */
-function SpeakButton({ active, onClick }: { active: boolean; onClick: () => void }) {
+type Playback = "idle" | "playing" | "paused";
+
+const roundBtn =
+  "flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted ring-1 ring-line transition-colors hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
+
+/** Read-aloud controls for one answer: play when idle; pause/resume and stop while it is being read. */
+function PlaybackControls({
+  state,
+  onPlay,
+  onPauseResume,
+  onStop,
+}: {
+  state: Playback;
+  onPlay: () => void;
+  onPauseResume: () => void;
+  onStop: () => void;
+}) {
+  if (state === "idle") {
+    return (
+      <button type="button" onClick={onPlay} aria-label="Read this answer aloud" className={roundBtn}>
+        <SpeakerWaveIcon className="h-4 w-4" aria-hidden="true" />
+      </button>
+    );
+  }
+  return (
+    <span className="flex shrink-0 items-center gap-1">
+      <button
+        type="button"
+        onClick={onPauseResume}
+        aria-label={state === "paused" ? "Resume reading" : "Pause reading"}
+        className={`${roundBtn} text-cyan-ink ring-cyan-ink`}
+      >
+        {state === "paused" ? (
+          <PlayIcon className="h-4 w-4" aria-hidden="true" />
+        ) : (
+          <PauseIcon className="h-4 w-4" aria-hidden="true" />
+        )}
+      </button>
+      <button type="button" onClick={onStop} aria-label="Stop reading" className={roundBtn}>
+        <StopIcon className="h-4 w-4" aria-hidden="true" />
+      </button>
+    </span>
+  );
+}
+
+const LINK_STYLE =
+  "font-semibold text-cyan-ink underline underline-offset-2 transition-colors hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
+
+/** Copy an answer's text to the clipboard, with a brief confirmation. */
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
   return (
     <button
       type="button"
-      onClick={onClick}
-      aria-label={active ? "Stop reading aloud" : "Read this answer aloud"}
-      aria-pressed={active}
-      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted ring-1 ring-line transition-colors hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(text);
+          setCopied(true);
+          window.setTimeout(() => setCopied(false), 1500);
+        } catch {
+          // Clipboard blocked (e.g. insecure context); ignore.
+        }
+      }}
+      aria-label={copied ? "Answer copied" : "Copy this answer"}
+      className={roundBtn}
     >
-      {active ? (
-        <SpeakerXMarkIcon className="h-4 w-4" aria-hidden="true" />
+      {copied ? (
+        <CheckIcon className="h-4 w-4 text-cyan-ink" aria-hidden="true" />
       ) : (
-        <SpeakerWaveIcon className="h-4 w-4" aria-hidden="true" />
+        <ClipboardDocumentIcon className="h-4 w-4" aria-hidden="true" />
       )}
     </button>
   );
 }
 
-/** Render **bold** and `code` spans inside a line of assistant prose. */
+/** Render Markdown links, **bold** and `code` spans inside a line of assistant prose. */
 function renderInline(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
-  const pattern = /(\*\*[^*]+\*\*|`[^`]+`)/g;
+  const pattern = /(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|`[^`]+`)/g;
   let last = 0;
   let key = 0;
   let match: RegExpExecArray | null;
   while ((match = pattern.exec(text)) !== null) {
     if (match.index > last) nodes.push(text.slice(last, match.index));
     const token = match[0];
-    if (token.startsWith("**")) nodes.push(<strong key={key++}>{token.slice(2, -2)}</strong>);
-    else
+    if (token.startsWith("[")) {
+      const link = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(token);
+      if (link && link[2].startsWith("/")) {
+        nodes.push(
+          <Link key={key++} href={link[2]} className={LINK_STYLE}>
+            {link[1]}
+          </Link>,
+        );
+      } else if (link && /^https?:\/\//.test(link[2])) {
+        nodes.push(
+          <a key={key++} href={link[2]} target="_blank" rel="noreferrer" className={LINK_STYLE}>
+            {link[1]}
+          </a>,
+        );
+      } else {
+        nodes.push(link ? link[1] : token);
+      }
+    } else if (token.startsWith("**")) {
+      nodes.push(
+        <strong key={key++} className="font-bold text-ink">
+          {token.slice(2, -2)}
+        </strong>,
+      );
+    } else {
       nodes.push(
         <code key={key++} className="rounded bg-paper px-1 py-0.5 text-[12px] text-cyan-ink">
           {token.slice(1, -1)}
         </code>,
       );
+    }
     last = match.index + token.length;
   }
   if (last < text.length) nodes.push(text.slice(last));
@@ -169,6 +276,46 @@ function RichText({ text }: { text: string }) {
     <div className="space-y-2 text-[13.5px] leading-6 text-ink/90">
       {paragraphs.map((block, index) => {
         const lines = block.split("\n");
+        const tableRows = lines.filter((line) => line.trim().startsWith("|"));
+        if (tableRows.length >= 2 && tableRows.length === lines.length && /^[\s:|-]+$/.test(tableRows[1])) {
+          const cells = (row: string) =>
+            row
+              .trim()
+              .replace(/^\||\|$/g, "")
+              .split("|")
+              .map((cell) => cell.trim());
+          const header = cells(tableRows[0]);
+          const body = tableRows.slice(2).map(cells);
+          return (
+            <div key={index} className="overflow-x-auto">
+              <table className="w-full overflow-hidden rounded-lg text-[12.5px] ring-1 ring-line">
+                <thead className="bg-paper">
+                  <tr>
+                    {header.map((cell, column) => (
+                      <th key={column} className="px-2.5 py-1.5 text-left font-bold text-ink">
+                        {renderInline(cell)}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-line">
+                  {body.map((row, rowIndex) => (
+                    <tr key={rowIndex}>
+                      {row.map((cell, column) => (
+                        <td
+                          key={column}
+                          className={`px-2.5 py-1.5 align-top ${column === 0 ? "font-semibold text-ink" : "tabular text-ink/90"}`}
+                        >
+                          {renderInline(cell)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
         if (lines.every((line) => /^\s*[-*]\s+/.test(line))) {
           return (
             <ul key={index} className="list-disc space-y-1 pl-5 marker:text-cyan-ink">
@@ -190,7 +337,7 @@ function RichText({ text }: { text: string }) {
         const heading = lines.length === 1 ? block.match(/^#{1,3}\s+(.*)$/) : null;
         if (heading) {
           return (
-            <p key={index} className="font-bold text-ink">
+            <p key={index} className="pt-1 text-[11.5px] font-bold uppercase tracking-[0.05em] text-cyan-ink">
               {renderInline(heading[1])}
             </p>
           );
@@ -210,20 +357,24 @@ function RichText({ text }: { text: string }) {
   );
 }
 
-/** A streamed, generative answer with a typing indicator while it arrives, and a read-aloud button once it is done. */
+type SpeakProps = {
+  canSpeak: boolean;
+  playback: Playback;
+  onPlay: () => void;
+  onPauseResume: () => void;
+  onStop: () => void;
+};
+
+/** A streamed, generative answer with a typing indicator while it arrives, and read-aloud controls once it is done. */
 function StreamedCard({
   markdown,
   streaming,
   canSpeak,
-  speaking,
-  onSpeak,
-}: {
-  markdown: string;
-  streaming?: boolean;
-  canSpeak: boolean;
-  speaking: boolean;
-  onSpeak: () => void;
-}) {
+  playback,
+  onPlay,
+  onPauseResume,
+  onStop,
+}: { markdown: string; streaming?: boolean } & SpeakProps) {
   return (
     <div className="rounded-2xl rounded-tl-sm border border-line bg-white p-3.5 shadow-card">
       {markdown ? (
@@ -231,7 +382,12 @@ function StreamedCard({
           <div className="min-w-0 flex-1">
             <RichText text={markdown} />
           </div>
-          {canSpeak && !streaming && <SpeakButton active={speaking} onClick={onSpeak} />}
+          {!streaming && (
+            <span className="flex shrink-0 items-center gap-1">
+              <CopyButton text={plainFromMarkdown(markdown)} />
+              {canSpeak && <PlaybackControls state={playback} onPlay={onPlay} onPauseResume={onPauseResume} onStop={onStop} />}
+            </span>
+          )}
         </div>
       ) : (
         <span className="flex gap-1 py-1" aria-label="IMBONIX AI is thinking">
@@ -253,21 +409,20 @@ function AnswerCard({
   answer,
   onAsk,
   canSpeak,
-  speaking,
-  onSpeak,
-}: {
-  answer: Answer;
-  onAsk: (query: string) => void;
-  canSpeak: boolean;
-  speaking: boolean;
-  onSpeak: () => void;
-}) {
+  playback,
+  onPlay,
+  onPauseResume,
+  onStop,
+}: { answer: Answer; onAsk: (query: string) => void } & SpeakProps) {
   const showSuggestions = answer === WELCOME;
   return (
     <div className="rounded-2xl rounded-tl-sm border border-line bg-white p-3.5 shadow-card">
       <div className="flex items-start gap-2">
         <p className="min-w-0 flex-1 text-[14.5px] font-bold leading-5 text-ink">{answer.heading}</p>
-        {canSpeak && <SpeakButton active={speaking} onClick={onSpeak} />}
+        <span className="flex shrink-0 items-center gap-1">
+          {!showSuggestions && <CopyButton text={plainFromAnswer(answer)} />}
+          {canSpeak && <PlaybackControls state={playback} onPlay={onPlay} onPauseResume={onPauseResume} onStop={onStop} />}
+        </span>
       </div>
       <p className="mt-1 text-pretty text-[13.5px] leading-6 text-ink/80">{answer.body}</p>
 
@@ -399,14 +554,19 @@ export function ImbonixAI() {
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<Message[]>([{ id: 0, role: "ai", answer: WELCOME }]);
   const [pending, setPending] = useState<Attachment | null>(null);
+  const [attachMenuOpen, setAttachMenuOpen] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   /** null while unknown, then whether the server has the AI service connected. */
   const [configured, setConfigured] = useState<boolean | null>(null);
   const [speakingId, setSpeakingId] = useState<number | null>(null);
+  const [paused, setPaused] = useState(false);
+  const pausedRef = useRef(false);
   const [canSpeak, setCanSpeak] = useState(false);
   const [canListen, setCanListen] = useState(false);
   const [listening, setListening] = useState(false);
+  /** When on, every answer is read aloud; a voice question is always read aloud regardless. */
+  const [autoSpeak, setAutoSpeak] = useState(false);
   const nextId = useRef(1);
   const inputRef = useRef<HTMLInputElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -437,9 +597,55 @@ export function ImbonixAI() {
       .filter((turn): turn is ChatTurn => turn !== null)
       .slice(-MAX_HISTORY_TURNS);
 
-  const ask = async (rawText: string, attachment?: Attachment | null) => {
+  /** Start reading an answer aloud and track it as the one currently playing. */
+  const speakAnswer = (id: number, text: string) => {
+    if (!canSpeak || !text) return;
+    pausedRef.current = false;
+    setPaused(false);
+    setSpeakingId(id);
+    speakText(
+      text,
+      () =>
+        setSpeakingId((current) => {
+          if (current === id) {
+            pausedRef.current = false;
+            setPaused(false);
+            return null;
+          }
+          return current;
+        }),
+      () => pausedRef.current,
+    );
+  };
+
+  /** Pause or resume the answer currently being read. */
+  const togglePause = () => {
+    if (pausedRef.current) {
+      pausedRef.current = false;
+      setPaused(false);
+      window.speechSynthesis.resume();
+    } else {
+      pausedRef.current = true;
+      setPaused(true);
+      window.speechSynthesis.pause();
+    }
+  };
+
+  /** Stop reading entirely. */
+  const stopSpeaking = () => {
+    window.speechSynthesis.cancel();
+    pausedRef.current = false;
+    setPaused(false);
+    setSpeakingId(null);
+  };
+
+  /** The playback state for one answer, for its read-aloud controls. */
+  const playbackFor = (id: number): Playback => (speakingId !== id ? "idle" : paused ? "paused" : "playing");
+
+  const ask = async (rawText: string, attachment?: Attachment | null, fromVoice = false) => {
     const text = rawText.trim();
     if ((!text && !attachment) || busy) return;
+    const readAloud = (fromVoice || autoSpeak) && canSpeak;
     setNotice(null);
 
     const priorHistory = historyFrom(messages);
@@ -454,14 +660,18 @@ export function ImbonixAI() {
     const live = configured ?? (await probe());
 
     if (!live) {
-      setMessages((current) => {
-        const next = [...current];
-        if (attachment) next.push({ id: nextId.current++, role: "ai", answer: NOT_CONNECTED });
-        if (text) next.push({ id: nextId.current++, role: "ai", answer: answerQuery(text) });
-        else if (!attachment) next.push({ id: nextId.current++, role: "ai", answer: answerQuery("") });
-        return next;
-      });
+      const extra: Message[] = [];
+      let spoken: { id: number; text: string } | null = null;
+      if (attachment) extra.push({ id: nextId.current++, role: "ai", answer: NOT_CONNECTED });
+      if (text || !attachment) {
+        const answer = answerQuery(text);
+        const id = nextId.current++;
+        extra.push({ id, role: "ai", answer });
+        spoken = { id, text: plainFromAnswer(answer) };
+      }
+      setMessages((current) => [...current, ...extra]);
       setBusy(false);
+      if (readAloud && spoken) speakAnswer(spoken.id, spoken.text);
       return;
     }
 
@@ -484,11 +694,15 @@ export function ImbonixAI() {
         return;
       }
       if (!response.ok || !response.body) {
-        const message =
-          response.status === 429
-            ? "I'm getting a lot of questions right now. Please try again in a moment."
-            : "Sorry, something went wrong. Please try again.";
-        update({ streaming: false, markdown: message });
+        if (response.status === 429) {
+          update({ streaming: false, markdown: "I'm getting a lot of questions right now. Please try again in a moment." });
+        } else if (text) {
+          // The model was briefly unavailable (e.g. busy). Answer from the on-device engine so the person still
+          // gets a grounded reply instead of an error.
+          update({ streaming: false, markdown: undefined, answer: answerQuery(text) });
+        } else {
+          update({ streaming: false, markdown: "The AI service was briefly unavailable. Please ask again." });
+        }
         return;
       }
 
@@ -501,7 +715,9 @@ export function ImbonixAI() {
         accumulated += decoder.decode(value, { stream: true });
         update({ markdown: accumulated });
       }
-      update({ markdown: accumulated || "I don't have anything to add there.", streaming: false });
+      const finalText = accumulated || "I don't have anything to add there.";
+      update({ markdown: finalText, streaming: false });
+      if (readAloud) speakAnswer(aiId, plainFromMarkdown(finalText));
     } catch {
       setMessages((current) =>
         current.map((message) =>
@@ -529,17 +745,6 @@ export function ImbonixAI() {
     if (fileRef.current) fileRef.current.value = "";
   };
 
-  const toggleSpeak = (id: number, text: string) => {
-    if (!canSpeak) return;
-    if (speakingId === id) {
-      window.speechSynthesis.cancel();
-      setSpeakingId(null);
-      return;
-    }
-    setSpeakingId(id);
-    speakText(text, () => setSpeakingId((current) => (current === id ? null : current)));
-  };
-
   const toggleListen = () => {
     if (listening) {
       recognitionRef.current?.stop();
@@ -562,15 +767,25 @@ export function ImbonixAI() {
       }
       setQuery(text);
     };
-    recognition.onerror = () => {
+    recognition.onerror = (event) => {
       setListening(false);
       recognitionRef.current = null;
+      const code = event.error;
+      if (code === "not-allowed" || code === "service-not-allowed") {
+        setNotice("Microphone blocked. Allow the microphone for this site in your browser, then tap the mic again.");
+      } else if (code === "no-speech") {
+        setNotice("I didn't catch that — tap the mic and speak again.");
+      } else if (code === "audio-capture") {
+        setNotice("No microphone found. Check your mic, then try again.");
+      } else if (code === "network") {
+        setNotice("Voice needs a connection right now — please try again in a moment.");
+      }
     };
     recognition.onend = () => {
       setListening(false);
       recognitionRef.current = null;
       const spoken = finalText.trim();
-      if (spoken) void ask(spoken, pending);
+      if (spoken) void ask(spoken, pending, true);
     };
     recognitionRef.current = recognition;
     setListening(true);
@@ -591,6 +806,8 @@ export function ImbonixAI() {
       if (configured === null) void probe();
     } else {
       if (canSpeak) window.speechSynthesis.cancel();
+      pausedRef.current = false;
+      setPaused(false);
       setSpeakingId(null);
       recognitionRef.current?.stop();
     }
@@ -609,27 +826,19 @@ export function ImbonixAI() {
 
   return (
     <>
-      {/* The launcher, with an infinite circling glow in the brand cyan to draw the eye. */}
+      {/* The launcher: a clean, professional brand-cyan pill with an assistant avatar. */}
       <div className="fixed bottom-5 right-5 z-[55] sm:bottom-6 sm:right-6 print:hidden">
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -inset-[3px] rounded-full opacity-80 blur-[4px] motion-safe:animate-orbit motion-reduce:hidden"
-          style={{ background: `conic-gradient(from 0deg, transparent, ${BRAND.cyan}, ${BRAND.cyan} 20%, transparent 55%)` }}
-        />
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -inset-[3px] rounded-full motion-safe:animate-halo motion-reduce:hidden"
-          style={{ boxShadow: `0 0 0 2px ${BRAND.cyan}` }}
-        />
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
           aria-controls={panelId}
-          className="relative inline-flex h-14 items-center gap-2 rounded-full bg-cyan pl-4 pr-5 font-bold text-ink shadow-lift ring-1 ring-cyan-ink/20 transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
+          className="group inline-flex h-14 items-center gap-2.5 rounded-full bg-cyan pl-2.5 pr-5 font-bold text-ink shadow-lift ring-1 ring-cyan-ink/20 transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
         >
-          <SparklesIcon className="h-6 w-6 motion-safe:animate-pulse" aria-hidden="true" />
-          <span className="text-[15px]">IMBONIX AI</span>
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/25 ring-1 ring-white/40 transition-colors group-hover:bg-white/20">
+            {open ? <XMarkIcon className="h-6 w-6" aria-hidden="true" /> : <AiMark className="h-6 w-6" />}
+          </span>
+          <span className="pr-0.5 text-[15px] tracking-[-0.01em]">{open ? "Close" : "IMBONIX AI"}</span>
         </button>
       </div>
 
@@ -641,26 +850,61 @@ export function ImbonixAI() {
             role="dialog"
             aria-label="IMBONIX AI assistant"
             aria-modal="false"
-            className="fixed inset-x-3 bottom-3 top-16 z-[56] flex flex-col overflow-hidden rounded-3xl bg-paper shadow-lift ring-1 ring-line sm:inset-x-auto sm:bottom-24 sm:right-6 sm:top-auto sm:h-[min(620px,78vh)] sm:w-[400px]"
+            className="fixed inset-x-3 bottom-3 top-16 z-[56] flex flex-col overflow-hidden rounded-3xl bg-paper shadow-lift ring-1 ring-line motion-safe:animate-fade-up sm:inset-x-auto sm:bottom-24 sm:right-6 sm:top-auto sm:h-[min(620px,78vh)] sm:w-[400px]"
           >
             <div className="flex items-center justify-between gap-3 border-b border-line bg-white px-4 py-3">
               <div className="flex items-center gap-2.5">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-cyan text-ink">
-                  <SparklesIcon className="h-5 w-5" aria-hidden="true" />
+                  <AiMark className="h-5 w-5" />
                 </span>
                 <div>
                   <p className="font-display text-[15px] font-bold leading-4 text-ink">IMBONIX AI</p>
-                  <p className="text-[11.5px] leading-4 text-muted">Answers from NISR data</p>
+                  <p className="mt-0.5 flex items-center gap-1.5 text-[11.5px] leading-4 text-muted">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan motion-safe:animate-pulse" aria-hidden="true" />
+                    Grounded in NISR data
+                  </p>
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                aria-label="Close the assistant"
-                className="flex h-9 w-9 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
-              >
-                <XMarkIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
+              <div className="flex items-center gap-1.5">
+                {canSpeak && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAutoSpeak((value) => {
+                        if (value) {
+                          window.speechSynthesis.cancel();
+                          pausedRef.current = false;
+                          setPaused(false);
+                          setSpeakingId(null);
+                        }
+                        return !value;
+                      });
+                    }}
+                    aria-pressed={autoSpeak}
+                    aria-label={autoSpeak ? "Turn off reading answers aloud" : "Read every answer aloud"}
+                    title={autoSpeak ? "Reading answers aloud: on" : "Read answers aloud"}
+                    className={
+                      autoSpeak
+                        ? "flex h-9 w-9 items-center justify-center rounded-full bg-cyan text-ink ring-1 ring-cyan transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                        : "flex h-9 w-9 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                    }
+                  >
+                    {autoSpeak ? (
+                      <SpeakerWaveIcon className="h-5 w-5" aria-hidden="true" />
+                    ) : (
+                      <SpeakerXMarkIcon className="h-5 w-5" aria-hidden="true" />
+                    )}
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="Close the assistant"
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                >
+                  <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+                </button>
+              </div>
             </div>
 
             <div ref={logRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3.5">
@@ -689,8 +933,10 @@ export function ImbonixAI() {
                       markdown={message.markdown}
                       streaming={message.streaming}
                       canSpeak={canSpeak}
-                      speaking={speakingId === message.id}
-                      onSpeak={() => toggleSpeak(message.id, plainFromMarkdown(message.markdown ?? ""))}
+                      playback={playbackFor(message.id)}
+                      onPlay={() => speakAnswer(message.id, plainFromMarkdown(message.markdown ?? ""))}
+                      onPauseResume={togglePause}
+                      onStop={stopSpeaking}
                     />
                   );
                 }
@@ -700,8 +946,10 @@ export function ImbonixAI() {
                     answer={message.answer!}
                     onAsk={ask}
                     canSpeak={canSpeak}
-                    speaking={speakingId === message.id}
-                    onSpeak={() => toggleSpeak(message.id, plainFromAnswer(message.answer!))}
+                    playback={playbackFor(message.id)}
+                    onPlay={() => speakAnswer(message.id, plainFromAnswer(message.answer!))}
+                    onPauseResume={togglePause}
+                    onStop={stopSpeaking}
                   />
                 );
               })}
@@ -745,14 +993,34 @@ export function ImbonixAI() {
                 className="sr-only"
                 onChange={(event) => void chooseFile(event.target.files?.[0])}
               />
-              <label
-                htmlFor={fileInputId}
-                title="Attach a picture or document"
-                aria-label="Attach a picture or document"
-                className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors focus-within:ring-2 focus-within:ring-cyan-ink hover:bg-paper hover:text-cyan-ink"
-              >
-                <PaperClipIcon className="h-5 w-5" aria-hidden="true" />
-              </label>
+              <div className="relative shrink-0">
+                {attachMenuOpen && (
+                  <>
+                    <div className="fixed inset-0 z-[57]" aria-hidden="true" onClick={() => setAttachMenuOpen(false)} />
+                    <div className="absolute bottom-full left-0 z-[58] mb-2 w-56 overflow-hidden rounded-xl bg-white p-1 shadow-lift ring-1 ring-line">
+                      <label
+                        htmlFor={fileInputId}
+                        onClick={() => setAttachMenuOpen(false)}
+                        className="flex cursor-pointer items-center gap-2.5 rounded-lg px-3 py-2.5 text-[14px] font-semibold text-ink transition-colors hover:bg-paper hover:text-cyan-ink"
+                      >
+                        <PhotoIcon className="h-5 w-5 text-cyan-ink" aria-hidden="true" />
+                        Add photos &amp; files
+                      </label>
+                    </div>
+                  </>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setAttachMenuOpen((value) => !value)}
+                  aria-haspopup="menu"
+                  aria-expanded={attachMenuOpen}
+                  aria-label="Add photos and files"
+                  title="Add photos & files"
+                  className="flex h-11 w-11 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                >
+                  <PlusIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </div>
               {canListen && (
                 <button
                   type="button"
@@ -784,7 +1052,7 @@ export function ImbonixAI() {
                 aria-label="Send"
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cyan text-ink transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink disabled:opacity-40"
               >
-                <PaperAirplaneIcon className="h-5 w-5" aria-hidden="true" />
+                <ArrowUpIcon className="h-5 w-5 stroke-2" aria-hidden="true" />
               </button>
             </form>
 
