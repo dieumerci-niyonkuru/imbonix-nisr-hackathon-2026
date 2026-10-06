@@ -17,6 +17,7 @@ import { AudienceSection, type Audience } from "@/components/home/audience-secti
 import { MethodologyJourney, type JourneyStep } from "@/components/home/methodology-journey";
 import { WhySection, type Contribution } from "@/components/home/why-section";
 import { ReadMoreSection } from "@/components/ui/read-more";
+import { Reveal } from "@/components/ui/reveal";
 import { PageHero } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import { STATUS_DESCRIPTION } from "@/components/ui/status-badge";
@@ -388,28 +389,40 @@ export default function AboutPage() {
         intro={`An independent project that brings NISR's published statistics together for all ${SITE_FACTS.districts} districts and ${SITE_FACTS.sectors} sectors, and says how far to trust every figure. It is not an official NISR product.`}
       />
       <SectionNav label="About" sections={SECTIONS} />
-      <AboutOverview
-        lead="IMBONIX is an independent evidence platform for Rwanda. It brings NISR's published figures on financial inclusion, poverty, nutrition, shocks and social protection together for every district, says how far to trust each one, and turns them into clear starting points for action."
-        rows={OVERVIEW}
-        tiles={TILES}
-      />
-      <div id="why" className="scroll-mt-36">
+      <Reveal>
+        <AboutOverview
+          lead="IMBONIX is an independent evidence platform for Rwanda. It brings NISR's published figures on financial inclusion, poverty, nutrition, shocks and social protection together for every district, says how far to trust each one, and turns them into clear starting points for action."
+          rows={OVERVIEW}
+          tiles={TILES}
+        />
+      </Reveal>
+      <Reveal id="why" className="scroll-mt-36">
         <WhySection contributions={CONTRIBUTIONS} />
-      </div>
-      <ToolGuide />
-      <div id="who-benefits" className="scroll-mt-36">
+      </Reveal>
+      <Reveal>
+        <ToolGuide />
+      </Reveal>
+      <Reveal id="who-benefits" className="scroll-mt-36">
         <AudienceSection audiences={BENEFICIARIES} />
-      </div>
-      <div id="method" className="scroll-mt-36">
+      </Reveal>
+      <Reveal id="method" className="scroll-mt-36">
         <MethodologyJourney steps={JOURNEY} />
-      </div>
-      <SourcesTable
-        rows={sourceRows()}
-        intro={`${SITE_FACTS.indicators} district indicators come from ${SITE_FACTS.publications} publications by NISR and its partners. Most are NISR-led; the data also combines NISR's official statistics with external partners, including ICF (The DHS Program) for the Rwanda DHS and the World Food Programme for the CFSVA. ${SITE_FACTS.calculated} of the indicators are IMBONIX arithmetic on those published figures, such as a rate multiplied by a population, and are labelled as calculations.`}
-      />
-      <Principles items={PRINCIPLES} />
-      <Limits items={LIMITS} />
-      <ContactSection links={CONTACT_LINKS} />
+      </Reveal>
+      <Reveal>
+        <SourcesTable
+          rows={sourceRows()}
+          intro={`${SITE_FACTS.indicators} district indicators come from ${SITE_FACTS.publications} publications by NISR and its partners. Most are NISR-led; the data also combines NISR's official statistics with external partners, including ICF (The DHS Program) for the Rwanda DHS and the World Food Programme for the CFSVA. ${SITE_FACTS.calculated} of the indicators are IMBONIX arithmetic on those published figures, such as a rate multiplied by a population, and are labelled as calculations.`}
+        />
+      </Reveal>
+      <Reveal>
+        <Principles items={PRINCIPLES} />
+      </Reveal>
+      <Reveal>
+        <Limits items={LIMITS} />
+      </Reveal>
+      <Reveal>
+        <ContactSection links={CONTACT_LINKS} />
+      </Reveal>
     </>
   );
 }

@@ -7,6 +7,7 @@ import { ProtectionFocus } from "@/components/focus/protection-focus";
 import { TextCard } from "@/components/home/story-cards";
 import { FOCUS_AREAS, NAV_GROUPS, type FocusAreaId } from "@/components/layout/nav";
 import { PageHero, SectionHeader } from "@/components/ui/section";
+import { Reveal } from "@/components/ui/reveal";
 
 /** The question each focus area answers, in plain words. */
 const QUESTIONS: Record<FocusAreaId, string> = {
@@ -47,7 +48,12 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
       {area.id === "poverty" && <PovertyFocus />}
       {area.id === "protection" && <ProtectionFocus />}
 
-      <section id="deeper" className="scroll-mt-36 border-t border-line bg-white py-16 sm:py-20" aria-labelledby="deeper-heading">
+      <Reveal
+        as="section"
+        id="deeper"
+        className="scroll-mt-36 border-t border-line bg-white py-16 sm:py-20"
+        aria-labelledby="deeper-heading"
+      >
         <div className="container-page">
           <SectionHeader
             eyebrow="Go deeper"
@@ -85,7 +91,7 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
             ))}
           </nav>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

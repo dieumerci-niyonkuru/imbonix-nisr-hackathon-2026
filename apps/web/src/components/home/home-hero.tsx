@@ -28,9 +28,7 @@ export function HomeHero({
     <section aria-labelledby="home-heading">
       {/* The banner slides up behind the header (which is transparent over it at the top), so the photo is one image
           across the whole top; the content keeps clear of the header with the extra top padding below. */}
-      <div
-        className={`relative -mt-[141px] overflow-hidden bg-gradient-to-br from-cyan to-cyan-hover ${HERO_PHOTO ? "text-white" : "text-ink"}`}
-      >
+      <div className={`relative -mt-[141px] overflow-hidden bg-cyan ${HERO_PHOTO ? "text-white" : "text-ink"}`}>
         {HERO_PHOTO ? (
           <>
             {/* The team photo in its own colours, filling the banner. */}
@@ -39,28 +37,13 @@ export function HomeHero({
               className="pointer-events-none absolute inset-0 bg-cover bg-[position:60%_center]"
               style={{ backgroundImage: `url(${HERO_PHOTO})` }}
             />
-            {/* A neutral dark scrim (no colour cast) so the white headline stays readable: strong down the left where
-                the text sits, clearing to the right so the photo shows in full colour. */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/45 to-transparent"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/55 to-transparent"
-            />
+            {/* A flat, even dark overlay (no gradient, no colour cast) so the white headline and tagline stay readable
+                while the team photo shows through behind them. */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink/55" />
           </>
         ) : (
           <>
-            {/* A faint dot texture and a data-network over the brand-cyan banner; the map shows on narrow screens. */}
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 opacity-70"
-              style={{
-                backgroundImage: "radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1.5px)",
-                backgroundSize: "24px 24px",
-              }}
-            />
+            {/* A data-network over the flat brand-cyan banner; the map shows on narrow screens. */}
             <HeroBackdrop />
             <div className="xl:hidden">
               <DistrictBackdrop />
