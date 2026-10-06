@@ -12,12 +12,12 @@ import {
   PhotoIcon,
   PlayIcon,
   PlusIcon,
-  SparklesIcon,
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
   StopIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
+import { AiMark } from "@/components/assistant/ai-mark";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { answerQuery, SUGGESTIONS, type Answer } from "@/lib/assistant";
 
@@ -836,11 +836,7 @@ export function ImbonixAI() {
           className="group inline-flex h-14 items-center gap-2.5 rounded-full bg-cyan pl-2.5 pr-5 font-bold text-ink shadow-lift ring-1 ring-cyan-ink/20 transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/25 ring-1 ring-white/40 transition-colors group-hover:bg-white/20">
-            {open ? (
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <SparklesIcon className="h-6 w-6" aria-hidden="true" />
-            )}
+            {open ? <XMarkIcon className="h-6 w-6" aria-hidden="true" /> : <AiMark className="h-6 w-6" />}
           </span>
           <span className="pr-0.5 text-[15px] tracking-[-0.01em]">{open ? "Close" : "IMBONIX AI"}</span>
         </button>
@@ -859,7 +855,7 @@ export function ImbonixAI() {
             <div className="flex items-center justify-between gap-3 border-b border-line bg-white px-4 py-3">
               <div className="flex items-center gap-2.5">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-cyan text-ink">
-                  <SparklesIcon className="h-5 w-5" aria-hidden="true" />
+                  <AiMark className="h-5 w-5" />
                 </span>
                 <div>
                   <p className="font-display text-[15px] font-bold leading-4 text-ink">IMBONIX AI</p>
