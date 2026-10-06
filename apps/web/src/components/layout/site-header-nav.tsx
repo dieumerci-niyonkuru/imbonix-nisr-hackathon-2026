@@ -60,6 +60,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const [openGroupId, setOpenGroupId] = useState<string | null>(null);
   const [shortcutLabel, setShortcutLabel] = useState("Ctrl K");
   const [searchBarInView, setSearchBarInView] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const searchBarRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number | undefined>(undefined);
@@ -73,6 +74,14 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   useEffect(() => {
     if (/Mac|iPhone|iPad/.test(navigator.platform)) setShortcutLabel("Cmd K");
     return () => window.clearTimeout(closeTimer.current);
+  }, []);
+
+  // Once the page has scrolled, the sticky header lifts off the content with a soft shadow.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // The header's own search button shows only once the search bar above it has scrolled out of view.
@@ -164,7 +173,12 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
         </div>
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-line bg-white">
+      <header
+        className={cn(
+          "sticky top-0 z-50 border-b border-line bg-white transition-shadow duration-200",
+          scrolled && "shadow-[0_6px_20px_-12px_rgba(26,31,33,0.35)]",
+        )}
+      >
         <div className="container-page flex h-[84px] items-center gap-4">
           <Link href="/" aria-label="IMBONIX home" className={cn("shrink-0 rounded-xl", FOCUS_RING)}>
             <BrandLogo />
