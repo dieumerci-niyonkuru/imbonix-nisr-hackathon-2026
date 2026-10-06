@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
+import { HeroBackdrop } from "@/components/home/hero-backdrop";
 import { DistrictBackdrop } from "@/components/home/story-cards";
 import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 
@@ -32,7 +33,8 @@ export function HomeHero({
             backgroundSize: "24px 24px",
           }}
         />
-        {/* Wide screens show the emblem beside the headline instead of the map behind it. */}
+        {/* Wide screens get a faint data-network behind the headline; narrow screens keep the map backdrop. */}
+        <HeroBackdrop />
         <div className="xl:hidden">
           <DistrictBackdrop />
         </div>
