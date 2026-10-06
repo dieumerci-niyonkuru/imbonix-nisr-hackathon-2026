@@ -33,16 +33,18 @@ export function HomeHero({
                 so the photo shows through, and deeper at the bottom where the cards overlap. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-cover bg-center"
+              className="pointer-events-none absolute inset-0 bg-cover bg-[position:60%_center]"
               style={{ backgroundImage: `url(${HERO_PHOTO})` }}
             />
+            {/* A cyan wash kept strong across the left/centre where the headline sits (near-black text needs a light
+                backing), then dropping away on the right third so the photo reads clearly there. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan via-cyan/90 to-cyan/50"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan via-cyan/85 to-cyan/20"
             />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cyan/70 to-transparent"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cyan/60 to-transparent"
             />
           </>
         ) : (
