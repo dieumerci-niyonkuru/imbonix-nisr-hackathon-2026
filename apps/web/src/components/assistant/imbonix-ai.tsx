@@ -274,6 +274,46 @@ function RichText({ text }: { text: string }) {
     <div className="space-y-2 text-[13.5px] leading-6 text-ink/90">
       {paragraphs.map((block, index) => {
         const lines = block.split("\n");
+        const tableRows = lines.filter((line) => line.trim().startsWith("|"));
+        if (tableRows.length >= 2 && tableRows.length === lines.length && /^[\s:|-]+$/.test(tableRows[1])) {
+          const cells = (row: string) =>
+            row
+              .trim()
+              .replace(/^\||\|$/g, "")
+              .split("|")
+              .map((cell) => cell.trim());
+          const header = cells(tableRows[0]);
+          const body = tableRows.slice(2).map(cells);
+          return (
+            <div key={index} className="overflow-x-auto">
+              <table className="w-full overflow-hidden rounded-lg text-[12.5px] ring-1 ring-line">
+                <thead className="bg-paper">
+                  <tr>
+                    {header.map((cell, column) => (
+                      <th key={column} className="px-2.5 py-1.5 text-left font-bold text-ink">
+                        {renderInline(cell)}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-line">
+                  {body.map((row, rowIndex) => (
+                    <tr key={rowIndex}>
+                      {row.map((cell, column) => (
+                        <td
+                          key={column}
+                          className={`px-2.5 py-1.5 align-top ${column === 0 ? "font-semibold text-ink" : "tabular text-ink/90"}`}
+                        >
+                          {renderInline(cell)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
         if (lines.every((line) => /^\s*[-*]\s+/.test(line))) {
           return (
             <ul key={index} className="list-disc space-y-1 pl-5 marker:text-cyan-ink">
