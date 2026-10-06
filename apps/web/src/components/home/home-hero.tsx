@@ -29,7 +29,7 @@ export function HomeHero({
       {/* The banner slides up behind the header (which is transparent over it at the top), so the photo is one image
           across the whole top; the content keeps clear of the header with the extra top padding below. */}
       <div
-        className={`relative -mt-[149px] overflow-hidden bg-gradient-to-br from-cyan to-cyan-hover sm:-mt-[153px] ${HERO_PHOTO ? "text-white" : "text-ink"}`}
+        className={`relative -mt-[141px] overflow-hidden bg-gradient-to-br from-cyan to-cyan-hover ${HERO_PHOTO ? "text-white" : "text-ink"}`}
       >
         {HERO_PHOTO ? (
           <>
@@ -67,7 +67,7 @@ export function HomeHero({
             </div>
           </>
         )}
-        <div className="container-page relative pb-40 pt-[213px] sm:pb-44 sm:pt-[249px]">
+        <div className="container-page relative pb-40 pt-[205px] sm:pb-44 sm:pt-[237px]">
           {!HERO_PHOTO && <RwandaEmblem tone="cyan" className="absolute right-10 top-14 hidden w-[25rem] xl:block" />}
           <p className="font-display text-[18px] font-bold sm:text-[22px]">Financial inclusion and poverty in Rwanda</p>
           <h1
