@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ComponentType, CSSProperties, SVGProps } from "react";
 import { ArrowUpIcon } from "@heroicons/react/24/solid";
 import { StackedBrandLogo } from "@/components/layout/logo";
-import { FacebookIcon, InstagramGradientIcon, LinkedInIcon, XIcon } from "@/components/layout/social-icons";
+import { FacebookIcon, FlickrIcon, InstagramGradientIcon, LinkedInIcon, XIcon } from "@/components/layout/social-icons";
 import { DATA_SECTION, NAV_GROUPS, REPOSITORY_URL } from "@/components/layout/nav";
 import { SOCIAL_BRAND } from "@/lib/palette";
 
@@ -34,6 +34,7 @@ const SOCIAL_LINKS: SocialLink[] = [
     icon: InstagramGradientIcon,
     brand: SOCIAL_BRAND.instagram,
   },
+  { href: "https://www.flickr.com/photos/imbonix", label: "IMBONIX on Flickr", icon: FlickrIcon, brand: SOCIAL_BRAND.flickr },
 ];
 
 /** One column per focus area, each opening with its overview, then the data and the project links. */

@@ -29,9 +29,12 @@ export const SOCIAL_BRAND = {
   linkedin: "#0A66C2",
   facebook: "#1877F2",
   instagram: "#D62976",
+  flickr: "#FF0084",
 } as const;
 
 export const INSTAGRAM_GRADIENT = ["#FEDA75", "#FA7E1E", "#D62976", "#962FBF", "#4F5BD5"] as const;
+/** Flickr's two dots: blue then pink. */
+export const FLICKR_DOTS = ["#0063DC", "#FF0084"] as const;
 
 /** Text and surfaces: near black text, white pages and pale cyan tints. */
 export const INK = "#1A1F21";

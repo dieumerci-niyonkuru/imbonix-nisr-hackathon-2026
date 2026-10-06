@@ -165,13 +165,13 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
       {/* The site search, a field in the right corner. On the homepage top the bar is clear so the one hero photo
           behind the header shows through; elsewhere it is the brand cyan. */}
       <div ref={searchBarRef} className={cn("relative z-50", overlay ? "bg-transparent" : "bg-cyan")}>
-        <div className="container-page flex justify-end py-2.5 sm:py-3">
+        <div className="container-page flex justify-end py-2">
           <button
             type="button"
             onClick={openSearch}
             aria-haspopup="dialog"
             aria-label={`Search the site (${shortcutLabel})`}
-            className="flex h-11 w-full items-center gap-3 rounded-md bg-white px-4 text-left shadow-card ring-1 ring-ink/10 transition-shadow hover:ring-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink sm:w-[26rem]"
+            className="flex h-10 w-full items-center gap-3 rounded-md bg-white px-4 text-left shadow-card ring-1 ring-ink/10 transition-shadow hover:ring-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink sm:w-[21rem]"
           >
             <MagnifyingGlassIcon className="h-5 w-5 shrink-0 stroke-2 text-ink" aria-hidden="true" />
             <span className="min-w-0 flex-1 truncate text-[15px] text-muted">
