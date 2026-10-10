@@ -1,8 +1,8 @@
 # Deployment
 
-**Status (27 September 2026): IMBONIX has not been deployed to a public host.** Both production Docker images have been
-built, started and checked locally: they reach a healthy state, every page renders with no console errors, and the
-interactive map loads. Nothing below has been run against a real hosting provider yet.
+**Status (10 October 2026): IMBONIX has not yet been deployed to a public host.** Both production Docker images have
+been built, started and checked locally: they reach a healthy state, every page renders with no console errors, and the
+interactive map loads. The fastest path to the public URL the hackathon requires is **[Deploy the web app to Vercel](#deploy-the-web-app-to-vercel-fastest)** below; record the live URL and date here and in the README once it is live.
 
 ## What gets deployed
 
@@ -61,7 +61,10 @@ docker build -f apps/api/Dockerfile -t imbonix-api .
 | `PORT` / `HOSTNAME` | `3000` / `0.0.0.0` by default; set `PORT` if the platform assigns one |
 | Health check path | `/api/health` |
 
-The web app reads no secrets and needs no runtime variables.
+The web app needs **no** runtime variables to run. To turn on IMBONIX AI's generative answers in production, set **one**
+optional server-side key — `GEMINI_API_KEY` (Google Gemini, free tier) or `ANTHROPIC_API_KEY` (Claude, used in preference
+when present). The key is read only on the server and never sent to the browser; with no key the assistant falls back to
+its on-device engine, so the site is fully functional either way. See [ai-assistant.md](ai-assistant.md).
 
 ### API
 
@@ -89,6 +92,38 @@ AWS App Runner, Fly.io, Render or Railway. For each service:
 
 The web app can also run on Vercel without Docker (import `apps/web` as the project root); the security headers are in
 `next.config.mjs`, so they apply there too.
+
+## Deploy the web app to Vercel (fastest)
+
+Vercel runs a Next.js app with no Dockerfile and gives an HTTPS URL in minutes — the quickest way to the public link the
+hackathon requires.
+
+1. Push the branch you want live (normally `main`, after `testing` is merged in by pull request and CI is green).
+2. On [vercel.com](https://vercel.com), **Add New → Project**, import
+   `dieumerci-niyonkuru/imbonix-nisr-hackathon-2026`, and set the **Root Directory** to `apps/web`. Vercel detects
+   Next.js; keep the default build and output settings.
+3. **Optional — turn on generative AI:** under **Settings → Environment Variables** add `GEMINI_API_KEY` (free tier) or
+   `ANTHROPIC_API_KEY`. Leave it out and the assistant still works from the on-device engine.
+4. **Deploy.** Then open `/`, the assistant (ask one question), and `/poverty-dynamics/district-map` to confirm the
+   basemap loads.
+5. Put the Vercel URL in this file and the README, with the date.
+
+The API (`apps/api`) is optional for the demo — the website does not call it. Deploy it the same way on any Docker host
+(above) only if you want the public JSON endpoints live.
+
+## Production hardening notes
+
+- **Microphone permission.** `next.config.mjs` sends `Permissions-Policy: microphone=(self)` so the browser can prompt
+  for the assistant's voice input on this origin only; camera, geolocation, payment and USB stay disabled. Voice input
+  needs HTTPS (which Vercel and every host above provide) and a Chromium browser.
+- **Assistant rate limit is best-effort.** The per-IP limit in `app/api/assistant/route.ts` is in-memory, so it holds
+  within one instance but is not shared across instances and resets on a cold start. It is enough to stop casual abuse of
+  a demo. For a hardened multi-instance deployment, put a platform or edge rate limit in front of `/api/assistant`, or
+  move the counter to a shared store (e.g. Upstash/Vercel KV). The assistant's own output, turn and attachment caps
+  bound the cost of any single request regardless.
+- **Trust the client IP.** That limit keys on `x-forwarded-for`. Deploy behind a router that overwrites this header with
+  the real client IP (Vercel and the Docker hosts above do); on a self-managed proxy, strip any inbound
+  `X-Forwarded-For` and set it yourself, so a client cannot spoof it to dodge the limit.
 
 ## Release checklist
 
