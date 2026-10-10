@@ -309,7 +309,7 @@ export default function Home() {
           id="figures-heading"
           eyebrow="What the NISR data shows"
           title="Included, but not yet financially healthy"
-          intro="Six published figures frame the challenge: access to finance is almost universal, but financial health, banking and timely social protection payments lag far behind."
+          intro="Six published figures frame the challenge: almost everyone can now reach a financial service, but far fewer are financially healthy — able to save and get through a hard month, not just hold an account — and banking and on-time support payments still lag behind."
           tiles={figureTiles}
         />
       </Reveal>
