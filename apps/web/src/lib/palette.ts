@@ -30,6 +30,8 @@ export const SOCIAL_BRAND = {
   facebook: "#1877F2",
   instagram: "#D62976",
   flickr: "#FF0084",
+  tiktok: "#000000",
+  github: "#181717",
 } as const;
 
 export const INSTAGRAM_GRADIENT = ["#FEDA75", "#FA7E1E", "#D62976", "#962FBF", "#4F5BD5"] as const;
