@@ -1,6 +1,6 @@
 # IMBONIX AI — the grounded assistant
 
-> **Submission package:** [Index](submission/README.md) · [Solution overview](submission/solution-overview.md) · [Demo script](submission/demo-script.md) · **IMBONIX AI** · [AI disclosure](submission/ai-disclosure.md)
+> **Submission package:** [Index](submission/README.md) · [Solution overview](submission/solution-overview.md) · [Criteria evidence](submission/criteria-evidence.md) · [Demo script](submission/demo-script.md) · **IMBONIX AI** · [AI disclosure](submission/ai-disclosure.md)
 
 IMBONIX AI is the conversational layer of the platform. It lets anyone — a household, a district officer, a
 policymaker, a researcher — ask about financial inclusion and poverty in Rwanda in plain language, in English, French
