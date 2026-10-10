@@ -1,5 +1,5 @@
 import { rankOf, type District } from "@/lib/data";
-import { formatValue } from "@/lib/format";
+import { formatValue, ordinal } from "@/lib/format";
 import { CORE_DIMENSIONS, DIMENSIONS, meta } from "@/lib/indicators";
 
 /** Where a district sits on the four core dimensions. Rank 1 = most affected. No composite score. */
@@ -22,8 +22,8 @@ export function Fingerprint({ district, compact = false }: { district: District;
               <span className="tabular shrink-0 font-semibold text-ink">
                 {formatValue(indicator, value)}
                 {rank && (
-                  <span className="ml-1.5 font-normal text-muted">
-                    #{rank.rank}/{rank.of}
+                  <span className="ml-1.5 whitespace-nowrap font-normal text-muted">
+                    {ordinal(rank.rank)} of {rank.of}
                   </span>
                 )}
               </span>
