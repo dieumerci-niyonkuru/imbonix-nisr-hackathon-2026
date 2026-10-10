@@ -28,7 +28,7 @@ export function HomeHero({
     <section aria-labelledby="home-heading">
       {/* The banner slides up behind the header (which is transparent over it at the top), so the photo is one image
           across the whole top; the content keeps clear of the header with the extra top padding below. */}
-      <div className={`relative -mt-[141px] overflow-hidden bg-cyan ${HERO_PHOTO ? "text-white" : "text-ink"}`}>
+      <div className={`relative -mt-[125px] overflow-hidden bg-cyan ${HERO_PHOTO ? "text-white" : "text-ink"}`}>
         {HERO_PHOTO ? (
           <>
             {/* The team photo in its own colours, filling the banner. */}
@@ -50,7 +50,7 @@ export function HomeHero({
             </div>
           </>
         )}
-        <div className="container-page relative pb-40 pt-[205px] sm:pb-44 sm:pt-[237px]">
+        <div className="container-page relative pb-40 pt-[172px] sm:pb-44 sm:pt-[196px]">
           {!HERO_PHOTO && <RwandaEmblem tone="cyan" className="absolute right-10 top-14 hidden w-[25rem] xl:block" />}
           <p className="font-display text-[18px] font-bold sm:text-[22px]">Financial inclusion &amp; poverty reduction in Rwanda</p>
           <h1
