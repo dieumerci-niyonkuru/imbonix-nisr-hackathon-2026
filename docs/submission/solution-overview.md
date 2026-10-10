@@ -11,6 +11,7 @@
 <em>Submission package:</em>
 <a href="README.md">Index</a> ·
 <strong>Solution overview</strong> ·
+<a href="criteria-evidence.md">Criteria evidence</a> ·
 <a href="demo-script.md">Demo script</a> ·
 <a href="../ai-assistant.md">IMBONIX AI</a> ·
 <a href="ai-disclosure.md">AI disclosure</a>
