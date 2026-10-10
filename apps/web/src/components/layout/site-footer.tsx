@@ -37,26 +37,34 @@ const SOCIAL_LINKS: SocialLink[] = [
   { href: "https://www.flickr.com/photos/imbonix", label: "IMBONIX on Flickr", icon: FlickrIcon, brand: SOCIAL_BRAND.flickr },
 ];
 
-/** One column per focus area, each opening with its overview, then the data and the project links. */
+/**
+ * The footer columns mirror the three parts of the challenge — financial exclusion, poverty, social protection — plus
+ * the data behind them, so the footer reads as the solution's own map. Each opens with its overview. Project and meta
+ * links (source code, security, issues) sit in the bottom bar instead, so these columns stay balanced and on-topic.
+ */
 const COLUMNS: FooterColumn[] = [
   ...NAV_GROUPS.map((group) => ({
     heading: group.label,
     links: [{ href: group.href, label: "Overview" }, ...group.items.map((item) => ({ href: item.href, label: item.label }))],
   })),
   {
-    heading: "Data and project",
+    heading: "Data & methods",
     links: [
       { href: DATA_SECTION.href, label: DATA_SECTION.landingLabel },
       ...DATA_SECTION.items.map((item) => ({ href: item.href, label: item.label })),
       { href: "/about", label: "About IMBONIX" },
-      { href: REPOSITORY_URL, label: "Source code", external: true },
-      { href: `${REPOSITORY_URL}/blob/main/SECURITY.md`, label: "Security policy", external: true },
-      { href: DATA_ISSUE_URL, label: "Report a data issue", external: true },
     ],
   },
 ];
 
-/** The utility icon beside the social links: just back to top (the project links live in the columns above). */
+/** Project and meta links, shown as a small row in the bottom bar, out of the focus-area columns above. */
+const PROJECT_LINKS: FooterLink[] = [
+  { href: REPOSITORY_URL, label: "Source code", external: true },
+  { href: `${REPOSITORY_URL}/blob/main/SECURITY.md`, label: "Security policy", external: true },
+  { href: DATA_ISSUE_URL, label: "Report a data issue", external: true },
+];
+
+/** The utility icon beside the social links: just back to top (the project links live in the bottom bar now). */
 const ICON_LINKS: IconLink[] = [{ href: "#main", label: "Back to top", icon: ArrowUpIcon, external: false }];
 
 const LINK_STYLE =
@@ -123,7 +131,15 @@ export function SiteFooter() {
   return (
     <footer>
       <div className="bg-cyan text-ink">
-        <nav aria-label="Footer" className="container-page grid grid-cols-2 gap-x-6 gap-y-12 py-16 sm:py-20 lg:grid-cols-4">
+        <div className="container-page pt-14 sm:pt-16">
+          <p className="max-w-3xl text-balance font-display text-[19px] font-bold leading-7 tracking-[-0.01em] text-ink sm:text-[22px]">
+            Evidence for financial inclusion and poverty reduction in Rwanda — every figure sourced, every page a clear next step.
+          </p>
+        </div>
+        <nav
+          aria-label="Footer"
+          className="container-page grid grid-cols-2 gap-x-6 gap-y-12 pb-16 pt-10 sm:pb-20 sm:pt-12 lg:grid-cols-4"
+        >
           {COLUMNS.map((column) => (
             <div key={column.heading}>
               <h2 className="font-display text-[15px] font-bold uppercase tracking-[0.03em] text-ink sm:text-[18px]">
@@ -142,6 +158,20 @@ export function SiteFooter() {
       </div>
 
       <div className="bg-white">
+        <div className="container-page flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-b border-line py-4 sm:justify-start">
+          {PROJECT_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded text-[13.5px] font-semibold text-muted transition-colors hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+            >
+              {link.label}
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          ))}
+        </div>
         <div className="container-page grid items-center gap-8 py-10 md:grid-cols-[1fr_auto_1fr]">
           <Link
             href="/"
