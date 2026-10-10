@@ -13,7 +13,7 @@ export type JourneyStep = { name: string; body: string; details?: ReactNode };
  */
 export function MethodologyJourney({ steps }: { steps: JourneyStep[] }) {
   return (
-    <section className="bg-white py-16 sm:py-24" aria-labelledby="journey-heading">
+    <section className="bg-white py-12 sm:py-20" aria-labelledby="journey-heading">
       <div className="container-page">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeader

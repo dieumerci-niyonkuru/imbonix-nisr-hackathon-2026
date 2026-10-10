@@ -24,7 +24,7 @@ export function PlaceSection({
   counts: { sectors: number; cells: number; villages: number };
 }) {
   return (
-    <section className="border-t border-line bg-paper py-16 sm:py-24" aria-labelledby="place-heading">
+    <section className="border-t border-line bg-paper py-12 sm:py-20" aria-labelledby="place-heading">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
         <div className="mx-auto w-full max-w-md lg:max-w-none">
           <RwandaMap fills={OUTLINE_FILLS} stroke={RAMPS.grey[1]} title="Outline of Rwanda's 30 districts" />

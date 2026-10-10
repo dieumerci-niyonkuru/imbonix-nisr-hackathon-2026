@@ -89,7 +89,7 @@ export function DataEvidence({
   sectorCount: number;
 }) {
   return (
-    <section className="bg-white py-16 sm:py-24" aria-labelledby="data-evidence-heading">
+    <section className="bg-white py-12 sm:py-20" aria-labelledby="data-evidence-heading">
       <div className="container-page">
         <SectionHeader
           eyebrow="Data & evidence"

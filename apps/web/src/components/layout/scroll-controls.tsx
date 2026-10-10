@@ -47,7 +47,8 @@ export function ScrollControls() {
       title="Back to top"
       className={cn(
         "group fixed bottom-24 right-4 z-40 hidden h-12 w-12 items-center justify-center rounded-full bg-cyan text-ink shadow-lift ring-1 ring-cyan-ink/15 transition-[opacity,transform,visibility] duration-200 hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:bottom-28 sm:right-6 sm:flex print:hidden",
-        hidden && "pointer-events-none invisible translate-y-2 opacity-0 focus-within:pointer-events-auto focus-within:visible focus-within:translate-y-0 focus-within:opacity-100",
+        hidden &&
+          "pointer-events-none invisible translate-y-2 opacity-0 focus-within:pointer-events-auto focus-within:visible focus-within:translate-y-0 focus-within:opacity-100",
       )}
     >
       <ArrowUpIcon className="h-5 w-5 transition-transform group-hover:-translate-y-0.5" aria-hidden="true" />

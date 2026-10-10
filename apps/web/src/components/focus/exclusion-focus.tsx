@@ -118,7 +118,7 @@ export function ExclusionFocus() {
         />
       </div>
 
-      <section id="access" className="scroll-mt-36 bg-paper py-16 sm:py-20" aria-labelledby="access-heading">
+      <section id="access" className="scroll-mt-36 bg-paper py-12 sm:py-16" aria-labelledby="access-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Access"
@@ -159,7 +159,7 @@ export function ExclusionFocus() {
         </div>
       </section>
 
-      <section id="health" className="scroll-mt-36 bg-white py-16 sm:py-20" aria-label="Financial health">
+      <section id="health" className="scroll-mt-36 bg-white py-12 sm:py-16" aria-label="Financial health">
         <div className="container-page">
           <Finding
             title="Being included is not the same as being financially healthy"
@@ -198,7 +198,7 @@ export function ExclusionFocus() {
         </div>
       </section>
 
-      <section id="money" className="scroll-mt-36 bg-paper py-16 sm:py-20" aria-labelledby="money-heading">
+      <section id="money" className="scroll-mt-36 bg-paper py-12 sm:py-16" aria-labelledby="money-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Mobile money and credit"
@@ -242,7 +242,7 @@ export function ExclusionFocus() {
         </div>
       </section>
 
-      <section id="who" className="scroll-mt-36 bg-white py-16 sm:py-20" aria-label="Who is left out">
+      <section id="who" className="scroll-mt-36 bg-white py-12 sm:py-16" aria-label="Who is left out">
         <div className="container-page">
           <Finding
             title="Women and the poorest are furthest behind"
