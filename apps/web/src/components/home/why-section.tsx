@@ -7,7 +7,7 @@ export type Contribution = { title: string; body: string };
  */
 export function WhySection({ contributions }: { contributions: Contribution[] }) {
   return (
-    <section className="bg-paper py-16 sm:py-24" aria-labelledby="why-heading">
+    <section className="bg-paper py-12 sm:py-20" aria-labelledby="why-heading">
       <div className="container-page grid gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <p className="eyebrow text-cyan-ink">Why IMBONIX</p>

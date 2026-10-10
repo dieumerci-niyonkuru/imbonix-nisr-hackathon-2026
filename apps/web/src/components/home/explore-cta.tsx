@@ -13,8 +13,8 @@ export function ExploreCta() {
           Get to know Rwanda&apos;s data
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-pretty text-[16px] leading-7 sm:text-[17px]">
-          Financial inclusion, poverty and social protection for every district and sector — with the source and a trust
-          label on every figure, and a clear next step on every page.
+          Financial inclusion, poverty and social protection for every district and sector — with the source and a trust label on
+          every figure, and a clear next step on every page.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link

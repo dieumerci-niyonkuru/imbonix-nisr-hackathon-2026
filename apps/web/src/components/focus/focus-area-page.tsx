@@ -60,7 +60,7 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
       <Reveal
         as="section"
         id="deeper"
-        className="scroll-mt-36 border-t border-line bg-white py-16 sm:py-20"
+        className="scroll-mt-36 border-t border-line bg-white py-12 sm:py-16"
         aria-labelledby="deeper-heading"
       >
         <div className="container-page">

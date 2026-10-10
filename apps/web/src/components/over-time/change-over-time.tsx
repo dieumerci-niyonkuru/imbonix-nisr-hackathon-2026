@@ -186,7 +186,7 @@ export function ChangeOverTime() {
         />
       </div>
 
-      <section id="poverty" className="scroll-mt-36 bg-paper py-16 sm:py-20" aria-labelledby="poverty-heading">
+      <section id="poverty" className="scroll-mt-36 bg-paper py-12 sm:py-16" aria-labelledby="poverty-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Poverty"
@@ -233,7 +233,7 @@ export function ChangeOverTime() {
         </div>
       </section>
 
-      <section id="people" className="scroll-mt-36 bg-white py-16 sm:py-20" aria-labelledby="people-heading">
+      <section id="people" className="scroll-mt-36 bg-white py-12 sm:py-16" aria-labelledby="people-heading">
         <div className="container-page">
           <SectionHeader eyebrow="People" title={<span id="people-heading">More people, in smaller households</span>} />
           <div className="mt-10">
@@ -285,7 +285,7 @@ export function ChangeOverTime() {
         </div>
       </section>
 
-      <section id="homes" className="scroll-mt-36 bg-paper py-16 sm:py-20" aria-labelledby="homes-heading">
+      <section id="homes" className="scroll-mt-36 bg-paper py-12 sm:py-16" aria-labelledby="homes-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Homes"
@@ -318,7 +318,7 @@ export function ChangeOverTime() {
         </div>
       </section>
 
-      <section id="services" className="scroll-mt-36 bg-white py-16 sm:py-20" aria-labelledby="services-heading">
+      <section id="services" className="scroll-mt-36 bg-white py-12 sm:py-16" aria-labelledby="services-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Services"
@@ -347,7 +347,7 @@ export function ChangeOverTime() {
         </div>
       </section>
 
-      <section id="health" className="scroll-mt-36 bg-paper py-16 sm:py-20" aria-labelledby="health-heading">
+      <section id="health" className="scroll-mt-36 bg-paper py-12 sm:py-16" aria-labelledby="health-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Health"
@@ -444,7 +444,7 @@ export function ChangeOverTime() {
         </div>
       </section>
 
-      <section id="work" className="scroll-mt-36 bg-white py-16 sm:py-20" aria-labelledby="work-heading">
+      <section id="work" className="scroll-mt-36 bg-white py-12 sm:py-16" aria-labelledby="work-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Work"
