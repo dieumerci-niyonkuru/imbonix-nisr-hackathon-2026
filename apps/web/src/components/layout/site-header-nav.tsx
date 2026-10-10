@@ -52,9 +52,10 @@ const ACTIVE_STYLE = "bg-paper text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
 
 /**
- * The header: a cyan bar holding the site search, then the logo, a home link, one dropdown menu per focus area and
- * the project pages, from 1280px wide. The search bar scrolls away with the page; once it is out of view, a search
- * button appears in the sticky header so search is always one click away. The menus are disclosure buttons: they open on click, Enter or the down
+ * The header: one sticky row with the logo, a home link, one dropdown menu per focus area and the project pages (from
+ * 1280px wide), and a search button in the right corner that opens the search dialog (or Ctrl/Cmd K). At the top of the
+ * homepage it sits over the hero photo (transparent, white text) and turns solid white on scroll. The menus are
+ * disclosure buttons: they open on click, Enter or the down
  * arrow, and on hover with a mouse; inside, the arrow keys move between links; Escape, a click outside or moving focus
  * away closes them. Each menu is a plain list of page names. Narrower screens get a menu sheet with the same links.
  */
@@ -65,9 +66,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [openGroupId, setOpenGroupId] = useState<string | null>(null);
   const [shortcutLabel, setShortcutLabel] = useState("Ctrl K");
-  const [searchBarInView, setSearchBarInView] = useState(true);
   const [scrolled, setScrolled] = useState(false);
-  const searchBarRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number | undefined>(undefined);
   const triggerButtons = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -88,15 +87,6 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // The header's own search button shows only once the search bar above it has scrolled out of view.
-  useEffect(() => {
-    const bar = searchBarRef.current;
-    if (!bar) return;
-    const observer = new IntersectionObserver(([entry]) => setSearchBarInView(entry.isIntersecting));
-    observer.observe(bar);
-    return () => observer.disconnect();
   }, []);
 
   // An open menu closes on a click outside the navigation, or on Escape, which returns focus to its button.
@@ -162,29 +152,6 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 
   return (
     <>
-      {/* The site search, a field in the right corner. On the homepage top the bar is clear so the one hero photo
-          behind the header shows through; elsewhere it is the brand cyan. */}
-      <div ref={searchBarRef} className={cn("relative z-50", overlay ? "bg-transparent" : "bg-cyan")}>
-        <div className="container-page flex justify-end py-1.5">
-          <button
-            type="button"
-            onClick={openSearch}
-            aria-haspopup="dialog"
-            aria-label={`Search the site (${shortcutLabel})`}
-            className="flex h-9 w-full items-center gap-2.5 rounded-md bg-white px-3.5 text-left shadow-card ring-1 ring-ink/10 transition-shadow hover:ring-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink sm:w-[17rem]"
-          >
-            <MagnifyingGlassIcon className="h-5 w-5 shrink-0 stroke-2 text-ink" aria-hidden="true" />
-            <span className="min-w-0 flex-1 truncate text-[15px] text-muted">
-              <span className="sm:hidden">Search places, indicators and charts</span>
-              <span className="hidden sm:inline">Search a place, indicator, chart or page</span>
-            </span>
-            <kbd className="hidden shrink-0 rounded border border-line bg-paper px-2 py-0.5 font-body text-[12px] font-semibold text-muted md:inline">
-              {shortcutLabel}
-            </kbd>
-          </button>
-        </div>
-      </div>
-
       <header
         className={cn(
           "sticky top-0 z-50 border-b transition-shadow duration-200",
@@ -293,8 +260,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               aria-label={`Search the site (${shortcutLabel})`}
               title={`Search the site (${shortcutLabel})`}
               className={cn(
-                "inline-flex h-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-cyan text-ink transition-[width,opacity,visibility,background-color] duration-200 hover:bg-cyan-ink hover:text-white",
-                searchBarInView ? "invisible w-0 opacity-0" : "w-10",
+                "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan text-ink transition-colors hover:bg-cyan-ink hover:text-white",
                 FOCUS_RING,
               )}
             >
