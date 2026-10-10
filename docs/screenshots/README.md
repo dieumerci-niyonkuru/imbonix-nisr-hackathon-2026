@@ -1,10 +1,11 @@
 # Screenshots
 
-Put the images the README and the submission use in **this folder**, with the exact filenames below. The README already
-references them (currently commented out) — once a file is here, uncomment its tag in the README and it renders.
+These images illustrate the [main README](../../README.md) and the submission. The current set (`home.png`,
+`home-mobile.png`, `priorities.png`, `district.png`, `map.png`) is **already in the repo and rendering**. Use this guide
+to **refresh** them when the design changes — keep the same filenames and the README updates automatically.
 
 Capture against the running app (`npm run dev` in `apps/web`, or the live URL). Use a clean browser window (no
-dev-tools, no extensions bar). PNG, retina/2× if you can; keep each under ~1 MB.
+dev-tools, no extensions bar). PNG; keep each around 1 MB or less.
 
 | Filename | Page | Viewport | What to show |
 | --- | --- | --- | --- |
@@ -25,5 +26,5 @@ dev-tools, no extensions bar). PNG, retina/2× if you can; keep each under ~1 MB
 Dev note: on first load each page compiles for a few seconds in `npm run dev` — wait for it to settle before capturing,
 or use `npm run build && npm run start` for instant, production-looking pages.
 
-After adding the files, uncomment the image tags in the repository [`README.md`](../../README.md) (search for
-"Screenshots").
+Replacing a file here (same name) updates the README automatically — no edit needed. The optional `ai.png` is referenced
+nowhere yet; add it to the README if you capture it.

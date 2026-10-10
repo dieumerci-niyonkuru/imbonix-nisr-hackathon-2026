@@ -47,11 +47,7 @@ IMBONIX is an independent team project. It is **not an official NISR product** a
 - **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** — required by the rules: how AI tools were used, and the team's responsibility for every figure.
 - **Live app:** _deploy and add the public URL here_ (see the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel-fastest)) · **Source:** this repository.
 
-<!-- Screenshots: add the files named below into docs/screenshots/ (see the guide there), then uncomment.
 ![The IMBONIX homepage](docs/screenshots/home.png)
--->
-
-> 📸 **Screenshots pending.** The images for this README go in [`docs/screenshots/`](docs/screenshots/) — the guide there lists the exact filenames. Until then, run the app locally (see [Getting started](#getting-started)) or open the live URL above.
 
 ## Site map
 
@@ -104,18 +100,16 @@ source, and never invent a number.
 See [docs/ai-assistant.md](docs/ai-assistant.md) for the architecture and
 [docs/submission/demo-script.md](docs/submission/demo-script.md) for a judge walkthrough.
 
-<!-- Screenshots: add these files into docs/screenshots/ (see the guide there), then uncomment.
 <table>
   <tr>
-    <td><img src="docs/screenshots/map.png" alt="Resilience map zoomed to Nyamagabe's sectors"></td>
+    <td><img src="docs/screenshots/map.png" alt="Resilience map zoomed to a district's sectors"></td>
     <td><img src="docs/screenshots/district.png" alt="Gicumbi district profile"></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/priorities.png" alt="Intervention priorities"></td>
+    <td><img src="docs/screenshots/priorities.png" alt="Priority ranking by policy lever"></td>
     <td align="center"><img src="docs/screenshots/home-mobile.png" alt="Homepage on a phone" width="260"></td>
   </tr>
 </table>
--->
 
 ## How the data is handled
 
