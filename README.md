@@ -41,7 +41,8 @@ IMBONIX is an independent team project. It is **not an official NISR product** a
 
 **→ [Submission package index](docs/submission/)** — the guided reading order. Or jump straight in:
 
-- **[Solution overview](docs/submission/solution-overview.md)** — problem → solution → data & methodology → tech → design → impact → Vision 2050 / NST2 alignment, with a criterion-by-criterion scorecard.
+- **[Solution overview](docs/submission/solution-overview.md)** — problem → solution → data & methodology → tech → design → impact → Vision 2050 / NST2 alignment, with a criterion-by-criterion mapping.
+- **[Criteria evidence](docs/submission/criteria-evidence.md)** — each evaluation criterion answered point by point, with the methodology summary, impact-measurement plan and adoption pathway.
 - **[Demo script](docs/submission/demo-script.md)** — a 90-second pitch and a 3-minute, criterion-by-criterion walkthrough.
 - **[IMBONIX AI](docs/ai-assistant.md)** — how the grounded, multilingual, multimodal assistant is built.
 - **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** — required by the rules: how AI tools were used, and the team's responsibility for every figure.

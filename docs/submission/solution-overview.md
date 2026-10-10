@@ -11,6 +11,7 @@
 <em>Submission package:</em>
 <a href="README.md">Index</a> ·
 <strong>Solution overview</strong> ·
+<a href="criteria-evidence.md">Criteria evidence</a> ·
 <a href="demo-script.md">Demo script</a> ·
 <a href="../ai-assistant.md">IMBONIX AI</a> ·
 <a href="ai-disclosure.md">AI disclosure</a>
@@ -34,7 +35,7 @@
 4. [The solution](#the-solution)
 5. [How it works](#how-it-works)
 6. [How we built it](#how-we-built-it) ← the engineering, end to end
-7. [Judging scorecard](#judging-scorecard) ← the case, criterion by criterion
+7. [Meeting the evaluation criteria](#meeting-the-evaluation-criteria) ← what each looks for, and our evidence
 8. [Data & methodology](#data--methodology)
 9. [Who benefits](#who-benefits)
 10. [Alignment with Rwanda's priorities](#alignment-with-rwandas-priorities)
@@ -158,12 +159,12 @@ flowchart LR
 | **Multimodal + multilingual + voice** | Reads uploaded charts/reports; answers in **EN / FR / Kinyarwanda**; speaks and listens via the Web Speech API — built for non-technical users. |
 | **Safe by construction** | Key read only server-side, never in the browser; per-IP rate limit; output, turn and attachment caps; declines off-topic requests; never invents a number. |
 
-## Judging scorecard
+## Meeting the evaluation criteria
 
-The case for IMBONIX against the hackathon's five criteria (20 points each). Each row names **what judges look for**,
-**our evidence**, and **where to see it in one click**.
+How IMBONIX addresses each of the five evaluation criteria — what each looks for, our evidence, and where to see it in
+one click.
 
-| # | Criterion (20 pts) | Our evidence | See it |
+| # | Criterion | Our evidence | See it |
 |---|---|---|---|
 | **1** | **Problem understanding & relevance** (NST2 / Vision 2050) | A sharp, non-obvious problem (access ≠ resilience) framed against four named national frameworks, each shown with its baseline. Every AI answer is framed **gap → evidence → solution → who it helps**. | Homepage gap chart + "Aligned to national priorities"; ask the assistant anything |
 | **2** | **Data use & methodology** (NISR + external) | NISR + partners (ICF/DHS, WFP/CFSVA); **six trust labels** on every value; honest weighting of national/province figures; a **reproducible** pipeline; **no microdata**. | `/about#sources` ("Collected with" column), Method & Principles |
@@ -171,9 +172,9 @@ The case for IMBONIX against the hackathon's five criteria (20 points each). Eac
 | **4** | **Usability & design** | Government-style system, one governed palette, **colour-blind-validated** charts each with a legend and a table view, full keyboard/screen-reader support, site-wide search, scroll-reveal motion that respects reduced-motion. | Homepage, `/poverty-dynamics/district-map`, `/data/chart-library` |
 | **5** | **Tangible impact** | Five named audiences each with the page they'd use; **priority districts** and an **intervention planner** that flag where to act first by a rule anyone can check. | `/social-protection/priority-districts`, `/social-protection/intervention-planner`, About → Who benefits |
 
-> **Why this wins.** Most dashboards stop at "here are the numbers." IMBONIX pairs trustworthy, labelled NISR evidence
-> with an assistant that turns it into an answer **for anyone** — a household, an officer, a researcher — and ends every
-> path in a concrete, checkable next step. It is relevant, rigorous, innovative, usable **and** actionable at once.
+> **In short.** Most dashboards stop at "here are the numbers." IMBONIX pairs trustworthy, labelled NISR evidence with
+> an assistant that turns it into an answer **for anyone** — a household, an officer, a researcher — and ends every path
+> in a concrete, checkable next step.
 
 ## Data & methodology
 
