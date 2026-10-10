@@ -28,7 +28,7 @@ Track 2 deep dive: [track2-research-dossier.md](track2-research-dossier.md)
 - **All IP transfers to NISR** when you enter.
 - Deliverables: **public GitHub repo, deployed app link, and documentation**. Any language is allowed.
 
-## Scoring (100 pts, 20 each)
+## Scoring criteria
 Problem understanding and NST2/V2050 alignment · Data use and methodology · Tech innovation · Usability and design · Tangible impact.
 Compared with 2024/2025 (Data 25, Impact 25, UI/UX 15, Creativity 15, Relevance 20), UI/UX and innovation now carry more weight.
 
