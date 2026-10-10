@@ -62,7 +62,7 @@ export function AboutOverview({ lead, rows, tiles }: { lead: string; rows: Overv
  */
 export function ToolGuide() {
   return (
-    <section id="tools" className="scroll-mt-36 bg-white py-16 sm:py-24" aria-labelledby="tools-heading">
+    <section id="tools" className="scroll-mt-36 bg-white py-12 sm:py-20" aria-labelledby="tools-heading">
       <div className="container-page">
         <SectionIntro eyebrow="Using IMBONIX" title="What you can do here" id="tools-heading">
           Every page answers one question. Start from the focus area that matches yours, or search any place, indicator or chart
@@ -116,7 +116,7 @@ export type SourceRow = {
 /** The publications behind every figure, counted from the site's own data. */
 export function SourcesTable({ rows, intro }: { rows: SourceRow[]; intro: ReactNode }) {
   return (
-    <section id="sources" className="scroll-mt-36 border-t border-line bg-white py-16 sm:py-24" aria-labelledby="sources-heading">
+    <section id="sources" className="scroll-mt-36 border-t border-line bg-white py-12 sm:py-20" aria-labelledby="sources-heading">
       <div className="container-page">
         <SectionIntro eyebrow="The evidence" title="The publications behind every figure" id="sources-heading">
           {intro}
@@ -198,7 +198,7 @@ export type Statement = { title: string; body: ReactNode };
 /** How IMBONIX works with the evidence: numbered principles in a ruled grid. */
 export function Principles({ items }: { items: Statement[] }) {
   return (
-    <section id="principles" className="scroll-mt-36 bg-paper py-16 sm:py-24" aria-labelledby="principles-heading">
+    <section id="principles" className="scroll-mt-36 bg-paper py-12 sm:py-20" aria-labelledby="principles-heading">
       <div className="container-page">
         <SectionIntro eyebrow="How we work" title="Principles" id="principles-heading">
           The rules every page follows, so that anyone can check what they read and use it with confidence.
@@ -220,7 +220,7 @@ export function Principles({ items }: { items: Statement[] }) {
 /** What the evidence cannot yet say, stated plainly. */
 export function Limits({ items }: { items: Statement[] }) {
   return (
-    <section id="limits" className="scroll-mt-36 bg-white py-16 sm:py-24" aria-labelledby="limits-heading">
+    <section id="limits" className="scroll-mt-36 bg-white py-12 sm:py-20" aria-labelledby="limits-heading">
       <div className="container-page grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
         <SectionIntro eyebrow="Read with care" title="What IMBONIX cannot tell you yet" id="limits-heading">
           Published tables answer many questions, but not all. These are the limits to keep in mind.

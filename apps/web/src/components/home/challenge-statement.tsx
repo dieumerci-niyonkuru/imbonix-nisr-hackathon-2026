@@ -21,7 +21,7 @@ export type Requirement = {
  */
 export function ChallengeStatement({ requirements }: { requirements: Requirement[] }) {
   return (
-    <section className="border-t border-line bg-white py-16 sm:py-24" aria-labelledby="challenge-statement-heading">
+    <section className="border-t border-line bg-white py-12 sm:py-20" aria-labelledby="challenge-statement-heading">
       <div className="container-page">
         <p className="eyebrow text-cyan-ink">Three tests</p>
         <h2

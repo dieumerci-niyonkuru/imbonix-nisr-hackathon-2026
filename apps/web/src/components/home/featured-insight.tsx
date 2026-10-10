@@ -23,7 +23,7 @@ export function FeaturedInsight({
   chart: ReactNode;
 }) {
   return (
-    <section className="bg-paper py-16 sm:py-24" aria-labelledby="featured-heading">
+    <section className="bg-paper py-12 sm:py-20" aria-labelledby="featured-heading">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
         <div>
           <p className="eyebrow text-cyan-ink">Featured insight</p>

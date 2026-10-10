@@ -19,7 +19,7 @@ const PHOTOS = [
 
 export function FieldBand() {
   return (
-    <section id="behind" className="scroll-mt-24 border-t border-line bg-paper py-16 sm:py-24" aria-labelledby="field-heading">
+    <section id="behind" className="scroll-mt-24 border-t border-line bg-paper py-12 sm:py-20" aria-labelledby="field-heading">
       <div className="container-page">
         <p className="eyebrow text-cyan-ink">Behind the figures</p>
         <h2
@@ -29,8 +29,8 @@ export function FieldBand() {
           Real households, real records
         </h2>
         <p className="mt-4 max-w-3xl text-pretty text-[16px] leading-7 text-muted sm:text-[17px] sm:leading-8">
-          Every figure on IMBONIX stands for people — Rwandans saving, borrowing and managing money day to day, and the
-          survey and record work that turns their reality into statistics anyone can check.
+          Every figure on IMBONIX stands for people — Rwandans saving, borrowing and managing money day to day, and the survey and
+          record work that turns their reality into statistics anyone can check.
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {PHOTOS.map((photo) => (
