@@ -1,7 +1,7 @@
 import { CATALOG_STUDIES, CATALOG_THEMES, CATALOG_YEARS } from "@/lib/catalog";
 import { DISTRICTS, PROVINCE_LABEL, rankOf, reference, SOURCES, valueOf, type District } from "@/lib/data";
 import { FINANCIAL_HEALTH_SEGMENTS, FINSCOPE_2024_SOURCE, INCLUSION_BY_ROUND } from "@/lib/finscope-2024";
-import { formatValue } from "@/lib/format";
+import { formatValue, ordinal } from "@/lib/format";
 import { meta, type IndicatorMeta } from "@/lib/indicators";
 
 export type AnswerStat = { value: string; label: string };
@@ -213,7 +213,11 @@ function districtOverview(district: District): Answer {
     body: `${district.name} is in the ${PROVINCE_LABEL[district.province]}. Here are its latest NISR figures on the headline measures; open its profile for everything, year by year.`,
     rows: PROFILE_IDS.filter((id) => valueOf(district, id) !== undefined).map((id) => {
       const rank = rankOf(district, meta(id));
-      return { label: meta(id).short, value: value(district, id), hint: rank ? `#${rank.rank} of ${rank.of}` : undefined };
+      return {
+        label: meta(id).short,
+        value: value(district, id),
+        hint: rank ? `${ordinal(rank.rank)} of ${rank.of}` : undefined,
+      };
     }),
     rowsCaption: `${district.name}, headline measures`,
     status: SOURCES[poverty.id]?.status,

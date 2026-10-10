@@ -2,6 +2,13 @@ import type { IndicatorMeta } from "@/lib/indicators";
 
 const whole = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
 
+/** A rank as a plain-English ordinal, e.g. 1 -> "1st", 2 -> "2nd", 7 -> "7th", so ranks read clearly, not as "#7". */
+export function ordinal(n: number): string {
+  const suffixes = ["th", "st", "nd", "rd"];
+  const value = n % 100;
+  return `${n}${suffixes[(value - 20) % 10] ?? suffixes[value] ?? suffixes[0]}`;
+}
+
 export function formatNumber(value: number, digits = 0): string {
   return new Intl.NumberFormat("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits }).format(value);
 }
