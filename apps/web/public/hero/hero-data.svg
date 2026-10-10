@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract data network in the IMBONIX brand colours">
+  <!-- Deep teal base (flat, no gradient). The left side stays clear and dark so the white headline reads cleanly. -->
+  <rect width="1600" height="760" fill="#06242F"/>
+
+  <!-- Concentric rings around the main data hub, for a quiet radar feel. -->
+  <g fill="none" stroke="#14455698" stroke-width="1.5">
+    <circle cx="1140" cy="232" r="70"/>
+    <circle cx="1140" cy="232" r="128" stroke="#13404F80"/>
+    <circle cx="1140" cy="232" r="196" stroke="#12394760"/>
+    <circle cx="1140" cy="232" r="272" stroke="#10333F40"/>
+  </g>
+
+  <!-- Network edges. -->
+  <g stroke="#1E5C72" stroke-width="1.6" stroke-linecap="round" opacity="0.9">
+    <path d="M1140 232 L1300 172"/>
+    <path d="M1140 232 L1230 330"/>
+    <path d="M1140 232 L980 300"/>
+    <path d="M1300 172 L1440 282"/>
+    <path d="M1300 172 L1230 330"/>
+    <path d="M1440 282 L1360 430"/>
+    <path d="M1440 282 L1520 362"/>
+    <path d="M1230 330 L1140 420"/>
+    <path d="M1230 330 L1360 430"/>
+    <path d="M1360 430 L1140 420"/>
+    <path d="M1360 430 L1500 470"/>
+    <path d="M1360 430 L1520 362"/>
+    <path d="M1140 420 L1020 470"/>
+    <path d="M1140 420 L1290 520"/>
+    <path d="M1290 520 L1500 470"/>
+    <path d="M1020 470 L980 300"/>
+    <path d="M1020 470 L940 560"/>
+    <path d="M980 300 L860 252"/>
+    <path d="M860 252 L820 400"/>
+    <path d="M860 252 L760 332"/>
+    <path d="M820 400 L760 332"/>
+    <path d="M820 400 L940 560"/>
+    <path d="M1290 520 L1200 622"/>
+    <path d="M1200 622 L1060 652"/>
+    <path d="M1060 652 L940 560"/>
+    <path d="M1200 622 L1420 600"/>
+    <path d="M1290 520 L1420 600"/>
+  </g>
+
+  <!-- Normal nodes. -->
+  <g fill="#3F93AC">
+    <circle cx="1300" cy="172" r="5"/>
+    <circle cx="1440" cy="282" r="5"/>
+    <circle cx="1230" cy="330" r="5"/>
+    <circle cx="1140" cy="420" r="5"/>
+    <circle cx="1500" cy="470" r="4.5"/>
+    <circle cx="1290" cy="520" r="5"/>
+    <circle cx="1020" cy="470" r="5"/>
+    <circle cx="980" cy="300" r="4.5"/>
+    <circle cx="860" cy="252" r="4"/>
+    <circle cx="820" cy="400" r="4"/>
+    <circle cx="1520" cy="362" r="4.5"/>
+    <circle cx="1200" cy="622" r="4.5"/>
+    <circle cx="1060" cy="652" r="4"/>
+    <circle cx="940" cy="560" r="4"/>
+    <circle cx="760" cy="332" r="3.5"/>
+  </g>
+
+  <!-- A few bright white accent nodes for sparkle. -->
+  <g fill="#E6F6FC">
+    <circle cx="1300" cy="172" r="2.4"/>
+    <circle cx="1020" cy="470" r="2.4"/>
+    <circle cx="820" cy="400" r="2.2"/>
+    <circle cx="1520" cy="362" r="2.2"/>
+  </g>
+
+  <!-- Highlighted data hubs, in bright brand cyan with a soft ring. -->
+  <g>
+    <circle cx="1140" cy="232" r="18" fill="none" stroke="#28B8EB" stroke-width="2" opacity="0.4"/>
+    <circle cx="1140" cy="232" r="9" fill="#28B8EB"/>
+    <circle cx="1360" cy="430" r="15" fill="none" stroke="#28B8EB" stroke-width="2" opacity="0.35"/>
+    <circle cx="1360" cy="430" r="7.5" fill="#28B8EB"/>
+    <circle cx="1420" cy="600" r="13" fill="none" stroke="#28B8EB" stroke-width="2" opacity="0.3"/>
+    <circle cx="1420" cy="600" r="6.5" fill="#28B8EB"/>
+  </g>
+
+  <!-- A rising trend in the lower right, for growth / progress (kept clear of the headline on the left). -->
+  <g>
+    <polyline points="1000,690 1120,650 1240,668 1340,606 1440,566 1540,496" fill="none" stroke="#28B8EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+    <g fill="#28B8EB">
+      <circle cx="1000" cy="690" r="3.5"/>
+      <circle cx="1120" cy="650" r="3.5"/>
+      <circle cx="1240" cy="668" r="3.5"/>
+      <circle cx="1340" cy="606" r="3.5"/>
+      <circle cx="1440" cy="566" r="3.5"/>
+      <circle cx="1540" cy="496" r="4.5"/>
+    </g>
+  </g>
+</svg>
