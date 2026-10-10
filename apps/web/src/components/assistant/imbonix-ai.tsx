@@ -826,19 +826,20 @@ export function ImbonixAI() {
 
   return (
     <>
-      {/* The launcher: a clean, professional brand-cyan pill with an assistant avatar. */}
+      {/* The launcher: a compact brand-cyan pill — the IMBONIX emblem plus a short "AI" label. */}
       <div className="fixed bottom-5 right-5 z-[55] sm:bottom-6 sm:right-6 print:hidden">
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
           aria-controls={panelId}
-          className="group inline-flex h-14 items-center gap-2.5 rounded-full bg-cyan pl-2.5 pr-5 font-bold text-ink shadow-lift ring-1 ring-cyan-ink/20 transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
+          aria-label={open ? "Close IMBONIX AI" : "Open IMBONIX AI"}
+          className="group inline-flex h-12 items-center gap-2 rounded-full bg-cyan pl-1.5 pr-4 font-bold text-ink shadow-lift ring-1 ring-cyan-ink/20 transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/25 ring-1 ring-white/40 transition-colors group-hover:bg-white/20">
-            {open ? <XMarkIcon className="h-6 w-6" aria-hidden="true" /> : <AiMark className="h-6 w-6" />}
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white ring-1 ring-cyan-ink/15">
+            {open ? <XMarkIcon className="h-5 w-5 text-ink" aria-hidden="true" /> : <AiMark className="h-6 w-6" />}
           </span>
-          <span className="pr-0.5 text-[15px] tracking-[-0.01em]">{open ? "Close" : "IMBONIX AI"}</span>
+          <span className="pr-0.5 text-[15px] tracking-[-0.01em]">{open ? "Close" : "AI"}</span>
         </button>
       </div>
 
@@ -854,8 +855,8 @@ export function ImbonixAI() {
           >
             <div className="flex items-center justify-between gap-3 border-b border-line bg-white px-4 py-3">
               <div className="flex items-center gap-2.5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-cyan text-ink">
-                  <AiMark className="h-5 w-5" />
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white ring-1 ring-line">
+                  <AiMark className="h-6 w-6" />
                 </span>
                 <div>
                   <p className="font-display text-[15px] font-bold leading-4 text-ink">IMBONIX AI</p>
