@@ -1,6 +1,6 @@
 # IMBONIX — demo script for judges
 
-> **Submission package:** [Index](README.md) · [Solution overview](solution-overview.md) · **Demo script** · [IMBONIX AI](../ai-assistant.md) · [AI disclosure](ai-disclosure.md)
+> **Submission package:** [Index](README.md) · [Solution overview](solution-overview.md) · [Criteria evidence](criteria-evidence.md) · **Demo script** · [IMBONIX AI](../ai-assistant.md) · [AI disclosure](ai-disclosure.md)
 
 A short, repeatable walkthrough that lands every one of the five evaluation criteria. Use the 90-second run for a
 quick pitch and the 3-minute run for a full review. All figures shown are NISR's published statistics, each labelled on
