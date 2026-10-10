@@ -24,6 +24,8 @@
 > households left behind cluster in the same districts where poverty, poor nutrition and shocks pile up. **IMBONIX makes
 > that overlap visible — and asks it anything, in plain language.**
 
+![The IMBONIX homepage: the inclusion-vs-resilience gap, with the IMBONIX AI assistant](../screenshots/home.png)
+
 ## Contents
 
 1. [At a glance](#at-a-glance)
@@ -31,12 +33,13 @@
 3. [The problem we name](#the-problem-we-name)
 4. [The solution](#the-solution)
 5. [How it works](#how-it-works)
-6. [Judging scorecard](#judging-scorecard) ← the case, criterion by criterion
-7. [Data & methodology](#data--methodology)
-8. [Who benefits](#who-benefits)
-9. [Alignment with Rwanda's priorities](#alignment-with-rwandas-priorities)
-10. [Honest framing](#honest-framing)
-11. [Run it](#run-it)
+6. [How we built it](#how-we-built-it) ← the engineering, end to end
+7. [Judging scorecard](#judging-scorecard) ← the case, criterion by criterion
+8. [Data & methodology](#data--methodology)
+9. [Who benefits](#who-benefits)
+10. [Alignment with Rwanda's priorities](#alignment-with-rwandas-priorities)
+11. [Honest framing](#honest-framing)
+12. [Run it](#run-it)
 
 ---
 
@@ -55,9 +58,19 @@
 
 ## The challenge
 
-Track 2 asks teams to use **NISR and complementary data** to understand financial exclusion and poverty in Rwanda and
-to point to **where action is needed** — in service of Rwanda's national goals (**Vision 2050**, **NST2**, the
-**National Financial Inclusion Roadmap 2025–2030** and the **Social Protection Sector Strategic Plan**).
+> **Track 2 — Financial Inclusion & Poverty Reduction.** *Use data to understand financial exclusion, poverty
+> dynamics, and the impact of social protection programs in Rwanda.* Solutions should address a real gap or showcase
+> financial-intervention impact; be informed by NISR data (with or without other open datasets); and offer tangible,
+> practical impact to vulnerable households, policymakers or civil society.
+
+In service of Rwanda's national goals — **Vision 2050**, **NST2**, the **National Financial Inclusion Roadmap
+2025–2030** and the **Social Protection Sector Strategic Plan**. Here is exactly how IMBONIX answers the brief:
+
+| The brief asks for… | How IMBONIX delivers it |
+|---|---|
+| **A real gap, or intervention impact** | We name the *access ≠ resilience* gap and map where poverty, exclusion, poor nutrition and shocks **overlap**; we track **VUP payment timeliness** and each district's **distance to its national target**. |
+| **Informed by NISR data** (+ optional open data) | Every figure is transcribed from a named NISR or partner table (EICV7, FinScope, DHS, CFSVA, LFS, 2022 census…); maps add only open **geoBoundaries** outlines and **OpenFreeMap** tiles. |
+| **Tangible impact for households / policymakers / civil society** | Five named audiences, each routed to the page they'd use; **priority districts** and an **intervention planner** that flag where to act first by a rule anyone can check. |
 
 ## The problem we name
 
@@ -108,6 +121,43 @@ The site is organised in four areas, in the calm style of Rwanda's government se
 | **Social protection** | Who do programmes reach, and how well? | VUP payment timeliness, priority districts, a policy-scenario & intervention planner |
 | **Data & About** | Where does every figure come from? | Every indicator with its table, year and trust label; a JSON API; the full method |
 
+## How we built it
+
+IMBONIX was engineered the way a government statistics product should be: **evidence first, every figure traceable,
+every colour and claim governed by a test.** The build has seven pillars.
+
+| Pillar | How we built it |
+|---|---|
+| **1 · Data pipeline** | Python scripts transcribe **named NISR/partner tables** to CSV, then `scripts/data/build_web_data.py` generates a small, **versioned JSON** dataset. CI re-runs it and **fails if the output doesn't match exactly**. Raw microdata stays in ignored folders — never committed. |
+| **2 · Trust labelling** | Every value carries one of **six status labels** (official estimate · IMBONIX calculation · model estimate · projection · scenario · policy target) with its source, table and year, baked into the data model so nothing appears unlabelled. |
+| **3 · Design system** | Two colours only (brand cyan + white), defined in **one palette module** — a test **fails the build if any component hardcodes a colour**. Every chart is validated for colour-vision deficiency and ships with a legend and a table view. |
+| **4 · Platform** | **Next.js 15 (App Router)**, React 19 server/client components, **TypeScript strict**, Tailwind. Per-page metadata and breadcrumbs, permanent redirects for moved URLs, a site-wide search, and reduced-motion-aware scroll reveal. |
+| **5 · IMBONIX AI** | A **same-origin route** grounds Claude **or** free-tier Gemini in the NISR digest, **streams** the answer, reads an attached image/PDF, resolves place names to their sector/district, and **falls back to a deterministic on-device engine** when no key is set. See [IMBONIX AI](../ai-assistant.md). |
+| **6 · Quality & CI** | On **every push**: `typecheck`, ESLint (incl. accessibility), **88 unit tests**, Prettier, production `build`, `npm audit`, a **gitleaks** secret scan of the full history, and a Docker build that starts both images and waits for health checks. |
+| **7 · Workflow** | Conventional Commits on `feature/*` → `develop` → `testing` → `main` (**main only by pull request**), so every change is reviewed and green before it lands. |
+
+**The data journey, end to end:**
+
+```mermaid
+flowchart LR
+  R["NISR / partner<br/>reports (PDF, XLSX)"] --> X["data/extracts<br/>CSV + table refs"]
+  X --> B["build_web_data.py"]
+  B --> J["generated JSON<br/>+ GeoJSON"]
+  J --> W["Web app"]
+  J --> API["JSON API"]
+  J --> AId["AI digest<br/>(system prompt)"]
+```
+
+**How IMBONIX AI was built — the key decisions:**
+
+| Decision | Why |
+|---|---|
+| **Grounding over training** | The whole NISR digest travels *with* each question, so answers come from published figures — and updating the data updates the assistant, with no retraining. |
+| **Two interchangeable backends** | Claude when a key is present, else **free-tier Gemini** — so the full experience is demonstrable **at no cost**. |
+| **Deterministic fallback** | If no key is set or the model is unreachable, an on-device engine answers from the same figures, so a demo **never** depends on a secret or the network. |
+| **Multimodal + multilingual + voice** | Reads uploaded charts/reports; answers in **EN / FR / Kinyarwanda**; speaks and listens via the Web Speech API — built for non-technical users. |
+| **Safe by construction** | Key read only server-side, never in the browser; per-IP rate limit; output, turn and attachment caps; declines off-topic requests; never invents a number. |
+
 ## Judging scorecard
 
 The case for IMBONIX against the hackathon's five criteria (20 points each). Each row names **what judges look for**,
@@ -148,6 +198,10 @@ The case for IMBONIX against the hackathon's five criteria (20 points each). Eac
 | Researchers | Every figure with its table, year and trust label; a JSON API; rebuild scripts | Data |
 | Civil society | Open figures with sources, to follow programmes and speak for places left behind | Districts |
 | Development partners | Where poverty, exclusion, poor nutrition and shocks overlap | Poverty dynamics → Overlapping needs |
+
+It ends in action — seven policy levers, each flagging districts by one published figure and a stated, checkable rule:
+
+![Priority ranking: seven policy levers, each flagging districts by a published figure and a stated rule](../screenshots/priorities.png)
 
 ## Alignment with Rwanda's priorities
 
