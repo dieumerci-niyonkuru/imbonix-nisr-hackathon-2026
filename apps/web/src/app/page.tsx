@@ -2,6 +2,7 @@ import { paymentTimelinessByProgramme } from "@/components/focus/focus-shared";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { ChallengeStatement, type Requirement } from "@/components/home/challenge-statement";
 import { FeaturedInsight } from "@/components/home/featured-insight";
+import { FieldBand } from "@/components/home/field-band";
 import { PlatformApproach } from "@/components/home/platform-approach";
 import { GapChart, type GapRow } from "@/components/home/gap-chart";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
@@ -345,6 +346,10 @@ export default function Home() {
 
       <Reveal>
         <ChallengeStatement requirements={requirements} />
+      </Reveal>
+
+      <Reveal>
+        <FieldBand />
       </Reveal>
 
       <Reveal>
