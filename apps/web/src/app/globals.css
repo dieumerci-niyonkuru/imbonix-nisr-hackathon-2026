@@ -37,6 +37,9 @@
 }
 
 html {
+  /* A slightly smaller root so the whole UI reads a touch more compact (less "zoomed"): every rem-based heading and all
+     spacing scale down with it, while the pixel-set body text stays readable. */
+  font-size: 90%;
   background: #ffffff;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
