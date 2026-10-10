@@ -5,7 +5,7 @@
  * impact estimates.
  */
 import { DISTRICTS, rankOf, reference, type District } from "@/lib/data";
-import { formatValue } from "@/lib/format";
+import { formatValue, ordinal } from "@/lib/format";
 import { meta } from "@/lib/indicators";
 import { DIMENSION_COLORS } from "@/lib/palette";
 
@@ -117,7 +117,7 @@ export function flagsFor(district: District): Flag[] {
     if (rank && rank.rank <= WORST_THIRD) {
       flags.push({
         lever: lever.id,
-        evidence: `${indicator.short} ${formatValue(indicator, value)} (rank ${rank.rank} of ${rank.of})`,
+        evidence: `${indicator.short} ${formatValue(indicator, value)} (${ordinal(rank.rank)} of ${rank.of} districts, where 1 is the most affected)`,
         rank: rank.rank,
       });
     }

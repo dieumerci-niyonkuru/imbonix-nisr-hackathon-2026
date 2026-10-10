@@ -14,7 +14,7 @@ import { SectionNav } from "@/components/ui/section-nav";
 import { SourceLine } from "@/components/ui/source-line";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { DISTRICTS, districtBySlug, PROVINCE_LABEL, rankOf, SOURCES, type District } from "@/lib/data";
-import { formatValue } from "@/lib/format";
+import { formatValue, ordinal } from "@/lib/format";
 import { DIMENSIONS, INDICATOR_BY_ID, meta, type Dimension } from "@/lib/indicators";
 import { priorityFor } from "@/lib/district-intelligence";
 import { sectorsOf } from "@/lib/sectors";
@@ -161,7 +161,7 @@ function yearIndicatorsOf(district: District): YearIndicator[] {
         status: source.status,
         group: DIMENSIONS[indicator.dimension].label,
         source: source.source.replace(/^NISR /, ""),
-        rank: rank && `#${rank.rank} of ${rank.of} most affected`,
+        rank: rank && `${ordinal(rank.rank)} of ${rank.of} most affected`,
         order: order.indexOf(indicator.dimension),
       };
     })
