@@ -16,6 +16,14 @@ const QUESTIONS: Record<FocusAreaId, string> = {
   protection: "Who does social protection reach, and how well?",
 };
 
+/** A real photo for a focus area's header, where one fits (otherwise the header shows the Rwanda map emblem). */
+const AREA_PHOTO: Partial<Record<FocusAreaId, { src: string; alt: string }>> = {
+  exclusion: {
+    src: "/photos/inclusion.jpg",
+    alt: "Two women looking at savings records on a phone and in a handwritten notebook",
+  },
+};
+
 /** A page name inside a sentence: first letter lower case, unless it starts with a proper noun or an acronym. */
 const lowerFirst = (label: string) =>
   /^(Rwanda\b|[A-Z]{2})/.test(label) ? label : label.charAt(0).toLowerCase() + label.slice(1);
@@ -42,6 +50,7 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
         eyebrow={`${area.label} overview`}
         title={QUESTIONS[area.id]}
         intro={`${group.intro} Every chart below says what it shows, where the figures come from and how far to trust them.`}
+        photo={AREA_PHOTO[area.id]}
       />
 
       {area.id === "exclusion" && <ExclusionFocus />}
