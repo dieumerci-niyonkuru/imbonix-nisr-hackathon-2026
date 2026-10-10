@@ -1,6 +1,7 @@
 import { paymentTimelinessByProgramme } from "@/components/focus/focus-shared";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { ChallengeStatement, type Requirement } from "@/components/home/challenge-statement";
+import { ExploreCta } from "@/components/home/explore-cta";
 import { FeaturedInsight } from "@/components/home/featured-insight";
 import { FieldBand } from "@/components/home/field-band";
 import { PlatformApproach } from "@/components/home/platform-approach";
@@ -308,7 +309,7 @@ export default function Home() {
           id="figures-heading"
           eyebrow="What the NISR data shows"
           title="Included, but not yet financially healthy"
-          intro="Six published figures frame the challenge: access to finance is almost universal, but financial health, banking and timely social protection payments lag far behind."
+          intro="Six published figures frame the challenge: almost everyone can now reach a financial service, but far fewer are financially healthy — able to save and get through a hard month, not just hold an account — and banking and on-time support payments still lag behind."
           tiles={figureTiles}
         />
       </Reveal>
@@ -365,6 +366,10 @@ export default function Home() {
           districts={finderDistricts}
           counts={{ sectors: SITE_FACTS.sectors, cells: SITE_FACTS.cells, villages: SITE_FACTS.villages }}
         />
+      </Reveal>
+
+      <Reveal>
+        <ExploreCta />
       </Reveal>
     </>
   );
