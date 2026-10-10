@@ -80,7 +80,7 @@ export function ScrollControls() {
         aria-label="Back to top"
         aria-disabled={atTop}
         onClick={() => !atTop && scrollToPosition(0)}
-        className={cn(BUTTON_STYLE, atTop ? "cursor-default opacity-40" : "hover:bg-cyan-ink hover:text-white")}
+        className={cn(BUTTON_STYLE, atTop ? "cursor-default opacity-40" : "hover:bg-white/25")}
       >
         <ArrowUpIcon className="h-5 w-5" aria-hidden="true" />
       </button>
@@ -91,7 +91,7 @@ export function ScrollControls() {
         aria-label="Go to the end of the page"
         aria-disabled={atBottom}
         onClick={() => !atBottom && scrollToPosition(document.documentElement.scrollHeight)}
-        className={cn(BUTTON_STYLE, atBottom ? "cursor-default opacity-40" : "hover:bg-cyan-ink hover:text-white")}
+        className={cn(BUTTON_STYLE, atBottom ? "cursor-default opacity-40" : "hover:bg-white/25")}
       >
         <ArrowDownIcon className="h-5 w-5" aria-hidden="true" />
       </button>
