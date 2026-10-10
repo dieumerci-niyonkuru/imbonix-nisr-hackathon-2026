@@ -14,7 +14,9 @@
 </p>
 
 <p align="center">
+  <a href="#for-judges">For judges</a> ·
   <a href="#getting-started">Getting started</a> ·
+  <a href="docs/submission/solution-overview.md">Solution overview</a> ·
   <a href="docs/architecture.md">Architecture</a> ·
   <a href="docs/api.md">API</a> ·
   <a href="docs/deployment.md">Deployment</a> ·
@@ -35,7 +37,21 @@ and a status label, and uncertainty is shown wherever NISR publishes it.
 
 IMBONIX is an independent team project. It is **not an official NISR product** and does not imply NISR endorsement.
 
+## For judges
+
+Start here — the whole submission, mapped to the five evaluation criteria:
+
+- **[Solution overview](docs/submission/solution-overview.md)** — problem → solution → data & methodology → tech → design → impact → Vision 2050 / NST2 alignment, with a criteria crosswalk.
+- **[Demo script](docs/submission/demo-script.md)** — a 90-second pitch and a 3-minute, criterion-by-criterion walkthrough.
+- **[IMBONIX AI](docs/ai-assistant.md)** — how the grounded, multilingual, multimodal assistant is built.
+- **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** — required by the rules: how AI tools were used, and the team's responsibility for every figure.
+- **Live app:** _deploy and add the public URL here_ (see the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel-fastest)) · **Source:** this repository.
+
+<!-- Screenshots: add the files named below into docs/screenshots/ (see the guide there), then uncomment.
 ![The IMBONIX homepage](docs/screenshots/home.png)
+-->
+
+> 📸 **Screenshots pending.** The images for this README go in [`docs/screenshots/`](docs/screenshots/) — the guide there lists the exact filenames. Until then, run the app locally (see [Getting started](#getting-started)) or open the live URL above.
 
 ## Site map
 
@@ -85,8 +101,10 @@ source, and never invent a number.
   the server and never reaches the browser. With no key, the assistant falls back to an instant on-device engine over the
   same figures, so it always works — including in a demo.
 
-See [docs/submission/demo-script.md](docs/submission/demo-script.md) for a judge walkthrough.
+See [docs/ai-assistant.md](docs/ai-assistant.md) for the architecture and
+[docs/submission/demo-script.md](docs/submission/demo-script.md) for a judge walkthrough.
 
+<!-- Screenshots: add these files into docs/screenshots/ (see the guide there), then uncomment.
 <table>
   <tr>
     <td><img src="docs/screenshots/map.png" alt="Resilience map zoomed to Nyamagabe's sectors"></td>
@@ -97,6 +115,7 @@ See [docs/submission/demo-script.md](docs/submission/demo-script.md) for a judge
     <td align="center"><img src="docs/screenshots/home-mobile.png" alt="Homepage on a phone" width="260"></td>
   </tr>
 </table>
+-->
 
 ## How the data is handled
 
@@ -273,8 +292,10 @@ docs/
 ## Deployment
 
 The web app and API each have a production Dockerfile, and `docker-compose.yml` runs both. Both images have been built,
-started and checked locally. **IMBONIX has not been deployed to a public host yet.** [docs/deployment.md](docs/deployment.md)
-covers hosting options, settings and a release checklist.
+started and checked locally. **IMBONIX is not yet deployed to a public host.** The fastest path to the public URL the
+hackathon requires is the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel-fastest) (no Docker
+needed); add the live URL under [For judges](#for-judges) once it is up. [docs/deployment.md](docs/deployment.md) covers
+Vercel, Docker hosting options, production settings, hardening notes and a release checklist.
 
 ## Security
 
