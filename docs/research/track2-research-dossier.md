@@ -350,7 +350,7 @@ The districts fall into four types (cut at the national rates: 27.4% poverty, 4%
 
 ## 4. Project ideas, scored
 
-Each idea is scored 1–5 against the five judging criteria (20 points each), plus feasibility by 30 October.
+Each idea is scored 1–5 against the five judging criteria, plus feasibility by 30 October.
 
 | # | Idea | Problem | Data & method | Tech innovation | Usability | Impact | Feasible by 30 Oct |
 | --- | --- | --- | --- | --- | --- | --- | --- |

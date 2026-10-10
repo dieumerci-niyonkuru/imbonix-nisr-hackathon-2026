@@ -59,7 +59,7 @@ and one place; **Priority districts** flags where to act first with a rule anyon
 
 ---
 
-## Scoring crosswalk
+## Criteria crosswalk
 
 | Criterion | Where it shows, in one click |
 |---|---|
