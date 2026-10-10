@@ -52,7 +52,7 @@ charts and reports. It is independent, open-source, and **not an official NISR p
 - [ ] **Documentation** — this package, plus the top-level [README](../../README.md) and [docs/](../).
 - [ ] **AI disclosure** — [ai-disclosure.md](ai-disclosure.md), with the specific tools recorded.
 - [ ] **Team** — exactly 2 students, at least one Rwandan citizen; student IDs ready.
-- [ ] **Screenshots** — add to [docs/screenshots/](../screenshots/) (guide there) and uncomment the README tags.
+- [x] **Screenshots** — present in [docs/screenshots/](../screenshots/) and rendering in the README (refresh if the design changes).
 
 <div align="center">
 
