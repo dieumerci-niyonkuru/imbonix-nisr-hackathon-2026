@@ -1,6 +1,6 @@
 import { StatusBadge } from "@/components/ui/status-badge";
 import { rankOf, reference, SOURCES, valuesFor, type District } from "@/lib/data";
-import { formatValue } from "@/lib/format";
+import { formatValue, ordinal } from "@/lib/format";
 import { DIMENSIONS, meta } from "@/lib/indicators";
 
 /**
@@ -66,7 +66,7 @@ export function IndicatorRow({ district, id }: { district: District; id: string 
         <StatusBadge status={source.status} />
         {rank && (
           <span className="font-semibold text-ink/80">
-            #{rank.rank} of {rank.of} most affected
+            {ordinal(rank.rank)} of {rank.of} most affected
           </span>
         )}
         <span>

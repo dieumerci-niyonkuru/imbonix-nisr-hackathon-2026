@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { worstThirdCount } from "@/components/charts/fingerprint";
 import { DISTRICTS, PROVINCE_LABEL, rankOf } from "@/lib/data";
-import { formatValue } from "@/lib/format";
+import { formatValue, ordinal } from "@/lib/format";
 import { CORE_DIMENSIONS, DIMENSIONS, meta } from "@/lib/indicators";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { WHITE } from "@/lib/palette";
@@ -71,7 +71,7 @@ export function OverlapMatrix() {
                     <td key={cell.dimension} className="p-1">
                       <div className="rounded-lg px-2.5 py-1.5" style={{ background: bg, color: fg }}>
                         <span className="tabular font-semibold">{formatValue(cell.indicator, cell.value)}</span>
-                        {cell.rank && <span className="tabular ml-1.5 text-[11px] font-semibold">#{cell.rank.rank}</span>}
+                        {cell.rank && <span className="tabular ml-1.5 text-[11px] font-semibold">{ordinal(cell.rank.rank)}</span>}
                       </div>
                     </td>
                   );
