@@ -17,6 +17,10 @@ export default function DataCatalogPage() {
         eyebrow="Data"
         title="The NISR data catalogue, 1978 to today"
         intro={`All ${CATALOG_STUDIES.length} studies in Rwanda's microdata catalogue, from the 1978 census to the latest surveys. IMBONIX draws on ${CATALOG_USED} of them for its figures; the rest show the depth of the record behind the platform. Each study links to its page in the catalogue. The microdata files themselves need a free NADA account; IMBONIX works from the published tables and the public variable dictionaries.`}
+        photo={{
+          src: "/photos/data-work.jpg",
+          alt: "A team entering records into a database on a computer",
+        }}
       />
       <DataCatalog />
     </>
