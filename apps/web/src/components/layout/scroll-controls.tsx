@@ -70,7 +70,7 @@ export function ScrollControls() {
     <nav
       aria-label="Page scrolling"
       className={cn(
-        "fixed bottom-24 right-4 z-40 hidden flex-col overflow-hidden rounded-2xl bg-cyan shadow-lift transition-[opacity,visibility] duration-200 sm:bottom-28 sm:right-6 sm:flex print:hidden",
+        "fixed bottom-24 right-4 z-40 hidden flex-col overflow-hidden rounded-full bg-cyan shadow-lift ring-1 ring-cyan-ink/15 transition-[opacity,visibility] duration-200 sm:bottom-28 sm:right-6 sm:flex print:hidden",
         footerInView && "invisible opacity-0 focus-within:visible focus-within:opacity-100",
       )}
     >
@@ -80,18 +80,18 @@ export function ScrollControls() {
         aria-label="Back to top"
         aria-disabled={atTop}
         onClick={() => !atTop && scrollToPosition(0)}
-        className={cn(BUTTON_STYLE, atTop ? "cursor-default opacity-40" : "hover:bg-cyan-ink hover:text-white")}
+        className={cn(BUTTON_STYLE, atTop ? "cursor-default opacity-40" : "hover:bg-white/25")}
       >
         <ArrowUpIcon className="h-5 w-5" aria-hidden="true" />
       </button>
-      <span aria-hidden="true" className="mx-2.5 h-px bg-ink/20" />
+      <span aria-hidden="true" className="mx-3 h-px bg-ink/15" />
       <button
         type="button"
         title="Go to the end of the page"
         aria-label="Go to the end of the page"
         aria-disabled={atBottom}
         onClick={() => !atBottom && scrollToPosition(document.documentElement.scrollHeight)}
-        className={cn(BUTTON_STYLE, atBottom ? "cursor-default opacity-40" : "hover:bg-cyan-ink hover:text-white")}
+        className={cn(BUTTON_STYLE, atBottom ? "cursor-default opacity-40" : "hover:bg-white/25")}
       >
         <ArrowDownIcon className="h-5 w-5" aria-hidden="true" />
       </button>

@@ -10,11 +10,11 @@ import { BRAND } from "@/lib/palette";
 
 export const metadata: Metadata = {
   title: {
-    default: "IMBONIX | Financial inclusion and poverty in Rwanda",
+    default: "IMBONIX | Financial inclusion and poverty reduction in Rwanda",
     template: "%s | IMBONIX",
   },
   description:
-    "IMBONIX brings together NISR data on poverty, financial inclusion, nutrition, social protection and shocks to show where Rwandan households are vulnerable, and why.",
+    "IMBONIX turns NISR data into evidence on financial inclusion, poverty and the reach of social protection across Rwanda's 30 districts — where households are most vulnerable and where to act, aligned to NST2 and Vision 2050.",
 };
 
 export const viewport: Viewport = {
