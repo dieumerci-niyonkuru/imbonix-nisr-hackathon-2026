@@ -39,47 +39,66 @@ IMBONIX is an independent team project. It is **not an official NISR product** a
 
 ## For judges
 
-Start here — the whole submission, mapped to the five evaluation criteria:
+**→ [Submission package index](docs/submission/)** — the guided reading order. Or jump straight in:
 
-- **[Solution overview](docs/submission/solution-overview.md)** — problem → solution → data & methodology → tech → design → impact → Vision 2050 / NST2 alignment, with a criteria crosswalk.
+- **[Solution overview](docs/submission/solution-overview.md)** — problem → solution → data & methodology → tech → design → impact → Vision 2050 / NST2 alignment, with a criterion-by-criterion scorecard.
 - **[Demo script](docs/submission/demo-script.md)** — a 90-second pitch and a 3-minute, criterion-by-criterion walkthrough.
 - **[IMBONIX AI](docs/ai-assistant.md)** — how the grounded, multilingual, multimodal assistant is built.
 - **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** — required by the rules: how AI tools were used, and the team's responsibility for every figure.
 - **Live app:** _deploy and add the public URL here_ (see the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel-fastest)) · **Source:** this repository.
 
-<!-- Screenshots: add the files named below into docs/screenshots/ (see the guide there), then uncomment.
 ![The IMBONIX homepage](docs/screenshots/home.png)
--->
-
-> 📸 **Screenshots pending.** The images for this README go in [`docs/screenshots/`](docs/screenshots/) — the guide there lists the exact filenames. Until then, run the app locally (see [Getting started](#getting-started)) or open the live URL above.
 
 ## Site map
 
-The site follows the three parts of the challenge. Each focus area has its own address, and its pages sit under it, so
-the address says where you are. Earlier addresses (such as `/map` or `/dashboard`) redirect permanently.
+The site is organised around the three parts of the Track 2 challenge — **financial exclusion**, **poverty dynamics**
+and **social protection** — plus the **data** behind every figure. Each focus area owns its address, so the URL says
+where you are; earlier addresses (`/map`, `/dashboard`, …) redirect permanently.
 
-| Menu                | Page                 | Address                                   | What it does                                                                                                                                                                  |
-| ------------------- | -------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Home                | Homepage             | `/`                                       | One argument in three tabs: the gap (96% included, 10% financially healthy), the evidence in NISR data, and the impact for households, policymakers and civil society.        |
-| Financial exclusion | Overview             | `/financial-exclusion`                    | Inclusion by service, financial health, the access strand, mobile money and credit.                                                                                           |
-|                     | Access and use       | `/financial-exclusion/access-and-use`     | FinScope's 96% inclusion against DHS 2025 account and mobile money use, by sex, age, residence, education and wealth.                                                         |
-|                     | Risk model           | `/financial-exclusion/risk-model`         | The design of an explainable model of financial vulnerability; results appear only after it is trained on the microdata.                                                      |
-| Poverty dynamics    | Overview             | `/poverty-dynamics`                       | Poverty in 2016/17 and 2023/24, where it is deepest, who is poorest and how households live.                                                                                  |
-|                     | Trends               | `/poverty-dynamics/trends`                | Every census since 1978 and every EICV, DHS and LFS round: poverty by province, population, homes, services, health and work.                                                 |
-|                     | District map         | `/poverty-dynamics/district-map`          | 28 measures on an interactive map; select a district to see its sectors. Links can be shared (`?layer=…&district=…`).                                                         |
-|                     | District profiles    | `/districts`, `/districts/<name>`         | 30 profiles: priority, a year selector from 1978 to 2026, labour trends against the median district, every indicator with its confidence interval, and sectors.               |
-|                     | Overlapping needs    | `/poverty-dynamics/overlapping-needs`     | Where poverty, financial exclusion, nutrition and shocks overlap, with correlations between districts.                                                                        |
-| Social protection   | Overview             | `/social-protection`                      | Who VUP reaches, how late payments arrive and how far Rwanda is from its targets.                                                                                             |
-|                     | VUP payments         | `/social-protection/vup-payments`         | Payment timeliness by programme and poverty status, payment channels, amounts and ten years of reports.                                                                       |
-|                     | Priority districts   | `/social-protection/priority-districts`   | Seven policy levers, each tied to one indicator and a stated rule, showing which districts each lever flags and why.                                                          |
-|                     | Policy scenarios     | `/social-protection/policy-scenarios`     | How many adults each district would need to reach for an inclusion target, and priorities under your own weights.                                                             |
-|                     | Intervention planner | `/social-protection/intervention-planner` | Pick a problem, a group and a place to see the evidence and the options.                                                                                                      |
-| Data                | Sources and methods  | `/data`                                   | Where every figure comes from, and how far to trust it.                                                                                                                       |
-|                     | Key figures          | `/data/key-figures`                       | National inclusion, poverty trends and progress towards national targets.                                                                                                     |
-|                     | Data catalogue       | `/data/catalog`                           | Every study in the NISR microdata catalogue, 1978 to today, searchable by theme, with the studies IMBONIX draws on flagged.                                                   |
-|                     | Chart library        | `/data/chart-library`                     | Every chart and interactive tool on the site, grouped by focus area and page, with a filter.                                                                                  |
-| About               | About                | `/about`                                  | Why IMBONIX exists, who it serves and how it works.                                                                                                                           |
-| Assistant           | IMBONIX AI           | every page · `/api/assistant`             | A floating assistant, grounded in NISR's published figures, that answers questions by typing or voice, reads uploaded pictures and documents, and can read its answers aloud. |
+**🏠 Home — `/`** · One argument in three tabs: **the gap** (96% included, ~10% financially healthy), **the evidence**
+in NISR data, and **the impact** for households, policymakers and civil society.
+
+### 💳 Financial exclusion — _who is left out, and who is included but not resilient?_
+
+| Page | Address | What it does |
+| --- | --- | --- |
+| **Overview** | `/financial-exclusion` | Inclusion by service, financial health, the access strand, mobile money and credit. |
+| **Access & use** | `/financial-exclusion/access-and-use` | FinScope's **96%** inclusion vs DHS 2025 account and mobile-money use — by sex, age, residence, education and wealth. |
+| **Risk model** | `/financial-exclusion/risk-model` | An **explainable** financial-vulnerability model: its factors and limits stated; results shown only once trained on microdata. |
+
+### 📉 Poverty dynamics — _who is poor, where, and what has changed?_
+
+| Page | Address | What it does |
+| --- | --- | --- |
+| **Overview** | `/poverty-dynamics` | Poverty in 2016/17 vs 2023/24 — where it is deepest, who is poorest, and how households live. |
+| **Trends** | `/poverty-dynamics/trends` | Every census since **1978** and every EICV, DHS and LFS round: poverty, population, homes, services, health, work. |
+| **District map** | `/poverty-dynamics/district-map` | **28 measures** on an interactive map; pick a district to see its sectors; links are shareable. |
+| **District profiles** | `/districts/<name>` | **30 district profiles**: priority, a 1978→2026 year selector, every indicator with its confidence interval, and sectors. |
+| **Overlapping needs** | `/poverty-dynamics/overlapping-needs` | Where poverty, exclusion, nutrition and shocks **overlap**, with correlations between districts. |
+
+### 🛡️ Social protection — _who do programmes reach, and how well?_
+
+| Page | Address | What it does |
+| --- | --- | --- |
+| **Overview** | `/social-protection` | Who VUP reaches, how late payments arrive, and the distance to national targets. |
+| **VUP payments** | `/social-protection/vup-payments` | Payment timeliness by programme and poverty status; channels, amounts, and ten years of reports. |
+| **Priority districts** | `/social-protection/priority-districts` | **Seven policy levers**, each tied to one indicator and a stated rule — which districts each flags, and why. |
+| **Policy scenarios** | `/social-protection/policy-scenarios` | How many adults each district must reach for an inclusion target — and priorities under **your own weights**. |
+| **Intervention planner** | `/social-protection/intervention-planner` | Pick a problem, a group and a place → the evidence and the options, together. |
+
+### 📂 Data & About
+
+| Page | Address | What it does |
+| --- | --- | --- |
+| **Sources & methods** | `/data` | Where every figure comes from, and how far to trust it. |
+| **Key figures** | `/data/key-figures` | National inclusion, poverty trends, and progress toward national targets. |
+| **Data catalogue** | `/data/catalog` | Every NISR study **1978 → today**, searchable by theme, with the ones IMBONIX uses flagged. |
+| **Chart library** | `/data/chart-library` | Every chart and tool on the site, grouped by area and page, with a filter. |
+| **About** | `/about` | Why IMBONIX exists, who it serves, and the method, sources, principles and limits. |
+
+**🤖 IMBONIX AI — every page · `/api/assistant`** · A floating assistant **grounded in NISR's published figures**: ask
+by typing or voice in **English / French / Kinyarwanda**, attach a picture or document to analyse, and have answers read
+aloud. With no API key it falls back to an on-device engine, so it always works.
 
 The **public data API** (`apps/api`) serves read-only JSON for districts, indicators and sectors, with validation, rate
 limiting and security headers.
@@ -104,18 +123,16 @@ source, and never invent a number.
 See [docs/ai-assistant.md](docs/ai-assistant.md) for the architecture and
 [docs/submission/demo-script.md](docs/submission/demo-script.md) for a judge walkthrough.
 
-<!-- Screenshots: add these files into docs/screenshots/ (see the guide there), then uncomment.
 <table>
   <tr>
-    <td><img src="docs/screenshots/map.png" alt="Resilience map zoomed to Nyamagabe's sectors"></td>
+    <td><img src="docs/screenshots/map.png" alt="Resilience map zoomed to a district's sectors"></td>
     <td><img src="docs/screenshots/district.png" alt="Gicumbi district profile"></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/priorities.png" alt="Intervention priorities"></td>
+    <td><img src="docs/screenshots/priorities.png" alt="Priority ranking by policy lever"></td>
     <td align="center"><img src="docs/screenshots/home-mobile.png" alt="Homepage on a phone" width="260"></td>
   </tr>
 </table>
--->
 
 ## How the data is handled
 
