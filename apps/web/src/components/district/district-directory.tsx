@@ -1,17 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { ChevronLeftIcon, ChevronRightIcon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Fingerprint, worstThirdCount } from "@/components/charts/fingerprint";
 import { PriorityBadge } from "@/components/district/district-intelligence";
 import { SelectField } from "@/components/ui/select-field";
 import { DISTRICTS, PROVINCE_LABEL, PROVINCES, rankOf } from "@/lib/data";
 import { priorityFor, type Priority } from "@/lib/district-intelligence";
 import { CORE_DIMENSIONS, DIMENSIONS, meta } from "@/lib/indicators";
+import { cn } from "@/lib/utils";
 
 const PRIORITY_LEVELS: Priority["level"][] = ["High", "Moderate", "Lower"];
+
+/** Districts shown per page, so the list stays short (one or two screens) instead of one long scroll. */
+const PAGE_SIZE = 9;
 
 const SORTS = [
   { id: "overlap", label: "Highest priority first" },
@@ -24,6 +28,8 @@ export function DistrictDirectory() {
   const [province, setProvince] = useState<string>("all");
   const [sort, setSort] = useState("overlap");
   const [priority, setPriority] = useState("all");
+  const [page, setPage] = useState(0);
+  const topRef = useRef<HTMLDivElement>(null);
 
   const list = useMemo(() => {
     const term = query.trim().toLowerCase();
@@ -48,6 +54,22 @@ export function DistrictDirectory() {
       return rank(a, sort) - rank(b, sort);
     });
   }, [query, province, priority, sort]);
+
+  // A new search or filter starts again from the first page.
+  useEffect(() => setPage(0), [query, province, priority, sort]);
+
+  const pageCount = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  const current = Math.min(page, pageCount - 1);
+  const start = current * PAGE_SIZE;
+  const shown = list.slice(start, start + PAGE_SIZE);
+
+  const goTo = (next: number) => {
+    setPage(Math.max(0, Math.min(next, pageCount - 1)));
+    topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const pageButton =
+    "inline-flex h-10 items-center gap-1.5 rounded-full px-4 text-[14px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
 
   return (
     <div>
@@ -91,12 +113,17 @@ export function DistrictDirectory() {
         </SelectField>
       </div>
 
+      <div ref={topRef} className="scroll-mt-28" />
       <p className="mt-4 text-[13px] text-muted" aria-live="polite">
-        {list.length} {list.length === 1 ? "district" : "districts"}
+        {list.length === 0
+          ? "No districts match"
+          : `Showing ${start + 1}–${Math.min(start + PAGE_SIZE, list.length)} of ${list.length} ${
+              list.length === 1 ? "district" : "districts"
+            }`}
       </p>
 
       <div className="mt-3 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {list.map((d) => (
+        {shown.map((d) => (
           <Link
             key={d.slug}
             href={`/districts/${d.slug}`}
@@ -118,6 +145,42 @@ export function DistrictDirectory() {
           </Link>
         ))}
       </div>
+
+      {pageCount > 1 && (
+        <nav aria-label="District pages" className="mt-8 flex items-center justify-between gap-4">
+          <button
+            type="button"
+            onClick={() => goTo(current - 1)}
+            disabled={current === 0}
+            className={cn(
+              pageButton,
+              current === 0
+                ? "cursor-default text-muted opacity-40 ring-1 ring-line"
+                : "text-ink ring-1 ring-line hover:bg-cyan hover:ring-cyan",
+            )}
+          >
+            <ChevronLeftIcon className="h-4 w-4" aria-hidden="true" />
+            Back
+          </button>
+          <p className="text-[13px] font-semibold text-muted">
+            Page {current + 1} of {pageCount}
+          </p>
+          <button
+            type="button"
+            onClick={() => goTo(current + 1)}
+            disabled={current === pageCount - 1}
+            className={cn(
+              pageButton,
+              current === pageCount - 1
+                ? "cursor-default text-muted opacity-40 ring-1 ring-line"
+                : "text-ink ring-1 ring-line hover:bg-cyan hover:ring-cyan",
+            )}
+          >
+            Next
+            <ChevronRightIcon className="h-4 w-4" aria-hidden="true" />
+          </button>
+        </nav>
+      )}
     </div>
   );
 }
