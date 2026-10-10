@@ -1042,7 +1042,7 @@ export function ImbonixAI() {
                 ref={inputRef}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder={listening ? "Listening…" : "Ask a question, speak, or attach a file…"}
+                placeholder={listening ? "Listening…" : "Ask IMBONIX…"}
                 aria-label="Ask IMBONIX AI"
                 autoComplete="off"
                 className="h-11 min-w-0 flex-1 rounded-full bg-paper px-4 text-[14.5px] text-ink ring-1 ring-line placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
