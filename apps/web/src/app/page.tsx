@@ -1,6 +1,7 @@
 import { paymentTimelinessByProgramme } from "@/components/focus/focus-shared";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { ChallengeStatement, type Requirement } from "@/components/home/challenge-statement";
+import { ExploreCta } from "@/components/home/explore-cta";
 import { FeaturedInsight } from "@/components/home/featured-insight";
 import { FieldBand } from "@/components/home/field-band";
 import { PlatformApproach } from "@/components/home/platform-approach";
@@ -365,6 +366,10 @@ export default function Home() {
           districts={finderDistricts}
           counts={{ sectors: SITE_FACTS.sectors, cells: SITE_FACTS.cells, villages: SITE_FACTS.villages }}
         />
+      </Reveal>
+
+      <Reveal>
+        <ExploreCta />
       </Reveal>
     </>
   );
