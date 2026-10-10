@@ -24,7 +24,7 @@ const STEPS: Step[] = [
   {
     verb: "Explain",
     question: "Where do needs overlap?",
-    body: "Which published indicators move together across districts, and where poverty and low financial access meet, so the drivers are visible, not just the totals.",
+    body: "Which needs rise and fall together across districts, and where poverty and poor access to finance meet, so you can see what lies behind the totals, not just the totals.",
     href: "/poverty-dynamics/overlapping-needs",
     linkLabel: "See where needs overlap",
     icon: Squares2X2Icon,
@@ -32,7 +32,7 @@ const STEPS: Step[] = [
   {
     verb: "Predict",
     question: "Who is most at risk?",
-    body: "An explainable model of household financial vulnerability, designed on the NISR variables, with the factors behind each result and its limits stated in the open.",
+    body: "A clear model of which households are most at risk financially — most likely to struggle when money runs short — built from the NISR figures, showing the reasons behind each result and its limits, in the open.",
     href: "/financial-exclusion/risk-model",
     linkLabel: "See the vulnerability model",
     icon: CpuChipIcon,
