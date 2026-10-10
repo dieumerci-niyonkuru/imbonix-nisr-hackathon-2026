@@ -55,7 +55,9 @@ export function HomeHero({
         )}
         <div className="container-page relative pb-40 pt-[123px] sm:pb-44 sm:pt-[147px]">
           {!HERO_PHOTO && <RwandaEmblem tone="cyan" className="absolute right-10 top-14 hidden w-[25rem] xl:block" />}
-          <p className="font-display text-[18px] font-bold sm:text-[22px]">Financial inclusion &amp; poverty reduction in Rwanda</p>
+          <p className="font-display text-[18px] font-bold sm:text-[22px]">
+            Financial inclusion &amp; poverty reduction in Rwanda
+          </p>
           <h1
             id="home-heading"
             className="mt-3 max-w-4xl text-balance font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-6xl lg:text-7xl xl:max-w-[46rem]"
