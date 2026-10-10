@@ -1,5 +1,7 @@
 # AI assistance disclosure
 
+> **Submission package:** [Index](README.md) · [Solution overview](solution-overview.md) · [Demo script](demo-script.md) · [IMBONIX AI](../ai-assistant.md) · **AI disclosure**
+
 AI coding assistants were used on this project for:
 
 - drafting and reviewing code for the web app, the API, the data scripts and the tests;
