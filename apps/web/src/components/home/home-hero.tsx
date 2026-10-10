@@ -7,8 +7,11 @@ import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 /** One of the doors under the banner: a focus area or a tool, in a sentence. */
 export type HeroCard = { title: string; body: string; href: string };
 
-/** The hero background photo (in public/hero/), or null to use the cyan data-network backdrop instead. */
-const HERO_PHOTO: string | null = "/hero/hero-team.png";
+/**
+ * The hero background image (in public/hero/): a photo of a team reviewing Rwanda financial-inclusion data. Swap to
+ * "/hero/hero-data.svg" for the data-network graphic, or set null to use the live data-network + district map backdrop.
+ */
+const HERO_PHOTO: string | null = "/hero/hero-meeting.jpg";
 
 /**
  * The opening of the homepage, laid out like Rwanda's national sites in the site's two colours: a cyan banner with the
@@ -28,18 +31,18 @@ export function HomeHero({
     <section aria-labelledby="home-heading">
       {/* The banner slides up behind the header (which is transparent over it at the top), so the photo is one image
           across the whole top; the content keeps clear of the header with the extra top padding below. */}
-      <div className={`relative -mt-[77px] overflow-hidden bg-cyan ${HERO_PHOTO ? "text-white" : "text-ink"}`}>
+      <div className={`relative -mt-[77px] overflow-hidden ${HERO_PHOTO ? "bg-ink text-white" : "bg-cyan text-ink"}`}>
         {HERO_PHOTO ? (
           <>
-            {/* The team photo in its own colours, filling the banner. */}
+            {/* The hero image, filling the banner. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-cover bg-[position:60%_center]"
+              className="pointer-events-none absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${HERO_PHOTO})` }}
             />
             {/* A flat, even dark overlay (no gradient, no colour cast) so the white headline and tagline stay readable
-                while the team photo shows through behind them. */}
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink/55" />
+                over the photo. */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink/50" />
           </>
         ) : (
           <>
