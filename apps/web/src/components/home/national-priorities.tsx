@@ -21,9 +21,8 @@ export function NationalPriorities() {
         </h2>
         <p className="mt-4 max-w-3xl text-pretty text-[16px] leading-7 text-muted sm:text-[17px]">
           Financial inclusion and social protection are central to <span className="font-semibold text-ink">Vision 2050</span>,
-          Rwanda&apos;s goal of a high-income, inclusive economy. IMBONIX tracks the NST2 and Roadmap targets that lead there —
-          the near-term milestones on the road to 2050 — district by district, so progress toward where Rwanda wants to be is
-          visible where it is won or lost.
+          Rwanda&apos;s goal of a high-income, inclusive economy. IMBONIX tracks the NST2 and Roadmap targets that lead there, the
+          near-term milestones on the road to 2050, district by district.
         </p>
 
         <ul className="mt-6 flex flex-wrap gap-2" aria-label="National frameworks IMBONIX supports">
