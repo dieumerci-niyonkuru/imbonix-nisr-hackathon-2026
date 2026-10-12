@@ -8,10 +8,11 @@ import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 export type HeroCard = { title: string; body: string; href: string };
 
 /**
- * The hero background image (in public/hero/): a photo of a team reviewing Rwanda financial-inclusion data. Swap to
- * "/hero/hero-data.svg" for the data-network graphic, or set null to use the live data-network + district map backdrop.
+ * The hero uses the designed brand banner — the data-network over brand cyan with the Rwanda emblem — rather than a
+ * photo, so the opening is unmistakably IMBONIX's own and carries no stock or AI-generated imagery. Set this to an
+ * image path in public/hero/ only if a genuine, licensed photo is ever added.
  */
-const HERO_PHOTO: string | null = "/hero/hero-meeting.jpg";
+const HERO_PHOTO: string | null = null;
 
 /**
  * The opening of the homepage, laid out like Rwanda's national sites in the site's two colours: a cyan banner with the
@@ -34,15 +35,23 @@ export function HomeHero({
       <div className={`relative -mt-[77px] overflow-hidden ${HERO_PHOTO ? "bg-ink text-white" : "bg-cyan text-ink"}`}>
         {HERO_PHOTO ? (
           <>
-            {/* The hero image, filling the banner. */}
+            {/* The hero image, framed a little above centre so the people and the dashboards stay in view. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-cover bg-center"
+              className="pointer-events-none absolute inset-0 bg-cover bg-[position:50%_32%]"
               style={{ backgroundImage: `url(${HERO_PHOTO})` }}
             />
-            {/* A flat, even dark overlay (no gradient, no colour cast) so the white headline and tagline stay readable
-                over the photo. */}
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink/50" />
+            {/* A professional scrim in the brand colours, not a flat grey wash: a left-weighted dark gradient keeps the
+                white headline crisp while the photo stays visible on the right, and a cyan anchor fading up from the foot
+                ties the banner to the cards that overlap its lower edge. */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/25"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cyan-ink/50 via-transparent to-transparent"
+            />
           </>
         ) : (
           <>
@@ -55,7 +64,9 @@ export function HomeHero({
         )}
         <div className="container-page relative pb-40 pt-[123px] sm:pb-44 sm:pt-[147px]">
           {!HERO_PHOTO && <RwandaEmblem tone="cyan" className="absolute right-10 top-14 hidden w-[25rem] xl:block" />}
-          <p className="font-display text-[18px] font-bold sm:text-[22px]">Financial inclusion &amp; poverty reduction in Rwanda</p>
+          <p className="font-display text-[18px] font-bold sm:text-[22px]">
+            Financial inclusion &amp; poverty reduction in Rwanda
+          </p>
           <h1
             id="home-heading"
             className="mt-3 max-w-4xl text-balance font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-6xl lg:text-7xl xl:max-w-[46rem]"

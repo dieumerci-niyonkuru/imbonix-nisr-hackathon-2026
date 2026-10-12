@@ -16,7 +16,7 @@ export function AudienceSection({ audiences }: { audiences: Audience[] }) {
         title="Who benefits"
         body="Every figure names its source and says how far to trust it, so the same evidence can guide support for a household, a decision in a ministry, a study and the questions civil society asks."
       />
-      <div className="bg-paper py-16 sm:py-20">
+      <div className="bg-paper py-12 sm:py-16">
         <ul className="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-6">
           {audiences.map((audience, index) => (
             <li key={audience.title} className={cn(index < 3 ? "lg:col-span-2" : "lg:col-span-3")}>

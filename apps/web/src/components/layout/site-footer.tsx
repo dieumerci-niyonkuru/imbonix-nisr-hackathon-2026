@@ -2,7 +2,15 @@ import Link from "next/link";
 import type { ComponentType, CSSProperties, SVGProps } from "react";
 import { ArrowUpIcon } from "@heroicons/react/24/solid";
 import { StackedBrandLogo } from "@/components/layout/logo";
-import { FacebookIcon, FlickrIcon, InstagramGradientIcon, LinkedInIcon, XIcon } from "@/components/layout/social-icons";
+import {
+  FacebookIcon,
+  FlickrIcon,
+  GitHubIcon,
+  InstagramGradientIcon,
+  LinkedInIcon,
+  TikTokIcon,
+  XIcon,
+} from "@/components/layout/social-icons";
 import { DATA_SECTION, NAV_GROUPS, REPOSITORY_URL } from "@/components/layout/nav";
 import { SOCIAL_BRAND } from "@/lib/palette";
 
@@ -35,6 +43,8 @@ const SOCIAL_LINKS: SocialLink[] = [
     brand: SOCIAL_BRAND.instagram,
   },
   { href: "https://www.flickr.com/photos/imbonix", label: "IMBONIX on Flickr", icon: FlickrIcon, brand: SOCIAL_BRAND.flickr },
+  { href: "https://www.tiktok.com/@imbonix", label: "IMBONIX on TikTok", icon: TikTokIcon, brand: SOCIAL_BRAND.tiktok },
+  { href: REPOSITORY_URL, label: "IMBONIX on GitHub", icon: GitHubIcon, brand: SOCIAL_BRAND.github },
 ];
 
 /**
@@ -57,9 +67,11 @@ const COLUMNS: FooterColumn[] = [
   },
 ];
 
-/** Project and meta links, shown as a small row in the bottom bar, out of the focus-area columns above. */
+/**
+ * Project and meta links, shown as a small row in the bottom bar, out of the focus-area columns above. The source code
+ * is reached through the GitHub icon in the social row, so it is not repeated here.
+ */
 const PROJECT_LINKS: FooterLink[] = [
-  { href: REPOSITORY_URL, label: "Source code", external: true },
   { href: `${REPOSITORY_URL}/blob/main/SECURITY.md`, label: "Security policy", external: true },
   { href: DATA_ISSUE_URL, label: "Report a data issue", external: true },
 ];
@@ -133,7 +145,7 @@ export function SiteFooter() {
       <div className="bg-cyan text-ink">
         <div className="container-page pt-14 sm:pt-16">
           <p className="max-w-3xl text-balance font-display text-[19px] font-bold leading-7 tracking-[-0.01em] text-ink sm:text-[22px]">
-            Evidence for financial inclusion and poverty reduction in Rwanda — every figure sourced, every page a clear next step.
+            NISR data on financial inclusion and poverty reduction in Rwanda, with the source named on every figure.
           </p>
         </div>
         <nav

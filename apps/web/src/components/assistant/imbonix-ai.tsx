@@ -9,7 +9,6 @@ import {
   MicrophoneIcon,
   PaperClipIcon,
   PauseIcon,
-  PhotoIcon,
   PlayIcon,
   PlusIcon,
   SpeakerWaveIcon,
@@ -19,7 +18,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { AiMark } from "@/components/assistant/ai-mark";
 import { StatusBadge } from "@/components/ui/status-badge";
-import { answerQuery, SUGGESTIONS, type Answer } from "@/lib/assistant";
+import { answerQuery, followUpSuggestions, SUGGESTIONS, type Answer } from "@/lib/assistant";
 
 /** An image, PDF or text file the person attached, ready to send to the AI route. */
 type Attachment = { kind: "image" | "document" | "text"; mediaType: string; data: string; name: string };
@@ -554,7 +553,6 @@ export function ImbonixAI() {
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<Message[]>([{ id: 0, role: "ai", answer: WELCOME }]);
   const [pending, setPending] = useState<Attachment | null>(null);
-  const [attachMenuOpen, setAttachMenuOpen] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   /** null while unknown, then whether the server has the AI service connected. */
@@ -823,6 +821,26 @@ export function ImbonixAI() {
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
+  // Any part of the site can open the assistant, and optionally drop a question into the box, by dispatching
+  // window.dispatchEvent(new CustomEvent("imbonix:ask", { detail: { query } })). The homepage's "Ask IMBONIX"
+  // section uses this so its button and example questions launch the assistant in place.
+  useEffect(() => {
+    const onAsk = (event: Event) => {
+      const query = (event as CustomEvent<{ query?: string }>).detail?.query;
+      setOpen(true);
+      if (query) {
+        setQuery(query);
+        window.setTimeout(() => inputRef.current?.focus(), 60);
+      }
+    };
+    window.addEventListener("imbonix:ask", onAsk);
+    return () => window.removeEventListener("imbonix:ask", onAsk);
+  }, []);
+
+  // Follow-up questions to offer as chips above the input, from what was last asked. Shown once the chat is under way
+  // (the welcome card carries the opening suggestions) and hidden while the assistant is answering.
+  const lastUserText = [...messages].reverse().find((message) => message.role === "user")?.text ?? "";
+  const followUps = lastUserText && !busy ? followUpSuggestions(lastUserText) : [];
 
   return (
     <>
@@ -908,7 +926,7 @@ export function ImbonixAI() {
               </div>
             </div>
 
-            <div ref={logRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3.5">
+            <div ref={logRef} data-lenis-prevent className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3.5">
               {messages.map((message) => {
                 if (message.role === "user") {
                   return (
@@ -979,6 +997,25 @@ export function ImbonixAI() {
               </div>
             )}
 
+            {followUps.length > 0 && (
+              <div
+                data-lenis-prevent
+                className="flex gap-2 overflow-x-auto border-t border-line bg-paper px-3 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                aria-label="Suggested questions"
+              >
+                {followUps.map((suggestion) => (
+                  <button
+                    key={suggestion}
+                    type="button"
+                    onClick={() => void ask(suggestion)}
+                    className="shrink-0 whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-[12.5px] font-semibold text-ink ring-1 ring-line transition-colors hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                  >
+                    {suggestion}
+                  </button>
+                ))}
+              </div>
+            )}
+
             <form
               onSubmit={(event) => {
                 event.preventDefault();
@@ -994,34 +1031,17 @@ export function ImbonixAI() {
                 className="sr-only"
                 onChange={(event) => void chooseFile(event.target.files?.[0])}
               />
-              <div className="relative shrink-0">
-                {attachMenuOpen && (
-                  <>
-                    <div className="fixed inset-0 z-[57]" aria-hidden="true" onClick={() => setAttachMenuOpen(false)} />
-                    <div className="absolute bottom-full left-0 z-[58] mb-2 w-56 overflow-hidden rounded-xl bg-white p-1 shadow-lift ring-1 ring-line">
-                      <label
-                        htmlFor={fileInputId}
-                        onClick={() => setAttachMenuOpen(false)}
-                        className="flex cursor-pointer items-center gap-2.5 rounded-lg px-3 py-2.5 text-[14px] font-semibold text-ink transition-colors hover:bg-paper hover:text-cyan-ink"
-                      >
-                        <PhotoIcon className="h-5 w-5 text-cyan-ink" aria-hidden="true" />
-                        Add photos &amp; files
-                      </label>
-                    </div>
-                  </>
-                )}
-                <button
-                  type="button"
-                  onClick={() => setAttachMenuOpen((value) => !value)}
-                  aria-haspopup="menu"
-                  aria-expanded={attachMenuOpen}
-                  aria-label="Add photos and files"
-                  title="Add photos & files"
-                  className="flex h-11 w-11 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
-                >
-                  <PlusIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
+              {/* The attach button opens the native file picker directly on click — a direct user gesture, so the dialog
+                  always opens (no dropdown to intercept it). */}
+              <button
+                type="button"
+                onClick={() => fileRef.current?.click()}
+                aria-label="Add a photo or file"
+                title="Add a photo or file"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+              >
+                <PlusIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
               {canListen && (
                 <button
                   type="button"

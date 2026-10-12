@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element -- small header photos served as optimised JPGs, not icons to optimise */
 import type { ReactNode } from "react";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
@@ -39,11 +40,14 @@ export function PageHero({
   title,
   intro,
   children,
+  photo,
 }: {
   eyebrow: string;
   title: ReactNode;
   intro: ReactNode;
   children?: ReactNode;
+  /** An optional header photo (in public/photos/) shown in place of the Rwanda map emblem on this page. */
+  photo?: { src: string; alt: string };
 }) {
   return (
     <section className="relative overflow-hidden border-b border-line bg-white">
@@ -61,7 +65,16 @@ export function PageHero({
             <p className="mt-5 max-w-3xl text-pretty text-base leading-7 text-muted sm:text-lg sm:leading-8">{intro}</p>
             {children}
           </div>
-          <RwandaEmblem className="mt-10 hidden lg:block" />
+          {photo ? (
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              className="mt-10 hidden aspect-[4/3] w-full rounded-2xl object-cover shadow-card ring-1 ring-line lg:block"
+            />
+          ) : (
+            <RwandaEmblem className="mt-10 hidden lg:block" />
+          )}
         </div>
       </div>
     </section>

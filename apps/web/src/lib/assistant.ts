@@ -1,7 +1,8 @@
+import { resolvePlaceHit } from "@/lib/ai-places";
 import { CATALOG_STUDIES, CATALOG_THEMES, CATALOG_YEARS } from "@/lib/catalog";
 import { DISTRICTS, PROVINCE_LABEL, rankOf, reference, SOURCES, valueOf, type District } from "@/lib/data";
 import { FINANCIAL_HEALTH_SEGMENTS, FINSCOPE_2024_SOURCE, INCLUSION_BY_ROUND } from "@/lib/finscope-2024";
-import { formatValue } from "@/lib/format";
+import { formatValue, ordinal } from "@/lib/format";
 import { meta, type IndicatorMeta } from "@/lib/indicators";
 
 export type AnswerStat = { value: string; label: string };
@@ -213,7 +214,11 @@ function districtOverview(district: District): Answer {
     body: `${district.name} is in the ${PROVINCE_LABEL[district.province]}. Here are its latest NISR figures on the headline measures; open its profile for everything, year by year.`,
     rows: PROFILE_IDS.filter((id) => valueOf(district, id) !== undefined).map((id) => {
       const rank = rankOf(district, meta(id));
-      return { label: meta(id).short, value: value(district, id), hint: rank ? `#${rank.rank} of ${rank.of}` : undefined };
+      return {
+        label: meta(id).short,
+        value: value(district, id),
+        hint: rank ? `${ordinal(rank.rank)} of ${rank.of}` : undefined,
+      };
     }),
     rowsCaption: `${district.name}, headline measures`,
     status: SOURCES[poverty.id]?.status,
@@ -297,22 +302,59 @@ export const SUGGESTIONS = [
 export function answerQuery(raw: string): Answer {
   const query = lower(raw).trim();
   if (!query) return fallback();
-  const districts = districtByName(query);
+  const namedDistricts = districtByName(query);
+
+  // No district named? See if a sector, cell or village is, and answer at its district's level — NISR publishes figures
+  // to sector and district level, so a cell or village takes the figures of the sector and district it sits in.
+  const place = namedDistricts.length === 0 ? resolvePlaceHit(raw) : null;
+  const placeDistrict = place ? DISTRICTS.find((district) => district.name === place.district) : undefined;
+  const districts = namedDistricts.length > 0 ? namedDistricts : placeDistrict ? [placeDistrict] : [];
+
   const topic = topicFor(query);
   const wantsHigh = HIGH_WORDS.some((word) => query.includes(word));
   const wantsLow = LOW_WORDS.some((word) => query.includes(word));
   const wantsCompare = /\b(compare|versus|vs\.?|against)\b/.test(query) || districts.length >= 2;
 
+  // When the place found was a sector, cell or village, open the answer by naming where it sits.
+  const withPlace = (answer: Answer): Answer =>
+    place
+      ? {
+          ...answer,
+          heading: `${place.name}: in ${place.district}`,
+          body:
+            `${place.name} is a ${place.kind} in ${place.sector} sector, ${place.district} district. NISR publishes figures to ` +
+            `sector and district level, so these are ${place.district}'s figures. ${answer.body}`,
+        }
+      : answer;
+
   if (districts.length >= 2 && wantsCompare) return compare(districts[0], districts[1]);
   if (topic && (wantsHigh || wantsLow) && districts.length === 0) return extremes(topic, wantsHigh || !wantsLow);
-  if (topic && districts.length === 1) return districtValue(districts[0], topic) ?? nationalTopic(topic);
-  if (districts.length === 1) return districtOverview(districts[0]);
+  if (topic && districts.length === 1) return withPlace(districtValue(districts[0], topic) ?? nationalTopic(topic));
+  if (districts.length === 1) return withPlace(districtOverview(districts[0]));
   if (topic) return nationalTopic(topic);
   if (hasAny(query, HEALTH_WORDS)) return financialHealthAnswer();
   if (hasAny(query, DATASET_WORDS)) return datasetsAnswer();
   if (hasAny(query, HELP_WORDS)) return helpAnswer();
   if (wantsHigh || wantsLow) return extremes(meta("eicv7_poverty_rate"), wantsHigh || !wantsLow);
   return fallback();
+}
+
+/**
+ * A few relevant next questions to offer as tappable chips after an answer, shaped by what was last asked: if a
+ * district was named, lead with questions about it, then fill with the common ones. Each is phrased so the engine
+ * answers it well. Capped at four.
+ */
+export function followUpSuggestions(lastUserText: string): string[] {
+  const district = districtByName(lower(lastUserText))[0];
+  const chips: string[] = [];
+  if (district) chips.push(`How poor is ${district.name}?`, `${district.name} at a glance`);
+  chips.push(
+    "Where is financial exclusion highest?",
+    "Explain financial health vs. access",
+    "Which district has the most child stunting?",
+    "What datasets do you have?",
+  );
+  return Array.from(new Set(chips)).slice(0, 4);
 }
 
 function fallback(): Answer {

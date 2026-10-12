@@ -37,9 +37,10 @@
 }
 
 html {
-  /* A slightly smaller root so the whole UI reads a touch more compact (less "zoomed"): every rem-based heading and all
-     spacing scale down with it, while the pixel-set body text stays readable. */
-  font-size: 90%;
+  /* The whole UI is scaled down so it reads compact and "unzoomed" — a browser zoom-out baked in. Unlike a smaller
+     root font-size (which leaves the pixel-set body text full size), zoom shrinks text, spacing and images together
+     and uniformly, so nothing looks oversized. Nudge this one number to zoom the whole site in or out. */
+  zoom: 0.85;
   background: #ffffff;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
@@ -53,6 +54,29 @@ body {
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Never let anything spill past the viewport width, so the page always fits the screen with no sideways scroll. Uses
+     clip, not hidden, so it does not become a scroll container and the sticky header keeps working. */
+  overflow-x: clip;
+}
+
+/* Lenis smooth ("momentum") scrolling — see components/layout/smooth-scroll.tsx. Lenis adds these classes while it
+   runs; the rules let it own scrolling (overriding scroll-behavior) and let nested scrollers opt out. When Lenis is
+   off (reduced motion, or before it loads) none of these apply and native scrolling is used. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 ::selection {
