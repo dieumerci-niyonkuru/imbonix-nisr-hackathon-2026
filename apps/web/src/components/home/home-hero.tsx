@@ -85,7 +85,7 @@ export function HomeHero({
         </div>
       </div>
 
-      <div className="bg-white pb-16 sm:pb-20">
+      <div className="bg-cyan-ink pb-16 text-white sm:pb-20">
         <div className="container-page relative -mt-28">
           <ul className="grid gap-px bg-line shadow-lift ring-1 ring-line sm:grid-cols-2 lg:grid-cols-4">
             {cards.map((card) => (
@@ -109,7 +109,7 @@ export function HomeHero({
           </ul>
         </div>
 
-        <div className="container-page mt-14 text-center text-ink sm:mt-16">
+        <div className="container-page mt-14 text-center text-white sm:mt-16">
           <p className="font-display text-[26px] font-bold tracking-[-0.02em] sm:text-[32px]">Get to know IMBONIX</p>
           <p className="mx-auto mt-4 max-w-3xl text-pretty text-[17px] leading-8 sm:text-[19px] sm:leading-9">
             Use data to understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda,
@@ -117,7 +117,7 @@ export function HomeHero({
           </p>
           <Link
             href="/about"
-            className="mt-8 inline-flex min-h-12 items-center justify-center rounded bg-cyan px-10 text-[15px] font-bold text-ink transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
+            className="mt-8 inline-flex min-h-12 items-center justify-center rounded bg-white px-10 text-[15px] font-bold text-cyan-ink shadow-card transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-ink"
           >
             Learn more about IMBONIX
           </Link>
