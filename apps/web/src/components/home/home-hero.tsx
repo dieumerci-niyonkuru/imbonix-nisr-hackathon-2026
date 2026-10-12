@@ -77,7 +77,7 @@ export function HomeHero({
             IMBONIX brings NISR&apos;s published statistics together for all {districtCount} districts and {sectorCount} sectors,
             to show where financial exclusion, poverty and gaps in social protection meet, and where to act first.
           </p>
-          <p className="mt-5 text-[13px] font-medium">
+          <p className="mt-5 text-[13.5px] font-semibold">
             An independent project built on NISR data, not an official NISR product. Every figure names its source.
           </p>
         </div>
