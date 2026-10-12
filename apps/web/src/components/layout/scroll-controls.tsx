@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowUpIcon } from "@heroicons/react/20/solid";
+import type { LenisWindow } from "@/components/layout/smooth-scroll";
 import { cn } from "@/lib/utils";
 
 /** How far down the page you scroll before the back-to-top button appears. */
@@ -34,6 +35,13 @@ export function ScrollControls() {
 
   const toTop = () => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // When Lenis smooth scrolling is running, scroll through it so the glide matches the rest of the page; otherwise use
+    // the native scroll (smooth, or instant for reduced motion).
+    const lenis = (window as LenisWindow).__lenis;
+    if (lenis && !reduceMotion) {
+      lenis.scrollTo(0);
+      return;
+    }
     window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
   };
 
