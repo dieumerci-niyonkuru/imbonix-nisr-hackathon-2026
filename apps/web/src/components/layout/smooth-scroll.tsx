@@ -25,7 +25,14 @@ export function SmoothScroll() {
 
     void import("lenis").then(({ default: Lenis }) => {
       if (cancelled) return;
-      lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+      // A longer duration with a strong ease-out makes the glide clearly visible — the page coasts and settles rather
+      // than stopping dead. smoothWheel drives it from the mouse wheel too, not only the trackpad.
+      lenis = new Lenis({
+        duration: 1.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 1,
+      });
       // Exposed so other controls (the back-to-top button) can scroll smoothly through Lenis instead of the native
       // smooth scroll that Lenis disables.
       (window as LenisWindow).__lenis = lenis;
