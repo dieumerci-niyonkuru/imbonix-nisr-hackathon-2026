@@ -823,6 +823,21 @@ export function ImbonixAI() {
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
+  // Any part of the site can open the assistant, and optionally drop a question into the box, by dispatching
+  // window.dispatchEvent(new CustomEvent("imbonix:ask", { detail: { query } })). The homepage's "Ask IMBONIX"
+  // section uses this so its button and example questions launch the assistant in place.
+  useEffect(() => {
+    const onAsk = (event: Event) => {
+      const query = (event as CustomEvent<{ query?: string }>).detail?.query;
+      setOpen(true);
+      if (query) {
+        setQuery(query);
+        window.setTimeout(() => inputRef.current?.focus(), 60);
+      }
+    };
+    window.addEventListener("imbonix:ask", onAsk);
+    return () => window.removeEventListener("imbonix:ask", onAsk);
+  }, []);
 
   return (
     <>
