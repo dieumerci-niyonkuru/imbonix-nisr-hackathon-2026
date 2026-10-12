@@ -38,7 +38,7 @@ export function ScrollControls() {
     // When Lenis smooth scrolling is running, scroll through it so the glide matches the rest of the page; otherwise use
     // the native scroll (smooth, or instant for reduced motion).
     const lenis = (window as LenisWindow).__lenis;
-    if (lenis && !reduceMotion) {
+    if (lenis) {
       lenis.scrollTo(0);
       return;
     }
