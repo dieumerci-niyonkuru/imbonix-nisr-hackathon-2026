@@ -8,12 +8,13 @@ import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 export type HeroCard = { title: string; body: string; href: string };
 
 /**
- * The hero background photo (in public/hero/): a Rwandan market vendor taking a mobile-money payment, with Kigali's
- * hills behind — financial inclusion in everyday life, the people the data is about. Shown under a brand scrim so the
- * white headline stays readable (the darker left of the frame keeps clear of the subject). Set to null to use the
- * designed brand banner instead (data-network over brand cyan with the Rwanda emblem), which carries no photo.
+ * The hero background photo (in public/hero/): a Rwandan analyst reading a district map of Rwanda on a data dashboard,
+ * with Kigali's hills behind — the challenge (where need sits), the solution (evidence into decisions) and the data in
+ * one frame. Shown under a brand scrim so the white headline stays readable (the darker left keeps clear of the
+ * subject). Alternative in the folder: "/hero/hero-market.jpg" (a market vendor taking a mobile-money payment). Set to
+ * null to use the designed brand banner instead (data-network over brand cyan with the Rwanda emblem), no photo.
  */
-const HERO_PHOTO: string | null = "/hero/hero-market.jpg";
+const HERO_PHOTO: string | null = "/hero/hero-analyst.jpg";
 
 /**
  * The opening of the homepage, laid out like Rwanda's national sites in the site's two colours: a cyan banner with the
