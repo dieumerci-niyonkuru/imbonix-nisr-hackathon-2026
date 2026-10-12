@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+import { ArrowTopRightOnSquareIcon, HomeIcon as HomeSolidIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { BrandLogo } from "@/components/layout/logo";
 import { MENU_SECTIONS, UTILITY_LINKS } from "@/components/layout/nav";
@@ -42,9 +42,9 @@ const ACTIVE_STYLE = "bg-cyan text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
 
 /**
- * The header: one sticky row with the logo, four direct section tabs (from 1280px wide) and a search button that opens
- * the search dialog (or Ctrl/Cmd K). At the top of the homepage it sits over the hero photo (transparent, white text)
- * and turns solid white on scroll. Narrower screens get a menu sheet with the same four tabs.
+ * The header: one sticky row with the logo, a home tab, the four section tabs (from 1280px wide) and a search button
+ * that opens the search dialog (or Ctrl/Cmd K). At the top of the homepage it sits over the hero photo (transparent,
+ * white text) and turns solid white on scroll. Narrower screens get a menu sheet with the same tabs.
  */
 export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const pathname = usePathname() ?? "/";
@@ -101,6 +101,16 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
 
           <nav aria-label="Main" className="ml-auto hidden xl:block">
             <ul className="flex items-center gap-1">
+              <li>
+                <Link
+                  href="/"
+                  aria-label="Home"
+                  aria-current={isCurrent("/") ? "page" : undefined}
+                  className={cn(tabLink, "w-12 justify-center px-0", isCurrent("/") && tabActive)}
+                >
+                  <HomeSolidIcon className="h-6 w-6" aria-hidden="true" />
+                </Link>
+              </li>
               {TABS.map((tab) => (
                 <li key={tab.id}>
                   <Link

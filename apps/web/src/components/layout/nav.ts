@@ -14,7 +14,12 @@ export const FOCUS_AREAS = [
     hint: "Who is poor and vulnerable, where, and what changed",
     href: "/poverty-dynamics",
   },
-  { id: "protection", label: "Priority areas", hint: "Where to act first, and who VUP reaches", href: "/social-protection" },
+  {
+    id: "protection",
+    label: "Social protection",
+    hint: "Who social protection reaches, and where to act first",
+    href: "/social-protection",
+  },
 ] as const;
 
 export type FocusAreaId = (typeof FOCUS_AREAS)[number]["id"];
@@ -96,8 +101,8 @@ export const NAV_GROUPS: NavGroup[] = [
     ],
   },
   {
-    label: "Priority areas",
-    intro: "Where to act first: who VUP reaches, how payments arrive, and the levers, scenarios and plans for targeting.",
+    label: "Social protection",
+    intro: "Who VUP reaches, how payments arrive, and the levers, scenarios and plans for where to act first.",
     focusId: "protection",
     href: areaHref("protection"),
     items: [
