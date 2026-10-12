@@ -63,8 +63,8 @@ export function PlatformApproach() {
           From data to decisions: measure, explain, predict, prioritise
         </h2>
         <p className="mt-4 max-w-3xl text-pretty text-[16px] leading-7 text-muted sm:text-[17px]">
-          IMBONIX brings NISR&apos;s household, financial access and social protection data together so policymakers, development
-          partners and financial inclusion teams can target action, not just read statistics.
+          IMBONIX brings NISR&apos;s household, financial access and social protection data together, so policymakers, development
+          partners and financial inclusion teams can see where to act.
         </p>
 
         <ol className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
