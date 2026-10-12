@@ -61,7 +61,7 @@ export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
                   <RwandaMap fills={fillsByRank(part.indicatorId, RAMPS[part.ramp])} title={part.caption} stroke={WHITE} />
                 </div>
                 <p className="mt-5 text-[13px] font-semibold text-muted">{part.area}</p>
-                <h3 className="mt-2 text-balance text-[17px] font-bold uppercase leading-snug tracking-[0.01em] text-ink">
+                <h3 className="mt-2 text-balance font-display text-[18px] font-bold leading-snug tracking-[-0.01em] text-ink">
                   {part.title}
                 </h3>
                 <p className="mt-2 text-[13px] text-muted">{part.source}</p>
