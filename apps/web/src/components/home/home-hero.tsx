@@ -8,10 +8,11 @@ import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 export type HeroCard = { title: string; body: string; href: string };
 
 /**
- * The hero background image (in public/hero/): a photo of a team reviewing Rwanda financial-inclusion data. Swap to
- * "/hero/hero-data.svg" for the data-network graphic, or set null to use the live data-network + district map backdrop.
+ * The hero uses the designed brand banner — the data-network over brand cyan with the Rwanda emblem — rather than a
+ * photo, so the opening is unmistakably IMBONIX's own and carries no stock or AI-generated imagery. Set this to an
+ * image path in public/hero/ only if a genuine, licensed photo is ever added.
  */
-const HERO_PHOTO: string | null = "/hero/hero-meeting.jpg";
+const HERO_PHOTO: string | null = null;
 
 /**
  * The opening of the homepage, laid out like Rwanda's national sites in the site's two colours: a cyan banner with the

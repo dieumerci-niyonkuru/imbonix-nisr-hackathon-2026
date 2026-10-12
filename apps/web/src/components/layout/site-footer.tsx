@@ -145,7 +145,7 @@ export function SiteFooter() {
       <div className="bg-cyan text-ink">
         <div className="container-page pt-14 sm:pt-16">
           <p className="max-w-3xl text-balance font-display text-[19px] font-bold leading-7 tracking-[-0.01em] text-ink sm:text-[22px]">
-            Evidence for financial inclusion and poverty reduction in Rwanda — every figure sourced, every page a clear next step.
+            NISR data on financial inclusion and poverty reduction in Rwanda, with the source named on every figure.
           </p>
         </div>
         <nav
