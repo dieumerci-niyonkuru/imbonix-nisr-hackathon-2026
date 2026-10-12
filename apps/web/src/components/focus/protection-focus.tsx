@@ -101,7 +101,7 @@ export function ProtectionFocus() {
       value: String(LEVERS.length),
       text: "policy levers, each flagged district by district by one figure and a rule anyone can check.",
       href: "/social-protection/priority-districts",
-      cta: "Priority areas",
+      cta: "Priority ranking",
     },
     {
       icon: UserGroupIcon,
@@ -115,7 +115,7 @@ export function ProtectionFocus() {
 
   return (
     <>
-      <SectionNav label="Priority areas" sections={SECTIONS} />
+      <SectionNav label="Social protection" sections={SECTIONS} />
 
       <div id="key-figures" className="scroll-mt-36">
         <FigureTiles
