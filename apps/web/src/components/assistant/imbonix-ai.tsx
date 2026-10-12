@@ -19,7 +19,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { AiMark } from "@/components/assistant/ai-mark";
 import { StatusBadge } from "@/components/ui/status-badge";
-import { answerQuery, SUGGESTIONS, type Answer } from "@/lib/assistant";
+import { answerQuery, followUpSuggestions, SUGGESTIONS, type Answer } from "@/lib/assistant";
 
 /** An image, PDF or text file the person attached, ready to send to the AI route. */
 type Attachment = { kind: "image" | "document" | "text"; mediaType: string; data: string; name: string };
@@ -839,6 +839,11 @@ export function ImbonixAI() {
     return () => window.removeEventListener("imbonix:ask", onAsk);
   }, []);
 
+  // Follow-up questions to offer as chips above the input, from what was last asked. Shown once the chat is under way
+  // (the welcome card carries the opening suggestions) and hidden while the assistant is answering.
+  const lastUserText = [...messages].reverse().find((message) => message.role === "user")?.text ?? "";
+  const followUps = lastUserText && !busy ? followUpSuggestions(lastUserText) : [];
+
   return (
     <>
       {/* The launcher: a compact brand-cyan pill — the IMBONIX emblem plus a short "AI" label. */}
@@ -991,6 +996,24 @@ export function ImbonixAI() {
                 >
                   <XMarkIcon className="h-4 w-4" aria-hidden="true" />
                 </button>
+              </div>
+            )}
+
+            {followUps.length > 0 && (
+              <div
+                className="flex gap-2 overflow-x-auto border-t border-line bg-paper px-3 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                aria-label="Suggested questions"
+              >
+                {followUps.map((suggestion) => (
+                  <button
+                    key={suggestion}
+                    type="button"
+                    onClick={() => void ask(suggestion)}
+                    className="shrink-0 whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-[12.5px] font-semibold text-ink ring-1 ring-line transition-colors hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                  >
+                    {suggestion}
+                  </button>
+                ))}
               </div>
             )}
 

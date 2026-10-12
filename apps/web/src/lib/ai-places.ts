@@ -10,7 +10,7 @@ import { DISTRICTS } from "@/lib/data";
  */
 
 type PlaceKind = "sector" | "cell" | "village";
-type PlaceHit = { name: string; kind: PlaceKind; sector: string; district: string };
+export type PlaceHit = { name: string; kind: PlaceKind; sector: string; district: string };
 type RawIndex = { sectors: [string, string][]; cells: [string, number][]; villages: [string, number][] };
 
 const index = placesJson as unknown as RawIndex;
@@ -107,6 +107,23 @@ for (const [name, cellIndex] of index.villages) {
   const [, sectorIndex] = index.cells[cellIndex] ?? ["", 0];
   const [sectorName, slug] = index.sectors[sectorIndex] ?? ["", ""];
   add({ name, kind: "village", sector: sectorName, district: districtNameBySlug[slug] ?? slug });
+}
+
+/**
+ * The first sector, cell or village named in the text, resolved to its sector and district, or null. The on-device
+ * engine uses this to answer a place question (down to a village) even with no AI service connected.
+ */
+export function resolvePlaceHit(text: string): PlaceHit | null {
+  const words = new Set(
+    fold(text)
+      .split(/[^a-z0-9]+/)
+      .filter((word) => word.length >= 4 && !STOP.has(word)),
+  );
+  for (const word of words) {
+    const hits = LOOKUP.get(word);
+    if (hits && hits.length) return hits[0];
+  }
+  return null;
 }
 
 /** A one-line context note naming the sector and district of any place found in the text, or null when none match. */
