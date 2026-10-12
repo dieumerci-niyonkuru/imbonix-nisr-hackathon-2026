@@ -34,15 +34,23 @@ export function HomeHero({
       <div className={`relative -mt-[77px] overflow-hidden ${HERO_PHOTO ? "bg-ink text-white" : "bg-cyan text-ink"}`}>
         {HERO_PHOTO ? (
           <>
-            {/* The hero image, filling the banner. */}
+            {/* The hero image, framed a little above centre so the people and the dashboards stay in view. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-cover bg-center"
+              className="pointer-events-none absolute inset-0 bg-cover bg-[position:50%_32%]"
               style={{ backgroundImage: `url(${HERO_PHOTO})` }}
             />
-            {/* A flat, even dark overlay (no gradient, no colour cast) so the white headline and tagline stay readable
-                over the photo. */}
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink/50" />
+            {/* A professional scrim in the brand colours, not a flat grey wash: a left-weighted dark gradient keeps the
+                white headline crisp while the photo stays visible on the right, and a cyan anchor fading up from the foot
+                ties the banner to the cards that overlap its lower edge. */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/25"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cyan-ink/50 via-transparent to-transparent"
+            />
           </>
         ) : (
           <>
