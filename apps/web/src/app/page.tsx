@@ -64,7 +64,7 @@ export default function Home() {
       href: "/poverty-dynamics",
     },
     {
-      title: "Priority areas",
+      title: "Social protection",
       body: "Whether VUP and Direct Support reach the poorest households, how late payments arrive, and where to act first.",
       href: "/social-protection",
     },
