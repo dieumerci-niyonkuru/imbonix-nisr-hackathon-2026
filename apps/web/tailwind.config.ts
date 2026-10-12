@@ -46,7 +46,10 @@ const config: Config = {
         display: ['"Lexend Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
         body: ['"Manrope Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
       },
-      maxWidth: { page: "1320px" },
+      // The page content width. The site is rendered at a 0.85 root zoom, which scales this down too, so the value is
+      // pre-divided by that zoom (1320 / 0.85 ≈ 1553) to keep the real content width ~1320px and avoid extra left/right
+      // margin on wide screens. If the root zoom changes, rescale this with it.
+      maxWidth: { page: "1553px" },
       // Nearly square corners, as on the government's sites: calm and institutional.
       borderRadius: {
         lg: "var(--radius)",
