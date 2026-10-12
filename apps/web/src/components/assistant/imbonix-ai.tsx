@@ -9,7 +9,6 @@ import {
   MicrophoneIcon,
   PaperClipIcon,
   PauseIcon,
-  PhotoIcon,
   PlayIcon,
   PlusIcon,
   SpeakerWaveIcon,
@@ -554,7 +553,6 @@ export function ImbonixAI() {
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<Message[]>([{ id: 0, role: "ai", answer: WELCOME }]);
   const [pending, setPending] = useState<Attachment | null>(null);
-  const [attachMenuOpen, setAttachMenuOpen] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   /** null while unknown, then whether the server has the AI service connected. */
@@ -1033,34 +1031,17 @@ export function ImbonixAI() {
                 className="sr-only"
                 onChange={(event) => void chooseFile(event.target.files?.[0])}
               />
-              <div className="relative shrink-0">
-                {attachMenuOpen && (
-                  <>
-                    <div className="fixed inset-0 z-[57]" aria-hidden="true" onClick={() => setAttachMenuOpen(false)} />
-                    <div className="absolute bottom-full left-0 z-[58] mb-2 w-56 overflow-hidden rounded-xl bg-white p-1 shadow-lift ring-1 ring-line">
-                      <label
-                        htmlFor={fileInputId}
-                        onClick={() => setAttachMenuOpen(false)}
-                        className="flex cursor-pointer items-center gap-2.5 rounded-lg px-3 py-2.5 text-[14px] font-semibold text-ink transition-colors hover:bg-paper hover:text-cyan-ink"
-                      >
-                        <PhotoIcon className="h-5 w-5 text-cyan-ink" aria-hidden="true" />
-                        Add photos &amp; files
-                      </label>
-                    </div>
-                  </>
-                )}
-                <button
-                  type="button"
-                  onClick={() => setAttachMenuOpen((value) => !value)}
-                  aria-haspopup="menu"
-                  aria-expanded={attachMenuOpen}
-                  aria-label="Add photos and files"
-                  title="Add photos & files"
-                  className="flex h-11 w-11 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
-                >
-                  <PlusIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
+              {/* The attach button opens the native file picker directly on click — a direct user gesture, so the dialog
+                  always opens (no dropdown to intercept it). */}
+              <button
+                type="button"
+                onClick={() => fileRef.current?.click()}
+                aria-label="Add a photo or file"
+                title="Add a photo or file"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+              >
+                <PlusIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
               {canListen && (
                 <button
                   type="button"
