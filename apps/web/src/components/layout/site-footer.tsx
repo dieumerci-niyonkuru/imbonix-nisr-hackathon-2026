@@ -67,9 +67,11 @@ const COLUMNS: FooterColumn[] = [
   },
 ];
 
-/** Project and meta links, shown as a small row in the bottom bar, out of the focus-area columns above. */
+/**
+ * Project and meta links, shown as a small row in the bottom bar, out of the focus-area columns above. The source code
+ * is reached through the GitHub icon in the social row, so it is not repeated here.
+ */
 const PROJECT_LINKS: FooterLink[] = [
-  { href: REPOSITORY_URL, label: "Source code", external: true },
   { href: `${REPOSITORY_URL}/blob/main/SECURITY.md`, label: "Security policy", external: true },
   { href: DATA_ISSUE_URL, label: "Report a data issue", external: true },
 ];
