@@ -110,7 +110,7 @@ export function HomeHero({
         </div>
 
         <div className="container-page mt-14 text-center text-ink sm:mt-16">
-          <p className="font-display text-[26px] font-bold tracking-[-0.02em] sm:text-[32px]">The challenge</p>
+          <p className="font-display text-[26px] font-bold tracking-[-0.02em] sm:text-[32px]">Get to know IMBONIX</p>
           <p className="mx-auto mt-4 max-w-3xl text-pretty text-[17px] leading-8 sm:text-[19px] sm:leading-9">
             Use data to understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda,
             so that support reaches vulnerable households and decisions rest on evidence.
