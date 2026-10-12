@@ -71,8 +71,8 @@ export function AskImbonix() {
               Not sure where to look? Just ask IMBONIX
             </h2>
             <p className="mt-4 max-w-xl text-pretty text-[16px] leading-7 text-muted sm:text-[17px]">
-              A built-in assistant turns a question into an answer from the data — for any district, any measure or the national
-              picture — so a first-time visitor finds what they need without learning the site first.
+              Ask the built-in assistant about any district, any measure, or the national picture. It answers from the data, so a
+              first-time visitor can find what they need without learning the site first.
             </p>
 
             <ul className="mt-7 space-y-4">
