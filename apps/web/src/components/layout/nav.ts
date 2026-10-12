@@ -10,7 +10,7 @@ export const FOCUS_AREAS = [
   { id: "exclusion", label: "Financial inclusion", hint: "Included, but not resilient", href: "/financial-exclusion" },
   {
     id: "poverty",
-    label: "Poverty & vulnerability",
+    label: "Poverty reduction",
     hint: "Who is poor and vulnerable, where, and what changed",
     href: "/poverty-dynamics",
   },
@@ -73,7 +73,7 @@ export const NAV_GROUPS: NavGroup[] = [
     ],
   },
   {
-    label: "Poverty & vulnerability",
+    label: "Poverty reduction",
     intro: "How poverty and living conditions changed, where poverty is deepest, and where it overlaps with other needs.",
     focusId: "poverty",
     href: areaHref("poverty"),

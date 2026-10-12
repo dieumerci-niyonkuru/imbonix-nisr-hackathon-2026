@@ -59,7 +59,7 @@ export default function Home() {
       href: "/financial-exclusion",
     },
     {
-      title: "Poverty & vulnerability",
+      title: "Poverty reduction",
       body: `How poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}%, and where it is still highest.`,
       href: "/poverty-dynamics",
     },
@@ -271,7 +271,7 @@ export default function Home() {
       href: "/financial-exclusion",
     },
     {
-      area: "Poverty & vulnerability",
+      area: "Poverty reduction",
       title: `Poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}% in seven years`,
       summary:
         "How poverty and living conditions changed since 2016/17, who is poorest and where poverty and financial exclusion overlap.",
