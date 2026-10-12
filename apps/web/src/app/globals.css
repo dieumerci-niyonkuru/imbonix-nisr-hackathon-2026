@@ -54,6 +54,9 @@ body {
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Never let anything spill past the viewport width, so the page always fits the screen with no sideways scroll. Uses
+     clip, not hidden, so it does not become a scroll container and the sticky header keeps working. */
+  overflow-x: clip;
 }
 
 ::selection {
