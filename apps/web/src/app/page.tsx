@@ -1,4 +1,5 @@
 import { paymentTimelinessByProgramme } from "@/components/focus/focus-shared";
+import { AskImbonix } from "@/components/home/ask-imbonix";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { ChallengeStatement, type Requirement } from "@/components/home/challenge-statement";
 import { ExploreCta } from "@/components/home/explore-cta";
@@ -339,6 +340,10 @@ export default function Home() {
 
       <Reveal>
         <NationalPriorities />
+      </Reveal>
+
+      <Reveal>
+        <AskImbonix />
       </Reveal>
 
       <Reveal>
