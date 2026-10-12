@@ -11,13 +11,15 @@ export type LenisWindow = Window & { __lenis?: LenisLike };
  * Site-wide smooth, eased "momentum" scrolling (Lenis). The page glides and decelerates instead of jumping with the
  * wheel, the way modern landing pages feel. It drives the native window scroll, so the scrollbar, the sticky header and
  * the scroll-reveal observers all keep working; nested scrollers (the AI chat log, for one) opt out with
- * `data-lenis-prevent`. Anyone who prefers reduced motion keeps plain native scrolling. Lenis is imported dynamically,
- * so it stays out of the first load and only runs in the browser.
+ * `data-lenis-prevent`. Lenis is imported dynamically, so it stays out of the first load and only runs in the browser.
+ *
+ * The glide is kept on for everyone (respectReducedMotion: false), by request, so it is always visible — including on
+ * machines that have Windows animation effects turned off, which otherwise reports reduced motion and would disable it.
+ * To make it honour that OS preference again, set respectReducedMotion back to true (its default).
  */
 export function SmoothScroll() {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let lenis: import("lenis").default | null = null;
     let frame = 0;
@@ -32,6 +34,7 @@ export function SmoothScroll() {
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
         wheelMultiplier: 1,
+        respectReducedMotion: false,
       });
       // Exposed so other controls (the back-to-top button) can scroll smoothly through Lenis instead of the native
       // smooth scroll that Lenis disables.
