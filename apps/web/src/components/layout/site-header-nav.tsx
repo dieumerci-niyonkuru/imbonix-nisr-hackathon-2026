@@ -31,13 +31,13 @@ const TABS = MENU_SECTIONS.map((section) => ({ id: section.id, label: section.la
 
 // A top-level tab: bold capitals that take a thick cyan underline on hover, when it is the section you are in.
 const TAB_STYLE =
-  "inline-flex h-[52px] items-center whitespace-nowrap px-3.5 text-[13.5px] font-bold uppercase tracking-[0.045em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
-/** Tab colours on the solid white header. */
-const TAB_SOLID = "text-ink hover:text-cyan-ink hover:shadow-[inset_0_-4px_0_var(--cyan)] focus-visible:ring-cyan-ink";
-const TAB_ACTIVE_SOLID = "text-cyan-ink shadow-[inset_0_-4px_0_var(--cyan)]";
-/** Tab colours when the header sits over the hero photo (white). */
-const TAB_OVER = "text-white hover:shadow-[inset_0_-4px_0_white] focus-visible:ring-white";
-const TAB_ACTIVE_OVER = "text-white shadow-[inset_0_-4px_0_white]";
+  "inline-flex h-11 items-center whitespace-nowrap rounded px-3.5 text-[13.5px] font-bold uppercase tracking-[0.045em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+/** Tab colours on the solid white header: the brand blue, the current section (or a hovered tab) a solid blue box. */
+const TAB_SOLID = "text-cyan-ink hover:bg-cyan-ink hover:text-white focus-visible:ring-cyan-ink";
+const TAB_ACTIVE_SOLID = "bg-cyan-ink text-white";
+/** Tab colours when the header sits over the hero photo: white, the current or hovered tab filling with a white box. */
+const TAB_OVER = "text-white hover:bg-white hover:text-cyan-ink focus-visible:ring-white";
+const TAB_ACTIVE_OVER = "bg-white text-cyan-ink";
 const ACTIVE_STYLE = "bg-cyan text-ink";
 const FOCUS_RING = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink";
 
@@ -126,18 +126,18 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
           </nav>
 
           <div className="ml-auto flex items-center gap-1.5 xl:ml-3">
+            {/* Search as a blue "Search" label with a magnifier, like the tabs — the full word on desktop, the icon
+                alone on narrow screens. */}
             <button
               type="button"
               onClick={openSearch}
               aria-haspopup="dialog"
               aria-label={`Search the site (${shortcutLabel})`}
               title={`Search the site (${shortcutLabel})`}
-              className={cn(
-                "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan text-ink transition-colors hover:bg-cyan-ink hover:text-white",
-                FOCUS_RING,
-              )}
+              className={cn(tabLink, "gap-1.5")}
             >
-              <MagnifyingGlassIcon className="h-5 w-5 stroke-2" aria-hidden="true" />
+              <span className="hidden xl:inline">Search</span>
+              <MagnifyingGlassIcon className="h-[18px] w-[18px] stroke-2" aria-hidden="true" />
             </button>
 
             <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
