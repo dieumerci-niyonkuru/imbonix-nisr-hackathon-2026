@@ -928,7 +928,7 @@ export function ImbonixAI() {
               </div>
             </div>
 
-            <div ref={logRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3.5">
+            <div ref={logRef} data-lenis-prevent className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3.5">
               {messages.map((message) => {
                 if (message.role === "user") {
                   return (
@@ -1001,6 +1001,7 @@ export function ImbonixAI() {
 
             {followUps.length > 0 && (
               <div
+                data-lenis-prevent
                 className="flex gap-2 overflow-x-auto border-t border-line bg-paper px-3 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 aria-label="Suggested questions"
               >
