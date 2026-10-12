@@ -71,7 +71,7 @@ export function NationalPriorities() {
                   <div className="h-full rounded-full bg-cyan" style={{ width: `${share}%` }} />
                 </div>
                 <p className="mt-2.5 text-[12.5px] font-semibold text-muted">
-                  <span className="text-cyan-ink">{gap} points to go</span> to the {target.by} target
+                  <span className="text-cyan-ink">{gap} points to go</span> to the {target.by} target — a step toward Vision 2050
                 </p>
               </li>
             );
