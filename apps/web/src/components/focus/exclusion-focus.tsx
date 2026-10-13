@@ -9,7 +9,7 @@ import { Finding } from "@/components/focus/finding";
 import { ACCESS_SERIES } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { ChartCard } from "@/components/ui/chart-card";
-import { HeroSummaryCard, SectionHeader } from "@/components/ui/section";
+import { type HeroStat, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import {
   EXCLUDED_ADULTS,
@@ -59,27 +59,17 @@ const SECTIONS: PageSection[] = [
 ];
 
 /**
- * The page's answer in three numbers, shown on the right of the header so a reader grasps the whole story — almost
- * everyone included, few resilient, a minority still shut out — before any chart. The figures are read from the same
- * published tables as the charts below, so the snapshot and the detail never disagree.
+ * The page's answer in three headline figures for the hero strip — almost everyone included, few resilient, a minority
+ * still shut out. Read from the same published tables as the charts below, so the snapshot and the detail never disagree.
  */
-export function ExclusionHeroSummary() {
+export function exclusionHeroStats(): HeroStat[] {
   const shareOf = (measure: string) => INCLUSION_BY_ROUND.find((row) => row.measure === measure)!.in2024;
-  const rows = [
-    {
-      value: `${shareOf("Financially included")}%`,
-      text: "of adults use some financial service — almost everyone is counted as included.",
-    },
-    {
-      value: `${FINANCIAL_HEALTH_SEGMENTS.find((row) => row.segment === "Financially healthy")!.share}%`,
-      text: "are financially healthy: able to manage day to day, absorb a shock and plan ahead.",
-    },
-    {
-      value: `${shareOf("Excluded")}%`,
-      text: `use no financial service at all — ${EXCLUDED_ADULTS.toLocaleString("en-US")} adults are still fully excluded.`,
-    },
+  const healthy = FINANCIAL_HEALTH_SEGMENTS.find((row) => row.segment === "Financially healthy")!.share;
+  return [
+    { value: `${shareOf("Financially included")}%`, label: "use a financial service" },
+    { value: `${healthy}%`, label: "are financially healthy" },
+    { value: `${shareOf("Excluded")}%`, label: `fully excluded (${EXCLUDED_ADULTS.toLocaleString("en-US")} adults)` },
   ];
-  return <HeroSummaryCard rows={rows} closer="Women and the poorest fifth of households are furthest behind." />;
 }
 
 /**

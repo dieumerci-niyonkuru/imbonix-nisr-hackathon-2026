@@ -48,7 +48,7 @@ export function SectionNav({ label, sections }: { label: string; sections: PageS
         </p>
         <ul
           ref={listRef}
-          className="scrollbar-none -mx-4 flex flex-1 items-center overflow-x-auto px-2 sm:-mx-6 sm:px-4 lg:mx-0 lg:justify-end lg:px-0"
+          className="scrollbar-none -mx-4 flex flex-1 items-center overflow-x-auto px-2 sm:-mx-6 sm:px-4 lg:mx-0 lg:justify-start lg:px-0"
         >
           {sections.map((section) => {
             const active = activeId === section.id;
