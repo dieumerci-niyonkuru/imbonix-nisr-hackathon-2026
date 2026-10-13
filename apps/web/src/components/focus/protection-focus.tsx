@@ -9,7 +9,7 @@ import { Finding } from "@/components/focus/finding";
 import { paymentTimelinessByProgramme, TIMELINESS_SERIES } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { ChartCard } from "@/components/ui/chart-card";
-import { SectionHeader } from "@/components/ui/section";
+import { HeroSummaryCard, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import { describeShares } from "@/lib/format";
 import { TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
@@ -46,6 +46,27 @@ const SECTIONS: PageSection[] = [
   { id: "act", label: "Who can act" },
   { id: "deeper", label: "Go deeper" },
 ];
+
+/**
+ * Social protection in three numbers for the header: how many VUP reaches, who they are, and how often their payments
+ * arrive on time. Read from the same tables as the charts below, so the snapshot and the detail never disagree.
+ */
+export function ProtectionHeroSummary() {
+  const women = VUP_SHARE_BY_SEX.find((row) => row.sex === "Women")!;
+  const directSupport = paymentTimelinessByProgramme().find((row) => row.programme === "Direct Support")!;
+  const rows = [
+    {
+      value: `${Math.round(VUP_BENEFICIARIES / 1000)}k`,
+      text: "people receive VUP support, far poorer than the average Rwandan.",
+    },
+    { value: `${women.beneficiaries}%`, text: "of VUP beneficiaries are women, the majority of those it reaches." },
+    {
+      value: `${directSupport.onTime}%`,
+      text: "of Direct Support households got their last payment on time — most arrive late.",
+    },
+  ];
+  return <HeroSummaryCard rows={rows} closer="VUP reaches poorer people; the gap now is how late payments arrive." />;
+}
 
 /**
  * The social protection overview, as one story in sections with a menu under the header: the key figures, who VUP
