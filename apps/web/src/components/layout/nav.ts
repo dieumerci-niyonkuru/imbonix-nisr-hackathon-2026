@@ -133,7 +133,7 @@ export const NAV_GROUPS: NavGroup[] = [
 /** The data itself: where every figure comes from, the national figures, and every chart on the site in one list. */
 export const DATA_SECTION: MenuSection = {
   id: "data",
-  label: "Data",
+  label: "Data sources",
   intro: "The datasets behind the platform, Rwanda's key figures, and every chart on the site in one list.",
   href: "/data",
   title: "Data & methodology",
