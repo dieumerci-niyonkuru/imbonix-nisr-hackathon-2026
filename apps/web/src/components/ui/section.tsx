@@ -45,7 +45,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="border-b border-line bg-white">
+    <section className="border-b border-line bg-gradient-to-br from-cyan-soft to-paper">
       <div className="container-page pb-14 pt-6 sm:pb-16 sm:pt-8">
         <Breadcrumbs />
         <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan-ink sm:mt-12">
