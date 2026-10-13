@@ -126,8 +126,8 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
           </nav>
 
           <div className="ml-auto flex items-center gap-1.5 xl:ml-3">
-            {/* Search as a blue "Search" label with a magnifier, like the tabs: the word shows from tablet width up, and
-                drops to the icon alone only on the narrowest phones so the row never crowds. */}
+            {/* Search as a blue "Search" label with a magnifier, like the tabs: the word shows on all but the narrowest
+                phones (from 480px), where the logo and two labels would crowd, and drops to the icon alone below that. */}
             <button
               type="button"
               onClick={openSearch}
@@ -136,7 +136,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               title={`Search the site (${shortcutLabel})`}
               className={cn(tabLink, "gap-1.5")}
             >
-              <span className="hidden sm:inline">Search</span>
+              <span className="hidden min-[480px]:inline">Search</span>
               <MagnifyingGlassIcon className="h-[18px] w-[18px] stroke-2" aria-hidden="true" />
             </button>
 
@@ -145,7 +145,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                 {/* The menu button matches Search: a "Menu" label with the three-lines icon, icon-only on the narrowest
                     phones. Shown below the point where the full tab bar appears. */}
                 <button type="button" aria-label="Open menu" className={cn(tabLink, "gap-1.5 xl:hidden")}>
-                  <span className="hidden sm:inline">Menu</span>
+                  <span className="hidden min-[480px]:inline">Menu</span>
                   <Bars3Icon className="h-[18px] w-[18px] stroke-2" aria-hidden="true" />
                 </button>
               </SheetTrigger>
