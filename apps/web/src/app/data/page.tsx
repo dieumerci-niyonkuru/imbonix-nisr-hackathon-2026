@@ -3,15 +3,13 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import pkg from "../../../package.json";
 import { NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
 import { DataEvidence } from "@/components/home/data-evidence";
-import { Callout, SectionHeader } from "@/components/ui/section";
+import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 import { SITE_FACTS } from "@/lib/site-facts";
 import { STATUS_DESCRIPTION, StatusBadge } from "@/components/ui/status-badge";
 import { SOURCES } from "@/lib/data";
 import { DIMENSIONS, INDICATORS, type Dimension } from "@/lib/indicators";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { BarsMotif } from "@/components/ui/section";
 
 export const metadata: Metadata = {
   title: { absolute: "Data & methodology | IMBONIX" },
@@ -150,26 +148,17 @@ export default function DataPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line bg-white">
-        <div className="container-page relative pb-14 pt-6 sm:pb-16 sm:pt-8">
-          <Breadcrumbs />
-          <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan-ink sm:mt-12">
-            <BarsMotif /> Data & methodology
-          </p>
-          <h1 className="mt-3 max-w-4xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
-            Every number, where it comes from, and how far to trust it
-          </h1>
-          <p className="mt-5 max-w-3xl text-pretty text-base leading-7 text-muted sm:text-lg sm:leading-8">
-            All NISR publicly available datasets can be found in the NISR microdata catalog. IMBONIX currently uses published
-            tables and reports. Household level analysis starts once the team&apos;s data requests are approved.
-          </p>
-          <Button asChild className="mt-8">
-            <a href={NISR_CATALOG_URL} target="_blank" rel="noreferrer">
-              Open the NISR microdata catalog <ArrowTopRightOnSquareIcon className="h-4 w-4" />
-            </a>
-          </Button>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Data & methodology"
+        title="Every number, where it comes from, and how far to trust it"
+        intro="All NISR publicly available datasets can be found in the NISR microdata catalog. IMBONIX currently uses published tables and reports. Household level analysis starts once the team's data requests are approved."
+      >
+        <Button asChild className="mt-8">
+          <a href={NISR_CATALOG_URL} target="_blank" rel="noreferrer">
+            Open the NISR microdata catalog <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+          </a>
+        </Button>
+      </PageHero>
 
       {/* Microdata to request */}
       <DataEvidence
