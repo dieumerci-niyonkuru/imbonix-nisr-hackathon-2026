@@ -56,6 +56,50 @@ const SECTIONS: PageSection[] = [
 ];
 
 /**
+ * The page's answer in three numbers, shown on the right of the header so a reader grasps the whole story — almost
+ * everyone included, few resilient, a minority still shut out — before any chart. The figures are read from the same
+ * published tables as the charts below, so the snapshot and the detail never disagree.
+ */
+export function ExclusionHeroSummary() {
+  const shareOf = (measure: string) => INCLUSION_BY_ROUND.find((row) => row.measure === measure)!.in2024;
+  const rows = [
+    {
+      value: `${shareOf("Financially included")}%`,
+      text: "of adults use some financial service — almost everyone is counted as included.",
+    },
+    {
+      value: `${FINANCIAL_HEALTH_SEGMENTS.find((row) => row.segment === "Financially healthy")!.share}%`,
+      text: "are financially healthy: able to manage day to day, absorb a shock and plan ahead.",
+    },
+    {
+      value: `${shareOf("Excluded")}%`,
+      text: `use no financial service at all — ${EXCLUDED_ADULTS.toLocaleString("en-US")} adults are still fully excluded.`,
+    },
+  ];
+  return (
+    <aside
+      aria-label="The short version"
+      className="rounded-2xl border border-cyan-ink/15 bg-white/70 p-6 backdrop-blur-sm sm:p-7"
+    >
+      <p className="eyebrow text-cyan-ink">The short version</p>
+      <ul className="mt-5 space-y-5">
+        {rows.map((row) => (
+          <li key={row.value} className="flex items-baseline gap-4">
+            <span className="w-16 shrink-0 font-display text-3xl font-bold leading-none tracking-[-0.03em] text-cyan-ink">
+              {row.value}
+            </span>
+            <span className="text-[13.5px] leading-5 text-ink/80">{row.text}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-5 border-t border-line pt-4 text-[13px] leading-5 text-muted">
+        Women and the poorest fifth of households are furthest behind.
+      </p>
+    </aside>
+  );
+}
+
+/**
  * The financial exclusion overview, as one story in sections with a menu under the header: the key figures, how access
  * grew, why access is not financial health, how people pay and borrow, and who is left out. Headings and figures are
  * worked out from the published FinScope and household survey tables.

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { ExclusionFocus } from "@/components/focus/exclusion-focus";
+import { ExclusionFocus, ExclusionHeroSummary } from "@/components/focus/exclusion-focus";
 import { PovertyFocus } from "@/components/focus/poverty-focus";
 import { ProtectionFocus } from "@/components/focus/protection-focus";
 import { TextCard } from "@/components/home/story-cards";
@@ -42,6 +42,7 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
         eyebrow={`${area.label} overview`}
         title={QUESTIONS[area.id]}
         intro={`${group.intro} Every chart below says what it shows, where the figures come from and how far to trust them.`}
+        aside={area.id === "exclusion" ? <ExclusionHeroSummary /> : undefined}
       />
 
       {area.id === "exclusion" && <ExclusionFocus />}
@@ -60,7 +61,7 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
             title={<span id="deeper-heading">More on {area.label.toLowerCase()}</span>}
             intro="Each page takes one question further, district by district, with its sources."
           />
-          <ul className="mt-10 grid gap-6 lg:grid-cols-3">
+          <ul className={`mt-10 grid gap-6 ${group.items.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3"}`}>
             {group.items.map((item) => (
               <li key={item.href}>
                 <TextCard
