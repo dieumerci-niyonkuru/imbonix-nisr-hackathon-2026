@@ -32,6 +32,9 @@ const TABS = MENU_SECTIONS.map((section) => ({ id: section.id, label: section.la
 // A top-level tab: bold capitals that take a thick cyan underline on hover, when it is the section you are in.
 const TAB_STYLE =
   "inline-flex h-11 items-center whitespace-nowrap rounded px-3.5 text-[13.5px] font-bold uppercase tracking-[0.045em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+/** Search and Menu read in normal case (like NISR's header), not the tabs' capitals, but share the tab colours. */
+const UTIL_STYLE =
+  "inline-flex h-11 items-center whitespace-nowrap rounded px-3 text-[15px] font-bold tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 /** Tab colours on the solid white header: the brand blue, the current section (or a hovered tab) a solid blue box. */
 const TAB_SOLID = "text-cyan-ink hover:bg-cyan-ink hover:text-white focus-visible:ring-cyan-ink";
 const TAB_ACTIVE_SOLID = "bg-cyan-ink text-white";
@@ -82,6 +85,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
   const overlay = isHome && !scrolled;
   const tabLink = cn(TAB_STYLE, overlay ? TAB_OVER : TAB_SOLID);
   const tabActive = overlay ? TAB_ACTIVE_OVER : TAB_ACTIVE_SOLID;
+  const utilLink = cn(UTIL_STYLE, overlay ? TAB_OVER : TAB_SOLID);
 
   return (
     <>
@@ -134,7 +138,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               aria-haspopup="dialog"
               aria-label={`Search the site (${shortcutLabel})`}
               title={`Search the site (${shortcutLabel})`}
-              className={cn(tabLink, "gap-1.5")}
+              className={cn(utilLink, "gap-1.5")}
             >
               <span className="hidden min-[480px]:inline">Search</span>
               <MagnifyingGlassIcon className="h-[18px] w-[18px] stroke-2" aria-hidden="true" />
@@ -144,7 +148,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               <SheetTrigger asChild>
                 {/* The menu button matches Search: a "Menu" label with the three-lines icon, icon-only on the narrowest
                     phones. Shown below the point where the full tab bar appears. */}
-                <button type="button" aria-label="Open menu" className={cn(tabLink, "gap-1.5 xl:hidden")}>
+                <button type="button" aria-label="Open menu" className={cn(utilLink, "gap-1.5 xl:hidden")}>
                   <span className="hidden min-[480px]:inline">Menu</span>
                   <Bars3Icon className="h-[18px] w-[18px] stroke-2" aria-hidden="true" />
                 </button>
