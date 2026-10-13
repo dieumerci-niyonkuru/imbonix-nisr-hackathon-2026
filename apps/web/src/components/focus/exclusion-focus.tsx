@@ -9,7 +9,7 @@ import { Finding } from "@/components/focus/finding";
 import { ACCESS_SERIES } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { ChartCard } from "@/components/ui/chart-card";
-import { SectionHeader } from "@/components/ui/section";
+import { HeroSummaryCard, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import {
   EXCLUDED_ADULTS,
@@ -79,27 +79,7 @@ export function ExclusionHeroSummary() {
       text: `use no financial service at all — ${EXCLUDED_ADULTS.toLocaleString("en-US")} adults are still fully excluded.`,
     },
   ];
-  return (
-    <aside
-      aria-label="The short version"
-      className="rounded-2xl border border-cyan-ink/15 bg-white/70 p-6 backdrop-blur-sm sm:p-7"
-    >
-      <p className="eyebrow text-cyan-ink">The short version</p>
-      <ul className="mt-5 space-y-5">
-        {rows.map((row) => (
-          <li key={row.value} className="flex items-baseline gap-4">
-            <span className="w-16 shrink-0 font-display text-3xl font-bold leading-none tracking-[-0.03em] text-cyan-ink">
-              {row.value}
-            </span>
-            <span className="text-[13.5px] leading-5 text-ink/80">{row.text}</span>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-5 border-t border-line pt-4 text-[13px] leading-5 text-muted">
-        Women and the poorest fifth of households are furthest behind.
-      </p>
-    </aside>
-  );
+  return <HeroSummaryCard rows={rows} closer="Women and the poorest fifth of households are furthest behind." />;
 }
 
 /**
