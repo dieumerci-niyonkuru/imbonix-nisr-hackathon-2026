@@ -126,8 +126,8 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
           </nav>
 
           <div className="ml-auto flex items-center gap-1.5 xl:ml-3">
-            {/* Search as a blue "Search" label with a magnifier, like the tabs — the full word on desktop, the icon
-                alone on narrow screens. */}
+            {/* Search as a blue "Search" label with a magnifier, like the tabs: the word shows from tablet width up, and
+                drops to the icon alone only on the narrowest phones so the row never crowds. */}
             <button
               type="button"
               onClick={openSearch}
@@ -136,22 +136,17 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               title={`Search the site (${shortcutLabel})`}
               className={cn(tabLink, "gap-1.5")}
             >
-              <span className="hidden xl:inline">Search</span>
+              <span className="hidden sm:inline">Search</span>
               <MagnifyingGlassIcon className="h-[18px] w-[18px] stroke-2" aria-hidden="true" />
             </button>
 
             <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
               <SheetTrigger asChild>
-                <button
-                  type="button"
-                  aria-label="Open menu"
-                  className={cn(
-                    "inline-flex h-10 w-10 items-center justify-center rounded-full transition-colors xl:hidden",
-                    overlay ? "text-white hover:bg-white/15" : "text-ink hover:bg-paper",
-                    FOCUS_RING,
-                  )}
-                >
-                  <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                {/* The menu button matches Search: a "Menu" label with the three-lines icon, icon-only on the narrowest
+                    phones. Shown below the point where the full tab bar appears. */}
+                <button type="button" aria-label="Open menu" className={cn(tabLink, "gap-1.5 xl:hidden")}>
+                  <span className="hidden sm:inline">Menu</span>
+                  <Bars3Icon className="h-[18px] w-[18px] stroke-2" aria-hidden="true" />
                 </button>
               </SheetTrigger>
               <SheetContent side="right" className="overflow-y-auto p-0">
