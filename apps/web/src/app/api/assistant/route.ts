@@ -50,9 +50,20 @@ function rateLimited(key: string): boolean {
 type ChatTurn = { role: "user" | "assistant"; text: string };
 type Attachment = { kind: "image" | "document" | "text"; mediaType: string; data: string; name?: string };
 
-/** Whether the AI service is connected, so the client knows to use it or fall back to the on-device engine. */
-export function GET() {
-  return Response.json({ configured: Boolean(anthropicKey() || geminiKey()) });
+/**
+ * Whether the AI service is connected (so the client knows to use it or fall back to the on-device engine), plus the
+ * request's approximate latitude and longitude from the platform's IP geolocation headers when present (Vercel adds
+ * these for free, with no permission prompt). The client turns these into the person's district for silent context; on
+ * a host without these headers (for example local dev) they are simply absent and location context is skipped.
+ */
+export function GET(request: Request) {
+  const lat = Number(request.headers.get("x-vercel-ip-latitude"));
+  const lng = Number(request.headers.get("x-vercel-ip-longitude"));
+  const hasGeo = Number.isFinite(lat) && Number.isFinite(lng) && (lat !== 0 || lng !== 0);
+  return Response.json({
+    configured: Boolean(anthropicKey() || geminiKey()),
+    ...(hasGeo ? { lat, lng } : {}),
+  });
 }
 
 export async function POST(request: Request) {
