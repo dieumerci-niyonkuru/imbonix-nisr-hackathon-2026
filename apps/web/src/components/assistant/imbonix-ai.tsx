@@ -19,6 +19,7 @@ import {
 import { AiMark } from "@/components/assistant/ai-mark";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { answerQuery, followUpSuggestions, SUGGESTIONS, type Answer } from "@/lib/assistant";
+import { districtAt } from "@/lib/locate";
 
 /** An image, PDF or text file the person attached, ready to send to the AI route. */
 type Attachment = { kind: "image" | "document" | "text"; mediaType: string; data: string; name: string };
@@ -39,6 +40,8 @@ type Message = {
 
 const IMAGE_TYPES = new Set(["image/png", "image/jpeg", "image/gif", "image/webp"]);
 const MAX_BINARY_BYTES = 6 * 1024 * 1024;
+/** "Where I am" phrases — when the person uses one and their district is known, it is filled into the question. */
+const LOCAL_REF = /\b(my (district|area|sector|place|home)|near me|around here|close to me|where i (am|live|stay))\b/i;
 const MAX_TEXT_CHARS = 20_000;
 const MAX_HISTORY_TURNS = 12;
 
@@ -595,6 +598,9 @@ export function ImbonixAI() {
   const logRef = useRef<HTMLDivElement>(null);
   /** The id of an answer whose top should be brought to the top of the panel once it is ready (null = follow the bottom). */
   const scrollTopRef = useRef<number | null>(null);
+  /** The person's district, if they allowed location — used only as silent context for "my district"/"near me", never shown. */
+  const locationRef = useRef<{ name: string; slug: string } | null>(null);
+  const locationAsked = useRef(false);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
 
   const probe = async (): Promise<boolean> => {
@@ -686,6 +692,14 @@ export function ImbonixAI() {
     // Contextual follow-up questions to offer beneath this answer, shaped by what was just asked.
     const followUps = text ? followUpSuggestions(text) : [];
 
+    // Silent location context (only if the person allowed it): fill "my district"/"near me" for the on-device engine,
+    // and give the live model a short note it uses only when the question refers to the person's own area.
+    const loc = locationRef.current;
+    const localizedText = loc && LOCAL_REF.test(text) ? `${text} (in ${loc.name} district)` : text;
+    const locationNote = loc
+      ? ` [Location context — the person is in ${loc.name} district. Use it only when they refer to "my district", "my area", "here" or "near me", and never state their location unless they ask.]`
+      : "";
+
     const live = configured ?? (await probe());
 
     if (!live) {
@@ -693,7 +707,7 @@ export function ImbonixAI() {
       let spoken: { id: number; text: string } | null = null;
       if (attachment) extra.push({ id: nextId.current++, role: "ai", answer: NOT_CONNECTED });
       if (text || !attachment) {
-        const answer = answerQuery(text);
+        const answer = answerQuery(localizedText);
         const id = nextId.current++;
         extra.push({ id, role: "ai", answer, followUps });
         scrollTopRef.current = id;
@@ -716,7 +730,7 @@ export function ImbonixAI() {
       const response = await fetch("/api/assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [...priorHistory, { role: "user", text: text || "" }], attachment }),
+        body: JSON.stringify({ messages: [...priorHistory, { role: "user", text: (text || "") + locationNote }], attachment }),
       });
 
       if (response.status === 503) {
@@ -835,6 +849,20 @@ export function ImbonixAI() {
     if (open) {
       inputRef.current?.focus();
       if (configured === null) void probe();
+      // Once, with the person's permission, find their district so the AI understands "my district"/"near me". It is
+      // used only as silent context — never shown, never stored — and the request is skipped if they decline.
+      if (!locationAsked.current && typeof navigator !== "undefined" && navigator.geolocation) {
+        locationAsked.current = true;
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            void districtAt(position.coords.latitude, position.coords.longitude).then((hit) => {
+              locationRef.current = hit;
+            });
+          },
+          () => {},
+          { timeout: 8000, maximumAge: 600_000 },
+        );
+      }
     } else {
       if (canSpeak) window.speechSynthesis.cancel();
       pausedRef.current = false;
