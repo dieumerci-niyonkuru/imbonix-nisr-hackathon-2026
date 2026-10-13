@@ -37,21 +37,49 @@ export function PageHero({
   eyebrow,
   title,
   intro,
+  aside,
   children,
 }: {
   eyebrow: string;
   title: ReactNode;
   intro: ReactNode;
+  /** An optional summary panel shown on the right of the header on wide screens, so the band is not left half-empty. */
+  aside?: ReactNode;
   children?: ReactNode;
 }) {
+  const eyebrowBlock = (
+    <p className="eyebrow flex items-center gap-2.5 text-cyan-ink">
+      <BarsMotif />
+      {eyebrow}
+    </p>
+  );
+  if (aside) {
+    // Headline on the left, a short summary on the right: the title and intro take the left column's width (no
+    // max-width cap) so the two columns meet in the middle and no empty strip is left on the right.
+    return (
+      <section className="border-b border-line bg-gradient-to-br from-cyan-soft to-paper">
+        <div className="container-page pb-14 pt-6 sm:pb-16 sm:pt-8">
+          <Breadcrumbs />
+          <div className="mt-10 grid items-start gap-10 sm:mt-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,21rem)] lg:gap-14">
+            <div>
+              {eyebrowBlock}
+              <h1 className="mt-3 text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
+                {title}
+              </h1>
+              <p className="mt-5 max-w-2xl text-pretty text-base leading-7 text-muted sm:text-lg sm:leading-8">{intro}</p>
+              {children}
+            </div>
+            {aside}
+          </div>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className="border-b border-line bg-gradient-to-br from-cyan-soft to-paper">
       <div className="container-page pb-14 pt-6 sm:pb-16 sm:pt-8">
         <Breadcrumbs />
-        <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan-ink sm:mt-12">
-          <BarsMotif />
-          {eyebrow}
-        </p>
+        <div className="mt-10 sm:mt-12">{eyebrowBlock}</div>
         <h1 className="mt-3 max-w-4xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
           {title}
         </h1>
