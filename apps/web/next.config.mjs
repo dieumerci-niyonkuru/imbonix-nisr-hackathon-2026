@@ -25,8 +25,9 @@ const securityHeaders = [
   { key: "X-Frame-Options", value: "DENY" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   // The assistant's voice input uses the Web Speech API, which the browser gates on the microphone permission. Allow
-  // the microphone to this origin only (so the browser can prompt); camera, geolocation, payment and USB stay blocked.
-  { key: "Permissions-Policy", value: "camera=(), microphone=(self), geolocation=(), payment=(), usb=()" },
+  // the microphone and geolocation to this origin only (so the browser can prompt — the AI uses location as silent
+  // context for "my district"/"near me"); camera, payment and USB stay blocked.
+  { key: "Permissions-Policy", value: "camera=(), microphone=(self), geolocation=(self), payment=(), usb=()" },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
 ];
 
