@@ -33,6 +33,8 @@ type Message = {
   /** A generative, streamed answer from the AI route (markdown-ish prose). */
   markdown?: string;
   streaming?: boolean;
+  /** Contextual follow-up questions to offer as chips beneath this answer, from the question that prompted it. */
+  followUps?: string[];
 };
 
 const IMAGE_TYPES = new Set(["image/png", "image/jpeg", "image/gif", "image/webp"]);
@@ -496,6 +498,28 @@ function AnswerCard({
   );
 }
 
+/**
+ * The contextual follow-up questions shown beneath an answer: a few next things to ask, shaped by the question that
+ * prompted the answer. Clicking one asks it, keeping the conversation going. Nothing renders when there are none.
+ */
+function FollowUps({ items, onAsk }: { items?: string[]; onAsk: (query: string) => void }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <div className="flex flex-wrap gap-1.5 pl-1" aria-label="Suggested follow-up questions">
+      {items.map((question) => (
+        <button
+          key={question}
+          type="button"
+          onClick={() => void onAsk(question)}
+          className="rounded-full bg-white px-3 py-1.5 text-left text-[12.5px] font-semibold text-cyan-ink ring-1 ring-line transition-colors hover:bg-cyan-soft hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+        >
+          {question}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 /** Read a chosen file into a payload the AI route accepts, or return a short error to show the person. */
 function readFile(file: File): Promise<{ attachment?: Attachment; error?: string }> {
   const isImage = IMAGE_TYPES.has(file.type);
@@ -655,6 +679,9 @@ export function ImbonixAI() {
     setPending(null);
     setBusy(true);
 
+    // Contextual follow-up questions to offer beneath this answer, shaped by what was just asked.
+    const followUps = text ? followUpSuggestions(text) : [];
+
     const live = configured ?? (await probe());
 
     if (!live) {
@@ -664,7 +691,7 @@ export function ImbonixAI() {
       if (text || !attachment) {
         const answer = answerQuery(text);
         const id = nextId.current++;
-        extra.push({ id, role: "ai", answer });
+        extra.push({ id, role: "ai", answer, followUps });
         spoken = { id, text: plainFromAnswer(answer) };
       }
       setMessages((current) => [...current, ...extra]);
@@ -674,7 +701,7 @@ export function ImbonixAI() {
     }
 
     const aiId = nextId.current++;
-    setMessages((current) => [...current, { id: aiId, role: "ai", markdown: "", streaming: true }]);
+    setMessages((current) => [...current, { id: aiId, role: "ai", markdown: "", streaming: true, followUps }]);
 
     const update = (patch: Partial<Message>) =>
       setMessages((current) => current.map((message) => (message.id === aiId ? { ...message, ...patch } : message)));
@@ -837,11 +864,6 @@ export function ImbonixAI() {
     return () => window.removeEventListener("imbonix:ask", onAsk);
   }, []);
 
-  // Follow-up questions to offer as chips above the input, from what was last asked. Shown once the chat is under way
-  // (the welcome card carries the opening suggestions) and hidden while the assistant is answering.
-  const lastUserText = [...messages].reverse().find((message) => message.role === "user")?.text ?? "";
-  const followUps = lastUserText && !busy ? followUpSuggestions(lastUserText) : [];
-
   return (
     <>
       {/* The launcher: a compact brand-cyan pill — the IMBONIX emblem plus a short "AI" label. */}
@@ -947,29 +969,33 @@ export function ImbonixAI() {
                 }
                 if (message.markdown !== undefined) {
                   return (
-                    <StreamedCard
-                      key={message.id}
-                      markdown={message.markdown}
-                      streaming={message.streaming}
-                      canSpeak={canSpeak}
-                      playback={playbackFor(message.id)}
-                      onPlay={() => speakAnswer(message.id, plainFromMarkdown(message.markdown ?? ""))}
-                      onPauseResume={togglePause}
-                      onStop={stopSpeaking}
-                    />
+                    <div key={message.id} className="space-y-2">
+                      <StreamedCard
+                        markdown={message.markdown}
+                        streaming={message.streaming}
+                        canSpeak={canSpeak}
+                        playback={playbackFor(message.id)}
+                        onPlay={() => speakAnswer(message.id, plainFromMarkdown(message.markdown ?? ""))}
+                        onPauseResume={togglePause}
+                        onStop={stopSpeaking}
+                      />
+                      {!message.streaming && <FollowUps items={message.followUps} onAsk={ask} />}
+                    </div>
                   );
                 }
                 return (
-                  <AnswerCard
-                    key={message.id}
-                    answer={message.answer!}
-                    onAsk={ask}
-                    canSpeak={canSpeak}
-                    playback={playbackFor(message.id)}
-                    onPlay={() => speakAnswer(message.id, plainFromAnswer(message.answer!))}
-                    onPauseResume={togglePause}
-                    onStop={stopSpeaking}
-                  />
+                  <div key={message.id} className="space-y-2">
+                    <AnswerCard
+                      answer={message.answer!}
+                      onAsk={ask}
+                      canSpeak={canSpeak}
+                      playback={playbackFor(message.id)}
+                      onPlay={() => speakAnswer(message.id, plainFromAnswer(message.answer!))}
+                      onPauseResume={togglePause}
+                      onStop={stopSpeaking}
+                    />
+                    <FollowUps items={message.followUps} onAsk={ask} />
+                  </div>
                 );
               })}
             </div>
@@ -994,25 +1020,6 @@ export function ImbonixAI() {
                 >
                   <XMarkIcon className="h-4 w-4" aria-hidden="true" />
                 </button>
-              </div>
-            )}
-
-            {followUps.length > 0 && (
-              <div
-                data-lenis-prevent
-                className="flex gap-2 overflow-x-auto border-t border-line bg-paper px-3 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                aria-label="Suggested questions"
-              >
-                {followUps.map((suggestion) => (
-                  <button
-                    key={suggestion}
-                    type="button"
-                    onClick={() => void ask(suggestion)}
-                    className="shrink-0 whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-[12.5px] font-semibold text-ink ring-1 ring-line transition-colors hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
-                  >
-                    {suggestion}
-                  </button>
-                ))}
               </div>
             )}
 
