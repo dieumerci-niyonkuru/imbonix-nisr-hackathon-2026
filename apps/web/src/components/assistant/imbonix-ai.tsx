@@ -593,6 +593,8 @@ export function ImbonixAI() {
   const inputRef = useRef<HTMLInputElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const logRef = useRef<HTMLDivElement>(null);
+  /** The id of an answer whose top should be brought to the top of the panel once it is ready (null = follow the bottom). */
+  const scrollTopRef = useRef<number | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
 
   const probe = async (): Promise<boolean> => {
@@ -671,6 +673,8 @@ export function ImbonixAI() {
     setNotice(null);
 
     const priorHistory = historyFrom(messages);
+    // Sending a question: show it at the bottom; the answer that follows will be scrolled to its top when ready.
+    scrollTopRef.current = null;
     setMessages((current) => [
       ...current,
       { id: nextId.current++, role: "user", text: text || undefined, attachmentName: attachment?.name },
@@ -692,6 +696,7 @@ export function ImbonixAI() {
         const answer = answerQuery(text);
         const id = nextId.current++;
         extra.push({ id, role: "ai", answer, followUps });
+        scrollTopRef.current = id;
         spoken = { id, text: plainFromAnswer(answer) };
       }
       setMessages((current) => [...current, ...extra]);
@@ -701,6 +706,7 @@ export function ImbonixAI() {
     }
 
     const aiId = nextId.current++;
+    scrollTopRef.current = aiId;
     setMessages((current) => [...current, { id: aiId, role: "ai", markdown: "", streaming: true, followUps }]);
 
     const update = (patch: Partial<Message>) =>
@@ -840,7 +846,26 @@ export function ImbonixAI() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
   useEffect(() => {
-    logRef.current?.scrollTo({ top: logRef.current.scrollHeight, behavior: "smooth" });
+    const log = logRef.current;
+    if (!log) return;
+    const last = messages[messages.length - 1];
+    // While an answer is still streaming in, follow it to the bottom so the person sees it generate.
+    if (last?.role === "ai" && last.streaming) {
+      log.scrollTo({ top: log.scrollHeight, behavior: "smooth" });
+      return;
+    }
+    // When an answer is ready, put its START at the top of the panel so it reads from the top; then stop tracking it.
+    const topId = scrollTopRef.current;
+    if (topId != null) {
+      const el = log.querySelector<HTMLElement>(`[data-msg-id="${topId}"]`);
+      if (el) {
+        const target = log.scrollTop + el.getBoundingClientRect().top - log.getBoundingClientRect().top;
+        log.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+        scrollTopRef.current = null;
+        return;
+      }
+    }
+    log.scrollTo({ top: log.scrollHeight, behavior: "smooth" });
   }, [messages]);
   useEffect(() => {
     if (!open) return;
@@ -969,7 +994,7 @@ export function ImbonixAI() {
                 }
                 if (message.markdown !== undefined) {
                   return (
-                    <div key={message.id} className="space-y-2">
+                    <div key={message.id} data-msg-id={message.id} className="space-y-2">
                       <StreamedCard
                         markdown={message.markdown}
                         streaming={message.streaming}
@@ -984,7 +1009,7 @@ export function ImbonixAI() {
                   );
                 }
                 return (
-                  <div key={message.id} className="space-y-2">
+                  <div key={message.id} data-msg-id={message.id} className="space-y-2">
                     <AnswerCard
                       answer={message.answer!}
                       onAsk={ask}
