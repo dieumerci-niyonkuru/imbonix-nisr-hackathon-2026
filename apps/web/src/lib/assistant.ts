@@ -345,16 +345,29 @@ export function answerQuery(raw: string): Answer {
  * answers it well. Capped at four.
  */
 export function followUpSuggestions(lastUserText: string): string[] {
-  const district = districtByName(lower(lastUserText))[0];
+  const query = lower(lastUserText);
+  const district = districtByName(query)[0];
+  const place = district ? null : resolvePlaceHit(lastUserText);
   const chips: string[] = [];
-  if (district) chips.push(`How poor is ${district.name}?`, `${district.name} at a glance`);
+  // Lead with questions about the place in hand (the spec's deeper-geography, comparison and intervention angles).
+  if (district) {
+    chips.push(
+      `${district.name} at a glance`,
+      `How poor is ${district.name}?`,
+      `Financial exclusion in ${district.name}`,
+      `What should be prioritised in ${district.name}?`,
+    );
+  } else if (place) {
+    chips.push(`How poor is ${place.district}?`, `Financial exclusion in ${place.district}`);
+  }
+  // Then the Track 2 standbys: where need is highest, how to prioritise, what the measures mean, and the evidence.
   chips.push(
     "Where is financial exclusion highest?",
+    "Which districts should be prioritised?",
     "Explain financial health vs. access",
-    "Which district has the most child stunting?",
-    "What datasets do you have?",
+    "What datasets back these figures?",
   );
-  return Array.from(new Set(chips)).slice(0, 4);
+  return Array.from(new Set(chips)).slice(0, 5);
 }
 
 function fallback(): Answer {
