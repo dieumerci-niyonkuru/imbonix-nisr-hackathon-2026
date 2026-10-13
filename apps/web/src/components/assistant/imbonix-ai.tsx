@@ -598,17 +598,22 @@ export function ImbonixAI() {
   const logRef = useRef<HTMLDivElement>(null);
   /** The id of an answer whose top should be brought to the top of the panel once it is ready (null = follow the bottom). */
   const scrollTopRef = useRef<number | null>(null);
-  /** The person's district, if they allowed location — used only as silent context for "my district"/"near me", never shown. */
+  /** The person's district from IP-based location — used only as silent context for "my district"/"near me", never shown. */
   const locationRef = useRef<{ name: string; slug: string } | null>(null);
-  const locationAsked = useRef(false);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
 
   const probe = async (): Promise<boolean> => {
     try {
       const response = await fetch("/api/assistant");
-      const data = (await response.json()) as { configured?: boolean };
+      const data = (await response.json()) as { configured?: boolean; lat?: number; lng?: number };
       const ok = Boolean(data.configured);
       setConfigured(ok);
+      // Resolve the person's district from the IP-based coordinates the server returned (no prompt). Silent context only.
+      if (!locationRef.current && typeof data.lat === "number" && typeof data.lng === "number") {
+        void districtAt(data.lat, data.lng).then((hit) => {
+          locationRef.current = hit;
+        });
+      }
       return ok;
     } catch {
       setConfigured(false);
@@ -849,20 +854,6 @@ export function ImbonixAI() {
     if (open) {
       inputRef.current?.focus();
       if (configured === null) void probe();
-      // Once, with the person's permission, find their district so the AI understands "my district"/"near me". It is
-      // used only as silent context — never shown, never stored — and the request is skipped if they decline.
-      if (!locationAsked.current && typeof navigator !== "undefined" && navigator.geolocation) {
-        locationAsked.current = true;
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            void districtAt(position.coords.latitude, position.coords.longitude).then((hit) => {
-              locationRef.current = hit;
-            });
-          },
-          () => {},
-          { timeout: 8000, maximumAge: 600_000 },
-        );
-      }
     } else {
       if (canSpeak) window.speechSynthesis.cancel();
       pausedRef.current = false;
