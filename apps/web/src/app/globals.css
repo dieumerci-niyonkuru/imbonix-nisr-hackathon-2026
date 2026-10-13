@@ -40,7 +40,7 @@ html {
   /* The whole UI is scaled down so it reads compact and "unzoomed" — a browser zoom-out baked in. Unlike a smaller
      root font-size (which leaves the pixel-set body text full size), zoom shrinks text, spacing and images together
      and uniformly, so nothing looks oversized. Nudge this one number to zoom the whole site in or out. */
-  zoom: 0.85;
+  zoom: 0.9;
   background: #ffffff;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;

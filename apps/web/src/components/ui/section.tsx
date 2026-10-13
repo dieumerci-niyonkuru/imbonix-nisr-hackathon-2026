@@ -90,6 +90,38 @@ export function PageHero({
   );
 }
 
+/**
+ * A short, three-number summary shown on the right of a focus-area header: the page's answer at a glance, so the header
+ * band is not left half-empty and a reader grasps the story before the first chart. Every overview page uses the same
+ * card, so the three landings read as one system.
+ */
+export function HeroSummaryCard({
+  rows,
+  closer,
+  label = "The short version",
+}: {
+  rows: { value: string; text: string }[];
+  closer?: string;
+  label?: string;
+}) {
+  return (
+    <aside aria-label={label} className="rounded-2xl border border-cyan-ink/15 bg-white/70 p-6 backdrop-blur-sm sm:p-7">
+      <p className="eyebrow text-cyan-ink">{label}</p>
+      <ul className="mt-5 space-y-5">
+        {rows.map((row, index) => (
+          <li key={`${row.value}-${index}`} className="flex items-baseline gap-4">
+            <span className="w-24 shrink-0 font-display text-3xl font-bold leading-none tracking-[-0.03em] text-cyan-ink">
+              {row.value}
+            </span>
+            <span className="text-[13.5px] leading-5 text-ink/80">{row.text}</span>
+          </li>
+        ))}
+      </ul>
+      {closer && <p className="mt-5 border-t border-line pt-4 text-[13px] leading-5 text-muted">{closer}</p>}
+    </aside>
+  );
+}
+
 /** Three rising bars, from the small chart under the logo's tagline. */
 export function BarsMotif({ className = "" }: { className?: string }) {
   return (
