@@ -9,7 +9,7 @@ import { Finding } from "@/components/focus/finding";
 import { paymentTimelinessByProgramme, TIMELINESS_SERIES } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { ChartCard } from "@/components/ui/chart-card";
-import { HeroSummaryCard, SectionHeader } from "@/components/ui/section";
+import { type HeroStat, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import { describeShares } from "@/lib/format";
 import { TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
@@ -48,24 +48,17 @@ const SECTIONS: PageSection[] = [
 ];
 
 /**
- * Social protection in three numbers for the header: how many VUP reaches, who they are, and how often their payments
- * arrive on time. Read from the same tables as the charts below, so the snapshot and the detail never disagree.
+ * Social protection in three headline figures for the hero strip: how many VUP reaches, who they are, and how often
+ * their payments arrive on time. Read from the same tables as the charts below.
  */
-export function ProtectionHeroSummary() {
+export function protectionHeroStats(): HeroStat[] {
   const women = VUP_SHARE_BY_SEX.find((row) => row.sex === "Women")!;
   const directSupport = paymentTimelinessByProgramme().find((row) => row.programme === "Direct Support")!;
-  const rows = [
-    {
-      value: `${Math.round(VUP_BENEFICIARIES / 1000)}k`,
-      text: "people receive VUP support, far poorer than the average Rwandan.",
-    },
-    { value: `${women.beneficiaries}%`, text: "of VUP beneficiaries are women, the majority of those it reaches." },
-    {
-      value: `${directSupport.onTime}%`,
-      text: "of Direct Support households got their last payment on time — most arrive late.",
-    },
+  return [
+    { value: `${Math.round(VUP_BENEFICIARIES / 1000)}k`, label: "reached by VUP support" },
+    { value: `${women.beneficiaries}%`, label: "of beneficiaries are women" },
+    { value: `${directSupport.onTime}%`, label: "paid on time (most arrive late)" },
   ];
-  return <HeroSummaryCard rows={rows} closer="VUP reaches poorer people; the gap now is how late payments arrive." />;
 }
 
 /**

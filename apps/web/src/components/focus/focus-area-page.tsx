@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { ExclusionFocus, ExclusionHeroSummary } from "@/components/focus/exclusion-focus";
-import { PovertyFocus, PovertyHeroSummary } from "@/components/focus/poverty-focus";
-import { ProtectionFocus, ProtectionHeroSummary } from "@/components/focus/protection-focus";
+import { ExclusionFocus, exclusionHeroStats } from "@/components/focus/exclusion-focus";
+import { PovertyFocus, povertyHeroStats } from "@/components/focus/poverty-focus";
+import { ProtectionFocus, protectionHeroStats } from "@/components/focus/protection-focus";
 import { TextCard } from "@/components/home/story-cards";
 import { FOCUS_AREAS, NAV_GROUPS, type FocusAreaId } from "@/components/layout/nav";
-import { PageHero, SectionHeader } from "@/components/ui/section";
+import { type HeroStat, PageHero, SectionHeader } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 
-/** Each overview's three-number summary, shown on the right of its header so the band is never left half-empty. */
-const HERO_SUMMARY: Record<FocusAreaId, ReactNode> = {
-  exclusion: <ExclusionHeroSummary />,
-  poverty: <PovertyHeroSummary />,
-  protection: <ProtectionHeroSummary />,
+/** Each overview's headline figures, shown as a compact strip under its header so the page's answer is clear at a glance. */
+const HERO_STATS: Record<FocusAreaId, HeroStat[]> = {
+  exclusion: exclusionHeroStats(),
+  poverty: povertyHeroStats(),
+  protection: protectionHeroStats(),
 };
 
 /** The question each focus area answers, in plain words. */
@@ -50,7 +49,7 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
         eyebrow={`${area.label} overview`}
         title={QUESTIONS[area.id]}
         intro={`${group.intro} Every chart below says what it shows, where the figures come from and how far to trust them.`}
-        aside={HERO_SUMMARY[area.id]}
+        stats={HERO_STATS[area.id]}
       />
 
       {area.id === "exclusion" && <ExclusionFocus />}
