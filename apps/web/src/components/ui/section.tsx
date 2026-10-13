@@ -55,29 +55,41 @@ export function PageHero({
   stats?: HeroStat[];
   children?: ReactNode;
 }) {
+  const heading = (
+    <>
+      <p className="eyebrow flex items-center gap-2.5 text-cyan-ink">
+        <BarsMotif />
+        {eyebrow}
+      </p>
+      <h1 className="mt-2.5 text-balance font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.03em] text-ink sm:text-[2.6rem]">
+        {title}
+      </h1>
+      <p className="mt-3 max-w-2xl text-pretty text-[15px] leading-6 text-muted sm:text-base sm:leading-7">{intro}</p>
+    </>
+  );
+  const hasStats = Boolean(stats && stats.length > 0);
   return (
     <section className="border-b border-line bg-gradient-to-br from-cyan-soft to-paper">
       <div className="container-page pb-9 pt-5 sm:pb-11 sm:pt-6">
         <Breadcrumbs />
-        <p className="eyebrow mt-7 flex items-center gap-2.5 text-cyan-ink sm:mt-8">
-          <BarsMotif />
-          {eyebrow}
-        </p>
-        <h1 className="mt-2.5 max-w-4xl text-balance font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.03em] text-ink sm:text-[2.6rem]">
-          {title}
-        </h1>
-        <p className="mt-3 max-w-3xl text-pretty text-[15px] leading-6 text-muted sm:text-base sm:leading-7">{intro}</p>
-        {stats && stats.length > 0 && (
-          <dl className="mt-6 flex flex-wrap items-baseline gap-x-8 gap-y-3 border-t border-line pt-5 sm:gap-x-12">
-            {stats.map((stat, index) => (
-              <div key={`${stat.value}-${index}`} className="flex items-baseline gap-2.5">
-                <dd className="font-display text-[26px] font-bold leading-none tracking-[-0.03em] text-cyan-ink sm:text-[28px]">
-                  {stat.value}
-                </dd>
-                <dt className="max-w-[20ch] text-[13px] leading-4 text-ink/75">{stat.label}</dt>
-              </div>
-            ))}
-          </dl>
+        {hasStats ? (
+          // Title on the left half, the three headline figures spread across the right half, so the band fills edge to
+          // edge with no empty strip and no tall boxed panel.
+          <div className="mt-7 sm:mt-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+            <div>{heading}</div>
+            <dl className="mt-6 grid grid-cols-1 gap-x-6 gap-y-4 border-t border-line pt-5 min-[460px]:grid-cols-3 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-1">
+              {stats!.map((stat, index) => (
+                <div key={`${stat.value}-${index}`}>
+                  <dd className="font-display text-[26px] font-bold leading-none tracking-[-0.03em] text-cyan-ink sm:text-[28px]">
+                    {stat.value}
+                  </dd>
+                  <dt className="mt-1.5 text-[12.5px] leading-4 text-ink/75">{stat.label}</dt>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ) : (
+          <div className="mt-7 max-w-4xl sm:mt-8">{heading}</div>
         )}
         {children}
       </div>
