@@ -33,92 +33,55 @@ export function SectionHeader({
   );
 }
 
+/** One headline figure for the hero strip: a big number and a short label. */
+export type HeroStat = { value: string; label: string };
+
+/**
+ * The top of every page: breadcrumb, a short eyebrow, the page's question as the title, one line of context, and — when
+ * the page has them — a compact row of headline figures. Kept deliberately short so a reader sees what the page is about
+ * at a glance, the same way on every page, without a tall block of text before the content.
+ */
 export function PageHero({
   eyebrow,
   title,
   intro,
-  aside,
+  stats,
   children,
 }: {
   eyebrow: string;
   title: ReactNode;
   intro: ReactNode;
-  /** An optional summary panel shown on the right of the header on wide screens, so the band is not left half-empty. */
-  aside?: ReactNode;
+  /** A short row of headline figures under the intro, so the page's answer is clear without a tall panel. */
+  stats?: HeroStat[];
   children?: ReactNode;
 }) {
-  const eyebrowBlock = (
-    <p className="eyebrow flex items-center gap-2.5 text-cyan-ink">
-      <BarsMotif />
-      {eyebrow}
-    </p>
-  );
-  if (aside) {
-    // Headline on the left, a short summary on the right: the title and intro take the left column's width (no
-    // max-width cap) so the two columns meet in the middle and no empty strip is left on the right.
-    return (
-      <section className="border-b border-line bg-gradient-to-br from-cyan-soft to-paper">
-        <div className="container-page pb-14 pt-6 sm:pb-16 sm:pt-8">
-          <Breadcrumbs />
-          <div className="mt-10 grid items-start gap-10 sm:mt-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,21rem)] lg:gap-14">
-            <div>
-              {eyebrowBlock}
-              <h1 className="mt-3 text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
-                {title}
-              </h1>
-              <p className="mt-5 max-w-2xl text-pretty text-base leading-7 text-muted sm:text-lg sm:leading-8">{intro}</p>
-              {children}
-            </div>
-            {aside}
-          </div>
-        </div>
-      </section>
-    );
-  }
   return (
     <section className="border-b border-line bg-gradient-to-br from-cyan-soft to-paper">
-      <div className="container-page pb-14 pt-6 sm:pb-16 sm:pt-8">
+      <div className="container-page pb-9 pt-5 sm:pb-11 sm:pt-6">
         <Breadcrumbs />
-        <div className="mt-10 sm:mt-12">{eyebrowBlock}</div>
-        <h1 className="mt-3 max-w-4xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
+        <p className="eyebrow mt-7 flex items-center gap-2.5 text-cyan-ink sm:mt-8">
+          <BarsMotif />
+          {eyebrow}
+        </p>
+        <h1 className="mt-2.5 max-w-4xl text-balance font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.03em] text-ink sm:text-[2.6rem]">
           {title}
         </h1>
-        <p className="mt-5 max-w-3xl text-pretty text-base leading-7 text-muted sm:text-lg sm:leading-8">{intro}</p>
+        <p className="mt-3 max-w-3xl text-pretty text-[15px] leading-6 text-muted sm:text-base sm:leading-7">{intro}</p>
+        {stats && stats.length > 0 && (
+          <dl className="mt-6 flex flex-wrap items-baseline gap-x-8 gap-y-3 border-t border-line pt-5 sm:gap-x-12">
+            {stats.map((stat, index) => (
+              <div key={`${stat.value}-${index}`} className="flex items-baseline gap-2.5">
+                <dd className="font-display text-[26px] font-bold leading-none tracking-[-0.03em] text-cyan-ink sm:text-[28px]">
+                  {stat.value}
+                </dd>
+                <dt className="max-w-[20ch] text-[13px] leading-4 text-ink/75">{stat.label}</dt>
+              </div>
+            ))}
+          </dl>
+        )}
         {children}
       </div>
     </section>
-  );
-}
-
-/**
- * A short, three-number summary shown on the right of a focus-area header: the page's answer at a glance, so the header
- * band is not left half-empty and a reader grasps the story before the first chart. Every overview page uses the same
- * card, so the three landings read as one system.
- */
-export function HeroSummaryCard({
-  rows,
-  closer,
-  label = "The short version",
-}: {
-  rows: { value: string; text: string }[];
-  closer?: string;
-  label?: string;
-}) {
-  return (
-    <aside aria-label={label} className="rounded-2xl border border-cyan-ink/15 bg-white/70 p-6 backdrop-blur-sm sm:p-7">
-      <p className="eyebrow text-cyan-ink">{label}</p>
-      <ul className="mt-5 space-y-5">
-        {rows.map((row, index) => (
-          <li key={`${row.value}-${index}`} className="flex items-baseline gap-4">
-            <span className="w-24 shrink-0 font-display text-3xl font-bold leading-none tracking-[-0.03em] text-cyan-ink">
-              {row.value}
-            </span>
-            <span className="text-[13.5px] leading-5 text-ink/80">{row.text}</span>
-          </li>
-        ))}
-      </ul>
-      {closer && <p className="mt-5 border-t border-line pt-4 text-[13px] leading-5 text-muted">{closer}</p>}
-    </aside>
   );
 }
 

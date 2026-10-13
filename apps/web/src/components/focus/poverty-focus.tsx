@@ -8,7 +8,7 @@ import { oneDecimal } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { PovertyMapSection } from "@/components/home/poverty-map-section";
 import { ChartCard } from "@/components/ui/chart-card";
-import { HeroSummaryCard, SectionHeader } from "@/components/ui/section";
+import { type HeroStat, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import { DISTRICTS, PROVINCE_LABEL, PROVINCES, reference, valueOf, weightedRate } from "@/lib/data";
 import {
@@ -80,25 +80,18 @@ const SECTIONS: PageSection[] = [
 ];
 
 /**
- * The poverty story in three numbers for the header: how far poverty has fallen, how many people left it, and how deep
- * it still is in the poorest district. Read from the same EICV tables as the charts below, so they never disagree.
+ * The poverty story in three headline figures for the hero strip: how far poverty has fallen, how many people left it,
+ * and how deep it still is in the poorest district. Read from the same EICV tables as the charts below.
  */
-export function PovertyHeroSummary() {
-  const [before, now] = POVERTY_TREND;
+export function povertyHeroStats(): HeroStat[] {
+  const [, now] = POVERTY_TREND;
   const poverty = (district: (typeof DISTRICTS)[number]) => valueOf(district, "eicv7_poverty_rate");
   const poorest = DISTRICTS.filter((district) => poverty(district) !== undefined).sort((a, b) => poverty(b)! - poverty(a)!)[0];
-  const rows = [
-    { value: `${now.poverty}%`, text: `of people live in poverty, down from ${before.poverty}% in ${before.period}.` },
-    {
-      value: `${PEOPLE_OUT_OF_POVERTY_MILLIONS}M`,
-      text: "people left poverty between the two household surveys — real, steady progress.",
-    },
-    {
-      value: `${oneDecimal(poverty(poorest)!)}%`,
-      text: `are poor in ${poorest.name}, the poorest district, many times the rate in Kigali.`,
-    },
+  return [
+    { value: `${now.poverty}%`, label: "live in poverty" },
+    { value: `${PEOPLE_OUT_OF_POVERTY_MILLIONS}M`, label: "left poverty since 2016/17" },
+    { value: `${oneDecimal(poverty(poorest)!)}%`, label: `in ${poorest.name}, the poorest district` },
   ];
-  return <HeroSummaryCard rows={rows} closer="Poverty is deepest in the Southern and Western provinces." />;
 }
 
 /**
