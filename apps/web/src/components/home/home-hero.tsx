@@ -92,7 +92,7 @@ export function HomeHero({
           </p>
           <h1
             id="home-heading"
-            className="mt-3 max-w-5xl text-pretty font-display text-[1.7rem] font-bold leading-[1.22] tracking-[-0.02em] sm:text-[2.25rem] sm:leading-[1.18] lg:text-[2.7rem] lg:leading-[1.14]"
+            className="mt-3 max-w-4xl text-pretty font-display text-[1.35rem] font-bold leading-[1.3] tracking-[-0.015em] sm:text-[1.7rem] sm:leading-[1.25] lg:text-[2.05rem] lg:leading-[1.22]"
           >
             Use data to understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda,
             so that support reaches vulnerable households and decisions rest on evidence.
