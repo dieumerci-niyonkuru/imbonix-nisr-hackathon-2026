@@ -3,6 +3,8 @@ import { FinancialHealthChart } from "@/components/charts/recharts/financial-hea
 import { StackedShareChart } from "@/components/charts/recharts/stacked-share-chart";
 import { ValueBars } from "@/components/charts/recharts/value-bars";
 import { ShareBars } from "@/components/charts/share-bars";
+import { DistrictStrip } from "@/components/charts/district-strip";
+import { DistrictFinanceLookup } from "@/components/focus/district-finance-lookup";
 import { Finding } from "@/components/focus/finding";
 import { ACCESS_SERIES } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
@@ -49,6 +51,7 @@ const CREDIT_SOURCE_COLORS: Record<string, string> = {
 const SECTIONS: PageSection[] = [
   { id: "key-figures", label: "Key figures" },
   { id: "access", label: "Access" },
+  { id: "districts", label: "Across districts" },
   { id: "health", label: "Financial health" },
   { id: "money", label: "Mobile money and credit" },
   { id: "who", label: "Who is left out" },
@@ -199,6 +202,33 @@ export function ExclusionFocus() {
                 description={`Adults by the most formal service they use. ${describeShares(ACCESS_STRAND, "year", ACCESS_SERIES)}.`}
               />
             </ChartCard>
+          </div>
+        </div>
+      </section>
+
+      <section id="districts" className="scroll-mt-36 bg-white py-12 sm:py-16" aria-labelledby="districts-heading">
+        <div className="container-page">
+          <SectionHeader
+            eyebrow="Across districts"
+            title={<span id="districts-heading">Inclusion looks very different district by district</span>}
+            intro="National averages hide wide gaps. Search any district, sector, cell or village to see where it stands, or scan all 30 at once. The city districts have the widest formal access; the most rural districts have the most people left out."
+          />
+          <div className="mt-10 grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
+            <DistrictFinanceLookup />
+            <div className="rounded-2xl border border-line bg-white p-6 sm:p-7">
+              <p className="eyebrow text-cyan-ink">The spread</p>
+              <h3 className="mt-2 font-display text-xl font-bold tracking-[-0.02em] text-ink sm:text-2xl">
+                All 30 districts at a glance
+              </h3>
+              <p className="mt-2 text-[14px] leading-6 text-muted">
+                Each dot is a district; the upright line marks the national figure. The distance between the ends is how much the
+                average hides.
+              </p>
+              <div className="mt-7 space-y-8">
+                <DistrictStrip id="finscope_not_formally_included" />
+                <DistrictStrip id="finscope_banked" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
