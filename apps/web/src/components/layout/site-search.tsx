@@ -459,7 +459,7 @@ export function SiteSearch({
         <span
           className={cn(
             "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ring-1 transition-colors",
-            selected ? "bg-white text-cyan-ink ring-cyan/40" : "bg-paper text-muted ring-line",
+            selected ? "bg-white text-cyan-ink ring-cyan" : "bg-cyan-soft text-cyan-ink ring-cyan/25",
           )}
           aria-hidden="true"
         >
