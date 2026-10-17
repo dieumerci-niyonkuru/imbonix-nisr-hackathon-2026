@@ -9,7 +9,7 @@ import { Finding } from "@/components/focus/finding";
 import { ACCESS_SERIES } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { ChartCard } from "@/components/ui/chart-card";
-import { type HeroStat, SectionHeader } from "@/components/ui/section";
+import { Callout, type HeroStat, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import {
   BANK_ACCOUNT_BARRIERS,
@@ -21,6 +21,7 @@ import {
   FINSCOPE_2024_SOURCE,
   INCLUDED_ADULTS_MILLIONS,
   INCLUSION_BY_ROUND,
+  INSURANCE_UPTAKE,
   MOBILE_MONEY_BY_ROUND,
   MOBILE_MONEY_EVER_USED,
 } from "@/lib/finscope-2024";
@@ -265,6 +266,13 @@ export function ExclusionFocus() {
               <FinancialHealthChart />
             </ChartCard>
           </Finding>
+          <div className="mt-8">
+            <Callout title="Most households have no cushion against a shock" tone="warn">
+              Only {INSURANCE_UPTAKE.in2024}% of adults were covered by any insurance in 2024, up from {INSURANCE_UPTAKE.in2020}%
+              in 2020 — so most meet a shock, an illness or a bad harvest, with no formal protection. That thin cushion is a big
+              part of why financial health lags behind inclusion. Source: {FINSCOPE_2024_SOURCE}, Figure 49.
+            </Callout>
+          </div>
         </div>
       </section>
 
