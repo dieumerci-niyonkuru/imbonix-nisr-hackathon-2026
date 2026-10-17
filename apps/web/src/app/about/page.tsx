@@ -220,7 +220,7 @@ const OVERVIEW: OverviewRow[] = [
   {
     term: "Aligned to",
     detail:
-      "Rwanda's national priorities: Vision 2050, NST2, the National Financial Inclusion Roadmap 2025 to 2030 and the Social Protection Sector Strategic Plan.",
+      "Rwanda's national priorities: Vision 2050, the second National Strategy for Transformation (NST2), the 2030 Sustainable Development Goals, the National Financial Inclusion Roadmap 2025 to 2030 and the Social Protection Sector Strategic Plan.",
   },
   {
     term: "Evidence",
