@@ -38,9 +38,13 @@ export function ReadMore({
         <span className="sr-only">: {title}</span>
       </DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-[60] bg-ink/60 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <DialogPrimitive.Overlay
+          data-lenis-prevent
+          className="fixed inset-0 z-[60] bg-ink/60 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
+        />
         <DialogPrimitive.Content
           aria-describedby={undefined}
+          data-lenis-prevent
           className="fixed inset-x-0 top-[6vh] z-[60] mx-auto flex max-h-[88vh] w-[calc(100%-2rem)] max-w-2xl flex-col overflow-hidden rounded-xl bg-white shadow-lift ring-1 ring-line duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2"
         >
           <div className="flex items-start justify-between gap-4 border-b border-line px-6 py-5">
