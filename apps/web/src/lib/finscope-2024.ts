@@ -47,6 +47,9 @@ export const MOBILE_MONEY_EVER_USED = 86;
  * Why unbanked adults do not open a bank account, 2024 (FinScope 2024, Figure 24). One main reason per person. The
  * dominant barrier is income — people feel they do not earn enough to justify an account — not distance or documents.
  */
+/** Adults covered by any insurance (a cushion against a shock), 2020 and 2024 (FinScope 2024, Figure 49). */
+export const INSURANCE_UPTAKE = { in2020: 17, in2024: 27 };
+
 export const BANK_BARRIERS_SOURCE = "NISR, FinScope 2024, Figure 24";
 export const BANK_ACCOUNT_BARRIERS = [
   { reason: "Not enough income to justify it", share: 83 },
