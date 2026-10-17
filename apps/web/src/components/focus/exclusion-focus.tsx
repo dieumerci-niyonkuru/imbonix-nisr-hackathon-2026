@@ -12,6 +12,8 @@ import { ChartCard } from "@/components/ui/chart-card";
 import { type HeroStat, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import {
+  BANK_ACCOUNT_BARRIERS,
+  BANK_BARRIERS_SOURCE,
   EXCLUDED_ADULTS,
   FINANCIAL_HEALTH_SEGMENTS,
   FINANCIAL_INCLUSION_TREND,
@@ -343,6 +345,24 @@ export function ExclusionFocus() {
                   color: row.group === "Women" ? CORE.cyan : row.group === "Men" ? DEEP_CYAN : MID_GREY,
                 }))}
                 description={`Adults with a bank account: ${BANK_ACCOUNT_BY_SEX.map((row) => `${row.group} ${row.share}%`).join(", ")}.`}
+              />
+            </ChartCard>
+            <ChartCard
+              id="chart-bank-barriers"
+              title="The main barrier to a bank account is income, not access"
+              note="Why unbanked adults do not open a bank account, 2024 — one main reason each."
+              howToRead="Each bar is a reason unbanked adults give; the longer the bar, the more cite it. Distance, cost and documents barely register — not earning enough does."
+              source={BANK_BARRIERS_SOURCE}
+            >
+              <ValueBars
+                orientation="row"
+                seriesName="Unbanked adults"
+                bars={BANK_ACCOUNT_BARRIERS.map((row) => ({
+                  label: row.reason,
+                  value: row.share,
+                  color: row.share >= 50 ? CORE.cyan : MID_GREY,
+                }))}
+                description={`Barriers to a bank account: ${BANK_ACCOUNT_BARRIERS.map((row) => `${row.reason} ${row.share}%`).join(", ")}.`}
               />
             </ChartCard>
           </Finding>
