@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { ReadMore } from "@/components/ui/read-more";
 
 /** One of the three tests a useful answer has to meet, with the figure that shows IMBONIX meets it. */
 export type Requirement = {
@@ -46,10 +45,10 @@ export function ChallengeStatement({ requirements }: { requirements: Requirement
               </p>
               <p className="mt-4 text-pretty text-[16px] leading-7 text-ink/85">{requirement.body}</p>
               <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-2 pt-6">
-                <ReadMore title={`${requirement.name}: ${requirement.figure}`}>{requirement.details}</ReadMore>
+                {/* Read more goes to the page that explains the figure in full, rather than opening a dialog. */}
                 <Link
                   href={requirement.href}
-                  className="group inline-flex items-center gap-1 rounded text-[14px] font-bold text-ink underline-offset-4 hover:text-cyan-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                  className="group inline-flex items-center gap-1 rounded text-[14px] font-bold text-cyan-ink underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
                 >
                   {requirement.linkLabel}
                   <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
