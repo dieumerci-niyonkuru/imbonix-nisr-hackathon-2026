@@ -26,11 +26,11 @@ export const EXCLUDED_ADULTS = 316_000;
  */
 export const FINANCIAL_INCLUSION_TREND_SOURCE = "NISR/AFR FinScope surveys, 2008 to 2024";
 export const FINANCIAL_INCLUSION_TREND = [
-  { year: "2008", included: 48 },
-  { year: "2012", included: 72 },
-  { year: "2016", included: 89 },
-  { year: "2020", included: 93 },
-  { year: "2024", included: 96 },
+  { year: "2008", formal: 21, included: 48 },
+  { year: "2012", formal: 42, included: 72 },
+  { year: "2016", formal: 68, included: 89 },
+  { year: "2020", formal: 77, included: 93 },
+  { year: "2024", formal: 92, included: 96 },
 ];
 
 /** Mobile money, 2020 and 2024. */

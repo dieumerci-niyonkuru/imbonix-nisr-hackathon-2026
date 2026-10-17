@@ -39,6 +39,12 @@ const FINSCOPE_ROUND_SERIES: ComparisonSeries = [
   { key: "in2024", label: "2024", color: COMPARE.after },
 ];
 
+/** The long-run trend: formal inclusion catching up to total inclusion across the FinScope rounds. */
+const INCLUSION_TREND_SERIES: ComparisonSeries = [
+  { key: "included", label: "Financially included (any)", color: CORE.cyan },
+  { key: "formal", label: "Formally included", color: DEEP_CYAN },
+];
+
 /** Healthy in cyan, then coping, vulnerable and extremely vulnerable from light grey to deep cyan: darker is worse. */
 const HEALTH_COLORS = [CORE.cyan, LIGHT_GREY, MID_GREY, DEEP_CYAN];
 
@@ -178,15 +184,16 @@ export function ExclusionFocus() {
           <div className="mt-6">
             <ChartCard
               id="chart-inclusion-trend"
-              title="Financial inclusion rose from 48% to 96% since 2008"
-              note="Adults who are financially included (any formal or informal service), across the FinScope rounds."
-              howToRead="Each bar is one survey year; a longer bar means more adults were financially included. Survey methods changed between rounds, so read this as the overall trend, not an exact year-to-year comparison."
+              title="Inclusion is now almost all formal — a 16-year shift"
+              note="Adults financially included (any formal or informal service) and formally included (a bank, mobile money, a SACCO, insurance or a pension), across the FinScope rounds."
+              howToRead="Each pair is one survey year: light cyan is included at all, dark cyan is formally included. Formal access has climbed from 21% to 92% and nearly closed the gap — the growth came from people moving into formal finance. Survey methods changed between rounds, so read this as the overall trend."
               source={FINANCIAL_INCLUSION_TREND_SOURCE}
             >
-              <ValueBars
-                seriesName="Financially included"
-                bars={FINANCIAL_INCLUSION_TREND.map((row) => ({ label: row.year, value: row.included, color: CORE.cyan }))}
-                description={`Financial inclusion by FinScope round: ${FINANCIAL_INCLUSION_TREND.map((row) => `${row.year} ${row.included}%`).join(", ")}.`}
+              <ComparisonBars
+                rows={FINANCIAL_INCLUSION_TREND}
+                categoryKey="year"
+                series={INCLUSION_TREND_SERIES}
+                description={`Formal and total financial inclusion by FinScope round. ${FINANCIAL_INCLUSION_TREND.map((row) => `${row.year}: formally ${row.formal}%, included ${row.included}%`).join("; ")}.`}
               />
             </ChartCard>
           </div>
