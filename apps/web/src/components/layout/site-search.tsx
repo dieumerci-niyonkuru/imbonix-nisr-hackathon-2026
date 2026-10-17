@@ -6,14 +6,31 @@ import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent as Reac
 import {
   AdjustmentsHorizontalIcon,
   ArrowDownIcon,
+  ArrowTrendingDownIcon,
   ArrowTurnDownLeftIcon,
   ArrowUpIcon,
+  BanknotesIcon,
+  BeakerIcon,
+  BookOpenIcon,
   ChartBarIcon,
+  ChartBarSquareIcon,
+  ChartPieIcon,
+  CircleStackIcon,
+  ClipboardDocumentListIcon,
   ClockIcon,
+  CreditCardIcon,
   DocumentTextIcon,
+  FlagIcon,
+  HomeIcon,
+  IdentificationIcon,
+  InformationCircleIcon,
+  LifebuoyIcon,
   MapIcon,
   MapPinIcon,
   PresentationChartLineIcon,
+  SparklesIcon,
+  Square3Stack3DIcon,
+  WalletIcon,
 } from "@heroicons/react/20/solid";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import type { ComponentType, SVGProps } from "react";
@@ -51,6 +68,39 @@ const KIND_ICON: Record<ResultKind, ComponentType<SVGProps<SVGSVGElement>>> = {
   chart: PresentationChartLineIcon,
   lever: AdjustmentsHorizontalIcon,
 };
+
+/**
+ * A fitting icon for each page by its route, so the jump list reads by what each page is — money, a map, a safety net,
+ * a plan — rather than one generic sheet. Overviews take their focus area's icon; anything unlisted falls back to the
+ * document icon.
+ */
+const PAGE_ICON: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+  "/": HomeIcon,
+  "/financial-exclusion": WalletIcon,
+  "/financial-exclusion/access-and-use": CreditCardIcon,
+  "/financial-exclusion/risk-model": SparklesIcon,
+  "/poverty-dynamics": ArrowTrendingDownIcon,
+  "/poverty-dynamics/trends": PresentationChartLineIcon,
+  "/poverty-dynamics/district-map": MapIcon,
+  "/districts": IdentificationIcon,
+  "/poverty-dynamics/overlapping-needs": Square3Stack3DIcon,
+  "/social-protection": LifebuoyIcon,
+  "/social-protection/vup-payments": BanknotesIcon,
+  "/social-protection/priority-districts": FlagIcon,
+  "/social-protection/policy-scenarios": BeakerIcon,
+  "/social-protection/intervention-planner": ClipboardDocumentListIcon,
+  "/data": BookOpenIcon,
+  "/data/key-figures": ChartBarSquareIcon,
+  "/data/catalog": CircleStackIcon,
+  "/data/chart-library": ChartPieIcon,
+  "/about": InformationCircleIcon,
+};
+
+/** The icon for a result: a page's own icon by its route, otherwise the icon for its kind. */
+function iconFor(entry: Pick<SearchEntry, "kind" | "href">): ComponentType<SVGProps<SVGSVGElement>> {
+  if (entry.kind === "page") return PAGE_ICON[entry.href] ?? DocumentTextIcon;
+  return KIND_ICON[entry.kind];
+}
 
 const RESULT_GROUPS: { kind: ResultKind; title: string; limit: number }[] = [
   { kind: "page", title: "Pages", limit: 6 },
@@ -392,7 +442,7 @@ export function SiteSearch({
     runningIndex += 1;
     const entryIndex = runningIndex;
     const selected = entryIndex === activeIndex;
-    const Icon = KIND_ICON[entry.kind];
+    const Icon = iconFor(entry);
     return (
       <div
         key={entry.key}
@@ -540,9 +590,14 @@ export function SiteSearch({
                   </div>
                 )}
 
-                <div className={cn(!trimmedQuery && "grid gap-x-2 sm:grid-cols-2")}>
+                <div className={cn(!trimmedQuery && "gap-x-8 sm:columns-2")}>
                   {resultGroups.map((group, groupIndex) => (
-                    <div key={group.title} role="group" aria-labelledby={`${listId}-group-${groupIndex}`} className="pb-2">
+                    <div
+                      key={group.title}
+                      role="group"
+                      aria-labelledby={`${listId}-group-${groupIndex}`}
+                      className="break-inside-avoid pb-2"
+                    >
                       <p
                         id={`${listId}-group-${groupIndex}`}
                         className="mx-3 mb-1 mt-3 flex flex-wrap items-baseline justify-between gap-x-3 border-b border-line pb-2"
