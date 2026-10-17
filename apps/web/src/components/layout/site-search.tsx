@@ -2,13 +2,14 @@
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { useRouter } from "next/navigation";
-import { useEffect, useId, useMemo, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import {
   AdjustmentsHorizontalIcon,
   ArrowDownIcon,
   ArrowTurnDownLeftIcon,
   ArrowUpIcon,
   ChartBarIcon,
+  ClockIcon,
   DocumentTextIcon,
   MapIcon,
   MapPinIcon,
@@ -61,6 +62,35 @@ const RESULT_GROUPS: { kind: ResultKind; title: string; limit: number }[] = [
   { kind: "chart", title: "Charts", limit: 6 },
   { kind: "lever", title: "Policy levers", limit: 4 },
 ];
+
+/** A few example searches, shown in the empty state, so a first-time reader sees the depth: a subject, a place, a page. */
+const SUGGESTIONS = ["Stunting", "Mobile money", "Extreme poverty", "VUP payments", "Nyamagabe", "Bank account"];
+
+/** Recently opened results, remembered per browser so the palette reopens on what the reader last used. */
+type RecentEntry = { key: string; kind: ResultKind; label: string; hint: string; href: string };
+const RECENTS_KEY = "imbonix:recent-searches";
+const RECENTS_MAX = 6;
+
+/** Read the saved recents, tolerating a missing, blocked or corrupt store (private windows, cleared data). */
+function readRecents(): RecentEntry[] {
+  try {
+    const raw = localStorage.getItem(RECENTS_KEY);
+    if (!raw) return [];
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .filter(
+        (item): item is RecentEntry =>
+          Boolean(item) &&
+          typeof (item as RecentEntry).href === "string" &&
+          typeof (item as RecentEntry).label === "string" &&
+          (item as RecentEntry).kind in KIND_ICON,
+      )
+      .slice(0, RECENTS_MAX);
+  } catch {
+    return [];
+  }
+}
 
 /** A search entry, with its label folded for matching. */
 function entry(fields: Omit<SearchEntry, "folded">): SearchEntry {
@@ -139,7 +169,8 @@ function isTypingIn(target: EventTarget | null) {
 /**
  * Site search as a command palette: pages, focus areas, districts, sectors, cells, villages, every indicator, every
  * chart and the policy levers. It opens with Ctrl K (Cmd K on a Mac) or "/". The places are fetched from
- * /api/search-index the first time it opens, so the 14,815 villages are not part of every page.
+ * /api/search-index the first time it opens, so the 14,815 villages are not part of every page. It remembers the last
+ * few results opened (in this browser) and shows them, with a row of example searches, before anything is typed.
  */
 export function SiteSearch({
   open,
@@ -158,10 +189,15 @@ export function SiteSearch({
 }) {
   const router = useRouter();
   const listId = useId();
+  const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
   const [places, setPlaces] = useState<SearchEntry[]>();
   const [placeCounts, setPlaceCounts] = useState<{ sectors: number; cells: number; villages: number }>();
+  const [recents, setRecents] = useState<RecentEntry[]>([]);
+
+  // Load the saved recents once, on the client only, so there is no server/client mismatch.
+  useEffect(() => setRecents(readRecents()), []);
 
   useEffect(() => {
     const onShortcut = (event: KeyboardEvent) => {
@@ -279,18 +315,62 @@ export function SiteSearch({
     }).filter((group) => group.items.length);
   }, [entries, trimmedQuery]);
 
-  const flatResults = useMemo(() => resultGroups.flatMap((group) => group.items), [resultGroups]);
+  // Before anything is typed, the recents sit at the top of the list and share its keyboard navigation.
+  const recentOptions = useMemo<SearchEntry[]>(
+    () => (trimmedQuery ? [] : recents.map((item) => ({ ...item, folded: "", terms: "" }))),
+    [recents, trimmedQuery],
+  );
+
+  const flatResults = useMemo(
+    () => [...recentOptions, ...resultGroups.flatMap((group) => group.items)],
+    [recentOptions, resultGroups],
+  );
   const optionId = (index: number) => `${listId}-option-${index}`;
+  const placesLoading = open && places === undefined;
 
   useEffect(() => setActiveIndex(0), [trimmedQuery]);
   useEffect(() => {
     if (open) document.getElementById(`${listId}-option-${activeIndex}`)?.scrollIntoView({ block: "nearest" });
   }, [activeIndex, open, listId]);
 
+  const rememberRecent = (entry: SearchEntry) => {
+    const item: RecentEntry = {
+      key: `recent:${entry.href}`,
+      kind: entry.kind,
+      label: entry.label,
+      hint: entry.hint,
+      href: entry.href,
+    };
+    setRecents((prev) => {
+      const next = [item, ...prev.filter((candidate) => candidate.href !== item.href)].slice(0, RECENTS_MAX);
+      try {
+        localStorage.setItem(RECENTS_KEY, JSON.stringify(next));
+      } catch {
+        // A browser that blocks storage simply will not remember across visits; the palette still works this session.
+      }
+      return next;
+    });
+  };
+
+  const clearRecents = () => {
+    setRecents([]);
+    try {
+      localStorage.removeItem(RECENTS_KEY);
+    } catch {
+      // Nothing to do if the store is unavailable.
+    }
+  };
+
   const openResult = (entry: SearchEntry | undefined) => {
     if (!entry) return;
+    rememberRecent(entry);
     onOpenChange(false);
     router.push(entry.href);
+  };
+
+  const pickSuggestion = (suggestion: string) => {
+    setQuery(suggestion);
+    inputRef.current?.focus();
   };
 
   const onInputKeyDown = (event: ReactKeyboardEvent<HTMLInputElement>) => {
@@ -308,6 +388,59 @@ export function SiteSearch({
   };
 
   let runningIndex = -1;
+  const renderOption = (entry: SearchEntry, showHint: boolean) => {
+    runningIndex += 1;
+    const entryIndex = runningIndex;
+    const selected = entryIndex === activeIndex;
+    const Icon = KIND_ICON[entry.kind];
+    return (
+      <div
+        key={entry.key}
+        id={optionId(entryIndex)}
+        role="option"
+        aria-selected={selected}
+        onMouseMove={() => setActiveIndex(entryIndex)}
+        onClick={() => openResult(entry)}
+        className={cn(
+          "flex cursor-pointer items-center gap-3 rounded-r-lg border-l-[3px] px-3 py-2 transition-colors",
+          selected ? "border-cyan bg-cyan-soft" : "border-transparent",
+        )}
+      >
+        <span
+          className={cn(
+            "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ring-1 transition-colors",
+            selected ? "bg-white text-cyan-ink ring-cyan/40" : "bg-paper text-muted ring-line",
+          )}
+          aria-hidden="true"
+        >
+          <Icon className="h-5 w-5" />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="flex items-baseline justify-between gap-3">
+            <span className="truncate text-[14.5px] font-bold text-ink">
+              <HighlightedLabel text={entry.label} query={trimmedQuery} />
+            </span>
+            <span
+              className={cn(
+                "shrink-0 text-[12px] font-bold uppercase tracking-[0.06em]",
+                selected ? "text-cyan-ink" : "text-transparent",
+              )}
+              aria-hidden="true"
+            >
+              Open
+            </span>
+          </span>
+          {/* The jump list shows page names only; recents and results add a short line on what each one is. */}
+          {showHint && (
+            <span className="block truncate text-[12.5px] leading-5 text-muted">
+              <HighlightedLabel text={entry.hint} query={trimmedQuery} />
+            </span>
+          )}
+        </span>
+      </div>
+    );
+  };
+
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
@@ -324,6 +457,7 @@ export function SiteSearch({
           <div className="flex items-center gap-3 border-b border-line px-5">
             <MagnifyingGlassIcon className="h-5 w-5 shrink-0 text-cyan-ink" aria-hidden="true" />
             <input
+              ref={inputRef}
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               onKeyDown={onInputKeyDown}
@@ -354,83 +488,87 @@ export function SiteSearch({
             className="min-h-0 flex-1 overflow-y-auto p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink"
           >
             {!trimmedQuery && (
-              <p className="px-3 pb-1 pt-3 text-[13px] font-semibold text-muted">
-                Jump to a page, or type a district, sector, cell or village, an indicator or a chart.
-              </p>
-            )}
-            {flatResults.length ? (
-              <div
-                role="listbox"
-                id={listId}
-                aria-label={trimmedQuery ? "Results" : "Jump to a page"}
-                className={cn(!trimmedQuery && "grid gap-x-2 sm:grid-cols-2")}
-              >
-                {resultGroups.map((group, groupIndex) => (
-                  <div key={group.title} role="group" aria-labelledby={`${listId}-group-${groupIndex}`} className="pb-2">
-                    <p
-                      id={`${listId}-group-${groupIndex}`}
-                      className="mx-3 mb-1 mt-3 flex flex-wrap items-baseline justify-between gap-x-3 border-b border-line pb-2"
+              <>
+                <p className="px-3 pb-2 pt-3 text-[13px] font-semibold text-muted">
+                  Jump to a page, or type a district, sector, cell or village, an indicator or a chart.
+                </p>
+                {/* Example searches, so the depth of the index is obvious from the start. */}
+                <div className="flex flex-wrap items-center gap-2 px-3 pb-1">
+                  {SUGGESTIONS.map((suggestion) => (
+                    <button
+                      key={suggestion}
+                      type="button"
+                      onClick={() => pickSuggestion(suggestion)}
+                      className="rounded-full bg-paper px-3 py-1 text-[12.5px] font-semibold text-ink ring-1 ring-line transition-colors hover:bg-cyan-soft hover:text-cyan-ink hover:ring-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
                     >
-                      <span className="eyebrow text-cyan-ink">{group.title}</span>
-                      {/* When more matched than are shown, say so, and how to narrow it down. */}
-                      {group.total !== undefined && group.total > group.items.length && (
-                        <span className="text-[12px] font-semibold text-muted">
-                          {group.items.length} of {group.total} shown. Add a sector or district to narrow it.
-                        </span>
-                      )}
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {flatResults.length ? (
+              <div role="listbox" id={listId} aria-label={trimmedQuery ? "Results" : "Jump to a page"}>
+                {/* Place results come in once the index loads; say so rather than look like there are none. */}
+                {trimmedQuery && placesLoading && (
+                  <p className="mx-3 mb-1 mt-3 flex items-center gap-2 text-[12.5px] font-medium text-muted">
+                    <Spinner />
+                    Still loading sectors, cells and villages…
+                  </p>
+                )}
+
+                {!trimmedQuery && recentOptions.length > 0 && (
+                  <div role="group" aria-labelledby={`${listId}-recent`} className="pb-2">
+                    <p
+                      id={`${listId}-recent`}
+                      className="mx-3 mb-1 mt-3 flex items-center justify-between gap-3 border-b border-line pb-2"
+                    >
+                      <span className="eyebrow flex items-center gap-1.5 text-cyan-ink">
+                        <ClockIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                        Recent
+                      </span>
+                      <button
+                        type="button"
+                        onClick={clearRecents}
+                        className="rounded text-[12px] font-semibold text-muted transition-colors hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                      >
+                        Clear
+                      </button>
                     </p>
-                    {group.items.map((entry) => {
-                      runningIndex += 1;
-                      const entryIndex = runningIndex;
-                      const selected = entryIndex === activeIndex;
-                      const Icon = KIND_ICON[entry.kind];
-                      return (
-                        <div
-                          key={entry.key}
-                          id={optionId(entryIndex)}
-                          role="option"
-                          aria-selected={selected}
-                          onMouseMove={() => setActiveIndex(entryIndex)}
-                          onClick={() => openResult(entry)}
-                          className={cn(
-                            "flex cursor-pointer items-center gap-3 rounded-r-lg border-l-[3px] px-3 py-2 transition-colors",
-                            selected ? "border-cyan bg-cyan-soft" : "border-transparent",
-                          )}
-                        >
-                          <span
-                            className={cn(
-                              "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ring-1 transition-colors",
-                              selected ? "bg-white text-cyan-ink ring-cyan/40" : "bg-paper text-muted ring-line",
-                            )}
-                            aria-hidden="true"
-                          >
-                            <Icon className="h-5 w-5" />
-                          </span>
-                          <span className="min-w-0 flex-1">
-                            <span className="flex items-baseline justify-between gap-3">
-                              <span className="truncate text-[14.5px] font-bold text-ink">
-                                <HighlightedLabel text={entry.label} query={trimmedQuery} />
-                              </span>
-                              <span
-                                className={cn(
-                                  "shrink-0 text-[12px] font-bold uppercase tracking-[0.06em]",
-                                  selected ? "text-cyan-ink" : "text-transparent",
-                                )}
-                                aria-hidden="true"
-                              >
-                                Open
-                              </span>
-                            </span>
-                            {/* The jump list shows page names only; search results add a short line on what each one is. */}
-                            {trimmedQuery && (
-                              <span className="block truncate text-[12.5px] leading-5 text-muted">{entry.hint}</span>
-                            )}
-                          </span>
-                        </div>
-                      );
-                    })}
+                    {recentOptions.map((entry) => renderOption(entry, true))}
                   </div>
-                ))}
+                )}
+
+                <div className={cn(!trimmedQuery && "grid gap-x-2 sm:grid-cols-2")}>
+                  {resultGroups.map((group, groupIndex) => (
+                    <div key={group.title} role="group" aria-labelledby={`${listId}-group-${groupIndex}`} className="pb-2">
+                      <p
+                        id={`${listId}-group-${groupIndex}`}
+                        className="mx-3 mb-1 mt-3 flex flex-wrap items-baseline justify-between gap-x-3 border-b border-line pb-2"
+                      >
+                        <span className="eyebrow text-cyan-ink">{group.title}</span>
+                        {/* When more matched than are shown, say so, and how to narrow it down. */}
+                        {group.total !== undefined && group.total > group.items.length && (
+                          <span className="text-[12px] font-semibold text-muted">
+                            {group.items.length} of {group.total} shown. Add a sector or district to narrow it.
+                          </span>
+                        )}
+                      </p>
+                      {group.items.map((entry) => renderOption(entry, Boolean(trimmedQuery)))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : placesLoading ? (
+              <div className="px-6 py-12 text-center">
+                <p className="flex items-center justify-center gap-2 font-display text-lg font-semibold text-ink">
+                  <Spinner />
+                  Loading places…
+                </p>
+                <p className="mx-auto mt-2 max-w-sm text-[14px] leading-6 text-muted">
+                  Sectors, cells and villages are being indexed. Pages, districts, indicators and charts already match.
+                </p>
               </div>
             ) : (
               <div className="px-6 py-12 text-center">
@@ -478,7 +616,7 @@ export function SiteSearch({
   );
 }
 
-/** Marks the first place the query appears in the label (when folding accents keeps the text the same length). */
+/** Marks the first place the query appears in the text (when folding accents keeps the text the same length). */
 function HighlightedLabel({ text, query }: { text: string; query: string }) {
   const folded = foldText(text);
   const matchStart = query && folded.length === text.length ? folded.indexOf(query) : -1;
@@ -489,6 +627,16 @@ function HighlightedLabel({ text, query }: { text: string; query: string }) {
       <mark className="rounded-sm bg-cyan-soft text-ink">{text.slice(matchStart, matchStart + query.length)}</mark>
       {text.slice(matchStart + query.length)}
     </>
+  );
+}
+
+/** A small spinning ring, for the moment the place index is still loading. */
+function Spinner() {
+  return (
+    <span
+      className="h-3.5 w-3.5 shrink-0 animate-spin rounded-full border-2 border-line border-t-cyan-ink motion-reduce:animate-none"
+      aria-hidden="true"
+    />
   );
 }
 
