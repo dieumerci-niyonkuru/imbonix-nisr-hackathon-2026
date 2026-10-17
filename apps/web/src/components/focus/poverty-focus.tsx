@@ -12,6 +12,8 @@ import { type HeroStat, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import { DISTRICTS, PROVINCE_LABEL, PROVINCES, reference, valueOf, weightedRate } from "@/lib/data";
 import {
+  CHILD_POVERTY_BY_AGE,
+  CHILD_POVERTY_SOURCE,
   COOKING_FUELS,
   EICV7_PROFILE_SOURCE,
   ELECTRICITY_SOURCES,
@@ -292,6 +294,22 @@ export function PovertyFocus() {
                 categoryKey="wealth"
                 series={SEX_SERIES}
                 description={`Used a bank account or mobile money in the past year, by wealth fifth. ${useByWealth.map((row) => `${row.wealth}: women ${row.women}%, men ${row.men}%`).join("; ")}.`}
+              />
+            </ChartCard>
+          </div>
+          <div className="mt-6">
+            <ChartCard
+              id="chart-child-poverty"
+              title="Child poverty is falling fast — a step for vulnerable households"
+              note="Share of children who are multidimensionally poor: deprived at the same time in at least three of five dimensions (health, education, water, sanitation, housing), 2016/17 and 2023/24."
+              howToRead="Each pair is an age group: grey is 2016/17, cyan is 2023/24. A shorter cyan bar means fewer children are multidimensionally poor."
+              source={CHILD_POVERTY_SOURCE}
+            >
+              <ComparisonBars
+                rows={CHILD_POVERTY_BY_AGE}
+                categoryKey="age"
+                series={SURVEY_ROUND_SERIES}
+                description={`Multidimensional child poverty by age group. ${CHILD_POVERTY_BY_AGE.map((row) => `${row.age}: ${row.in2017}% then ${row.in2024}%`).join("; ")}.`}
               />
             </ChartCard>
           </div>
