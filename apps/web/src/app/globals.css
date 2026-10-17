@@ -180,6 +180,28 @@ html.lenis body {
   }
 }
 
+/* The second hero photo starts hidden and slowly crossfades in and out over the first, so the banner moves between the
+   two images without a hard cut. With reduced motion preferred, the rule at the end of this file settles it hidden,
+   leaving the first photo. */
+.hero-photo-b {
+  opacity: 0;
+  animation: hero-crossfade 20s ease-in-out infinite;
+}
+
+@keyframes hero-crossfade {
+  0%,
+  42% {
+    opacity: 0;
+  }
+  52%,
+  92% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* Map shapes: smooth fill changes when the layer switches. */
 .map-shape {
   transition:
