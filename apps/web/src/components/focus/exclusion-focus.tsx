@@ -14,6 +14,8 @@ import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import {
   EXCLUDED_ADULTS,
   FINANCIAL_HEALTH_SEGMENTS,
+  FINANCIAL_INCLUSION_TREND,
+  FINANCIAL_INCLUSION_TREND_SOURCE,
   FINSCOPE_2024_SOURCE,
   INCLUDED_ADULTS_MILLIONS,
   INCLUSION_BY_ROUND,
@@ -170,6 +172,21 @@ export function ExclusionFocus() {
                 series={ACCESS_SERIES}
                 labelWidth={40}
                 description={`Adults by the most formal service they use. ${describeShares(ACCESS_STRAND, "year", ACCESS_SERIES)}.`}
+              />
+            </ChartCard>
+          </div>
+          <div className="mt-6">
+            <ChartCard
+              id="chart-inclusion-trend"
+              title="Financial inclusion rose from 48% to 96% since 2008"
+              note="Adults who are financially included (any formal or informal service), across the FinScope rounds."
+              howToRead="Each bar is one survey year; a longer bar means more adults were financially included. Survey methods changed between rounds, so read this as the overall trend, not an exact year-to-year comparison."
+              source={FINANCIAL_INCLUSION_TREND_SOURCE}
+            >
+              <ValueBars
+                seriesName="Financially included"
+                bars={FINANCIAL_INCLUSION_TREND.map((row) => ({ label: row.year, value: row.included, color: CORE.cyan }))}
+                description={`Financial inclusion by FinScope round: ${FINANCIAL_INCLUSION_TREND.map((row) => `${row.year} ${row.included}%`).join(", ")}.`}
               />
             </ChartCard>
           </div>
