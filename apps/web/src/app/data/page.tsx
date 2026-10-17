@@ -74,6 +74,10 @@ const PUBLISHED = [
     url: "https://statistics.gov.rw/data-sources/surveys/EICV/integrated-household-living-conditions-survey-7-eicv-7/eicv7-multidimensional-child-poverty",
   },
   {
+    name: "EICV7 Gender thematic report 2023/24",
+    url: "https://statistics.gov.rw/data-sources/surveys/EICV/integrated-household-living-conditions-survey-7-eicv-7/eicv7-thematic-report-gender-202324",
+  },
+  {
     name: "FinScope 2024 report",
     url: "https://statistics.gov.rw/sites/default/files/documents/2024-09/Rwanda-Finscope-2024-Report_compressed.pdf",
   },
