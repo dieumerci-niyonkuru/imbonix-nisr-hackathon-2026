@@ -18,6 +18,13 @@ export const metadata: Metadata = {
     "Every source behind IMBONIX, how values are labelled, the datasets still to request from NISR, and the caveats that matter.",
 };
 
+/** Headline figures for the hero strip, so the band fills edge to edge and states what the site is built on. */
+const HERO_STATS = [
+  { value: `${SITE_FACTS.indicators}`, label: "District indicators, each from a named table" },
+  { value: `${SITE_FACTS.districts}`, label: `Districts, with all ${SITE_FACTS.sectors} sectors covered` },
+  { value: `${SITE_FACTS.publications}`, label: "NISR publications behind the figures" },
+];
+
 /** This page's own menu, so a reader jumps straight to a part instead of scrolling the whole catalogue. */
 const SECTIONS: PageSection[] = [
   { id: "coverage", label: "Coverage" },
@@ -273,6 +280,7 @@ export default function DataPage() {
         eyebrow="Data & methodology"
         title="Every number, where it comes from, and how far to trust it"
         intro="All NISR publicly available datasets can be found in the NISR microdata catalog. IMBONIX currently uses published tables and reports. Household level analysis starts once the team's data requests are approved."
+        stats={HERO_STATS}
       >
         <Button asChild className="mt-8">
           <a href={NISR_CATALOG_URL} target="_blank" rel="noreferrer">
