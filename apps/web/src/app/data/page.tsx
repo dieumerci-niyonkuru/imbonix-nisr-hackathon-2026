@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { ArrowTopRightOnSquareIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import pkg from "../../../package.json";
 import { NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
 import { DataEvidence } from "@/components/home/data-evidence";
 import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
+import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import { SITE_FACTS } from "@/lib/site-facts";
 import { STATUS_DESCRIPTION, StatusBadge } from "@/components/ui/status-badge";
 import { SOURCES } from "@/lib/data";
@@ -16,6 +17,17 @@ export const metadata: Metadata = {
   description:
     "Every source behind IMBONIX, how values are labelled, the datasets still to request from NISR, and the caveats that matter.",
 };
+
+/** This page's own menu, so a reader jumps straight to a part instead of scrolling the whole catalogue. */
+const SECTIONS: PageSection[] = [
+  { id: "coverage", label: "Coverage" },
+  { id: "microdata", label: "Microdata" },
+  { id: "labels", label: "Labels" },
+  { id: "glossary", label: "Glossary" },
+  { id: "caveats", label: "Caveats" },
+  { id: "indicators", label: "Indicators" },
+  { id: "sources", label: "Sources" },
+];
 
 const MICRODATA = [
   {
@@ -269,14 +281,17 @@ export default function DataPage() {
         </Button>
       </PageHero>
 
-      {/* Microdata to request */}
+      <SectionNav label="Data & methodology" sections={SECTIONS} />
+
+      {/* Coverage: what the site is built on */}
       <DataEvidence
         indicatorCount={SITE_FACTS.indicators}
         districtCount={SITE_FACTS.districts}
         sectorCount={SITE_FACTS.sectors}
       />
 
-      <section className="container-page py-14">
+      {/* Microdata to request */}
+      <section id="microdata" className="container-page scroll-mt-36 py-11">
         <SectionHeader
           eyebrow="Microdata"
           title="Microdata the team needs from NISR"
@@ -337,7 +352,7 @@ export default function DataPage() {
       </section>
 
       {/* Status labels */}
-      <section className="border-y border-line bg-white py-14">
+      <section id="labels" className="scroll-mt-36 border-y border-line bg-white py-11">
         <div className="container-page">
           <SectionHeader
             eyebrow="Labels"
@@ -356,16 +371,16 @@ export default function DataPage() {
       </section>
 
       {/* Glossary: NISR's technical terms in plain words */}
-      <section id="glossary" className="scroll-mt-28 border-b border-line bg-paper py-14">
+      <section id="glossary" className="scroll-mt-36 border-b border-line bg-paper py-11">
         <div className="container-page">
           <SectionHeader
             eyebrow="Key terms, in plain words"
             title="The terms NISR uses, explained"
             intro="IMBONIX keeps NISR's own terms so the figures stay exact. Here is what each one means, so anyone can read the content with confidence."
           />
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <div className="mt-7 grid gap-5 lg:grid-cols-2">
             {GLOSSARY.map((section) => (
-              <div key={section.group} className="rounded-2xl border border-line bg-white p-6 sm:p-7">
+              <div key={section.group} className="rounded-2xl border border-line bg-white p-5 sm:p-6">
                 <p className="eyebrow text-cyan-ink">{section.group}</p>
                 <dl className="mt-4 divide-y divide-line">
                   {section.terms.map((item) => (
@@ -382,7 +397,7 @@ export default function DataPage() {
       </section>
 
       {/* Caveats */}
-      <section className="container-page py-14">
+      <section id="caveats" className="container-page scroll-mt-36 py-11">
         <SectionHeader eyebrow="Read before using" title="Caveats that matter" />
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {CAVEATS.map((c) => (
@@ -394,25 +409,36 @@ export default function DataPage() {
       </section>
 
       {/* Indicator catalogue */}
-      <section className="border-y border-line bg-white py-14">
+      <section id="indicators" className="scroll-mt-36 border-y border-line bg-white py-11">
         <div className="container-page">
           <SectionHeader
             eyebrow="Indicator catalogue"
             title={`All ${INDICATORS.filter((i) => SOURCES[i.id]).length} district indicators`}
-            intro="Grouped by dimension, with the exact table, year and label for each. The same list drives the map and the district profiles."
+            intro="Grouped by dimension, with the exact table, year and label for each. Open a dimension to see its indicators; the same list drives the map and the district profiles."
           />
-          <div className="mt-8 space-y-8">
+          <div className="mt-7 space-y-3">
             {grouped
               .filter((g) => g.items.length)
               .map((g) => (
-                <div key={g.dimension}>
-                  <p className="flex items-center gap-2 font-display text-lg font-bold text-ink">
-                    <span className="h-3 w-3 rounded-full" style={{ background: DIMENSIONS[g.dimension].accent }} />
-                    {DIMENSIONS[g.dimension].label}
-                  </p>
+                <details key={g.dimension} className="group overflow-hidden rounded-2xl border border-line">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 hover:bg-paper [&::-webkit-details-marker]:hidden">
+                    <span className="flex items-center gap-2.5 font-display text-lg font-bold text-ink">
+                      <span className="h-3 w-3 rounded-full" style={{ background: DIMENSIONS[g.dimension].accent }} />
+                      {DIMENSIONS[g.dimension].label}
+                    </span>
+                    <span className="flex items-center gap-3">
+                      <span className="tabular rounded-full bg-paper px-2.5 py-1 text-[12px] font-semibold text-ink ring-1 ring-line">
+                        {g.items.length} indicators
+                      </span>
+                      <ChevronDownIcon
+                        className="h-4 w-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180"
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </summary>
                   <ScrollArea
                     label={`${DIMENSIONS[g.dimension].label} indicators (scrolls sideways)`}
-                    className="mt-3 rounded-2xl border border-line"
+                    className="border-t border-line"
                   >
                     <table className="w-full min-w-[760px] text-left text-[12.5px]">
                       <thead className="bg-paper text-[12px] text-muted">
@@ -457,24 +483,24 @@ export default function DataPage() {
                       </tbody>
                     </table>
                   </ScrollArea>
-                </div>
+                </details>
               ))}
           </div>
         </div>
       </section>
 
       {/* Sources and independence */}
-      <section className="container-page grid gap-10 py-14 lg:grid-cols-[1.2fr_0.8fr]">
+      <section id="sources" className="container-page grid scroll-mt-36 gap-10 py-11 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
           <SectionHeader eyebrow="Published sources" title="Reports and tables used on this site" />
-          <ul className="mt-6 divide-y divide-line rounded-2xl border border-line bg-white">
+          <ul className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
             {PUBLISHED.map((p) => (
-              <li key={p.name}>
+              <li key={p.name} className="bg-white">
                 <a
                   href={p.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-between gap-4 px-5 py-3.5 text-[14px] text-ink transition-colors hover:bg-paper"
+                  className="flex h-full items-center justify-between gap-3 px-5 py-3.5 text-[13.5px] leading-5 text-ink transition-colors hover:bg-paper"
                 >
                   {p.name}
                   <ArrowTopRightOnSquareIcon className="h-4 w-4 shrink-0 text-muted" />

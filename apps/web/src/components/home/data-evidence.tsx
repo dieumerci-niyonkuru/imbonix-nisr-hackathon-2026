@@ -89,7 +89,7 @@ export function DataEvidence({
   sectorCount: number;
 }) {
   return (
-    <section className="bg-white py-12 sm:py-20" aria-labelledby="data-evidence-heading">
+    <section id="coverage" className="scroll-mt-36 bg-white py-10 sm:py-12" aria-labelledby="data-evidence-heading">
       <div className="container-page">
         <SectionHeader
           eyebrow="Data & evidence"
@@ -97,7 +97,7 @@ export function DataEvidence({
           intro={`${indicatorCount} indicators for all ${districtCount} districts and ${sectorCount} sectors, each transcribed from a named table and labelled with how far to trust it. This is what they cover.`}
         />
 
-        <ul className="mt-10 grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="mt-8 grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
           {THEMES.map((theme) => {
             const { count, studies, ids } = themeEvidence(theme);
             return (
@@ -137,7 +137,7 @@ export function DataEvidence({
           })}
         </ul>
 
-        <div className="mt-10 flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-5">
+        <div className="mt-8 flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-5">
           <p className="shrink-0 text-[13px] font-bold text-muted">NISR studies</p>
           <ul className="flex flex-wrap gap-2">
             {SOURCE_STUDIES.map((study) => (
