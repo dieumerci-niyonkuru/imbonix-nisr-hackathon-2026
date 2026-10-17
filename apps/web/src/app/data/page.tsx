@@ -54,6 +54,10 @@ const MICRODATA = [
 
 const PUBLISHED = [
   {
+    name: "NISR Poverty & social protection summary (EICV7 poverty dynamics and the VUP survey)",
+    url: "https://statistics.gov.rw/statistical-publications/poverty-and-social-protection",
+  },
+  {
     name: "EICV7 Main Indicators tables (district annexes with standard errors)",
     url: "https://statistics.gov.rw/sites/default/files/documents/2025-04/EICV7_Tables_MainIndicatorReport.xlsx",
   },
