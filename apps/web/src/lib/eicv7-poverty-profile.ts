@@ -11,6 +11,27 @@ export const POVERTY_RATE_BY_YEAR = [
   { year: "2023/24", povertyRate: 27.4 },
 ];
 
+/**
+ * Multidimensional child poverty: a child who is deprived at the same time in at least three of five dimensions —
+ * health, education, water, sanitation and housing. From the NISR EICV7 Multidimensional Child Poverty thematic report.
+ */
+export const CHILD_POVERTY_SOURCE = "NISR, EICV7 Multidimensional Child Poverty 2023/24";
+export const CHILD_POVERTY_BY_AGE = [
+  { age: "Children 5 to 14", in2017: 25.3, in2024: 11.9 },
+  { age: "Children 15 to 17", in2017: 40.1, in2024: 26.8 },
+];
+
+/**
+ * Poverty rate by the sex of the household head, 2023/24, from the NISR EICV7 Gender thematic report. About 26% of
+ * households are headed by women, and they are poorer than male-headed households (the national rate is 27.4%).
+ */
+export const POVERTY_BY_HEADSHIP_SOURCE = "NISR, EICV7 Gender 2023/24";
+export const FEMALE_HEADED_SHARE = 26;
+export const POVERTY_BY_HEADSHIP = [
+  { head: "Female-headed", povertyRate: 30.2 },
+  { head: "Male-headed", povertyRate: 26.6 },
+];
+
 /** Living conditions in 2016/17 (EICV5) and 2023/24 (EICV7). Improved drinking water is "at least 90%" in 2024. */
 export const LIVING_STANDARDS_BY_YEAR = [
   { measure: "Near an all weather road", in2017: 93, in2024: 96 },

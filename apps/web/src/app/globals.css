@@ -37,13 +37,23 @@
 }
 
 html {
-  /* The whole UI is scaled down so it reads compact and "unzoomed" — a browser zoom-out baked in. Unlike a smaller
-     root font-size (which leaves the pixel-set body text full size), zoom shrinks text, spacing and images together
-     and uniformly, so nothing looks oversized. Nudge this one number to zoom the whole site in or out. */
-  zoom: 0.85;
   background: #ffffff;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* Belt and braces with the rule on body: never let a stray wide element grow the page past the viewport and strip the
+     right-hand gutter on narrow screens. clip (not hidden) does not create a scroll container, so sticky still works. */
+  overflow-x: clip;
+}
+
+/* The whole UI is scaled down so it reads compact and "unzoomed" — a browser zoom-out baked in. Unlike a smaller root
+   font-size (which leaves the pixel-set body text full size), zoom shrinks text, spacing and images together and
+   uniformly, so nothing looks oversized. It applies from tablet up only: on a phone the viewport is already narrow, and
+   scaling the layout down would push content past the screen edge, so phones render at 1:1. Nudge this one number
+   (and the matching page width in tailwind.config.ts) to zoom the whole site in or out. */
+@media (min-width: 768px) {
+  html {
+    zoom: 0.9;
+  }
 }
 
 body {
@@ -148,6 +158,25 @@ html.lenis body {
   }
   to {
     transform: scaleX(1);
+  }
+}
+
+/* Home hero: each line (and card) rises and fades in once on load, staggered per element via --rise-delay. Tune the
+   feel in one place — distance, duration and easing — with these variables; the reduced-motion rule below makes it
+   instant for anyone who prefers reduced motion. */
+.hero-rise {
+  animation: hero-rise var(--rise-duration, 0.7s) var(--rise-ease, cubic-bezier(0.2, 0.75, 0.2, 1)) both;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--rise-distance, 16px));
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 

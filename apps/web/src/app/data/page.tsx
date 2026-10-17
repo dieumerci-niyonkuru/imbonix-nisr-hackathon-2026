@@ -3,15 +3,13 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import pkg from "../../../package.json";
 import { NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
 import { DataEvidence } from "@/components/home/data-evidence";
-import { Callout, SectionHeader } from "@/components/ui/section";
+import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 import { SITE_FACTS } from "@/lib/site-facts";
 import { STATUS_DESCRIPTION, StatusBadge } from "@/components/ui/status-badge";
 import { SOURCES } from "@/lib/data";
 import { DIMENSIONS, INDICATORS, type Dimension } from "@/lib/indicators";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { BarsMotif } from "@/components/ui/section";
 
 export const metadata: Metadata = {
   title: { absolute: "Data & methodology | IMBONIX" },
@@ -56,6 +54,10 @@ const MICRODATA = [
 
 const PUBLISHED = [
   {
+    name: "NISR Poverty & social protection summary (EICV7 poverty dynamics and the VUP survey)",
+    url: "https://statistics.gov.rw/statistical-publications/poverty-and-social-protection",
+  },
+  {
     name: "EICV7 Main Indicators tables (district annexes with standard errors)",
     url: "https://statistics.gov.rw/sites/default/files/documents/2025-04/EICV7_Tables_MainIndicatorReport.xlsx",
   },
@@ -66,6 +68,14 @@ const PUBLISHED = [
   {
     name: "EICV7 district presentations (sector poverty maps)",
     url: "https://statistics.gov.rw/data-sources/surveys/EICV/integrated-household-living-conditions-survey-7-eicv-7/eicv7-district-disseminations-powerpoint",
+  },
+  {
+    name: "EICV7 Multidimensional Child Poverty thematic report",
+    url: "https://statistics.gov.rw/data-sources/surveys/EICV/integrated-household-living-conditions-survey-7-eicv-7/eicv7-multidimensional-child-poverty",
+  },
+  {
+    name: "EICV7 Gender thematic report 2023/24",
+    url: "https://statistics.gov.rw/data-sources/surveys/EICV/integrated-household-living-conditions-survey-7-eicv-7/eicv7-thematic-report-gender-202324",
   },
   {
     name: "FinScope 2024 report",
@@ -142,6 +152,103 @@ const CAVEATS = [
   },
 ];
 
+/**
+ * The NISR technical terms the site uses, in plain words, so a first-time reader understands the content. The terms and
+ * their meanings follow NISR's own usage (FinScope, EICV7, the census and the social protection reports).
+ */
+const GLOSSARY: { group: string; terms: { term: string; definition: string }[] }[] = [
+  {
+    group: "Financial inclusion (FinScope)",
+    terms: [
+      {
+        term: "Financially included",
+        definition:
+          "Uses at least one financial service, formal or informal — a bank, mobile money, a SACCO, insurance or a savings group.",
+      },
+      {
+        term: "Formally served",
+        definition: "Uses a regulated provider: a bank, mobile money, a SACCO, insurance or a pension.",
+      },
+      { term: "Banked", definition: "Has their own account at a bank." },
+      {
+        term: "Other formal (non-bank)",
+        definition: "Uses formal services such as mobile money, SACCOs, insurance or pensions, but has no bank account.",
+      },
+      {
+        term: "Informal only",
+        definition: "Uses only informal services, such as savings groups or tontines, and no formal service.",
+      },
+      { term: "Financially excluded", definition: "Uses no financial service at all, formal or informal." },
+      {
+        term: "Financially healthy",
+        definition:
+          "Can manage money day to day, absorb a shock and plan ahead. FinScope also rates adults as coping, vulnerable or extremely vulnerable.",
+      },
+      {
+        term: "SACCO / tontine",
+        definition:
+          "A SACCO is a member-owned savings and credit cooperative (Umurenge SACCOs serve every sector). A tontine is an informal rotating savings and credit group.",
+      },
+    ],
+  },
+  {
+    group: "Poverty (EICV7 and the census)",
+    terms: [
+      {
+        term: "Poverty headcount",
+        definition:
+          "The share of people whose consumption is below the national poverty line (RWF 559,699 per adult equivalent a year, January 2024 prices).",
+      },
+      {
+        term: "Extreme poverty",
+        definition: "Below the food (extreme) poverty line — not enough to meet basic food needs.",
+      },
+      {
+        term: "Multidimensional poverty",
+        definition:
+          "Being deprived at the same time in several dimensions of wellbeing — such as health, education, water, sanitation and housing — not only in income.",
+      },
+    ],
+  },
+  {
+    group: "Social protection and places",
+    terms: [
+      {
+        term: "VUP",
+        definition:
+          "The Vision 2020 Umurenge Programme, Rwanda's main social protection scheme. Its components include Direct Support (cash for households who cannot work), Classic and Expanded Public Works, Nutrition-Sensitive Direct Support (NSDS) and Financial Services.",
+      },
+      {
+        term: "Ubudehe category",
+        definition: "The official socio-economic categorisation of households, used to target support.",
+      },
+      {
+        term: "Umudugudu",
+        definition: "The smallest administrative unit (the village); also the name for Rwanda's planned settlements.",
+      },
+    ],
+  },
+  {
+    group: "Surveys and statistics",
+    terms: [
+      {
+        term: "EICV · FinScope · DHS · CFSVA · RPHC5",
+        definition:
+          "The NISR sources: EICV (living conditions and poverty), FinScope (financial inclusion), the DHS (health), the CFSVA (food security) and RPHC5 (the 2022 census).",
+      },
+      {
+        term: "Small area estimation",
+        definition:
+          "A statistical model NISR uses to estimate figures for areas too small for the survey sample, such as sector poverty rates.",
+      },
+      {
+        term: "Confidence interval",
+        definition: "The range the true value most likely falls within, because a survey measures a sample, not everyone.",
+      },
+    ],
+  },
+];
+
 export default function DataPage() {
   const grouped = (Object.keys(DIMENSIONS) as Dimension[]).map((dimension) => ({
     dimension,
@@ -150,26 +257,17 @@ export default function DataPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line bg-white">
-        <div className="container-page relative pb-14 pt-6 sm:pb-16 sm:pt-8">
-          <Breadcrumbs />
-          <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan-ink sm:mt-12">
-            <BarsMotif /> Data & methodology
-          </p>
-          <h1 className="mt-3 max-w-4xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
-            Every number, where it comes from, and how far to trust it
-          </h1>
-          <p className="mt-5 max-w-3xl text-pretty text-base leading-7 text-muted sm:text-lg sm:leading-8">
-            All NISR publicly available datasets can be found in the NISR microdata catalog. IMBONIX currently uses published
-            tables and reports. Household level analysis starts once the team&apos;s data requests are approved.
-          </p>
-          <Button asChild className="mt-8">
-            <a href={NISR_CATALOG_URL} target="_blank" rel="noreferrer">
-              Open the NISR microdata catalog <ArrowTopRightOnSquareIcon className="h-4 w-4" />
-            </a>
-          </Button>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Data & methodology"
+        title="Every number, where it comes from, and how far to trust it"
+        intro="All NISR publicly available datasets can be found in the NISR microdata catalog. IMBONIX currently uses published tables and reports. Household level analysis starts once the team's data requests are approved."
+      >
+        <Button asChild className="mt-8">
+          <a href={NISR_CATALOG_URL} target="_blank" rel="noreferrer">
+            Open the NISR microdata catalog <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+          </a>
+        </Button>
+      </PageHero>
 
       {/* Microdata to request */}
       <DataEvidence
@@ -251,6 +349,32 @@ export default function DataPage() {
               <div key={status} className="rounded-2xl border border-line p-5">
                 <StatusBadge status={status} />
                 <p className="mt-3 text-[14px] leading-6 text-muted">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Glossary: NISR's technical terms in plain words */}
+      <section id="glossary" className="scroll-mt-28 border-b border-line bg-paper py-14">
+        <div className="container-page">
+          <SectionHeader
+            eyebrow="Key terms, in plain words"
+            title="The terms NISR uses, explained"
+            intro="IMBONIX keeps NISR's own terms so the figures stay exact. Here is what each one means, so anyone can read the content with confidence."
+          />
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            {GLOSSARY.map((section) => (
+              <div key={section.group} className="rounded-2xl border border-line bg-white p-6 sm:p-7">
+                <p className="eyebrow text-cyan-ink">{section.group}</p>
+                <dl className="mt-4 divide-y divide-line">
+                  {section.terms.map((item) => (
+                    <div key={item.term} className="py-3 first:pt-0 last:pb-0">
+                      <dt className="text-[15px] font-bold text-ink">{item.term}</dt>
+                      <dd className="mt-1 text-pretty text-[14px] leading-6 text-muted">{item.definition}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
             ))}
           </div>

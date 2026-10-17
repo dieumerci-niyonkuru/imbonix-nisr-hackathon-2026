@@ -1,7 +1,6 @@
-/* eslint-disable @next/next/no-img-element -- small header photos served as optimised JPGs, not icons to optimise */
 import type { ReactNode } from "react";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 
 export function SectionHeader({
   eyebrow,
@@ -35,47 +34,85 @@ export function SectionHeader({
   );
 }
 
+/** One headline figure for the hero strip: a big number and a short label. */
+export type HeroStat = { value: string; label: string };
+
+/** The official source the hero figures can be verified against, as a link under the strip. */
+export type HeroSource = { label: string; href: string };
+
+/**
+ * The top of every page: breadcrumb, a short eyebrow, the page's question as the title, one line of context, and — when
+ * the page has them — a compact row of headline figures. Kept deliberately short so a reader sees what the page is about
+ * at a glance, the same way on every page, without a tall block of text before the content.
+ */
 export function PageHero({
   eyebrow,
   title,
   intro,
+  stats,
+  statsSource,
   children,
-  photo,
 }: {
   eyebrow: string;
   title: ReactNode;
   intro: ReactNode;
+  /** A short row of headline figures under the intro, so the page's answer is clear without a tall panel. */
+  stats?: HeroStat[];
+  /** The official NISR page the hero figures can be checked against, shown as a one-click verification link. */
+  statsSource?: HeroSource;
   children?: ReactNode;
-  /** An optional header photo (in public/photos/) shown in place of the Rwanda map emblem on this page. */
-  photo?: { src: string; alt: string };
 }) {
+  const heading = (
+    <>
+      <p className="eyebrow flex items-center gap-2.5 text-cyan-ink">
+        <BarsMotif />
+        {eyebrow}
+      </p>
+      <h1 className="mt-2.5 text-balance font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.03em] text-ink sm:text-[2.6rem]">
+        {title}
+      </h1>
+      <p className="mt-3 max-w-2xl text-pretty text-[15px] leading-6 text-muted sm:text-base sm:leading-7">{intro}</p>
+    </>
+  );
+  const hasStats = Boolean(stats && stats.length > 0);
   return (
-    <section className="relative overflow-hidden border-b border-line bg-white">
-      <div className="container-page relative pb-14 pt-6 sm:pb-16 sm:pt-8">
+    <section className="border-b border-line bg-gradient-to-br from-cyan-soft to-paper">
+      <div className="container-page pb-9 pt-5 sm:pb-11 sm:pt-6">
         <Breadcrumbs />
-        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-center lg:gap-12 xl:grid-cols-[minmax(0,1fr)_20rem]">
-          <div>
-            <p className="eyebrow mt-10 flex items-center gap-2.5 text-cyan-ink sm:mt-12">
-              <BarsMotif />
-              {eyebrow}
-            </p>
-            <h1 className="mt-3 max-w-4xl text-balance font-display text-4xl font-bold tracking-[-0.035em] text-ink sm:text-5xl">
-              {title}
-            </h1>
-            <p className="mt-5 max-w-3xl text-pretty text-base leading-7 text-muted sm:text-lg sm:leading-8">{intro}</p>
-            {children}
+        {hasStats ? (
+          // Title on the left half, the three headline figures spread across the right half, so the band fills edge to
+          // edge with no empty strip and no tall boxed panel.
+          <div className="mt-7 sm:mt-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+            <div>{heading}</div>
+            <div className="mt-6 border-t border-line pt-5 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-1">
+              <dl className="grid grid-cols-1 gap-x-6 gap-y-4 min-[460px]:grid-cols-3">
+                {stats!.map((stat, index) => (
+                  <div key={`${stat.value}-${index}`}>
+                    <dd className="font-display text-[26px] font-bold leading-none tracking-[-0.03em] text-cyan-ink sm:text-[28px]">
+                      {stat.value}
+                    </dd>
+                    <dt className="mt-1.5 text-[12.5px] leading-4 text-ink/75">{stat.label}</dt>
+                  </div>
+                ))}
+              </dl>
+              {statsSource && (
+                <a
+                  href={statsSource.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-flex items-center gap-1.5 rounded text-[12.5px] font-semibold text-cyan-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                >
+                  Verify these figures at NISR: {statsSource.label}
+                  <ArrowTopRightOnSquareIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              )}
+            </div>
           </div>
-          {photo ? (
-            <img
-              src={photo.src}
-              alt={photo.alt}
-              loading="lazy"
-              className="mt-10 hidden aspect-[4/3] w-full rounded-2xl object-cover shadow-card ring-1 ring-line lg:block"
-            />
-          ) : (
-            <RwandaEmblem className="mt-10 hidden lg:block" />
-          )}
-        </div>
+        ) : (
+          <div className="mt-7 max-w-4xl sm:mt-8">{heading}</div>
+        )}
+        {children}
       </div>
     </section>
   );

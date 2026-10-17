@@ -185,7 +185,7 @@ export default function ModelPage() {
           <Callout title="Transparent priority rules">
             The page{" "}
             <Link href="/social-protection/priority-districts" className="link">
-              Priority areas
+              Priority ranking
             </Link>{" "}
             uses stated rules on published data: explainable by design, with no model required.
           </Callout>

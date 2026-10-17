@@ -10,11 +10,16 @@ export const FOCUS_AREAS = [
   { id: "exclusion", label: "Financial inclusion", hint: "Included, but not resilient", href: "/financial-exclusion" },
   {
     id: "poverty",
-    label: "Poverty & vulnerability",
+    label: "Poverty reduction",
     hint: "Who is poor and vulnerable, where, and what changed",
     href: "/poverty-dynamics",
   },
-  { id: "protection", label: "Priority areas", hint: "Where to act first, and who VUP reaches", href: "/social-protection" },
+  {
+    id: "protection",
+    label: "Social protection",
+    hint: "Who social protection reaches, and where to act first",
+    href: "/social-protection",
+  },
 ] as const;
 
 export type FocusAreaId = (typeof FOCUS_AREAS)[number]["id"];
@@ -68,7 +73,7 @@ export const NAV_GROUPS: NavGroup[] = [
     ],
   },
   {
-    label: "Poverty & vulnerability",
+    label: "Poverty reduction",
     intro: "How poverty and living conditions changed, where poverty is deepest, and where it overlaps with other needs.",
     focusId: "poverty",
     href: areaHref("poverty"),
@@ -96,8 +101,8 @@ export const NAV_GROUPS: NavGroup[] = [
     ],
   },
   {
-    label: "Priority areas",
-    intro: "Where to act first: who VUP reaches, how payments arrive, and the levers, scenarios and plans for targeting.",
+    label: "Social protection",
+    intro: "Who VUP reaches, how payments arrive, and the levers, scenarios and plans for where to act first.",
     focusId: "protection",
     href: areaHref("protection"),
     items: [
@@ -128,7 +133,7 @@ export const NAV_GROUPS: NavGroup[] = [
 /** The data itself: where every figure comes from, the national figures, and every chart on the site in one list. */
 export const DATA_SECTION: MenuSection = {
   id: "data",
-  label: "Data",
+  label: "Data sources",
   intro: "The datasets behind the platform, Rwanda's key figures, and every chart on the site in one list.",
   href: "/data",
   title: "Data & methodology",

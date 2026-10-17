@@ -9,7 +9,7 @@ import { Finding } from "@/components/focus/finding";
 import { paymentTimelinessByProgramme, TIMELINESS_SERIES } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { ChartCard } from "@/components/ui/chart-card";
-import { SectionHeader } from "@/components/ui/section";
+import { type HeroStat, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import { describeShares } from "@/lib/format";
 import { TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
@@ -46,6 +46,20 @@ const SECTIONS: PageSection[] = [
   { id: "act", label: "Who can act" },
   { id: "deeper", label: "Go deeper" },
 ];
+
+/**
+ * Social protection in three headline figures for the hero strip: how many VUP reaches, who they are, and how often
+ * their payments arrive on time. Read from the same tables as the charts below.
+ */
+export function protectionHeroStats(): HeroStat[] {
+  const women = VUP_SHARE_BY_SEX.find((row) => row.sex === "Women")!;
+  const directSupport = paymentTimelinessByProgramme().find((row) => row.programme === "Direct Support")!;
+  return [
+    { value: `${Math.round(VUP_BENEFICIARIES / 1000)}k`, label: "reached by VUP support" },
+    { value: `${women.beneficiaries}%`, label: "of beneficiaries are women" },
+    { value: `${directSupport.onTime}%`, label: "paid on time (most arrive late)" },
+  ];
+}
 
 /**
  * The social protection overview, as one story in sections with a menu under the header: the key figures, who VUP
@@ -101,7 +115,7 @@ export function ProtectionFocus() {
       value: String(LEVERS.length),
       text: "policy levers, each flagged district by district by one figure and a rule anyone can check.",
       href: "/social-protection/priority-districts",
-      cta: "Priority areas",
+      cta: "Priority ranking",
     },
     {
       icon: UserGroupIcon,
@@ -115,7 +129,7 @@ export function ProtectionFocus() {
 
   return (
     <>
-      <SectionNav label="Priority areas" sections={SECTIONS} />
+      <SectionNav label="Social protection" sections={SECTIONS} />
 
       <div id="key-figures" className="scroll-mt-36">
         <FigureTiles

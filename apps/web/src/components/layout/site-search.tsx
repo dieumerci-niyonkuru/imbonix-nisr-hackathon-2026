@@ -311,9 +311,13 @@ export function SiteSearch({
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-[60] bg-ink/60 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <DialogPrimitive.Overlay
+          data-lenis-prevent
+          className="fixed inset-0 z-[60] bg-ink/60 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
+        />
         <DialogPrimitive.Content
           aria-describedby={undefined}
+          data-lenis-prevent
           className="fixed inset-x-0 top-[7vh] z-[60] mx-auto flex max-h-[min(720px,86vh)] w-[calc(100%-2rem)] max-w-[680px] flex-col overflow-hidden rounded-3xl bg-white shadow-lift ring-1 ring-line duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-top-2"
         >
           <DialogPrimitive.Title className="sr-only">Search IMBONIX</DialogPrimitive.Title>

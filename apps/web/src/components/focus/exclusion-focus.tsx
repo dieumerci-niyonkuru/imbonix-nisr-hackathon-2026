@@ -3,15 +3,21 @@ import { FinancialHealthChart } from "@/components/charts/recharts/financial-hea
 import { StackedShareChart } from "@/components/charts/recharts/stacked-share-chart";
 import { ValueBars } from "@/components/charts/recharts/value-bars";
 import { ShareBars } from "@/components/charts/share-bars";
+import { DistrictStrip } from "@/components/charts/district-strip";
+import { DistrictFinanceLookup } from "@/components/focus/district-finance-lookup";
 import { Finding } from "@/components/focus/finding";
 import { ACCESS_SERIES } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { ChartCard } from "@/components/ui/chart-card";
-import { SectionHeader } from "@/components/ui/section";
+import { type HeroStat, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import {
+  BANK_ACCOUNT_BARRIERS,
+  BANK_BARRIERS_SOURCE,
   EXCLUDED_ADULTS,
   FINANCIAL_HEALTH_SEGMENTS,
+  FINANCIAL_INCLUSION_TREND,
+  FINANCIAL_INCLUSION_TREND_SOURCE,
   FINSCOPE_2024_SOURCE,
   INCLUDED_ADULTS_MILLIONS,
   INCLUSION_BY_ROUND,
@@ -35,6 +41,12 @@ const FINSCOPE_ROUND_SERIES: ComparisonSeries = [
   { key: "in2024", label: "2024", color: COMPARE.after },
 ];
 
+/** The long-run trend: formal inclusion catching up to total inclusion across the FinScope rounds. */
+const INCLUSION_TREND_SERIES: ComparisonSeries = [
+  { key: "included", label: "Financially included (any)", color: CORE.cyan },
+  { key: "formal", label: "Formally included", color: DEEP_CYAN },
+];
+
 /** Healthy in cyan, then coping, vulnerable and extremely vulnerable from light grey to deep cyan: darker is worse. */
 const HEALTH_COLORS = [CORE.cyan, LIGHT_GREY, MID_GREY, DEEP_CYAN];
 
@@ -49,11 +61,26 @@ const CREDIT_SOURCE_COLORS: Record<string, string> = {
 const SECTIONS: PageSection[] = [
   { id: "key-figures", label: "Key figures" },
   { id: "access", label: "Access" },
+  { id: "districts", label: "Across districts" },
   { id: "health", label: "Financial health" },
   { id: "money", label: "Mobile money and credit" },
   { id: "who", label: "Who is left out" },
   { id: "deeper", label: "Go deeper" },
 ];
+
+/**
+ * The page's answer in three headline figures for the hero strip — almost everyone included, few resilient, a minority
+ * still shut out. Read from the same published tables as the charts below, so the snapshot and the detail never disagree.
+ */
+export function exclusionHeroStats(): HeroStat[] {
+  const shareOf = (measure: string) => INCLUSION_BY_ROUND.find((row) => row.measure === measure)!.in2024;
+  const healthy = FINANCIAL_HEALTH_SEGMENTS.find((row) => row.segment === "Financially healthy")!.share;
+  return [
+    { value: `${shareOf("Financially included")}%`, label: "use a financial service" },
+    { value: `${healthy}%`, label: "are financially healthy" },
+    { value: `${shareOf("Excluded")}%`, label: `fully excluded (${EXCLUDED_ADULTS.toLocaleString("en-US")} adults)` },
+  ];
+}
 
 /**
  * The financial exclusion overview, as one story in sections with a menu under the header: the key figures, how access
@@ -155,6 +182,49 @@ export function ExclusionFocus() {
                 description={`Adults by the most formal service they use. ${describeShares(ACCESS_STRAND, "year", ACCESS_SERIES)}.`}
               />
             </ChartCard>
+          </div>
+          <div className="mt-6">
+            <ChartCard
+              id="chart-inclusion-trend"
+              title="Inclusion is now almost all formal — a 16-year shift"
+              note="Adults financially included (any formal or informal service) and formally included (a bank, mobile money, a SACCO, insurance or a pension), across the FinScope rounds."
+              howToRead="Each pair is one survey year: light cyan is included at all, dark cyan is formally included. Formal access has climbed from 21% to 92% and nearly closed the gap — the growth came from people moving into formal finance. Survey methods changed between rounds, so read this as the overall trend."
+              source={FINANCIAL_INCLUSION_TREND_SOURCE}
+            >
+              <ComparisonBars
+                rows={FINANCIAL_INCLUSION_TREND}
+                categoryKey="year"
+                series={INCLUSION_TREND_SERIES}
+                description={`Formal and total financial inclusion by FinScope round. ${FINANCIAL_INCLUSION_TREND.map((row) => `${row.year}: formally ${row.formal}%, included ${row.included}%`).join("; ")}.`}
+              />
+            </ChartCard>
+          </div>
+        </div>
+      </section>
+
+      <section id="districts" className="scroll-mt-36 bg-white py-12 sm:py-16" aria-labelledby="districts-heading">
+        <div className="container-page">
+          <SectionHeader
+            eyebrow="Across districts"
+            title={<span id="districts-heading">Inclusion looks very different district by district</span>}
+            intro="National averages hide wide gaps. Search any district, sector, cell or village to see where it stands, or scan all 30 at once. The city districts have the widest formal access; the most rural districts have the most people left out."
+          />
+          <div className="mt-10 grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
+            <DistrictFinanceLookup />
+            <div className="rounded-2xl border border-line bg-white p-6 sm:p-7">
+              <p className="eyebrow text-cyan-ink">The spread</p>
+              <h3 className="mt-2 font-display text-xl font-bold tracking-[-0.02em] text-ink sm:text-2xl">
+                All 30 districts at a glance
+              </h3>
+              <p className="mt-2 text-[14px] leading-6 text-muted">
+                Each dot is a district; the upright line marks the national figure. The distance between the ends is how much the
+                average hides.
+              </p>
+              <div className="mt-7 space-y-8">
+                <DistrictStrip id="finscope_not_formally_included" />
+                <DistrictStrip id="finscope_banked" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -275,6 +345,24 @@ export function ExclusionFocus() {
                   color: row.group === "Women" ? CORE.cyan : row.group === "Men" ? DEEP_CYAN : MID_GREY,
                 }))}
                 description={`Adults with a bank account: ${BANK_ACCOUNT_BY_SEX.map((row) => `${row.group} ${row.share}%`).join(", ")}.`}
+              />
+            </ChartCard>
+            <ChartCard
+              id="chart-bank-barriers"
+              title="The main barrier to a bank account is income, not access"
+              note="Why unbanked adults do not open a bank account, 2024 — one main reason each."
+              howToRead="Each bar is a reason unbanked adults give; the longer the bar, the more cite it. Distance, cost and documents barely register — not earning enough does."
+              source={BANK_BARRIERS_SOURCE}
+            >
+              <ValueBars
+                orientation="row"
+                seriesName="Unbanked adults"
+                bars={BANK_ACCOUNT_BARRIERS.map((row) => ({
+                  label: row.reason,
+                  value: row.share,
+                  color: row.share >= 50 ? CORE.cyan : MID_GREY,
+                }))}
+                description={`Barriers to a bank account: ${BANK_ACCOUNT_BARRIERS.map((row) => `${row.reason} ${row.share}%`).join(", ")}.`}
               />
             </ChartCard>
           </Finding>

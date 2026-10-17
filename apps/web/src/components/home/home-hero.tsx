@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { HeroBackdrop } from "@/components/home/hero-backdrop";
 import { DistrictBackdrop } from "@/components/home/story-cards";
@@ -8,11 +9,29 @@ import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 export type HeroCard = { title: string; body: string; href: string };
 
 /**
- * The hero uses the designed brand banner — the data-network over brand cyan with the Rwanda emblem — rather than a
- * photo, so the opening is unmistakably IMBONIX's own and carries no stock or AI-generated imagery. Set this to an
- * image path in public/hero/ only if a genuine, licensed photo is ever added.
+ * The hero background photo (in public/hero/): a Rwandan analyst reading a district map of Rwanda on a data dashboard,
+ * with Kigali's hills behind — the challenge (where need sits), the solution (evidence into decisions) and the data in
+ * one frame. Shown under a brand scrim so the white headline stays readable (the darker left keeps clear of the
+ * subject). Alternative in the folder: "/hero/hero-market.jpg" (a market vendor taking a mobile-money payment). Set to
+ * null to use the designed brand banner instead (data-network over brand cyan with the Rwanda emblem), no photo.
  */
-const HERO_PHOTO: string | null = null;
+const HERO_PHOTO: string | null = "/hero/hero-analyst.jpg";
+
+/** What IMBONIX gives you, in three lines, under "Get to know IMBONIX" — the solution, plainly. */
+const SOLUTIONS = [
+  {
+    title: "All the evidence, aligned",
+    body: "FinScope, EICV7, DHS and the Census, brought together for every district and sector, each figure named to its source.",
+  },
+  {
+    title: "Down to the village",
+    body: "Search any district, sector, cell or village and read what the numbers mean for the people who live there.",
+  },
+  {
+    title: "Ask IMBONIX AI",
+    body: "Ask a question in plain language and get a grounded answer, with the follow-ups worth asking next.",
+  },
+];
 
 /**
  * The opening of the homepage, laid out like Rwanda's national sites in the site's two colours: a cyan banner with the
@@ -32,10 +51,15 @@ export function HomeHero({
     <section aria-labelledby="home-heading">
       {/* The banner slides up behind the header (which is transparent over it at the top), so the photo is one image
           across the whole top; the content keeps clear of the header with the extra top padding below. */}
-      <div className={`relative -mt-[77px] overflow-hidden ${HERO_PHOTO ? "bg-ink text-white" : "bg-cyan text-ink"}`}>
+      <div
+        className={`relative -mt-[77px] overflow-hidden ${
+          HERO_PHOTO ? "bg-gradient-to-br from-ink via-ink to-cyan-ink text-white" : "bg-cyan text-ink"
+        }`}
+      >
         {HERO_PHOTO ? (
           <>
-            {/* The hero image, framed a little above centre so the people and the dashboards stay in view. */}
+            {/* The hero image, framed a little above centre so the people and the dashboards stay in view, on every
+                screen (the brand gradient behind only shows if the image fails to load). */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-cover bg-[position:50%_32%]"
@@ -48,6 +72,8 @@ export function HomeHero({
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/25"
             />
+            {/* On phones the text runs the full width over the photo, so an extra even wash keeps it readable there. */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink/45 sm:hidden" />
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cyan-ink/50 via-transparent to-transparent"
@@ -64,30 +90,42 @@ export function HomeHero({
         )}
         <div className="container-page relative pb-40 pt-[123px] sm:pb-44 sm:pt-[147px]">
           {!HERO_PHOTO && <RwandaEmblem tone="cyan" className="absolute right-10 top-14 hidden w-[25rem] xl:block" />}
-          <p className="font-display text-[18px] font-bold sm:text-[22px]">
+          <p
+            className="hero-rise font-display text-[18px] font-bold sm:text-[22px]"
+            style={{ "--rise-delay": "0ms" } as CSSProperties}
+          >
             Financial inclusion &amp; poverty reduction in Rwanda
           </p>
           <h1
             id="home-heading"
-            className="mt-3 max-w-4xl text-balance font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-6xl lg:text-7xl xl:max-w-[46rem]"
+            className="hero-rise mt-3 max-w-3xl text-pretty font-display text-[1.15rem] font-bold leading-[1.35] tracking-[-0.01em] sm:text-[1.4rem] sm:leading-[1.3] lg:text-[1.65rem] lg:leading-[1.28]"
+            style={{ "--rise-delay": "90ms" } as CSSProperties}
           >
-            Almost every adult is included. Few are financially healthy.
+            Use data to understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda,
+            so that support reaches vulnerable households and decisions rest on evidence.
           </h1>
-          <p className="mt-6 max-w-2xl text-pretty text-[17px] leading-8 sm:text-[19px] sm:leading-9">
-            IMBONIX brings NISR&apos;s published statistics together for all {districtCount} districts and {sectorCount} sectors,
-            to show where financial exclusion, poverty and gaps in social protection meet, and where to act first.
+          <p
+            className="hero-rise mt-6 max-w-2xl text-pretty text-[16.5px] leading-7 sm:text-[18px] sm:leading-8"
+            style={{ "--rise-delay": "190ms" } as CSSProperties}
+          >
+            Built on NISR&apos;s published statistics for all {districtCount} districts and {sectorCount} sectors — FinScope,
+            EICV7, DHS and the Census — brought together in one place you can explore.
           </p>
-          <p className="mt-5 text-[13px] font-medium">
+          <p className="hero-rise mt-5 text-[13.5px] font-semibold" style={{ "--rise-delay": "290ms" } as CSSProperties}>
             An independent project built on NISR data, not an official NISR product. Every figure names its source.
           </p>
         </div>
       </div>
 
-      <div className="bg-white pb-16 sm:pb-20">
+      <div className="bg-cyan-ink pb-16 text-white sm:pb-20">
         <div className="container-page relative -mt-28">
           <ul className="grid gap-px bg-line shadow-lift ring-1 ring-line sm:grid-cols-2 lg:grid-cols-4">
-            {cards.map((card) => (
-              <li key={card.href} className="bg-white">
+            {cards.map((card, index) => (
+              <li
+                key={card.href}
+                className="hero-rise bg-white"
+                style={{ "--rise-delay": `${380 + index * 90}ms` } as CSSProperties}
+              >
                 <Link
                   href={card.href}
                   className="group flex h-full flex-col p-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink sm:p-8"
@@ -107,18 +145,30 @@ export function HomeHero({
           </ul>
         </div>
 
-        <div className="container-page mt-14 text-center text-ink sm:mt-16">
-          <p className="font-display text-[26px] font-bold tracking-[-0.02em] sm:text-[32px]">The challenge</p>
-          <p className="mx-auto mt-4 max-w-3xl text-pretty text-[17px] leading-8 sm:text-[19px] sm:leading-9">
-            Use data to understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda,
-            so that support reaches vulnerable households and decisions rest on evidence.
-          </p>
-          <Link
-            href="/about"
-            className="mt-8 inline-flex min-h-12 items-center justify-center rounded bg-cyan px-10 text-[15px] font-bold text-ink transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
-          >
-            Learn more about IMBONIX
-          </Link>
+        <div className="container-page mt-14 text-white sm:mt-16">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-display text-[26px] font-bold tracking-[-0.02em] sm:text-[32px]">Get to know IMBONIX</p>
+            <p className="mt-4 text-pretty text-[17px] leading-8 text-white/90 sm:text-[19px] sm:leading-9">
+              IMBONIX turns Rwanda&apos;s official statistics into one explorable platform — so financial exclusion, poverty and
+              gaps in social protection stop hiding in separate reports, and support can reach the households that need it most.
+            </p>
+          </div>
+          <ul className="mx-auto mt-10 grid max-w-5xl gap-x-8 gap-y-7 text-left sm:grid-cols-3">
+            {SOLUTIONS.map((item) => (
+              <li key={item.title} className="border-t border-white/25 pt-4">
+                <p className="font-display text-[17px] font-bold tracking-[-0.01em]">{item.title}</p>
+                <p className="mt-1.5 text-[14px] leading-6 text-white">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10 text-center">
+            <Link
+              href="/about"
+              className="inline-flex min-h-12 items-center justify-center rounded bg-white px-10 text-[15px] font-bold text-cyan-ink shadow-card transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-ink"
+            >
+              Learn more about IMBONIX
+            </Link>
+          </div>
         </div>
       </div>
     </section>

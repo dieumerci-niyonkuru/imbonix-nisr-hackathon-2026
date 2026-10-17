@@ -1,13 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { ExclusionFocus } from "@/components/focus/exclusion-focus";
-import { PovertyFocus } from "@/components/focus/poverty-focus";
-import { ProtectionFocus } from "@/components/focus/protection-focus";
+import { ExclusionFocus, exclusionHeroStats } from "@/components/focus/exclusion-focus";
+import { PovertyFocus, povertyHeroStats } from "@/components/focus/poverty-focus";
+import { ProtectionFocus, protectionHeroStats } from "@/components/focus/protection-focus";
 import { TextCard } from "@/components/home/story-cards";
 import { FOCUS_AREAS, NAV_GROUPS, type FocusAreaId } from "@/components/layout/nav";
-import { PageHero, SectionHeader } from "@/components/ui/section";
+import { type HeroSource, type HeroStat, PageHero, SectionHeader } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
+
+/** Each overview's headline figures, shown as a compact strip under its header so the page's answer is clear at a glance. */
+const HERO_STATS: Record<FocusAreaId, HeroStat[]> = {
+  exclusion: exclusionHeroStats(),
+  poverty: povertyHeroStats(),
+  protection: protectionHeroStats(),
+};
+
+/** The official NISR page each overview's hero figures can be checked against, for one-click verification. */
+const HERO_SOURCE: Record<FocusAreaId, HeroSource> = {
+  exclusion: { label: "FinScope 2024", href: "https://statistics.gov.rw/data-sources/surveys/FinScope-Survey" },
+  poverty: {
+    label: "EICV7 poverty & social protection",
+    href: "https://statistics.gov.rw/statistical-publications/poverty-and-social-protection",
+  },
+  protection: {
+    label: "EICV7 poverty & social protection",
+    href: "https://statistics.gov.rw/statistical-publications/poverty-and-social-protection",
+  },
+};
 
 /** The question each focus area answers, in plain words. */
 const QUESTIONS: Record<FocusAreaId, string> = {
@@ -42,6 +62,8 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
         eyebrow={`${area.label} overview`}
         title={QUESTIONS[area.id]}
         intro={`${group.intro} Every chart below says what it shows, where the figures come from and how far to trust them.`}
+        stats={HERO_STATS[area.id]}
+        statsSource={HERO_SOURCE[area.id]}
       />
 
       {area.id === "exclusion" && <ExclusionFocus />}
@@ -60,7 +82,7 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
             title={<span id="deeper-heading">More on {area.label.toLowerCase()}</span>}
             intro="Each page takes one question further, district by district, with its sources."
           />
-          <ul className="mt-10 grid gap-6 lg:grid-cols-3">
+          <ul className={`mt-10 grid gap-6 ${group.items.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3"}`}>
             {group.items.map((item) => (
               <li key={item.href}>
                 <TextCard

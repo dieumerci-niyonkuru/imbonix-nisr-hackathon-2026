@@ -19,6 +19,7 @@ import {
 import { AiMark } from "@/components/assistant/ai-mark";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { answerQuery, followUpSuggestions, SUGGESTIONS, type Answer } from "@/lib/assistant";
+import { districtAt } from "@/lib/locate";
 
 /** An image, PDF or text file the person attached, ready to send to the AI route. */
 type Attachment = { kind: "image" | "document" | "text"; mediaType: string; data: string; name: string };
@@ -33,10 +34,14 @@ type Message = {
   /** A generative, streamed answer from the AI route (markdown-ish prose). */
   markdown?: string;
   streaming?: boolean;
+  /** Contextual follow-up questions to offer as chips beneath this answer, from the question that prompted it. */
+  followUps?: string[];
 };
 
 const IMAGE_TYPES = new Set(["image/png", "image/jpeg", "image/gif", "image/webp"]);
 const MAX_BINARY_BYTES = 6 * 1024 * 1024;
+/** "Where I am" phrases — when the person uses one and their district is known, it is filled into the question. */
+const LOCAL_REF = /\b(my (district|area|sector|place|home)|near me|around here|close to me|where i (am|live|stay))\b/i;
 const MAX_TEXT_CHARS = 20_000;
 const MAX_HISTORY_TURNS = 12;
 
@@ -496,6 +501,28 @@ function AnswerCard({
   );
 }
 
+/**
+ * The contextual follow-up questions shown beneath an answer: a few next things to ask, shaped by the question that
+ * prompted the answer. Clicking one asks it, keeping the conversation going. Nothing renders when there are none.
+ */
+function FollowUps({ items, onAsk }: { items?: string[]; onAsk: (query: string) => void }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <div className="flex flex-wrap gap-1.5 pl-1" aria-label="Suggested follow-up questions">
+      {items.map((question) => (
+        <button
+          key={question}
+          type="button"
+          onClick={() => void onAsk(question)}
+          className="rounded-full bg-white px-3 py-1.5 text-left text-[12.5px] font-semibold text-cyan-ink ring-1 ring-line transition-colors hover:bg-cyan-soft hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+        >
+          {question}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 /** Read a chosen file into a payload the AI route accepts, or return a short error to show the person. */
 function readFile(file: File): Promise<{ attachment?: Attachment; error?: string }> {
   const isImage = IMAGE_TYPES.has(file.type);
@@ -569,14 +596,24 @@ export function ImbonixAI() {
   const inputRef = useRef<HTMLInputElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const logRef = useRef<HTMLDivElement>(null);
+  /** The id of an answer whose top should be brought to the top of the panel once it is ready (null = follow the bottom). */
+  const scrollTopRef = useRef<number | null>(null);
+  /** The person's district from IP-based location — used only as silent context for "my district"/"near me", never shown. */
+  const locationRef = useRef<{ name: string; slug: string } | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
 
   const probe = async (): Promise<boolean> => {
     try {
       const response = await fetch("/api/assistant");
-      const data = (await response.json()) as { configured?: boolean };
+      const data = (await response.json()) as { configured?: boolean; lat?: number; lng?: number };
       const ok = Boolean(data.configured);
       setConfigured(ok);
+      // Resolve the person's district from the IP-based coordinates the server returned (no prompt). Silent context only.
+      if (!locationRef.current && typeof data.lat === "number" && typeof data.lng === "number") {
+        void districtAt(data.lat, data.lng).then((hit) => {
+          locationRef.current = hit;
+        });
+      }
       return ok;
     } catch {
       setConfigured(false);
@@ -647,6 +684,8 @@ export function ImbonixAI() {
     setNotice(null);
 
     const priorHistory = historyFrom(messages);
+    // Sending a question: show it at the bottom; the answer that follows will be scrolled to its top when ready.
+    scrollTopRef.current = null;
     setMessages((current) => [
       ...current,
       { id: nextId.current++, role: "user", text: text || undefined, attachmentName: attachment?.name },
@@ -655,6 +694,17 @@ export function ImbonixAI() {
     setPending(null);
     setBusy(true);
 
+    // Contextual follow-up questions to offer beneath this answer, shaped by what was just asked.
+    const followUps = text ? followUpSuggestions(text) : [];
+
+    // Silent location context (only if the person allowed it): fill "my district"/"near me" for the on-device engine,
+    // and give the live model a short note it uses only when the question refers to the person's own area.
+    const loc = locationRef.current;
+    const localizedText = loc && LOCAL_REF.test(text) ? `${text} (in ${loc.name} district)` : text;
+    const locationNote = loc
+      ? ` [Location context — the person is in ${loc.name} district. Use it only when they refer to "my district", "my area", "here" or "near me", and never state their location unless they ask.]`
+      : "";
+
     const live = configured ?? (await probe());
 
     if (!live) {
@@ -662,9 +712,10 @@ export function ImbonixAI() {
       let spoken: { id: number; text: string } | null = null;
       if (attachment) extra.push({ id: nextId.current++, role: "ai", answer: NOT_CONNECTED });
       if (text || !attachment) {
-        const answer = answerQuery(text);
+        const answer = answerQuery(localizedText);
         const id = nextId.current++;
-        extra.push({ id, role: "ai", answer });
+        extra.push({ id, role: "ai", answer, followUps });
+        scrollTopRef.current = id;
         spoken = { id, text: plainFromAnswer(answer) };
       }
       setMessages((current) => [...current, ...extra]);
@@ -674,7 +725,8 @@ export function ImbonixAI() {
     }
 
     const aiId = nextId.current++;
-    setMessages((current) => [...current, { id: aiId, role: "ai", markdown: "", streaming: true }]);
+    scrollTopRef.current = aiId;
+    setMessages((current) => [...current, { id: aiId, role: "ai", markdown: "", streaming: true, followUps }]);
 
     const update = (patch: Partial<Message>) =>
       setMessages((current) => current.map((message) => (message.id === aiId ? { ...message, ...patch } : message)));
@@ -683,7 +735,7 @@ export function ImbonixAI() {
       const response = await fetch("/api/assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [...priorHistory, { role: "user", text: text || "" }], attachment }),
+        body: JSON.stringify({ messages: [...priorHistory, { role: "user", text: (text || "") + locationNote }], attachment }),
       });
 
       if (response.status === 503) {
@@ -813,7 +865,26 @@ export function ImbonixAI() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
   useEffect(() => {
-    logRef.current?.scrollTo({ top: logRef.current.scrollHeight, behavior: "smooth" });
+    const log = logRef.current;
+    if (!log) return;
+    const last = messages[messages.length - 1];
+    // While an answer is still streaming in, follow it to the bottom so the person sees it generate.
+    if (last?.role === "ai" && last.streaming) {
+      log.scrollTo({ top: log.scrollHeight, behavior: "smooth" });
+      return;
+    }
+    // When an answer is ready, put its START at the top of the panel so it reads from the top; then stop tracking it.
+    const topId = scrollTopRef.current;
+    if (topId != null) {
+      const el = log.querySelector<HTMLElement>(`[data-msg-id="${topId}"]`);
+      if (el) {
+        const target = log.scrollTop + el.getBoundingClientRect().top - log.getBoundingClientRect().top;
+        log.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+        scrollTopRef.current = null;
+        return;
+      }
+    }
+    log.scrollTo({ top: log.scrollHeight, behavior: "smooth" });
   }, [messages]);
   useEffect(() => {
     if (!open) return;
@@ -836,11 +907,6 @@ export function ImbonixAI() {
     window.addEventListener("imbonix:ask", onAsk);
     return () => window.removeEventListener("imbonix:ask", onAsk);
   }, []);
-
-  // Follow-up questions to offer as chips above the input, from what was last asked. Shown once the chat is under way
-  // (the welcome card carries the opening suggestions) and hidden while the assistant is answering.
-  const lastUserText = [...messages].reverse().find((message) => message.role === "user")?.text ?? "";
-  const followUps = lastUserText && !busy ? followUpSuggestions(lastUserText) : [];
 
   return (
     <>
@@ -947,29 +1013,33 @@ export function ImbonixAI() {
                 }
                 if (message.markdown !== undefined) {
                   return (
-                    <StreamedCard
-                      key={message.id}
-                      markdown={message.markdown}
-                      streaming={message.streaming}
-                      canSpeak={canSpeak}
-                      playback={playbackFor(message.id)}
-                      onPlay={() => speakAnswer(message.id, plainFromMarkdown(message.markdown ?? ""))}
-                      onPauseResume={togglePause}
-                      onStop={stopSpeaking}
-                    />
+                    <div key={message.id} data-msg-id={message.id} className="space-y-2">
+                      <StreamedCard
+                        markdown={message.markdown}
+                        streaming={message.streaming}
+                        canSpeak={canSpeak}
+                        playback={playbackFor(message.id)}
+                        onPlay={() => speakAnswer(message.id, plainFromMarkdown(message.markdown ?? ""))}
+                        onPauseResume={togglePause}
+                        onStop={stopSpeaking}
+                      />
+                      {!message.streaming && <FollowUps items={message.followUps} onAsk={ask} />}
+                    </div>
                   );
                 }
                 return (
-                  <AnswerCard
-                    key={message.id}
-                    answer={message.answer!}
-                    onAsk={ask}
-                    canSpeak={canSpeak}
-                    playback={playbackFor(message.id)}
-                    onPlay={() => speakAnswer(message.id, plainFromAnswer(message.answer!))}
-                    onPauseResume={togglePause}
-                    onStop={stopSpeaking}
-                  />
+                  <div key={message.id} data-msg-id={message.id} className="space-y-2">
+                    <AnswerCard
+                      answer={message.answer!}
+                      onAsk={ask}
+                      canSpeak={canSpeak}
+                      playback={playbackFor(message.id)}
+                      onPlay={() => speakAnswer(message.id, plainFromAnswer(message.answer!))}
+                      onPauseResume={togglePause}
+                      onStop={stopSpeaking}
+                    />
+                    <FollowUps items={message.followUps} onAsk={ask} />
+                  </div>
                 );
               })}
             </div>
@@ -994,25 +1064,6 @@ export function ImbonixAI() {
                 >
                   <XMarkIcon className="h-4 w-4" aria-hidden="true" />
                 </button>
-              </div>
-            )}
-
-            {followUps.length > 0 && (
-              <div
-                data-lenis-prevent
-                className="flex gap-2 overflow-x-auto border-t border-line bg-paper px-3 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                aria-label="Suggested questions"
-              >
-                {followUps.map((suggestion) => (
-                  <button
-                    key={suggestion}
-                    type="button"
-                    onClick={() => void ask(suggestion)}
-                    className="shrink-0 whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-[12.5px] font-semibold text-ink ring-1 ring-line transition-colors hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
-                  >
-                    {suggestion}
-                  </button>
-                ))}
               </div>
             )}
 

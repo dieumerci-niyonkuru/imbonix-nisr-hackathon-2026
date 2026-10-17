@@ -8,15 +8,20 @@ import { oneDecimal } from "@/components/focus/focus-shared";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { PovertyMapSection } from "@/components/home/poverty-map-section";
 import { ChartCard } from "@/components/ui/chart-card";
-import { SectionHeader } from "@/components/ui/section";
+import { type HeroStat, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import { DISTRICTS, PROVINCE_LABEL, PROVINCES, reference, valueOf, weightedRate } from "@/lib/data";
 import {
+  CHILD_POVERTY_BY_AGE,
+  CHILD_POVERTY_SOURCE,
   COOKING_FUELS,
   EICV7_PROFILE_SOURCE,
   ELECTRICITY_SOURCES,
+  FEMALE_HEADED_SHARE,
   LITERACY_BY_QUINTILE,
   LIVING_STANDARDS_BY_YEAR,
+  POVERTY_BY_HEADSHIP,
+  POVERTY_BY_HEADSHIP_SOURCE,
   SETTLEMENT_TYPES,
 } from "@/lib/eicv7-poverty-profile";
 import { POVERTY_TREND } from "@/lib/national";
@@ -78,6 +83,21 @@ const SECTIONS: PageSection[] = [
   { id: "living", label: "How households live" },
   { id: "deeper", label: "Go deeper" },
 ];
+
+/**
+ * The poverty story in three headline figures for the hero strip: how far poverty has fallen, how many people left it,
+ * and how deep it still is in the poorest district. Read from the same EICV tables as the charts below.
+ */
+export function povertyHeroStats(): HeroStat[] {
+  const [, now] = POVERTY_TREND;
+  const poverty = (district: (typeof DISTRICTS)[number]) => valueOf(district, "eicv7_poverty_rate");
+  const poorest = DISTRICTS.filter((district) => poverty(district) !== undefined).sort((a, b) => poverty(b)! - poverty(a)!)[0];
+  return [
+    { value: `${now.poverty}%`, label: "live in poverty" },
+    { value: `${PEOPLE_OUT_OF_POVERTY_MILLIONS}M`, label: "left poverty since 2016/17" },
+    { value: `${oneDecimal(poverty(poorest)!)}%`, label: `in ${poorest.name}, the poorest district` },
+  ];
+}
 
 /**
  * The poverty dynamics overview, as one story in sections with a menu under the header: the key figures, what changed
@@ -153,7 +173,7 @@ export function PovertyFocus() {
 
   return (
     <>
-      <SectionNav label="Poverty & vulnerability" sections={SECTIONS} />
+      <SectionNav label="Poverty reduction" sections={SECTIONS} />
 
       <div id="key-figures" className="scroll-mt-36">
         <FigureTiles
@@ -277,6 +297,39 @@ export function PovertyFocus() {
                 categoryKey="wealth"
                 series={SEX_SERIES}
                 description={`Used a bank account or mobile money in the past year, by wealth fifth. ${useByWealth.map((row) => `${row.wealth}: women ${row.women}%, men ${row.men}%`).join("; ")}.`}
+              />
+            </ChartCard>
+          </div>
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+            <ChartCard
+              id="chart-child-poverty"
+              title="Child poverty is falling fast — a step for vulnerable households"
+              note="Share of children who are multidimensionally poor: deprived at the same time in at least three of five dimensions (health, education, water, sanitation, housing), 2016/17 and 2023/24."
+              howToRead="Each pair is an age group: grey is 2016/17, cyan is 2023/24. A shorter cyan bar means fewer children are multidimensionally poor."
+              source={CHILD_POVERTY_SOURCE}
+            >
+              <ComparisonBars
+                rows={CHILD_POVERTY_BY_AGE}
+                categoryKey="age"
+                series={SURVEY_ROUND_SERIES}
+                description={`Multidimensional child poverty by age group. ${CHILD_POVERTY_BY_AGE.map((row) => `${row.age}: ${row.in2017}% then ${row.in2024}%`).join("; ")}.`}
+              />
+            </ChartCard>
+            <ChartCard
+              id="chart-poverty-by-headship"
+              title="Female-headed households are poorer"
+              note={`Poverty rate by the sex of the household head, 2023/24. About ${FEMALE_HEADED_SHARE}% of households are headed by women.`}
+              howToRead="Each bar is the poverty rate for households with that head; a longer bar means more are poor. The national rate is 27.4%."
+              source={POVERTY_BY_HEADSHIP_SOURCE}
+            >
+              <ValueBars
+                seriesName="Poverty rate"
+                bars={POVERTY_BY_HEADSHIP.map((row) => ({
+                  label: row.head,
+                  value: row.povertyRate,
+                  color: row.head === "Female-headed" ? CORE.cyan : MID_GREY,
+                }))}
+                description={`Poverty rate by sex of household head: ${POVERTY_BY_HEADSHIP.map((row) => `${row.head} ${row.povertyRate}%`).join(", ")}.`}
               />
             </ChartCard>
           </div>
