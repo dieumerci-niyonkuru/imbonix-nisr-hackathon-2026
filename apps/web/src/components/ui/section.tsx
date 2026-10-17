@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 
 export function SectionHeader({
@@ -36,6 +37,9 @@ export function SectionHeader({
 /** One headline figure for the hero strip: a big number and a short label. */
 export type HeroStat = { value: string; label: string };
 
+/** The official source the hero figures can be verified against, as a link under the strip. */
+export type HeroSource = { label: string; href: string };
+
 /**
  * The top of every page: breadcrumb, a short eyebrow, the page's question as the title, one line of context, and — when
  * the page has them — a compact row of headline figures. Kept deliberately short so a reader sees what the page is about
@@ -46,6 +50,7 @@ export function PageHero({
   title,
   intro,
   stats,
+  statsSource,
   children,
 }: {
   eyebrow: string;
@@ -53,6 +58,8 @@ export function PageHero({
   intro: ReactNode;
   /** A short row of headline figures under the intro, so the page's answer is clear without a tall panel. */
   stats?: HeroStat[];
+  /** The official NISR page the hero figures can be checked against, shown as a one-click verification link. */
+  statsSource?: HeroSource;
   children?: ReactNode;
 }) {
   const heading = (
@@ -77,16 +84,30 @@ export function PageHero({
           // edge with no empty strip and no tall boxed panel.
           <div className="mt-7 sm:mt-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
             <div>{heading}</div>
-            <dl className="mt-6 grid grid-cols-1 gap-x-6 gap-y-4 border-t border-line pt-5 min-[460px]:grid-cols-3 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-1">
-              {stats!.map((stat, index) => (
-                <div key={`${stat.value}-${index}`}>
-                  <dd className="font-display text-[26px] font-bold leading-none tracking-[-0.03em] text-cyan-ink sm:text-[28px]">
-                    {stat.value}
-                  </dd>
-                  <dt className="mt-1.5 text-[12.5px] leading-4 text-ink/75">{stat.label}</dt>
-                </div>
-              ))}
-            </dl>
+            <div className="mt-6 border-t border-line pt-5 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-1">
+              <dl className="grid grid-cols-1 gap-x-6 gap-y-4 min-[460px]:grid-cols-3">
+                {stats!.map((stat, index) => (
+                  <div key={`${stat.value}-${index}`}>
+                    <dd className="font-display text-[26px] font-bold leading-none tracking-[-0.03em] text-cyan-ink sm:text-[28px]">
+                      {stat.value}
+                    </dd>
+                    <dt className="mt-1.5 text-[12.5px] leading-4 text-ink/75">{stat.label}</dt>
+                  </div>
+                ))}
+              </dl>
+              {statsSource && (
+                <a
+                  href={statsSource.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-flex items-center gap-1.5 rounded text-[12.5px] font-semibold text-cyan-ink hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                >
+                  Verify these figures at NISR: {statsSource.label}
+                  <ArrowTopRightOnSquareIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              )}
+            </div>
           </div>
         ) : (
           <div className="mt-7 max-w-4xl sm:mt-8">{heading}</div>

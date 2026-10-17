@@ -6,7 +6,7 @@ import { PovertyFocus, povertyHeroStats } from "@/components/focus/poverty-focus
 import { ProtectionFocus, protectionHeroStats } from "@/components/focus/protection-focus";
 import { TextCard } from "@/components/home/story-cards";
 import { FOCUS_AREAS, NAV_GROUPS, type FocusAreaId } from "@/components/layout/nav";
-import { type HeroStat, PageHero, SectionHeader } from "@/components/ui/section";
+import { type HeroSource, type HeroStat, PageHero, SectionHeader } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 
 /** Each overview's headline figures, shown as a compact strip under its header so the page's answer is clear at a glance. */
@@ -14,6 +14,19 @@ const HERO_STATS: Record<FocusAreaId, HeroStat[]> = {
   exclusion: exclusionHeroStats(),
   poverty: povertyHeroStats(),
   protection: protectionHeroStats(),
+};
+
+/** The official NISR page each overview's hero figures can be checked against, for one-click verification. */
+const HERO_SOURCE: Record<FocusAreaId, HeroSource> = {
+  exclusion: { label: "FinScope 2024", href: "https://statistics.gov.rw/data-sources/surveys/FinScope-Survey" },
+  poverty: {
+    label: "EICV7 poverty & social protection",
+    href: "https://statistics.gov.rw/statistical-publications/poverty-and-social-protection",
+  },
+  protection: {
+    label: "EICV7 poverty & social protection",
+    href: "https://statistics.gov.rw/statistical-publications/poverty-and-social-protection",
+  },
 };
 
 /** The question each focus area answers, in plain words. */
@@ -50,6 +63,7 @@ export function FocusAreaPage({ areaId }: { areaId: FocusAreaId }) {
         title={QUESTIONS[area.id]}
         intro={`${group.intro} Every chart below says what it shows, where the figures come from and how far to trust them.`}
         stats={HERO_STATS[area.id]}
+        statsSource={HERO_SOURCE[area.id]}
       />
 
       {area.id === "exclusion" && <ExclusionFocus />}

@@ -17,8 +17,11 @@ import {
   COOKING_FUELS,
   EICV7_PROFILE_SOURCE,
   ELECTRICITY_SOURCES,
+  FEMALE_HEADED_SHARE,
   LITERACY_BY_QUINTILE,
   LIVING_STANDARDS_BY_YEAR,
+  POVERTY_BY_HEADSHIP,
+  POVERTY_BY_HEADSHIP_SOURCE,
   SETTLEMENT_TYPES,
 } from "@/lib/eicv7-poverty-profile";
 import { POVERTY_TREND } from "@/lib/national";
@@ -297,7 +300,7 @@ export function PovertyFocus() {
               />
             </ChartCard>
           </div>
-          <div className="mt-6">
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
             <ChartCard
               id="chart-child-poverty"
               title="Child poverty is falling fast — a step for vulnerable households"
@@ -310,6 +313,23 @@ export function PovertyFocus() {
                 categoryKey="age"
                 series={SURVEY_ROUND_SERIES}
                 description={`Multidimensional child poverty by age group. ${CHILD_POVERTY_BY_AGE.map((row) => `${row.age}: ${row.in2017}% then ${row.in2024}%`).join("; ")}.`}
+              />
+            </ChartCard>
+            <ChartCard
+              id="chart-poverty-by-headship"
+              title="Female-headed households are poorer"
+              note={`Poverty rate by the sex of the household head, 2023/24. About ${FEMALE_HEADED_SHARE}% of households are headed by women.`}
+              howToRead="Each bar is the poverty rate for households with that head; a longer bar means more are poor. The national rate is 27.4%."
+              source={POVERTY_BY_HEADSHIP_SOURCE}
+            >
+              <ValueBars
+                seriesName="Poverty rate"
+                bars={POVERTY_BY_HEADSHIP.map((row) => ({
+                  label: row.head,
+                  value: row.povertyRate,
+                  color: row.head === "Female-headed" ? CORE.cyan : MID_GREY,
+                }))}
+                description={`Poverty rate by sex of household head: ${POVERTY_BY_HEADSHIP.map((row) => `${row.head} ${row.povertyRate}%`).join(", ")}.`}
               />
             </ChartCard>
           </div>
