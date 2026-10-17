@@ -16,6 +16,9 @@ export type HeroCard = { title: string; body: string; href: string };
  * null to use the designed brand banner instead (data-network over brand cyan with the Rwanda emblem), no photo.
  */
 const HERO_PHOTO: string | null = "/hero/hero-analyst.jpg";
+/** The second hero photo, which slowly crossfades over the first: the people side (a vendor taking a mobile-money
+ * payment) after the data side (an analyst reading a district dashboard), so the banner quietly tells both. */
+const HERO_PHOTO_2 = "/hero/hero-market.jpg";
 
 /** What IMBONIX gives you, in three lines, under "Get to know IMBONIX" — the solution, plainly. */
 const SOLUTIONS = [
@@ -64,6 +67,13 @@ export function HomeHero({
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-cover bg-[position:50%_32%]"
               style={{ backgroundImage: `url(${HERO_PHOTO})` }}
+            />
+            {/* The second photo sits on top and slowly crossfades in and out, so the banner moves between the data side
+                and the people side. It settles on the first photo for anyone who prefers reduced motion. */}
+            <div
+              aria-hidden="true"
+              className="hero-photo-b pointer-events-none absolute inset-0 bg-cover bg-[position:50%_38%]"
+              style={{ backgroundImage: `url(${HERO_PHOTO_2})` }}
             />
             {/* A professional scrim in the brand colours, not a flat grey wash: a left-weighted dark gradient keeps the
                 white headline crisp while the photo stays visible on the right, and a cyan anchor fading up from the foot
