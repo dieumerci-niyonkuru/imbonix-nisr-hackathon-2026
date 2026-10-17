@@ -202,6 +202,31 @@ html.lenis body {
   }
 }
 
+/* Scroll-driven reveal: a block scales up and fades in as it scrolls into view, tied to the scroll position itself
+   (animation-timeline: view()) rather than a timer. Progressive enhancement — it only applies where the browser
+   supports scroll timelines and motion is allowed; everywhere else the block simply shows, never hidden. Tune the
+   distance, the start scale and the range here. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .scroll-reveal {
+      animation: reveal-scale linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance, 26px)) scale(var(--reveal-scale, 0.965));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Map shapes: smooth fill changes when the layer switches. */
 .map-shape {
   transition:
