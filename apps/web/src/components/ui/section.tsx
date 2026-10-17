@@ -1,6 +1,9 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+
+/** A staggered rise-in delay for a hero element, as a style object. Tune the rise itself with the CSS vars in globals.css. */
+const rise = (delay: string): CSSProperties => ({ "--rise-delay": delay }) as CSSProperties;
 
 export function SectionHeader({
   eyebrow,
@@ -64,14 +67,22 @@ export function PageHero({
 }) {
   const heading = (
     <>
-      <p className="eyebrow flex items-center gap-2.5 text-cyan-ink">
+      <p className="hero-rise eyebrow flex items-center gap-2.5 text-cyan-ink" style={rise("0ms")}>
         <BarsMotif />
         {eyebrow}
       </p>
-      <h1 className="mt-2.5 text-balance font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.03em] text-ink sm:text-[2.6rem]">
+      <h1
+        className="hero-rise mt-2.5 text-balance font-display text-[2rem] font-bold leading-[1.08] tracking-[-0.03em] text-ink sm:text-[2.6rem]"
+        style={rise("80ms")}
+      >
         {title}
       </h1>
-      <p className="mt-3 max-w-2xl text-pretty text-[15px] leading-6 text-muted sm:text-base sm:leading-7">{intro}</p>
+      <p
+        className="hero-rise mt-3 max-w-2xl text-pretty text-[15px] leading-6 text-muted sm:text-base sm:leading-7"
+        style={rise("170ms")}
+      >
+        {intro}
+      </p>
     </>
   );
   const hasStats = Boolean(stats && stats.length > 0);
@@ -84,7 +95,10 @@ export function PageHero({
           // edge with no empty strip and no tall boxed panel.
           <div className="mt-7 sm:mt-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
             <div>{heading}</div>
-            <div className="mt-6 border-t border-line pt-5 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-1">
+            <div
+              className="hero-rise mt-6 border-t border-line pt-5 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-1"
+              style={rise("250ms")}
+            >
               <dl className="grid grid-cols-1 gap-x-6 gap-y-4 min-[460px]:grid-cols-3">
                 {stats!.map((stat, index) => (
                   <div key={`${stat.value}-${index}`}>
