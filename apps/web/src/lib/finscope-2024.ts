@@ -19,6 +19,20 @@ export const INCLUSION_BY_ROUND = [
 export const INCLUDED_ADULTS_MILLIONS = 7.8;
 export const EXCLUDED_ADULTS = 316_000;
 
+/**
+ * Financial inclusion (formal and informal together) across the FinScope rounds, as NISR and AFR report the long-run
+ * series. Earlier rounds used different methods, so this is the headline overall-inclusion trend, not a like-for-like
+ * series for every sub-measure (banked and formal definitions changed — see the caveat on the data page).
+ */
+export const FINANCIAL_INCLUSION_TREND_SOURCE = "NISR/AFR FinScope surveys, 2008 to 2024";
+export const FINANCIAL_INCLUSION_TREND = [
+  { year: "2008", included: 48 },
+  { year: "2012", included: 72 },
+  { year: "2016", included: 89 },
+  { year: "2020", included: 93 },
+  { year: "2024", included: 96 },
+];
+
 /** Mobile money, 2020 and 2024. */
 export const MOBILE_MONEY_BY_ROUND = [
   { measure: "Registered wallet in own name", in2020: 60, in2024: 77 },
