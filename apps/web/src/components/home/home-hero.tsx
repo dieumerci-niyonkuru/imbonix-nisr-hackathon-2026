@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { HeroBackdrop } from "@/components/home/hero-backdrop";
 import { DistrictBackdrop } from "@/components/home/story-cards";
@@ -89,21 +90,28 @@ export function HomeHero({
         )}
         <div className="container-page relative pb-40 pt-[123px] sm:pb-44 sm:pt-[147px]">
           {!HERO_PHOTO && <RwandaEmblem tone="cyan" className="absolute right-10 top-14 hidden w-[25rem] xl:block" />}
-          <p className="font-display text-[18px] font-bold sm:text-[22px]">
+          <p
+            className="hero-rise font-display text-[18px] font-bold sm:text-[22px]"
+            style={{ "--rise-delay": "0ms" } as CSSProperties}
+          >
             Financial inclusion &amp; poverty reduction in Rwanda
           </p>
           <h1
             id="home-heading"
-            className="mt-3 max-w-3xl text-pretty font-display text-[1.15rem] font-bold leading-[1.35] tracking-[-0.01em] sm:text-[1.4rem] sm:leading-[1.3] lg:text-[1.65rem] lg:leading-[1.28]"
+            className="hero-rise mt-3 max-w-3xl text-pretty font-display text-[1.15rem] font-bold leading-[1.35] tracking-[-0.01em] sm:text-[1.4rem] sm:leading-[1.3] lg:text-[1.65rem] lg:leading-[1.28]"
+            style={{ "--rise-delay": "90ms" } as CSSProperties}
           >
             Use data to understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda,
             so that support reaches vulnerable households and decisions rest on evidence.
           </h1>
-          <p className="mt-6 max-w-2xl text-pretty text-[16.5px] leading-7 sm:text-[18px] sm:leading-8">
+          <p
+            className="hero-rise mt-6 max-w-2xl text-pretty text-[16.5px] leading-7 sm:text-[18px] sm:leading-8"
+            style={{ "--rise-delay": "190ms" } as CSSProperties}
+          >
             Built on NISR&apos;s published statistics for all {districtCount} districts and {sectorCount} sectors — FinScope,
             EICV7, DHS and the Census — brought together in one place you can explore.
           </p>
-          <p className="mt-5 text-[13.5px] font-semibold">
+          <p className="hero-rise mt-5 text-[13.5px] font-semibold" style={{ "--rise-delay": "290ms" } as CSSProperties}>
             An independent project built on NISR data, not an official NISR product. Every figure names its source.
           </p>
         </div>
@@ -112,8 +120,12 @@ export function HomeHero({
       <div className="bg-cyan-ink pb-16 text-white sm:pb-20">
         <div className="container-page relative -mt-28">
           <ul className="grid gap-px bg-line shadow-lift ring-1 ring-line sm:grid-cols-2 lg:grid-cols-4">
-            {cards.map((card) => (
-              <li key={card.href} className="bg-white">
+            {cards.map((card, index) => (
+              <li
+                key={card.href}
+                className="hero-rise bg-white"
+                style={{ "--rise-delay": `${380 + index * 90}ms` } as CSSProperties}
+              >
                 <Link
                   href={card.href}
                   className="group flex h-full flex-col p-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink sm:p-8"
