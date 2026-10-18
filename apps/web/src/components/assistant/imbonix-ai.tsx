@@ -433,9 +433,9 @@ function AnswerCard({
       {answer.stats && answer.stats.length > 0 && (
         <dl className="mt-3 grid grid-cols-2 gap-2">
           {answer.stats.map((stat) => (
-            <div key={stat.label} className="rounded-lg bg-paper px-3 py-2">
-              <dd className="font-display text-[20px] font-bold leading-none tracking-[-0.02em] text-cyan-ink">{stat.value}</dd>
-              <dt className="mt-1 text-[11.5px] leading-4 text-muted">{stat.label}</dt>
+            <div key={stat.label} className="rounded-xl bg-cyan-soft/60 px-3 py-2.5 ring-1 ring-cyan/15">
+              <dd className="font-display text-[21px] font-bold leading-none tracking-[-0.02em] text-cyan-ink">{stat.value}</dd>
+              <dt className="mt-1 text-[11.5px] leading-4 text-ink/70">{stat.label}</dt>
             </div>
           ))}
         </dl>
@@ -930,7 +930,13 @@ export function ImbonixAI() {
           <span className="ai-fab-core">
             {open ? <XMarkIcon className="h-6 w-6 text-cyan-ink" aria-hidden="true" /> : <AiMark className="h-7 w-7" />}
           </span>
-          {/* The name as a small tooltip on hover/focus (desktop); on phones the circular badge speaks for itself. */}
+          {/* A small, always-on "AI" badge, so the button reads as the assistant at a glance even before anyone hovers. */}
+          {!open && (
+            <span className="pointer-events-none absolute -bottom-1 -right-1 rounded-full bg-cyan-ink px-1.5 py-[1px] font-display text-[10px] font-extrabold leading-tight tracking-wide text-white shadow-sm ring-2 ring-white">
+              AI
+            </span>
+          )}
+          {/* The full name as a small tooltip on hover/focus (desktop); on phones the circular badge speaks for itself. */}
           {!open && (
             <span className="ai-fab-label pointer-events-none absolute right-full top-1/2 mr-3 whitespace-nowrap rounded-full bg-ink/90 px-3 py-1.5 font-display text-[13px] font-semibold text-white opacity-0 shadow-lift">
               Ask IMBONIX AI
@@ -949,7 +955,9 @@ export function ImbonixAI() {
             aria-modal="false"
             className="fixed inset-x-3 bottom-3 top-16 z-[56] flex flex-col overflow-hidden rounded-3xl bg-paper shadow-lift ring-1 ring-line motion-safe:animate-fade-up sm:inset-x-auto sm:bottom-24 sm:right-6 sm:top-auto sm:h-[min(620px,78vh)] sm:w-[400px]"
           >
-            <div className="flex items-center justify-between gap-3 border-b border-line bg-white px-4 py-3">
+            {/* A thin brand-gradient accent across the very top, for a premium, finished feel. */}
+            <span className="h-1 w-full shrink-0 bg-gradient-to-r from-cyan via-cyan-ink to-cyan" aria-hidden="true" />
+            <div className="flex items-center justify-between gap-3 border-b border-line bg-gradient-to-b from-white to-cyan-soft/40 px-4 py-3">
               <div className="flex items-center gap-2.5">
                 <span className="ai-ring-static flex h-9 w-9 items-center justify-center rounded-full p-[2.5px] shadow-sm">
                   <span className="flex h-full w-full items-center justify-center rounded-full bg-white">
@@ -957,7 +965,9 @@ export function ImbonixAI() {
                   </span>
                 </span>
                 <div>
-                  <p className="font-display text-[15px] font-bold leading-4 text-ink">IMBONIX AI</p>
+                  <p className="font-display text-[15px] font-bold leading-4 text-ink">
+                    IMBONIX <span className="text-cyan-ink">AI</span>
+                  </p>
                   <p className="mt-0.5 flex items-center gap-1.5 text-[11.5px] leading-4 text-muted">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan motion-safe:animate-pulse" aria-hidden="true" />
                     Grounded in NISR data
