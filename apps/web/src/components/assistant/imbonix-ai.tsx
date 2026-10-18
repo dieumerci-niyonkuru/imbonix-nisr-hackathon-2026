@@ -920,24 +920,20 @@ export function ImbonixAI() {
           aria-expanded={open}
           aria-controls={panelId}
           aria-label={open ? "Close IMBONIX AI" : "Ask IMBONIX AI"}
-          className="group/ai relative inline-flex items-center whitespace-nowrap rounded-full bg-[linear-gradient(135deg,var(--ai-from),var(--ai-to))] p-[var(--ai-pad)] pr-3.5 text-white shadow-lift ring-1 ring-cyan-ink/30 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
+          className="ai-fab shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
         >
-          {!open && <span className="ai-halo pointer-events-none absolute inset-0 rounded-full" aria-hidden="true" />}
-          <span className="relative flex h-[var(--ai-disc)] w-[var(--ai-disc)] shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-cyan-ink/10">
-            {open ? <XMarkIcon className="h-5 w-5 text-cyan-ink" aria-hidden="true" /> : <AiMark className="h-7 w-7" />}
+          {/* A breathing glow and a slowly rotating gradient ring make the mark feel alive; both settle under reduced motion. */}
+          {!open && <span className="ai-fab-glow" aria-hidden="true" />}
+          {!open && <span className="ai-fab-ring" aria-hidden="true" />}
+          {/* When open, a calm solid ring with a close icon, so it reads clearly as "close". */}
+          {open && <span className="absolute inset-0 rounded-full bg-cyan-ink" aria-hidden="true" />}
+          <span className="ai-fab-core">
+            {open ? <XMarkIcon className="h-6 w-6 text-cyan-ink" aria-hidden="true" /> : <AiMark className="h-7 w-7" />}
           </span>
-          {open ? (
-            <span className="px-2.5 font-display text-[15px] font-bold">Close</span>
-          ) : (
-            <span className="flex items-baseline gap-1 pl-2 font-display leading-none">
-              {/* "Ask IMBONIX" opens out from zero width on hover/focus; "AI" stays, so the mark always reads as AI. */}
-              <span className="duration-[var(--ai-reveal)] grid grid-cols-[0fr] transition-[grid-template-columns] ease-out group-hover/ai:grid-cols-[1fr] group-focus-visible/ai:grid-cols-[1fr]">
-                <span className="flex items-baseline gap-1 overflow-hidden">
-                  <span className="text-[13px] font-semibold text-white/85">Ask</span>
-                  <span className="text-[15px] font-bold tracking-[-0.01em]">IMBONIX</span>
-                </span>
-              </span>
-              <span className="text-[13px] font-semibold text-white/85">AI</span>
+          {/* The name as a small tooltip on hover/focus (desktop); on phones the circular badge speaks for itself. */}
+          {!open && (
+            <span className="ai-fab-label pointer-events-none absolute right-full top-1/2 mr-3 whitespace-nowrap rounded-full bg-ink/90 px-3 py-1.5 font-display text-[13px] font-semibold text-white opacity-0 shadow-lift">
+              Ask IMBONIX AI
             </span>
           )}
         </button>
@@ -955,8 +951,10 @@ export function ImbonixAI() {
           >
             <div className="flex items-center justify-between gap-3 border-b border-line bg-white px-4 py-3">
               <div className="flex items-center gap-2.5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white ring-1 ring-line">
-                  <AiMark className="h-6 w-6" />
+                <span className="ai-ring-static flex h-9 w-9 items-center justify-center rounded-full p-[2.5px] shadow-sm">
+                  <span className="flex h-full w-full items-center justify-center rounded-full bg-white">
+                    <AiMark className="h-6 w-6" />
+                  </span>
                 </span>
                 <div>
                   <p className="font-display text-[15px] font-bold leading-4 text-ink">IMBONIX AI</p>
