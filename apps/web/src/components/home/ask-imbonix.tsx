@@ -99,7 +99,7 @@ export function AskImbonix() {
                 className="inline-flex min-h-12 items-center gap-2 rounded bg-cyan px-7 text-[15px] font-bold text-ink transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
               >
                 <AiMark className="h-5 w-5" />
-                Ask IMBONIX
+                Ask IMBONIX AI
                 <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
