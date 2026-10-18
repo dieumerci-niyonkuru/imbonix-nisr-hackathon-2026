@@ -227,6 +227,35 @@ html.lenis body {
   }
 }
 
+/* The floating "Ask IMBONIX AI" launcher (components/assistant/imbonix-ai.tsx): a round brand mark that opens out to
+   its label on hover or focus, so it stays small until it is wanted. Restyle the whole thing from here — the disc size,
+   the space around it, the pill's gradient, how fast the label opens, and the attention halo's colour. The
+   reduced-motion rule at the end of this file settles the halo and opens the label instantly. */
+.ai-launcher {
+  --ai-disc: 2.5rem; /* diameter of the white emblem disc */
+  --ai-pad: 0.375rem; /* space around the disc */
+  --ai-from: var(--cyan); /* pill gradient, start */
+  --ai-to: var(--cyan-ink); /* pill gradient, end */
+  --ai-reveal: 260ms; /* how fast the label opens */
+  --ai-halo: var(--cyan); /* the attention halo colour */
+}
+
+/* A soft halo that pulses outward from the pill, to draw the eye to the assistant without nagging. It sits on its own
+   layer so it never fights the pill's drop shadow. */
+.ai-halo {
+  animation: ai-halo 3s ease-out infinite;
+}
+
+@keyframes ai-halo {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--ai-halo) 50%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+}
+
 /* Map shapes: smooth fill changes when the layer switches. */
 .map-shape {
   transition:
