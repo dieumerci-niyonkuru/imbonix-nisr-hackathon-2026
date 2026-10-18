@@ -11,6 +11,15 @@ import {
   MOBILE_MONEY_BY_ROUND,
 } from "@/lib/finscope-2024";
 import { EICV7_PROFILE_SOURCE, LIVING_STANDARDS_BY_YEAR, POVERTY_RATE_BY_YEAR } from "@/lib/eicv7-poverty-profile";
+import {
+  PEOPLE_OUT_OF_POVERTY_MILLIONS,
+  PEOPLE_OUT_OF_POVERTY_PER_YEAR,
+  POVERTY_AMONG_VUP_BENEFICIARIES,
+  SOCIAL_PROTECTION_SOURCE,
+  VUP_BENEFICIARIES,
+  VUP_BENEFICIARIES_BY_PROGRAMME,
+  VUP_SHARE_BY_SEX,
+} from "@/lib/poverty-social-protection";
 import { NATIONAL_FRAMEWORKS, TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/national-targets";
 import { SITE_FACTS } from "@/lib/site-facts";
 import { sectorsOf } from "@/lib/sectors";
@@ -64,6 +73,10 @@ function buildNationalFindings(): string {
   const targets = TARGET_PROGRESS.map((row) => `${row.measure} ${row.baseline}% now, target ${row.target}% by ${row.by}`).join(
     "; ",
   );
+  const vupWomen = VUP_SHARE_BY_SEX.find((row) => row.sex === "Women")?.beneficiaries;
+  const vupProgrammes = VUP_BENEFICIARIES_BY_PROGRAMME.map((row) => `${row.programme} ${row.share}%`).join(", ");
+  const vupPoverty = POVERTY_AMONG_VUP_BENEFICIARIES.find((row) => /vup/i.test(row.group))?.povertyRate;
+  const allPoverty = POVERTY_AMONG_VUP_BENEFICIARIES.find((row) => !/vup/i.test(row.group))?.povertyRate;
   return [
     "## National figures and the headline story",
     `National priorities: this work serves ${NATIONAL_FRAMEWORKS.join(", ")}. Tracked targets (${TARGETS_SOURCE}): ${targets}.`,
@@ -74,6 +87,13 @@ function buildNationalFindings(): string {
     `Mobile money (${FINSCOPE_2024_SOURCE}): ${mobile}.`,
     `Poverty (${EICV7_PROFILE_SOURCE}): the poverty rate fell from ${poverty2017.povertyRate}% in ${poverty2017.year} to ${poverty2024.povertyRate}% in ${poverty2024.year}. ` +
       `Living conditions (2016/17→2023/24): ${living}.`,
+    `Social protection (${SOCIAL_PROTECTION_SOURCE}): the Vision 2020 Umurenge Programme (VUP) — Rwanda's main scheme, with ` +
+      `Direct Support cash for households who cannot work, paid public works, and financial services — reaches about ` +
+      `${VUP_BENEFICIARIES.toLocaleString("en-US")} people. About ${vupWomen}% of beneficiaries are women. By programme: ${vupProgrammes}. ` +
+      `Poverty among VUP beneficiaries is ${vupPoverty}% versus ${allPoverty}% nationally (they are poorer because the programme ` +
+      `targets the poorest). Growth lifted about ${PEOPLE_OUT_OF_POVERTY_MILLIONS} million people out of poverty between 2017 and ` +
+      `2024 (around ${PEOPLE_OUT_OF_POVERTY_PER_YEAR.toLocaleString("en-US")} a year). The open question for impact is whether VUP ` +
+      `payments arrive on time.`,
     `Scale IMBONIX covers: ${SITE_FACTS.districts} districts and ${SITE_FACTS.sectors} sectors, ${SITE_FACTS.indicators} district ` +
       `indicators from ${SITE_FACTS.publications} NISR and partner publications (${SITE_FACTS.calculated} are labelled IMBONIX calculations), ` +
       `plus a searchable catalogue of the full microdata library and a place search down to cells and villages.`,
