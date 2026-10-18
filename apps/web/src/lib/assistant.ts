@@ -2,6 +2,15 @@ import { resolvePlaceHit } from "@/lib/ai-places";
 import { CATALOG_STUDIES, CATALOG_THEMES, CATALOG_YEARS } from "@/lib/catalog";
 import { DISTRICTS, PROVINCE_LABEL, rankOf, reference, SOURCES, valueOf, type District } from "@/lib/data";
 import { FINANCIAL_HEALTH_SEGMENTS, FINSCOPE_2024_SOURCE, INCLUSION_BY_ROUND } from "@/lib/finscope-2024";
+import { EICV7_PROFILE_SOURCE, POVERTY_RATE_BY_YEAR } from "@/lib/eicv7-poverty-profile";
+import {
+  POVERTY_AMONG_VUP_BENEFICIARIES,
+  SOCIAL_PROTECTION_SOURCE,
+  VUP_BENEFICIARIES,
+  VUP_BENEFICIARIES_BY_PROGRAMME,
+  VUP_SHARE_BY_SEX,
+} from "@/lib/poverty-social-protection";
+import { SITE_FACTS } from "@/lib/site-facts";
 import { formatValue, ordinal } from "@/lib/format";
 import { meta, type IndicatorMeta } from "@/lib/indicators";
 
@@ -30,27 +39,84 @@ const TOPICS: { id: string; words: string[] }[] = [
       "not formally included",
       "outside formal finance",
       "financial access",
+      "access to finance",
       "unbanked",
       "excluded",
       "exclusion",
     ],
   },
-  { id: "finscope_banked", words: ["bank account", "banked", "banking", "bank"] },
-  { id: "eicv7_health_insurance", words: ["health insurance", "health cover", "mutuelle", "cbhi", "insurance"] },
-  { id: "dhs_stunting", words: ["child stunting", "stunting", "stunted", "malnutrition", "nutrition"] },
+  {
+    id: "finscope_formally_included",
+    words: ["formally included", "formally served", "formal finance", "formal financial services", "formal services"],
+  },
+  { id: "finscope_banked", words: ["bank account", "banked", "banking", "have a bank", "own account", "bank"] },
+  {
+    id: "eicv7_health_insurance",
+    words: ["health insurance", "health cover", "health coverage", "mutuelle", "cbhi", "insurance"],
+  },
+  { id: "dhs_stunting", words: ["child stunting", "stunting", "stunted", "chronic malnutrition", "malnutrition", "nutrition"] },
   { id: "dhs_underweight", words: ["underweight children", "underweight"] },
-  { id: "lfs_unemployment_rate", words: ["unemployment rate", "unemployment", "unemployed", "jobless"] },
-  { id: "lfs_neet_youth", words: ["youth not in work", "neet", "idle youth"] },
-  { id: "lfs_median_monthly_earnings", words: ["median earnings", "earnings", "income", "wages", "salary", "pay"] },
-  { id: "eicv7_electricity_lighting", words: ["electricity", "power", "lighting"] },
-  { id: "eicv7_internet_home", words: ["internet at home", "internet", "online"] },
+  { id: "dhs_wasting", words: ["wasting", "acute malnutrition"] },
+  {
+    id: "lfs_unemployment_rate",
+    words: ["unemployment rate", "unemployment", "unemployed", "jobless", "out of work", "no job", "jobs"],
+  },
+  { id: "lfs_neet_youth", words: ["youth not in work", "neet", "idle youth", "young people not in work"] },
+  {
+    id: "lfs_median_monthly_earnings",
+    words: ["median earnings", "earnings", "income", "incomes", "wages", "salary", "salaries", "pay", "how much people earn"],
+  },
+  { id: "lfs_participation_rate", words: ["labour force participation", "labor force participation", "participation rate"] },
+  { id: "eicv7_electricity_lighting", words: ["electricity", "power", "lighting", "access to electricity"] },
+  { id: "eicv7_internet_home", words: ["internet at home", "internet", "online", "broadband"] },
   { id: "eicv7_hh_smartphone", words: ["smartphone", "smart phone"] },
-  { id: "eicv7_hh_mobile_phone", words: ["mobile phone", "phone ownership"] },
-  { id: "eicv7_improved_water", words: ["drinking water", "clean water", "water"] },
-  { id: "eicv7_improved_sanitation", words: ["sanitation", "toilet"] },
-  { id: "cfsva_hazard_any", words: ["natural hazard", "hazard", "disaster", "climate shock", "drought", "flood", "landslide"] },
+  { id: "eicv7_hh_mobile_phone", words: ["mobile phone", "phone ownership", "own a phone"] },
+  { id: "eicv7_improved_water", words: ["drinking water", "clean water", "safe water", "water"] },
+  { id: "eicv7_improved_sanitation", words: ["sanitation", "improved toilet", "toilet", "latrine"] },
+  {
+    id: "cfsva_hazard_any",
+    words: [
+      "natural hazard",
+      "hazard",
+      "disaster",
+      "climate shock",
+      "shocks",
+      "drought",
+      "flood",
+      "floods",
+      "landslide",
+      "landslides",
+    ],
+  },
+  {
+    id: "cfsva_inadequate_food_consumption",
+    words: [
+      "food insecurity",
+      "food insecure",
+      "inadequate food",
+      "not enough food",
+      "hunger",
+      "food consumption",
+      "food security",
+    ],
+  },
   { id: "census_mpi_headcount", words: ["multidimensional poverty", "multidimensionally poor", "mpi"] },
-  { id: "eicv7_poverty_rate", words: ["poverty rate", "poverty", "poor"] },
+  {
+    id: "census_female_headed_hh",
+    words: [
+      "female headed",
+      "female-headed",
+      "women headed",
+      "women-headed",
+      "households headed by women",
+      "female headed households",
+    ],
+  },
+  {
+    id: "census_disability_prevalence",
+    words: ["disability", "disabled", "people with disabilities", "living with a disability"],
+  },
+  { id: "eicv7_poverty_rate", words: ["poverty rate", "poverty", "poor", "deprivation", "how poor"] },
 ];
 /** The compact profile shown for a district overview or a comparison. */
 const PROFILE_IDS = [
@@ -60,8 +126,8 @@ const PROFILE_IDS = [
   "lfs_unemployment_rate",
   "eicv7_health_insurance",
 ];
-const HIGH_WORDS = ["highest", "most", "worst", "top", "biggest", "greatest"];
-const LOW_WORDS = ["lowest", "least", "best", "bottom", "smallest", "fewest"];
+const HIGH_WORDS = ["highest", "most", "worst", "top", "biggest", "greatest", "poorest", "most affected"];
+const LOW_WORDS = ["lowest", "least", "best", "bottom", "smallest", "fewest", "richest", "wealthiest", "least affected"];
 /** Common questions that aren't about one district or measure, answered from the figures the site already holds. */
 const DATASET_WORDS = [
   "dataset",
@@ -84,6 +150,128 @@ const HELP_WORDS = [
   "what can you help",
   "your capabilities",
   "what are you",
+];
+/** Social protection questions, answered from the VUP figures the site holds. */
+const VUP_WORDS = [
+  "vup",
+  "social protection",
+  "social safety",
+  "safety net",
+  "cash transfer",
+  "direct support",
+  "public works",
+  "nsds",
+  "vision 2020 umurenge",
+];
+/** "How many …" questions about Rwanda's units and the data, answered from the site's own counts. */
+const COUNT_WORDS = ["how many", "number of", "count of"];
+/** Broad "how is Rwanda doing" questions, answered with a short national snapshot. */
+const NATIONAL_WORDS = [
+  "how is rwanda",
+  "rwanda overall",
+  "national picture",
+  "overview of rwanda",
+  "tell me about rwanda",
+  "rwanda overview",
+  "how is the country",
+  "state of rwanda",
+  "rwanda in general",
+  "national overview",
+  "how is rwanda doing",
+];
+/** A greeting or thanks with nothing else — met with a warm welcome instead of a blank fallback. */
+const GREETING_RE =
+  /^(hi|hello|hey|hiya|yo|greetings|good (morning|afternoon|evening)|muraho|mwaramutse|thanks?|thank you|bye|goodbye|welcome)\b/;
+/** A request for a definition rather than a figure. */
+const DEFINE_RE = /\b(what\s+(is|are|does)\s+|what's\s+|define\b|definition of\b|meaning of\b|what do you mean\b|explain\s+)/;
+
+/** Plain-language definitions of the NISR terms the site uses, so "what is X" is answered without inventing a figure. */
+type Definition = { words: string[]; heading: string; body: string; links?: AnswerLink[] };
+const DEFINITIONS: Definition[] = [
+  {
+    words: ["financial inclusion", "financially included", "financial inclusivity"],
+    heading: "Financial inclusion",
+    body: "Financial inclusion means using at least one financial service — formal or informal — such as a bank, mobile money, a SACCO, insurance or a savings group. In Rwanda access is now almost universal; the harder goal is financial health.",
+    links: [{ href: "/financial-exclusion", label: "Financial inclusion" }],
+  },
+  {
+    words: ["financial exclusion", "financially excluded", "unbanked"],
+    heading: "Financial exclusion",
+    body: "Someone is financially excluded when they use no financial service at all — not a bank, mobile money, a SACCO, insurance or a savings group. It is the share of adults left outside every kind of finance.",
+    links: [{ href: "/financial-exclusion", label: "Financial inclusion" }],
+  },
+  {
+    words: ["formally served", "formally included", "formal finance"],
+    heading: "Formally served",
+    body: "Being formally served means using a regulated provider — a bank, mobile money, a SACCO, insurance or a pension. It is broader than being banked, which means holding your own bank account.",
+    links: [{ href: "/financial-exclusion/access-and-use", label: "Access and use" }],
+  },
+  {
+    words: ["financial health", "financially healthy"],
+    heading: "Financial health",
+    body: "Financial health is harder than access: it means managing money day to day, being able to save for the future, and coping with a shock — not just holding an account. It is the gap IMBONIX focuses on.",
+    links: [{ href: "/financial-exclusion", label: "Financial inclusion" }],
+  },
+  {
+    words: ["multidimensional poverty", "mpi", "multidimensionally poor"],
+    heading: "Multidimensional poverty",
+    body: "Multidimensional poverty counts people who are deprived at the same time in several dimensions of wellbeing — such as health, education, water, sanitation and housing — not only in income. It shows hardship that a money-only measure can miss.",
+    links: [{ href: "/poverty-dynamics", label: "Poverty reduction" }],
+  },
+  {
+    words: ["extreme poverty", "food poverty"],
+    heading: "Extreme poverty",
+    body: "Extreme poverty is being below the food (extreme) poverty line — consumption too low to meet basic food needs. It is a deeper line than the national poverty line.",
+    links: [{ href: "/poverty-dynamics", label: "Poverty reduction" }],
+  },
+  {
+    words: ["poverty line", "poverty rate", "poverty headcount", "headcount"],
+    heading: "Poverty rate (headcount)",
+    body: "The poverty rate, or headcount, is the share of people whose yearly consumption falls below the national poverty line. It counts how many are poor, not how far below the line they are.",
+    links: [{ href: "/data/key-figures", label: "Rwanda in figures" }],
+  },
+  {
+    words: ["stunting", "stunted", "chronic malnutrition"],
+    heading: "Child stunting",
+    body: "Stunting is when a child is too short for their age because of long-term undernutrition — a sign of chronic malnutrition in the first years of life, which can affect health and learning for good.",
+    links: [{ href: "/poverty-dynamics/trends", label: "Trends" }],
+  },
+  {
+    words: ["ubudehe"],
+    heading: "Ubudehe category",
+    body: "Ubudehe is Rwanda's official socio-economic categorisation of households, used to target support such as VUP and health-insurance subsidies to those who need it most.",
+    links: [{ href: "/social-protection", label: "Social protection" }],
+  },
+  {
+    words: ["sacco", "tontine", "savings group", "savings and credit"],
+    heading: "SACCO and tontine",
+    body: "A SACCO is a member-owned savings and credit cooperative (Umurenge SACCOs serve every sector). A tontine is an informal rotating savings and credit group. Both help people save and borrow outside the banks.",
+    links: [{ href: "/financial-exclusion/access-and-use", label: "Access and use" }],
+  },
+  {
+    words: ["mobile money", "momo"],
+    heading: "Mobile money",
+    body: "Mobile money lets people send, receive, save and pay using a phone account rather than a bank. It is the main reason formal financial access in Rwanda is now nearly universal.",
+    links: [{ href: "/financial-exclusion/access-and-use", label: "Access and use" }],
+  },
+  {
+    words: ["neet", "not in employment"],
+    heading: "NEET (youth not in work or study)",
+    body: "NEET means young people who are Not in Employment, Education or Training — neither working nor studying. It is a key sign of how well young people are moving into work.",
+    links: [{ href: "/poverty-dynamics/trends", label: "Trends" }],
+  },
+  {
+    words: ["small area estimation", "model estimate", "sae"],
+    heading: "Small-area estimation",
+    body: "Small-area estimation is a statistical model NISR uses to estimate figures for areas too small for the survey sample — such as sector poverty rates. Treat these as model estimates, and compare sectors only within the same district.",
+    links: [{ href: "/poverty-dynamics/district-map", label: "District map" }],
+  },
+  {
+    words: ["eicv", "finscope", "dhs", "cfsva", "rphc", "census"],
+    heading: "Rwanda's NISR surveys",
+    body: "IMBONIX is built on NISR's surveys and censuses: EICV (living conditions and poverty), FinScope (financial inclusion), the DHS (health and nutrition), the CFSVA (food security and shocks), the labour force survey, and the 2022 Population and Housing Census (RPHC5).",
+    links: [{ href: "/data/key-figures", label: "Rwanda in figures" }],
+  },
 ];
 const hasAny = (query: string, words: string[]) => words.some((word) => query.includes(word));
 
@@ -139,6 +327,8 @@ function extremes(indicator: IndicatorMeta, high: boolean): Answer {
   const ranked = DISTRICTS.filter((district) => valueOf(district, indicator.id) !== undefined).sort(
     (first, second) => (high ? 1 : -1) * (valueOf(second, indicator.id)! - valueOf(first, indicator.id)!),
   );
+  // A measure published only nationally (no per-district values) has no "highest district" — answer it for Rwanda instead.
+  if (ranked.length === 0) return nationalTopic(indicator);
   const short = indicator.short.toLowerCase();
   const top = ranked[0];
   return {
@@ -285,13 +475,120 @@ function helpAnswer(): Answer {
   };
 }
 
+/** How social protection (the VUP) reaches people, from the NISR poverty and social-protection figures. */
+function vupAnswer(): Answer {
+  const women = VUP_SHARE_BY_SEX.find((row) => row.sex === "Women")?.beneficiaries;
+  const vupPoverty = POVERTY_AMONG_VUP_BENEFICIARIES.find((row) => /vup/i.test(row.group))?.povertyRate;
+  return {
+    heading: `VUP reaches about ${VUP_BENEFICIARIES.toLocaleString("en-US")} people`,
+    body:
+      "The Vision 2020 Umurenge Programme (VUP) is Rwanda's main social protection scheme: cash for households who cannot " +
+      "work (Direct Support), paid public works, and financial services. It is targeted at the poorest, and most " +
+      "beneficiaries are women. The gap to watch is whether payments reach people on time.",
+    stats: [
+      { value: VUP_BENEFICIARIES.toLocaleString("en-US"), label: "VUP beneficiaries" },
+      ...(women !== undefined ? [{ value: `${women}%`, label: "are women" }] : []),
+      ...(vupPoverty !== undefined ? [{ value: `${vupPoverty}%`, label: "of beneficiaries are poor" }] : []),
+    ],
+    rows: VUP_BENEFICIARIES_BY_PROGRAMME.map((programme) => ({ label: programme.programme, value: `${programme.share}%` })),
+    rowsCaption: "VUP beneficiaries by programme",
+    source: SOCIAL_PROTECTION_SOURCE,
+    status: "observed",
+    links: [
+      { href: "/social-protection", label: "Social protection" },
+      { href: "/social-protection/priority-districts", label: "Where to act first" },
+    ],
+  };
+}
+
+/** A short national snapshot, for a broad "how is Rwanda doing" question. */
+function nationalOverview(): Answer {
+  const latest = POVERTY_RATE_BY_YEAR[POVERTY_RATE_BY_YEAR.length - 1];
+  const included = INCLUSION_BY_ROUND.find((row) => row.measure === "Financially included")?.in2024;
+  const healthy = FINANCIAL_HEALTH_SEGMENTS.find((segment) => segment.segment === "Financially healthy")?.share;
+  const stunting = meta("dhs_stunting");
+  return {
+    heading: "Rwanda at a glance",
+    body:
+      "The headline picture from NISR's latest figures: poverty is falling and financial access is almost universal, but " +
+      "financial health and child nutrition still lag. That gap — reaching people, versus leaving them resilient — is what " +
+      "IMBONIX examines.",
+    stats: [
+      ...(latest ? [{ value: `${latest.povertyRate}%`, label: `Poverty rate (${latest.year})` }] : []),
+      ...(included !== undefined ? [{ value: `${included}%`, label: "Financially included (2024)" }] : []),
+      ...(healthy !== undefined ? [{ value: `${healthy}%`, label: "Financially healthy (2024)" }] : []),
+      ...(stunting.national !== undefined ? [{ value: formatValue(stunting, stunting.national), label: "Child stunting" }] : []),
+    ],
+    source: `${EICV7_PROFILE_SOURCE}; ${FINSCOPE_2024_SOURCE}`,
+    status: "observed",
+    links: [
+      { href: "/data/key-figures", label: "Rwanda in figures" },
+      { href: "/poverty-dynamics", label: "Poverty reduction" },
+      { href: "/financial-exclusion", label: "Financial inclusion" },
+    ],
+  };
+}
+
+/** How many of a unit (districts, sectors, cells, villages, indicators, studies) there are, from the site's own counts. */
+function countsAnswer(query: string): Answer | null {
+  const facts: { words: string[]; value: string; label: string }[] = [
+    { words: ["district"], value: String(SITE_FACTS.districts), label: "districts" },
+    { words: ["sector"], value: String(SITE_FACTS.sectors), label: "sectors" },
+    { words: ["cell"], value: SITE_FACTS.cells.toLocaleString("en-US"), label: "cells" },
+    { words: ["village", "umudugudu"], value: SITE_FACTS.villages.toLocaleString("en-US"), label: "villages" },
+    { words: ["indicator", "measure"], value: String(SITE_FACTS.indicators), label: "district indicators" },
+    { words: ["province"], value: "5", label: "provinces (plus the City of Kigali)" },
+    { words: ["study", "studies", "survey", "dataset"], value: String(CATALOG_STUDIES.length), label: "NISR studies" },
+  ];
+  const hit = facts.find((fact) => fact.words.some((word) => query.includes(word)));
+  if (!hit) return null;
+  return {
+    heading: `Rwanda has ${hit.value} ${hit.label}`,
+    body:
+      `IMBONIX covers all ${SITE_FACTS.districts} districts and ${SITE_FACTS.sectors} sectors, with place search down to ` +
+      `${SITE_FACTS.cells.toLocaleString("en-US")} cells and ${SITE_FACTS.villages.toLocaleString("en-US")} villages, over ` +
+      `${SITE_FACTS.indicators} district indicators from ${CATALOG_STUDIES.length} NISR studies.`,
+    stats: [{ value: hit.value, label: hit.label }],
+    source: "NISR administrative units and published indicators",
+    links: [
+      { href: "/data/key-figures", label: "Rwanda in figures" },
+      { href: "/districts", label: "All 30 districts" },
+    ],
+  };
+}
+
+/** A plain-language definition of a NISR term, for a "what is X" question. */
+function definitionAnswer(concept: Definition): Answer {
+  return {
+    heading: concept.heading,
+    body: concept.body,
+    source: "Definition follows NISR's own usage",
+    links: concept.links ?? [{ href: "/data/key-figures", label: "Rwanda in figures" }],
+  };
+}
+
+/** A warm welcome for a greeting or thanks, so the first message is friendly, not a blank fallback. */
+function greetingAnswer(): Answer {
+  return {
+    heading: "Hello — ask me about Rwanda's data",
+    body:
+      "I'm IMBONIX AI. Ask about any of Rwanda's 30 districts or the measures behind poverty and financial inclusion — a " +
+      "single figure, where a measure is highest or lowest, a comparison of two places, what a term means, or how social " +
+      "protection reaches people. Every answer comes from NISR's published figures, with the source named.",
+    links: [
+      { href: "/data/key-figures", label: "Rwanda in figures" },
+      { href: "/districts", label: "All 30 districts" },
+    ],
+  };
+}
+
 export const SUGGESTIONS = [
   "How poor is Rulindo?",
   "Where is financial exclusion highest?",
   "Compare Rulindo and Gasabo",
-  "Which district has the most child stunting?",
-  "Explain financial health vs. access",
-  "What datasets do you have?",
+  "What is multidimensional poverty?",
+  "How does VUP reach people?",
+  "How is Rwanda doing overall?",
 ];
 
 /**
@@ -314,6 +611,8 @@ export function answerQuery(raw: string): Answer {
   const wantsHigh = HIGH_WORDS.some((word) => query.includes(word));
   const wantsLow = LOW_WORDS.some((word) => query.includes(word));
   const wantsCompare = /\b(compare|versus|vs\.?|against)\b/.test(query) || districts.length >= 2;
+  const wantsDefine = DEFINE_RE.test(query);
+  const concept = wantsDefine ? DEFINITIONS.find((entry) => entry.words.some((word) => query.includes(word))) : undefined;
 
   // When the place found was a sector, cell or village, open the answer by naming where it sits.
   const withPlace = (answer: Answer): Answer =>
@@ -327,14 +626,28 @@ export function answerQuery(raw: string): Answer {
         }
       : answer;
 
+  // Conversational and broad intents first, so a plain "what is …", "how many …", a VUP question or a greeting is met
+  // directly rather than falling through to a figure or a blank fallback.
   if (districts.length >= 2 && wantsCompare) return compare(districts[0], districts[1]);
+  if (hasAny(query, HEALTH_WORDS)) return financialHealthAnswer();
+  if (hasAny(query, VUP_WORDS)) return vupAnswer();
+  if (hasAny(query, COUNT_WORDS)) {
+    const counts = countsAnswer(query);
+    if (counts) return counts;
+  }
+  if (concept && districts.length === 0) return definitionAnswer(concept);
+
+  // A specific district and/or measure.
   if (topic && (wantsHigh || wantsLow) && districts.length === 0) return extremes(topic, wantsHigh || !wantsLow);
   if (topic && districts.length === 1) return withPlace(districtValue(districts[0], topic) ?? nationalTopic(topic));
   if (districts.length === 1) return withPlace(districtOverview(districts[0]));
   if (topic) return nationalTopic(topic);
-  if (hasAny(query, HEALTH_WORDS)) return financialHealthAnswer();
+
+  // Broad standbys, then a helpful fallback.
   if (hasAny(query, DATASET_WORDS)) return datasetsAnswer();
+  if (hasAny(query, NATIONAL_WORDS)) return nationalOverview();
   if (hasAny(query, HELP_WORDS)) return helpAnswer();
+  if (GREETING_RE.test(query)) return greetingAnswer();
   if (wantsHigh || wantsLow) return extremes(meta("eicv7_poverty_rate"), wantsHigh || !wantsLow);
   return fallback();
 }
@@ -360,12 +673,13 @@ export function followUpSuggestions(lastUserText: string): string[] {
   } else if (place) {
     chips.push(`How poor is ${place.district}?`, `Financial exclusion in ${place.district}`);
   }
-  // Then the Track 2 standbys: where need is highest, how to prioritise, what the measures mean, and the evidence.
+  // Then the Track 2 standbys: where need is highest, how social protection reaches people, how to prioritise, and what
+  // the measures mean.
   chips.push(
     "Where is financial exclusion highest?",
+    "How does VUP reach people?",
     "Which districts should be prioritised?",
     "Explain financial health vs. access",
-    "What datasets back these figures?",
   );
   return Array.from(new Set(chips)).slice(0, 5);
 }
