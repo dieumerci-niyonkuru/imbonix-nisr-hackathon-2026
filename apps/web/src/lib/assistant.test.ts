@@ -92,4 +92,29 @@ describe("IMBONIX AI answers", () => {
     expect(answer.stats?.length).toBeGreaterThan(0);
     expect(answer.links?.some((link) => link.href === "/data/key-figures")).toBe(true);
   });
+
+  it("recommends what to prioritise in a district, with a feasible focus", () => {
+    const answer = answerQuery("What should be prioritised in Rulindo?");
+    expect(answer.heading.toLowerCase()).toContain("rulindo");
+    expect(answer.rows?.length).toBeGreaterThan(0);
+    expect(
+      answer.links?.some(
+        (link) =>
+          link.href === "/social-protection/intervention-planner" || link.href === "/social-protection/priority-districts",
+      ),
+    ).toBe(true);
+  });
+
+  it("names where to act first nationally", () => {
+    const answer = answerQuery("Which districts should be prioritised?");
+    expect(answer.heading.toLowerCase()).toContain("act");
+    expect(answer.rows?.length).toBeGreaterThan(0);
+    expect(answer.links?.some((link) => link.href === "/social-protection/priority-districts")).toBe(true);
+  });
+
+  it("explains the challenge IMBONIX answers and its solution", () => {
+    const answer = answerQuery("What problem does IMBONIX solve?");
+    expect(answer.body.toLowerCase()).toMatch(/financial|poverty|social protection/);
+    expect(answer.links?.length).toBeGreaterThan(0);
+  });
 });
