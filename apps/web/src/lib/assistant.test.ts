@@ -117,4 +117,44 @@ describe("IMBONIX AI answers", () => {
     expect(answer.body.toLowerCase()).toMatch(/financial|poverty|social protection/);
     expect(answer.links?.length).toBeGreaterThan(0);
   });
+
+  it("answers every supported measure and intent without ever throwing", () => {
+    const probes = [
+      // measures (national, highest/lowest, and per-district) that go through meta()/reference()/extremes()
+      "formally included",
+      "food insecurity",
+      "female-headed households",
+      "disability",
+      "wasting",
+      "labour force participation",
+      "where is wasting highest",
+      "where is disability lowest",
+      "food insecurity in Nyamasheke",
+      "formally included in Gasabo",
+      "poorest district",
+      "richest district",
+      "which district has the most underweight children",
+      // definitions, counts, social protection, priorities, about, greetings, national
+      "what is a SACCO",
+      "what is mobile money",
+      "what is NEET",
+      "define extreme poverty",
+      "what does small area estimation mean",
+      "how many villages are there",
+      "how many provinces",
+      "how many studies",
+      "tell me about VUP",
+      "social protection",
+      "where should we act first",
+      "what should be prioritised in Rulindo",
+      "what problem does IMBONIX solve",
+      "hello",
+      "thanks a lot",
+      "how is Rwanda doing overall",
+    ];
+    for (const probe of probes) {
+      const answer = answerQuery(probe);
+      expect(answer.heading.length, `"${probe}" should return a heading`).toBeGreaterThan(0);
+    }
+  });
 });
