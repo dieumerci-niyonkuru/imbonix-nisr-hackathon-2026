@@ -53,4 +53,43 @@ describe("IMBONIX AI answers", () => {
     expect(answer.links?.some((link) => link.href === "/data/catalog")).toBe(false);
     expect(answer.links?.some((link) => link.href === "/data/key-figures")).toBe(true);
   });
+
+  it("welcomes a greeting with links instead of a blank fallback", () => {
+    const answer = answerQuery("hi");
+    expect(answer.heading.toLowerCase()).toContain("hello");
+    expect(answer.links?.length).toBeGreaterThan(0);
+    expect(answerQuery("thanks!").links?.length).toBeGreaterThan(0);
+  });
+
+  it("defines a NISR term without inventing a figure", () => {
+    const answer = answerQuery("What is multidimensional poverty?");
+    expect(answer.heading.toLowerCase()).toContain("multidimensional");
+    expect(answer.body.length).toBeGreaterThan(20);
+  });
+
+  it("finds the poorest district as an extreme on poverty", () => {
+    const answer = answerQuery("Which is the poorest district?");
+    expect(answer.heading.toLowerCase()).toContain("highest");
+    expect(answer.rows?.length).toBeGreaterThan(0);
+    expect(answer.source).toBeTruthy();
+  });
+
+  it("answers a 'how many' question from the site's own counts", () => {
+    const answer = answerQuery("How many districts are there?");
+    expect(answer.heading).toContain("30");
+    expect(answer.heading.toLowerCase()).toContain("district");
+  });
+
+  it("explains how social protection (VUP) reaches people", () => {
+    const answer = answerQuery("How does VUP reach people?");
+    expect(answer.heading).toContain("VUP");
+    expect(answer.rows?.length).toBeGreaterThan(0);
+    expect(answer.source).toBeTruthy();
+  });
+
+  it("gives a national snapshot for a broad question", () => {
+    const answer = answerQuery("How is Rwanda doing overall?");
+    expect(answer.stats?.length).toBeGreaterThan(0);
+    expect(answer.links?.some((link) => link.href === "/data/key-figures")).toBe(true);
+  });
 });
