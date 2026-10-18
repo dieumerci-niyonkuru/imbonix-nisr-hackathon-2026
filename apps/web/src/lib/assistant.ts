@@ -126,6 +126,17 @@ const PROFILE_IDS = [
   "lfs_unemployment_rate",
   "eicv7_health_insurance",
 ];
+/**
+ * A feasible, measure-appropriate focus for "where to act" answers — the kind of support that fits each gap. These are
+ * options a programme could consider, grounded in the measure, never a claim that one thing causes another.
+ */
+const FOCUS_BY_MEASURE: Record<string, string> = {
+  eicv7_poverty_rate: "targeted social protection (VUP) and income support",
+  finscope_not_formally_included: "closer financial services — mobile money, SACCOs and agent networks",
+  dhs_stunting: "nutrition-sensitive support for young children and mothers",
+  lfs_unemployment_rate: "jobs and skills, especially for young people",
+  eicv7_health_insurance: "health-insurance (Mutuelle/CBHI) enrolment",
+};
 const HIGH_WORDS = ["highest", "most", "worst", "top", "biggest", "greatest", "poorest", "most affected"];
 const LOW_WORDS = ["lowest", "least", "best", "bottom", "smallest", "fewest", "richest", "wealthiest", "least affected"];
 /** Common questions that aren't about one district or measure, answered from the figures the site already holds. */
@@ -150,6 +161,39 @@ const HELP_WORDS = [
   "what can you help",
   "your capabilities",
   "what are you",
+];
+/** "Where to act" questions — the solution side of the challenge: what to prioritise and for whom. */
+const ACTION_WORDS = [
+  "prioritise",
+  "prioritize",
+  "priority",
+  "priorities",
+  "where to act",
+  "act first",
+  "what should be done",
+  "what to do",
+  "what can be done",
+  "recommend",
+  "recommendation",
+  "intervene",
+  "intervention",
+  "target support",
+  "how to help",
+];
+/** Questions about IMBONIX itself — the challenge it answers and the solution it offers. */
+const ABOUT_WORDS = [
+  "what is imbonix",
+  "about imbonix",
+  "what does imbonix",
+  "why imbonix",
+  "purpose of imbonix",
+  "what problem",
+  "the challenge",
+  "what gap",
+  "why does this matter",
+  "what is this platform",
+  "what is this site",
+  "what is this tool",
 ];
 /** Social protection questions, answered from the VUP figures the site holds. */
 const VUP_WORDS = [
@@ -311,7 +355,10 @@ function districtValue(district: District, indicator: IndicatorMeta): Answer | n
     body:
       `In ${district.name} (${PROVINCE_LABEL[district.province]}), ${short} is ${value(district, indicator.id)}.` +
       (rank ? ` That ranks ${rank.rank} of ${rank.of} districts, where 1 is the most affected.` : "") +
-      ` ${ref.label} is ${formatValue(indicator, ref.value)}.`,
+      ` ${ref.label} is ${formatValue(indicator, ref.value)}.` +
+      (rank && rank.rank <= Math.ceil(rank.of / 3)
+        ? ` On this measure ${district.name} is among the most affected districts, so it is a clear candidate for prioritised support.`
+        : ""),
     stats: [
       { value: value(district, indicator.id), label: `${indicator.short}, ${district.name}` },
       { value: formatValue(indicator, ref.value), label: ref.label },
@@ -582,13 +629,99 @@ function greetingAnswer(): Answer {
   };
 }
 
+/**
+ * Where to focus in one district — the solution side of the challenge. It names the measures the district is most
+ * affected on (by rank) and a feasible, measure-appropriate focus, framed as places and gaps to target, never a cause.
+ */
+function priorityAnswer(district: District): Answer {
+  const ranked = PROFILE_IDS.map((id) => ({ id, rank: rankOf(district, meta(id)) }))
+    .filter((entry): entry is { id: string; rank: { rank: number; of: number } } => entry.rank !== undefined)
+    .sort((first, second) => first.rank.rank - second.rank.rank); // rank 1 = most affected
+  const worst = ranked.slice(0, 3);
+  if (worst.length === 0) return districtOverview(district);
+  const focus = worst.map((entry) => FOCUS_BY_MEASURE[entry.id]).filter(Boolean);
+  const named = worst.map((entry) => `${meta(entry.id).short.toLowerCase()} (${ordinal(entry.rank.rank)} of ${entry.rank.of})`);
+  return {
+    heading: `Where to focus in ${district.name}`,
+    body:
+      `On NISR's figures, ${district.name} (${PROVINCE_LABEL[district.province]}) is most affected on ${named.join(", ")}. ` +
+      (focus.length ? `A feasible focus: ${focus.join("; ")}. ` : "") +
+      "These are places and gaps, not causes — use them to target support where it goes furthest.",
+    rows: worst.map((entry) => ({
+      label: meta(entry.id).short,
+      value: value(district, entry.id),
+      hint: `${ordinal(entry.rank.rank)} of ${entry.rank.of}`,
+    })),
+    rowsCaption: `${district.name}: most affected measures`,
+    status: "observed",
+    links: [
+      { href: "/social-protection/intervention-planner", label: "Plan an intervention" },
+      { href: "/social-protection/priority-districts", label: "Where to act first" },
+      { href: `/districts/${district.slug}`, label: `${district.name} profile` },
+    ],
+  };
+}
+
+/** Where to act first nationally: the districts most affected by poverty, with a pointer to the priority tools. */
+function nationalPriorityAnswer(): Answer {
+  const poverty = meta("eicv7_poverty_rate");
+  const ranked = DISTRICTS.filter((district) => valueOf(district, poverty.id) !== undefined).sort(
+    (first, second) => valueOf(second, poverty.id)! - valueOf(first, poverty.id)!,
+  );
+  const top = ranked.slice(0, 5);
+  return {
+    heading: "Where to act first",
+    body:
+      "On the headline measure of need — the poverty rate — these districts are most affected, so they are the clearest " +
+      "candidates for prioritised support. IMBONIX ranks all 30 districts across seven policy levers, so you can target by " +
+      "the specific gap, not poverty alone.",
+    rows: top.map((district) => ({
+      label: district.name,
+      value: value(district, poverty.id),
+      hint: PROVINCE_LABEL[district.province],
+    })),
+    rowsCaption: "Most affected by poverty, top 5",
+    source: sourceLine(poverty.id),
+    status: SOURCES[poverty.id]?.status,
+    links: [
+      { href: "/social-protection/priority-districts", label: "Priority ranking" },
+      { href: "/poverty-dynamics/overlapping-needs", label: "Overlapping needs" },
+      { href: "/poverty-dynamics/district-map", label: "District map" },
+    ],
+  };
+}
+
+/** What IMBONIX is for: the challenge it answers (Track 2) and the solution it offers. */
+function aboutAnswer(): Answer {
+  return {
+    heading: "What IMBONIX is for",
+    body:
+      "IMBONIX answers Rwanda's NISR open-data challenge (Track 2): using data to understand financial exclusion, poverty " +
+      "dynamics and the impact of social protection. The gap it addresses is that access to finance is now almost " +
+      "universal, yet financial health is not, and poverty is uneven from one place to the next. IMBONIX brings NISR's " +
+      "published figures together — down to sector, cell and village — with a map, district profiles, a priority ranking " +
+      "and this assistant, so policymakers, NGOs and financial-inclusion teams can see where households are vulnerable, " +
+      "and act.",
+    stats: [
+      { value: `${SITE_FACTS.indicators}`, label: "district indicators" },
+      { value: `${SITE_FACTS.districts}`, label: "districts covered" },
+      { value: `${SITE_FACTS.publications}`, label: "NISR publications" },
+    ],
+    source: "IMBONIX, built on NISR's published statistics",
+    links: [
+      { href: "/about", label: "About IMBONIX" },
+      { href: "/data/key-figures", label: "Rwanda in figures" },
+    ],
+  };
+}
+
 export const SUGGESTIONS = [
   "How poor is Rulindo?",
   "Where is financial exclusion highest?",
   "Compare Rulindo and Gasabo",
-  "What is multidimensional poverty?",
+  "What should be prioritised in Rwanda?",
   "How does VUP reach people?",
-  "How is Rwanda doing overall?",
+  "What is multidimensional poverty?",
 ];
 
 /**
@@ -637,6 +770,9 @@ export function answerQuery(raw: string): Answer {
   }
   if (concept && districts.length === 0) return definitionAnswer(concept);
 
+  // The solution side of the challenge: what to prioritise, and for whom.
+  if (hasAny(query, ACTION_WORDS)) return districts.length === 1 ? priorityAnswer(districts[0]) : nationalPriorityAnswer();
+
   // A specific district and/or measure.
   if (topic && (wantsHigh || wantsLow) && districts.length === 0) return extremes(topic, wantsHigh || !wantsLow);
   if (topic && districts.length === 1) return withPlace(districtValue(districts[0], topic) ?? nationalTopic(topic));
@@ -646,6 +782,7 @@ export function answerQuery(raw: string): Answer {
   // Broad standbys, then a helpful fallback.
   if (hasAny(query, DATASET_WORDS)) return datasetsAnswer();
   if (hasAny(query, NATIONAL_WORDS)) return nationalOverview();
+  if (hasAny(query, ABOUT_WORDS)) return aboutAnswer();
   if (hasAny(query, HELP_WORDS)) return helpAnswer();
   if (GREETING_RE.test(query)) return greetingAnswer();
   if (wantsHigh || wantsLow) return extremes(meta("eicv7_poverty_rate"), wantsHigh || !wantsLow);
