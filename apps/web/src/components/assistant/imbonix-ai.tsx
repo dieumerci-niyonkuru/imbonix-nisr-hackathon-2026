@@ -910,26 +910,33 @@ export function ImbonixAI() {
 
   return (
     <>
-      {/* The launcher: a branded pill on the logo's cyan — the IMBONIX emblem in a white disc, then "Ask IMBONIX AI".
-          It keeps its label on phones too, so the assistant is unmistakable on every screen. */}
-      <div className="fixed bottom-5 right-4 z-[55] sm:bottom-6 sm:right-6 print:hidden">
+      {/* The launcher: a round IMBONIX mark that stays small, then opens out to "Ask IMBONIX AI" on hover or focus — so it
+          is short until wanted, and clearly the assistant once it is. Its whole look (disc size, gradient, how fast it
+          opens, the halo) is set by CSS variables on .ai-launcher in globals.css, so it is easy to restyle. */}
+      <div className="ai-launcher fixed bottom-5 right-4 z-[55] sm:bottom-6 sm:right-6 print:hidden">
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
           aria-controls={panelId}
-          aria-label={open ? "Close IMBONIX AI" : "Open IMBONIX AI"}
-          className="group inline-flex h-[52px] items-center gap-2.5 whitespace-nowrap rounded-full bg-gradient-to-br from-cyan to-cyan-ink pl-1.5 pr-5 text-white shadow-lift ring-1 ring-cyan-ink/30 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
+          aria-label={open ? "Close IMBONIX AI" : "Ask IMBONIX AI"}
+          className="group/ai relative inline-flex items-center whitespace-nowrap rounded-full bg-[linear-gradient(135deg,var(--ai-from),var(--ai-to))] p-[var(--ai-pad)] pr-3.5 text-white shadow-lift ring-1 ring-cyan-ink/30 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
         >
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-cyan-ink/10">
+          {!open && <span className="ai-halo pointer-events-none absolute inset-0 rounded-full" aria-hidden="true" />}
+          <span className="relative flex h-[var(--ai-disc)] w-[var(--ai-disc)] shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-cyan-ink/10">
             {open ? <XMarkIcon className="h-5 w-5 text-cyan-ink" aria-hidden="true" /> : <AiMark className="h-7 w-7" />}
           </span>
           {open ? (
-            <span className="pr-0.5 font-display text-[15px] font-bold">Close</span>
+            <span className="px-2.5 font-display text-[15px] font-bold">Close</span>
           ) : (
-            <span className="flex items-baseline gap-1 pr-0.5 font-display leading-none">
-              <span className="text-[13px] font-semibold text-white/85">Ask</span>
-              <span className="text-[16px] font-bold tracking-[-0.01em]">IMBONIX</span>
+            <span className="flex items-baseline gap-1 pl-2 font-display leading-none">
+              {/* "Ask IMBONIX" opens out from zero width on hover/focus; "AI" stays, so the mark always reads as AI. */}
+              <span className="duration-[var(--ai-reveal)] grid grid-cols-[0fr] transition-[grid-template-columns] ease-out group-hover/ai:grid-cols-[1fr] group-focus-visible/ai:grid-cols-[1fr]">
+                <span className="flex items-baseline gap-1 overflow-hidden">
+                  <span className="text-[13px] font-semibold text-white/85">Ask</span>
+                  <span className="text-[15px] font-bold tracking-[-0.01em]">IMBONIX</span>
+                </span>
+              </span>
               <span className="text-[13px] font-semibold text-white/85">AI</span>
             </span>
           )}
