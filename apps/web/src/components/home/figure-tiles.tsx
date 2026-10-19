@@ -37,20 +37,21 @@ export function FigureTiles({
         <p className="mt-4 max-w-3xl text-pretty text-[16px] leading-7 text-muted sm:text-[17px] sm:leading-8">{intro}</p>
         <dl className={cn("mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5", columns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3")}>
           {tiles.map((tile) => (
-            <div
-              key={tile.label}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-cyan/50 hover:shadow-lift sm:p-7"
-            >
-              {/* A thin brand accent that sweeps across the top on hover. */}
-              <span
-                className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-cyan to-cyan-ink transition-transform duration-300 ease-out group-hover:scale-x-100"
-                aria-hidden="true"
-              />
-              <dd className="tabular order-1 font-display text-[42px] font-bold leading-none tracking-[-0.03em] text-cyan-ink sm:text-[46px]">
-                {tile.value}
-              </dd>
-              <dt className="order-2 mt-3 text-pretty text-[15.5px] leading-6 text-ink">{tile.label}</dt>
-              <dd className="order-3 mt-auto border-t border-line pt-4 text-[12px] leading-5 text-muted">{tile.source}</dd>
+            // The wrapper carries the scroll-into-view scale-and-fade (an inset reveal tied to scroll position); the
+            // card inside keeps its own hover lift, so the two effects never fight for the transform.
+            <div key={tile.label} className="scroll-reveal h-full">
+              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-cyan/50 hover:shadow-lift sm:p-7">
+                {/* A thin brand accent that sweeps across the top on hover. */}
+                <span
+                  className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-cyan to-cyan-ink transition-transform duration-300 ease-out group-hover:scale-x-100"
+                  aria-hidden="true"
+                />
+                <dd className="tabular order-1 font-display text-[42px] font-bold leading-none tracking-[-0.03em] text-cyan-ink sm:text-[46px]">
+                  {tile.value}
+                </dd>
+                <dt className="order-2 mt-3 text-pretty text-[15.5px] leading-6 text-ink">{tile.label}</dt>
+                <dd className="order-3 mt-auto border-t border-line pt-4 text-[12px] leading-5 text-muted">{tile.source}</dd>
+              </div>
             </div>
           ))}
         </dl>
