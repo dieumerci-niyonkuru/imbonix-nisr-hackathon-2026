@@ -10,6 +10,8 @@ This document explains what it is, how it is built, why it is trustworthy, and h
 criteria. For the whole-platform story see [`submission/solution-overview.md`](submission/solution-overview.md); for the
 live walkthrough see [`submission/demo-script.md`](submission/demo-script.md).
 
+![IMBONIX AI: a grounded assistant that answers in plain language or by voice, from NISR figures only, and names the source every time](screenshots/assistant.png)
+
 **Contents:** [What it does](#1-what-it-does) · [Architecture](#2-architecture-at-a-glance) · [Grounding](#3-grounding--why-the-answers-can-be-trusted) · [Backends](#4-the-two-backends) · [Multimodal](#5-multimodal-input) · [Place intelligence](#6-place-intelligence) · [Voice](#7-voice) · [Safety & privacy](#8-safety-privacy-and-cost) · [Judging criteria](#9-how-it-maps-to-the-judging-criteria) · [Configuration](#10-configuration)
 
 ---
@@ -55,14 +57,14 @@ If no key, or the backend fails after retries (HTTP 502):
 
 Key files:
 
-| File | Responsibility |
-|---|---|
-| `apps/web/src/app/api/assistant/route.ts` | The server route: backend selection, streaming, retries, rate limit, safety limits. |
-| `apps/web/src/lib/ai-context.ts` | The system prompt: the instructions and the whole NISR data digest that grounds every answer. |
-| `apps/web/src/lib/ai-places.ts` | Resolves a place name (cell / village / sector) to its district and injects the context. |
-| `apps/web/src/components/assistant/imbonix-ai.tsx` | The floating assistant: chat UI, attachments, voice, Markdown/table rendering, fallback. |
-| `apps/web/src/components/assistant/ai-mark.tsx` | The IMBONIX AI mark (a conversation bubble with an insight spark). |
-| `apps/web/src/lib/assistant.ts` | The on-device engine that answers from the same figures when no key is set. |
+| File                                               | Responsibility                                                                                |
+| -------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `apps/web/src/app/api/assistant/route.ts`          | The server route: backend selection, streaming, retries, rate limit, safety limits.           |
+| `apps/web/src/lib/ai-context.ts`                   | The system prompt: the instructions and the whole NISR data digest that grounds every answer. |
+| `apps/web/src/lib/ai-places.ts`                    | Resolves a place name (cell / village / sector) to its district and injects the context.      |
+| `apps/web/src/components/assistant/imbonix-ai.tsx` | The floating assistant: chat UI, attachments, voice, Markdown/table rendering, fallback.      |
+| `apps/web/src/components/assistant/ai-mark.tsx`    | The IMBONIX AI mark (a conversation bubble with an insight spark).                            |
+| `apps/web/src/lib/assistant.ts`                    | The on-device engine that answers from the same figures when no key is set.                   |
 
 ---
 
@@ -120,8 +122,8 @@ to read the document in isolation.
 
 Rwanda's administrative hierarchy runs province → district → sector → cell → village. NISR publishes figures to
 district and sector level; cells and villages inherit their sector's figures. `ai-places.ts` builds a lookup from the
-site's own `places.json` and, when a question names a place, injects a short note ("*X (cell) is in Y sector, Z
-district*") into the last user turn. The model can then answer about a named cell or village by using the right
+site's own `places.json` and, when a question names a place, injects a short note ("_X (cell) is in Y sector, Z
+district_") into the last user turn. The model can then answer about a named cell or village by using the right
 sector's and district's published figures — and it says so plainly, without exposing any internal identifier.
 
 ---
@@ -150,13 +152,13 @@ sector's and district's published figures — and it says so plainly, without ex
 
 ## 9. How it maps to the judging criteria
 
-| Criterion | How IMBONIX AI contributes |
-|---|---|
-| **1 · Problem understanding & relevance** | Every answer is framed as gap → evidence → solution → who it helps, mirroring the challenge and Rwanda's national priorities. |
-| **2 · Data use & methodology** | Grounded in the same NISR + partner figures the site cites; names the source; never invents a number; no microdata. |
-| **3 · Tech innovation** | A grounded, streaming, multimodal, multilingual, voice-capable assistant with a two-backend design and a deterministic offline fallback. |
-| **4 · Usability & design** | Plain-language, jargon-free guidance in the user's own language, with tables, voice and a clean branded mark; works for non-technical users. |
-| **5 · Tangible impact** | Lets anyone, anywhere, interrogate the evidence for their own district and get a clear next step — the platform in one question. |
+| Criterion                                 | How IMBONIX AI contributes                                                                                                                   |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1 · Problem understanding & relevance** | Every answer is framed as gap → evidence → solution → who it helps, mirroring the challenge and Rwanda's national priorities.                |
+| **2 · Data use & methodology**            | Grounded in the same NISR + partner figures the site cites; names the source; never invents a number; no microdata.                          |
+| **3 · Tech innovation**                   | A grounded, streaming, multimodal, multilingual, voice-capable assistant with a two-backend design and a deterministic offline fallback.     |
+| **4 · Usability & design**                | Plain-language, jargon-free guidance in the user's own language, with tables, voice and a clean branded mark; works for non-technical users. |
+| **5 · Tangible impact**                   | Lets anyone, anywhere, interrogate the evidence for their own district and get a clear next step — the platform in one question.             |
 
 ---
 
