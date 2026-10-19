@@ -2,6 +2,7 @@ import { resolvePlaceHit } from "@/lib/ai-places";
 import { CATALOG_STUDIES, CATALOG_THEMES, CATALOG_YEARS } from "@/lib/catalog";
 import { DISTRICTS, PROVINCE_LABEL, rankOf, reference, SOURCES, valueOf, type District } from "@/lib/data";
 import { FINANCIAL_HEALTH_SEGMENTS, FINSCOPE_2024_SOURCE, INCLUSION_BY_ROUND } from "@/lib/finscope-2024";
+import { TARGET_PROGRESS } from "@/lib/national-targets";
 import { EICV7_PROFILE_SOURCE, POVERTY_RATE_BY_YEAR } from "@/lib/eicv7-poverty-profile";
 import {
   POVERTY_AMONG_VUP_BENEFICIARIES,
@@ -491,13 +492,21 @@ function datasetsAnswer(): Answer {
 function financialHealthAnswer(): Answer {
   const included = INCLUSION_BY_ROUND.find((row) => row.measure === "Financially included")!.in2024;
   const healthy = FINANCIAL_HEALTH_SEGMENTS.find((segment) => segment.segment === "Financially healthy")!.share;
+  const vulnerable = FINANCIAL_HEALTH_SEGMENTS.filter((segment) => /vulnerable/i.test(segment.segment)).reduce(
+    (sum, segment) => sum + segment.share,
+    0,
+  );
+  const healthTarget = TARGET_PROGRESS.find((target) => /financially healthy/i.test(target.measure));
   return {
-    heading: `Access is ${included}%, but financial health is ${healthy}%`,
+    heading: `Access is ${included}%, but only ${healthy}% are financially healthy`,
     body:
-      "Being financially included means using any financial service — a bank, a SACCO, mobile money, insurance or a " +
-      "savings group. Being financially healthy is harder: it means managing day-to-day money, saving for the future " +
-      `and coping with a shock. In 2024, ${included}% of adults were included, yet only ${healthy}% were financially ` +
-      "healthy. That gap, not access alone, is the heart of what IMBONIX examines.",
+      `Access is effectively solved: ${included}% of adults use a financial service. The real frontier is resilience. ` +
+      "Being financially healthy is harder — managing day-to-day money, saving, and coping with a shock, not just " +
+      `holding an account. Only ${healthy}% reach it, while ${vulnerable}% are vulnerable or extremely vulnerable.` +
+      (healthTarget
+        ? ` Rwanda's National Financial Inclusion Roadmap targets ${healthTarget.target}% financially healthy by ${healthTarget.by}.`
+        : "") +
+      " Closing that gap — moving from access to meaningful usage and financial health — is what IMBONIX measures and helps act on.",
     rows: FINANCIAL_HEALTH_SEGMENTS.map((segment) => ({ label: segment.segment, value: `${segment.share}%` })),
     rowsCaption: "Adults by financial health, 2024",
     source: `${FINSCOPE_2024_SOURCE}, section 5.2`,

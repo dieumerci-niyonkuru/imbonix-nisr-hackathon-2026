@@ -82,8 +82,11 @@ function buildNationalFindings(): string {
     `National priorities: this work serves ${NATIONAL_FRAMEWORKS.join(", ")}. Tracked targets (${TARGETS_SOURCE}): ${targets}.`,
     `Financial inclusion (${FINSCOPE_2024_SOURCE}, about ${INCLUDED_ADULTS_MILLIONS} million adults): ${inclusion}. ` +
       `Excluded adults use no financial service at all — about ${EXCLUDED_ADULTS.toLocaleString("en-US")} people. ` +
-      `The story is that access is almost universal but financial health is not: adults by financial health are ${health} ` +
-      "(being financially healthy means managing day-to-day money, saving, and coping with a shock — not just holding an account).",
+      `The core story — and IMBONIX's main argument — is that access is effectively solved but resilience is not: adults by ` +
+      `financial health are ${health} ` +
+      "(being financially healthy means managing day-to-day money, saving, and coping with a shock — not just holding an " +
+      "account). The frontier the National Financial Inclusion Roadmap 2025–2030 sets is the shift from access to meaningful " +
+      "usage and financial health; lead with that gap, not with the fact that access is high.",
     `Mobile money (${FINSCOPE_2024_SOURCE}): ${mobile}.`,
     `Poverty (${EICV7_PROFILE_SOURCE}): the poverty rate fell from ${poverty2017.povertyRate}% in ${poverty2017.year} to ${poverty2024.povertyRate}% in ${poverty2024.year}. ` +
       `Living conditions (2016/17→2023/24): ${living}.`,
