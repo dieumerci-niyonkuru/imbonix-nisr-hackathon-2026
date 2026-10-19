@@ -13,26 +13,43 @@ screen with its source and how far to trust it.
 
 ---
 
+## Open with this — "The Inclusive Finance Shift"
+
+One sentence frames everything: **Rwanda has solved _access_ to finance — 96% of adults are included (FinScope 2024). It
+has not solved _resilience_.** Only **10%** of adults are financially healthy; **57%** are merely coping, and **34%** are
+vulnerable or extremely vulnerable (FinScope 2024, section 5.2). That is exactly the frontier the **National Financial
+Inclusion Roadmap 2025–2030** sets — the shift from _access_ to **meaningful usage and financial health**. IMBONIX
+measures that gap, maps where it is worst, and turns it into action for policymakers (MINECOFIN, BNR, NISR), NGOs and
+citizens.
+
+> **Lead with the gap, not the good news.** Don't spend time proving financial inclusion is high — the judges know
+> access is near-solved. Show that IMBONIX answers the Roadmap's real objective: the move from access to financial
+> health, and action where households are least resilient.
+
+---
+
 ## 90-second run
 
-| Time | Do this | Say this | Criterion |
-|---|---|---|---|
-| 0:00 | **Homepage**, top banner + the six headline figures | "Access to finance in Rwanda is almost universal — but only a fraction of adults are *financially healthy*, and banking has been flat since 2020. That gap is the problem IMBONIX is built around." | 1 — Problem |
-| 0:20 | Scroll to **"Aligned to national priorities"** | "We track the national targets behind Vision 2050 and NST2 — financial inclusion and social protection — and show how far today's figure is from each goal." | 1 — Relevance |
-| 0:35 | Open **IMBONIX AI** (bottom-right), ask *"Where is financial exclusion highest?"* | "The assistant answers only from NISR's published figures and names the source every time — no invented numbers." | 2, 3 |
-| 0:55 | In the assistant, **attach a photo or PDF** of a chart/report and send | "It reads uploaded documents and relates what it finds to the NISR data." | 3 — Innovation |
-| 1:15 | Open the **district map** (`/poverty-dynamics/district-map`), switch a layer | "Every measure, mapped for all 30 districts, validated for colour-blind readability." | 4 — Design |
-| 1:30 | Open **Priority districts** (`/social-protection/priority-districts`) | "And it ends in action: districts flagged by transparent rules, so support goes where the need is greatest." | 5 — Impact |
+| Time | Do this                                                                           | Say this                                                                                                                                                                                                                                                                                                            | Criterion      |
+| ---- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| 0:00 | **Homepage**, top banner + the six headline figures                               | "Access is solved — **96%** of adults are included. But only **10%** are financially healthy and **34%** are vulnerable; banking has been flat since 2020. The National Financial Inclusion Roadmap's goal is exactly this shift — from access to financial health — and that gap is what IMBONIX is built around." | 1 — Problem    |
+| 0:20 | Scroll to **"Aligned to national priorities"**                                    | "We track the national targets behind Vision 2050 and NST2 — financial inclusion and social protection — and show how far today's figure is from each goal."                                                                                                                                                        | 1 — Relevance  |
+| 0:35 | Open **IMBONIX AI** (bottom-right), ask _"Where is financial exclusion highest?"_ | "The assistant answers only from NISR's published figures and names the source every time — no invented numbers."                                                                                                                                                                                                   | 2, 3           |
+| 0:55 | In the assistant, **attach a photo or PDF** of a chart/report and send            | "It reads uploaded documents and relates what it finds to the NISR data."                                                                                                                                                                                                                                           | 3 — Innovation |
+| 1:15 | Open the **district map** (`/poverty-dynamics/district-map`), switch a layer      | "Every measure, mapped for all 30 districts, validated for colour-blind readability."                                                                                                                                                                                                                               | 4 — Design     |
+| 1:30 | Open **Priority districts** (`/social-protection/priority-districts`)             | "And it ends in action: districts flagged by transparent rules, so support goes where the need is greatest."                                                                                                                                                                                                        | 5 — Impact     |
 
 ---
 
 ## 3-minute run (criterion by criterion)
 
 **1 · Problem understanding & relevance (NST2 / Vision 2050).**
-Homepage → the gap chart ("Access is high. Financial health is not.") frames a sharp, non-obvious problem. Then the
-**"Aligned to national priorities"** section names Vision 2050, NST2, the National Financial Inclusion Roadmap
-2025–2030 and the Social Protection Sector Strategic Plan, and shows progress toward four published targets with their
-baselines.
+Homepage → the gap chart ("Access is high. Financial health is not.") frames the sharp, non-obvious problem — **the
+Inclusive Finance Shift**: access is near-universal (96%), but only **10%** of adults are financially healthy, **57%**
+are coping and **34%** are vulnerable. That is the exact objective of the **National Financial Inclusion Roadmap
+2025–2030** — moving from access to meaningful usage and financial health. The **"Aligned to national priorities"**
+section then names Vision 2050, NST2, the Roadmap and the Social Protection Sector Strategic Plan, and shows progress
+toward four published targets with their baselines and the gap to each goal.
 
 **2 · Data use & methodology (NISR + external).**
 About → **Sources** (`/about#sources`): every publication with the number of indicators it gives and a **"Collected
@@ -61,13 +78,13 @@ and one place; **Priority districts** flags where to act first with a rule anyon
 
 ## Criteria crosswalk
 
-| Criterion | Where it shows, in one click |
-|---|---|
-| 1. Problem understanding & relevance | Homepage gap chart + "Aligned to national priorities" (Vision 2050, NST2) |
-| 2. Data use & methodology | `/about#sources` ("Collected with" column), Method, Principles; reproducible pipeline |
-| 3. Tech innovation | `/financial-exclusion/risk-model`, `/social-protection/policy-scenarios`, IMBONIX AI with document reading |
-| 4. Usability & design | Homepage, `/poverty-dynamics/district-map`, `/data/chart-library` |
-| 5. Tangible impact | `/social-protection/priority-districts`, `/social-protection/intervention-planner`, About → Who benefits |
+| Criterion                            | Where it shows, in one click                                                                               |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| 1. Problem understanding & relevance | Homepage gap chart + "Aligned to national priorities" (Vision 2050, NST2)                                  |
+| 2. Data use & methodology            | `/about#sources` ("Collected with" column), Method, Principles; reproducible pipeline                      |
+| 3. Tech innovation                   | `/financial-exclusion/risk-model`, `/social-protection/policy-scenarios`, IMBONIX AI with document reading |
+| 4. Usability & design                | Homepage, `/poverty-dynamics/district-map`, `/data/chart-library`                                          |
+| 5. Tangible impact                   | `/social-protection/priority-districts`, `/social-protection/intervention-planner`, About → Who benefits   |
 
 ---
 
