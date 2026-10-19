@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { ArrowLeftIcon, ArrowRightIcon, ExclamationTriangleIcon, MapIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon, ExclamationTriangleIcon, MapIcon } from "@heroicons/react/24/outline";
 import { TrendLines } from "@/components/charts/recharts/trend-charts";
 import { StackedBar } from "@/components/charts/stacked-bar";
 import { DistrictIntelligence, PriorityBadge } from "@/components/district/district-intelligence";
@@ -234,7 +234,7 @@ export default async function DistrictPage({ params }: Params) {
 
       <section
         id="over-time"
-        className="scroll-mt-36 border-b border-line bg-paper py-12 sm:py-16"
+        className="scroll-mt-36 border-b border-line bg-paper py-10 sm:py-12"
         aria-labelledby="over-time-heading"
       >
         <div className="container-page">
@@ -313,7 +313,7 @@ export default async function DistrictPage({ params }: Params) {
       </section>
 
       {/* Detailed sections */}
-      <section id="indicators" className="container-page scroll-mt-36 space-y-6 py-12" aria-labelledby="evidence-heading">
+      <section id="indicators" className="container-page scroll-mt-36 space-y-5 py-10" aria-labelledby="evidence-heading">
         <div className="max-w-3xl">
           <p className="eyebrow text-cyan-ink">The evidence in detail</p>
           <h2 id="evidence-heading" className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-ink">
@@ -321,6 +321,7 @@ export default async function DistrictPage({ params }: Params) {
           </h2>
           <p className="mt-3 text-[15px] leading-7 text-muted">
             Grouped by theme, each with its value, how it compares with Rwanda, its rank among the 30 districts and its source.
+            Open a theme to see its indicators.
           </p>
         </div>
         <CardLegend />
@@ -336,33 +337,49 @@ export default async function DistrictPage({ params }: Params) {
             </a>
           ))}
         </nav>
-        {SECTIONS.map((section) => {
+        {SECTIONS.map((section, index) => {
           const info = DIMENSIONS[section.dimension];
           return (
-            <div key={section.title} id={`theme-${section.dimension}`} className="card scroll-mt-36 p-5 sm:p-7">
-              <div className="flex flex-wrap items-end justify-between gap-3">
-                <div>
-                  <p className="eyebrow" style={{ color: info.ink }}>
+            <details
+              key={section.title}
+              id={`theme-${section.dimension}`}
+              open={index === 0}
+              className="card group scroll-mt-36 overflow-hidden"
+            >
+              <summary className="flex cursor-pointer list-none flex-wrap items-center justify-between gap-x-3 gap-y-1.5 p-5 hover:bg-paper/50 sm:p-7 [&::-webkit-details-marker]:hidden">
+                <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span className="eyebrow" style={{ color: info.ink }}>
                     {info.label}
-                  </p>
-                  <h2 className="mt-1.5 font-display text-2xl font-bold tracking-[-0.02em] text-ink">{section.title}</h2>
+                  </span>
+                  <span className="font-display text-2xl font-bold tracking-[-0.02em] text-ink">{section.title}</span>
+                </span>
+                <span className="flex items-center gap-3">
+                  <span className="hidden text-[12.5px] text-muted md:inline">{info.question}</span>
+                  <span className="tabular rounded-full bg-paper px-2.5 py-1 text-[12px] font-semibold text-ink ring-1 ring-line">
+                    {section.ids.length}
+                  </span>
+                  <ChevronDownIcon
+                    className="h-4 w-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180"
+                    aria-hidden="true"
+                  />
+                </span>
+              </summary>
+              <div className="px-5 pb-6 sm:px-7">
+                {section.dimension === "poverty" && <NonMonetaryBar district={district} />}
+                {section.dimension === "finance" && <AccessStrand district={district} />}
+                <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                  {section.ids.map((id) => (
+                    <IndicatorRow key={id} district={district} id={id} />
+                  ))}
                 </div>
-                <p className="text-[12.5px] text-muted">{info.question}</p>
               </div>
-              {section.dimension === "poverty" && <NonMonetaryBar district={district} />}
-              {section.dimension === "finance" && <AccessStrand district={district} />}
-              <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                {section.ids.map((id) => (
-                  <IndicatorRow key={id} district={district} id={id} />
-                ))}
-              </div>
-            </div>
+            </details>
           );
         })}
       </section>
 
       {/* Sectors */}
-      <section id="sectors" className="scroll-mt-36 border-y border-line bg-white py-12 sm:py-14">
+      <section id="sectors" className="scroll-mt-36 border-y border-line bg-white py-10 sm:py-12">
         <div className="container-page">
           <p className="eyebrow text-dim-poverty">Inside the district</p>
           <h2 className="mt-2 font-display text-3xl font-bold tracking-[-0.03em] text-ink">{district.name}&apos;s sectors</h2>
@@ -383,7 +400,7 @@ export default async function DistrictPage({ params }: Params) {
         </div>
       </section>
 
-      <nav aria-label="Other districts" className="container-page flex flex-wrap items-center justify-between gap-4 py-10">
+      <nav aria-label="Other districts" className="container-page flex flex-wrap items-center justify-between gap-4 py-8">
         <Button asChild variant="outline">
           <Link href={`/districts/${previous.slug}`}>
             <ArrowLeftIcon className="h-4 w-4" /> {previous.name}

@@ -53,7 +53,7 @@ const STEPS: Step[] = [
  */
 export function PlatformApproach() {
   return (
-    <section className="border-y border-line bg-paper py-12 sm:py-20" aria-labelledby="approach-heading">
+    <section className="border-y border-line bg-paper py-10 sm:py-14" aria-labelledby="approach-heading">
       <div className="container-page">
         <p className="eyebrow text-cyan-ink">A decision-support platform</p>
         <h2

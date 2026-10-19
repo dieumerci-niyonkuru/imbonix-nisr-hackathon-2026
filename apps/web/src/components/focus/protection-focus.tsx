@@ -142,7 +142,7 @@ export function ProtectionFocus() {
         />
       </div>
 
-      <section id="reach" className="scroll-mt-36 bg-paper py-12 sm:py-16" aria-labelledby="reach-heading">
+      <section id="reach" className="scroll-mt-36 bg-paper py-10 sm:py-12" aria-labelledby="reach-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Who VUP reaches"
@@ -203,7 +203,7 @@ export function ProtectionFocus() {
         </div>
       </section>
 
-      <section id="payments" className="scroll-mt-36 bg-white py-12 sm:py-16" aria-label="How payments arrive">
+      <section id="payments" className="scroll-mt-36 bg-white py-10 sm:py-12" aria-label="How payments arrive">
         <div className="container-page">
           <Finding
             title={allUnderOneInFive ? "Fewer than one in five last payments arrived on time" : "Many last payments arrived late"}
@@ -238,7 +238,7 @@ export function ProtectionFocus() {
         </div>
       </section>
 
-      <section id="targets" className="scroll-mt-36 bg-paper py-12 sm:py-16" aria-label="National targets">
+      <section id="targets" className="scroll-mt-36 bg-paper py-10 sm:py-12" aria-label="National targets">
         <div className="container-page">
           <Finding
             title="How far Rwanda is from its targets"
@@ -271,7 +271,7 @@ export function ProtectionFocus() {
         </div>
       </section>
 
-      <section id="act" className="scroll-mt-36 bg-white py-12 sm:py-16" aria-labelledby="act-heading">
+      <section id="act" className="scroll-mt-36 bg-white py-10 sm:py-12" aria-labelledby="act-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Who can act"

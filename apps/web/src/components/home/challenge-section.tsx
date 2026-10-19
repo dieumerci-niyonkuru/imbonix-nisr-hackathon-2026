@@ -39,7 +39,7 @@ function fillsByRank(indicatorId: string, ramp: readonly string[]): Record<strin
  */
 export function ChallengeSection({ parts }: { parts: ChallengePart[] }) {
   return (
-    <section id="research" className="scroll-mt-24 bg-white py-12 sm:py-20" aria-labelledby="challenge-heading">
+    <section id="research" className="scroll-mt-24 bg-white py-10 sm:py-14" aria-labelledby="challenge-heading">
       <div className="container-page">
         <p className="eyebrow text-cyan-ink">Research and insights</p>
         <h2
