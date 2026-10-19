@@ -10,10 +10,12 @@ analysis and framing are ours.
 
 ## 1 · Problem Understanding & Relevance
 
-**The one specific problem.** Rwanda has all but solved *access* to finance — **96%** of adults are included (FinScope
-2024) — but **not resilience**: only about **1 in 10** adults is financially *healthy*, and the share who are **banked
-(22%) has not moved since 2020**. The households left behind are not spread evenly; they cluster in the same districts
-where poverty, poor nutrition and shocks pile up.
+**The one specific problem — "the Inclusive Finance Shift."** Rwanda has all but solved _access_ to finance — **96%** of
+adults are included (FinScope 2024) — but **not resilience**: only **10%** of adults are financially _healthy_, **57%**
+are merely coping and **34%** are vulnerable or extremely vulnerable, and the share who are **banked (22%) has not moved
+since 2020**. That is the exact objective of the **National Financial Inclusion Roadmap 2025–2030** — the move from
+_access_ to meaningful usage and financial health. The households left behind are not spread evenly; they cluster in the
+same districts where poverty, poor nutrition and shocks pile up.
 
 **Who and where is affected.** Financial exclusion is highest in districts such as **Nyaruguru**; poverty is deepest in
 the Southern Province (e.g. **Nyamagabe, Gisagara**). Rural households, women-led households and young people are the
@@ -24,8 +26,8 @@ vehicles toward it — **NST2**, the **National Financial Inclusion Roadmap 2025
 Sector Strategic Plan** — each tracked against its published baseline and target.
 
 **Why current tools fall short.** The figures exist, but across many separate NISR surveys, censuses and reports,
-unlabelled for trust, and hard for a non-specialist to turn into a decision. Conventional dashboards show *numbers*;
-they rarely say how far to trust each one, where needs *overlap*, or **what to do next**.
+unlabelled for trust, and hard for a non-specialist to turn into a decision. Conventional dashboards show _numbers_;
+they rarely say how far to trust each one, where needs _overlap_, or **what to do next**.
 
 **Evidence to demonstrate:** homepage gap chart + "Aligned to national priorities"; [`solution-overview.md`](solution-overview.md); ask IMBONIX AI "where is financial exclusion highest?".
 
@@ -40,7 +42,7 @@ Census (2023) and the EICV7 VUP survey. Each indicator records its **source, tab
 **Sources, variables, limitations — documented.** About → Sources (`/about#sources`) lists every publication, how many
 indicators it gives, and whether NISR collected it **with a partner** (ICF/The DHS Program; WFP for the CFSVA). Limits
 are stated plainly (About → Limits): different survey years are never combined as one moment; sector poverty rates are
-NISR small-area *model* estimates; the 2020 and 2024 "banked" definitions differ, so they are never plotted against
+NISR small-area _model_ estimates; the 2020 and 2024 "banked" definitions differ, so they are never plotted against
 each other.
 
 **Preprocessing — explained and reproducible.** Published tables are transcribed to CSV with their table references;
@@ -72,12 +74,12 @@ vulnerability indicator, and policy-scenario tools — each only where the data 
 
 **What is genuinely innovative (vs a conventional dashboard).**
 
-| Most dashboards… | IMBONIX adds… |
-|---|---|
-| Show numbers | Labels every value for **trust** (six labels) and frames each as gap → evidence → solution → who it helps |
-| Are read by analysts | A **grounded, multilingual (EN/FR/Kinyarwanda), multimodal, voice** assistant that answers about **any** district, sector, cell or village — and reads an uploaded chart or report |
-| Break without a backend/key | A **deterministic on-device fallback**, so the demo always works |
-| Stop at "here are the numbers" | Ends in **action**: priority districts and an intervention planner, by rules anyone can check |
+| Most dashboards…               | IMBONIX adds…                                                                                                                                                                      |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Show numbers                   | Labels every value for **trust** (six labels) and frames each as gap → evidence → solution → who it helps                                                                          |
+| Are read by analysts           | A **grounded, multilingual (EN/FR/Kinyarwanda), multimodal, voice** assistant that answers about **any** district, sector, cell or village — and reads an uploaded chart or report |
+| Break without a backend/key    | A **deterministic on-device fallback**, so the demo always works                                                                                                                   |
+| Stop at "here are the numbers" | Ends in **action**: priority districts and an intervention planner, by rules anyone can check                                                                                      |
 
 **Evidence to demonstrate:** live demo; `/poverty-dynamics/district-map`, `/financial-exclusion/risk-model`,
 `/social-protection/policy-scenarios`, IMBONIX AI; architecture in [`../architecture.md`](../architecture.md) and
@@ -111,13 +113,13 @@ Irembo) and WCAG 2.1 AA, and was refined through internal review. **Structured f
 
 **Who uses it, and the decision it helps.**
 
-| User | Decision it supports |
-|---|---|
-| District / sector officers | Where to focus limited support first, by a checkable rule |
-| Policymakers (MINECOFIN, LODA, AFR) | Which districts each policy lever flags, and distance to national targets |
-| Development partners (WFP, AFR, UNICEF) | Where poverty, exclusion, nutrition and shocks **overlap**, to aim programmes |
-| Civil society & researchers | Follow programmes with sourced figures; reuse the open data and API |
-| Vulnerable households (via intermediaries) | Where payments arrive late and formal finance is far |
+| User                                       | Decision it supports                                                          |
+| ------------------------------------------ | ----------------------------------------------------------------------------- |
+| District / sector officers                 | Where to focus limited support first, by a checkable rule                     |
+| Policymakers (MINECOFIN, LODA, AFR)        | Which districts each policy lever flags, and distance to national targets     |
+| Development partners (WFP, AFR, UNICEF)    | Where poverty, exclusion, nutrition and shocks **overlap**, to aim programmes |
+| Civil society & researchers                | Follow programmes with sourced figures; reuse the open data and API           |
+| Vulnerable households (via intermediaries) | Where payments arrive late and formal finance is far                          |
 
 **Measurable indicators of success (impact plan).**
 
