@@ -394,14 +394,21 @@ function StreamedCard({
           )}
         </div>
       ) : (
-        <span className="flex gap-1 py-1" aria-label="IMBONIX AI is thinking">
-          {[0, 1, 2].map((dot) => (
-            <span
-              key={dot}
-              className="h-2 w-2 animate-pulse rounded-full bg-cyan-ink/60"
-              style={{ animationDelay: `${dot * 150}ms` }}
-            />
-          ))}
+        <span
+          className="flex items-center gap-2 py-1 text-[12.5px] font-semibold text-cyan-ink"
+          aria-label="IMBONIX AI is thinking"
+          aria-live="polite"
+        >
+          <span className="flex gap-1" aria-hidden="true">
+            {[0, 1, 2].map((dot) => (
+              <span
+                key={dot}
+                className="h-1.5 w-1.5 animate-bounce rounded-full bg-cyan-ink motion-reduce:animate-none"
+                style={{ animationDelay: `${dot * 160}ms` }}
+              />
+            ))}
+          </span>
+          IMBONIX AI is thinking…
         </span>
       )}
       {streaming && markdown && <span className="ml-0.5 inline-block h-4 w-1.5 animate-pulse bg-cyan-ink align-middle" />}
@@ -601,6 +608,17 @@ export function ImbonixAI() {
   /** The person's district from IP-based location — used only as silent context for "my district"/"near me", never shown. */
   const locationRef = useRef<{ name: string; slug: string } | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
+  /** True when the person tapped the mic to stop — vs the browser ending on a pause, which we resume through. */
+  const manualStopRef = useRef(false);
+  /** Everything heard so far in the current dictation, kept across the browser's internal restarts on a pause. */
+  const transcriptRef = useRef("");
+  const sessionStartRef = useRef(0);
+  /** Set when the person sends mid-dictation, so the final transcript is not written back into the (now sent) box. */
+  const discardNextRef = useRef(false);
+  /** True while a chosen file is being read, so the attach button shows progress and can't be double-triggered. */
+  const [reading, setReading] = useState(false);
+  /** True while a file is being dragged over the panel, to show the drop target. */
+  const [dragOver, setDragOver] = useState(false);
 
   const probe = async (): Promise<boolean> => {
     try {
@@ -782,8 +800,11 @@ export function ImbonixAI() {
   };
 
   const chooseFile = async (file: File | undefined) => {
-    if (!file) return;
+    if (!file || reading) return;
+    setReading(true);
+    setNotice(null);
     const { attachment, error } = await readFile(file);
+    setReading(false);
     if (error) {
       setNotice(error);
       setPending(null);
@@ -795,51 +816,95 @@ export function ImbonixAI() {
     if (fileRef.current) fileRef.current.value = "";
   };
 
-  const toggleListen = () => {
-    if (listening) {
-      recognitionRef.current?.stop();
-      return;
-    }
+  /**
+   * Start continuous dictation. A pause no longer ends it — the browser's own stop on a short silence is resumed, so the
+   * person can think mid-sentence; only tapping the mic (or Send) stops it. What is heard is kept in the box to send.
+   */
+  const startRecognition = () => {
     const Ctor = recognitionCtor();
     if (!Ctor) return;
-    setNotice(null);
     const recognition = new Ctor();
     recognition.lang = "en-US";
     recognition.interimResults = true;
-    recognition.continuous = false;
-    let finalText = "";
+    recognition.continuous = true;
+    let sessionFinal = "";
     recognition.onresult = (event) => {
-      let text = "";
+      sessionFinal = "";
+      let interim = "";
       for (let index = 0; index < event.results.length; index += 1) {
         const result = event.results[index];
-        text += result[0].transcript;
-        if (result.isFinal) finalText = text;
+        if (result.isFinal) sessionFinal += `${result[0].transcript} `;
+        else interim += result[0].transcript;
       }
-      setQuery(text);
+      setQuery(`${transcriptRef.current}${sessionFinal}${interim}`.replace(/\s+/g, " ").trimStart());
     };
     recognition.onerror = (event) => {
-      setListening(false);
-      recognitionRef.current = null;
       const code = event.error;
-      if (code === "not-allowed" || code === "service-not-allowed") {
+      // A pause (no-speech) or a benign abort: do nothing — onend will resume, so a thinking pause never cuts them off.
+      if (code === "no-speech" || code === "aborted") return;
+      manualStopRef.current = true;
+      if (code === "not-allowed" || code === "service-not-allowed")
         setNotice("Microphone blocked. Allow the microphone for this site in your browser, then tap the mic again.");
-      } else if (code === "no-speech") {
-        setNotice("I didn't catch that — tap the mic and speak again.");
-      } else if (code === "audio-capture") {
-        setNotice("No microphone found. Check your mic, then try again.");
-      } else if (code === "network") {
-        setNotice("Voice needs a connection right now — please try again in a moment.");
-      }
+      else if (code === "audio-capture") setNotice("No microphone found. Check your mic, then try again.");
+      else if (code === "network") setNotice("Voice needs a connection right now — please try again in a moment.");
     };
     recognition.onend = () => {
-      setListening(false);
+      transcriptRef.current = `${transcriptRef.current}${sessionFinal}`.replace(/\s+/g, " ");
+      sessionFinal = "";
+      // Ended on its own (a pause) while the person is still dictating and no real error occurred: resume listening.
+      const ranBriefly = Date.now() - sessionStartRef.current < 400;
+      if (!manualStopRef.current && recognitionRef.current === recognition && !ranBriefly) {
+        sessionStartRef.current = Date.now();
+        try {
+          recognition.start();
+          return;
+        } catch {
+          // Could not resume (browser limit): fall through and let them send what we have.
+        }
+      }
       recognitionRef.current = null;
-      const spoken = finalText.trim();
-      if (spoken) void ask(spoken, pending, true);
+      setListening(false);
+      const spoken = transcriptRef.current.trim();
+      if (spoken && !discardNextRef.current) {
+        setQuery(spoken);
+        window.setTimeout(() => inputRef.current?.focus(), 40);
+      }
+      discardNextRef.current = false;
     };
     recognitionRef.current = recognition;
+    sessionStartRef.current = Date.now();
     setListening(true);
-    recognition.start();
+    try {
+      recognition.start();
+    } catch {
+      recognitionRef.current = null;
+      setListening(false);
+    }
+  };
+
+  /** Tap the mic to start; tap again to stop. Stopping leaves the words in the box, so the person chooses when to send. */
+  const toggleListen = () => {
+    if (listening) {
+      manualStopRef.current = true;
+      recognitionRef.current?.stop();
+      return;
+    }
+    setNotice(null);
+    manualStopRef.current = false;
+    discardNextRef.current = false;
+    transcriptRef.current = "";
+    setQuery("");
+    startRecognition();
+  };
+
+  /** Send the current question. If dictation is running, stop it first and keep the text that was spoken. */
+  const submitQuery = () => {
+    if (listening) {
+      discardNextRef.current = true;
+      manualStopRef.current = true;
+      recognitionRef.current?.stop();
+    }
+    void ask(query, pending);
   };
 
   useEffect(() => {
@@ -953,8 +1018,27 @@ export function ImbonixAI() {
             role="dialog"
             aria-label="IMBONIX AI assistant"
             aria-modal="false"
+            onDragEnter={(event) => {
+              event.preventDefault();
+              if (event.dataTransfer?.types?.includes("Files")) setDragOver(true);
+            }}
+            onDragOver={(event) => event.preventDefault()}
+            onDragLeave={(event) => {
+              if (event.currentTarget === event.target) setDragOver(false);
+            }}
+            onDrop={(event) => {
+              event.preventDefault();
+              setDragOver(false);
+              void chooseFile(event.dataTransfer?.files?.[0]);
+            }}
             className="fixed inset-x-3 bottom-3 top-16 z-[56] flex flex-col overflow-hidden rounded-3xl bg-paper shadow-lift ring-1 ring-line motion-safe:animate-fade-up sm:inset-x-auto sm:bottom-24 sm:right-6 sm:top-auto sm:h-[min(620px,78vh)] sm:w-[400px]"
           >
+            {/* Drag a photo or document anywhere onto the panel to attach it. */}
+            {dragOver && (
+              <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center rounded-3xl border-2 border-dashed border-cyan-ink bg-cyan-soft/85 px-6 text-center font-display text-[15px] font-bold text-cyan-ink">
+                Drop a photo or document to read it
+              </div>
+            )}
             {/* A thin brand-gradient accent across the very top, for a premium, finished feel. */}
             <span className="h-1 w-full shrink-0 bg-gradient-to-r from-cyan via-cyan-ink to-cyan" aria-hidden="true" />
             <div className="flex items-center justify-between gap-3 border-b border-line bg-gradient-to-b from-white to-cyan-soft/40 px-4 py-3">
@@ -1094,7 +1178,7 @@ export function ImbonixAI() {
             <form
               onSubmit={(event) => {
                 event.preventDefault();
-                void ask(query, pending);
+                submitQuery();
               }}
               className="flex items-center gap-2 border-t border-line bg-white p-3"
             >
@@ -1107,15 +1191,23 @@ export function ImbonixAI() {
                 onChange={(event) => void chooseFile(event.target.files?.[0])}
               />
               {/* The attach button opens the native file picker directly on click — a direct user gesture, so the dialog
-                  always opens (no dropdown to intercept it). */}
+                  always opens (no dropdown to intercept it). While a file is read it shows a spinner. */}
               <button
                 type="button"
                 onClick={() => fileRef.current?.click()}
-                aria-label="Add a photo or file"
-                title="Add a photo or file"
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                disabled={reading}
+                aria-label={reading ? "Reading your file" : "Add a photo or file"}
+                title={reading ? "Reading your file…" : "Add a photo or file"}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink disabled:opacity-60"
               >
-                <PlusIcon className="h-6 w-6" aria-hidden="true" />
+                {reading ? (
+                  <span
+                    className="h-5 w-5 animate-spin rounded-full border-2 border-line border-t-cyan-ink motion-reduce:animate-none"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <PlusIcon className="h-6 w-6" aria-hidden="true" />
+                )}
               </button>
               {canListen && (
                 <button
@@ -1145,10 +1237,17 @@ export function ImbonixAI() {
               <button
                 type="submit"
                 disabled={busy || (!query.trim() && !pending)}
-                aria-label="Send"
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cyan text-ink transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink disabled:opacity-40"
+                aria-label={busy ? "IMBONIX AI is answering" : "Send"}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cyan text-ink transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink disabled:opacity-60"
               >
-                <ArrowUpIcon className="h-5 w-5 stroke-2" aria-hidden="true" />
+                {busy ? (
+                  <span
+                    className="h-4 w-4 animate-spin rounded-full border-2 border-ink/30 border-t-ink motion-reduce:animate-none"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <ArrowUpIcon className="h-5 w-5 stroke-2" aria-hidden="true" />
+                )}
               </button>
             </form>
 
