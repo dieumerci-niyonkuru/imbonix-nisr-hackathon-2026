@@ -10,7 +10,7 @@ import { NATIONAL_FRAMEWORKS, TARGET_PROGRESS, TARGETS_SOURCE } from "@/lib/nati
  */
 export function NationalPriorities() {
   return (
-    <section className="bg-white py-12 sm:py-20" aria-labelledby="priorities-heading">
+    <section className="bg-white py-10 sm:py-14" aria-labelledby="priorities-heading">
       <div className="container-page">
         <p className="eyebrow text-cyan-ink">Aligned to national priorities</p>
         <h2

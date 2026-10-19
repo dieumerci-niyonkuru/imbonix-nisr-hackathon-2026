@@ -52,7 +52,7 @@ export function DistrictIntelligence({ district }: { district: District }) {
   const limitations = limitationsFor(district);
 
   return (
-    <section className="border-b border-line bg-white py-12 sm:py-16" aria-labelledby="intelligence-heading">
+    <section className="border-b border-line bg-white py-10 sm:py-12" aria-labelledby="intelligence-heading">
       <div className="container-page">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-3xl">
