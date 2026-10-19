@@ -48,7 +48,7 @@ IMBONIX is an independent team project. It is **not an official NISR product** a
 - **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** — required by the rules: how AI tools were used, and the team's responsibility for every figure.
 - **Live app:** _deploy and add the public URL here_ (see the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel-fastest)) · **Source:** this repository.
 
-![The IMBONIX homepage](docs/screenshots/home.png)
+![The IMBONIX homepage](docs/screenshots/homepage.png)
 
 ## Site map
 
@@ -126,16 +126,16 @@ See [docs/ai-assistant.md](docs/ai-assistant.md) for the architecture and
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/screenshots/assistant.png" alt="IMBONIX AI assistant, grounded in NISR figures"><br><sub><b>IMBONIX AI</b> — ask in plain language or by voice; answers only from NISR figures, with the source named.</sub></td>
-    <td width="50%"><img src="docs/screenshots/planner.png" alt="Intervention planner: problem, group and place"><br><sub><b>Intervention planner</b> — pick a problem, a group and a place: the evidence, who's affected, and what could help.</sub></td>
+    <td width="50%"><img src="docs/screenshots/imbonix-ai.png" alt="IMBONIX AI assistant, grounded in NISR figures"><br><sub><b>IMBONIX AI</b> — ask in plain language or by voice; answers only from NISR figures, with the source named.</sub></td>
+    <td width="50%"><img src="docs/screenshots/intervention-planner.png" alt="Intervention planner: problem, group and place"><br><sub><b>Intervention planner</b> — pick a problem, a group and a place: the evidence, who's affected, and what could help.</sub></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/priorities.png" alt="Priority ranking by policy lever"><br><sub><b>Priority ranking</b> — where to act first, flagged by seven transparent policy-lever rules.</sub></td>
-    <td><img src="docs/screenshots/map.png" alt="Resilience map zoomed to a district's sectors"><br><sub><b>District map</b> — every measure, mapped for all 30 districts, colour-blind-validated.</sub></td>
+    <td><img src="docs/screenshots/priority-ranking.png" alt="Priority ranking by policy lever"><br><sub><b>Priority ranking</b> — where to act first, flagged by seven transparent policy-lever rules.</sub></td>
+    <td><img src="docs/screenshots/district-map.png" alt="Resilience map zoomed to a district's sectors"><br><sub><b>District map</b> — every measure, mapped for all 30 districts, colour-blind-validated.</sub></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/district.png" alt="District profile"><br><sub><b>District profile</b> — evidence to action, year-by-year trends, and every published indicator.</sub></td>
-    <td align="center"><img src="docs/screenshots/home-mobile.png" alt="Homepage on a phone" width="260"><br><sub><b>Mobile</b> — the whole platform works on a phone.</sub></td>
+    <td><img src="docs/screenshots/district-profile.png" alt="District profile"><br><sub><b>District profile</b> — evidence to action, year-by-year trends, and every published indicator.</sub></td>
+    <td align="center"><img src="docs/screenshots/mobile.png" alt="Homepage on a phone" width="260"><br><sub><b>Mobile</b> — the whole platform works on a phone.</sub></td>
   </tr>
 </table>
 

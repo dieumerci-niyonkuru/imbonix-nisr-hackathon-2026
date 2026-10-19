@@ -6,7 +6,7 @@
 
 _Data for Inclusive Prosperity_
 
-<img src="../screenshots/home.png" alt="IMBONIX homepage: the inclusion-vs-resilience gap, with the IMBONIX AI assistant" width="840">
+<img src="../screenshots/homepage.png" alt="IMBONIX homepage: the inclusion-vs-resilience gap, with the IMBONIX AI assistant" width="840">
 
 </div>
 

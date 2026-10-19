@@ -10,7 +10,7 @@ This document explains what it is, how it is built, why it is trustworthy, and h
 criteria. For the whole-platform story see [`submission/solution-overview.md`](submission/solution-overview.md); for the
 live walkthrough see [`submission/demo-script.md`](submission/demo-script.md).
 
-![IMBONIX AI: a grounded assistant that answers in plain language or by voice, from NISR figures only, and names the source every time](screenshots/assistant.png)
+![IMBONIX AI: a grounded assistant that answers in plain language or by voice, from NISR figures only, and names the source every time](screenshots/imbonix-ai.png)
 
 **Contents:** [What it does](#1-what-it-does) · [Architecture](#2-architecture-at-a-glance) · [Grounding](#3-grounding--why-the-answers-can-be-trusted) · [Backends](#4-the-two-backends) · [Multimodal](#5-multimodal-input) · [Place intelligence](#6-place-intelligence) · [Voice](#7-voice) · [Safety & privacy](#8-safety-privacy-and-cost) · [Judging criteria](#9-how-it-maps-to-the-judging-criteria) · [Configuration](#10-configuration)
 

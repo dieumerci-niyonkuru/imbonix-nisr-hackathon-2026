@@ -28,7 +28,7 @@
 > nutrition and shocks pile up. **IMBONIX makes that overlap visible, measures the gap to every national target, and asks
 > it anything, in plain language.**
 
-![The IMBONIX homepage: the inclusion-vs-resilience gap, with the IMBONIX AI assistant](../screenshots/home.png)
+![The IMBONIX homepage: the inclusion-vs-resilience gap, with the IMBONIX AI assistant](../screenshots/homepage.png)
 
 ## Contents
 
@@ -107,7 +107,7 @@ IMBONIX is built to walk a user along exactly that line — from a headline to t
    village — _only_ from those published figures, in three languages, by voice or text, and can read an uploaded image
    or document. Full detail in [IMBONIX AI](../ai-assistant.md).
 
-![IMBONIX AI: a grounded assistant that answers in plain language or by voice, from NISR figures only, and names the source every time](../screenshots/assistant.png)
+![IMBONIX AI: a grounded assistant that answers in plain language or by voice, from NISR figures only, and names the source every time](../screenshots/imbonix-ai.png)
 
 ## How it works
 
@@ -210,12 +210,12 @@ one click.
 
 It ends in action — seven policy levers, each flagging districts by one published figure and a stated, checkable rule:
 
-![Priority ranking: seven policy levers, each flagging districts by a published figure and a stated rule](../screenshots/priorities.png)
+![Priority ranking: seven policy levers, each flagging districts by a published figure and a stated rule](../screenshots/priority-ranking.png)
 
 And the **intervention planner** brings it down to one case — choose a problem, a group and a place, and see the
 evidence, how many people are affected, where it concentrates, and feasible options tied to existing programmes:
 
-![Intervention planner: choose a problem, a group and a place, and see the evidence, who is affected, and the options](../screenshots/planner.png)
+![Intervention planner: choose a problem, a group and a place, and see the evidence, who is affected, and the options](../screenshots/intervention-planner.png)
 
 ## Alignment with Rwanda's priorities
 
