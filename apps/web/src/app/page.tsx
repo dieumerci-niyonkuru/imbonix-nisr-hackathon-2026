@@ -78,10 +78,10 @@ export default function Home() {
   // The headline figures, each with its source.
   const figureTiles: FigureTile[] = [
     { value: `${includedShare}%`, label: "of adults use a financial service", source: "NISR, FinScope 2024" },
-    { value: `${healthyShare}%`, label: "of adults are financially healthy", source: "NISR, FinScope 2024, section 5.2" },
+    { value: `${healthyShare}%`, label: "are financially healthy", source: "NISR, FinScope 2024, section 5.2" },
     {
       value: `${bankedRow.in2024}%`,
-      label: bankedRow.in2024 === bankedRow.in2020 ? "of adults are banked, the same as in 2020" : "of adults are banked",
+      label: bankedRow.in2024 === bankedRow.in2020 ? "are banked, the same as in 2020" : "are banked",
       source: "NISR, FinScope 2020 and 2024",
     },
     {
