@@ -108,25 +108,25 @@ export function ExclusionFocus() {
   const tiles: FigureTile[] = [
     {
       value: `${included.in2024}%`,
-      label: `of adults use a financial service, formal or informal, up from ${included.in2020}% in 2020`,
+      label: `of adults use a financial service — up from ${included.in2020}% in 2020`,
       source: FINSCOPE_2024_SOURCE,
     },
     {
       value: `${banked.in2024}%`,
       label:
         banked.in2024 === banked.in2020
-          ? "of adults are banked, the same share as in 2020"
-          : `of adults are banked, against ${banked.in2020}% in 2020`,
+          ? "are banked — the same share as in 2020"
+          : `are banked — against ${banked.in2020}% in 2020`,
       source: `NISR, FinScope 2020 and 2024`,
     },
     {
       value: `${healthyShare}%`,
-      label: "of adults are financially healthy: able to manage day to day, cope with a shock and plan ahead",
+      label: "are financially healthy — can save and absorb a shock, not just hold an account",
       source: `${FINSCOPE_2024_SOURCE}, section 5.2`,
     },
     {
       value: EXCLUDED_ADULTS.toLocaleString("en-US"),
-      label: `adults use no financial service at all, ${inclusionOf("Excluded").in2024}% of adults`,
+      label: `use no financial service at all — ${inclusionOf("Excluded").in2024}% of adults`,
       source: FINSCOPE_2024_SOURCE,
     },
   ];
