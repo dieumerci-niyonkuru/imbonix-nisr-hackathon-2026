@@ -25,7 +25,7 @@ export function FigureTiles({
   columns?: 3 | 4;
 }) {
   return (
-    <section className="bg-white py-12 sm:py-20" aria-labelledby={id}>
+    <section className="bg-white py-10 sm:py-14" aria-labelledby={id}>
       <div className="container-page">
         <p className="eyebrow text-cyan-ink">{eyebrow}</p>
         <h2

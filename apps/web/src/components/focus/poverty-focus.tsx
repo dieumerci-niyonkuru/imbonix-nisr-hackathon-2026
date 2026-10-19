@@ -186,7 +186,7 @@ export function PovertyFocus() {
         />
       </div>
 
-      <section id="change" className="scroll-mt-36 bg-paper py-12 sm:py-16" aria-labelledby="change-heading">
+      <section id="change" className="scroll-mt-36 bg-paper py-10 sm:py-12" aria-labelledby="change-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="What changed"
@@ -224,7 +224,7 @@ export function PovertyFocus() {
       <div id="where" className="scroll-mt-36">
         <PovertyMapSection />
         <section
-          className="border-t border-line bg-white py-12 sm:py-16"
+          className="border-t border-line bg-white py-10 sm:py-12"
           aria-label="Poverty and financial exclusion by province"
         >
           <div className="container-page">
@@ -260,7 +260,7 @@ export function PovertyFocus() {
         </section>
       </div>
 
-      <section id="who" className="scroll-mt-36 bg-paper py-12 sm:py-16" aria-labelledby="who-heading">
+      <section id="who" className="scroll-mt-36 bg-paper py-10 sm:py-12" aria-labelledby="who-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="Who is poorest"
@@ -336,7 +336,7 @@ export function PovertyFocus() {
         </div>
       </section>
 
-      <section id="living" className="scroll-mt-36 bg-white py-12 sm:py-16" aria-labelledby="living-heading">
+      <section id="living" className="scroll-mt-36 bg-white py-10 sm:py-12" aria-labelledby="living-heading">
         <div className="container-page">
           <SectionHeader
             eyebrow="How households live"

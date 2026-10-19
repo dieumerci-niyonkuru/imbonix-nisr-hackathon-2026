@@ -199,7 +199,7 @@ export function DataCatalog() {
         </div>
       </div>
 
-      <div className="container-page py-12 sm:py-16">
+      <div className="container-page py-10 sm:py-12">
         {byDecade.length === 0 ? (
           <div className="max-w-2xl rounded-xl border border-line bg-white px-6 py-8">
             <p className="text-[16px] font-bold text-ink">No survey matches.</p>
