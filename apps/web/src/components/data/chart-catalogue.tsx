@@ -194,7 +194,7 @@ export function ChartCatalogue({ sections, total }: { sections: CatalogueSection
         </div>
       </div>
 
-      <div className="container-page py-12 sm:py-16">
+      <div className="container-page py-10 sm:py-12">
         {filtered.length === 0 ? (
           <div className="max-w-2xl rounded-xl border border-line bg-white px-6 py-8">
             <p className="text-[16px] font-bold text-ink">No chart matches.</p>

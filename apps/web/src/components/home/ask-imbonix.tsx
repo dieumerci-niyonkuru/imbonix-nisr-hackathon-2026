@@ -59,7 +59,7 @@ function ExampleChip({ question }: { question: string }) {
  */
 export function AskImbonix() {
   return (
-    <section className="border-y border-line bg-paper py-12 sm:py-20" aria-labelledby="ask-heading">
+    <section className="border-y border-line bg-paper py-10 sm:py-14" aria-labelledby="ask-heading">
       <div className="container-page">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
