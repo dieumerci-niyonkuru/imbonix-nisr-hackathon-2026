@@ -46,7 +46,7 @@ IMBONIX is an independent team project. It is **not an official NISR product** a
 - **[Demo script](docs/submission/demo-script.md)** — a 90-second pitch and a 3-minute, criterion-by-criterion walkthrough.
 - **[IMBONIX AI](docs/ai-assistant.md)** — how the grounded, multilingual, multimodal assistant is built.
 - **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** — required by the rules: how AI tools were used, and the team's responsibility for every figure.
-- **Live app:** _deploy and add the public URL here_ (see the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel-fastest)) · **Source:** this repository.
+- **Live app:** _deploy and add the public URL here_ (see the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel)) · **Source:** this repository.
 
 ![The IMBONIX homepage](docs/screenshots/homepage.png)
 
@@ -308,16 +308,19 @@ docs/
   research/         Hackathon brief and the Track 2 research dossier
   model/  project/  submission/  screenshots/
                     Architecture, API, data model, deployment, security and development guides at the top level
-.github/            CI workflow, Dependabot, issue and pull request templates, CODEOWNERS
+.github/            CI workflow, issue and pull request templates, CODEOWNERS
 ```
 
 ## Deployment
 
-The web app and API each have a production Dockerfile, and `docker-compose.yml` runs both. Both images have been built,
-started and checked locally. **IMBONIX is not yet deployed to a public host.** The fastest path to the public URL the
-hackathon requires is the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel-fastest) (no Docker
-needed); add the live URL under [For judges](#for-judges) once it is up. [docs/deployment.md](docs/deployment.md) covers
-Vercel, Docker hosting options, production settings, hardening notes and a release checklist.
+**IMBONIX is not yet deployed to a public host.** The recommended setup is **everything on
+[Vercel](docs/deployment.md#deploy-the-web-app-to-vercel)** in one project: the JSON API is built into the web app
+([apps/web/src/app/api/v1](apps/web/src/app/api/v1)), so deploying the site also serves it at `/api/v1` — nothing else
+to run, and the Data page's "live API" panel reads **Connected** automatically. Running the API as a standalone service
+on [Railway](docs/deployment.md#deploy-the-api-to-railway) (via the repo-root `railway.json`) or any Docker host is
+optional. The web app and API also each have a production Dockerfile, and `docker-compose.yml` runs both. Add the live
+URL under [For judges](#for-judges) once up. [docs/deployment.md](docs/deployment.md) covers Vercel, Railway, Docker
+hosting options, production settings, hardening notes and a release checklist.
 
 ## Security
 

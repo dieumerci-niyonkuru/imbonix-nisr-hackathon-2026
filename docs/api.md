@@ -3,9 +3,15 @@
 The IMBONIX API is a read-only JSON service over the same published aggregates as the website: 30 districts,
 67 indicators and 416 sectors, each with its source. It needs no authentication.
 
-- Local base URL: `http://localhost:4000`
+It is served two ways — same figures, same response shapes, so this reference applies to both:
+
+- **Built into the website** (the default on the deployed site): same origin under `/api/v1`, e.g.
+  `https://your-imbonix.vercel.app/api/v1`. Served by the Next.js app ([apps/web/src/app/api/v1](../apps/web/src/app/api/v1));
+  health is the web app's `/api/health`. This is the one-deployment option — nothing extra to run.
+- **A standalone service** ([apps/api](../apps/api)) for a separate deployment (Docker, Railway, any Node host): local
+  base `http://localhost:4000`, health at `/health`. This version adds per-IP rate limiting.
+
 - Version prefix: `/api/v1`
-- Source: [apps/api](../apps/api)
 
 IMBONIX is an independent project. The figures come from the National Institute of Statistics of Rwanda (NISR) and its
 partners; the API is not an official NISR service.
@@ -32,7 +38,7 @@ filtered lists echo `meta.filters`.
 | --- | --- | --- |
 | 400 | `bad_request` | Invalid parameter, unknown or repeated query parameter, or malformed URL |
 | 404 | `not_found` | Unknown district, indicator or route (including any non-GET method) |
-| 429 | `rate_limited` | More than the per-minute limit from one client |
+| 429 | `rate_limited` | More than the per-minute limit from one client (standalone service only) |
 | 500 | `internal_error` | Unexpected failure; details are logged against the `requestId`, not returned |
 
 **Values** are objects with `value`, `standardError`, `ciLow` and `ciHigh`. The last three are `null` when NISR does not
@@ -44,7 +50,7 @@ published figures), `model_estimate` or `projection`.
 | Header | Meaning |
 | --- | --- |
 | `X-Request-Id` | Unique per request; send your own (letters, digits, `.`, `_`, `-`, up to 64 characters) to trace a call |
-| `RateLimit`, `RateLimit-Policy` | Remaining requests and the window (IETF draft 8 format) |
+| `RateLimit`, `RateLimit-Policy` | Remaining requests and the window (IETF draft 8 format); standalone service only |
 | `Cache-Control` | `public, max-age=300` for data, `no-store` for errors and the health check |
 
 Unknown query parameters are rejected rather than ignored, so a typo such as `?stauts=` fails loudly.
