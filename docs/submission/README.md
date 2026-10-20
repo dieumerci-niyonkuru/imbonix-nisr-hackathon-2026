@@ -44,14 +44,14 @@ charts and reports. It is independent, open-source, and **not an official NISR p
 ## Run or view it
 
 - **Locally:** `cd apps/web && npm install && npm run dev` → <http://localhost:3000>
-- **Live:** _deploy and add the public URL here_ — everything on [Vercel](../deployment.md#deploy-the-web-app-to-vercel) in one project (the JSON API ships with the site at `/api/v1`); a standalone [Railway](../deployment.md#deploy-the-api-to-railway) API is optional.
+- **Live:** <https://imbonix26.vercel.app> — everything on [Vercel](../deployment.md#deploy-the-web-app-to-vercel) in one project (the JSON API ships with the site at `/api/v1`, e.g. <https://imbonix26.vercel.app/api/v1>).
 - **Turn on the AI (optional):** set a free `GEMINI_API_KEY` (or `ANTHROPIC_API_KEY`) in `apps/web/.env`; without a key
   the assistant uses its on-device engine, so the demo never depends on a secret.
 
 ## Submission checklist (per the rules)
 
 - [ ] **Public GitHub link** — this repository.
-- [ ] **Deployed app link** — deploy to Vercel and record the URL here and in the main [README](../../README.md).
+- [x] **Deployed app link** — <https://imbonix26.vercel.app> (Vercel), recorded here and in the main [README](../../README.md).
 - [ ] **Documentation** — this package, plus the top-level [README](../../README.md) and [docs/](../).
 - [ ] **AI disclosure** — [ai-disclosure.md](ai-disclosure.md), with the specific tools recorded.
 - [ ] **Team** — exactly 2 students, at least one Rwandan citizen; student IDs ready.
