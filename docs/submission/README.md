@@ -48,13 +48,24 @@ charts and reports. It is independent, open-source, and **not an official NISR p
 - **Turn on the AI (optional):** set a free `GEMINI_API_KEY` (or `ANTHROPIC_API_KEY`) in `apps/web/.env`; without a key
   the assistant uses its on-device engine, so the demo never depends on a secret.
 
+## Team
+
+IMBONIX was built by two students for the NISR Big Data Hackathon 2026:
+
+| Member | Role |
+| --- | --- |
+| **Dieu Merci Niyonkuru** | Software development, UI/UX design, IMBONIX AI integration, and deployment. |
+| **UMURERWA Divine** | Data analysis; data collection and sourcing of the NISR datasets (the figures the platform is built on); and development. |
+
+Student IDs are ready for verification, and at least one team member is a Rwandan citizen.
+
 ## Submission checklist (per the rules)
 
 - [ ] **Public GitHub link** — this repository.
 - [x] **Deployed app link** — <https://imbonix26.vercel.app> (Vercel), recorded here and in the main [README](../../README.md).
 - [ ] **Documentation** — this package, plus the top-level [README](../../README.md) and [docs/](../).
 - [ ] **AI disclosure** — [ai-disclosure.md](ai-disclosure.md), with the specific tools recorded.
-- [ ] **Team** — exactly 2 students, at least one Rwandan citizen; student IDs ready.
+- [x] **Team** — Dieu Merci Niyonkuru and UMURERWA Divine (see **Team** above); student IDs ready, at least one Rwandan citizen.
 - [x] **Screenshots** — present in [docs/screenshots/](../screenshots/) and rendering in the README (refresh if the design changes).
 
 <div align="center">
