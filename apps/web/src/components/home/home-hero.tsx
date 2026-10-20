@@ -82,8 +82,12 @@ export function HomeHero({
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/25"
             />
-            {/* On phones the text runs the full width over the photo, so an extra even wash keeps it readable there. */}
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink/45 sm:hidden" />
+            {/* On phones the text runs the full width over the photo. A gentle wash — lighter at the foot — keeps the
+                headline readable while letting more of the photo show through than a flat dark layer would. */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/25 to-ink/10 sm:hidden"
+            />
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cyan-ink/50 via-transparent to-transparent"

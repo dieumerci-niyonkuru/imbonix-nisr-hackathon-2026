@@ -6,14 +6,18 @@ import {
   ArrowUpIcon,
   CheckIcon,
   ClipboardDocumentIcon,
+  ClockIcon,
   MicrophoneIcon,
   PaperClipIcon,
   PauseIcon,
+  PencilIcon,
+  PencilSquareIcon,
   PlayIcon,
   PlusIcon,
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
   StopIcon,
+  TrashIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
 import { AiMark } from "@/components/assistant/ai-mark";
@@ -44,6 +48,41 @@ const MAX_BINARY_BYTES = 6 * 1024 * 1024;
 const LOCAL_REF = /\b(my (district|area|sector|place|home)|near me|around here|close to me|where i (am|live|stay))\b/i;
 const MAX_TEXT_CHARS = 20_000;
 const MAX_HISTORY_TURNS = 12;
+
+/** A past conversation the person can reopen, rename or delete. Kept per-browser in localStorage, never on a server. */
+type SavedChat = { id: string; title: string; messages: Message[]; updatedAt: number };
+const STORAGE_CHATS = "imbonix-ai-chats-v1";
+const STORAGE_CURRENT = "imbonix-ai-current-v1";
+const MAX_SAVED_CHATS = 40;
+
+/** A short title for a saved chat, taken from its first question. */
+function chatTitle(list: Message[]): string {
+  const text = list.find((message) => message.role === "user" && message.text)?.text?.trim();
+  if (!text) return "New chat";
+  return text.length > 44 ? `${text.slice(0, 44)}…` : text;
+}
+
+/** A conversation is worth keeping once the person has actually asked something. */
+function chatHasContent(list: Message[]): boolean {
+  return list.some((message) => message.role === "user");
+}
+
+/** Strip transient flags before a conversation is stored or archived. */
+function freezeMessages(list: Message[]): Message[] {
+  return list.map((message) => ({ ...message, streaming: false }));
+}
+
+function relativeTime(timestamp: number): string {
+  const minutes = Math.round((Date.now() - timestamp) / 60000);
+  if (minutes < 1) return "just now";
+  if (minutes < 60) return `${minutes} min ago`;
+  const hours = Math.round(minutes / 60);
+  if (hours < 24) return `${hours} h ago`;
+  const days = Math.round(hours / 24);
+  if (days === 1) return "yesterday";
+  if (days < 7) return `${days} days ago`;
+  return new Date(timestamp).toLocaleDateString();
+}
 
 /** The opening message: what the assistant does, with example questions to click. */
 const WELCOME: Answer = {
@@ -619,6 +658,13 @@ export function ImbonixAI() {
   const [reading, setReading] = useState(false);
   /** True while a file is being dragged over the panel, to show the drop target. */
   const [dragOver, setDragOver] = useState(false);
+  /** Past conversations (per-browser), the open history list, and an in-progress rename. */
+  const [savedChats, setSavedChats] = useState<SavedChat[]>([]);
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const [renamingId, setRenamingId] = useState<string | null>(null);
+  const [renameDraft, setRenameDraft] = useState("");
+  /** True once localStorage has been read, so the save effects don't overwrite it before it loads. */
+  const [hydrated, setHydrated] = useState(false);
 
   const probe = async (): Promise<boolean> => {
     try {
@@ -649,6 +695,109 @@ export function ImbonixAI() {
       })
       .filter((turn): turn is ChatTurn => turn !== null)
       .slice(-MAX_HISTORY_TURNS);
+
+  // Restore saved chats and the last open conversation from this browser, once, on mount.
+  useEffect(() => {
+    try {
+      const rawChats = localStorage.getItem(STORAGE_CHATS);
+      if (rawChats) {
+        const parsed = JSON.parse(rawChats) as SavedChat[];
+        if (Array.isArray(parsed)) setSavedChats(parsed.slice(0, MAX_SAVED_CHATS));
+      }
+      const rawCurrent = localStorage.getItem(STORAGE_CURRENT);
+      if (rawCurrent) {
+        const parsed = JSON.parse(rawCurrent) as Message[];
+        if (Array.isArray(parsed) && parsed.length && chatHasContent(parsed)) {
+          const clean = freezeMessages(parsed);
+          setMessages(clean);
+          nextId.current = Math.max(0, ...clean.map((message) => message.id)) + 1;
+        }
+      }
+    } catch {
+      // Ignore private-mode or corrupt storage; the assistant still works without history.
+    }
+    setHydrated(true);
+  }, []);
+
+  // Persist the chat list, and the open conversation (only when idle, so streaming doesn't thrash localStorage).
+  useEffect(() => {
+    if (!hydrated) return;
+    try {
+      localStorage.setItem(STORAGE_CHATS, JSON.stringify(savedChats.slice(0, MAX_SAVED_CHATS)));
+    } catch {
+      /* storage may be unavailable */
+    }
+  }, [savedChats, hydrated]);
+  useEffect(() => {
+    if (!hydrated || busy) return;
+    try {
+      localStorage.setItem(STORAGE_CURRENT, JSON.stringify(freezeMessages(messages)));
+    } catch {
+      /* storage may be unavailable */
+    }
+  }, [messages, busy, hydrated]);
+
+  /** Move the current conversation into the saved list (if it has any questions in it). */
+  const archiveInto = (list: SavedChat[]): SavedChat[] => {
+    if (!chatHasContent(messages)) return list;
+    const entry: SavedChat = {
+      id: `c${Date.now()}`,
+      title: chatTitle(messages),
+      messages: freezeMessages(messages),
+      updatedAt: Date.now(),
+    };
+    return [entry, ...list].slice(0, MAX_SAVED_CHATS);
+  };
+
+  /** Start a fresh conversation, archiving the current one first. */
+  const startNewChat = () => {
+    if (busy) return;
+    try {
+      window.speechSynthesis?.cancel();
+    } catch {
+      /* speech may be unavailable */
+    }
+    setSavedChats((list) => archiveInto(list));
+    setMessages([{ id: 0, role: "ai", answer: WELCOME }]);
+    nextId.current = 1;
+    setQuery("");
+    setPending(null);
+    setNotice(null);
+    setSpeakingId(null);
+    setHistoryOpen(false);
+  };
+
+  /** Reopen a saved chat, archiving the current one and taking the chosen one out of the list. */
+  const openChat = (id: string) => {
+    if (busy) return;
+    const chat = savedChats.find((entry) => entry.id === id);
+    if (!chat) return;
+    try {
+      window.speechSynthesis?.cancel();
+    } catch {
+      /* speech may be unavailable */
+    }
+    setSavedChats((list) => archiveInto(list.filter((entry) => entry.id !== id)));
+    const clean = freezeMessages(chat.messages);
+    setMessages(clean);
+    nextId.current = Math.max(0, ...clean.map((message) => message.id)) + 1;
+    setSpeakingId(null);
+    setHistoryOpen(false);
+  };
+
+  const beginRename = (chat: SavedChat) => {
+    setRenamingId(chat.id);
+    setRenameDraft(chat.title);
+  };
+  const commitRename = () => {
+    const title = renameDraft.trim();
+    setSavedChats((list) => list.map((entry) => (entry.id === renamingId ? { ...entry, title: title || entry.title } : entry)));
+    setRenamingId(null);
+  };
+  const deleteChat = (id: string) => {
+    setSavedChats((list) => list.filter((entry) => entry.id !== id));
+    if (renamingId === id) setRenamingId(null);
+  };
 
   /** Start reading an answer aloud and track it as the one currently playing. */
   const speakAnswer = (id: number, text: string) => {
@@ -1059,6 +1208,30 @@ export function ImbonixAI() {
                 </div>
               </div>
               <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={startNewChat}
+                  disabled={busy}
+                  aria-label="New chat"
+                  title="New chat"
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink disabled:opacity-40"
+                >
+                  <PencilSquareIcon className="h-5 w-5" aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setHistoryOpen((value) => !value)}
+                  aria-label="Chat history"
+                  aria-expanded={historyOpen}
+                  title="Chat history"
+                  className={
+                    historyOpen
+                      ? "flex h-9 w-9 items-center justify-center rounded-full bg-cyan text-ink ring-1 ring-cyan transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                      : "flex h-9 w-9 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                  }
+                >
+                  <ClockIcon className="h-5 w-5" aria-hidden="true" />
+                </button>
                 {canSpeak && (
                   <button
                     type="button"
@@ -1099,6 +1272,97 @@ export function ImbonixAI() {
                 </button>
               </div>
             </div>
+
+            {historyOpen && (
+              <div className="absolute inset-x-0 bottom-0 top-16 z-30 flex flex-col rounded-b-3xl bg-white">
+                <div className="flex items-center justify-between border-b border-line px-4 py-2.5">
+                  <p className="font-display text-[13px] font-bold text-ink">Your chats</p>
+                  <button
+                    type="button"
+                    onClick={() => setHistoryOpen(false)}
+                    aria-label="Close chat history"
+                    className="flex h-7 w-7 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                  >
+                    <XMarkIcon className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </div>
+                <div data-lenis-prevent className="min-h-0 flex-1 overflow-y-auto p-2">
+                  {savedChats.length === 0 ? (
+                    <p className="px-4 py-8 text-center text-[12.5px] leading-5 text-muted">
+                      No saved chats yet. When you start a new chat, the one you were in is saved here so you can come back to it.
+                    </p>
+                  ) : (
+                    <ul className="space-y-1">
+                      {savedChats.map((chat) => (
+                        <li key={chat.id} className="flex items-center gap-1 rounded-xl px-1.5 py-1 hover:bg-cyan-soft/50">
+                          {renamingId === chat.id ? (
+                            <>
+                              <input
+                                autoFocus
+                                value={renameDraft}
+                                onChange={(event) => setRenameDraft(event.target.value)}
+                                onKeyDown={(event) => {
+                                  if (event.key === "Enter") commitRename();
+                                  if (event.key === "Escape") setRenamingId(null);
+                                }}
+                                aria-label="Chat name"
+                                className="min-w-0 flex-1 rounded-lg border border-cyan-ink bg-white px-2 py-1 text-[13px] text-ink focus:outline-none"
+                              />
+                              <button
+                                type="button"
+                                onClick={commitRename}
+                                aria-label="Save name"
+                                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-cyan-ink hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                              >
+                                <CheckIcon className="h-4 w-4" aria-hidden="true" />
+                              </button>
+                            </>
+                          ) : (
+                            <>
+                              <button
+                                type="button"
+                                onClick={() => openChat(chat.id)}
+                                className="min-w-0 flex-1 rounded-lg px-2 py-1 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                              >
+                                <span className="block truncate text-[13px] font-semibold text-ink">{chat.title}</span>
+                                <span className="block text-[11px] text-muted">{relativeTime(chat.updatedAt)}</span>
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => beginRename(chat)}
+                                aria-label={`Rename chat: ${chat.title}`}
+                                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-white hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                              >
+                                <PencilIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => deleteChat(chat.id)}
+                                aria-label={`Delete chat: ${chat.title}`}
+                                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-white hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                              >
+                                <TrashIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                              </button>
+                            </>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+                <div className="border-t border-line p-2">
+                  <button
+                    type="button"
+                    onClick={startNewChat}
+                    disabled={busy}
+                    className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-cyan-soft px-3 py-2 text-[13px] font-bold text-cyan-ink ring-1 ring-cyan/30 transition-colors hover:bg-cyan hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink disabled:opacity-40"
+                  >
+                    <PencilSquareIcon className="h-4 w-4" aria-hidden="true" />
+                    New chat
+                  </button>
+                </div>
+              </div>
+            )}
 
             <div ref={logRef} data-lenis-prevent className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3.5">
               {messages.map((message) => {
