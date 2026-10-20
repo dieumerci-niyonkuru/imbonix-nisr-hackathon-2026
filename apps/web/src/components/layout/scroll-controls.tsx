@@ -12,8 +12,7 @@ const SHOW_AFTER = 480;
 /**
  * A single, simple "Back to top" button: it floats in the bottom-right once the page is scrolled down and returns to
  * the top on click (instantly for people who prefer reduced motion). It hides again near the top and once the footer is
- * in view, so it never covers it, unless it has keyboard focus. Phones scroll by touch, so it starts at the small tablet
- * width.
+ * in view, so it never covers it, unless it has keyboard focus. On phones it sits just above the floating assistant.
  */
 export function ScrollControls() {
   const pathname = usePathname();
@@ -54,7 +53,7 @@ export function ScrollControls() {
       aria-label="Back to top"
       title="Back to top"
       className={cn(
-        "group fixed bottom-24 right-4 z-40 hidden h-12 w-12 items-center justify-center rounded-full bg-cyan text-ink shadow-lift ring-1 ring-cyan-ink/15 transition-[opacity,transform,visibility] duration-200 hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:bottom-28 sm:right-6 sm:flex print:hidden",
+        "group fixed bottom-24 right-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-cyan text-ink shadow-lift ring-1 ring-cyan-ink/15 transition-[opacity,transform,visibility] duration-200 hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:bottom-28 sm:right-6 sm:h-12 sm:w-12 print:hidden",
         hidden &&
           "pointer-events-none invisible translate-y-2 opacity-0 focus-within:pointer-events-auto focus-within:visible focus-within:translate-y-0 focus-within:opacity-100",
       )}
