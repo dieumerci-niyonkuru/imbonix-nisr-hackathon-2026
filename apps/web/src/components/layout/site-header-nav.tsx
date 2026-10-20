@@ -32,9 +32,10 @@ const TABS = MENU_SECTIONS.map((section) => ({ id: section.id, label: section.la
 // A top-level tab: bold capitals that take a thick cyan underline on hover, when it is the section you are in.
 const TAB_STYLE =
   "inline-flex h-11 items-center whitespace-nowrap rounded px-3.5 text-[13.5px] font-bold uppercase tracking-[0.045em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
-/** Search and Menu read in normal case (like NISR's header), not the tabs' capitals, but share the tab colours. */
+/** Search and Menu read in normal case (like NISR's header), not the tabs' capitals, but share the tab colours. The
+    word always shows beside the icon (as on NISR's site); padding and size tighten on phones so both labels fit. */
 const UTIL_STYLE =
-  "inline-flex h-11 items-center whitespace-nowrap rounded px-3 text-[15px] font-bold tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+  "inline-flex h-11 items-center whitespace-nowrap rounded px-2 text-[14px] font-bold tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 sm:px-3 sm:text-[15px]";
 /** Tab colours on the solid white header: the brand blue, the current section (or a hovered tab) a solid blue box. */
 const TAB_SOLID = "text-cyan-ink hover:bg-cyan-ink hover:text-white focus-visible:ring-cyan-ink";
 const TAB_ACTIVE_SOLID = "bg-cyan-ink text-white";
@@ -98,7 +99,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
       >
         {/* Over the hero photo a dark scrim keeps the white logo and tabs clearly readable. */}
         {overlay && <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-ink/50" />}
-        <div className="container-page relative flex h-[76px] items-center gap-4">
+        <div className="container-page relative flex h-[76px] items-center gap-2 sm:gap-4">
           <Link href="/" aria-label="IMBONIX home" className={cn("shrink-0 rounded-xl", FOCUS_RING)}>
             <BrandLogo onDark={overlay} />
           </Link>
@@ -140,7 +141,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
               title={`Search the site (${shortcutLabel})`}
               className={cn(utilLink, "gap-1.5")}
             >
-              <span className="hidden min-[480px]:inline">Search</span>
+              <span>Search</span>
               <MagnifyingGlassIcon className="h-[18px] w-[18px] stroke-2" aria-hidden="true" />
             </button>
 
@@ -149,7 +150,7 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                 {/* The menu button matches Search: a "Menu" label with the three-lines icon, icon-only on the narrowest
                     phones. Shown below the point where the full tab bar appears. */}
                 <button type="button" aria-label="Open menu" className={cn(utilLink, "gap-1.5 xl:hidden")}>
-                  <span className="hidden min-[480px]:inline">Menu</span>
+                  <span>Menu</span>
                   <Bars3Icon className="h-[18px] w-[18px] stroke-2" aria-hidden="true" />
                 </button>
               </SheetTrigger>
