@@ -31,6 +31,21 @@ import { sectorsOf } from "@/lib/sectors";
  * come from the generated data and the indicator metadata, so the assistant can never drift from the site.
  */
 
+/** Web search (Gemini Google Search grounding) is opt-in: it needs a billing-enabled key, and the free tier 429s on any
+ * grounded request. When off, the assistant answers from the NISR data and its own general knowledge, with no live web. */
+const WEB_SEARCH_ENABLED = process.env.WEB_SEARCH_ENABLED === "1";
+const WEB_SEARCH_NOTE = WEB_SEARCH_ENABLED
+  ? "for other topics you can look things up on the web (see WEB SEARCH below)"
+  : "for other topics you answer from your own general knowledge, flagging any uncertainty";
+const WEB_SEARCH_BLOCK = WEB_SEARCH_ENABLED
+  ? `WEB SEARCH (you can look things up online — use it smartly, not for Rwanda's figures)
+- You can search the web. Use it ONLY when the NISR DATA below cannot answer: current events, dates or news, another country, live prices, the latest on a topic, or a general fact you are not sure of. Then search, answer from what you find, and cite the web source(s) as clickable links.
+- For Rwanda's poverty, financial inclusion and social protection, do NOT search — the NISR DATA here is the authoritative and more precise source. Answer from it and name the NISR source as always.
+- Keep web facts clearly separate from NISR figures: never blend a web number into an NISR citation, and make clear when something comes from the web rather than from NISR.
+
+`
+  : "";
+
 const DIRECTION: Record<string, string> = {
   higher: "higher is better",
   lower: "lower is better (a higher value means more people affected)",
@@ -186,9 +201,9 @@ GROUNDING AND HONESTY (these rules are absolute)
 - Never invent or guess a Rwandan poverty, financial-inclusion or social-protection statistic: any figure about Rwanda or its districts must come from the DATA below and carry its source. If you do not have that figure, say so plainly and point the person to the relevant district profile or [Rwanda in figures](/data/key-figures), rather than making one up. For general facts outside this data (another country, a broad concept), you may answer from your own knowledge — but say clearly that it is general knowledge, not NISR data, flag any uncertainty, and never present a general estimate as if it were an NISR figure.
 - Do not claim one thing causes another; the data shows where things are, not why. You can describe patterns and note what tends to go together, but be careful with causal language.
 - IMBONIX is independent and is not an official NISR product. Say so if anyone implies these are official NISR conclusions. The figures are NISR's; the analysis and framing are IMBONIX's.
-- Each figure describes the year of its survey or census (2022 census, 2024 EICV7 and FinScope, 2025 DHS and labour force survey), not necessarily today — name that year, and don't present an older figure as the current one. You don't have live or real-time data. If someone asks for something newer than the data, say what the most recent available figure is and that a newer one isn't published yet; separate verified figures from any estimate or projection, and acknowledge uncertainty rather than overstating.
+- Each figure describes the year of its survey or census (2022 census, 2024 EICV7 and FinScope, 2025 DHS and labour force survey), not necessarily today — name that year, and don't present an older figure as the current one. For Rwanda's figures you rely on the NISR data here, not a live feed; ${WEB_SEARCH_NOTE}. If someone asks for something newer than the NISR data, say what the most recent published figure is and that a newer one isn't out yet; separate verified figures from any estimate or projection, and acknowledge uncertainty rather than overstating.
 
-ANALYSING AN UPLOADED IMAGE OR DOCUMENT
+${WEB_SEARCH_BLOCK}ANALYSING AN UPLOADED IMAGE OR DOCUMENT
 - When the person attaches a picture or a document, read it carefully and tell them everything useful you can see: describe it, pull out the key text, tables, figures and dates, and explain what it appears to show.
 - Keep a clear line between what is in THEIR file and what is in IMBONIX's NISR data. Where their file touches on poverty, financial inclusion, a Rwandan district or a related topic, connect it to the relevant NISR figure from the DATA and name the source.
 - If a figure in their file disagrees with the NISR figure, point out the difference and give the NISR figure with its source; do not silently adopt their number as if it were NISR's.

@@ -173,6 +173,14 @@ ANTHROPIC_API_KEY=sk-ant-...
 GEMINI_API_KEY=...            # or GOOGLE_API_KEY
 # Optional override of the Gemini model:
 GEMINI_MODEL=gemini-flash-lite-latest
+# Optional web search (off by default; needs a billing-enabled Gemini key — see below):
+WEB_SEARCH_ENABLED=1
 ```
 
 With no key set, IMBONIX AI runs entirely on the on-device engine — so it is always demonstrable.
+
+**Web search (optional).** With `WEB_SEARCH_ENABLED=1`, the Gemini backend may use Google Search grounding to answer
+questions the NISR data cannot — current events, other countries, latest prices — and cite the web sources, while Rwanda
+poverty and inclusion answers stay grounded in NISR data. It is **off by default** because grounding needs a
+**billing-enabled** Gemini key: the free tier returns `429 RESOURCE_EXHAUSTED` on any grounded request, so enabling it on
+a free key would break every answer. Turn it on only once billing is enabled on the key.
