@@ -3,6 +3,7 @@ import { ArrowTopRightOnSquareIcon, ChevronDownIcon } from "@heroicons/react/24/
 import pkg from "../../../package.json";
 import { NISR_CATALOG_URL, REPOSITORY_URL } from "@/components/layout/nav";
 import { DataEvidence } from "@/components/home/data-evidence";
+import { LiveApi } from "@/components/data/live-api";
 import { Callout, PageHero, SectionHeader } from "@/components/ui/section";
 import { SectionNav, type PageSection } from "@/components/ui/section-nav";
 import { SITE_FACTS } from "@/lib/site-facts";
@@ -33,6 +34,7 @@ const SECTIONS: PageSection[] = [
   { id: "glossary", label: "Glossary" },
   { id: "caveats", label: "Caveats" },
   { id: "indicators", label: "Indicators" },
+  { id: "api", label: "API" },
   { id: "sources", label: "Sources" },
 ];
 
@@ -493,6 +495,20 @@ export default function DataPage() {
                   </ScrollArea>
                 </details>
               ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Live, open JSON API */}
+      <section id="api" className="scroll-mt-36 bg-paper py-11">
+        <div className="container-page">
+          <SectionHeader
+            eyebrow="Build on it"
+            title="The same data, as a live API"
+            intro="IMBONIX pairs the website with a read-only JSON API over the identical NISR aggregates, so others can reuse the evidence directly."
+          />
+          <div className="mt-8">
+            <LiveApi />
           </div>
         </div>
       </section>

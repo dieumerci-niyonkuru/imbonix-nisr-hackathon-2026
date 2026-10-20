@@ -44,7 +44,7 @@ charts and reports. It is independent, open-source, and **not an official NISR p
 ## Run or view it
 
 - **Locally:** `cd apps/web && npm install && npm run dev` → <http://localhost:3000>
-- **Live:** _deploy and add the public URL here_ — see the [Vercel quickstart](../deployment.md#deploy-the-web-app-to-vercel-fastest).
+- **Live:** _deploy and add the public URL here_ — website on [Vercel](../deployment.md#deploy-the-web-app-to-vercel), JSON API on [Railway](../deployment.md#deploy-the-api-to-railway).
 - **Turn on the AI (optional):** set a free `GEMINI_API_KEY` (or `ANTHROPIC_API_KEY`) in `apps/web/.env`; without a key
   the assistant uses its on-device engine, so the demo never depends on a secret.
 
