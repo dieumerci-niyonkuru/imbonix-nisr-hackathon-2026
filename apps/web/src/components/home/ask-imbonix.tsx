@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentType, SVGProps } from "react";
-import { ArrowRightIcon, ChatBubbleLeftRightIcon, CheckBadgeIcon, ShieldCheckIcon } from "@heroicons/react/20/solid";
+import { ChatBubbleLeftRightIcon, CheckBadgeIcon, ChevronRightIcon, ShieldCheckIcon } from "@heroicons/react/20/solid";
 import { AiMark } from "@/components/assistant/ai-mark";
 import { SUGGESTIONS } from "@/lib/assistant";
 
@@ -100,7 +100,7 @@ export function AskImbonix() {
               >
                 <AiMark className="h-5 w-5" />
                 Ask IMBONIX AI
-                <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
+                <ChevronRightIcon className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
 

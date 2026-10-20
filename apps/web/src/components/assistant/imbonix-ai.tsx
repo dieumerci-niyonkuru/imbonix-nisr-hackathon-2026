@@ -5,6 +5,7 @@ import { Fragment, type ReactNode, useEffect, useId, useRef, useState } from "re
 import {
   ArrowUpIcon,
   CheckIcon,
+  ChevronRightIcon,
   ClipboardDocumentIcon,
   ClockIcon,
   MicrophoneIcon,
@@ -88,10 +89,10 @@ function relativeTime(timestamp: number): string {
 const WELCOME: Answer = {
   heading: "Hi, I'm IMBONIX AI",
   body:
-    "Ask me anything about Rwanda's poverty and financial inclusion — a district, a measure, the national picture, where " +
-    "things are worst, how two places compare, or what the data means. I answer from NISR's published figures and name " +
-    "the source every time. You can type or speak, attach a picture or document for me to read, and have my answers read " +
-    "back to you. Try one of these:",
+    "I can help you explore poverty, financial access, household vulnerability and social protection across Rwanda — " +
+    "from NISR's published data, with the source named every time. Ask in your own words: compare two districts, ask " +
+    "what might be driving financial exclusion somewhere, or what could help vulnerable households. You can type or " +
+    "speak, attach a picture or document for me to read, and keep the conversation going. Where would you like to start?",
 };
 
 /** Shown when someone attaches a file but the AI service isn't connected. */
@@ -530,17 +531,24 @@ function AnswerCard({
       )}
 
       {showSuggestions && (
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {SUGGESTIONS.map((suggestion) => (
-            <button
-              key={suggestion}
-              type="button"
-              onClick={() => onAsk(suggestion)}
-              className="rounded-full bg-white px-3 py-1 text-left text-[12.5px] font-semibold text-ink ring-1 ring-line transition-colors hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
-            >
-              {suggestion}
-            </button>
-          ))}
+        <div className="mt-4">
+          <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.08em] text-muted">Try asking</p>
+          <div className="space-y-1.5">
+            {SUGGESTIONS.map((suggestion) => (
+              <button
+                key={suggestion}
+                type="button"
+                onClick={() => onAsk(suggestion)}
+                className="group flex w-full items-center justify-between gap-2 rounded-xl bg-white px-3.5 py-2.5 text-left text-[13px] font-semibold text-ink ring-1 ring-line transition-colors hover:bg-cyan-soft/50 hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+              >
+                <span className="min-w-0">{suggestion}</span>
+                <ChevronRightIcon
+                  className="h-4 w-4 shrink-0 text-cyan-ink transition-transform group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>
