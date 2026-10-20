@@ -10,9 +10,10 @@ const SIZES = {
   lg: { emblem: 58, wordmark: 31, tagline: 9.5 },
 } as const;
 
-/** Below 360px the header logo steps down a size (and drops the tagline) so the search and menu buttons fit. */
+/** On phones the header logo steps down a size (and drops the tagline), so the "Search" and "Menu" labels fit beside
+    it; it returns to full size at 480px and up. */
 const COMPACT = {
-  md: { emblem: "h-10 w-10 min-[360px]:h-[46px] min-[360px]:w-[46px]", wordmark: "h-5 w-auto min-[360px]:h-[26px]" },
+  md: { emblem: "h-9 w-9 min-[480px]:h-[46px] min-[480px]:w-[46px]", wordmark: "h-[18px] w-auto min-[480px]:h-[26px]" },
   lg: { emblem: "", wordmark: "" },
 } as const;
 
@@ -83,7 +84,7 @@ export function BrandLogo({
             alt="Data for Inclusive Prosperity"
             width={Math.round(s.tagline * TAGLINE_RATIO)}
             height={s.tagline}
-            className="mt-1.5 hidden min-[360px]:block"
+            className="mt-1 hidden min-[480px]:block"
           />
         )}
       </span>
