@@ -725,12 +725,11 @@ function aboutAnswer(): Answer {
 }
 
 export const SUGGESTIONS = [
-  "How poor is Rulindo?",
-  "Where is financial exclusion highest?",
-  "Compare Rulindo and Gasabo",
-  "What should be prioritised in Rwanda?",
-  "How does VUP reach people?",
-  "What is multidimensional poverty?",
+  "Which districts have the highest poverty rates?",
+  "Compare financial inclusion across districts.",
+  "How can social protection reduce household poverty?",
+  "Which vulnerable households may need more support?",
+  "What does the available data tell us about Gasabo?",
 ];
 
 /**
