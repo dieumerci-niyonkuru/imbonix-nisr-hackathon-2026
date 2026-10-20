@@ -313,13 +313,14 @@ docs/
 
 ## Deployment
 
-The web app and API each have a production Dockerfile, and `docker-compose.yml` runs both. Both images have been built,
-started and checked locally. **IMBONIX is not yet deployed to a public host.** The recommended setup is the **website on
-[Vercel](docs/deployment.md#deploy-the-web-app-to-vercel)** (no Docker needed) and the **JSON API on
-[Railway](docs/deployment.md#deploy-the-api-to-railway)** (a repo-root `railway.json` configures it); set `API_URL` on
-Vercel to the Railway URL and the Data page shows the API's live status. The two are independent — the site works with no
-API. Add the live URLs under [For judges](#for-judges) once up. [docs/deployment.md](docs/deployment.md) covers Vercel,
-Railway, Docker hosting options, production settings, hardening notes and a release checklist.
+**IMBONIX is not yet deployed to a public host.** The recommended setup is **everything on
+[Vercel](docs/deployment.md#deploy-the-web-app-to-vercel)** in one project: the JSON API is built into the web app
+([apps/web/src/app/api/v1](apps/web/src/app/api/v1)), so deploying the site also serves it at `/api/v1` — nothing else
+to run, and the Data page's "live API" panel reads **Connected** automatically. Running the API as a standalone service
+on [Railway](docs/deployment.md#deploy-the-api-to-railway) (via the repo-root `railway.json`) or any Docker host is
+optional. The web app and API also each have a production Dockerfile, and `docker-compose.yml` runs both. Add the live
+URL under [For judges](#for-judges) once up. [docs/deployment.md](docs/deployment.md) covers Vercel, Railway, Docker
+hosting options, production settings, hardening notes and a release checklist.
 
 ## Security
 

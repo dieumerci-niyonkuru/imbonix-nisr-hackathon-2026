@@ -4,11 +4,16 @@
 been built, started and checked locally: they reach a healthy state, every page renders with no console errors, and the
 interactive map loads.
 
-**Recommended setup — web on Vercel, API on Railway.** Deploy the **website to [Vercel](#deploy-the-web-app-to-vercel)**
-(the quickest route to the public URL the hackathon requires), and the optional **JSON API to [Railway](#deploy-the-api-to-railway)**.
-Then set `API_URL` on Vercel to the Railway API's URL, and the website's **Data → "The same data, as a live API"** panel
-shows a live "Connected" status. The two are independent: the website has its data built in and works with no API at all.
-Record the live URLs and date here and in the README once they are up.
+**Recommended setup — everything on Vercel, one project.** The JSON API is built into the web app
+([apps/web/src/app/api/v1](../apps/web/src/app/api/v1)), so deploying the **website to
+[Vercel](#deploy-the-web-app-to-vercel)** also serves the API at `/api/v1` on the same URL — there is nothing else to
+run, and the Data page's "live API" panel reads **Connected** automatically. Record the live URL and date here and in
+the README once it is up.
+
+**Optional — a separate API service.** If you want the JSON API as an independent endpoint (for example to hand partners
+a URL that is not tied to the site), deploy the standalone [apps/api](../apps/api) to
+[Railway](#deploy-the-api-to-railway) and point Vercel's `API_URL` at it. The website works the same either way; the
+built-in API is the default.
 
 ## What gets deployed
 
@@ -101,26 +106,28 @@ The web app can also run on Vercel without Docker (import `apps/web` as the proj
 
 ## Deploy the web app to Vercel
 
-Vercel runs a Next.js app with no Dockerfile and gives an HTTPS URL in minutes — the quickest way to the public link the
-hackathon requires.
+Vercel runs a Next.js app with no Dockerfile and gives an HTTPS URL in minutes — and it deploys the whole thing,
+website and JSON API together.
 
 1. Push the branch you want live (normally `main`, after `testing` is merged in by pull request and CI is green).
 2. On [vercel.com](https://vercel.com), **Add New → Project**, import
    `dieumerci-niyonkuru/imbonix-nisr-hackathon-2026`, and set the **Root Directory** to `apps/web`. Vercel detects
    Next.js; keep the default build and output settings.
-3. **Optional — link the live API:** under **Settings → Environment Variables** add `API_URL` = the Railway API's URL
-   (see the next section), e.g. `https://imbonix-api.up.railway.app`. The website's Data page then shows the API's live
-   status. Leave it out and the site still works fully.
-4. **Optional — turn on generative AI:** add `GEMINI_API_KEY` (free tier) or `ANTHROPIC_API_KEY`. Leave it out and the
-   assistant still works from the on-device engine.
-5. **Deploy.** Then open `/`, the assistant (ask one question), `/poverty-dynamics/district-map` (the basemap loads) and
-   `/data` (the "live API" panel reads **Connected** if `API_URL` is set).
+3. **The API needs no setup** — it ships inside this deployment, so `/api/v1` is live automatically and the Data page
+   reads **Connected**. Set an `API_URL` environment variable only if you deployed a separate API service (see below)
+   and want the panel to point at that one instead.
+4. **Optional — turn on generative AI:** under **Settings → Environment Variables** add `GEMINI_API_KEY` (free tier) or
+   `ANTHROPIC_API_KEY`. Leave it out and the assistant still works from the on-device engine.
+5. **Deploy.** Then open `/`, the assistant (ask one question), `/poverty-dynamics/district-map` (the basemap loads),
+   `/data` (the "live API" panel reads **Connected**) and `/api/v1` (returns the API index as JSON).
 6. Put the Vercel URL in this file and the README, with the date.
 
 ## Deploy the API to Railway
 
-The JSON API (`apps/api`) deploys to [Railway](https://railway.com) straight from this repository. A repo-root
-[`railway.json`](../railway.json) already points Railway at `apps/api/Dockerfile`, so there is almost nothing to set.
+_Optional — only if you want the JSON API as a separate service. The website already serves it at `/api/v1`, so most
+deployments skip this._ To run it standalone, the `apps/api` service deploys to [Railway](https://railway.com) straight
+from this repository. A repo-root [`railway.json`](../railway.json) points Railway at `apps/api/Dockerfile`, so there is
+almost nothing to set.
 
 1. On [railway.com](https://railway.com), **New Project → Deploy from GitHub repo**, and pick
    `dieumerci-niyonkuru/imbonix-nisr-hackathon-2026`. Leave the service **Root Directory** at the repository root (`/`) —

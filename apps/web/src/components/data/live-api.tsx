@@ -56,9 +56,9 @@ export function LiveApi() {
 
       <h3 className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-ink">A live JSON API over the same figures</h3>
       <p className="mt-3 max-w-2xl text-pretty text-[15px] leading-7 text-muted">
-        Every figure IMBONIX shows is also served as read-only JSON, so district teams, partners and researchers can build on the
-        same NISR aggregates — no scraping, no copy-paste. The website itself never depends on it: the data is built in, and this
-        panel degrades gracefully when the API is not linked.
+        Every figure IMBONIX shows is also served as read-only JSON — from this same deployment — so district teams, partners and
+        researchers can build on the same NISR aggregates, with no scraping and no copy-paste. The pages have the data built in,
+        so the site works even if the API is ever unavailable.
       </p>
 
       {connected && counts ? (
