@@ -20,7 +20,7 @@ The most important next milestone is to verify access to suitable NISR data and 
 | District and sector data | Implemented from published tables | 30 districts × 67 indicators and 416 sectors, built from `data/extracts/` by `scripts/data/build_web_data.py`. Every value carries its source, year and status label. Not for household targeting or eligibility. |
 | API | Implemented | Express 5, read-only `/api/v1` for indicators, districts and sectors; zod validation, JSON errors, rate limiting, CORS allow-list, helmet, structured logs. See `docs/api.md`. |
 | Tests | Implemented | 49 web unit tests (Vitest), 38 API tests (node:test + supertest), 13 data tests including an exact rebuild check of the website data. Automated accessibility audit (axe, WCAG 2.1 AA) clean on every page at 320, 390 and 1440px. |
-| CI and security | Implemented | GitHub Actions: format, lint, types, tests, build, `npm audit`, gitleaks, Docker build and health smoke test. Dependabot, CODEOWNERS, templates. Branch protection and secret scanning must be enabled by the owner in GitHub settings (`docs/security.md`). |
+| CI and security | Implemented | GitHub Actions: format, lint, types, tests, build, `npm audit`, gitleaks, Docker build and health smoke test. CODEOWNERS, templates. Branch protection and secret scanning must be enabled by the owner in GitHub settings (`docs/security.md`). |
 | ML and evaluation | Designed, not trained | The model page shows the design and features checked against the FinScope 2024 dictionary. No model output exists; microdata not yet downloaded. |
 | Production build/deployment | Images verified locally, not deployed | Both Docker images build, start healthy and pass the route sweep (27 Sep 2026). No public deployment yet; see `docs/deployment.md`. |
 | Team/submission readiness | Needs team confirmation | Verify team members and eligibility, submission package, deployed URL, AI disclosure details, licence choice, and acceptance of competition IP terms. |
@@ -155,7 +155,7 @@ page heroes and homepage are redesigned without blurred or gradient effects. Acc
 - **New national figures to verify in the data review:** `INCLUSION_MILESTONES`, `INCLUSION_OVERVIEW` and
   `STRAND_BY_INCOME` in `lib/national.ts` were transcribed from the FinScope 2024 report's graphics without figure
   numbers. The report gives 7.9 million included adults for 2024 on its timeline and 7.8 million in its overview chart.
-- **Repository:** everything merged into `main`, which is now the only branch; CI and Dependabot target it. Unused code
+- **Repository:** everything releases through `main` by pull request from `testing`; CI targets every branch. Unused code
   and the empty placeholder folders were removed.
 
 ## Immediate Priorities
