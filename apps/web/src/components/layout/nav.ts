@@ -206,6 +206,6 @@ export const REPOSITORY_URL = "https://github.com/dieumerci-niyonkuru/imbonix-ni
 /** Links outside the site, in the thin bar above the header and at the end of the phone menu. */
 export const UTILITY_LINKS = [
   { href: NISR_CATALOG_URL, label: "NISR microdata catalog" },
-  { href: REPOSITORY_URL, label: "Source code" },
+  { href: REPOSITORY_URL, label: "GitHub" },
   { href: `${REPOSITORY_URL}/issues/new?template=data_issue.md`, label: "Report a data issue" },
 ];
