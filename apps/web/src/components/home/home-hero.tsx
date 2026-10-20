@@ -148,10 +148,15 @@ export function HomeHero({
                     {card.title}
                   </h2>
                   <p className="mt-4 text-pretty text-[16px] leading-7 text-ink/85">{card.body}</p>
-                  <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-bold text-ink group-hover:text-cyan-ink">
-                    Open
-                    <span className="sr-only"> {card.title}</span>
-                    <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                  <span className="mt-auto pt-6">
+                    <span className="inline-flex w-fit items-center gap-2 rounded-full bg-cyan-soft px-4 py-2 text-[13px] font-bold text-cyan-ink ring-1 ring-cyan/30 transition-all duration-200 group-hover:bg-cyan-ink group-hover:text-white group-hover:shadow-card group-hover:ring-cyan-ink">
+                      Read more
+                      <span className="sr-only"> about {card.title}</span>
+                      <ArrowRightIcon
+                        className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
+                    </span>
                   </span>
                 </Link>
               </li>
