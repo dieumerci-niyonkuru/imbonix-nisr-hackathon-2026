@@ -33,7 +33,7 @@ secrets at runtime. The realistic risks are:
 - `npm audit --audit-level=high` runs in CI for both apps and fails the build on high or critical advisories. On
   27 September 2026 both apps report 0 vulnerabilities, after moving the web app from Next.js 14.2.30 (one critical and
   four high advisories) to 15.5.26, and lifting Next's bundled PostCSS to 8.5.28.
-- Dependabot opens weekly grouped updates for npm, and monthly ones for pip and GitHub Actions, against `develop`.
+- Dependency bumps are applied manually on `develop` and reviewed before release (the automated Dependabot PRs were retired); the `npm audit` gate above keeps high and critical advisories out of a release.
 
 ### Data integrity
 
@@ -100,7 +100,8 @@ configuration the project relies on.
    - `Secret scan (gitleaks)`
    - `Docker images (build, start, health)`
 
-3. **Advanced Security → Dependabot alerts** and **Dependabot security updates**: enable both.
+3. **Advanced Security → Dependabot alerts**: enable, to be notified of vulnerable dependencies. (The automated Dependabot
+   version- and security-update pull requests are intentionally off; fixes are applied and reviewed manually on `develop`.)
 4. **Advanced Security → Secret scanning** and **Push protection**: enable both. They are free on public repositories;
    the gitleaks job scans every push as well.
 5. **Advanced Security → Private vulnerability reporting**: enable, so the reporting link in SECURITY.md works.

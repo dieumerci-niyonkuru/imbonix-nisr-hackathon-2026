@@ -308,7 +308,7 @@ docs/
   research/         Hackathon brief and the Track 2 research dossier
   model/  project/  submission/  screenshots/
                     Architecture, API, data model, deployment, security and development guides at the top level
-.github/            CI workflow, Dependabot, issue and pull request templates, CODEOWNERS
+.github/            CI workflow, issue and pull request templates, CODEOWNERS
 ```
 
 ## Deployment

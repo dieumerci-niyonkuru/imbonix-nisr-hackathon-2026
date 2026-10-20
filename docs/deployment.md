@@ -145,4 +145,4 @@ Nothing stateful needs restoring.
 - Point an uptime monitor at both health endpoints.
 - The API's JSON logs can be filtered by `level` and `status`; every error response includes the `requestId` that appears
   in the log line.
-- Dependabot and the CI `npm audit` step flag vulnerable dependencies; rebuild and redeploy after merging their updates.
+- The CI `npm audit` step (and GitHub's Dependabot alerts, if enabled) flags vulnerable dependencies; upgrade them on `develop` and redeploy.
