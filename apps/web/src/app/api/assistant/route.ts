@@ -19,6 +19,9 @@ export const dynamic = "force-dynamic";
 
 const ANTHROPIC_MODEL = "claude-opus-5-5";
 const GEMINI_MODEL = process.env.GEMINI_MODEL ?? "gemini-flash-lite-latest";
+/** Opt-in web search (Gemini Google Search grounding). Off by default: it needs a billing-enabled key — the free tier
+ * returns 429 on any grounded request, which would break every answer. See docs/ai-assistant.md. */
+const WEB_SEARCH_ENABLED = process.env.WEB_SEARCH_ENABLED === "1";
 const MAX_OUTPUT_TOKENS = 2048;
 const MAX_TURNS = 12;
 const MAX_TURN_CHARS = 4000;
@@ -260,6 +263,10 @@ async function geminiFetch(turns: ChatTurn[], attachment: Attachment | null, api
   const requestBody = JSON.stringify({
     systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
     contents: toGeminiContents(turns, attachment),
+    // Google Search grounding (opt-in via WEB_SEARCH_ENABLED): the model searches the web on its own, but only for
+    // questions the NISR data can't answer — the system prompt keeps Rwanda answers NISR-grounded. It needs a
+    // billing-enabled Gemini key; the free tier returns 429 on any grounded request, so it is off by default.
+    ...(WEB_SEARCH_ENABLED ? { tools: [{ google_search: {} }] } : {}),
     generationConfig: { temperature: 0.4, maxOutputTokens: MAX_OUTPUT_TOKENS },
   });
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(GEMINI_MODEL)}:streamGenerateContent?alt=sse`;
