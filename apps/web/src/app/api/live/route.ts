@@ -1,17 +1,27 @@
 import { NextResponse } from "next/server";
+import pkg from "../../../../package.json";
+import { counts } from "@/lib/api-store";
 
 /**
- * Live link to the IMBONIX JSON API (apps/api). The browser calls this same-origin route; the Next.js server then
- * reaches the API, so the API's URL stays on the server and the call is not subject to the browser's CSP or CORS. When
- * `API_URL` is not set (for example a static preview with no backend), it reports `configured: false` and the UI shows
- * the published endpoints without a live status — the site never depends on the API being up.
+ * Status for the Data page's "live API" panel. By default the JSON API is served from this same deployment
+ * (`app/api/v1/*`), so the status is read straight from the in-app store — always live, no network call. If `API_URL`
+ * is set instead (a standalone API, e.g. on Railway), the Next.js server checks that one server-side, so the API's URL
+ * stays off the browser and no CORS is involved. Either way the panel shows the version and the counts being served.
  */
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const API_URL = (process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL)?.replace(/\/+$/, "");
+const API_URL = process.env.API_URL?.replace(/\/+$/, "");
 const TIMEOUT_MS = 4000;
+
+const ENDPOINTS = [
+  "GET /api/v1/indicators",
+  "GET /api/v1/indicators/:id",
+  "GET /api/v1/districts",
+  "GET /api/v1/districts/:slug",
+  "GET /api/v1/districts/:slug/sectors",
+];
 
 async function fetchJson(url: string, signal: AbortSignal) {
   const response = await fetch(url, { signal, headers: { accept: "application/json" } });
@@ -22,15 +32,28 @@ async function fetchJson(url: string, signal: AbortSignal) {
 export async function GET() {
   const headers = { "Cache-Control": "no-store" };
 
+  // Default: the API ships with this deployment, so it is always available — report it from the in-app store.
   if (!API_URL) {
-    return NextResponse.json({ configured: false, connected: false }, { headers });
+    return NextResponse.json(
+      {
+        configured: true,
+        connected: true,
+        source: "in-app",
+        service: "imbonix-api",
+        version: pkg.version,
+        counts,
+        endpoints: ENDPOINTS,
+      },
+      { headers },
+    );
   }
 
+  // A standalone API is configured: check it server-side.
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
     const health = await fetchJson(`${API_URL}/health`, controller.signal);
-    let endpoints: string[] = [];
+    let endpoints: string[] = ENDPOINTS;
     try {
       const index = await fetchJson(`${API_URL}/api/v1/`, controller.signal);
       const listed = index?.data?.endpoints ?? index?.endpoints;
@@ -42,6 +65,7 @@ export async function GET() {
       {
         configured: true,
         connected: true,
+        source: "external",
         service: typeof health?.service === "string" ? health.service : "imbonix-api",
         version: typeof health?.version === "string" ? health.version : null,
         counts: health?.data ?? null,
@@ -50,7 +74,7 @@ export async function GET() {
       { headers },
     );
   } catch {
-    return NextResponse.json({ configured: true, connected: false }, { headers });
+    return NextResponse.json({ configured: true, connected: false, source: "external" }, { headers });
   } finally {
     clearTimeout(timer);
   }
