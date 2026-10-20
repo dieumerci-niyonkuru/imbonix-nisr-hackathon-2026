@@ -46,7 +46,7 @@ IMBONIX is an independent team project. It is **not an official NISR product** a
 - **[Demo script](docs/submission/demo-script.md)** — a 90-second pitch and a 3-minute, criterion-by-criterion walkthrough.
 - **[IMBONIX AI](docs/ai-assistant.md)** — how the grounded, multilingual, multimodal assistant is built.
 - **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** — required by the rules: how AI tools were used, and the team's responsibility for every figure.
-- **Live app:** _deploy and add the public URL here_ (see the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel-fastest)) · **Source:** this repository.
+- **Live app:** _deploy and add the public URL here_ (see the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel)) · **Source:** this repository.
 
 ![The IMBONIX homepage](docs/screenshots/homepage.png)
 
@@ -314,10 +314,12 @@ docs/
 ## Deployment
 
 The web app and API each have a production Dockerfile, and `docker-compose.yml` runs both. Both images have been built,
-started and checked locally. **IMBONIX is not yet deployed to a public host.** The fastest path to the public URL the
-hackathon requires is the [Vercel quickstart](docs/deployment.md#deploy-the-web-app-to-vercel-fastest) (no Docker
-needed); add the live URL under [For judges](#for-judges) once it is up. [docs/deployment.md](docs/deployment.md) covers
-Vercel, Docker hosting options, production settings, hardening notes and a release checklist.
+started and checked locally. **IMBONIX is not yet deployed to a public host.** The recommended setup is the **website on
+[Vercel](docs/deployment.md#deploy-the-web-app-to-vercel)** (no Docker needed) and the **JSON API on
+[Railway](docs/deployment.md#deploy-the-api-to-railway)** (a repo-root `railway.json` configures it); set `API_URL` on
+Vercel to the Railway URL and the Data page shows the API's live status. The two are independent — the site works with no
+API. Add the live URLs under [For judges](#for-judges) once up. [docs/deployment.md](docs/deployment.md) covers Vercel,
+Railway, Docker hosting options, production settings, hardening notes and a release checklist.
 
 ## Security
 

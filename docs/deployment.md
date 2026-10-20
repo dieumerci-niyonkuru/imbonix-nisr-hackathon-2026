@@ -2,7 +2,13 @@
 
 **Status (10 October 2026): IMBONIX has not yet been deployed to a public host.** Both production Docker images have
 been built, started and checked locally: they reach a healthy state, every page renders with no console errors, and the
-interactive map loads. The fastest path to the public URL the hackathon requires is **[Deploy the web app to Vercel](#deploy-the-web-app-to-vercel-fastest)** below; record the live URL and date here and in the README once it is live.
+interactive map loads.
+
+**Recommended setup — web on Vercel, API on Railway.** Deploy the **website to [Vercel](#deploy-the-web-app-to-vercel)**
+(the quickest route to the public URL the hackathon requires), and the optional **JSON API to [Railway](#deploy-the-api-to-railway)**.
+Then set `API_URL` on Vercel to the Railway API's URL, and the website's **Data → "The same data, as a live API"** panel
+shows a live "Connected" status. The two are independent: the website has its data built in and works with no API at all.
+Record the live URLs and date here and in the README once they are up.
 
 ## What gets deployed
 
@@ -93,7 +99,7 @@ AWS App Runner, Fly.io, Render or Railway. For each service:
 The web app can also run on Vercel without Docker (import `apps/web` as the project root); the security headers are in
 `next.config.mjs`, so they apply there too.
 
-## Deploy the web app to Vercel (fastest)
+## Deploy the web app to Vercel
 
 Vercel runs a Next.js app with no Dockerfile and gives an HTTPS URL in minutes — the quickest way to the public link the
 hackathon requires.
@@ -102,14 +108,36 @@ hackathon requires.
 2. On [vercel.com](https://vercel.com), **Add New → Project**, import
    `dieumerci-niyonkuru/imbonix-nisr-hackathon-2026`, and set the **Root Directory** to `apps/web`. Vercel detects
    Next.js; keep the default build and output settings.
-3. **Optional — turn on generative AI:** under **Settings → Environment Variables** add `GEMINI_API_KEY` (free tier) or
-   `ANTHROPIC_API_KEY`. Leave it out and the assistant still works from the on-device engine.
-4. **Deploy.** Then open `/`, the assistant (ask one question), and `/poverty-dynamics/district-map` to confirm the
-   basemap loads.
-5. Put the Vercel URL in this file and the README, with the date.
+3. **Optional — link the live API:** under **Settings → Environment Variables** add `API_URL` = the Railway API's URL
+   (see the next section), e.g. `https://imbonix-api.up.railway.app`. The website's Data page then shows the API's live
+   status. Leave it out and the site still works fully.
+4. **Optional — turn on generative AI:** add `GEMINI_API_KEY` (free tier) or `ANTHROPIC_API_KEY`. Leave it out and the
+   assistant still works from the on-device engine.
+5. **Deploy.** Then open `/`, the assistant (ask one question), `/poverty-dynamics/district-map` (the basemap loads) and
+   `/data` (the "live API" panel reads **Connected** if `API_URL` is set).
+6. Put the Vercel URL in this file and the README, with the date.
 
-The API (`apps/api`) is optional for the demo — the website does not call it. Deploy it the same way on any Docker host
-(above) only if you want the public JSON endpoints live.
+## Deploy the API to Railway
+
+The JSON API (`apps/api`) deploys to [Railway](https://railway.com) straight from this repository. A repo-root
+[`railway.json`](../railway.json) already points Railway at `apps/api/Dockerfile`, so there is almost nothing to set.
+
+1. On [railway.com](https://railway.com), **New Project → Deploy from GitHub repo**, and pick
+   `dieumerci-niyonkuru/imbonix-nisr-hackathon-2026`. Leave the service **Root Directory** at the repository root (`/`) —
+   the API's Dockerfile copies the shared data from `apps/web`, so it must build from the root. Railway reads
+   `railway.json` and builds `apps/api/Dockerfile` automatically.
+2. Under **Variables**, set:
+   - `CORS_ORIGINS` = your Vercel URL, e.g. `https://imbonix.vercel.app` (or `*` for a fully public API).
+   - `TRUST_PROXY` = `1` (Railway runs the service behind its router, so rate limits see the real client IP).
+   - `RATE_LIMIT_PER_MINUTE` = `120` (optional; raise it if partners integrate).
+   - `PORT` is injected by Railway and read automatically — do not hard-code it.
+3. Under **Settings → Networking**, **Generate Domain** to get the public HTTPS URL.
+4. **Deploy.** Check `GET /health` returns `{"status":"ok", ...}` and `GET /api/v1/districts` returns data.
+5. Put that URL into Vercel's `API_URL` (step 3 above), redeploy the web app, and record the URL here and in the README.
+
+The website never calls the API from the browser. The only live link is the Data page's status panel, which the Vercel
+server fetches server-side — so no CORS setup is needed for the site itself; `CORS_ORIGINS` only matters if other
+browser apps call the API directly.
 
 ## Production hardening notes
 
