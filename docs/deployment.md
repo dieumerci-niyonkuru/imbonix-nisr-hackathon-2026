@@ -1,8 +1,8 @@
 # Deployment
 
-**Status (10 October 2026): IMBONIX has not yet been deployed to a public host.** Both production Docker images have
-been built, started and checked locally: they reach a healthy state, every page renders with no console errors, and the
-interactive map loads.
+**Status: IMBONIX is live at <https://imbonix26.vercel.app> (Vercel, from `main`).** The website and its JSON API
+(`/api/v1`) deploy together as one Vercel project. Both production Docker images have also been built, started and
+checked locally: they reach a healthy state, every page renders with no console errors, and the interactive map loads.
 
 **Recommended setup — everything on Vercel, one project.** The JSON API is built into the web app
 ([apps/web/src/app/api/v1](../apps/web/src/app/api/v1)), so deploying the **website to
