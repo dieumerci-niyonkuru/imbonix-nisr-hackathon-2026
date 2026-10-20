@@ -224,9 +224,9 @@ const NATIONAL_WORDS = [
   "national overview",
   "how is rwanda doing",
 ];
-/** A greeting or thanks with nothing else — met with a warm welcome instead of a blank fallback. */
+/** A greeting, thanks or small talk with nothing else — met with a warm, human reply instead of a blank fallback. */
 const GREETING_RE =
-  /^(hi|hello|hey|hiya|yo|greetings|good (morning|afternoon|evening)|muraho|mwaramutse|thanks?|thank you|bye|goodbye|welcome)\b/;
+  /^(hi+|hello|hey|hiya|yo|greetings|good (morning|afternoon|evening|day)|muraho|mwaramutse|thanks?|thank you|bye|goodbye|welcome|how are (you|u|things|things going)|how('?s| is) (it going|things|everything|your day|life)|how do you do|how('?ve| have) you been|how are you doing|what('?s| is) up|wass?up|sup|nice to (meet|see) you|pleased to meet you|good to (meet|see) you)\b/i;
 /** A request for a definition rather than a figure. */
 const DEFINE_RE = /\b(what\s+(is|are|does)\s+|what's\s+|define\b|definition of\b|meaning of\b|what do you mean\b|explain\s+)/;
 
@@ -626,11 +626,12 @@ function definitionAnswer(concept: Definition): Answer {
 /** A warm welcome for a greeting or thanks, so the first message is friendly, not a blank fallback. */
 function greetingAnswer(): Answer {
   return {
-    heading: "Hello — ask me about Rwanda's data",
+    heading: "Hello — good to meet you",
     body:
-      "I'm IMBONIX AI. Ask about any of Rwanda's 30 districts or the measures behind poverty and financial inclusion — a " +
-      "single figure, where a measure is highest or lowest, a comparison of two places, what a term means, or how social " +
-      "protection reaches people. Every answer comes from NISR's published figures, with the source named.",
+      "I'm doing well, thanks for asking — and I'm ready to help. I'm IMBONIX AI, and I can help you explore Rwanda's " +
+      "poverty, financial inclusion and social protection, all from NISR's published figures with the source named every " +
+      "time. Ask in your own words: how a district is doing, where a measure is highest or lowest, how two places compare, " +
+      "what a term means, or how support reaches vulnerable households. What would you like to look at first?",
     links: [
       { href: "/data/key-figures", label: "Rwanda in figures" },
       { href: "/districts", label: "All 30 districts" },
@@ -831,11 +832,12 @@ export function followUpSuggestions(lastUserText: string): string[] {
 
 function fallback(): Answer {
   return {
-    heading: "Ask about any district or measure",
+    heading: "Happy to help — what would you like to explore?",
     body:
-      "I answer from NISR's published figures for all 30 districts: poverty, financial exclusion, child stunting, " +
-      "unemployment, health insurance, electricity, water, phones and more. Ask for a district, where a measure is " +
-      "highest or lowest, or compare two districts. Every answer names its source.",
+      "I can look at any of Rwanda's 30 districts across poverty, financial exclusion, child stunting, unemployment, " +
+      "health insurance, electricity, water, phones and more — all from NISR's published figures, with the source named. " +
+      "Try naming a district, asking where a measure is highest or lowest, comparing two places, or asking what a term " +
+      "means. What shall we start with?",
     links: [
       { href: "/data/key-figures", label: "Rwanda in figures" },
       { href: "/districts", label: "All 30 districts" },

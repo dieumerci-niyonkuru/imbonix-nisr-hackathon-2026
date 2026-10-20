@@ -31,7 +31,7 @@ describe("IMBONIX AI answers", () => {
   });
 
   it("falls back helpfully on an empty or unknown question", () => {
-    expect(answerQuery("").heading.toLowerCase()).toContain("ask");
+    expect(answerQuery("").heading.toLowerCase()).toContain("help");
     expect(answerQuery("hello there").links?.length).toBeGreaterThan(0);
   });
 
@@ -59,6 +59,8 @@ describe("IMBONIX AI answers", () => {
     expect(answer.heading.toLowerCase()).toContain("hello");
     expect(answer.links?.length).toBeGreaterThan(0);
     expect(answerQuery("thanks!").links?.length).toBeGreaterThan(0);
+    // Small talk gets the warm greeting, not the generic fallback.
+    expect(answerQuery("how are you?").heading.toLowerCase()).toContain("hello");
   });
 
   it("defines a NISR term without inventing a figure", () => {
