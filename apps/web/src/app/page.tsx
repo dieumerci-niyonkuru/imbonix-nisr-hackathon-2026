@@ -9,6 +9,7 @@ import { GapChart, type GapRow } from "@/components/home/gap-chart";
 import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { HomeHero, type HeroCard } from "@/components/home/home-hero";
 import { ImpactSection } from "@/components/home/impact-section";
+import { HomeProgress } from "@/components/home/home-progress";
 import { NationalPriorities } from "@/components/home/national-priorities";
 import { PlaceSection } from "@/components/home/place-section";
 import { NISR_CATALOG_URL, SOURCE_STUDIES } from "@/components/layout/nav";
@@ -332,6 +333,10 @@ export default function Home() {
             />
           }
         />
+      </Reveal>
+
+      <Reveal>
+        <HomeProgress />
       </Reveal>
 
       <Reveal>
