@@ -46,7 +46,7 @@ IMBONIX is an independent team project. It is **not an official NISR product** a
 - **[Demo script](docs/submission/demo-script.md)** — a 90-second pitch and a 3-minute, criterion-by-criterion walkthrough.
 - **[IMBONIX AI](docs/ai-assistant.md)** — how the grounded, multilingual, multimodal assistant is built.
 - **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** — required by the rules: how AI tools were used, and the team's responsibility for every figure.
-- **Live app:** <https://imbonix26.vercel.app> · **Source:** this repository.
+- **Live app:** _being (re)deployed — the public URL will be added here_ · **Source:** this repository.
 
 ![The IMBONIX homepage](docs/screenshots/homepage.png)
 
@@ -338,11 +338,10 @@ from `testing`. Commits follow Conventional Commits. See [CONTRIBUTING.md](CONTR
 
 ## Team
 
-| Name                 | Role                            | GitHub                                                         |
-| -------------------- | ------------------------------- | -------------------------------------------------------------- |
-| Dieu Merci Niyonkuru | Team lead, development and data | [@dieumerci-niyonkuru](https://github.com/dieumerci-niyonkuru) |
-
-<!-- Add the other team members here. -->
+| Name                 | Role                                                                          | GitHub                                                         |
+| -------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Dieu Merci Niyonkuru | Team lead — software development, UI/UX design, IMBONIX AI integration, deployment | [@dieumerci-niyonkuru](https://github.com/dieumerci-niyonkuru) |
+| UMURERWA Divine      | Data analysis; data collection and sourcing of the NISR datasets (the figures the platform is built on); development | —                                                              |
 
 ## Data sources and attribution
 
@@ -356,6 +355,16 @@ from `testing`. Commits follow Conventional Commits. See [CONTRIBUTING.md](CONTR
 
 Parts of the code and documentation were written with AI assistance. The team reviewed the work and is responsible for
 every figure and claim. See [docs/submission/ai-disclosure.md](docs/submission/ai-disclosure.md).
+
+## Declaration
+
+This submission is the team's own work. All sources of reference are acknowledged in full: every figure names its NISR
+publication, table and year on screen, and every dataset and external resource is listed in
+[Data sources and attribution](#data-sources-and-attribution), the per-page **Sources & methods** (`/data`), and the
+[`docs/data/`](docs/data/) inventory. The processed figures the platform is built on are committed in the repository
+(`apps/web/src/data/generated/`), rebuilt from the public NISR files by `scripts/data/`; the raw microdata is accessed
+from the [NISR microdata catalog](https://microdata.statistics.gov.rw/index.php/catalog) and is never redistributed. AI
+assistance was used as noted above, and the team is responsible for every figure, claim and line of code.
 
 ## License
 
