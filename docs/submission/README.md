@@ -44,7 +44,7 @@ charts and reports. It is independent, open-source, and **not an official NISR p
 ## Run or view it
 
 - **Locally:** `cd apps/web && npm install && npm run dev` → <http://localhost:3000>
-- **Live:** <https://imbonix26.vercel.app> — everything on [Vercel](../deployment.md#deploy-the-web-app-to-vercel) in one project (the JSON API ships with the site at `/api/v1`, e.g. <https://imbonix26.vercel.app/api/v1>).
+- **Live:** _being (re)deployed — the public URL will be added here_ — everything deploys on [Vercel](../deployment.md#deploy-the-web-app-to-vercel) in one project (the JSON API ships with the site at `/api/v1`).
 - **Turn on the AI (optional):** set a free `GEMINI_API_KEY` (or `ANTHROPIC_API_KEY`) in `apps/web/.env`; without a key
   the assistant uses its on-device engine, so the demo never depends on a secret.
 
@@ -62,7 +62,7 @@ Student IDs are ready for verification, and at least one team member is a Rwanda
 ## Submission checklist (per the NISR rules — due 30 October 2026)
 
 - [x] **Public GitHub link** — this repository (public).
-- [x] **Deployed app link** — <https://imbonix26.vercel.app> (Vercel, publicly accessible; no login, so no sample credentials needed).
+- [ ] **Deployed app link** — _(re)deploy to Vercel and record the public URL here_ (publicly accessible; no login, so no sample credentials needed).
 - [x] **README** — the top-level [README](../../README.md) explains the data used, what the platform communicates, and how users interact with it.
 - [x] **Script(s) / code** — the full source is in this repo and runs on any machine (`npm` or Docker; see [deployment.md](../deployment.md)).
 - [ ] **Demo video** — a **screen recording** (`.webm` or `.gif`), **≤ 3 minutes**, showing the interface and features, added to the repo (e.g. a `demo/` folder). Use the [demo script](demo-script.md) to drive it. **← this is the one item still to produce.**
