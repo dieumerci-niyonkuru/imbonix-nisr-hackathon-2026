@@ -59,14 +59,18 @@ IMBONIX was built by two students for the NISR Big Data Hackathon 2026:
 
 Student IDs are ready for verification, and at least one team member is a Rwandan citizen.
 
-## Submission checklist (per the rules)
+## Submission checklist (per the NISR rules — due 30 October 2026)
 
-- [ ] **Public GitHub link** — this repository.
-- [x] **Deployed app link** — <https://imbonix26.vercel.app> (Vercel), recorded here and in the main [README](../../README.md).
-- [ ] **Documentation** — this package, plus the top-level [README](../../README.md) and [docs/](../).
-- [ ] **AI disclosure** — [ai-disclosure.md](ai-disclosure.md), with the specific tools recorded.
-- [x] **Team** — Dieu Merci Niyonkuru and UMURERWA Divine (see **Team** above); student IDs ready, at least one Rwandan citizen.
-- [x] **Screenshots** — present in [docs/screenshots/](../screenshots/) and rendering in the README (refresh if the design changes).
+- [x] **Public GitHub link** — this repository (public).
+- [x] **Deployed app link** — <https://imbonix26.vercel.app> (Vercel, publicly accessible; no login, so no sample credentials needed).
+- [x] **README** — the top-level [README](../../README.md) explains the data used, what the platform communicates, and how users interact with it.
+- [x] **Script(s) / code** — the full source is in this repo and runs on any machine (`npm` or Docker; see [deployment.md](../deployment.md)).
+- [ ] **Demo video** — a **screen recording** (`.webm` or `.gif`), **≤ 3 minutes**, showing the interface and features, added to the repo (e.g. a `demo/` folder). Use the [demo script](demo-script.md) to drive it. **← this is the one item still to produce.**
+- [x] **Data file + link to the data** — the processed figures are committed in `apps/web/src/data/generated/`; the raw microdata is linked to the [NISR microdata catalog](https://microdata.statistics.gov.rw/index.php/catalog) (see the README **Declaration** and [docs/data/](../data/)).
+- [x] **Declaration of own work + sources acknowledged** — README **[Declaration](../../README.md#declaration)**.
+- [x] **AI disclosure** — [ai-disclosure.md](ai-disclosure.md).
+- [x] **Team** — 2 students (Dieu Merci Niyonkuru and UMURERWA Divine, see **Team** above); at least one Rwandan citizen; **student IDs ready for verification**.
+- [x] **Screenshots** — present in [docs/screenshots/](../screenshots/) and rendering in the README.
 
 <div align="center">
 

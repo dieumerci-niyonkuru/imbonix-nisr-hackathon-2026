@@ -338,11 +338,10 @@ from `testing`. Commits follow Conventional Commits. See [CONTRIBUTING.md](CONTR
 
 ## Team
 
-| Name                 | Role                            | GitHub                                                         |
-| -------------------- | ------------------------------- | -------------------------------------------------------------- |
-| Dieu Merci Niyonkuru | Team lead, development and data | [@dieumerci-niyonkuru](https://github.com/dieumerci-niyonkuru) |
-
-<!-- Add the other team members here. -->
+| Name                 | Role                                                                          | GitHub                                                         |
+| -------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Dieu Merci Niyonkuru | Team lead — software development, UI/UX design, IMBONIX AI integration, deployment | [@dieumerci-niyonkuru](https://github.com/dieumerci-niyonkuru) |
+| UMURERWA Divine      | Data analysis; data collection and sourcing of the NISR datasets (the figures the platform is built on); development | —                                                              |
 
 ## Data sources and attribution
 
@@ -356,6 +355,16 @@ from `testing`. Commits follow Conventional Commits. See [CONTRIBUTING.md](CONTR
 
 Parts of the code and documentation were written with AI assistance. The team reviewed the work and is responsible for
 every figure and claim. See [docs/submission/ai-disclosure.md](docs/submission/ai-disclosure.md).
+
+## Declaration
+
+This submission is the team's own work. All sources of reference are acknowledged in full: every figure names its NISR
+publication, table and year on screen, and every dataset and external resource is listed in
+[Data sources and attribution](#data-sources-and-attribution), the per-page **Sources & methods** (`/data`), and the
+[`docs/data/`](docs/data/) inventory. The processed figures the platform is built on are committed in the repository
+(`apps/web/src/data/generated/`), rebuilt from the public NISR files by `scripts/data/`; the raw microdata is accessed
+from the [NISR microdata catalog](https://microdata.statistics.gov.rw/index.php/catalog) and is never redistributed. AI
+assistance was used as noted above, and the team is responsible for every figure, claim and line of code.
 
 ## License
 
