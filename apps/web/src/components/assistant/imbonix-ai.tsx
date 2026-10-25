@@ -21,7 +21,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { AiMark } from "@/components/assistant/ai-mark";
 import { StatusBadge } from "@/components/ui/status-badge";
-import { answerQuery, followUpSuggestions, SUGGESTIONS, type Answer } from "@/lib/assistant";
+import { answerQuery, followUpSuggestions, type Answer } from "@/lib/assistant";
 import { districtAt } from "@/lib/locate";
 
 type ChatTurn = { role: "user" | "assistant"; text: string };
@@ -77,15 +77,23 @@ function relativeTime(timestamp: number): string {
   return new Date(timestamp).toLocaleDateString();
 }
 
-/** The opening message: what the assistant does, with example questions to click. */
+/** The opening message: a friendly greeting, with starter chips to tap. */
 const WELCOME: Answer = {
-  heading: "Hi, I'm IMBONIX AI",
+  heading: "Hello! How can I help you today?",
   body:
-    "I can help you explore poverty, financial access, household vulnerability and social protection across Rwanda — " +
-    "from NISR's published data, with the source named every time. Ask in your own words: compare two districts, ask " +
-    "what might be driving financial exclusion somewhere, or what could help vulnerable households. You can type or " +
-    "speak your question, and keep the conversation going. Where would you like to start?",
+    "Ask about Rwanda's poverty, financial inclusion or social protection — in your own words, by text or voice. " +
+    "Every answer comes from NISR's published figures, with the source named.",
 };
+
+/** Short starter chips for the welcome — a friendly way in for first-time users. Each chip sends a fuller question the
+ *  on-device engine answers well, so a first tap always lands on a real, sourced answer. */
+const STARTERS: { label: string; query: string }[] = [
+  { label: "Poverty", query: "Which districts have the highest poverty rates?" },
+  { label: "Financial inclusion", query: "Compare financial inclusion across districts." },
+  { label: "Social protection", query: "How does VUP reach people?" },
+  { label: "Compare districts", query: "Compare Gasabo and Huye" },
+  { label: "Gasabo", query: "What does the available data tell us about Gasabo?" },
+];
 
 // --- Voice: speech synthesis (read answers aloud) and speech recognition (dictate questions), both browser-native. ---
 
@@ -514,20 +522,17 @@ function AnswerCard({
 
       {showSuggestions && (
         <div className="mt-4">
-          <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.08em] text-muted">Try asking</p>
-          <div className="space-y-1.5">
-            {SUGGESTIONS.map((suggestion) => (
+          <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.08em] text-muted">You can start with</p>
+          <div className="flex flex-wrap gap-1.5">
+            {STARTERS.map((starter) => (
               <button
-                key={suggestion}
+                key={starter.label}
                 type="button"
-                onClick={() => onAsk(suggestion)}
-                className="group flex w-full items-center justify-between gap-2 rounded-xl bg-white px-3.5 py-2.5 text-left text-[13px] font-semibold text-ink ring-1 ring-line transition-colors hover:bg-cyan-soft/50 hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                onClick={() => onAsk(starter.query)}
+                className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-[13px] font-semibold text-ink ring-1 ring-line transition-colors hover:bg-cyan-soft/60 hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
               >
-                <span className="min-w-0">{suggestion}</span>
-                <ChevronRightIcon
-                  className="h-4 w-4 shrink-0 text-cyan-ink transition-transform group-hover:translate-x-0.5"
-                  aria-hidden="true"
-                />
+                {starter.label}
+                <ChevronRightIcon className="h-3.5 w-3.5 text-cyan-ink" aria-hidden="true" />
               </button>
             ))}
           </div>
