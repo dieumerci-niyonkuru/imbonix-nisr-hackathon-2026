@@ -839,12 +839,12 @@ export function followUpSuggestions(lastUserText: string): string[] {
 
 function fallback(): Answer {
   return {
-    heading: "Happy to help — what would you like to explore?",
+    heading: "I'm not sure I caught that — here's what I can help with",
     body:
-      "I can look at any of Rwanda's 30 districts across poverty, financial exclusion, child stunting, unemployment, " +
-      "health insurance, electricity, water, phones and more — all from NISR's published figures, with the source named. " +
-      "Try naming a district, asking where a measure is highest or lowest, comparing two places, or asking what a term " +
-      "means. What shall we start with?",
+      "I couldn't match that to a figure I hold, but I can look at any of Rwanda's 30 districts across poverty, financial " +
+      "exclusion, child stunting, unemployment, health insurance, electricity, water, phones and more — all from NISR's " +
+      "published figures, with the source named. Try naming a district, asking where a measure is highest or lowest, " +
+      "comparing two places, or asking what a term means — or tap one of the suggestions below.",
     links: [
       { href: "/data/key-figures", label: "Rwanda in figures" },
       { href: "/districts", label: "All 30 districts" },
