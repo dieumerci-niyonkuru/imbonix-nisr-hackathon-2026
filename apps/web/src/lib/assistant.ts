@@ -531,13 +531,19 @@ function helpAnswer(): Answer {
   };
 }
 
-/** How social protection (the VUP) reaches people, from the NISR poverty and social-protection figures. */
-function vupAnswer(): Answer {
+/** How social protection (the VUP) reaches people, from the NISR poverty and social-protection figures. When a district
+ *  is named, it says plainly that VUP is reported nationally, not per district, and points to that district's profile. */
+function vupAnswer(district?: District): Answer {
   const women = VUP_SHARE_BY_SEX.find((row) => row.sex === "Women")?.beneficiaries;
   const vupPoverty = POVERTY_AMONG_VUP_BENEFICIARIES.find((row) => /vup/i.test(row.group))?.povertyRate;
+  const districtNote = district
+    ? `VUP is reported for Rwanda as a whole — NISR does not publish a separate VUP breakdown by district, so this is the ` +
+      `national picture. For ${district.name} itself, its poverty and need figures are on its profile. `
+    : "";
   return {
     heading: `VUP reaches about ${VUP_BENEFICIARIES.toLocaleString("en-US")} people`,
     body:
+      districtNote +
       "The Vision 2020 Umurenge Programme (VUP) is Rwanda's main social protection scheme: cash for households who cannot " +
       "work (Direct Support), paid public works, and financial services. It is targeted at the poorest, and most " +
       "beneficiaries are women. The gap to watch is whether payments reach people on time.",
@@ -551,6 +557,7 @@ function vupAnswer(): Answer {
     source: SOCIAL_PROTECTION_SOURCE,
     status: "observed",
     links: [
+      ...(district ? [{ href: `/districts/${district.slug}`, label: `${district.name} profile` }] : []),
       { href: "/social-protection", label: "Social protection" },
       { href: "/social-protection/priority-districts", label: "Where to act first" },
     ],
@@ -772,7 +779,7 @@ export function answerQuery(raw: string): Answer {
   // directly rather than falling through to a figure or a blank fallback.
   if (districts.length >= 2 && wantsCompare) return compare(districts[0], districts[1]);
   if (hasAny(query, HEALTH_WORDS)) return financialHealthAnswer();
-  if (hasAny(query, VUP_WORDS)) return vupAnswer();
+  if (hasAny(query, VUP_WORDS)) return vupAnswer(districts[0]);
   if (hasAny(query, COUNT_WORDS)) {
     const counts = countsAnswer(query);
     if (counts) return counts;

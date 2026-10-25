@@ -30,6 +30,15 @@ describe("IMBONIX AI answers", () => {
     expect(answer.rows?.length).toBeGreaterThan(0);
   });
 
+  it("says plainly that VUP is national when a district is named, and links to that district", () => {
+    const answer = answerQuery("VUP payments in Nyagatare");
+    const body = (answer.body ?? "").toLowerCase();
+    expect(answer.heading.toLowerCase()).toContain("vup");
+    expect(body).toContain("nyagatare");
+    expect(body).toMatch(/national|rwanda as a whole|not publish a separate/);
+    expect(answer.links?.some((link) => link.href === "/districts/nyagatare")).toBe(true);
+  });
+
   it("falls back helpfully on an empty or unknown question", () => {
     expect(answerQuery("").heading.toLowerCase()).toContain("help");
     expect(answerQuery("hello there").links?.length).toBeGreaterThan(0);
