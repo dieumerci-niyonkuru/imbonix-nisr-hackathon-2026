@@ -1,6 +1,6 @@
 # Deployment
 
-**Status: IMBONIX is live at <https://imbonix26.vercel.app> (Vercel, from `main`).** The website and its JSON API
+**Status: IMBONIX is being (re)deployed to Vercel from `main`; the public URL will be recorded here once live.** The website and its JSON API
 (`/api/v1`) deploy together as one Vercel project. Both production Docker images have also been built, started and
 checked locally: they reach a healthy state, every page renders with no console errors, and the interactive map loads.
 
