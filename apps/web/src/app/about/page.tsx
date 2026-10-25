@@ -55,6 +55,12 @@ const BENEFICIARIES: Audience[] = [
     linkLabel: "See how VUP support arrives",
   },
   {
+    title: "Rwandan citizens",
+    body: "Anyone can look up their own district or sector and see what the data says about where they live, in plain language — free and open, no account needed.",
+    href: "/districts",
+    linkLabel: "Find your district",
+  },
+  {
     title: "Policymakers",
     body: `${SITE_FACTS.levers} policy levers, each flagged district by district by one published figure and a rule anyone can check.`,
     href: "/social-protection/priority-districts",

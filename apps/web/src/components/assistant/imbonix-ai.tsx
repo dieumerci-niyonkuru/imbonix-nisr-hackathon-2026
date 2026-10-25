@@ -9,12 +9,10 @@ import {
   ClipboardDocumentIcon,
   ClockIcon,
   MicrophoneIcon,
-  PaperClipIcon,
   PauseIcon,
   PencilIcon,
   PencilSquareIcon,
   PlayIcon,
-  PlusIcon,
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
   StopIcon,
@@ -23,17 +21,14 @@ import {
 } from "@heroicons/react/20/solid";
 import { AiMark } from "@/components/assistant/ai-mark";
 import { StatusBadge } from "@/components/ui/status-badge";
-import { answerQuery, followUpSuggestions, SUGGESTIONS, type Answer } from "@/lib/assistant";
+import { answerQuery, followUpSuggestions, type Answer } from "@/lib/assistant";
 import { districtAt } from "@/lib/locate";
 
-/** An image, PDF or text file the person attached, ready to send to the AI route. */
-type Attachment = { kind: "image" | "document" | "text"; mediaType: string; data: string; name: string };
 type ChatTurn = { role: "user" | "assistant"; text: string };
 type Message = {
   id: number;
   role: "user" | "ai";
   text?: string;
-  attachmentName?: string;
   /** A grounded structured answer (the on-device engine, or the welcome). */
   answer?: Answer;
   /** A generative, streamed answer from the AI route (markdown-ish prose). */
@@ -43,11 +38,8 @@ type Message = {
   followUps?: string[];
 };
 
-const IMAGE_TYPES = new Set(["image/png", "image/jpeg", "image/gif", "image/webp"]);
-const MAX_BINARY_BYTES = 6 * 1024 * 1024;
 /** "Where I am" phrases — when the person uses one and their district is known, it is filled into the question. */
 const LOCAL_REF = /\b(my (district|area|sector|place|home)|near me|around here|close to me|where i (am|live|stay))\b/i;
-const MAX_TEXT_CHARS = 20_000;
 const MAX_HISTORY_TURNS = 12;
 
 /** A past conversation the person can reopen, rename or delete. Kept per-browser in localStorage, never on a server. */
@@ -85,25 +77,23 @@ function relativeTime(timestamp: number): string {
   return new Date(timestamp).toLocaleDateString();
 }
 
-/** The opening message: what the assistant does, with example questions to click. */
+/** The opening message: a friendly greeting, with starter chips to tap. */
 const WELCOME: Answer = {
-  heading: "Hi, I'm IMBONIX AI",
+  heading: "Hello! How can I help you today?",
   body:
-    "I can help you explore poverty, financial access, household vulnerability and social protection across Rwanda — " +
-    "from NISR's published data, with the source named every time. Ask in your own words: compare two districts, ask " +
-    "what might be driving financial exclusion somewhere, or what could help vulnerable households. You can type or " +
-    "speak, attach a picture or document for me to read, and keep the conversation going. Where would you like to start?",
+    "Ask about Rwanda's poverty, financial inclusion or social protection — in your own words, by text or voice. " +
+    "Every answer comes from NISR's published figures, with the source named.",
 };
 
-/** Shown when someone attaches a file but the AI service isn't connected. */
-const NOT_CONNECTED: Answer = {
-  heading: "File reading needs the AI service",
-  body:
-    "I can read pictures and documents once this site's AI service is connected (a free Gemini or an Anthropic key on " +
-    "the server). Until then I can still answer questions about any district, measure or the national picture straight " +
-    "from NISR's figures — ask away.",
-  links: [{ href: "/data/key-figures", label: "Rwanda in figures" }],
-};
+/** Short starter chips for the welcome — a friendly way in for first-time users. Each chip sends a fuller question the
+ *  on-device engine answers well, so a first tap always lands on a real, sourced answer. */
+const STARTERS: { label: string; query: string }[] = [
+  { label: "Poverty", query: "Which districts have the highest poverty rates?" },
+  { label: "Financial inclusion", query: "Compare financial inclusion across districts." },
+  { label: "Social protection", query: "How does VUP reach people?" },
+  { label: "Compare districts", query: "Compare Gasabo and Huye" },
+  { label: "Gasabo", query: "What does the available data tell us about Gasabo?" },
+];
 
 // --- Voice: speech synthesis (read answers aloud) and speech recognition (dictate questions), both browser-native. ---
 
@@ -532,20 +522,17 @@ function AnswerCard({
 
       {showSuggestions && (
         <div className="mt-4">
-          <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.08em] text-muted">Try asking</p>
-          <div className="space-y-1.5">
-            {SUGGESTIONS.map((suggestion) => (
+          <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.08em] text-muted">You can start with</p>
+          <div className="flex flex-wrap gap-1.5">
+            {STARTERS.map((starter) => (
               <button
-                key={suggestion}
+                key={starter.label}
                 type="button"
-                onClick={() => onAsk(suggestion)}
-                className="group flex w-full items-center justify-between gap-2 rounded-xl bg-white px-3.5 py-2.5 text-left text-[13px] font-semibold text-ink ring-1 ring-line transition-colors hover:bg-cyan-soft/50 hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+                onClick={() => onAsk(starter.query)}
+                className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-[13px] font-semibold text-ink ring-1 ring-line transition-colors hover:bg-cyan-soft/60 hover:text-cyan-ink hover:ring-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
               >
-                <span className="min-w-0">{suggestion}</span>
-                <ChevronRightIcon
-                  className="h-4 w-4 shrink-0 text-cyan-ink transition-transform group-hover:translate-x-0.5"
-                  aria-hidden="true"
-                />
+                {starter.label}
+                <ChevronRightIcon className="h-3.5 w-3.5 text-cyan-ink" aria-hidden="true" />
               </button>
             ))}
           </div>
@@ -577,63 +564,17 @@ function FollowUps({ items, onAsk }: { items?: string[]; onAsk: (query: string) 
   );
 }
 
-/** Read a chosen file into a payload the AI route accepts, or return a short error to show the person. */
-function readFile(file: File): Promise<{ attachment?: Attachment; error?: string }> {
-  const isImage = IMAGE_TYPES.has(file.type);
-  const isPdf = file.type === "application/pdf";
-  const isText = file.type.startsWith("text/") || /\.(txt|csv|md|json)$/i.test(file.name);
-  if (!isImage && !isPdf && !isText) {
-    return Promise.resolve({ error: "I can read images, PDFs and text files (txt, csv, md)." });
-  }
-  if ((isImage || isPdf) && file.size > MAX_BINARY_BYTES) {
-    return Promise.resolve({ error: "That file is larger than 6 MB. Please attach a smaller one." });
-  }
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.onerror = () => resolve({ error: "I couldn't read that file. Please try another." });
-    if (isImage || isPdf) {
-      reader.onload = () => {
-        const result = String(reader.result);
-        const base64 = result.slice(result.indexOf(",") + 1);
-        resolve({
-          attachment: {
-            kind: isImage ? "image" : "document",
-            mediaType: isImage ? file.type : "application/pdf",
-            data: base64,
-            name: file.name,
-          },
-        });
-      };
-      reader.readAsDataURL(file);
-    } else {
-      reader.onload = () =>
-        resolve({
-          attachment: {
-            kind: "text",
-            mediaType: "text/plain",
-            data: String(reader.result).slice(0, MAX_TEXT_CHARS),
-            name: file.name,
-          },
-        });
-      reader.readAsText(file);
-    }
-  });
-}
-
 /**
  * IMBONIX AI: a floating assistant that answers questions about Rwanda's financial inclusion and poverty. When the
- * site's AI service is connected it uses a grounded Claude model that can also read an attached picture or document;
- * when it isn't, it falls back to an instant on-device engine over the same NISR figures. People can type or speak
- * their question and have answers read back aloud. Either way it answers only from NISR's published data and names the
- * source, and never invents a number.
+ * site's AI service is connected it uses a grounded Claude model; when it isn't, it falls back to an instant on-device
+ * engine over the same NISR figures. People can type or speak their question and have answers read back aloud. Either
+ * way it answers only from NISR's published data and names the source, and never invents a number.
  */
 export function ImbonixAI() {
   const panelId = useId();
-  const fileInputId = useId();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<Message[]>([{ id: 0, role: "ai", answer: WELCOME }]);
-  const [pending, setPending] = useState<Attachment | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   /** null while unknown, then whether the server has the AI service connected. */
@@ -648,7 +589,6 @@ export function ImbonixAI() {
   const [autoSpeak, setAutoSpeak] = useState(false);
   const nextId = useRef(1);
   const inputRef = useRef<HTMLInputElement>(null);
-  const fileRef = useRef<HTMLInputElement>(null);
   const logRef = useRef<HTMLDivElement>(null);
   /** The id of an answer whose top should be brought to the top of the panel once it is ready (null = follow the bottom). */
   const scrollTopRef = useRef<number | null>(null);
@@ -662,10 +602,6 @@ export function ImbonixAI() {
   const sessionStartRef = useRef(0);
   /** Set when the person sends mid-dictation, so the final transcript is not written back into the (now sent) box. */
   const discardNextRef = useRef(false);
-  /** True while a chosen file is being read, so the attach button shows progress and can't be double-triggered. */
-  const [reading, setReading] = useState(false);
-  /** True while a file is being dragged over the panel, to show the drop target. */
-  const [dragOver, setDragOver] = useState(false);
   /** Past conversations (per-browser), the open history list, and an in-progress rename. */
   const [savedChats, setSavedChats] = useState<SavedChat[]>([]);
   const [historyOpen, setHistoryOpen] = useState(false);
@@ -695,7 +631,7 @@ export function ImbonixAI() {
 
   const historyFrom = (list: Message[]): ChatTurn[] =>
     list
-      .filter((message) => message.answer !== WELCOME && message.answer !== NOT_CONNECTED)
+      .filter((message) => message.answer !== WELCOME)
       .map((message): ChatTurn | null => {
         if (message.role === "user") return { role: "user", text: message.text ?? "" };
         const text = message.markdown ?? message.answer?.body ?? "";
@@ -769,7 +705,6 @@ export function ImbonixAI() {
     setMessages([{ id: 0, role: "ai", answer: WELCOME }]);
     nextId.current = 1;
     setQuery("");
-    setPending(null);
     setNotice(null);
     setSpeakingId(null);
     setHistoryOpen(false);
@@ -852,21 +787,17 @@ export function ImbonixAI() {
   /** The playback state for one answer, for its read-aloud controls. */
   const playbackFor = (id: number): Playback => (speakingId !== id ? "idle" : paused ? "paused" : "playing");
 
-  const ask = async (rawText: string, attachment?: Attachment | null, fromVoice = false) => {
+  const ask = async (rawText: string, fromVoice = false) => {
     const text = rawText.trim();
-    if ((!text && !attachment) || busy) return;
+    if (!text || busy) return;
     const readAloud = (fromVoice || autoSpeak) && canSpeak;
     setNotice(null);
 
     const priorHistory = historyFrom(messages);
     // Sending a question: show it at the bottom; the answer that follows will be scrolled to its top when ready.
     scrollTopRef.current = null;
-    setMessages((current) => [
-      ...current,
-      { id: nextId.current++, role: "user", text: text || undefined, attachmentName: attachment?.name },
-    ]);
+    setMessages((current) => [...current, { id: nextId.current++, role: "user", text }]);
     setQuery("");
-    setPending(null);
     setBusy(true);
 
     // Contextual follow-up questions to offer beneath this answer, shaped by what was just asked.
@@ -883,19 +814,12 @@ export function ImbonixAI() {
     const live = configured ?? (await probe());
 
     if (!live) {
-      const extra: Message[] = [];
-      let spoken: { id: number; text: string } | null = null;
-      if (attachment) extra.push({ id: nextId.current++, role: "ai", answer: NOT_CONNECTED });
-      if (text || !attachment) {
-        const answer = answerQuery(localizedText);
-        const id = nextId.current++;
-        extra.push({ id, role: "ai", answer, followUps });
-        scrollTopRef.current = id;
-        spoken = { id, text: plainFromAnswer(answer) };
-      }
-      setMessages((current) => [...current, ...extra]);
+      const answer = answerQuery(localizedText);
+      const id = nextId.current++;
+      setMessages((current) => [...current, { id, role: "ai", answer, followUps }]);
+      scrollTopRef.current = id;
       setBusy(false);
-      if (readAloud && spoken) speakAnswer(spoken.id, spoken.text);
+      if (readAloud) speakAnswer(id, plainFromAnswer(answer));
       return;
     }
 
@@ -910,23 +834,21 @@ export function ImbonixAI() {
       const response = await fetch("/api/assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [...priorHistory, { role: "user", text: (text || "") + locationNote }], attachment }),
+        body: JSON.stringify({ messages: [...priorHistory, { role: "user", text: text + locationNote }] }),
       });
 
       if (response.status === 503) {
         setConfigured(false);
-        update({ streaming: false, markdown: undefined, answer: text ? answerQuery(text) : NOT_CONNECTED });
+        update({ streaming: false, markdown: undefined, answer: answerQuery(text) });
         return;
       }
       if (!response.ok || !response.body) {
         if (response.status === 429) {
           update({ streaming: false, markdown: "I'm getting a lot of questions right now. Please try again in a moment." });
-        } else if (text) {
+        } else {
           // The model was briefly unavailable (e.g. busy). Answer from the on-device engine so the person still
           // gets a grounded reply instead of an error.
           update({ streaming: false, markdown: undefined, answer: answerQuery(text) });
-        } else {
-          update({ streaming: false, markdown: "The AI service was briefly unavailable. Please ask again." });
         }
         return;
       }
@@ -954,23 +876,6 @@ export function ImbonixAI() {
     } finally {
       setBusy(false);
     }
-  };
-
-  const chooseFile = async (file: File | undefined) => {
-    if (!file || reading) return;
-    setReading(true);
-    setNotice(null);
-    const { attachment, error } = await readFile(file);
-    setReading(false);
-    if (error) {
-      setNotice(error);
-      setPending(null);
-    } else if (attachment) {
-      setPending(attachment);
-      setNotice(null);
-      inputRef.current?.focus();
-    }
-    if (fileRef.current) fileRef.current.value = "";
   };
 
   /**
@@ -1061,7 +966,7 @@ export function ImbonixAI() {
       manualStopRef.current = true;
       recognitionRef.current?.stop();
     }
-    void ask(query, pending);
+    void ask(query);
   };
 
   useEffect(() => {
@@ -1175,27 +1080,8 @@ export function ImbonixAI() {
             role="dialog"
             aria-label="IMBONIX AI assistant"
             aria-modal="false"
-            onDragEnter={(event) => {
-              event.preventDefault();
-              if (event.dataTransfer?.types?.includes("Files")) setDragOver(true);
-            }}
-            onDragOver={(event) => event.preventDefault()}
-            onDragLeave={(event) => {
-              if (event.currentTarget === event.target) setDragOver(false);
-            }}
-            onDrop={(event) => {
-              event.preventDefault();
-              setDragOver(false);
-              void chooseFile(event.dataTransfer?.files?.[0]);
-            }}
             className="fixed inset-x-3 bottom-3 top-16 z-[56] flex flex-col overflow-hidden rounded-3xl bg-paper shadow-lift ring-1 ring-line motion-safe:animate-fade-up sm:inset-x-auto sm:bottom-24 sm:right-6 sm:top-auto sm:h-[min(620px,78vh)] sm:w-[400px]"
           >
-            {/* Drag a photo or document anywhere onto the panel to attach it. */}
-            {dragOver && (
-              <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center rounded-3xl border-2 border-dashed border-cyan-ink bg-cyan-soft/85 px-6 text-center font-display text-[15px] font-bold text-cyan-ink">
-                Drop a photo or document to read it
-              </div>
-            )}
             {/* A thin brand-gradient accent across the very top, for a premium, finished feel. */}
             <span className="h-1 w-full shrink-0 bg-gradient-to-r from-cyan via-cyan-ink to-cyan" aria-hidden="true" />
             <div className="flex items-center justify-between gap-3 border-b border-line bg-gradient-to-b from-white to-cyan-soft/40 px-4 py-3">
@@ -1377,12 +1263,6 @@ export function ImbonixAI() {
                 if (message.role === "user") {
                   return (
                     <div key={message.id} className="ml-auto w-fit max-w-[85%] space-y-1">
-                      {message.attachmentName && (
-                        <p className="ml-auto flex w-fit items-center gap-1.5 rounded-full bg-white px-3 py-1 text-[12px] font-semibold text-ink ring-1 ring-line">
-                          <PaperClipIcon className="h-3.5 w-3.5 text-cyan-ink" aria-hidden="true" />
-                          <span className="max-w-[200px] truncate">{message.attachmentName}</span>
-                        </p>
-                      )}
                       {message.text && (
                         <p className="ml-auto w-fit rounded-2xl rounded-tr-sm bg-cyan px-3.5 py-2 text-[13.5px] font-semibold text-ink">
                           {message.text}
@@ -1430,23 +1310,6 @@ export function ImbonixAI() {
               </p>
             )}
 
-            {pending && (
-              <div className="flex items-center gap-2 border-t border-line bg-white px-3 pt-2.5">
-                <span className="flex min-w-0 items-center gap-1.5 rounded-full bg-paper px-3 py-1 text-[12px] font-semibold text-ink ring-1 ring-line">
-                  <PaperClipIcon className="h-3.5 w-3.5 shrink-0 text-cyan-ink" aria-hidden="true" />
-                  <span className="max-w-[220px] truncate">{pending.name}</span>
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setPending(null)}
-                  aria-label="Remove the attached file"
-                  className="flex h-6 w-6 items-center justify-center rounded-full text-muted transition-colors hover:bg-paper hover:text-ink"
-                >
-                  <XMarkIcon className="h-4 w-4" aria-hidden="true" />
-                </button>
-              </div>
-            )}
-
             <form
               onSubmit={(event) => {
                 event.preventDefault();
@@ -1454,33 +1317,6 @@ export function ImbonixAI() {
               }}
               className="flex items-center gap-2 border-t border-line bg-white p-3"
             >
-              <input
-                ref={fileRef}
-                id={fileInputId}
-                type="file"
-                accept="image/png,image/jpeg,image/gif,image/webp,application/pdf,text/plain,.txt,.csv,.md,.json"
-                className="sr-only"
-                onChange={(event) => void chooseFile(event.target.files?.[0])}
-              />
-              {/* The attach button opens the native file picker directly on click — a direct user gesture, so the dialog
-                  always opens (no dropdown to intercept it). While a file is read it shows a spinner. */}
-              <button
-                type="button"
-                onClick={() => fileRef.current?.click()}
-                disabled={reading}
-                aria-label={reading ? "Reading your file" : "Add a photo or file"}
-                title={reading ? "Reading your file…" : "Add a photo or file"}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper hover:text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink disabled:opacity-60"
-              >
-                {reading ? (
-                  <span
-                    className="h-5 w-5 animate-spin rounded-full border-2 border-line border-t-cyan-ink motion-reduce:animate-none"
-                    aria-hidden="true"
-                  />
-                ) : (
-                  <PlusIcon className="h-6 w-6" aria-hidden="true" />
-                )}
-              </button>
               {canListen && (
                 <button
                   type="button"
@@ -1508,7 +1344,7 @@ export function ImbonixAI() {
               />
               <button
                 type="submit"
-                disabled={busy || (!query.trim() && !pending)}
+                disabled={busy || !query.trim()}
                 aria-label={busy ? "IMBONIX AI is answering" : "Send"}
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cyan text-ink transition-colors hover:bg-cyan-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink disabled:opacity-60"
               >
@@ -1524,7 +1360,7 @@ export function ImbonixAI() {
             </form>
 
             <p className="border-t border-line bg-paper px-4 py-1.5 text-center text-[11px] leading-4 text-muted">
-              Grounded in published NISR figures. Not an official NISR product.
+              IMBONIX AI can make mistakes. Please double-check with official sources. Not an official NISR product.
             </p>
           </div>
         </>
