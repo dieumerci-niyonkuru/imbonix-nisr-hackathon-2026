@@ -321,9 +321,16 @@ export function DistrictTimeline({
         </div>
       </div>
 
-      {/* Which years hold figures: dots above the line for the district, below for Rwanda. Clicking a year selects it. */}
-      <div className="mt-6 rounded-lg border border-line bg-white px-3 pb-2 pt-3 sm:px-4" aria-hidden="true">
-        <div className="grid" style={{ gridTemplateColumns: `repeat(${YEARS.length}, minmax(0, 1fr))` }}>
+      {/* Years with figures: a quick map of which years hold data. The dot grid is decorative — the figures are in the
+          lists below and the selected year is announced in the sr-only live region. */}
+      <div className="mt-6 rounded-lg border border-line bg-white p-3 sm:p-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+          <p className="text-[13px] font-bold uppercase tracking-[0.06em] text-cyan-ink">Years with figures</p>
+          <p className="text-[12.5px] text-muted">
+            Tap a year to see it · showing <span className="font-semibold text-ink">{year}</span>
+          </p>
+        </div>
+        <div className="mt-3 grid" style={{ gridTemplateColumns: `repeat(${YEARS.length}, minmax(0, 1fr))` }} aria-hidden="true">
           {YEARS.map((candidate) => {
             const selected = candidate === year;
             return (
@@ -355,14 +362,14 @@ export function DistrictTimeline({
             );
           })}
         </div>
-        <p className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-[12px] text-muted">
+        <p className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-[12px] text-muted" aria-hidden="true">
           <span className="inline-flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-cyan-ink" /> {district} figures
+            <span className="h-2 w-2 rounded-full bg-cyan-ink" /> {district} data (top row)
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-muted" /> Rwanda figures
+            <span className="h-2 w-2 rounded-full bg-muted" /> Rwanda data (bottom row)
           </span>
-          <span>1978 to 2026</span>
+          <span>1978–2026</span>
         </p>
       </div>
 
