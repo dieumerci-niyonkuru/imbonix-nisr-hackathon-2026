@@ -19,7 +19,7 @@ Everything a judge needs, in reading order. Each document stands on its own; tog
 | 1   | **[Solution overview](solution-overview.md)**    | The whole submission: problem → solution → data → tech → design → impact, with a **criterion-by-criterion mapping**. Start here.                                              | ~5 min  |
 | 2   | **[Criteria evidence](criteria-evidence.md)**    | Each evaluation criterion answered **point by point**, with the evidence to demonstrate it — including the methodology summary, impact-measurement plan and adoption pathway. | ~5 min  |
 | 3   | **[Demo script](demo-script.md)**                | A **90-second** pitch and a **3-minute** walkthrough, each mapped to the five criteria. Use it to drive the live app.                                                         | 1–3 min |
-| 4   | **[IMBONIX AI](../ai-assistant.md)**             | How the grounded, multilingual, multimodal, voice-capable assistant is built, and why its answers can be trusted.                                                             | ~4 min  |
+| 4   | **[IMBONIX AI](../ai-assistant.md)**             | How the grounded, multilingual, voice-capable assistant is built, and why its answers can be trusted.                                                                         | ~4 min  |
 | 5   | **[AI-assistance disclosure](ai-disclosure.md)** | Required by the rules: how AI tools were used, and the team's responsibility for every figure.                                                                                | ~1 min  |
 
 ## The one-paragraph version
@@ -28,8 +28,8 @@ Rwanda has all but solved **access** to finance (96% included, FinScope 2024) bu
 adults is financially healthy, and the households left behind cluster where poverty, poor nutrition and shocks overlap.
 **IMBONIX** brings NISR's published figures together for all **30 districts** and **416 sectors**, labels every value
 for trust, and turns them into clear starting points for action — paired with **IMBONIX AI**, a grounded assistant that
-answers open questions about any place in plain language (EN / FR / Kinyarwanda), by voice or text, and reads uploaded
-charts and reports. It is independent, open-source, and **not an official NISR product**.
+answers open questions about any place in plain language (EN / FR / Kinyarwanda), by voice or text, keeping the
+conversation's context for follow-ups. It is independent, open-source, and **not an official NISR product**.
 
 ## Five criteria, in one click each
 

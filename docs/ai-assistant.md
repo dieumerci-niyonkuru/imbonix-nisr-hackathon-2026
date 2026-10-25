@@ -12,7 +12,7 @@ live walkthrough see [`submission/demo-script.md`](submission/demo-script.md).
 
 ![IMBONIX AI: a grounded assistant that answers in plain language or by voice, from NISR figures only, and names the source every time](screenshots/imbonix-ai.png)
 
-**Contents:** [What it does](#1-what-it-does) · [Architecture](#2-architecture-at-a-glance) · [Grounding](#3-grounding--why-the-answers-can-be-trusted) · [Backends](#4-the-two-backends) · [Multimodal](#5-multimodal-input) · [Place intelligence](#6-place-intelligence) · [Voice](#7-voice) · [Safety & privacy](#8-safety-privacy-and-cost) · [Judging criteria](#9-how-it-maps-to-the-judging-criteria) · [Configuration](#10-configuration)
+**Contents:** [What it does](#1-what-it-does) · [Architecture](#2-architecture-at-a-glance) · [Grounding](#3-grounding--why-the-answers-can-be-trusted) · [Backends](#4-the-two-backends) · [Conversation](#5-conversation-and-context) · [Place intelligence](#6-place-intelligence) · [Voice](#7-voice) · [Safety & privacy](#8-safety-privacy-and-cost) · [Judging criteria](#9-how-it-maps-to-the-judging-criteria) · [Configuration](#10-configuration)
 
 ---
 
@@ -23,8 +23,8 @@ live walkthrough see [`submission/demo-script.md`](submission/demo-script.md).
 - **Frames each answer the way the challenge asks:** it names the gap, grounds it in the NISR figure, points to the
   solution, and says who it helps — instead of dumping a number.
 - **Compares places and measures as tables** when a comparison is asked for, so the answer is scannable.
-- **Reads an uploaded picture or document** (a chart photo, a PDF report, a screenshot) and relates what it finds back
-  to the NISR data.
+- **Keeps the conversation's context** — follow-ups like "how does it compare with Gasabo?" work without repeating
+  yourself, and it offers tappable follow-up questions after each answer.
 - **Speaks and listens.** It can read answers aloud and take a question by voice (Web Speech API, in browsers that
   support it).
 - **Asks a clarifying question** when a request is ambiguous, rather than guessing.
@@ -62,7 +62,7 @@ Key files:
 | `apps/web/src/app/api/assistant/route.ts`          | The server route: backend selection, streaming, retries, rate limit, safety limits.           |
 | `apps/web/src/lib/ai-context.ts`                   | The system prompt: the instructions and the whole NISR data digest that grounds every answer. |
 | `apps/web/src/lib/ai-places.ts`                    | Resolves a place name (cell / village / sector) to its district and injects the context.      |
-| `apps/web/src/components/assistant/imbonix-ai.tsx` | The floating assistant: chat UI, attachments, voice, Markdown/table rendering, fallback.      |
+| `apps/web/src/components/assistant/imbonix-ai.tsx` | The floating assistant: chat UI, voice, Markdown/table rendering, fallback.      |
 | `apps/web/src/components/assistant/ai-mark.tsx`    | The IMBONIX AI mark (a conversation bubble with an insight spark).                            |
 | `apps/web/src/lib/assistant.ts`                    | The on-device engine that answers from the same figures when no key is set.                   |
 
@@ -98,7 +98,7 @@ The route supports two interchangeable model backends and picks whichever key is
   streaming endpoint with an `x-goog-api-key` header. Gemini has a **no-cost free tier**, so the full generative
   experience can be demonstrated without any paid account.
 
-Both receive the identical system prompt and the identical attachment, so the behaviour is the same whichever is
+Both receive the identical system prompt, so the behaviour is the same whichever is
 configured. Responses stream token-by-token to the browser over Server-Sent Events, so the answer appears as it is
 written.
 
@@ -108,13 +108,12 @@ engine instead — the user still gets a grounded reply.
 
 ---
 
-## 5. Multimodal input
+## 5. Conversation and context
 
-A person can attach an image, a PDF or a text file with the **+** button ("Add photos & files"). The file is read in
-the browser, sent as base64 to the route, and forwarded to the model as inline data alongside the question. Limits are
-enforced server-side (images must be a known type; a payload over ~6 MB is refused; text attachments are truncated), so
-an exposed demo endpoint stays safe and cheap. The model is asked to relate what it sees to the NISR figures rather than
-to read the document in isolation.
+The assistant keeps the thread of a conversation: each question is sent with the recent turns, so follow-ups like "how
+does it compare with Gasabo?" work without repeating yourself. After every answer it offers a few tappable follow-up
+questions shaped by what was just asked. Past conversations are kept per-browser (in `localStorage`, never on a server),
+so a person can reopen, rename or delete them, and start a fresh chat at any time.
 
 ---
 
@@ -142,7 +141,7 @@ sector's and district's published figures — and it says so plainly, without ex
 - **The key never reaches the browser.** The browser only ever calls the same-origin `/api/assistant` route; the key is
   read from the server environment. Keys live in a git-ignored `.env` and are never committed.
 - **Rate limited.** A best-effort per-IP limit (30 requests / 5 minutes) keeps a public demo from running up a bill.
-- **Bounded.** Conversation length, per-turn length, output tokens and attachment size are all capped.
+- **Bounded.** Conversation length, per-turn length and output tokens are all capped.
 - **On-topic.** The assistant answers about IMBONIX and Rwanda's inclusion and poverty data, and declines unrelated
   requests.
 - **No invented numbers.** It is grounded in, and instructed to cite, published figures only; the on-device fallback is
@@ -156,7 +155,7 @@ sector's and district's published figures — and it says so plainly, without ex
 | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | **1 · Problem understanding & relevance** | Every answer is framed as gap → evidence → solution → who it helps, mirroring the challenge and Rwanda's national priorities.                |
 | **2 · Data use & methodology**            | Grounded in the same NISR + partner figures the site cites; names the source; never invents a number; no microdata.                          |
-| **3 · Tech innovation**                   | A grounded, streaming, multimodal, multilingual, voice-capable assistant with a two-backend design and a deterministic offline fallback.     |
+| **3 · Tech innovation**                   | A grounded, streaming, multilingual, voice-capable assistant with a two-backend design and a deterministic offline fallback.                 |
 | **4 · Usability & design**                | Plain-language, jargon-free guidance in the user's own language, with tables, voice and a clean branded mark; works for non-technical users. |
 | **5 · Tangible impact**                   | Lets anyone, anywhere, interrogate the evidence for their own district and get a clear next step — the platform in one question.             |
 
