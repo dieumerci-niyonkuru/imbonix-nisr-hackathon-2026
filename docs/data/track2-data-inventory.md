@@ -3,6 +3,8 @@
 Checked 26 September 2026 against the NISR Central Data Catalog (NADA) at https://microdata.statistics.gov.rw/index.php/catalog.
 Variable names below were read from each study's public data dictionary.
 
+**Data collection and sourcing:** UMURERWA Divine — selected the Track 2 studies from the NISR catalog and read each study's public data dictionary to map the variables listed below.
+
 **Access:** the catalog lists these studies as *Public use*, and each study's metadata calls its file an *"edited anonymous dataset for public distribution"*. Downloading needs a free NADA account and acceptance of each study's terms. The download page itself was not visible without logging in, so confirm the terms after registering. Never commit microdata: `data/raw/*` is gitignored.
 
 **Step-by-step download, sample sizes known in advance, and validation checks:** [docs/data/microdata-access.md](microdata-access.md).
