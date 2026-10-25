@@ -33,7 +33,7 @@ export function HomeProgress() {
   const drop = oneDp(rwanda.before - rwanda.after);
 
   return (
-    <section className="border-y border-line bg-paper py-10 sm:py-14" aria-labelledby="progress-heading">
+    <section className="border-y border-line bg-white py-10 sm:py-14" aria-labelledby="progress-heading">
       <div className="container-page">
         <p className="eyebrow text-cyan-ink">The progress</p>
         <h2
