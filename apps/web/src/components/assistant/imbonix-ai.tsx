@@ -1524,7 +1524,7 @@ export function ImbonixAI() {
             </form>
 
             <p className="border-t border-line bg-paper px-4 py-1.5 text-center text-[11px] leading-4 text-muted">
-              Grounded in published NISR figures. Not an official NISR product.
+              IMBONIX AI can make mistakes. Please verify from official sources. Not an official NISR product.
             </p>
           </div>
         </>
