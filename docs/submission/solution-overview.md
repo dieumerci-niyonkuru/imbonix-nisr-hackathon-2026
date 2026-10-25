@@ -54,7 +54,7 @@
 | **What it is** | An independent, open-source evidence platform for financial inclusion & poverty in Rwanda, with a grounded AI assistant.                                                                                             |
 | **Coverage**   | All **30 districts** and **416 sectors**; a search over every cell and village.                                                                                                                                      |
 | **Evidence**   | NISR + partner publications (EICV7, FinScope, DHS, CFSVA, LFS, the 2022 census, and more), every figure **labelled for trust**.                                                                                      |
-| **The twist**  | It doesn't stop at charts — **IMBONIX AI** answers open questions about any place, grounded only in those figures, in **EN / FR / Kinyarwanda**, by **voice or text**, and can **read an uploaded chart or report**. |
+| **The twist**  | It doesn't stop at charts — **IMBONIX AI** answers open questions about any place, grounded only in those figures, in **EN / FR / Kinyarwanda**, by **voice or text**, and keeps the conversation's context for follow-ups. |
 | **Ends in**    | Action: policy levers and priority districts flagged by **transparent, checkable rules**.                                                                                                                            |
 | **Honesty**    | Every number is NISR's, shown with its source; no invented figures; no microdata; describes places, never individuals.                                                                                               |
 
@@ -104,8 +104,8 @@ IMBONIX is built to walk a user along exactly that line — from a headline to t
 1. **The platform** gathers NISR's published figures for every district and sector, **labels every value for trust**,
    and presents them as validated, accessible charts and maps organised around the questions people actually ask.
 2. **IMBONIX AI** is a **grounded** assistant that answers open-ended questions — about any district, sector, cell or
-   village — _only_ from those published figures, in three languages, by voice or text, and can read an uploaded image
-   or document. Full detail in [IMBONIX AI](../ai-assistant.md).
+   village — _only_ from those published figures, in three languages, by voice or text, keeping the conversation's
+   context for follow-ups. Full detail in [IMBONIX AI](../ai-assistant.md).
 
 ![IMBONIX AI: a grounded assistant that answers in plain language or by voice, from NISR figures only, and names the source every time](../screenshots/imbonix-ai.png)
 
@@ -141,8 +141,8 @@ every colour and claim governed by a test.** The build has seven pillars.
 | **2 · Trust labelling** | Every value carries one of **six status labels** (official estimate · IMBONIX calculation · model estimate · projection · scenario · policy target) with its source, table and year, baked into the data model so nothing appears unlabelled.                                                           |
 | **3 · Design system**   | Two colours only (brand cyan + white), defined in **one palette module** — a test **fails the build if any component hardcodes a colour**. Every chart is validated for colour-vision deficiency and ships with a legend and a table view.                                                              |
 | **4 · Platform**        | **Next.js 15 (App Router)**, React 19 server/client components, **TypeScript strict**, Tailwind. Per-page metadata and breadcrumbs, permanent redirects for moved URLs, a site-wide search, and reduced-motion-aware scroll reveal.                                                                     |
-| **5 · IMBONIX AI**      | A **same-origin route** grounds Claude **or** free-tier Gemini in the NISR digest, **streams** the answer, reads an attached image/PDF, resolves place names to their sector/district, and **falls back to a deterministic on-device engine** when no key is set. See [IMBONIX AI](../ai-assistant.md). |
-| **6 · Quality & CI**    | On **every push**: `typecheck`, ESLint (incl. accessibility), **88 unit tests**, Prettier, production `build`, `npm audit`, a **gitleaks** secret scan of the full history, and a Docker build that starts both images and waits for health checks.                                                     |
+| **5 · IMBONIX AI**      | A **same-origin route** grounds Claude **or** free-tier Gemini in the NISR digest, **streams** the answer, keeps conversation context, resolves place names to their sector/district, and **falls back to a deterministic on-device engine** when no key is set. See [IMBONIX AI](../ai-assistant.md). |
+| **6 · Quality & CI**    | On **every push**: `typecheck`, ESLint (incl. accessibility), **130 unit tests**, Prettier, production `build`, `npm audit`, a **gitleaks** secret scan of the full history, and a Docker build that starts both images and waits for health checks.                                                     |
 | **7 · Workflow**        | Conventional Commits on `feature/*` → `develop` → `testing` → `main` (**main only by pull request**), so every change is reviewed and green before it lands.                                                                                                                                            |
 
 **The data journey, end to end:**
@@ -164,7 +164,7 @@ flowchart LR
 | **Grounding over training**           | The whole NISR digest travels _with_ each question, so answers come from published figures — and updating the data updates the assistant, with no retraining. |
 | **Two interchangeable backends**      | Claude when a key is present, else **free-tier Gemini** — so the full experience is demonstrable **at no cost**.                                              |
 | **Deterministic fallback**            | If no key is set or the model is unreachable, an on-device engine answers from the same figures, so a demo **never** depends on a secret or the network.      |
-| **Multimodal + multilingual + voice** | Reads uploaded charts/reports; answers in **EN / FR / Kinyarwanda**; speaks and listens via the Web Speech API — built for non-technical users.               |
+| **Multilingual + voice**              | Answers in **EN / FR / Kinyarwanda**; speaks and listens via the Web Speech API; keeps conversation context — built for non-technical users.                   |
 | **Safe by construction**              | Key read only server-side, never in the browser; per-IP rate limit; output, turn and attachment caps; declines off-topic requests; never invents a number.    |
 
 ## Meeting the evaluation criteria
@@ -176,7 +176,7 @@ one click.
 | ----- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | **1** | **Problem understanding & relevance** (NST2 / Vision 2050) | A sharp, non-obvious problem (access ≠ resilience) framed against four named national frameworks, each shown with its baseline. Every AI answer is framed **gap → evidence → solution → who it helps**.                         | Homepage gap chart + "Aligned to national priorities"; ask the assistant anything                        |
 | **2** | **Data use & methodology** (NISR + external)               | NISR + partners (ICF/DHS, WFP/CFSVA); **six trust labels** on every value; honest weighting of national/province figures; a **reproducible** pipeline; **no microdata**.                                                        | `/about#sources` ("Collected with" column), Method & Principles                                          |
-| **3** | **Tech innovation**                                        | An explainable risk model and policy-scenario tools, plus a **grounded, streaming, multimodal, multilingual, voice-capable AI** with a two-backend design and a deterministic offline fallback.                                 | `/financial-exclusion/risk-model`, `/social-protection/policy-scenarios`, IMBONIX AI                     |
+| **3** | **Tech innovation**                                        | An explainable risk model and policy-scenario tools, plus a **grounded, streaming, multilingual, voice-capable AI** with a two-backend design and a deterministic offline fallback.                                 | `/financial-exclusion/risk-model`, `/social-protection/policy-scenarios`, IMBONIX AI                     |
 | **4** | **Usability & design**                                     | Government-style system, one governed palette, **colour-blind-validated** charts each with a legend and a table view, full keyboard/screen-reader support, site-wide search, scroll-reveal motion that respects reduced-motion. | Homepage, `/poverty-dynamics/district-map`, `/data/chart-library`                                        |
 | **5** | **Tangible impact**                                        | Five named audiences each with the page they'd use; **priority districts** and an **intervention planner** that flag where to act first by a rule anyone can check.                                                             | `/social-protection/priority-districts`, `/social-protection/intervention-planner`, About → Who benefits |
 
