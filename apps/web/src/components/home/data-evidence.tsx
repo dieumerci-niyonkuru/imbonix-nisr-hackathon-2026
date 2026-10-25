@@ -1,6 +1,6 @@
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
+import { ArrowTopRightOnSquareIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { NISR_CATALOG_URL, SOURCE_STUDIES } from "@/components/layout/nav";
-import { ReadMore, ReadMoreSection } from "@/components/ui/read-more";
 import { SectionHeader } from "@/components/ui/section";
 import { SOURCES } from "@/lib/data";
 import { meta, type Dimension } from "@/lib/indicators";
@@ -99,7 +99,7 @@ export function DataEvidence({
 
         <ul className="mt-8 grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
           {THEMES.map((theme) => {
-            const { count, studies, ids } = themeEvidence(theme);
+            const { count, studies } = themeEvidence(theme);
             return (
               <li key={theme.name} className="flex flex-col bg-white p-6">
                 <p className="font-display text-[18px] font-bold text-ink">{theme.name}</p>
@@ -111,27 +111,13 @@ export function DataEvidence({
                   <span className="font-semibold text-ink">Sources: </span>
                   {studies.join(", ")}
                 </p>
-                <ReadMore
-                  title={theme.name}
-                  subtitle={count ? `${count} district indicators and where each comes from` : "National tables"}
-                  className="mt-3"
+                <Link
+                  href="/data/catalog"
+                  className="group mt-3 inline-flex items-center gap-1 rounded text-[14px] font-bold text-cyan-ink underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
                 >
-                  {ids.length > 0 && (
-                    <ReadMoreSection title="The indicators">
-                      <ul className="divide-y divide-line rounded-lg border border-line">
-                        {ids.map((id) => (
-                          <li key={id} className="px-4 py-2.5">
-                            <p className="font-semibold text-ink">{meta(id).short}</p>
-                            <p className="text-[13.5px] leading-5 text-muted">
-                              {SOURCES[id].source}, {SOURCES[id].year}
-                            </p>
-                          </li>
-                        ))}
-                      </ul>
-                    </ReadMoreSection>
-                  )}
-                  {theme.details && <ReadMoreSection title="Also used">{theme.details}</ReadMoreSection>}
-                </ReadMore>
+                  See the indicators and sources
+                  <ChevronRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                </Link>
               </li>
             );
           })}
