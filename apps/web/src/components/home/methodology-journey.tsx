@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { ReadMore } from "@/components/ui/read-more";
 import { SectionHeader } from "@/components/ui/section";
 
 /** One step: its name, one sentence, and optionally the full explanation shown behind Read more. */
@@ -42,11 +41,6 @@ export function MethodologyJourney({ steps }: { steps: JourneyStep[] }) {
               </span>
               <p className="mt-5 font-display text-[22px] font-bold tracking-[-0.01em] text-ink">{step.name}</p>
               <p className="mt-2 text-pretty text-[15px] leading-7 text-muted">{step.body}</p>
-              {step.details && (
-                <ReadMore title={`Step ${index + 1}: ${step.name}`} className="mt-3">
-                  {step.details}
-                </ReadMore>
-              )}
             </li>
           ))}
         </ol>
