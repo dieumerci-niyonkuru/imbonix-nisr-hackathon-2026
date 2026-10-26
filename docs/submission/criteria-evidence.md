@@ -77,7 +77,7 @@ vulnerability indicator, and policy-scenario tools — each only where the data 
 | Most dashboards…               | IMBONIX adds…                                                                                                                                                                      |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Show numbers                   | Labels every value for **trust** (six labels) and frames each as gap → evidence → solution → who it helps                                                                          |
-| Are read by analysts           | A **grounded, multilingual (EN/FR/Kinyarwanda), multimodal, voice** assistant that answers about **any** district, sector, cell or village — and reads an uploaded chart or report |
+| Are read by analysts           | A **grounded, multilingual (EN/FR/Kinyarwanda), voice** assistant that answers about **any** district, sector, cell or village, keeping conversation context for follow-ups |
 | Break without a backend/key    | A **deterministic on-device fallback**, so the demo always works                                                                                                                   |
 | Stop at "here are the numbers" | Ends in **action**: priority districts and an intervention planner, by rules anyone can check                                                                                      |
 

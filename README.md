@@ -44,7 +44,7 @@ IMBONIX is an independent team project. It is **not an official NISR product** a
 - **[Solution overview](docs/submission/solution-overview.md)** — problem → solution → data & methodology → tech → design → impact → Vision 2050 / NST2 alignment, with a criterion-by-criterion mapping.
 - **[Criteria evidence](docs/submission/criteria-evidence.md)** — each evaluation criterion answered point by point, with the methodology summary, impact-measurement plan and adoption pathway.
 - **[Demo script](docs/submission/demo-script.md)** — a 90-second pitch and a 3-minute, criterion-by-criterion walkthrough.
-- **[IMBONIX AI](docs/ai-assistant.md)** — how the grounded, multilingual, multimodal assistant is built.
+- **[IMBONIX AI](docs/ai-assistant.md)** — how the grounded, multilingual, voice-enabled assistant is built.
 - **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** — required by the rules: how AI tools were used, and the team's responsibility for every figure.
 - **Live app:** _being (re)deployed — the public URL will be added here_ · **Source:** this repository.
 
@@ -98,8 +98,8 @@ in NISR data, and **the impact** for households, policymakers and civil society.
 | **About** | `/about` | Why IMBONIX exists, who it serves, and the method, sources, principles and limits. |
 
 **🤖 IMBONIX AI — every page · `/api/assistant`** · A floating assistant **grounded in NISR's published figures**: ask
-by typing or voice in **English / French / Kinyarwanda**, attach a picture or document to analyse, and have answers read
-aloud. With no API key it falls back to an on-device engine, so it always works.
+by typing or voice in **English / French / Kinyarwanda**, and have answers read aloud. With no API key it falls back to
+an on-device engine, so it always works.
 
 The **public data API** (`apps/api`) serves read-only JSON for districts, indicators and sectors, with validation, rate
 limiting and security headers.
@@ -113,8 +113,6 @@ source, and never invent a number.
 
 - **Ask by typing or by voice.** Speech recognition dictates a question; answers can be read back aloud. Both use the
   browser's Web Speech API, so no audio leaves the page to a service of ours.
-- **Reads pictures and documents.** Attach an image, PDF or text file and it extracts and analyses the content, relating
-  it to the NISR data where relevant.
 - **Works with or without a key, free or paid.** Set either `GEMINI_API_KEY` (Google Gemini — a free tier, no credit
   card) or `ANTHROPIC_API_KEY` (Claude `claude-opus-5-5`, used in preference when present) on the server, and answers
   come from that model through a same-origin route (`apps/web/src/app/api/assistant/route.ts`); the key is read only on

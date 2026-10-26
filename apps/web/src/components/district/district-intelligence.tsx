@@ -1,19 +1,9 @@
 import Link from "next/link";
 import { ArrowRightIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
-import { ReadMore, ReadMoreSection } from "@/components/ui/read-more";
-import { SOURCES, type District } from "@/lib/data";
+import { type District } from "@/lib/data";
 import { actionsFor, limitationsFor, priorityFor, stepsFor, type Need, type Priority } from "@/lib/district-intelligence";
 import { LevelMeter } from "@/components/ui/level-meter";
 import { cn } from "@/lib/utils";
-
-/** What a reader should know about each step's measures, beyond the figures. */
-const STEP_NOTES: Record<string, string> = {
-  access:
-    "Formal inclusion counts adults using a bank, a SACCO, mobile money or another formal service. Smartphones matter because most digital finance and payments now run on them.",
-  vulnerability: "Child stunting (DHS 2025) and natural hazards (CFSVA 2024) are the two measures of vulnerability.",
-  protection:
-    "VUP coverage and payment timeliness are not published by district, so health insurance cover sets the level. Older people and persons with disabilities are two groups Direct Support serves: their share shows where its help may be needed most (Census 2022).",
-};
 
 /** How many of the meter's three bars each level of need fills. */
 const NEED_BARS: Record<Need, 1 | 2 | 3> = { high: 3, moderate: 2, low: 1 };
@@ -111,38 +101,6 @@ export function DistrictIntelligence({ district }: { district: District }) {
                     </p>
                   ))}
                   <p className="mt-auto text-pretty pt-4 text-[13.5px] font-semibold leading-5 text-ink">{step.summary}</p>
-                  <div className="mt-4 border-t border-line pt-3">
-                    <ReadMore
-                      title={`${step.title} in ${district.name}`}
-                      subtitle={`Level: ${step.level.toLowerCase()}, compared with the other 29 districts`}
-                    >
-                      {step.readings.map((item) => {
-                        const source = SOURCES[item.indicatorId];
-                        return (
-                          <ReadMoreSection key={item.indicatorId} title={item.label}>
-                            <p>
-                              <span className="font-semibold text-ink">{item.value}</span> in {district.name}, {item.comparison}
-                              {item.rank ? `, rank ${item.rank.rank} of ${item.rank.of} (1 is the most affected)` : ""}.
-                            </p>
-                            {source && (
-                              <p className="text-[13.5px] text-muted">
-                                Measure: {source.label}. Source: {source.source}, {source.year}
-                                {source.table ? `, ${source.table}` : ""}.
-                              </p>
-                            )}
-                          </ReadMoreSection>
-                        );
-                      })}
-                      <ReadMoreSection title="How the level is set">
-                        <p>
-                          The 30 districts are ranked on each measure, 1 being the most affected. The 10 most affected are the
-                          high need third, the next 10 the middle third and the last 10 the lowest need.
-                          {step.readings.length > 1 ? " With two measures, the step takes the level of the weaker one." : ""}
-                        </p>
-                        {STEP_NOTES[step.id] && <p>{STEP_NOTES[step.id]}</p>}
-                      </ReadMoreSection>
-                    </ReadMore>
-                  </div>
                 </article>
                 {index < steps.length - 1 && (
                   <ChevronRightIcon
@@ -181,30 +139,10 @@ export function DistrictIntelligence({ district }: { district: District }) {
                       <span className="font-semibold text-ink">Evidence: </span>
                       {action.evidence}
                     </p>
-                    <ReadMore
-                      title={action.lever.title}
-                      subtitle={`Why this lever is flagged for ${district.name}`}
-                      className="mt-2"
-                    >
-                      <ReadMoreSection title="The question">
-                        <p>{action.lever.question}</p>
-                      </ReadMoreSection>
-                      <ReadMoreSection title="The rule">
-                        <p>{action.lever.rule}</p>
-                      </ReadMoreSection>
-                      <ReadMoreSection title={`The evidence for ${district.name}`}>
-                        <p>{action.evidence}</p>
-                      </ReadMoreSection>
-                      <ReadMoreSection title="Programmes that already exist">
-                        <p>{action.lever.programmes}</p>
-                      </ReadMoreSection>
-                      <ReadMoreSection title="What the flag does not mean">
-                        <p>
-                          It points to where the evidence suggests this lever deserves attention. It is not a budget allocation,
-                          an eligibility decision or a prediction that the programme will work in {district.name}.
-                        </p>
-                      </ReadMoreSection>
-                    </ReadMore>
+                    <p className="mt-1.5 text-[13px] leading-5 text-ink/70">
+                      <span className="font-semibold text-ink">Programmes already in place: </span>
+                      {action.lever.programmes}
+                    </p>
                   </li>
                 ))}
               </ul>

@@ -1360,7 +1360,7 @@ export function ImbonixAI() {
             </form>
 
             <p className="border-t border-line bg-paper px-4 py-1.5 text-center text-[11px] leading-4 text-muted">
-              IMBONIX AI can make mistakes. Please double-check with official sources. Not an official NISR product.
+              IMBONIX AI can make mistakes. Please double-check.
             </p>
           </div>
         </>
