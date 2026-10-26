@@ -80,13 +80,14 @@ export function HomeHero({
                 ties the banner to the cards that overlap its lower edge. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/25"
+              className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ink/90 via-ink/65 to-ink/25 sm:block"
             />
-            {/* On phones the text runs the full width over the photo. A gentle wash — lighter at the foot — keeps the
-                headline readable while letting more of the photo show through than a flat dark layer would. */}
+            {/* On phones the text runs the full width over the photo, so the left-right scrim above is desktop-only and
+                the phone gets its own wash: darker at the top where the headline sits, clearing toward the foot so the
+                photo stays clearly visible on every device. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/25 to-ink/10 sm:hidden"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/45 to-ink/15 sm:hidden"
             />
             <div
               aria-hidden="true"
