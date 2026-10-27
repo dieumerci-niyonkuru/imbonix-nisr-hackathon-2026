@@ -339,7 +339,7 @@ from `testing`. Commits follow Conventional Commits. See [CONTRIBUTING.md](CONTR
 | Name                 | Role                                                                          | GitHub                                                         |
 | -------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | Dieu Merci Niyonkuru | Team lead — software development, UI/UX design, IMBONIX AI integration, deployment | [@dieumerci-niyonkuru](https://github.com/dieumerci-niyonkuru) |
-| UMURERWA Divine      | Data analysis; data collection and sourcing of the NISR datasets (the figures the platform is built on); development | —                                                              |
+| UMURERWA Divine      | Data analysis; data collection and sourcing of the NISR datasets (the figures the platform is built on); development |  [@divineumurerwa](https://github.com/divineumurerwa)                                                             |
 
 ## Data sources and attribution
 
