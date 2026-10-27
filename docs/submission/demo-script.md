@@ -5,7 +5,7 @@ https://drive.google.com/drive/folders/1Nhdh05zHYB3gVBPz3sYJnG159ImMsazc?usp=sha
 
 # IMBONIX — demo script for judges
 
-> **Submission package:** [Index](README.md) · [Solution overview](solution-overview.md) · [Criteria evidence](criteria-evidence.md) · **Demo script** · [IMBONIX AI](../ai-assistant.md) · [AI disclosure](ai-disclosure.md)
+> **Submission package:** [Index](README.md) · [Solution overview](solution-overview.md) · [Criteria evidence](criteria-evidence.md) · **Demo script**  https://drive.google.com/drive/folders/1Nhdh05zHYB3gVBPz3sYJnG159ImMsazc?usp=sharing· [IMBONIX AI](../ai-assistant.md) · [AI disclosure](ai-disclosure.md)
 
 A short, repeatable walkthrough that lands every one of the five evaluation criteria. Use the 90-second run for a
 quick pitch and the 3-minute run for a full review. All figures shown are NISR's published statistics, each labelled on
@@ -81,6 +81,8 @@ and one place; **Priority districts** flags where to act first with a rule anyon
 
 ---
 
+https://drive.google.com/drive/folders/1Nhdh05zHYB3gVBPz3sYJnG159ImMsazc?usp=sharing
+
 ## Criteria crosswalk
 
 | Criterion                            | Where it shows, in one click                                                                               |
@@ -94,6 +96,8 @@ and one place; **Priority districts** flags where to act first with a rule anyon
 ---
 
 ## Honest framing (worth saying out loud)
+
+https://drive.google.com/drive/folders/1Nhdh05zHYB3gVBPz3sYJnG159ImMsazc?usp=sharing
 
 IMBONIX is independent and **not an official NISR product**. It describes places and groups, never scores individuals,
 and presents relationships as associations, not causes. Every number is NISR's, with its source on screen; the analysis
