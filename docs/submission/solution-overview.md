@@ -6,7 +6,7 @@
 
 **NISR Big Data Hackathon 2026 · Track 2 — Financial Inclusion & Poverty Reduction**
 
-`Next.js 15` · `React 19` · `TypeScript` · `Grounded AI (Claude / Gemini)` · `Independent — not an official NISR product`
+`Next.js 15` · `React 19` · `TypeScript` · `On-device grounded AI (NISR data, no external model)` · `Independent — not an official NISR product`
 
 <em>Submission package:</em>
 <a href="README.md">Index</a> ·
@@ -141,7 +141,7 @@ every colour and claim governed by a test.** The build has seven pillars.
 | **2 · Trust labelling** | Every value carries one of **six status labels** (official estimate · IMBONIX calculation · model estimate · projection · scenario · policy target) with its source, table and year, baked into the data model so nothing appears unlabelled.                                                           |
 | **3 · Design system**   | Two colours only (brand cyan + white), defined in **one palette module** — a test **fails the build if any component hardcodes a colour**. Every chart is validated for colour-vision deficiency and ships with a legend and a table view.                                                              |
 | **4 · Platform**        | **Next.js 15 (App Router)**, React 19 server/client components, **TypeScript strict**, Tailwind. Per-page metadata and breadcrumbs, permanent redirects for moved URLs, a site-wide search, and reduced-motion-aware scroll reveal.                                                                     |
-| **5 · IMBONIX AI**      | A **same-origin route** grounds Claude **or** free-tier Gemini in the NISR digest, **streams** the answer, keeps conversation context, resolves place names to their sector/district, and **falls back to a deterministic on-device engine** when no key is set. See [IMBONIX AI](../ai-assistant.md). |
+| **5 · IMBONIX AI**      | A **deterministic on-device engine** answers from the NISR dataset — **no external model, no API key, no network call** — resolving place names to their sector/district and citing the source every time, so it **cannot invent a number**. See [IMBONIX AI](../ai-assistant.md). |
 | **6 · Quality & CI**    | On **every push**: `typecheck`, ESLint (incl. accessibility), **130 unit tests**, Prettier, production `build`, `npm audit`, a **gitleaks** secret scan of the full history, and a Docker build that starts both images and waits for health checks.                                                     |
 | **7 · Workflow**        | Conventional Commits on `feature/*` → `develop` → `testing` → `main` (**main only by pull request**), so every change is reviewed and green before it lands.                                                                                                                                            |
 
@@ -154,16 +154,16 @@ flowchart LR
   B --> J["generated JSON<br/>+ GeoJSON"]
   J --> W["Web app"]
   J --> API["JSON API"]
-  J --> AId["AI digest<br/>(system prompt)"]
+  J --> AId["On-device AI engine<br/>(NISR data → answers)"]
 ```
 
 **How IMBONIX AI was built — the key decisions:**
 
 | Decision                              | Why                                                                                                                                                           |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Grounding over training**           | The whole NISR digest travels _with_ each question, so answers come from published figures — and updating the data updates the assistant, with no retraining. |
-| **Two interchangeable backends**      | Claude when a key is present, else **free-tier Gemini** — so the full experience is demonstrable **at no cost**.                                              |
-| **Deterministic fallback**            | If no key is set or the model is unreachable, an on-device engine answers from the same figures, so a demo **never** depends on a secret or the network.      |
+| **Grounding over training**           | The assistant answers from IMBONIX's own NISR dataset, not a trained model — so every answer is a real published figure, and updating the data updates the assistant, with no retraining. |
+| **On-device, no external model**      | No API key, no provider, no network call — so it is **free, private and always demonstrable**, and can never leak a key or run up a bill.                     |
+| **Deterministic & reproducible**      | The engine returns stored figures, so the same question gives the same sourced answer — no temperature, no hallucinated statistic, no dependence on a network. |
 | **Multilingual + voice**              | Answers in **EN / FR / Kinyarwanda**; speaks and listens via the Web Speech API; keeps conversation context — built for non-technical users.                   |
 | **Safe by construction**              | Key read only server-side, never in the browser; per-IP rate limit; output, turn and attachment caps; declines off-topic requests; never invents a number.    |
 
@@ -176,7 +176,7 @@ one click.
 | ----- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | **1** | **Problem understanding & relevance** (NST2 / Vision 2050) | A sharp, non-obvious problem (access ≠ resilience) framed against four named national frameworks, each shown with its baseline. Every AI answer is framed **gap → evidence → solution → who it helps**.                         | Homepage gap chart + "Aligned to national priorities"; ask the assistant anything                        |
 | **2** | **Data use & methodology** (NISR + external)               | NISR + partners (ICF/DHS, WFP/CFSVA); **six trust labels** on every value; honest weighting of national/province figures; a **reproducible** pipeline; **no microdata**.                                                        | `/about#sources` ("Collected with" column), Method & Principles                                          |
-| **3** | **Tech innovation**                                        | An explainable risk model and policy-scenario tools, plus a **grounded, streaming, multilingual, voice-capable AI** with a two-backend design and a deterministic offline fallback.                                 | `/financial-exclusion/risk-model`, `/social-protection/policy-scenarios`, IMBONIX AI                     |
+| **3** | **Tech innovation**                                        | An explainable risk model and policy-scenario tools, plus a **grounded, multilingual, voice-capable AI** that runs **entirely on-device** over the NISR dataset — no external model, no key, deterministic and reproducible.                                 | `/financial-exclusion/risk-model`, `/social-protection/policy-scenarios`, IMBONIX AI                     |
 | **4** | **Usability & design**                                     | Government-style system, one governed palette, **colour-blind-validated** charts each with a legend and a table view, full keyboard/screen-reader support, site-wide search, scroll-reveal motion that respects reduced-motion. | Homepage, `/poverty-dynamics/district-map`, `/data/chart-library`                                        |
 | **5** | **Tangible impact**                                        | Five named audiences each with the page they'd use; **priority districts** and an **intervention planner** that flag where to act first by a rule anyone can check.                                                             | `/social-protection/priority-districts`, `/social-protection/intervention-planner`, About → Who benefits |
 
@@ -238,8 +238,8 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
-Optionally set `ANTHROPIC_API_KEY` or a free `GEMINI_API_KEY` in `apps/web/.env` to turn on the generative AI layer;
-without a key, IMBONIX AI answers from its on-device engine, so it is always demonstrable.
+IMBONIX AI needs no keys: it runs entirely on-device, straight from the bundled NISR figures — no external model and no
+API key — so it is always demonstrable, offline and at no cost.
 
 <div align="center">
 

@@ -1,10 +1,15 @@
-# IMBONIX AI — the grounded assistant
+# IMBONIX AI — the grounded, on-device assistant
 
 > **Submission package:** [Index](submission/README.md) · [Solution overview](submission/solution-overview.md) · [Criteria evidence](submission/criteria-evidence.md) · [Demo script](submission/demo-script.md) · **IMBONIX AI** · [AI disclosure](submission/ai-disclosure.md)
 
 IMBONIX AI is the conversational layer of the platform. It lets anyone — a household, a district officer, a
-policymaker, a researcher — ask about financial inclusion and poverty in Rwanda in plain language, in English, French
-or Kinyarwanda, and get an answer built **only** from NISR's published figures, with the source named every time.
+policymaker, a researcher — ask about financial inclusion and poverty in Rwanda in plain language and get an answer
+built **only** from NISR's published figures, with the source named every time.
+
+It runs **entirely on-device**: there is **no external or pre-trained model, no API key, and no network call to any AI
+provider**. The assistant is IMBONIX's own engine, built on the same NISR data the rest of the site is built on. Because
+it only ever returns a real, stored figure, it **cannot invent a number** — the single most important property for an
+assistant over official statistics.
 
 This document explains what it is, how it is built, why it is trustworthy, and how it maps to the hackathon's judging
 criteria. For the whole-platform story see [`submission/solution-overview.md`](submission/solution-overview.md); for the
@@ -12,13 +17,13 @@ live walkthrough see [`submission/demo-script.md`](submission/demo-script.md).
 
 ![IMBONIX AI: a grounded assistant that answers in plain language or by voice, from NISR figures only, and names the source every time](screenshots/imbonix-ai.png)
 
-**Contents:** [What it does](#1-what-it-does) · [Architecture](#2-architecture-at-a-glance) · [Grounding](#3-grounding--why-the-answers-can-be-trusted) · [Backends](#4-the-two-backends) · [Conversation](#5-conversation-and-context) · [Place intelligence](#6-place-intelligence) · [Voice](#7-voice) · [Safety & privacy](#8-safety-privacy-and-cost) · [Judging criteria](#9-how-it-maps-to-the-judging-criteria) · [Configuration](#10-configuration)
+**Contents:** [What it does](#1-what-it-does) · [Architecture](#2-architecture-at-a-glance) · [Grounding](#3-grounding--why-the-answers-can-be-trusted) · [How it's built](#4-how-its-built) · [Conversation](#5-conversation-and-context) · [Place intelligence](#6-place-intelligence) · [Voice](#7-voice) · [Safety & privacy](#8-safety-privacy-and-cost) · [Judging criteria](#9-how-it-maps-to-the-judging-criteria) · [Configuration](#10-configuration)
 
 ---
 
 ## 1. What it does
 
-- **Answers open-ended questions** about any district, sector, cell or village, and about every measure the site
+- **Answers questions** about any district, sector, cell or village, and about every measure the site
   carries — poverty, financial access and health, nutrition, shocks, social protection and more.
 - **Frames each answer the way the challenge asks:** it names the gap, grounds it in the NISR figure, points to the
   solution, and says who it helps — instead of dumping a number.
@@ -27,11 +32,10 @@ live walkthrough see [`submission/demo-script.md`](submission/demo-script.md).
   yourself, and it offers tappable follow-up questions after each answer.
 - **Speaks and listens.** It can read answers aloud and take a question by voice (Web Speech API, in browsers that
   support it).
-- **Asks a clarifying question** when a request is ambiguous, rather than guessing.
 - **Speaks like a guide, not a database:** no indicator IDs, study slugs or internal identifiers ever reach the reader;
   it offers a clear next step.
-- **Always works.** With no API key configured it falls back to an instant on-device engine over the same figures, so a
-  demo never depends on a network call or a secret.
+- **Always works, everywhere.** It runs in the browser with no key and no network call to any model, so a demo never
+  depends on connectivity, a secret, a quota or a bill.
 
 ---
 
@@ -39,81 +43,83 @@ live walkthrough see [`submission/demo-script.md`](submission/demo-script.md).
 
 ```
 Browser (ImbonixAI component)
-  │  POST /api/assistant   (same-origin only; no key in the browser)
+  │
+  ├─ GET /api/assistant   (status only: "on-device", + optional IP-based coordinates for silent "my district" context)
+  │
   ▼
-Next.js route  app/api/assistant/route.ts   (runtime = nodejs, force-dynamic)
-  │  • per-IP rate limit (30 / 5 min)
-  │  • place resolution injected into the last user turn
-  │  • system prompt = instructions + full NISR data digest  (grounding)
-  ▼
-One of two backends, chosen by which key is present:
-  • Anthropic Claude   (ANTHROPIC_API_KEY)        → preferred when set
-  • Google Gemini      (GEMINI_API_KEY / GOOGLE_API_KEY, free tier)
-  │  streamed back to the browser as Server-Sent Events
-  ▼
-If no key, or the backend fails after retries (HTTP 502):
-  • Client falls back to the on-device deterministic engine (lib/assistant.ts)
+On-device engine  apps/web/src/lib/assistant.ts
+  • resolves the question to a measure and a place (district / sector / cell / village)
+  • looks up the matching NISR figure in the site's own data modules
+  • composes a grounded answer: gap → evidence → source → next step  (optionally a comparison table)
+  • returns it instantly — no model, no key, no network call to any AI provider
 ```
+
+The assistant never sends the question to an outside service. The only server call it makes is a tiny status check
+(`GET /api/assistant`) that reports it is on-device and, when the host provides them, passes back the request's
+IP-based coordinates so the engine can silently understand "my district" / "near me". No question text ever leaves the
+browser for a model.
 
 Key files:
 
 | File                                               | Responsibility                                                                                |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `apps/web/src/app/api/assistant/route.ts`          | The server route: backend selection, streaming, retries, rate limit, safety limits.           |
-| `apps/web/src/lib/ai-context.ts`                   | The system prompt: the instructions and the whole NISR data digest that grounds every answer. |
-| `apps/web/src/lib/ai-places.ts`                    | Resolves a place name (cell / village / sector) to its district and injects the context.      |
-| `apps/web/src/components/assistant/imbonix-ai.tsx` | The floating assistant: chat UI, voice, Markdown/table rendering, fallback.      |
+| `apps/web/src/lib/assistant.ts`                    | **The engine.** Resolves the question, looks up the NISR figure, composes the grounded answer. |
+| `apps/web/src/lib/ai-places.ts`                    | Resolves a place name (cell / village / sector) to its district, for the engine.              |
+| `apps/web/src/components/assistant/imbonix-ai.tsx` | The floating assistant: chat UI, voice, rendering, history.                                   |
 | `apps/web/src/components/assistant/ai-mark.tsx`    | The IMBONIX AI mark (a conversation bubble with an insight spark).                            |
-| `apps/web/src/lib/assistant.ts`                    | The on-device engine that answers from the same figures when no key is set.                   |
+| `apps/web/src/app/api/assistant/route.ts`          | Status only: reports "on-device" and passes back IP-based coordinates. Holds no model, no key. |
+
+The engine reads from the site's own data modules — `data.ts`, `finscope-2024.ts`, `eicv7-poverty-profile.ts`,
+`poverty-social-protection.ts`, `national-targets.ts`, `indicators.ts` and the geography in `places.ts` — the exact
+figures the pages and charts show. Update the data, and the assistant updates with it.
 
 ---
 
 ## 3. Grounding — why the answers can be trusted
 
-The assistant does **not** free-associate. Every request carries a system prompt assembled in `ai-context.ts` from two
-parts:
+The assistant does **not** free-associate and does **not** call a language model. Every answer is assembled by the
+engine from the site's own figures:
 
-1. **Instructions** — who it is, the challenge it serves, how to answer (tight and fast, a table for comparisons, a
-   clarifying question when unsure, the reader's own language), what to hide (no technical identifiers), and what it is
-   for (it declines off-topic requests).
-2. **A data digest** — a compact, text rendering of the site's own figures: the national findings (FinScope, EICV7,
-   targets and national frameworks), a block per dimension, and the geography (sectors by district with their poverty
-   estimates). This is the same data the pages show, turned into prose the model reads as context.
+1. It maps the question to a **measure** (e.g. "financial exclusion", "stunting", "electricity") and, where present, a
+   **place** (district, sector, cell or village — cells and villages inherit their sector's figure).
+2. It looks up the **real NISR figure** for that measure and place in the site's data modules.
+3. It composes the answer in plain language — the gap, the evidence, the source, and a next step — and names the source
+   (e.g. "NISR, FinScope 2024") every time.
 
-Because the figures travel **with** the question, the model answers from them rather than from its training memory. It
-is instructed to name the source and never to invent a number. No microdata is ever included — only published,
-aggregate figures that already appear on the site.
+Because the answer is **drawn from stored figures rather than generated**, it is deterministic and reproducible: the
+same question gives the same sourced answer, and there is no training memory, no temperature, and no possibility of a
+hallucinated statistic. Only published, aggregate figures that already appear on the site are used — **no microdata is
+ever exposed.**
 
-This is retrieval-style grounding: the knowledge is supplied at request time, so updating the data updates the
-assistant, with no retraining.
+This is the honest form of "an AI trained on our data": the knowledge is IMBONIX's own NISR dataset, and the engine
+answers strictly from it.
 
 ---
 
-## 4. The two backends
+## 4. How it's built
 
-The route supports two interchangeable model backends and picks whichever key is present (Anthropic first):
+The engine in `apps/web/src/lib/assistant.ts` is a deterministic, testable TypeScript module:
 
-- **Anthropic Claude** — model `claude-opus-5-5`, via the official `@anthropic-ai/sdk`, streamed.
-- **Google Gemini** — model `gemini-flash-lite-latest` by default (override with `GEMINI_MODEL`), via the REST
-  streaming endpoint with an `x-goog-api-key` header. Gemini has a **no-cost free tier**, so the full generative
-  experience can be demonstrated without any paid account.
+- **Topic resolution** — a vocabulary maps the many words people use ("unbanked", "access to finance", "excluded"…) to
+  each measure, with longer phrases winning ties.
+- **Place resolution** — `ai-places.ts` builds a lookup from the site's own `places.json`, so a question that names a
+  cell or village is answered with the right sector's and district's published figure.
+- **Answer shape** — a structured `Answer` (heading, body, figures, optional table, source, next steps) that the UI
+  renders consistently.
+- **Coverage is enforced by tests** — `assistant.test.ts` and `assistant-districts.test.ts` (130+ assertions across the
+  suite) check that questions resolve to the right measure, place and source, so the grounding can't silently regress.
 
-Both receive the identical system prompt, so the behaviour is the same whichever is
-configured. Responses stream token-by-token to the browser over Server-Sent Events, so the answer appears as it is
-written.
-
-Transient upstream failures (`429`, `500`, `502`, `503`, `504`) are retried a few times with back-off. If the backend
-is still unreachable, the route returns HTTP 502 with `{ fallback: true }`, and the client answers from the on-device
-engine instead — the user still gets a grounded reply.
+There is no model to call, no streaming backend, no retries and no rate limit to manage, because there is no external
+service in the path.
 
 ---
 
 ## 5. Conversation and context
 
-The assistant keeps the thread of a conversation: each question is sent with the recent turns, so follow-ups like "how
-does it compare with Gasabo?" work without repeating yourself. After every answer it offers a few tappable follow-up
-questions shaped by what was just asked. Past conversations are kept per-browser (in `localStorage`, never on a server),
-so a person can reopen, rename or delete them, and start a fresh chat at any time.
+The assistant keeps the thread of a conversation: follow-ups like "how does it compare with Gasabo?" work, and after
+every answer it offers a few tappable follow-up questions shaped by what was just asked. Past conversations are kept
+per-browser (in `localStorage`, never on a server), so a person can reopen, rename or delete them, and start a fresh
+chat at any time.
 
 ---
 
@@ -121,9 +127,9 @@ so a person can reopen, rename or delete them, and start a fresh chat at any tim
 
 Rwanda's administrative hierarchy runs province → district → sector → cell → village. NISR publishes figures to
 district and sector level; cells and villages inherit their sector's figures. `ai-places.ts` builds a lookup from the
-site's own `places.json` and, when a question names a place, injects a short note ("_X (cell) is in Y sector, Z
-district_") into the last user turn. The model can then answer about a named cell or village by using the right
-sector's and district's published figures — and it says so plainly, without exposing any internal identifier.
+site's own `places.json` and, when a question names a place, resolves it ("_X (cell) is in Y sector, Z district_") so
+the engine answers about a named cell or village using the right sector's and district's published figures — and it
+says so plainly, without exposing any internal identifier.
 
 ---
 
@@ -138,14 +144,14 @@ sector's and district's published figures — and it says so plainly, without ex
 
 ## 8. Safety, privacy and cost
 
-- **The key never reaches the browser.** The browser only ever calls the same-origin `/api/assistant` route; the key is
-  read from the server environment. Keys live in a git-ignored `.env` and are never committed.
-- **Rate limited.** A best-effort per-IP limit (30 requests / 5 minutes) keeps a public demo from running up a bill.
-- **Bounded.** Conversation length, per-turn length and output tokens are all capped.
-- **On-topic.** The assistant answers about IMBONIX and Rwanda's inclusion and poverty data, and declines unrelated
-  requests.
-- **No invented numbers.** It is grounded in, and instructed to cite, published figures only; the on-device fallback is
-  deterministic.
+- **Nothing leaves the browser.** The question is answered on-device; it is never sent to a model or a third party. The
+  only server call is a tiny status check for the "my district" coordinate hint.
+- **No key, no secret.** There is no API key anywhere — nothing to leak, rotate or bill.
+- **No cost, no quota.** There is no per-request charge and no rate limit to manage, because there is no external service.
+- **No invented numbers.** The engine returns stored, published figures and cites them; it is deterministic by
+  construction.
+- **On-topic.** The assistant answers about IMBONIX and Rwanda's inclusion and poverty data, and says when it doesn't
+  hold a figure rather than guessing.
 
 ---
 
@@ -154,32 +160,38 @@ sector's and district's published figures — and it says so plainly, without ex
 | Criterion                                 | How IMBONIX AI contributes                                                                                                                   |
 | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | **1 · Problem understanding & relevance** | Every answer is framed as gap → evidence → solution → who it helps, mirroring the challenge and Rwanda's national priorities.                |
-| **2 · Data use & methodology**            | Grounded in the same NISR + partner figures the site cites; names the source; never invents a number; no microdata.                          |
-| **3 · Tech innovation**                   | A grounded, streaming, multilingual, voice-capable assistant with a two-backend design and a deterministic offline fallback.                 |
+| **2 · Data use & methodology**            | Built strictly on the same NISR + partner figures the site cites; names the source; **cannot** invent a number; no microdata.               |
+| **3 · Tech innovation**                   | A grounded, multilingual, voice-capable assistant that runs **entirely on-device** over the NISR dataset — no external model, no key, deterministic and reproducible. |
 | **4 · Usability & design**                | Plain-language, jargon-free guidance in the user's own language, with tables, voice and a clean branded mark; works for non-technical users. |
-| **5 · Tangible impact**                   | Lets anyone, anywhere, interrogate the evidence for their own district and get a clear next step — the platform in one question.             |
+| **5 · Tangible impact**                   | Lets anyone, anywhere, interrogate the evidence for their own district and get a clear next step — offline, free, private.                   |
 
 ---
 
 ## 10. Configuration
 
-Set one key in `apps/web/.env` (git-ignored) to turn on the generative layer:
+**None.** IMBONIX AI needs no keys and no environment variables. It runs entirely on-device, straight from the NISR
+figures bundled with the site, so it is always demonstrable — with no account, no connectivity and no cost.
 
-```bash
-# Preferred when present:
-ANTHROPIC_API_KEY=sk-ant-...
-# Or the free option:
-GEMINI_API_KEY=...            # or GOOGLE_API_KEY
-# Optional override of the Gemini model:
-GEMINI_MODEL=gemini-flash-lite-latest
-# Optional web search (off by default; needs a billing-enabled Gemini key — see below):
-WEB_SEARCH_ENABLED=1
-```
+To extend what it can answer, add the real figures to the site's data modules (e.g. `finscope-2024.ts`,
+`eicv7-poverty-profile.ts`, `national.ts`) and the measure's vocabulary in `assistant.ts`; the assistant picks them up
+with no retraining and no external service.
 
-With no key set, IMBONIX AI runs entirely on the on-device engine — so it is always demonstrable.
+---
 
-**Web search (optional).** With `WEB_SEARCH_ENABLED=1`, the Gemini backend may use Google Search grounding to answer
-questions the NISR data cannot — current events, other countries, latest prices — and cite the web sources, while Rwanda
-poverty and inclusion answers stay grounded in NISR data. It is **off by default** because grounding needs a
-**billing-enabled** Gemini key: the free tier returns `429 RESOURCE_EXHAUSTED` on any grounded request, so enabling it on
-a free key would break every answer. Turn it on only once billing is enabled on the key.
+## 11. Sample questions and expected answers
+
+Because the engine is deterministic, every question has a **known, checkable answer** drawn from the NISR data. A few
+examples (the assistant also names the source each time):
+
+| Ask IMBONIX AI… | Expected answer | Source |
+| --- | --- | --- |
+| What share of adults use a financial service? | **96%** | NISR, FinScope 2024 |
+| What share of adults are financially healthy? | **10%** | NISR, FinScope 2024, §5.2 |
+| How many adults use no financial service at all? | **316,000** | NISR, FinScope 2024 |
+| What is Rwanda's poverty rate? | **27.4%**, down from 39.8% in 2016/17 | NISR, EICV7 2023/24 |
+| Which districts most need attention on financial exclusion? | A **ranked list** of the highest districts, each with its figure | NISR, FinScope 2024 |
+
+These are not hand-picked screenshots: the engine's answers are **locked down by the automated test suite**
+(`apps/web/src/lib/assistant.test.ts` and `assistant-districts.test.ts` — part of the 130 tests that run on every
+push), so each question is asserted to resolve to the right measure, place, figure and source, and the grounding cannot
+silently regress. Run them with `cd apps/web && npm test`.

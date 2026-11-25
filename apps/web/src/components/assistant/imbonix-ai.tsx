@@ -24,15 +24,15 @@ import { StatusBadge } from "@/components/ui/status-badge";
 import { answerQuery, followUpSuggestions, type Answer } from "@/lib/assistant";
 import { districtAt } from "@/lib/locate";
 
-type ChatTurn = { role: "user" | "assistant"; text: string };
 type Message = {
   id: number;
   role: "user" | "ai";
   text?: string;
   /** A grounded structured answer (the on-device engine, or the welcome). */
   answer?: Answer;
-  /** A generative, streamed answer from the AI route (markdown-ish prose). */
+  /** Markdown prose from a restored legacy conversation (older answers were stored this way); new answers use `answer`. */
   markdown?: string;
+  /** Kept for restoring legacy conversations; new on-device answers are never streamed. */
   streaming?: boolean;
   /** Contextual follow-up questions to offer as chips beneath this answer, from the question that prompted it. */
   followUps?: string[];
@@ -40,7 +40,6 @@ type Message = {
 
 /** "Where I am" phrases — when the person uses one and their district is known, it is filled into the question. */
 const LOCAL_REF = /\b(my (district|area|sector|place|home)|near me|around here|close to me|where i (am|live|stay))\b/i;
-const MAX_HISTORY_TURNS = 12;
 
 /** A past conversation the person can reopen, rename or delete. Kept per-browser in localStorage, never on a server. */
 type SavedChat = { id: string; title: string; messages: Message[]; updatedAt: number };
@@ -399,7 +398,7 @@ type SpeakProps = {
   onStop: () => void;
 };
 
-/** A streamed, generative answer with a typing indicator while it arrives, and read-aloud controls once it is done. */
+/** Renders a markdown answer from a restored legacy conversation, with read-aloud controls. */
 function StreamedCard({
   markdown,
   streaming,
@@ -565,10 +564,10 @@ function FollowUps({ items, onAsk }: { items?: string[]; onAsk: (query: string) 
 }
 
 /**
- * IMBONIX AI: a floating assistant that answers questions about Rwanda's financial inclusion and poverty. When the
- * site's AI service is connected it uses a grounded Claude model; when it isn't, it falls back to an instant on-device
- * engine over the same NISR figures. People can type or speak their question and have answers read back aloud. Either
- * way it answers only from NISR's published data and names the source, and never invents a number.
+ * IMBONIX AI: a floating assistant that answers questions about Rwanda's financial inclusion and poverty. It runs
+ * entirely on-device, answering every question from the on-device NISR engine (lib/assistant.ts) over NISR's published
+ * figures — no external / pre-trained model, no API key, no network call. People can type or speak their question and
+ * have answers read back aloud. It answers only from NISR's published data and names the source, and never invents a number.
  */
 export function ImbonixAI() {
   const panelId = useId();
@@ -577,7 +576,7 @@ export function ImbonixAI() {
   const [messages, setMessages] = useState<Message[]>([{ id: 0, role: "ai", answer: WELCOME }]);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  /** null while unknown, then whether the server has the AI service connected. */
+  /** null while unknown, then the status route's flag — always false here, since the assistant is on-device. */
   const [configured, setConfigured] = useState<boolean | null>(null);
   const [speakingId, setSpeakingId] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
@@ -628,17 +627,6 @@ export function ImbonixAI() {
       return false;
     }
   };
-
-  const historyFrom = (list: Message[]): ChatTurn[] =>
-    list
-      .filter((message) => message.answer !== WELCOME)
-      .map((message): ChatTurn | null => {
-        if (message.role === "user") return { role: "user", text: message.text ?? "" };
-        const text = message.markdown ?? message.answer?.body ?? "";
-        return text ? { role: "assistant", text } : null;
-      })
-      .filter((turn): turn is ChatTurn => turn !== null)
-      .slice(-MAX_HISTORY_TURNS);
 
   // Restore saved chats and the last open conversation from this browser, once, on mount.
   useEffect(() => {
@@ -793,7 +781,6 @@ export function ImbonixAI() {
     const readAloud = (fromVoice || autoSpeak) && canSpeak;
     setNotice(null);
 
-    const priorHistory = historyFrom(messages);
     // Sending a question: show it at the bottom; the answer that follows will be scrolled to its top when ready.
     scrollTopRef.current = null;
     setMessages((current) => [...current, { id: nextId.current++, role: "user", text }]);
@@ -803,79 +790,18 @@ export function ImbonixAI() {
     // Contextual follow-up questions to offer beneath this answer, shaped by what was just asked.
     const followUps = text ? followUpSuggestions(text) : [];
 
-    // Silent location context (only if the person allowed it): fill "my district"/"near me" for the on-device engine,
-    // and give the live model a short note it uses only when the question refers to the person's own area.
+    // Silent location context (only if the person allowed it): fill "my district"/"near me" for the on-device engine.
     const loc = locationRef.current;
     const localizedText = loc && LOCAL_REF.test(text) ? `${text} (in ${loc.name} district)` : text;
-    const locationNote = loc
-      ? ` [Location context — the person is in ${loc.name} district. Use it only when they refer to "my district", "my area", "here" or "near me", and never state their location unless they ask.]`
-      : "";
 
-    const live = configured ?? (await probe());
-
-    if (!live) {
-      const answer = answerQuery(localizedText);
-      const id = nextId.current++;
-      setMessages((current) => [...current, { id, role: "ai", answer, followUps }]);
-      scrollTopRef.current = id;
-      setBusy(false);
-      if (readAloud) speakAnswer(id, plainFromAnswer(answer));
-      return;
-    }
-
-    const aiId = nextId.current++;
-    scrollTopRef.current = aiId;
-    setMessages((current) => [...current, { id: aiId, role: "ai", markdown: "", streaming: true, followUps }]);
-
-    const update = (patch: Partial<Message>) =>
-      setMessages((current) => current.map((message) => (message.id === aiId ? { ...message, ...patch } : message)));
-
-    try {
-      const response = await fetch("/api/assistant", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [...priorHistory, { role: "user", text: text + locationNote }] }),
-      });
-
-      if (response.status === 503) {
-        setConfigured(false);
-        update({ streaming: false, markdown: undefined, answer: answerQuery(text) });
-        return;
-      }
-      if (!response.ok || !response.body) {
-        if (response.status === 429) {
-          update({ streaming: false, markdown: "I'm getting a lot of questions right now. Please try again in a moment." });
-        } else {
-          // The model was briefly unavailable (e.g. busy). Answer from the on-device engine so the person still
-          // gets a grounded reply instead of an error.
-          update({ streaming: false, markdown: undefined, answer: answerQuery(text) });
-        }
-        return;
-      }
-
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let accumulated = "";
-      for (;;) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        accumulated += decoder.decode(value, { stream: true });
-        update({ markdown: accumulated });
-      }
-      const finalText = accumulated || "I don't have anything to add there.";
-      update({ markdown: finalText, streaming: false });
-      if (readAloud) speakAnswer(aiId, plainFromMarkdown(finalText));
-    } catch {
-      setMessages((current) =>
-        current.map((message) =>
-          message.id === aiId
-            ? { ...message, streaming: false, markdown: message.markdown || "Sorry, I lost the connection. Please try again." }
-            : message,
-        ),
-      );
-    } finally {
-      setBusy(false);
-    }
+    // IMBONIX AI answers entirely on-device, only from NISR's published figures — no external model, no key, no
+    // network call. The engine returns a real, sourced figure or says it has none; it never invents a number.
+    const answer = answerQuery(localizedText);
+    const id = nextId.current++;
+    setMessages((current) => [...current, { id, role: "ai", answer, followUps }]);
+    scrollTopRef.current = id;
+    setBusy(false);
+    if (readAloud) speakAnswer(id, plainFromAnswer(answer));
   };
 
   /**

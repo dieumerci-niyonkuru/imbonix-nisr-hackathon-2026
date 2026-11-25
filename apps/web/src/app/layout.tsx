@@ -3,6 +3,7 @@ import "@fontsource-variable/manrope";
 import "@fontsource-variable/lexend";
 import "./globals.css";
 import { ImbonixAI } from "@/components/assistant/imbonix-ai";
+import { GoogleTranslate } from "@/components/layout/google-translate";
 import { ScrollControls } from "@/components/layout/scroll-controls";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -26,6 +27,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className="min-h-screen font-body">
+        {/* Translates the page into the chosen language (Kinyarwanda / French) via Google's free Website Translator. */}
+        <GoogleTranslate />
         <SmoothScroll />
         <a
           href="#main"

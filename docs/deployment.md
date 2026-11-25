@@ -72,10 +72,9 @@ docker build -f apps/api/Dockerfile -t imbonix-api .
 | `PORT` / `HOSTNAME` | `3000` / `0.0.0.0` by default; set `PORT` if the platform assigns one |
 | Health check path | `/api/health` |
 
-The web app needs **no** runtime variables to run. To turn on IMBONIX AI's generative answers in production, set **one**
-optional server-side key — `GEMINI_API_KEY` (Google Gemini, free tier) or `ANTHROPIC_API_KEY` (Claude, used in preference
-when present). The key is read only on the server and never sent to the browser; with no key the assistant falls back to
-its on-device engine, so the site is fully functional either way. See [ai-assistant.md](ai-assistant.md).
+The web app needs **no** runtime variables to run, and **no AI keys**. IMBONIX AI runs entirely on-device — straight
+from the NISR figures bundled with the site, with no external model, no API key and no network call to any AI provider —
+so it is fully functional in production out of the box. See [ai-assistant.md](ai-assistant.md).
 
 ### API
 
@@ -116,8 +115,7 @@ website and JSON API together.
 3. **The API needs no setup** — it ships inside this deployment, so `/api/v1` is live automatically and the Data page
    reads **Connected**. Set an `API_URL` environment variable only if you deployed a separate API service (see below)
    and want the panel to point at that one instead.
-4. **Optional — turn on generative AI:** under **Settings → Environment Variables** add `GEMINI_API_KEY` (free tier) or
-   `ANTHROPIC_API_KEY`. Leave it out and the assistant still works from the on-device engine.
+4. **IMBONIX AI needs no setup** — it runs entirely on-device, so there are no AI keys or environment variables to add.
 5. **Deploy.** Then open `/`, the assistant (ask one question), `/poverty-dynamics/district-map` (the basemap loads),
    `/data` (the "live API" panel reads **Connected**) and `/api/v1` (returns the API index as JSON).
 6. Put the Vercel URL in this file and the README, with the date.

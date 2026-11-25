@@ -59,3 +59,4 @@ ml/models/artifacts/
 
 # Copied from node_modules before dev/build (scripts/copy-maplibre-worker.mjs)
 apps/web/public/vendor/
+*.mp4

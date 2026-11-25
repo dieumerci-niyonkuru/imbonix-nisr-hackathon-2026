@@ -45,8 +45,8 @@ conversation's context for follow-ups. It is independent, open-source, and **not
 
 - **Locally:** `cd apps/web && npm install && npm run dev` → <http://localhost:3000>
 - **Live:** _being (re)deployed — the public URL will be added here_ — everything deploys on [Vercel](../deployment.md#deploy-the-web-app-to-vercel) in one project (the JSON API ships with the site at `/api/v1`).
-- **Turn on the AI (optional):** set a free `GEMINI_API_KEY` (or `ANTHROPIC_API_KEY`) in `apps/web/.env`; without a key
-  the assistant uses its on-device engine, so the demo never depends on a secret.
+- **IMBONIX AI needs no setup:** it runs entirely on-device, straight from the bundled NISR figures — no external model,
+  no API key, no network call — so the demo never depends on a secret, a quota or connectivity.
 
 ## Team
 

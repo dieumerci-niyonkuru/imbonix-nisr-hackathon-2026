@@ -7,15 +7,20 @@ const isDev = process.env.NODE_ENV !== "production";
 // nonce; the dev server additionally needs eval and a websocket for hot reloading.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://tiles.openfreemap.org",
-  "font-src 'self' data:",
-  `connect-src 'self' https://tiles.openfreemap.org${isDev ? " ws: wss:" : ""}`,
+  // Google's free Website Translator (translate_a/element.js) pulls scripts, fonts, images and translation calls from
+  // these Google hosts, used by the language switcher.
+  `script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com${isDev ? " 'unsafe-eval'" : ""}`,
+  "style-src 'self' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com",
+  "img-src 'self' data: blob: https://tiles.openfreemap.org https://www.gstatic.com https://www.google.com https://fonts.gstatic.com https://translate.googleapis.com https://translate-pa.googleapis.com https://translate.google.com http://translate.google.com",
+  "font-src 'self' data: https://fonts.gstatic.com https://www.gstatic.com",
+  `connect-src 'self' https://tiles.openfreemap.org https://translate.googleapis.com https://translate-pa.googleapis.com https://translate.google.com${isDev ? " ws: wss:" : ""}`,
   "worker-src 'self' blob:",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
+  // The widget frames the current page itself as an internal bridge (a hidden same-origin iframe), alongside its own
+  // translate.google.com frames — 'self' here is only for that; frame-ancestors below still stops anyone framing us.
+  "frame-src 'self' https://translate.google.com",
   "frame-ancestors 'none'",
 ].join("; ");
 
