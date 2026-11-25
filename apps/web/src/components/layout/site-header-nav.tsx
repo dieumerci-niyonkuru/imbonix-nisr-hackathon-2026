@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { ArrowTopRightOnSquareIcon, HomeIcon as HomeSolidIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { BrandLogo } from "@/components/layout/logo";
 import { MENU_SECTIONS, UTILITY_LINKS } from "@/components/layout/nav";
 import {
@@ -104,7 +105,12 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
             <BrandLogo onDark={overlay} />
           </Link>
 
-          <nav aria-label="Main" className="ml-auto hidden xl:block">
+          {/* min-w-0 lets this nav shrink below its content's natural width (the flex default would otherwise force the
+              row wider than the viewport); scrollbar-none lets it scroll sideways instead, so a translated label far
+              longer than its English original (Kinyarwanda routinely runs much longer) can never push Search, Menu or
+              the language switcher off-screen — the page clips horizontal overflow site-wide, so anything pushed past
+              the edge would otherwise be invisible and unreachable, not just visually off. */}
+          <nav aria-label="Main" className="scrollbar-none ml-auto hidden min-w-0 overflow-x-auto xl:block">
             <ul className="flex items-center gap-1">
               <li>
                 <Link
@@ -130,7 +136,9 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
             </ul>
           </nav>
 
-          <div className="ml-auto flex items-center gap-1.5 xl:ml-3">
+          {/* shrink-0: always renders at full size, never squeezed by the nav above — Search, Menu and the language
+              switcher must stay reachable no matter how wide the (possibly translated) nav tabs become. */}
+          <div className="ml-auto flex shrink-0 items-center gap-1.5 xl:ml-3">
             {/* Search as a blue "Search" label with a magnifier, like the tabs: the word shows on all but the narrowest
                 phones (from 480px), where the logo and two labels would crowd, and drops to the icon alone below that. */}
             <button
@@ -209,6 +217,9 @@ export function SiteHeaderNav({ data }: { data: HeaderData }) {
                 </div>
               </SheetContent>
             </Sheet>
+
+            {/* The language selector sits at the far right of the header — Search first, language last. */}
+            <LanguageSwitcher onDark={overlay} />
           </div>
         </div>
       </header>

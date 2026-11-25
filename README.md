@@ -5,201 +5,93 @@
 <h1 align="center">IMBONIX</h1>
 
 <p align="center">
-  <strong>IMBONIX turns Rwanda's data into actionable intelligence for financial inclusion and poverty reduction.</strong><br>
-  NISR 2026 Big Data Hackathon · Track 2: Financial Inclusion &amp; Poverty Reduction
+  <strong>Turning Rwanda's data into clear, actionable intelligence for financial inclusion, poverty reduction and social protection.</strong><br>
+  NISR 2026 Big Data Hackathon &middot; Track 2: Financial Inclusion &amp; Poverty Reduction
 </p>
 
 <p align="center">
-  <a href="https://github.com/dieumerci-niyonkuru/imbonix-nisr-hackathon-2026/actions/workflows/ci.yml"><img src="https://github.com/dieumerci-niyonkuru/imbonix-nisr-hackathon-2026/actions/workflows/ci.yml/badge.svg?branch=develop" alt="CI status of the develop branch"></a>
-</p>
-
-<p align="center">
-  <a href="#for-judges">For judges</a> ·
-  <a href="#getting-started">Getting started</a> ·
-  <a href="docs/submission/solution-overview.md">Solution overview</a> ·
-  <a href="docs/architecture.md">Architecture</a> ·
-  <a href="docs/api.md">API</a> ·
-  <a href="docs/deployment.md">Deployment</a> ·
-  <a href="CONTRIBUTING.md">Contributing</a>
+  <a href="https://github.com/dieumerci-niyonkuru/imbonix-nisr-hackathon-2026/actions/workflows/ci.yml"><img src="https://github.com/dieumerci-niyonkuru/imbonix-nisr-hackathon-2026/actions/workflows/ci.yml/badge.svg?branch=develop" alt="CI"></a>
 </p>
 
 ---
 
-## Overview
+## The problem
 
-Almost every Rwandan adult is counted as financially included (96% in FinScope 2024). Yet poverty, poor nutrition, natural
-hazards and late social-protection payments are concentrated in different districts. A district that looks fine on one
-measure can be among the worst on another.
+96% of Rwandan adults use a financial service (FinScope 2024), yet only ~10% are financially healthy. Poverty, poor nutrition, natural hazards and late social-protection payments cluster in different districts. A place that looks fine on one measure can be among the worst on another. Planners need to see where these vulnerabilities overlap — and where to act first.
 
-IMBONIX puts NISR's published statistics side by side for all **30 districts** and **416 sectors**, so planners can see
-where vulnerabilities overlap and which policy levers the evidence points to. Every number carries its source, table, year
-and a status label, and uncertainty is shown wherever NISR publishes it.
+## What IMBONIX does
 
-IMBONIX is an independent team project. It is **not an official NISR product** and does not imply NISR endorsement.
+IMBONIX puts NISR's published statistics side by side for all **30 districts** and **416 sectors**, so anyone can see:
+
+- **Where poverty is highest** and how it has changed
+- **Who is financially excluded** and who is included but not resilient
+- **Where social protection falls short** — late payments, low coverage, unmet targets
+- **Which policy levers** the evidence points to, district by district
+- **Downloadable data** — every chart offers a CSV export with the source named
+
+Every number carries its source, table, year and a trust label. Uncertainty is shown wherever NISR publishes it. IMBONIX is an independent team project — **not an official NISR product**.
 
 ## For judges
 
-**→ [Submission package index](docs/submission/)** — the guided reading order. Or jump straight in:
+| # | Document | What it covers | Time |
+|---|----------|---------------|------|
+| 1 | **[Solution overview](docs/submission/solution-overview.md)** | Problem, solution, data, tech, design, impact — with a criterion-by-criterion mapping | ~5 min |
+| 2 | **[Criteria evidence](docs/submission/criteria-evidence.md)** | Each evaluation criterion answered point by point | ~5 min |
+| 3 | **[IMBONIX AI](docs/ai-assistant.md)** | How the grounded, multilingual, voice-capable assistant works | ~4 min |
+| 4 | **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** | How AI tools were used; the team's responsibility for every figure | ~1 min |
 
-- **[Solution overview](docs/submission/solution-overview.md)** — problem → solution → data & methodology → tech → design → impact → Vision 2050 / NST2 alignment, with a criterion-by-criterion mapping.
-- **[Criteria evidence](docs/submission/criteria-evidence.md)** — each evaluation criterion answered point by point, with the methodology summary, impact-measurement plan and adoption pathway.
-- **[Demo script](docs/submission/demo-script.md)** — a 90-second pitch and a 3-minute, criterion-by-criterion walkthrough.
-- **[IMBONIX AI](docs/ai-assistant.md)** — how the grounded, multilingual, voice-enabled assistant is built.
-- **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** — required by the rules: how AI tools were used, and the team's responsibility for every figure.
-- **Live app:** _being (re)deployed — the public URL will be added here_ · **Source:** this repository.
+**Five criteria at a glance:**
+
+| Criterion | Where to see it |
+|-----------|----------------|
+| Problem understanding & relevance | Homepage overview chart and gap chart; ask IMBONIX AI |
+| Data use & methodology | `/data` sources page; every chart names its NISR source |
+| Tech innovation | On-device AI, risk model, policy scenarios, intervention planner |
+| Usability & design | Homepage charts with download, district map, chart library |
+| Tangible impact | Priority districts, intervention planner, downloadable CSVs |
 
 ![The IMBONIX homepage](docs/screenshots/homepage.png)
 
-## Site map
-
-The site is organised around the three parts of the Track 2 challenge — **financial exclusion**, **poverty dynamics**
-and **social protection** — plus the **data** behind every figure. Each focus area owns its address, so the URL says
-where you are; earlier addresses (`/map`, `/dashboard`, …) redirect permanently.
-
-**🏠 Home — `/`** · One argument in three tabs: **the gap** (96% included, ~10% financially healthy), **the evidence**
-in NISR data, and **the impact** for households, policymakers and civil society.
-
-### 💳 Financial exclusion — _who is left out, and who is included but not resilient?_
-
-| Page | Address | What it does |
-| --- | --- | --- |
-| **Overview** | `/financial-exclusion` | Inclusion by service, financial health, the access strand, mobile money and credit. |
-| **Access & use** | `/financial-exclusion/access-and-use` | FinScope's **96%** inclusion vs DHS 2025 account and mobile-money use — by sex, age, residence, education and wealth. |
-| **Risk model** | `/financial-exclusion/risk-model` | An **explainable** financial-vulnerability model: its factors and limits stated; results shown only once trained on microdata. |
-
-### 📉 Poverty dynamics — _who is poor, where, and what has changed?_
-
-| Page | Address | What it does |
-| --- | --- | --- |
-| **Overview** | `/poverty-dynamics` | Poverty in 2016/17 vs 2023/24 — where it is deepest, who is poorest, and how households live. |
-| **Trends** | `/poverty-dynamics/trends` | Every census since **1978** and every EICV, DHS and LFS round: poverty, population, homes, services, health, work. |
-| **District map** | `/poverty-dynamics/district-map` | **28 measures** on an interactive map; pick a district to see its sectors; links are shareable. |
-| **District profiles** | `/districts/<name>` | **30 district profiles**: priority, a 1978→2026 year selector, every indicator with its confidence interval, and sectors. |
-| **Overlapping needs** | `/poverty-dynamics/overlapping-needs` | Where poverty, exclusion, nutrition and shocks **overlap**, with correlations between districts. |
-
-### 🛡️ Social protection — _who do programmes reach, and how well?_
-
-| Page | Address | What it does |
-| --- | --- | --- |
-| **Overview** | `/social-protection` | Who VUP reaches, how late payments arrive, and the distance to national targets. |
-| **VUP payments** | `/social-protection/vup-payments` | Payment timeliness by programme and poverty status; channels, amounts, and ten years of reports. |
-| **Priority districts** | `/social-protection/priority-districts` | **Seven policy levers**, each tied to one indicator and a stated rule — which districts each flags, and why. |
-| **Policy scenarios** | `/social-protection/policy-scenarios` | How many adults each district must reach for an inclusion target — and priorities under **your own weights**. |
-| **Intervention planner** | `/social-protection/intervention-planner` | Pick a problem, a group and a place → the evidence and the options, together. |
-
-### 📂 Data & About
-
-| Page | Address | What it does |
-| --- | --- | --- |
-| **Sources & methods** | `/data` | Where every figure comes from, and how far to trust it. |
-| **Key figures** | `/data/key-figures` | National inclusion, poverty trends, and progress toward national targets. |
-| **Data catalogue** | `/data/catalog` | Every NISR study **1978 → today**, searchable by theme, with the ones IMBONIX uses flagged. |
-| **Chart library** | `/data/chart-library` | Every chart and tool on the site, grouped by area and page, with a filter. |
-| **About** | `/about` | Why IMBONIX exists, who it serves, and the method, sources, principles and limits. |
-
-**🤖 IMBONIX AI — every page · `/api/assistant`** · A floating assistant **grounded in NISR's published figures**: ask
-by typing or voice in **English / French / Kinyarwanda**, and have answers read aloud. With no API key it falls back to
-an on-device engine, so it always works.
-
-The **public data API** (`apps/api`) serves read-only JSON for districts, indicators and sectors, with validation, rate
-limiting and security headers.
-
-## IMBONIX AI
-
-A floating assistant, on every page, that helps people get answers without reading a whole dashboard. It is **grounded**:
-its knowledge is the same published NISR digest the site is built on (district and national figures, the FinScope and
-poverty findings, the national targets and the dataset catalogue), and it is told to quote only those figures, name the
-source, and never invent a number.
-
-- **Ask by typing or by voice.** Speech recognition dictates a question; answers can be read back aloud. Both use the
-  browser's Web Speech API, so no audio leaves the page to a service of ours.
-- **Works with or without a key, free or paid.** Set either `GEMINI_API_KEY` (Google Gemini — a free tier, no credit
-  card) or `ANTHROPIC_API_KEY` (Claude `claude-opus-5-5`, used in preference when present) on the server, and answers
-  come from that model through a same-origin route (`apps/web/src/app/api/assistant/route.ts`); the key is read only on
-  the server and never reaches the browser. With no key, the assistant falls back to an instant on-device engine over the
-  same figures, so it always works — including in a demo.
-
-See [docs/ai-assistant.md](docs/ai-assistant.md) for the architecture and
-[docs/submission/demo-script.md](docs/submission/demo-script.md) for a judge walkthrough.
+## Key features
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/screenshots/imbonix-ai.png" alt="IMBONIX AI assistant, grounded in NISR figures"><br><sub><b>IMBONIX AI</b> — ask in plain language or by voice; answers only from NISR figures, with the source named.</sub></td>
-    <td width="50%"><img src="docs/screenshots/intervention-planner.png" alt="Intervention planner: problem, group and place"><br><sub><b>Intervention planner</b> — pick a problem, a group and a place: the evidence, who's affected, and what could help.</sub></td>
+    <td width="50%"><img src="docs/screenshots/imbonix-ai.png" alt="IMBONIX AI assistant"><br><sub><b>IMBONIX AI</b> — ask in English, French or Kinyarwanda, by text or voice. Answers only from NISR figures.</sub></td>
+    <td width="50%"><img src="docs/screenshots/intervention-planner.png" alt="Intervention planner"><br><sub><b>Intervention planner</b> — pick a problem, a group and a place: see the evidence and what could help.</sub></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/priority-ranking.png" alt="Priority ranking by policy lever"><br><sub><b>Priority ranking</b> — where to act first, flagged by seven transparent policy-lever rules.</sub></td>
-    <td><img src="docs/screenshots/district-map.png" alt="Resilience map zoomed to a district's sectors"><br><sub><b>District map</b> — every measure, mapped for all 30 districts, colour-blind-validated.</sub></td>
+    <td><img src="docs/screenshots/priority-ranking.png" alt="Priority ranking"><br><sub><b>Priority ranking</b> — where to act first, flagged by seven transparent policy-lever rules.</sub></td>
+    <td><img src="docs/screenshots/district-map.png" alt="District map"><br><sub><b>District map</b> — 28 measures mapped for all 30 districts, colour-blind-validated.</sub></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/district-profile.png" alt="District profile"><br><sub><b>District profile</b> — evidence to action, year-by-year trends, and every published indicator.</sub></td>
-    <td align="center"><img src="docs/screenshots/mobile.png" alt="Homepage on a phone" width="260"><br><sub><b>Mobile</b> — the whole platform works on a phone.</sub></td>
+    <td><img src="docs/screenshots/district-profile.png" alt="District profile"><br><sub><b>District profile</b> — every published indicator with year-by-year trends.</sub></td>
+    <td align="center"><img src="docs/screenshots/mobile.png" alt="Mobile view" width="260"><br><sub><b>Mobile</b> — the whole platform works on a phone.</sub></td>
   </tr>
 </table>
 
-## How the data is handled
+## IMBONIX AI
 
-- **Only published figures.** District and sector values are transcribed from NISR and partner reports (EICV7, the 2022
-  census, FinScope, DHS 2025, CFSVA 2024, LFS 2025 and others), each with its table reference.
-- **Every value is labelled** as an official estimate, our calculation, a model estimate, a projection or a scenario.
-- **No composite score.** The dimensions are shown side by side, and ranks are presented as indicative.
-- **No causal claims.** The surveys are cross-sections; the site describes associations between places, not households.
-- **No microdata in git.** Survey microdata stays in ignored folders, under NISR's terms of use.
-- **Reproducible.** `scripts/data/build_web_data.py` rebuilds the website data from the committed extracts, and CI checks
-  that the result matches exactly.
+A floating assistant on every page that answers questions without reading a whole dashboard:
 
-See [docs/database.md](docs/database.md) for the data model, and the site's **Sources and methods** page (`/data`) for every
-source and caveat.
+- **Grounded** — answers only from the NISR figures bundled with the site; it cannot invent a number
+- **On-device** — no external model, no API key, no network call; works offline, free and private
+- **Multilingual** — English, French and Kinyarwanda, by text or voice (Web Speech API)
+- **Deterministic** — the same question always gives the same sourced answer
 
-## Design
+See [docs/ai-assistant.md](docs/ai-assistant.md) for the architecture.
 
-- **Cyan and white.** Every colour on the site comes from `apps/web/src/lib/palette.ts`: bright cyan (`#02A5DC`)
-  and white, with text in a neutral near black (`#1A1F21`) and a deeper cyan (`#01749C`) for links and small text.
-  Map and chart scales are steps of the cyan plus a neutral grey, generated by `scripts/brand/generate_palette.py`
-  and checked for colour-vision deficiencies. A test fails if a component writes its own colour.
-- **Vector logo.** The emblem, wordmark and tagline are crisp SVG files in `apps/web/public/brand/`, with light and dark
-  versions, lockups, a simplified favicon mark and app icons.
-- **Minimal.** The header links only the three focus areas and Data & methods. Charts follow the FinScope report's
-  infographic style, and every inner page has breadcrumbs.
-- **Accessible.** No axe (WCAG 2.1 A and AA) violations on any page at 320, 390 and 1440px, no horizontal scrolling
-  from 320px up, and every text colour at 4.5:1 or better.
+## Site map
 
-## Tech stack
-
-| Layer           | Tools                                                                                                                                     |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Web app         | Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, shadcn/ui patterns with Radix primitives                                     |
-| Assistant       | Google Gemini (free tier) or Anthropic Claude via a server route, with a grounded on-device fallback; Web Speech API for voice in and out |
-| Charts and maps | Recharts, custom SVG charts, MapLibre GL with OpenFreeMap tiles, geoBoundaries outlines                                                   |
-| API             | Node.js 22, Express 5, zod validation, helmet, express-rate-limit                                                                         |
-| Data pipeline   | Python 3.12+ (standard library for the build; openpyxl and xlrd for extraction)                                                           |
-| Quality         | Vitest, node:test with supertest, Python unittest, ESLint, Prettier, gitleaks, npm audit                                                  |
-| Delivery        | Docker (multi-stage images), docker compose, GitHub Actions                                                                               |
-
-## Architecture
-
-```mermaid
-flowchart LR
-  A[NISR and partner<br>publications] -->|transcribed with table refs| B[data/extracts<br>CSV]
-  G[geoBoundaries outlines<br>CC BY 4.0] --> S
-  B --> S[scripts/data/build_web_data.py]
-  S --> C[apps/web/src/data/generated<br>JSON, plus public/geo GeoJSON]
-  C --> D[Next.js web app<br>static pages, client maps]
-  C --> E[Express API<br>/api/v1]
-```
-
-There is no database: the site serves a small, versioned set of published aggregates. Details are in
-[docs/architecture.md](docs/architecture.md).
+| Area | Pages | What it covers |
+|------|-------|---------------|
+| **Financial exclusion** | Overview, Access & use, Risk model | Who reaches finance, who is left out, financial health vs access |
+| **Poverty dynamics** | Overview, Trends (1978-2024), District map, 30 district profiles, Overlapping needs | Where poverty is deepest, how it changed, where vulnerabilities overlap |
+| **Social protection** | Overview, VUP payments, Priority districts, Policy scenarios, Intervention planner | Who programmes reach, payment timeliness, where to act first |
+| **Data & About** | Sources & methods, Key figures, Data catalogue, Chart library, About | Every source, every chart, the method and the limits |
 
 ## Getting started
 
-### Prerequisites
-
-- Node.js **22.9 or later** and npm 10
-- Python **3.12 or later** (only to rebuild the data)
-- Docker Desktop (optional, to run the production images)
-
-### Install and run
+**Prerequisites:** Node.js 22.9+ and npm 10. Python 3.12+ only to rebuild data. Docker optional.
 
 ```bash
 git clone git@github.com:dieumerci-niyonkuru/imbonix-nisr-hackathon-2026.git
@@ -210,46 +102,97 @@ cd apps/web
 npm ci
 npm run dev
 
-# API on http://localhost:4000 (in a second terminal)
+# API on http://localhost:4000 (second terminal)
 cd apps/api
 npm ci
 npm run dev
 ```
 
-The website does not depend on the API: both read the same generated data.
+The website does not depend on the API — both read the same generated data. No secrets or API keys are needed.
 
-### Environment variables
-
-No secrets are needed to run IMBONIX. Every setting has a safe default, and each app documents its variables in its
-`.env.example`:
-
-| App                                                  | Variables                                                                                                                                                                                                                                                                                              |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| API ([apps/api/.env.example](apps/api/.env.example)) | `NODE_ENV`, `PORT`, `HOST`, `CORS_ORIGINS`, `RATE_LIMIT_PER_MINUTE`, `TRUST_PROXY`, `LOG_LEVEL`, `DATA_DIR`                                                                                                                                                                                            |
-| Web ([apps/web/.env.example](apps/web/.env.example)) | `NEXT_PUBLIC_API_URL` (reserved; the site does not call the API yet), and **one of** `GEMINI_API_KEY` (free, no card) or `ANTHROPIC_API_KEY` (optional; powers IMBONIX AI's generative answers and document reading — the on-device engine works without either, and keys are read only on the server) |
-
-Copy a `.env.example` to `.env` for local changes. `.env` files are ignored by git and must never be committed.
-
-### Run with Docker
+### Docker
 
 ```bash
 docker compose up --build
+# Web: http://localhost:3000  API: http://localhost:4000
 ```
 
-This serves the web app on <http://localhost:3000> and the API on <http://localhost:4000>. See
-[docs/deployment.md](docs/deployment.md).
+## Tech stack
 
-## Tests and checks
+| Layer | Tools |
+|-------|-------|
+| Web app | Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Radix UI primitives |
+| AI assistant | On-device engine over NISR data (no external model); Web Speech API for voice |
+| Charts & maps | Recharts, custom SVG, MapLibre GL with OpenFreeMap tiles, geoBoundaries outlines |
+| API | Node.js 22, Express 5, zod, helmet, rate limiting |
+| Data pipeline | Python 3.12+ (openpyxl, xlrd for extraction) |
+| Quality | Vitest, supertest, ESLint, Prettier, gitleaks, npm audit |
+| Delivery | Docker multi-stage, docker compose, GitHub Actions CI |
 
-| Where           | Command                                                                      | What it covers                                                                                                                                                                                             |
-| --------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apps/web`      | `npm test`                                                                   | Formatting helpers, colour scales, generated-data integrity, province weighting against the published national rates, published homepage findings, priority rules, scenarios, correlations, sector colours |
-| `apps/web`      | `npm run lint`, `npm run typecheck`, `npm run format:check`, `npm run build` | ESLint (Next.js and accessibility rules), TypeScript, Prettier, production build                                                                                                                           |
-| `apps/api`      | `npm test`                                                                   | Every endpoint, validation, errors, rate limits, CORS, security headers, logging and configuration                                                                                                         |
-| repository root | `python -m unittest discover -s scripts/data/tests -v`                       | Build helpers, extract integrity, and that the website data rebuilds exactly                                                                                                                               |
+## Architecture
 
-GitHub Actions runs all of these on every push and pull request, plus `npm audit`, a gitleaks secret scan of the full
-history, and a Docker build that starts both images and waits for their health checks.
+```mermaid
+flowchart LR
+  A[NISR publications] -->|transcribed with table refs| B[data/extracts CSV]
+  G[geoBoundaries outlines] --> S
+  B --> S[scripts/data/build_web_data.py]
+  S --> C[apps/web/src/data/generated JSON + GeoJSON]
+  C --> D[Next.js web app]
+  C --> E[Express API /api/v1]
+```
+
+No database — the site serves a small, versioned set of published aggregates. See [docs/architecture.md](docs/architecture.md).
+
+## Project structure
+
+```
+apps/
+  web/              Next.js app: pages, components, lib (data, scales, rules), generated data
+  api/              Express API: routes, middleware, data store, tests
+data/
+  extracts/         Published NISR tables transcribed to CSV
+  dictionaries/     Microdata catalog index and variable dictionaries
+  schemas/          JSON schema for indicators
+scripts/
+  data/             Extraction and build scripts with tests
+  brand/            Logo and colour palette generation
+docs/
+  submission/       Solution overview, criteria evidence, AI disclosure
+  data/             Data sources plan, inventory, microdata access
+  research/         Hackathon brief, Track 2 research dossier
+  screenshots/      App screenshots for README and submission
+```
+
+## How the data is handled
+
+- **Only published figures** — transcribed from NISR and partner reports with table references
+- **Every value is labelled** — official estimate, calculation, model estimate, projection or scenario
+- **No composite score** — dimensions shown side by side; ranks are indicative
+- **No causal claims** — surveys are cross-sections; the site describes associations, not causes
+- **No microdata in git** — stays in ignored folders under NISR's terms of use
+- **Reproducible** — `scripts/data/build_web_data.py` rebuilds everything; CI checks it matches exactly
+- **Downloadable** — homepage charts include CSV download with source attribution
+
+## Tests
+
+| Where | Command | Coverage |
+|-------|---------|----------|
+| `apps/web` | `npm test` | Data integrity, formatting, colour scales, province weighting, priority rules, scenarios |
+| `apps/web` | `npm run lint && npm run typecheck && npm run build` | ESLint, TypeScript, production build |
+| `apps/api` | `npm test` | Endpoints, validation, rate limits, CORS, security headers |
+| Root | `python -m unittest discover -s scripts/data/tests -v` | Build helpers, extract integrity |
+
+CI runs all checks on every push, plus npm audit and gitleaks secret scanning.
+
+## Adding features in the future
+
+The project is structured so new features can be added without starting from scratch:
+
+- **New data themes**: add a CSV to `data/extracts/`, a TypeScript file in `apps/web/src/lib/`, and a page in `apps/web/src/app/` — the same pattern every existing theme follows
+- **New chart types**: add a component in `apps/web/src/components/charts/recharts/` using the shared `chart-theme.tsx` and `palette.ts`
+- **New districts or indicators**: update the extracts, run `scripts/data/build_web_data.py`, and the site picks them up automatically
+- **New AI knowledge**: extend the data arrays in `apps/web/src/lib/assistant.ts` — no model retraining needed
+- **New API endpoints**: add a route file in `apps/api/src/routes/` following the existing pattern with zod validation
 
 ## API
 
@@ -257,115 +200,38 @@ history, and a Docker build that starts both images and waits for their health c
 curl http://localhost:4000/api/v1/districts/nyamagabe?indicators=eicv7_poverty_rate
 ```
 
-```json
-{
-  "data": {
-    "name": "Nyamagabe",
-    "slug": "nyamagabe",
-    "province": "South",
-    "sectorCount": 17,
-    "values": [
-      {
-        "indicator": {
-          "id": "eicv7_poverty_rate",
-          "label": "Poverty headcount (% of people)",
-          "source": "NISR EICV7 Main Indicators Report (tables)",
-          "table": "Table A9.23",
-          "year": "2023/24",
-          "status": "observed"
-        },
-        "value": 51.3941,
-        "standardError": 3.214,
-        "ciLow": 45.09,
-        "ciHigh": 57.6982
-      }
-    ]
-  },
-  "meta": {}
-}
-```
-
-All endpoints, parameters and error codes are in [docs/api.md](docs/api.md).
-
-## Project structure
-
-```text
-apps/
-  web/              Next.js app: pages (src/app), components, lib (data, scales, rules), generated data
-  api/              Express API: routes, middleware, data store, tests
-data/
-  extracts/         Published NISR tables transcribed to CSV: the source of every figure on the site
-  dictionaries/     NISR microdata catalog index and variable dictionaries
-  schemas/          JSON schema for an indicator
-                    (raw and working survey files stay local in data/raw, never committed)
-scripts/
-  data/             Extraction and build scripts for the published data, with tests
-  brand/            Generates the logo files and the colour palette
-docs/
-  data/             Data sources plan, data inventory, microdata access
-  research/         Hackathon brief and the Track 2 research dossier
-  model/  project/  submission/  screenshots/
-                    Architecture, API, data model, deployment, security and development guides at the top level
-.github/            CI workflow, issue and pull request templates, CODEOWNERS
-```
+Returns district data with indicator values, standard errors and confidence intervals. Full documentation: [docs/api.md](docs/api.md).
 
 ## Deployment
 
-**IMBONIX is not yet deployed to a public host.** The recommended setup is **everything on
-[Vercel](docs/deployment.md#deploy-the-web-app-to-vercel)** in one project: the JSON API is built into the web app
-([apps/web/src/app/api/v1](apps/web/src/app/api/v1)), so deploying the site also serves it at `/api/v1` — nothing else
-to run, and the Data page's "live API" panel reads **Connected** automatically. Running the API as a standalone service
-on [Railway](docs/deployment.md#deploy-the-api-to-railway) (via the repo-root `railway.json`) or any Docker host is
-optional. The web app and API also each have a production Dockerfile, and `docker-compose.yml` runs both. Add the live
-URL under [For judges](#for-judges) once up. [docs/deployment.md](docs/deployment.md) covers Vercel, Railway, Docker
-hosting options, production settings, hardening notes and a release checklist.
+Recommended: deploy on **Vercel** — the JSON API ships with the site at `/api/v1`, so one project serves everything. Docker and Railway are also supported. See [docs/deployment.md](docs/deployment.md).
 
 ## Security
 
-No secrets are required or stored; configuration comes from environment variables. The web app sends a Content Security
-Policy and related headers. The API validates every parameter, rate-limits requests and never exposes internal errors.
-Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md); controls and the GitHub settings to enable
-are in [docs/security.md](docs/security.md).
-
-## Contributing
-
-Work happens on `feature/*`, `fix/*`, `security/*`, `docs/*` and `chore/*` branches cut from `develop` and merged back
-once the checks pass. `develop` moves to `testing` for integration checks, and `main` changes only through a pull request
-from `testing`. Commits follow Conventional Commits. See [CONTRIBUTING.md](CONTRIBUTING.md) and
-[docs/development.md](docs/development.md).
+No secrets required or stored. CSP headers on the web app, parameter validation and rate limiting on the API. See [SECURITY.md](SECURITY.md) and [docs/security.md](docs/security.md).
 
 ## Team
 
-| Name                 | Role                                                                          | GitHub                                                         |
-| -------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Dieu Merci Niyonkuru | Team lead — software development, UI/UX design, IMBONIX AI integration, deployment | [@dieumerci-niyonkuru](https://github.com/dieumerci-niyonkuru) |
-| UMURERWA Divine      | Data analysis; data collection and sourcing of the NISR datasets (the figures the platform is built on); development | —                                                              |
+| Name | Role | GitHub |
+|------|------|--------|
+| **Dieu Merci Niyonkuru** | Software development, UI/UX design, IMBONIX AI, deployment | [@dieumerci-niyonkuru](https://github.com/dieumerci-niyonkuru) |
+| **UMURERWA Divine** | Data analysis, data collection and sourcing of NISR datasets | &mdash; |
 
-## Data sources and attribution
+## Data sources
 
-- Statistics: **National Institute of Statistics of Rwanda (NISR)** and partners (MINAGRI and WFP for CFSVA 2024; Access
-  to Finance Rwanda for FinScope), as cited on each page and in the extracts.
-- NISR microdata catalog: <https://microdata.statistics.gov.rw/index.php/catalog>
-- District and sector boundaries: [geoBoundaries](https://www.geoboundaries.org/) (CC BY 4.0), from NISR open geodata.
-- Background map: [OpenFreeMap](https://openfreemap.org/), © OpenMapTiles, data from OpenStreetMap contributors.
+- **Statistics:** NISR and partners (MINAGRI/WFP for CFSVA 2024; AFR for FinScope), cited on each page
+- **Microdata catalog:** [microdata.statistics.gov.rw](https://microdata.statistics.gov.rw/index.php/catalog)
+- **Boundaries:** [geoBoundaries](https://www.geoboundaries.org/) (CC BY 4.0), from NISR open geodata
+- **Map tiles:** [OpenFreeMap](https://openfreemap.org/), OpenMapTiles, OpenStreetMap contributors
 
 ## AI assistance
 
-Parts of the code and documentation were written with AI assistance. The team reviewed the work and is responsible for
-every figure and claim. See [docs/submission/ai-disclosure.md](docs/submission/ai-disclosure.md).
+Parts of the code and documentation were written with AI assistance. The team reviewed everything and is responsible for every figure and claim. See [docs/submission/ai-disclosure.md](docs/submission/ai-disclosure.md).
 
 ## Declaration
 
-This submission is the team's own work. All sources of reference are acknowledged in full: every figure names its NISR
-publication, table and year on screen, and every dataset and external resource is listed in
-[Data sources and attribution](#data-sources-and-attribution), the per-page **Sources & methods** (`/data`), and the
-[`docs/data/`](docs/data/) inventory. The processed figures the platform is built on are committed in the repository
-(`apps/web/src/data/generated/`), rebuilt from the public NISR files by `scripts/data/`; the raw microdata is accessed
-from the [NISR microdata catalog](https://microdata.statistics.gov.rw/index.php/catalog) and is never redistributed. AI
-assistance was used as noted above, and the team is responsible for every figure, claim and line of code.
+This submission is the team's own work. All sources are acknowledged: every figure names its NISR publication, table and year on screen. The processed figures are committed in `apps/web/src/data/generated/`, rebuilt from public NISR files by `scripts/data/`. Raw microdata is accessed from the NISR microdata catalog and never redistributed. AI assistance was used as noted above.
 
 ## License
 
-No open-source licence has been chosen yet, so all rights are reserved by the team for now. The competition's
-intellectual-property terms and NISR's data terms of use also apply; the team will choose a licence after reviewing them.
-Data remains subject to its publishers' terms.
+All rights reserved by the team. The competition's IP terms and NISR's data terms of use apply. A licence will be chosen after the hackathon.

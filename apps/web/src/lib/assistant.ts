@@ -228,15 +228,43 @@ const NATIONAL_WORDS = [
 const GREETING_RE =
   /^(hi+|hello|hey|hiya|yo|greetings|good (morning|afternoon|evening|day)|muraho|mwaramutse|thanks?|thank you|bye|goodbye|welcome|how are (you|u|things|things going)|how('?s| is) (it going|things|everything|your day|life)|how do you do|how('?ve| have) you been|how are you doing|what('?s| is) up|wass?up|sup|nice to (meet|see) you|pleased to meet you|good to (meet|see) you)\b/i;
 /** A request for a definition rather than a figure. */
-const DEFINE_RE = /\b(what\s+(is|are|does)\s+|what's\s+|define\b|definition of\b|meaning of\b|what do you mean\b|explain\s+)/;
+const DEFINE_RE =
+  /\b(what\s+(is|are|does)\s+|what's\s+|define\b|definition of\b|meaning of\b|what do you mean\b|explain\s+|examples?\s+of\s+|tell me about\s+|give me\s+(an?\s+)?examples?\b)/;
 
 /** Plain-language definitions of the NISR terms the site uses, so "what is X" is answered without inventing a figure. */
-type Definition = { words: string[]; heading: string; body: string; links?: AnswerLink[] };
+type Definition = {
+  words: string[];
+  heading: string;
+  body: string;
+  /** Everyday examples, shown after the definition so the term is concrete for a first-time reader. */
+  examples?: string[];
+  /** One real figure that grounds the concept, so a definition is never just a dictionary line. */
+  stat?: AnswerStat;
+  source?: string;
+  links?: AnswerLink[];
+};
+
+// Real figures used to ground the concept definitions, read from the same NISR data the pages show.
+const DEF_INCLUDED = INCLUSION_BY_ROUND.find((row) => row.measure === "Financially included")?.in2024 ?? 96;
+const DEF_POVERTY_NOW = POVERTY_RATE_BY_YEAR[POVERTY_RATE_BY_YEAR.length - 1]?.povertyRate ?? 27.4;
+const DEF_POVERTY_WAS = POVERTY_RATE_BY_YEAR[0]?.povertyRate ?? 39.8;
+const DEF_POVERTY_WAS_YEAR = POVERTY_RATE_BY_YEAR[0]?.year ?? "2016/17";
+const DEF_POVERTY_NOW_YEAR = POVERTY_RATE_BY_YEAR[POVERTY_RATE_BY_YEAR.length - 1]?.year ?? "2023/24";
+
 const DEFINITIONS: Definition[] = [
   {
     words: ["financial inclusion", "financially included", "financial inclusivity"],
     heading: "Financial inclusion",
-    body: "Financial inclusion means using at least one financial service — formal or informal — such as a bank, mobile money, a SACCO, insurance or a savings group. In Rwanda access is now almost universal; the harder goal is financial health.",
+    body: "Financial inclusion means making sure everyone can access and use financial services — formal or informal — such as a bank account, mobile money, a SACCO, insurance or a savings group. In Rwanda access is now almost universal; the harder goal is financial health.",
+    examples: [
+      "bank accounts, to keep money safely",
+      "loans, to borrow when needed",
+      "savings, to put money aside for the future",
+      "insurance, to protect against financial risk",
+      "mobile money, to send and receive by phone",
+    ],
+    stat: { value: `${DEF_INCLUDED}%`, label: "of adults use a financial service" },
+    source: FINSCOPE_2024_SOURCE,
     links: [{ href: "/financial-exclusion", label: "Financial inclusion" }],
   },
   {
@@ -276,6 +304,38 @@ const DEFINITIONS: Definition[] = [
     links: [{ href: "/data/key-figures", label: "Rwanda in figures" }],
   },
   {
+    words: [
+      "poverty reduction",
+      "reduce poverty",
+      "reducing poverty",
+      "reduction of poverty",
+      "fight poverty",
+      "fighting poverty",
+      "end poverty",
+      "ending poverty",
+      "tackle poverty",
+      "lift people out of poverty",
+      "lift out of poverty",
+      "get out of poverty",
+    ],
+    heading: "Poverty reduction",
+    body: `Poverty reduction means taking action to decrease the number of people living in poverty and improve their living conditions — helping people build better lives through chances to earn and access to education, healthcare, food and housing. In Rwanda, poverty fell from ${DEF_POVERTY_WAS}% in ${DEF_POVERTY_WAS_YEAR} to ${DEF_POVERTY_NOW}% in ${DEF_POVERTY_NOW_YEAR}, and IMBONIX maps where it is still highest so support goes there.`,
+    examples: [
+      "creating jobs so people can earn",
+      "affordable education",
+      "supporting farmers to grow more food",
+      "affordable healthcare",
+      "helping people start small businesses",
+      "access to loans and savings",
+    ],
+    stat: { value: `${DEF_POVERTY_NOW}%`, label: `live in poverty, down from ${DEF_POVERTY_WAS}%` },
+    source: EICV7_PROFILE_SOURCE,
+    links: [
+      { href: "/poverty-dynamics", label: "Poverty reduction" },
+      { href: "/social-protection/priority-districts", label: "Where to act first" },
+    ],
+  },
+  {
     words: ["stunting", "stunted", "chronic malnutrition"],
     heading: "Child stunting",
     body: "Stunting is when a child is too short for their age because of long-term undernutrition — a sign of chronic malnutrition in the first years of life, which can affect health and learning for good.",
@@ -286,6 +346,33 @@ const DEFINITIONS: Definition[] = [
     heading: "Ubudehe category",
     body: "Ubudehe is Rwanda's official socio-economic categorisation of households, used to target support such as VUP and health-insurance subsidies to those who need it most.",
     links: [{ href: "/social-protection", label: "Social protection" }],
+  },
+  {
+    words: [
+      "social protection",
+      "impact of social protection",
+      "social safety net",
+      "safety net",
+      "social assistance",
+      "social support",
+      "social welfare",
+      "welfare programme",
+      "welfare program",
+    ],
+    heading: "Social protection",
+    body: `Social protection is the set of government and partner programmes that support vulnerable people — poor households, families, the elderly and people with disabilities — so they can meet basic needs and reach services like education and healthcare. In Rwanda the main scheme is VUP (the Vision Umurenge Programme): Direct Support cash for those who cannot work, paid public works, and financial services, reaching about ${VUP_BENEFICIARIES.toLocaleString("en-US")} people.`,
+    examples: [
+      "financial support for poor households",
+      "support for vulnerable families",
+      "assistance for elderly people",
+      "help for poor families to reach education and healthcare",
+    ],
+    stat: { value: VUP_BENEFICIARIES.toLocaleString("en-US"), label: "VUP beneficiaries" },
+    source: SOCIAL_PROTECTION_SOURCE,
+    links: [
+      { href: "/social-protection", label: "Social protection" },
+      { href: "/social-protection/priority-districts", label: "Where to act first" },
+    ],
   },
   {
     words: ["sacco", "tontine", "savings group", "savings and credit"],
@@ -622,10 +709,12 @@ function countsAnswer(query: string): Answer | null {
 
 /** A plain-language definition of a NISR term, for a "what is X" question. */
 function definitionAnswer(concept: Definition): Answer {
+  const body = concept.examples?.length ? `${concept.body} For example: ${concept.examples.join("; ")}.` : concept.body;
   return {
     heading: concept.heading,
-    body: concept.body,
-    source: "Definition follows NISR's own usage",
+    body,
+    stats: concept.stat ? [concept.stat] : undefined,
+    source: concept.source ?? "Definition follows NISR's own usage",
     links: concept.links ?? [{ href: "/data/key-figures", label: "Rwanda in figures" }],
   };
 }
@@ -779,12 +868,14 @@ export function answerQuery(raw: string): Answer {
   // directly rather than falling through to a figure or a blank fallback.
   if (districts.length >= 2 && wantsCompare) return compare(districts[0], districts[1]);
   if (hasAny(query, HEALTH_WORDS)) return financialHealthAnswer();
+  // An explicit "what is / define / examples of X" is answered as a definition first, so a concept such as social
+  // protection or poverty reduction is defined rather than falling through to its data answer.
+  if (concept && districts.length === 0) return definitionAnswer(concept);
   if (hasAny(query, VUP_WORDS)) return vupAnswer(districts[0]);
   if (hasAny(query, COUNT_WORDS)) {
     const counts = countsAnswer(query);
     if (counts) return counts;
   }
-  if (concept && districts.length === 0) return definitionAnswer(concept);
 
   // The solution side of the challenge: what to prioritise, and for whom.
   if (hasAny(query, ACTION_WORDS)) return districts.length === 1 ? priorityAnswer(districts[0]) : nationalPriorityAnswer();
@@ -802,6 +893,9 @@ export function answerQuery(raw: string): Answer {
   if (hasAny(query, HELP_WORDS)) return helpAnswer();
   if (GREETING_RE.test(query)) return greetingAnswer();
   if (wantsHigh || wantsLow) return extremes(meta("eicv7_poverty_rate"), wantsHigh || !wantsLow);
+  // Last resort before the fallback: if the question clearly names a concept we can define, define it.
+  const namedConcept = DEFINITIONS.find((entry) => entry.words.some((word) => query.includes(word)));
+  if (namedConcept && districts.length === 0) return definitionAnswer(namedConcept);
   return fallback();
 }
 

@@ -78,6 +78,36 @@ describe("IMBONIX AI answers", () => {
     expect(answer.body.length).toBeGreaterThan(20);
   });
 
+  it("defines poverty reduction with real figures and everyday examples", () => {
+    const answer = answerQuery("What is poverty reduction?");
+    expect(answer.heading.toLowerCase()).toContain("poverty reduction");
+    expect(answer.body.toLowerCase()).toContain("for example");
+    expect(answer.body.toLowerCase()).toMatch(/jobs|education|farmers|small businesses|loans/);
+    expect(answer.stats?.some((stat) => /%/.test(stat.value))).toBe(true);
+    expect(answer.source).toBeTruthy();
+  });
+
+  it("defines social protection with examples, not just the VUP data answer", () => {
+    const answer = answerQuery("What is social protection?");
+    expect(answer.heading.toLowerCase()).toContain("social protection");
+    expect(answer.body.toLowerCase()).toMatch(/vulnerable|households|elderly|families/);
+    expect(answer.body.toLowerCase()).toContain("for example");
+    expect(answer.source).toBeTruthy();
+  });
+
+  it("defines financial inclusion with everyday examples and a grounded figure", () => {
+    const answer = answerQuery("What is financial inclusion?");
+    expect(answer.heading.toLowerCase()).toContain("financial inclusion");
+    expect(answer.body.toLowerCase()).toMatch(/bank account|mobile money|savings|insurance/);
+    expect(answer.stats?.some((stat) => /%/.test(stat.value))).toBe(true);
+  });
+
+  it("answers an 'examples of' question as a definition with examples", () => {
+    const answer = answerQuery("Give me examples of social protection");
+    expect(answer.heading.toLowerCase()).toContain("social protection");
+    expect(answer.body.toLowerCase()).toContain("for example");
+  });
+
   it("finds the poorest district as an extreme on poverty", () => {
     const answer = answerQuery("Which is the poorest district?");
     expect(answer.heading.toLowerCase()).toContain("highest");
@@ -151,6 +181,10 @@ describe("IMBONIX AI answers", () => {
       "what is NEET",
       "define extreme poverty",
       "what does small area estimation mean",
+      "what is poverty reduction",
+      "what is social protection",
+      "examples of financial inclusion",
+      "define poverty reduction",
       "how many villages are there",
       "how many provinces",
       "how many studies",

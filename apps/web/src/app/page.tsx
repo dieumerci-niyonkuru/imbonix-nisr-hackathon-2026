@@ -2,21 +2,20 @@ import { paymentTimelinessByProgramme } from "@/components/focus/focus-shared";
 import { AskImbonix } from "@/components/home/ask-imbonix";
 import { ChallengeSection, type ChallengePart } from "@/components/home/challenge-section";
 import { ChallengeStatement, type Requirement } from "@/components/home/challenge-statement";
+import { DataHighlights } from "@/components/home/data-highlights";
 import { ExploreCta } from "@/components/home/explore-cta";
 import { FeaturedInsight } from "@/components/home/featured-insight";
+import { NationalOverviewChart } from "@/components/home/national-overview-chart";
 import { PlatformApproach } from "@/components/home/platform-approach";
 import { GapChart, type GapRow } from "@/components/home/gap-chart";
-import { FigureTiles, type FigureTile } from "@/components/home/figure-tiles";
 import { HomeHero, type HeroCard } from "@/components/home/home-hero";
 import { ImpactSection } from "@/components/home/impact-section";
 import { HomeProgress } from "@/components/home/home-progress";
 import { NationalPriorities } from "@/components/home/national-priorities";
-import { PlaceSection } from "@/components/home/place-section";
 import { NISR_CATALOG_URL, SOURCE_STUDIES } from "@/components/layout/nav";
 import { ReadMoreSection } from "@/components/ui/read-more";
 import { Reveal } from "@/components/ui/reveal";
 import { STATUS_DESCRIPTION } from "@/components/ui/status-badge";
-import { DISTRICTS, PROVINCE_LABEL } from "@/lib/data";
 import { POVERTY_RATE_BY_YEAR } from "@/lib/eicv7-poverty-profile";
 import {
   EXCLUDED_ADULTS,
@@ -53,53 +52,31 @@ export default function Home() {
   const poorestWomen = womenByWealth.find((row) => row.category === "Lowest")!;
   const richestWomen = womenByWealth.find((row) => row.category === "Highest")!;
 
-  // The doors under the banner: the three focus areas and the planning tool.
+  // The doors under the banner: the three focus areas and the planning tool, each led by one real figure from the data.
   const heroCards: HeroCard[] = [
     {
       title: "Financial inclusion",
+      stat: { value: `${includedShare}%`, label: "of adults use a financial service" },
       body: "Who reaches finance, who is left out, and who uses it but still cannot save, borrow or cope with a shock.",
       href: "/financial-exclusion",
     },
     {
       title: "Poverty reduction",
-      body: `How poverty fell from ${povertyIn2017.povertyRate}% to ${povertyIn2024.povertyRate}%, and where it is still highest.`,
+      stat: { value: `${povertyIn2024.povertyRate}%`, label: `live in poverty, down from ${povertyIn2017.povertyRate}%` },
+      body: "How poverty fell since 2016/17, who is poorest, and where it is still highest.",
       href: "/poverty-dynamics",
     },
     {
       title: "Social protection",
+      stat: { value: `${directSupportOnTime}%`, label: "of Direct Support paid on time" },
       body: "Whether VUP and Direct Support reach the poorest households, how late payments arrive, and where to act first.",
       href: "/social-protection",
     },
     {
       title: "Intervention planner",
+      stat: { value: `${SITE_FACTS.levers}`, label: "policy levers to act on" },
       body: "Bring the evidence together for one problem, one group and one place, with the options that fit.",
       href: "/social-protection/intervention-planner",
-    },
-  ];
-
-  // The headline figures, each with its source.
-  const figureTiles: FigureTile[] = [
-    { value: `${includedShare}%`, label: "of adults use a financial service", source: "NISR, FinScope 2024" },
-    { value: `${healthyShare}%`, label: "are financially healthy", source: "NISR, FinScope 2024, section 5.2" },
-    {
-      value: `${bankedRow.in2024}%`,
-      label: bankedRow.in2024 === bankedRow.in2020 ? "are banked, the same as in 2020" : "are banked",
-      source: "NISR, FinScope 2020 and 2024",
-    },
-    {
-      value: EXCLUDED_ADULTS.toLocaleString("en-US"),
-      label: "adults use no financial service at all",
-      source: "NISR, FinScope 2024",
-    },
-    {
-      value: `${povertyIn2024.povertyRate}%`,
-      label: `of people live in poverty, down from ${povertyIn2017.povertyRate}% in 2016/17`,
-      source: "NISR, EICV7 Poverty Profile 2023/24",
-    },
-    {
-      value: `${directSupportOnTime}%`,
-      label: "of Direct Support households were paid on time the last time",
-      source: "NISR, EICV7 VUP thematic report 2023/24",
     },
   ];
 
@@ -296,24 +273,14 @@ export default function Home() {
     },
   ];
 
-  const finderDistricts = DISTRICTS.map((district) => ({
-    name: district.name,
-    slug: district.slug,
-    province: PROVINCE_LABEL[district.province],
-  }));
-
   return (
     <>
-      <HomeHero cards={heroCards} districtCount={SITE_FACTS.districts} sectorCount={SITE_FACTS.sectors} />
+      <HomeHero cards={heroCards} />
 
-      <Reveal>
-        <FigureTiles
-          id="figures-heading"
-          eyebrow="What the NISR data shows"
-          title="Included, but not yet financially healthy"
-          intro="Six published figures frame the challenge. Almost everyone can now reach a financial service, but far fewer are financially healthy: able to save and get through a hard month, not just hold an account. Banking and on-time support payments still lag behind."
-          tiles={figureTiles}
-        />
+      <NationalOverviewChart />
+
+<Reveal>
+        <DataHighlights />
       </Reveal>
 
       <Reveal>
@@ -361,21 +328,6 @@ export default function Home() {
 
       <Reveal>
         <ChallengeStatement requirements={requirements} />
-      </Reveal>
-
-      <Reveal>
-        <PlaceSection
-          units={[
-            { value: 5, label: "Provinces and the City of Kigali" },
-            { value: SITE_FACTS.districts, label: "Districts" },
-            { value: SITE_FACTS.sectors, label: "Sectors" },
-            { value: SITE_FACTS.cells, label: "Cells" },
-            { value: SITE_FACTS.villages, label: "Villages" },
-            { value: SITE_FACTS.indicators, label: "District indicators" },
-          ]}
-          districts={finderDistricts}
-          counts={{ sectors: SITE_FACTS.sectors, cells: SITE_FACTS.cells, villages: SITE_FACTS.villages }}
-        />
       </Reveal>
 
       <Reveal>

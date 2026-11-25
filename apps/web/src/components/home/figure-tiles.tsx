@@ -1,7 +1,10 @@
+import Link from "next/link";
+import { ArrowRightIcon } from "@heroicons/react/20/solid";
+import { Hint } from "@/components/ui/hint";
 import { cn } from "@/lib/utils";
 
-/** One headline figure: the number, what it counts and where it comes from. */
-export type FigureTile = { value: string; label: string; source: string };
+/** One headline figure: the number, what it counts, where it comes from, and (optionally) what it means in plain words. */
+export type FigureTile = { value: string; label: string; source: string; hint?: string };
 
 /**
  * Headline figures as a grid of cards: a large cyan number over a short label, with the source set apart beneath. Each
@@ -15,6 +18,7 @@ export function FigureTiles({
   tiles,
   id,
   columns = 3,
+  readMore,
 }: {
   eyebrow: string;
   title: string;
@@ -23,6 +27,8 @@ export function FigureTiles({
   id: string;
   /** Tiles per row on wide screens: three for six figures, four for four. */
   columns?: 3 | 4;
+  /** An optional prominent button beneath the grid, for people who want the fuller story. */
+  readMore?: { href: string; label: string };
 }) {
   return (
     <section className="bg-white py-10 sm:py-14" aria-labelledby={id}>
@@ -39,7 +45,14 @@ export function FigureTiles({
           {tiles.map((tile) => (
             // The wrapper carries the scroll-into-view scale-and-fade (an inset reveal tied to scroll position); the
             // card inside keeps its own hover lift, so the two effects never fight for the transform.
-            <div key={tile.label} className="scroll-reveal h-full">
+            <div key={tile.label} className="scroll-reveal relative h-full">
+              {/* The plain-language meaning lives in the non-clipped wrapper, so its hover panel is never cut off by the
+                  card's overflow-hidden (which the top accent needs). */}
+              {tile.hint ? (
+                <div className="absolute right-3 top-3 z-20">
+                  <Hint label={tile.hint} align="end" />
+                </div>
+              ) : null}
               <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-cyan/50 hover:shadow-lift sm:p-7">
                 {/* A thin brand accent that sweeps across the top on hover. */}
                 <span
@@ -55,6 +68,18 @@ export function FigureTiles({
             </div>
           ))}
         </dl>
+
+        {readMore ? (
+          <div className="mt-8">
+            <Link
+              href={readMore.href}
+              className="group inline-flex items-center gap-2 rounded-full bg-cyan px-6 py-3 text-[14px] font-bold text-ink shadow-card transition-all duration-200 hover:bg-cyan-ink hover:text-white hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
+            >
+              {readMore.label}
+              <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );

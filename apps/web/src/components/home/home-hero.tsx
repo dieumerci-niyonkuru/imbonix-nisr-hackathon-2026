@@ -5,8 +5,8 @@ import { HeroBackdrop } from "@/components/home/hero-backdrop";
 import { DistrictBackdrop } from "@/components/home/story-cards";
 import { RwandaEmblem } from "@/components/layout/rwanda-emblem";
 
-/** One of the doors under the banner: a focus area or a tool, in a sentence. */
-export type HeroCard = { title: string; body: string; href: string };
+/** One of the doors under the banner: a focus area or a tool, led by one real figure and explained in a sentence. */
+export type HeroCard = { title: string; stat: { value: string; label: string }; body: string; href: string };
 
 /**
  * The hero background photo (in public/hero/): a Rwandan analyst reading a district map of Rwanda on a data dashboard,
@@ -41,15 +41,7 @@ const SOLUTIONS = [
  * outline of the districts behind a left aligned headline, four white cards that overlap its lower edge and open the
  * focus areas and the planning tool, and under them, on white, the challenge IMBONIX answers and a way to learn more.
  */
-export function HomeHero({
-  cards,
-  districtCount,
-  sectorCount,
-}: {
-  cards: HeroCard[];
-  districtCount: number;
-  sectorCount: number;
-}) {
+export function HomeHero({ cards }: { cards: HeroCard[] }) {
   return (
     <section aria-labelledby="home-heading">
       {/* The banner slides up behind the header (which is transparent over it at the top), so the photo is one image
@@ -80,14 +72,14 @@ export function HomeHero({
                 ties the banner to the cards that overlap its lower edge. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ink/90 via-ink/65 to-ink/25 sm:block"
+              className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ink/80 via-ink/45 to-ink/5 sm:block"
             />
             {/* On phones the text runs the full width over the photo, so the left-right scrim above is desktop-only and
                 the phone gets its own wash: darker at the top where the headline sits, clearing toward the foot so the
                 photo stays clearly visible on every device. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/45 to-ink/15 sm:hidden"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink/10 sm:hidden"
             />
             <div
               aria-hidden="true"
@@ -103,32 +95,22 @@ export function HomeHero({
             </div>
           </>
         )}
-        <div className="container-page relative pb-40 pt-[123px] sm:pb-44 sm:pt-[147px]">
+        <div className="container-page relative pb-44 pt-[124px] sm:pb-48 sm:pt-[148px]">
           {!HERO_PHOTO && <RwandaEmblem tone="cyan" className="absolute right-10 top-14 hidden w-[25rem] xl:block" />}
           <p
-            className="hero-rise font-display text-[18px] font-bold sm:text-[22px]"
+            className="hero-rise font-display text-[18px] font-bold [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] sm:text-[22px]"
             style={{ "--rise-delay": "0ms" } as CSSProperties}
           >
             Financial inclusion &amp; poverty reduction in Rwanda
           </p>
           <h1
             id="home-heading"
-            className="hero-rise mt-3 max-w-3xl text-pretty font-display text-[1.15rem] font-bold leading-[1.35] tracking-[-0.01em] sm:text-[1.4rem] sm:leading-[1.3] lg:text-[1.65rem] lg:leading-[1.28]"
+            className="hero-rise mt-3 max-w-3xl text-pretty font-display text-[1.15rem] font-bold leading-[1.35] tracking-[-0.01em] [text-shadow:0_2px_18px_rgba(0,0,0,0.6)] sm:text-[1.4rem] sm:leading-[1.3] lg:text-[1.65rem] lg:leading-[1.28]"
             style={{ "--rise-delay": "90ms" } as CSSProperties}
           >
             Use data to understand financial exclusion, poverty dynamics and the impact of social protection programmes in Rwanda,
             so that support reaches vulnerable households and decisions rest on evidence.
           </h1>
-          <p
-            className="hero-rise mt-6 max-w-2xl text-pretty text-[16.5px] leading-7 sm:text-[18px] sm:leading-8"
-            style={{ "--rise-delay": "190ms" } as CSSProperties}
-          >
-            Built on NISR&apos;s published statistics for all {districtCount} districts and {sectorCount} sectors — FinScope,
-            EICV7, DHS and the Census — brought together in one place you can explore.
-          </p>
-          <p className="hero-rise mt-5 text-[13.5px] font-semibold" style={{ "--rise-delay": "290ms" } as CSSProperties}>
-            An independent project built on NISR data, not an official NISR product. Every figure names its source.
-          </p>
         </div>
       </div>
 
@@ -143,14 +125,21 @@ export function HomeHero({
               >
                 <Link
                   href={card.href}
-                  className="group flex h-full flex-col p-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink sm:p-8"
+                  className="group flex h-full flex-col p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-ink sm:p-7"
                 >
-                  <h2 className="font-display text-[24px] font-bold leading-tight tracking-[-0.015em] text-cyan-ink sm:text-[26px]">
+                  <h2 className="font-display text-[22px] font-bold leading-tight tracking-[-0.015em] text-cyan-ink sm:text-[24px]">
                     {card.title}
                   </h2>
-                  <p className="mt-4 text-pretty text-[16px] leading-7 text-ink/85">{card.body}</p>
+                  {/* The card's headline figure, pulled from the NISR data, so each door opens with a reason to click. */}
+                  <div className="mt-4">
+                    <span className="tabular font-display text-[36px] font-bold leading-none tracking-[-0.03em] text-cyan-ink sm:text-[40px]">
+                      {card.stat.value}
+                    </span>
+                    <span className="mt-1.5 block text-[13px] font-semibold leading-tight text-muted">{card.stat.label}</span>
+                  </div>
+                  <p className="mt-4 text-pretty text-[15px] leading-6 text-ink/85">{card.body}</p>
                   <span className="mt-auto pt-6">
-                    <span className="inline-flex w-fit items-center gap-2 rounded-full bg-cyan-soft px-4 py-2 text-[13px] font-bold text-cyan-ink ring-1 ring-cyan/30 transition-all duration-200 group-hover:bg-cyan-ink group-hover:text-white group-hover:shadow-card group-hover:ring-cyan-ink">
+                    <span className="inline-flex w-fit items-center gap-2 rounded-full bg-cyan px-5 py-2.5 text-[13px] font-bold text-ink shadow-card ring-1 ring-cyan/40 transition-all duration-200 group-hover:bg-cyan-ink group-hover:text-white group-hover:shadow-lift group-hover:ring-cyan-ink">
                       Read more
                       <span className="sr-only"> about {card.title}</span>
                       <ChevronRightIcon

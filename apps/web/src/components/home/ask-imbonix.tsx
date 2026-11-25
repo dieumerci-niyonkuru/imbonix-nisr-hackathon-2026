@@ -26,7 +26,7 @@ const TRAITS: Trait[] = [
   {
     icon: ShieldCheckIcon,
     title: "It won't invent a number",
-    body: "Every figure traces to a real table. With no AI key set, it still answers on-device, straight from the data.",
+    body: "Every figure traces to a real table. It runs entirely on-device, straight from the data — no outside model, no guesswork.",
   },
   {
     icon: ChatBubbleLeftRightIcon,

@@ -37,7 +37,7 @@ export function FeaturedInsight({
           <HowToRead className="mt-4 text-[14px] leading-6">{howToRead}</HowToRead>
           <Link
             href={href}
-            className="group mt-7 inline-flex items-center gap-1.5 rounded text-[15px] font-bold text-cyan-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink"
+            className="group mt-7 inline-flex items-center gap-2 rounded-full bg-cyan px-6 py-3 text-[14px] font-bold text-ink shadow-card transition-all duration-200 hover:bg-cyan-ink hover:text-white hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-ink focus-visible:ring-offset-2"
           >
             {linkLabel}
             <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

@@ -56,8 +56,9 @@ the basemap — used only for the maps.
 
 **Analysis & AI, evaluated honestly.** An **explainable** financial-vulnerability model states its factors and limits
 (results shown only once trained on microdata). Relationships are presented as **associations, not causes**. The AI
-assistant is **grounded** in the published digest and instructed never to invent a number; it falls back to a
-deterministic on-device engine. No data leakage: the site describes places and groups, never scores individuals.
+assistant is **grounded** in the published figures and **cannot invent a number** — it runs entirely on-device and only
+ever returns a real, stored figure, with the source named. No data leakage: the site describes places and groups, never
+scores individuals.
 
 **Evidence to demonstrate:** reproducible pipeline (`scripts/data/`, CI), [`../architecture.md`](../architecture.md),
 [`../data/`](../data/), the validation tests (`apps/web` `npm test`), About → Method & Principles.
@@ -78,7 +79,7 @@ vulnerability indicator, and policy-scenario tools — each only where the data 
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Show numbers                   | Labels every value for **trust** (six labels) and frames each as gap → evidence → solution → who it helps                                                                          |
 | Are read by analysts           | A **grounded, multilingual (EN/FR/Kinyarwanda), voice** assistant that answers about **any** district, sector, cell or village, keeping conversation context for follow-ups |
-| Break without a backend/key    | A **deterministic on-device fallback**, so the demo always works                                                                                                                   |
+| Depend on a model/API key      | A **deterministic on-device engine** (no external model, no key), so it is free, private and always works                                                                          |
 | Stop at "here are the numbers" | Ends in **action**: priority districts and an intervention planner, by rules anyone can check                                                                                      |
 
 **Evidence to demonstrate:** live demo; `/poverty-dynamics/district-map`, `/financial-exclusion/risk-model`,
@@ -135,8 +136,8 @@ Irembo) and WCAG 2.1 AA, and was refined through internal review. **Structured f
 **Credible path to adoption.**
 
 - **Data access:** built entirely on **public** NISR publications and open geodata — no restricted data needed to run.
-- **Operating cost:** the web app is static-friendly (low hosting cost); the AI uses a **free Gemini tier** or an
-  optional paid key, with an offline fallback — so running a demo costs effectively nothing.
+- **Operating cost:** the web app is static-friendly (low hosting cost); IMBONIX AI runs **entirely on-device** with no
+  external model and no API key — so there is **no per-question AI cost at all**, and a demo costs effectively nothing.
 - **Deployment:** one-click on Vercel, or Docker on any host — [`../deployment.md`](../deployment.md).
 - **Responsible handling of sensitive information:** IMBONIX describes **places and groups, never individuals**, and
   **never publishes microdata**; it states uncertainty and presents relationships as associations, not causes.

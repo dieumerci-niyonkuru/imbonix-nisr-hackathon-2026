@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import { ChangeDots, type ChangeRow } from "@/components/charts/change-dots";
-import { ChartCard } from "@/components/ui/chart-card";
+import { ChartCard, type DownloadData } from "@/components/ui/chart-card";
 import { PROVINCE_LABEL, PROVINCES } from "@/lib/data";
 import { nationalSeries } from "@/lib/timeline";
 
@@ -32,6 +32,12 @@ export function HomeProgress() {
   const rwanda = rows[0];
   const drop = oneDp(rwanda.before - rwanda.after);
 
+  const downloadData: DownloadData = {
+    filename: "imbonix-poverty-change-by-province.csv",
+    csv: "Province,Poverty 2016/17 (%),Poverty 2023/24 (%),Change (points),Source\n" +
+      rows.map((r) => `${r.label},${r.before},${r.after},${oneDp(r.before - r.after)},NISR EICV7 Poverty Profile 2023/24`).join("\n"),
+  };
+
   return (
     <section className="border-y border-line bg-white py-10 sm:py-14" aria-labelledby="progress-heading">
       <div className="container-page">
@@ -48,13 +54,14 @@ export function HomeProgress() {
           . The job now is to reach the places left behind, and IMBONIX maps exactly where poverty is still highest.
         </p>
 
-        <div className="mt-8 max-w-3xl">
+        <div className="mt-8">
           <ChartCard
             id="chart-home-poverty-change"
-            title="Poverty fell in every province, 2016/17 → 2023/24"
-            howToRead="Each line is one area. The grey dot is 2016/17 and the cyan dot 2023/24; the further left the cyan dot, the lower poverty is now."
+            title="How much poverty dropped in each province"
+            howToRead="Grey dot = 2016/17. Cyan dot = 2023/24. The further left the cyan dot, the lower poverty is now."
             source={POVERTY_SOURCE}
             status="model_estimate"
+            downloadData={downloadData}
           >
             <ChangeDots rows={rows} beforeLabel="2016/17" afterLabel="2023/24" max={60} />
           </ChartCard>
