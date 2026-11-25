@@ -1,3 +1,5 @@
+"use client";
+
 import type { ReactNode } from "react";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { cn } from "@/lib/utils";
