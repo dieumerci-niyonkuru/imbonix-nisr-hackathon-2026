@@ -202,11 +202,24 @@ one click.
 
 | Audience              | What they get                                                                    | Start here                             |
 | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------- |
+| **District planners** (primary user) | Their district's biggest needs, what programme to push, where to act first | District profiles, Intervention planner |
 | Vulnerable households | Where support arrives late and finance is far                                    | Social protection → VUP payments       |
+| Rwandan citizens      | Their own district in plain language, free, no account needed                    | Districts, IMBONIX AI                  |
 | Policymakers          | Policy levers, each flagged by one published figure and a checkable rule         | Social protection → Priority districts |
 | Researchers           | Every figure with its table, year and trust label; a JSON API; rebuild scripts   | Data                                   |
 | Civil society         | Open figures with sources, to follow programmes and speak for places left behind | Districts                              |
 | Development partners  | Where poverty, exclusion, poor nutrition and shocks overlap                      | Poverty dynamics → Overlapping needs   |
+
+**Ministries that benefit:**
+
+| Ministry / Institution | Why they use IMBONIX |
+| ---------------------- | -------------------- |
+| **MINALOC / LODA** | VUP Direct Support and public works delivery, priority districts |
+| **MINECOFIN** | Financial Inclusion Roadmap 2025–2030 monitoring |
+| **Ministry of Health / RSSB** | Mutuelle/CBHI coverage gaps by district |
+| **MINAGRI** | Food security (CFSVA) and child nutrition (stunting) |
+| **Ministry of ICT** | Digital readiness for mobile finance |
+| **NISR** | Data verification and methodology review |
 
 It ends in action — seven policy levers, each flagging districts by one published figure and a stated, checkable rule:
 
