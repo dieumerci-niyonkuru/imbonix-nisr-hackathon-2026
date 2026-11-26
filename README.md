@@ -39,6 +39,7 @@ Every number carries its source, table, year and a trust label. Uncertainty is s
 | 2 | **[Criteria evidence](docs/submission/criteria-evidence.md)** | Each evaluation criterion answered point by point | ~5 min |
 | 3 | **[IMBONIX AI](docs/ai-assistant.md)** | How the grounded, multilingual, voice-capable assistant works | ~4 min |
 | 4 | **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** | How AI tools were used; the team's responsibility for every figure | ~1 min |
+| 5 | **[Demo video](https://drive.google.com/drive/folders/1Nhdh05zHYB3gVBPz3sYJnG159ImMsazc)** | Screen recording walkthrough of the platform | ~3 min |
 
 **Five criteria at a glance:**
 
@@ -212,10 +213,14 @@ No secrets required or stored. CSP headers on the web app, parameter validation 
 
 ## Team
 
-| Name | Role | GitHub |
-|------|------|--------|
-| **Dieu Merci Niyonkuru** | Software development, UI/UX design, IMBONIX AI, deployment | [@dieumerci-niyonkuru](https://github.com/dieumerci-niyonkuru) |
-| **UMURERWA Divine** | Data analysis, data collection and sourcing of NISR datasets | &mdash; |
+IMBONIX was built by two Year 3 students at **RP Tumba College** (Advanced Diploma in Information Technology, 2026–2027).
+
+<table>
+  <tr>
+    <td align="center" width="50%"><img src="docs/screenshots/student-dieu-merci.png" alt="Dieu Merci Niyonkuru — RP Tumba College student card" width="340"><br><b>NIYONKURU Dieu Merci</b><br>24RP03511<br>Software development, UI/UX design, IMBONIX AI, deployment<br><a href="https://github.com/dieumerci-niyonkuru">@dieumerci-niyonkuru</a></td>
+    <td align="center" width="50%"><img src="docs/screenshots/student-divine.png" alt="UMURERWA Divine — RP Tumba College student card" width="340"><br><b>UMURERWA Divine</b><br>24RP01840<br>Data analysis, data collection and sourcing of NISR datasets</td>
+  </tr>
+</table>
 
 ## Data sources
 
