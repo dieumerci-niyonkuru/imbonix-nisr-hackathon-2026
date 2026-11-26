@@ -50,14 +50,16 @@ conversation's context for follow-ups. It is independent, open-source, and **not
 
 ## Team
 
-IMBONIX was built by two students for the NISR Big Data Hackathon 2026:
+IMBONIX was built by two Year 3 students at **RP Tumba College** (Advanced Diploma in Information Technology, 2026–2027):
 
-| Member | Role |
-| --- | --- |
-| **Dieu Merci Niyonkuru** | Software development, UI/UX design, IMBONIX AI integration, and deployment. |
-| **UMURERWA Divine** | Data analysis; data collection and sourcing of the NISR datasets (the figures the platform is built on); and development. |
+<table>
+  <tr>
+    <td align="center" width="50%"><img src="../screenshots/student-dieu-merci.png" alt="Dieu Merci Niyonkuru — student card" width="300"><br><b>NIYONKURU Dieu Merci</b> · 24RP03511<br>Software development, UI/UX design, IMBONIX AI, deployment</td>
+    <td align="center" width="50%"><img src="../screenshots/student-divine.png" alt="UMURERWA Divine — student card" width="300"><br><b>UMURERWA Divine</b> · 24RP01840<br>Data analysis, data collection and sourcing of NISR datasets</td>
+  </tr>
+</table>
 
-Student IDs are ready for verification, and at least one team member is a Rwandan citizen.
+Both are Rwandan citizens. Student IDs verified above.
 
 ## Submission checklist (per the NISR rules — due 30 October 2026)
 
