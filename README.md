@@ -39,6 +39,7 @@ Every number carries its source, table, year and a trust label. Uncertainty is s
 | 2 | **[Criteria evidence](docs/submission/criteria-evidence.md)** | Each evaluation criterion answered point by point | ~5 min |
 | 3 | **[IMBONIX AI](docs/ai-assistant.md)** | How the grounded, multilingual, voice-capable assistant works | ~4 min |
 | 4 | **[AI-assistance disclosure](docs/submission/ai-disclosure.md)** | How AI tools were used; the team's responsibility for every figure | ~1 min |
+| 5 | **[Demo video](https://drive.google.com/drive/folders/1Nhdh05zHYB3gVBPz3sYJnG159ImMsazc)** | Screen recording walkthrough of the platform | ~3 min |
 
 **Five criteria at a glance:**
 
