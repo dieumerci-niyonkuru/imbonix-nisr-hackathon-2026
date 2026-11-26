@@ -62,10 +62,10 @@ Student IDs are ready for verification, and at least one team member is a Rwanda
 ## Submission checklist (per the NISR rules — due 30 October 2026)
 
 - [x] **Public GitHub link** — this repository (public).
-- [ ] **Deployed app link** — _(re)deploy to Vercel and record the public URL here_ (publicly accessible; no login, so no sample credentials needed).
+- [ ] **Deployed app link** — deploy to Vercel and record the public URL here (publicly accessible; no login, no sample credentials needed). **To deploy:** see [deployment.md](../deployment.md).
 - [x] **README** — the top-level [README](../../README.md) explains the data used, what the platform communicates, and how users interact with it.
 - [x] **Script(s) / code** — the full source is in this repo and runs on any machine (`npm` or Docker; see [deployment.md](../deployment.md)).
-- [ ] **Demo video** — a **screen recording** (`.webm` or `.gif`), **≤ 3 minutes**, showing the interface and features, added to the repo (e.g. a `demo/` folder). Use the [demo script](demo-script.md) to drive it. **← this is the one item still to produce.**
+- [x] **Demo video** — hosted on [Google Drive](https://drive.google.com/drive/folders/1Nhdh05zHYB3gVBPz3sYJnG159ImMsazc?usp=sharing); the [demo script](demo-script.md) has the full walkthrough.
 - [x] **Data file + link to the data** — the processed figures are committed in `apps/web/src/data/generated/`; the raw microdata is linked to the [NISR microdata catalog](https://microdata.statistics.gov.rw/index.php/catalog) (see the README **Declaration** and [docs/data/](../data/)).
 - [x] **Declaration of own work + sources acknowledged** — README **[Declaration](../../README.md#declaration)**.
 - [x] **AI disclosure** — [ai-disclosure.md](ai-disclosure.md).
